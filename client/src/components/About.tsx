@@ -78,9 +78,9 @@ export default function About() {
                 style={{ aspectRatio: "4/5" }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                  alt="Marcin Micek, founder of Handy Pioneers"
-                  className="w-full h-full object-cover"
+                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-owner_0d194701.jpg"
+                  alt="Marcin Micek, founder of Handy Pioneers, in his workshop"
+                  className="w-full h-full object-cover object-top"
                 />
               </div>
 
