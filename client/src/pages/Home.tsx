@@ -36,6 +36,7 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <TopBar />
+      <MobileCTABar />
       <Navbar />
       <main>
         <Hero />
@@ -49,9 +50,6 @@ export default function Home() {
         <LocationMap />
       </main>
       <Footer />
-
-      {/* Sticky mobile CTA bar — fixed to bottom on phones */}
-      <MobileCTABar />
 
       {/* Elfsight Floating Google Reviews Badge — bottom-right */}
       <div

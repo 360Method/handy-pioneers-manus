@@ -1,7 +1,7 @@
 /**
- * MobileCTABar — sticky bottom bar shown only on mobile (<md).
- * Two-button row: tap-to-call on the left, Request Estimate on the right.
- * Hidden on md+ screens where the navbar CTA is already visible.
+ * MobileCTABar — shown only on mobile (<md).
+ * Sits inline between TopBar and Navbar, scrolls away with the page
+ * so it doesn't conflict with the Google Reviews floater at the bottom.
  */
 
 declare global {
@@ -18,18 +18,13 @@ export default function MobileCTABar() {
   };
 
   return (
-    <div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 flex"
-      style={{
-        boxShadow: "0 -2px 16px rgba(0,0,0,0.18)",
-      }}
-    >
+    <div className="md:hidden flex w-full" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }}>
       {/* Call button — left half */}
       <a
         href="tel:+13605449858"
-        className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
+        className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
         style={{
-          backgroundColor: "oklch(0.22 0.07 160)",
+          backgroundColor: "oklch(0.27 0.07 160)",
           color: "oklch(0.95 0.02 80)",
           fontFamily: "'Source Sans 3', sans-serif",
           letterSpacing: "0.08em",
@@ -37,8 +32,8 @@ export default function MobileCTABar() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="15"
+          height="15"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -53,12 +48,12 @@ export default function MobileCTABar() {
       </a>
 
       {/* Divider */}
-      <div style={{ width: "1px", backgroundColor: "oklch(0.30 0.07 160)" }} />
+      <div style={{ width: "1px", backgroundColor: "oklch(0.35 0.07 160)" }} />
 
       {/* Request Estimate button — right half */}
       <button
         onClick={handleEstimate}
-        className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
+        className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
         style={{
           backgroundColor: "oklch(0.62 0.14 65)",
           color: "oklch(0.15 0.04 160)",
@@ -68,8 +63,8 @@ export default function MobileCTABar() {
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
+          width="15"
+          height="15"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
