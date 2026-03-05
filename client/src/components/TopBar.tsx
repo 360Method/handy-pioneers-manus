@@ -17,7 +17,14 @@ export default function TopBar() {
       </a>
 
       {/* Right: Portal Login */}
-      <button
+      <div className="flex items-center gap-2">
+        <span
+          className="text-xs hidden sm:inline"
+          style={{ color: "oklch(0.78 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+        >
+          Already a Client?
+        </span>
+        <button
         data-token="171462604fd34b4fa38d9f4e36a1ce42"
         data-orgname="Handy-Pioneers"
         onClick={() =>
@@ -31,7 +38,8 @@ export default function TopBar() {
       >
         <span>🔑</span>
         LOG IN TO PORTAL
-      </button>
+        </button>
+      </div>
     </div>
   );
 }
