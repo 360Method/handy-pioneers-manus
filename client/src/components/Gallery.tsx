@@ -160,7 +160,7 @@ export default function Gallery() {
             className="hcp-button"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            📅 Book Online — It's Free
+            Request Estimate Today
           </button>
         </div>
       </div>

@@ -182,7 +182,7 @@ export default function Footer() {
               className="hcp-button w-full"
               onClick={() => (window as any).HCPWidget?.openModal()}
             >
-              Book Online
+              Request Estimate
             </button>
           </div>
         </div>

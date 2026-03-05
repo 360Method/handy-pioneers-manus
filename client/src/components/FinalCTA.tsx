@@ -51,7 +51,7 @@ export default function FinalCTA() {
               onClick={() => (window as any).HCPWidget?.openModal()}
               style={{ fontSize: "1.125rem", padding: "1.125rem 2.5rem" }}
             >
-              📅 Book Online — It's Free
+              Request Estimate Today!
             </button>
             <a
               href="tel:+13605449858"

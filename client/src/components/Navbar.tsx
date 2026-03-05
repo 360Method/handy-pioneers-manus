@@ -49,8 +49,22 @@ export default function Navbar() {
             src={LOGO_URL}
             alt="Handy Pioneers LLC Logo"
             className="h-12 w-auto object-contain"
-            style={{ maxWidth: "180px" }}
+            style={{ maxWidth: "52px" }}
           />
+          <div className="flex flex-col leading-tight">
+            <span
+              className="font-bold text-base"
+              style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)", letterSpacing: "0.01em" }}
+            >
+              Handy Pioneers
+            </span>
+            <span
+              className="text-xs"
+              style={{ fontFamily: "'Source Sans 3', sans-serif", color: "oklch(0.50 0.06 65)", letterSpacing: "0.04em" }}
+            >
+              Minor Repairs, Major Satisfaction
+            </span>
+          </div>
         </a>
 
         {/* Desktop Nav Links */}
@@ -81,7 +95,7 @@ export default function Navbar() {
             (360) 544-9858
           </a>
           <button className="hcp-button" onClick={handleBookOnline}>
-            Book Online
+            Request Estimate
           </button>
         </div>
 
