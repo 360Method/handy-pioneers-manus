@@ -211,7 +211,7 @@ export default function Gallery() {
       {activeTab === "photos" && (
         <div className="container">
           {/* Tag filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-6 reveal">
+          <div className="flex flex-wrap justify-center gap-2 mb-6">
             {PHOTO_TAGS.map((tag) => (
               <button key={tag} onClick={() => { setActivePhotoTag(tag); setLightboxIndex(null); }}
                 className="px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200"
@@ -222,7 +222,7 @@ export default function Gallery() {
           </div>
 
           {/* Masonry grid */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 reveal" style={{ columnGap: "0.75rem" }}>
+          <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4" style={{ columnGap: "0.75rem" }}>
             {filteredPhotos.map((photo, index) => (
               <div key={photo.id} className="relative overflow-hidden rounded-xl cursor-pointer group mb-3 break-inside-avoid" onClick={() => openLightbox(index)}>
                 <img src={photo.src} alt={photo.caption} className="w-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
