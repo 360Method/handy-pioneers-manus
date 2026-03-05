@@ -243,10 +243,12 @@ export default function Gallery() {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "oklch(0 0 0 / 0.82)" }} onClick={closeProjectModal}>
           <div className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl" style={{ backgroundColor: "oklch(1 0 0)" }} onClick={(e) => e.stopPropagation()}>
             <button onClick={closeProjectModal} className="absolute top-3 right-3 z-20 w-9 h-9 rounded-full flex items-center justify-center" style={{ backgroundColor: "oklch(0.92 0.01 80)", color: "oklch(0.22 0.07 160)" }} aria-label="Close"><X size={18} /></button>
-            <button onClick={prevProject} className="absolute left-3 z-20 w-9 h-9 rounded-full flex items-center justify-center shadow-md" style={{ top: "calc(200px - 18px)", backgroundColor: "oklch(1 0 0 / 0.92)", color: "oklch(0.22 0.07 160)" }} aria-label="Previous"><ChevronLeft size={20} /></button>
-            <button onClick={nextProject} className="absolute right-3 z-20 w-9 h-9 rounded-full flex items-center justify-center shadow-md" style={{ top: "calc(200px - 18px)", backgroundColor: "oklch(1 0 0 / 0.92)", color: "oklch(0.22 0.07 160)" }} aria-label="Next"><ChevronRight size={20} /></button>
-            <div className="w-full overflow-hidden rounded-t-2xl" style={{ height: "260px" }}>
-              <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+            <button onClick={prevProject} className="absolute left-5 z-20 w-9 h-9 rounded-full flex items-center justify-center shadow-md" style={{ top: "calc(1rem + 130px - 18px)", backgroundColor: "oklch(1 0 0 / 0.92)", color: "oklch(0.22 0.07 160)" }} aria-label="Previous"><ChevronLeft size={20} /></button>
+            <button onClick={nextProject} className="absolute right-5 z-20 w-9 h-9 rounded-full flex items-center justify-center shadow-md" style={{ top: "calc(1rem + 130px - 18px)", backgroundColor: "oklch(1 0 0 / 0.92)", color: "oklch(0.22 0.07 160)" }} aria-label="Next"><ChevronRight size={20} /></button>
+            <div className="p-4 pb-0">
+              <div className="overflow-hidden rounded-xl" style={{ height: "260px" }}>
+                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+              </div>
             </div>
             <div className="p-6">
               <div className="flex flex-wrap items-center gap-2 mb-3">
