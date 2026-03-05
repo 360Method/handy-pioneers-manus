@@ -1,8 +1,8 @@
 const steps = [
   {
     num: "01",
-    title: "Book Online",
-    desc: "Click 'Book Online' and fill out a quick request through our Housecall Pro system. It takes less than 2 minutes.",
+    title: "Request Work Online",
+    desc: "Click 'Start Your Project' and fill out a quick request through our online system. It takes less than 2 minutes.",
   },
   {
     num: "02",
