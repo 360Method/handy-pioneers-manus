@@ -46,6 +46,12 @@ export default function Home() {
         <FinalCTA />
       </main>
       <Footer />
+
+      {/* Elfsight Floating Google Reviews Badge — bottom-right */}
+      <div
+        className="elfsight-app-51b0f9c4-0c07-47a9-9bf2-e7f6e7091043"
+        data-elfsight-app-lazy
+      />
     </div>
   );
 }
