@@ -9,6 +9,7 @@ import Gallery from "@/components/Gallery";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FinalCTA from "@/components/FinalCTA";
+import LocationMap from "@/components/LocationMap";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -44,6 +45,7 @@ export default function Home() {
         <Gallery />
         <Testimonials />
         <FinalCTA />
+        <LocationMap />
       </main>
       <Footer />
 
