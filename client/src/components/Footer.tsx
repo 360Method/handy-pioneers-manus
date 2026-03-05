@@ -188,9 +188,9 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
+      {/* Bottom bar — pb-20 on mobile to clear the sticky CTA bar */}
       <div
-        className="border-t py-5"
+        className="border-t py-5 pb-24 md:pb-5"
         style={{ borderColor: "rgba(255,255,255,0.08)" }}
       >
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-3">

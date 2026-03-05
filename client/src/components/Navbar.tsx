@@ -114,7 +114,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div
-          className="md:hidden border-t px-4 py-4 flex flex-col gap-4"
+          className="md:hidden border-t px-6 py-5 flex flex-col gap-1"
           style={{
             backgroundColor: "oklch(0.97 0.015 80)",
             borderColor: "oklch(0.85 0.015 80)",
@@ -125,21 +125,25 @@ export default function Navbar() {
               key={link.label}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-sm font-semibold uppercase tracking-wider"
-              style={{ color: "oklch(0.32 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}
+              className="text-sm font-semibold uppercase tracking-wider py-3 text-right border-b"
+              style={{
+                color: "oklch(0.32 0.07 160)",
+                fontFamily: "'Source Sans 3', sans-serif",
+                borderColor: "oklch(0.88 0.015 80)",
+              }}
             >
               {link.label}
             </a>
           ))}
           <a
             href="tel:+13605449858"
-            className="text-sm font-semibold"
+            className="text-sm font-semibold py-3 text-right"
             style={{ color: "oklch(0.32 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
             Call: (360) 544-9858
           </a>
-          <button className="hcp-button w-full" onClick={handleBookOnline}>
-            Book Online
+          <button className="hcp-button w-full mt-2" onClick={handleBookOnline}>
+            Request Estimate
           </button>
         </div>
       )}

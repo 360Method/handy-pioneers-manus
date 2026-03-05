@@ -11,6 +11,7 @@ import About from "@/components/About";
 import FinalCTA from "@/components/FinalCTA";
 import LocationMap from "@/components/LocationMap";
 import Footer from "@/components/Footer";
+import MobileCTABar from "@/components/MobileCTABar";
 
 export default function Home() {
   // Scroll reveal animation
@@ -48,6 +49,9 @@ export default function Home() {
         <LocationMap />
       </main>
       <Footer />
+
+      {/* Sticky mobile CTA bar — fixed to bottom on phones */}
+      <MobileCTABar />
 
       {/* Elfsight Floating Google Reviews Badge — bottom-right */}
       <div
