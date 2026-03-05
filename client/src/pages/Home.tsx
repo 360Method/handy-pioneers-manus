@@ -6,6 +6,7 @@ import TrustBar from "@/components/TrustBar";
 import Services from "@/components/Services";
 import HowItWorks from "@/components/HowItWorks";
 import Gallery from "@/components/Gallery";
+import HeroGallery from "@/components/HeroGallery";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FinalCTA from "@/components/FinalCTA";
@@ -42,6 +43,7 @@ export default function Home() {
         <Services />
         <HowItWorks />
         <Gallery />
+        <HeroGallery />
         <Testimonials />
         <FinalCTA />
       </main>
