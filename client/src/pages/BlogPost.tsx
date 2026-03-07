@@ -435,6 +435,44 @@ export default function BlogPost() {
           </a>
         </div>
 
+        {/* References */}
+        {post.references && post.references.length > 0 && (
+          <div
+            className="mb-8 rounded-xl p-5"
+            style={{
+              backgroundColor: "oklch(0.96 0.012 80)",
+              border: "1px solid oklch(0.88 0.015 80)",
+            }}
+          >
+            <h3
+              className="text-sm font-bold uppercase tracking-wider mb-3"
+              style={{ color: "oklch(0.35 0.03 80)" }}
+            >
+              Sources &amp; References
+            </h3>
+            <ol className="space-y-2">
+              {post.references.map((ref, i) => (
+                <li key={i} className="flex gap-2 text-sm" style={{ color: "oklch(0.42 0.02 80)" }}>
+                  <span className="font-semibold shrink-0" style={{ color: "oklch(0.32 0.07 160)" }}>
+                    [{i + 1}]
+                  </span>
+                  <span>
+                    {ref.label}{" "}
+                    <a
+                      href={ref.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="underline underline-offset-2 transition-opacity hover:opacity-70 break-all"
+                      style={{ color: "oklch(0.32 0.07 160)" }}
+                    >
+                      {ref.url}
+                    </a>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
         {/* Back links */}
         <div className="flex flex-wrap gap-4 justify-between items-center">
           <a
