@@ -1,24 +1,7 @@
 /**
  * Blog post data for Handy Pioneers
  * Each post follows the Hook-Story-Offer framework.
- * Add new posts to the top of the array (newest first).
- *
- * Fields:
- *   slug        — URL-safe identifier, used in /blog/:slug
- *   title       — Full post title
- *   excerpt     — 1–2 sentence summary shown on the index card
- *   date        — Display date string
- *   isoDate     — ISO 8601 date for sorting and schema
- *   author      — Author display name
- *   category    — Content category label
- *   audience    — Target audience segment(s)
- *   tags        — Array of keyword/topic tags
- *   image       — CDN URL for hero image
- *   imageAlt    — Alt text for hero image
- *   readTime    — Estimated read time in minutes
- *   body        — Array of content blocks (type: "h2" | "p" | "ul" | "ol" | "blockquote" | "cta")
- *   seoTitle    — <title> tag override (defaults to title + " | Handy Pioneers")
- *   seoDesc     — <meta name="description"> content
+ * Add new posts to the TOP of the array (newest first).
  */
 
 export interface BlogBlock {
@@ -49,13 +32,14 @@ export interface BlogPost {
 }
 
 export const blogPosts: BlogPost[] = [
+  // ─── Post 11 — 360° Method (updated date) ───────────────────────────────
   {
     slug: "the-360-method-why-we-look-at-your-whole-home",
     title: "The 360° Method: Why We Look at Your Whole Home, Not Just the One Thing You Called About",
     excerpt:
       "Most contractors fix what you point at. We've built a system that finds what you haven't noticed yet — and it's changing how Clark County homeowners think about home care.",
-    date: "April 6, 2026",
-    isoDate: "2026-04-06",
+    date: "March 7, 2026",
+    isoDate: "2026-03-07",
     author: "Handy Pioneers Team",
     category: "Home Care Strategy",
     audience: ["Homeowners", "Prospects", "Clark County Community"],
@@ -66,7 +50,6 @@ export const blogPosts: BlogPost[] = [
       "Vancouver WA",
       "Clark County",
       "home systems",
-      "home inspection",
     ],
     image:
       "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/blog-360-method-hero_cd5decc0.jpg",
@@ -166,7 +149,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         type: "blockquote",
-        text: "\"I've owned this house for eight years and I've never felt like I actually knew what was going on with it. This was the first time.\" — Camas homeowner, April 2026",
+        text: "\"I've owned this house for eight years and I've never felt like I actually knew what was going on with it. This was the first time.\" — Camas homeowner, 2026",
       },
       {
         type: "h2",
@@ -184,6 +167,234 @@ export const blogPosts: BlogPost[] = [
         type: "cta",
         text: "Schedule your free 360° Home Assessment",
         ctaLabel: "Schedule Free Assessment",
+        ctaAction: "booking",
+      },
+    ],
+  },
+
+  // ─── Post 1 — Spring Maintenance Checklist ──────────────────────────────
+  {
+    slug: "3-things-vancouver-homeowners-forget-to-check-every-spring",
+    title: "The 3 Things Vancouver Homeowners Forget to Check Every Spring (And Why One of Them Could Cost $10,000)",
+    excerpt:
+      "Most Clark County homeowners spend spring cleaning the inside of their house. The damage is almost always on the outside — and in three specific places most people never look.",
+    date: "March 7, 2026",
+    isoDate: "2026-03-07",
+    author: "Handy Pioneers Team",
+    category: "Seasonal Maintenance",
+    audience: ["Homeowners", "Prospects"],
+    tags: [
+      "spring maintenance",
+      "Vancouver WA",
+      "Clark County",
+      "home inspection",
+      "deck repair",
+      "water damage prevention",
+    ],
+    image:
+      "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
+    imageAlt:
+      "Exterior of a Pacific Northwest home in spring — siding, deck, and windows visible",
+    readTime: 5,
+    seoTitle:
+      "3 Spring Home Maintenance Checks Vancouver WA Homeowners Miss | Handy Pioneers",
+    seoDesc:
+      "Most Clark County homeowners miss three critical spring checks that can lead to $10,000+ in repairs. Handy Pioneers walks you through what to look for — and when to call a pro.",
+    body: [
+      {
+        type: "p",
+        text: "Most homeowners in Clark County spend spring cleaning the inside of their house. New season, fresh start — vacuum the carpets, wipe down the baseboards, maybe repaint a room. It feels productive. And it is.",
+      },
+      {
+        type: "p",
+        text: "But the damage is almost always on the outside. And in three specific places most people never think to look.",
+      },
+      {
+        type: "p",
+        text: "We've been inside hundreds of Clark County homes, and the pattern is consistent: the repairs that cost the most money are almost never the ones homeowners called about. They're the ones that were quietly getting worse in the background while everyone was focused on something else.",
+      },
+      {
+        type: "p",
+        text: "Here are the three checks we recommend every Vancouver-area homeowner make before April.",
+      },
+      {
+        type: "h2",
+        text: "1. The Deck Ledger Board",
+      },
+      {
+        type: "p",
+        text: "The ledger board is the horizontal framing member that connects your deck to your house. It's typically hidden behind the deck surface, bolted through the rim joist of your home's floor framing. And in the Pacific Northwest, it is the single most common source of structural deck failure.",
+      },
+      {
+        type: "p",
+        text: "Here's why: water gets behind the ledger flashing (or there is no flashing — common in decks built before 2000), sits against the wood through our wet winters, and causes rot that you can't see from the deck surface. By the time you notice the deck feels soft or bouncy, the rot has often spread into the rim joist of the house itself.",
+      },
+      {
+        type: "p",
+        text: "We had a job in Battle Ground last year where a homeowner called about a single soft board on their deck. When we pulled it up, we found the ledger had been rotting for at least two seasons. What would have been a $400 board replacement became a $4,200 structural repair — new ledger, new rim joist section, new flashing, new boards over the affected area.",
+      },
+      {
+        type: "p",
+        text: "**What to check:** From below the deck, look at where the deck frame meets the house. Look for dark staining, soft wood, gaps in the flashing, or any separation between the ledger and the house. If you see any of those, call a pro before you put weight on that deck this summer.",
+      },
+      {
+        type: "h2",
+        text: "2. The Crawl Space Vapor Barrier",
+      },
+      {
+        type: "p",
+        text: "Clark County gets an average of 42 inches of rain per year — most of it between October and April. That moisture doesn't just run off your roof. It saturates the soil around and under your foundation, and without a properly installed and maintained vapor barrier, it migrates up into your crawl space as humidity.",
+      },
+      {
+        type: "p",
+        text: "Elevated crawl space humidity causes wood rot in floor joists and subfloor sheathing, mold growth on framing members, and pest activity (termites and carpenter ants are attracted to moist wood). It also raises your heating and cooling costs because a damp crawl space makes your floor feel cold and your HVAC work harder.",
+      },
+      {
+        type: "p",
+        text: "**What to check:** If you can access your crawl space safely, look for torn, bunched, or missing vapor barrier sections. Look for standing water or dark staining on the ground. Look at the floor joists — if they're dark, soft, or show white fuzzy growth, that's a problem. If you haven't been in your crawl space in more than two years, spring is the time.",
+      },
+      {
+        type: "h2",
+        text: "3. Window and Door Caulk Lines",
+      },
+      {
+        type: "p",
+        text: "This one sounds minor. It isn't.",
+      },
+      {
+        type: "p",
+        text: "The caulk lines around your windows and doors are the primary barrier between the outside world and your wall cavity. When they crack, shrink, or separate — which happens every 5–7 years in our climate — water gets into the wall. Not a lot at first. A slow seep during heavy rain. But over one or two winters, that moisture saturates the insulation, wets the OSB sheathing, and begins to rot the framing.",
+      },
+      {
+        type: "p",
+        text: "By the time you see a water stain on your interior wall or ceiling, the damage inside the wall cavity is typically 3–5 times worse than what's visible.",
+      },
+      {
+        type: "p",
+        text: "**What to check:** Walk the exterior of your house and look at every window and door frame. Run your finger along the caulk line. If it's cracked, pulling away from the frame, or missing in sections, it needs to be replaced. This is a $150–$300 repair that prevents a $3,000–$8,000 wall repair.",
+      },
+      {
+        type: "blockquote",
+        text: "\"The repairs that cost the most money are almost never the ones homeowners called about. They're the ones that were quietly getting worse in the background.\"",
+      },
+      {
+        type: "h2",
+        text: "The 360° Spring Check",
+      },
+      {
+        type: "p",
+        text: "At Handy Pioneers, we look at your home as a complete system — not just individual repairs. Our 360° approach means that when we come out for any job, we're also looking at the things you didn't call about. Because catching a $300 problem before it becomes a $10,000 problem is the best service we can offer.",
+      },
+      {
+        type: "p",
+        text: "If you'd like us to walk your property this spring and give you a prioritized list of what needs attention — with no obligation to hire us for any of it — we're happy to do that. It takes about an hour and it's free.",
+      },
+      {
+        type: "cta",
+        text: "Book your free spring home assessment before our April schedule fills up.",
+        ctaLabel: "Request Free Assessment",
+        ctaAction: "booking",
+      },
+    ],
+  },
+
+  // ─── Post 2 — Pressure Washing Project Story ────────────────────────────
+  {
+    slug: "pressure-washing-3-driveways-in-one-week-vancouver",
+    title: "We Pressure Washed 3 Driveways in One Week in Vancouver — Here's What We Found Under the Moss",
+    excerpt:
+      "Moss in the Pacific Northwest isn't just ugly — it's actively destroying your concrete. Here's what we uncovered on three Clark County driveways this spring, and what it means for yours.",
+    date: "March 7, 2026",
+    isoDate: "2026-03-07",
+    author: "Handy Pioneers Team",
+    category: "Project Story",
+    audience: ["Current Clients", "Homeowners"],
+    tags: [
+      "pressure washing",
+      "Vancouver WA",
+      "driveway cleaning",
+      "moss removal",
+      "Clark County",
+      "concrete maintenance",
+    ],
+    image:
+      "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/blog-pressure-washing-driveway_797d78a6.jpg",
+    imageAlt:
+      "Before and after pressure washing a mossy concrete driveway in the Pacific Northwest",
+    readTime: 4,
+    seoTitle:
+      "Pressure Washing Vancouver WA — What Moss Is Hiding on Your Driveway | Handy Pioneers",
+    seoDesc:
+      "Moss on your Clark County driveway isn't just cosmetic — it's destroying your concrete. Handy Pioneers shares what we found under the moss on three Vancouver driveways this spring.",
+    body: [
+      {
+        type: "p",
+        text: "Moss on your driveway looks like a cosmetic problem. It isn't.",
+      },
+      {
+        type: "p",
+        text: "Moss retains moisture against your concrete surface for weeks at a time — long after the rain has stopped. That sustained moisture accelerates a process called spalling: the surface layer of the concrete absorbs water, freezes during cold nights, expands, and breaks away. Over two or three winters, a moss-covered driveway can go from surface staining to active surface deterioration that no amount of pressure washing will fix.",
+      },
+      {
+        type: "p",
+        text: "We pressure washed three driveways in the Vancouver area this past week. Here's what we found under the moss on each one — and what it means for homeowners across Clark County.",
+      },
+      {
+        type: "h2",
+        text: "Driveway 1: Vancouver — Surface Checking and Oil Staining",
+      },
+      {
+        type: "p",
+        text: "This driveway had about two years of moss growth concentrated along the shaded north side closest to the house. Under the moss, we found hairline surface cracks (called checking) running with the aggregate pattern — a sign that the surface has been through multiple freeze-thaw cycles with retained moisture. We also found oil staining from a slow drip that had been masked by the moss.",
+      },
+      {
+        type: "p",
+        text: "The good news: the cracks were surface-only, not structural. After cleaning, we applied a penetrating concrete sealer to the affected area to slow future moisture absorption. The homeowner now has a clean surface and a maintenance baseline — we recommended re-sealing every two years.",
+      },
+      {
+        type: "h2",
+        text: "Driveway 2: Battle Ground — Joint Erosion",
+      },
+      {
+        type: "p",
+        text: "The second driveway was older — poured in the mid-1990s — and the expansion joints between the concrete slabs had lost most of their filler material. Moss had colonized the joints heavily, and the moisture retention there was accelerating erosion of the joint edges.",
+      },
+      {
+        type: "p",
+        text: "After cleaning, we re-filled the expansion joints with a flexible polyurethane sealant. This is a simple repair that most homeowners overlook — but open expansion joints are one of the primary entry points for water that causes slab heaving and cracking over time.",
+      },
+      {
+        type: "h2",
+        text: "Driveway 3: Camas — Clean Bill of Health",
+      },
+      {
+        type: "p",
+        text: "The third driveway looked the worst before we started — heavy moss coverage across the full surface. But under the moss, the concrete was in excellent condition. No cracking, no spalling, no joint erosion. The homeowner had sealed it about three years prior, and the sealer had done its job.",
+      },
+      {
+        type: "p",
+        text: "This is the best-case scenario: moss that looks bad but hasn't had time to cause damage. A thorough pressure wash, a moss inhibitor treatment, and a fresh coat of sealer — and this driveway is good for another five years.",
+      },
+      {
+        type: "h2",
+        text: "What This Means for Your Driveway",
+      },
+      {
+        type: "p",
+        text: "The pattern we see consistently across Clark County: homeowners wait until the moss is visually obvious before calling. By that point, the moss has usually been there for two or more years — which means the moisture damage has already started. The difference between a $250 cleaning and a $2,000+ resurfacing job is often just one or two seasons of waiting.",
+      },
+      {
+        type: "p",
+        text: "Spring is the ideal time to pressure wash — the moss is fully hydrated from winter rain and releases cleanly, and you have the full dry season ahead to apply sealer and let it cure properly.",
+      },
+      {
+        type: "blockquote",
+        text: "\"The difference between a $250 cleaning and a $2,000 resurfacing job is often just one or two seasons of waiting.\"",
+      },
+      {
+        type: "cta",
+        text: "Book your spring pressure wash before our April schedule fills up.",
+        ctaLabel: "Book Pressure Wash",
         ctaAction: "booking",
       },
     ],
