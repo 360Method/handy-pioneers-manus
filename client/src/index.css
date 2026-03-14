@@ -81,6 +81,7 @@
   }
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 72px; /* sticky navbar height + 8px breathing room */
   }
   body {
     @apply bg-background text-foreground;

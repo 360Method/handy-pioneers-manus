@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLocation } from "wouter";
 
 declare global {
   interface Window {
@@ -8,25 +9,73 @@ declare global {
 }
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
+const NAVBAR_HEIGHT = 72; // px — matches scroll-padding-top in index.css
 
 const navLinks = [
-  { label: "Home", href: "#" },
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Reviews", href: "#reviews" },
-  { label: "Blog", href: "#blog" },
+  { label: "Home", section: "" },
+  { label: "About", section: "about" },
+  { label: "Services", section: "services" },
+  { label: "Gallery", section: "gallery" },
+  { label: "Reviews", section: "reviews" },
+  { label: "Blog", section: "blog" },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [, navigate] = useLocation();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Check on mount + route changes if there's a pending scroll target
+  useEffect(() => {
+    const target = sessionStorage.getItem("scrollTarget");
+    if (!target) return;
+    sessionStorage.removeItem("scrollTarget");
+
+    const tryScroll = (attempts = 0) => {
+      const el = document.getElementById(target);
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+        window.scrollTo({ top, behavior: "smooth" });
+      } else if (attempts < 10) {
+        setTimeout(() => tryScroll(attempts + 1), 100);
+      }
+    };
+    // Small delay so the page has time to render
+    setTimeout(() => tryScroll(), 50);
+  }, []);
+
+  const scrollToSection = (section: string) => {
+    setMobileOpen(false);
+
+    // "Home" → scroll to top
+    if (!section) {
+      const isHome = window.location.pathname === "/";
+      if (isHome) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
+      }
+      return;
+    }
+
+    const el = document.getElementById(section);
+    if (el) {
+      // Already on the home page — scroll directly
+      const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+      window.scrollTo({ top, behavior: "smooth" });
+    } else {
+      // On a sub-page — navigate home, then scroll after render
+      sessionStorage.setItem("scrollTarget", section);
+      navigate("/");
+    }
+  };
 
   const handleBookOnline = () => {
     if (window.HCPWidget) {
@@ -46,14 +95,18 @@ export default function Navbar() {
     >
       <div className="container flex items-center justify-between h-16">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2 shrink-0">
+        <button
+          onClick={() => scrollToSection("")}
+          className="flex items-center gap-2 shrink-0 bg-transparent border-0 p-0 cursor-pointer"
+          aria-label="Go to top"
+        >
           <img
             src={LOGO_URL}
             alt="Handy Pioneers LLC Logo"
             className="h-12 w-auto object-contain"
             style={{ maxWidth: "52px" }}
           />
-          <div className="flex flex-col leading-tight">
+          <div className="flex flex-col leading-tight text-left">
             <span
               className="font-bold text-base"
               style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)", letterSpacing: "0.01em" }}
@@ -67,15 +120,15 @@ export default function Navbar() {
               Reliable Renovations, Trusted Results
             </span>
           </div>
-        </a>
+        </button>
 
         {/* Desktop Nav Links */}
         <div className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
-              className="text-sm font-semibold uppercase tracking-wider transition-colors hover:opacity-70"
+              onClick={() => scrollToSection(link.section)}
+              className="text-sm font-semibold uppercase tracking-wider transition-colors hover:opacity-70 bg-transparent border-0 cursor-pointer"
               style={{
                 color: "oklch(0.32 0.07 160)",
                 fontFamily: "'Source Sans 3', sans-serif",
@@ -83,7 +136,7 @@ export default function Navbar() {
               }}
             >
               {link.label}
-            </a>
+            </button>
           ))}
         </div>
 
@@ -122,19 +175,18 @@ export default function Navbar() {
           }}
         >
           {navLinks.map((link) => (
-            <a
+            <button
               key={link.label}
-              href={link.href}
-              onClick={() => setMobileOpen(false)}
-              className="text-sm font-semibold uppercase tracking-wider py-3 text-right border-b"
+              onClick={() => scrollToSection(link.section)}
+              className="text-sm font-semibold uppercase tracking-wider py-3 text-right border-b bg-transparent border-0 cursor-pointer w-full"
               style={{
                 color: "oklch(0.32 0.07 160)",
                 fontFamily: "'Source Sans 3', sans-serif",
-                borderColor: "oklch(0.88 0.015 80)",
+                borderBottom: "1px solid oklch(0.88 0.015 80)",
               }}
             >
               {link.label}
-            </a>
+            </button>
           ))}
           <a
             href="tel:+13605449858"
