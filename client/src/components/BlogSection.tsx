@@ -23,7 +23,7 @@ export default function BlogSection() {
 
   return (
     <section
-      id="blog"
+      id="blog-section"
       className="py-20 px-4"
       style={{ backgroundColor: "oklch(0.97 0.015 80)" }}
     >
@@ -32,7 +32,7 @@ export default function BlogSection() {
         {/* ══════════════════════════════════════════════════════════════
             SUB-SECTION 1: PROJECT STORIES
         ══════════════════════════════════════════════════════════════ */}
-        <div className="mb-20">
+        <div id="project-stories" className="mb-20">
           {/* Sub-section header */}
           <div className="text-center mb-8">
             <span
@@ -183,7 +183,7 @@ export default function BlogSection() {
         {/* ══════════════════════════════════════════════════════════════
             SUB-SECTION 2: BLOG POSTS
         ══════════════════════════════════════════════════════════════ */}
-        <div>
+        <div id="blog">
           {/* Sub-section header */}
           <div className="text-center mb-10">
             <span
