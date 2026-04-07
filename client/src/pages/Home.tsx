@@ -14,6 +14,14 @@ import LocationMap from "@/components/LocationMap";
 import Footer from "@/components/Footer";
 
 export default function Home() {
+  // Set page title for SEO (30–60 chars)
+  useEffect(() => {
+    document.title = "Vancouver Handyman & Remodeler | Handy Pioneers";
+    return () => {
+      document.title = "Handy Pioneers";
+    };
+  }, []);
+
   // Scroll reveal animation
   useEffect(() => {
     const observer = new IntersectionObserver(
