@@ -8,6 +8,8 @@ import ProjectDetail from "./pages/ProjectDetail";
 import ThankYou from "./pages/ThankYou";
 import BlogIndex from "./pages/BlogIndex";
 import BlogPost from "./pages/BlogPost";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsAndConditions from "./pages/TermsAndConditions";
 
 function Router() {
   return (
@@ -19,6 +21,9 @@ function Router() {
       <Route path="/thankyou" component={ThankYou} />
       {/* Blog post detail pages — open in new tab from homepage blog section */}
       <Route path="/blog/:slug" component={BlogPost} />
+      {/* Legal pages */}
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/terms-and-conditions" component={TermsAndConditions} />
       {/* 301-style redirects: all old paths → home */}
       <Route path="/about" component={Home} />
       <Route path="/services" component={Home} />

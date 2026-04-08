@@ -201,20 +201,20 @@ export default function Footer() {
             © {new Date().getFullYear()} Handy Pioneers. All rights reserved. · WA Lic. HANDYP*761NH
           </p>
           <div className="flex gap-4">
-            <a
-              href="#"
-              className="text-xs hover:opacity-80 transition-opacity"
-              style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}
+            <button
+              onClick={() => window.open("/privacy-policy", "_blank", "width=900,height=700,scrollbars=yes")}
+              className="text-xs hover:opacity-80 transition-opacity text-left"
+              style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
             >
               Privacy Policy
-            </a>
-            <a
-              href="#"
-              className="text-xs hover:opacity-80 transition-opacity"
-              style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}
+            </button>
+            <button
+              onClick={() => window.open("/terms-and-conditions", "_blank", "width=900,height=700,scrollbars=yes")}
+              className="text-xs hover:opacity-80 transition-opacity text-left"
+              style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
             >
-              Terms of Service
-            </a>
+              Terms &amp; Conditions
+            </button>
           </div>
         </div>
       </div>
