@@ -29,18 +29,19 @@ export default function About() {
               style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               Handy Pioneers is an owner-operated remodeling and repair company serving Clark County, WA.
-              Marcin personally handles every project — from the first estimate to the final walkthrough.
-              No subcontractors, no crews you've never met. One skilled craftsman, fully accountable for the result.
+              Marcin leads every project — from the initial design and estimate through to the final walkthrough.
+              On licensed trade work and larger remodels, we bring in a trusted network of vetted subcontractors
+              and crew members so every aspect of your project is handled by the right hands.
             </p>
             <p
               className="text-base leading-relaxed mb-8"
               style={{ color: "oklch(0.50 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               Founded by <strong>Marcin Micek</strong>, Handy Pioneers takes on projects ranging from
-              single-trade repairs (rot repair, carpentry, fixture replacement) to full bathroom and deck
-              remodels. If a project is larger than what one skilled craftsman can deliver at the quality
-              you deserve, Marcin will tell you honestly — and point you in the right direction.
-              That transparency is part of the service.
+              single-trade repairs (rot repair, carpentry, fixture replacement) to full kitchen, bathroom,
+              and deck remodels. Whether Marcin is swinging the hammer himself or coordinating licensed
+              trade partners, he remains your single point of contact — accountable for quality,
+              communication, and the finished result.
             </p>
 
             {/* Credentials */}
