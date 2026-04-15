@@ -16,15 +16,8 @@ export default function TopBar() {
         <span>(360) 544-9858</span>
       </a>
 
-      {/* Right: Portal Login */}
-      <div className="flex items-center gap-2">
-        <span
-          className="text-xs hidden sm:inline"
-          style={{ color: "oklch(0.78 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-        >
-          Already a Client?
-        </span>
-        <button
+      {/* Right: Portal Login — de-emphasized for new visitors */}
+      <button
         data-token="171462604fd34b4fa38d9f4e36a1ce42"
         data-orgname="Handy-Pioneers"
         onClick={() =>
@@ -33,13 +26,19 @@ export default function TopBar() {
             "_blank"
           )
         }
-        className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-white/40 hover:bg-white/10 transition-all"
-        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+        className="text-xs hover:opacity-80 transition-opacity"
+        style={{
+          fontFamily: "'Source Sans 3', sans-serif",
+          color: "rgba(255,255,255,0.45)",
+          background: "none",
+          border: "none",
+          cursor: "pointer",
+          padding: 0,
+          letterSpacing: "0.02em",
+        }}
       >
-        <span>🔑</span>
-        LOG IN TO PORTAL
-        </button>
-      </div>
+        Client Portal
+      </button>
     </div>
   );
 }

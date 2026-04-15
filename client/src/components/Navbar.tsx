@@ -12,12 +12,12 @@ const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhF
 const NAVBAR_HEIGHT = 72; // px — matches scroll-padding-top in index.css
 
 const navLinks = [
-  { label: "Home", section: "" },
-  { label: "About", section: "about" },
-  { label: "Services", section: "services" },
-  { label: "Gallery", section: "gallery" },
-  { label: "Reviews", section: "reviews" },
-  { label: "Blog", section: "blog" },
+  { label: "Home", section: "", route: null },
+  { label: "About", section: "about", route: null },
+  { label: "Services", section: "services", route: null },
+  { label: "Gallery", section: "gallery", route: null },
+  { label: "Reviews", section: null, route: "/reviews" },
+  { label: "Blog", section: "blog", route: null },
 ];
 
 export default function Navbar() {
@@ -50,8 +50,16 @@ export default function Navbar() {
     setTimeout(() => tryScroll(), 50);
   }, []);
 
-  const scrollToSection = (section: string) => {
+  const handleNavClick = (link: { label: string; section: string | null; route: string | null }) => {
     setMobileOpen(false);
+
+    // Route-based navigation (e.g. /reviews)
+    if (link.route) {
+      navigate(link.route);
+      return;
+    }
+
+    const section = link.section ?? "";
 
     // "Home" → scroll to top
     if (!section) {
@@ -67,11 +75,9 @@ export default function Navbar() {
 
     const el = document.getElementById(section);
     if (el) {
-      // Already on the home page — scroll directly
       const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
       window.scrollTo({ top, behavior: "smooth" });
     } else {
-      // On a sub-page — navigate home, then scroll after render
       sessionStorage.setItem("scrollTarget", section);
       navigate("/");
     }
@@ -96,7 +102,7 @@ export default function Navbar() {
       <div className="container flex items-center justify-between h-16">
         {/* Logo */}
         <button
-          onClick={() => scrollToSection("")}
+          onClick={() => handleNavClick({ label: "Home", section: "", route: null })}
           className="flex items-center gap-2 shrink-0 bg-transparent border-0 p-0 cursor-pointer"
           aria-label="Go to top"
         >
@@ -127,7 +133,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <button
               key={link.label}
-              onClick={() => scrollToSection(link.section)}
+              onClick={() => handleNavClick(link)}
               className="text-sm font-semibold uppercase tracking-wider transition-colors hover:opacity-70 bg-transparent border-0 cursor-pointer"
               style={{
                 color: "oklch(0.32 0.07 160)",
@@ -177,7 +183,7 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <button
               key={link.label}
-              onClick={() => scrollToSection(link.section)}
+              onClick={() => handleNavClick(link)}
               className="text-sm font-semibold uppercase tracking-wider py-3 text-right border-b bg-transparent border-0 cursor-pointer w-full"
               style={{
                 color: "oklch(0.32 0.07 160)",

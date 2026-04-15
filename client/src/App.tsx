@@ -8,6 +8,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import ThankYou from "./pages/ThankYou";
 import BlogIndex from "./pages/BlogIndex";
 import BlogPost from "./pages/BlogPost";
+import Reviews from "./pages/Reviews";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
 
@@ -29,7 +30,8 @@ function Router() {
       <Route path="/services" component={Home} />
       <Route path="/services/:slug" component={Home} />
       <Route path="/gallery" component={Home} />
-      <Route path="/customer-reviews" component={Home} />
+      <Route path="/reviews" component={Reviews} />
+      <Route path="/customer-reviews" component={Reviews} />
       <Route path="/contact" component={Home} />
       <Route path="/service-areas" component={Home} />
       <Route component={Home} />

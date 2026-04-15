@@ -79,7 +79,7 @@ export default function Hero() {
               onClick={handleBookOnline}
               style={{ fontSize: "1rem", padding: "1rem 2.5rem" }}
             >
-              Click to Request Estimate Online
+              Get a Free Estimate
             </button>
             <a
               href="tel:+13605449858"

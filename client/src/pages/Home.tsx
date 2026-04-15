@@ -10,6 +10,8 @@ import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import FinalCTA from "@/components/FinalCTA";
 import BlogSection from "@/components/BlogSection";
+import Method360Section from "@/components/Method360Section";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import LocationMap from "@/components/LocationMap";
 import Footer from "@/components/Footer";
 
@@ -51,8 +53,10 @@ export default function Home() {
         <About />
         <Services />
         <HowItWorks />
+        <Method360Section />
         <Gallery />
         <Testimonials />
+        <WhyChooseUs />
         <BlogSection />
         <FinalCTA />
         <LocationMap />
