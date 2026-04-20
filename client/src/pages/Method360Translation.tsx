@@ -29,7 +29,9 @@ export default function Method360Translation() {
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProperty Address: ${formData.address}\nNotes: ${formData.notes}\n\n[Inspection report will be attached separately]`
     );
     window.open(`mailto:hello@handypioneers.com?subject=${subject}&body=${body}`);
-    setSubmitted(true);
+    sessionStorage.setItem("360_offer_origin", "/360-method/translation");
+    sessionStorage.setItem("360_offer_name", formData.name);
+    navigate("/360-method/offer");
   };
 
   const roadmapItems = [
@@ -184,6 +186,47 @@ export default function Method360Translation() {
               is designed to work in partnership with your licensed inspection report, not as a
               substitute for professional inspection services.
             </p>
+          </div>
+
+          {/* ─── Sample Report Download ─── */}
+          <div
+            className="rounded-2xl p-6 border flex flex-col md:flex-row items-center gap-5 mb-10"
+            style={{ backgroundColor: "oklch(0.22 0.07 160)", borderColor: "oklch(0.32 0.07 160)" }}
+          >
+            <div className="flex-1">
+              <p
+                className="text-xs font-bold uppercase tracking-widest mb-1"
+                style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Sample Deliverable
+              </p>
+              <h3
+                className="text-lg font-bold text-white mb-1"
+                style={{ fontFamily: "'Playfair Display', serif" }}
+              >
+                See the actual report before you decide
+              </h3>
+              <p
+                className="text-sm"
+                style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                This is what you receive within 5 business days of submitting your inspection report
+                — a full NOW / SOON / WAIT priority roadmap for your home.
+              </p>
+            </div>
+            <a
+              href="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-priority-roadmap-sample_945b4356.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 font-bold py-3 px-5 rounded-lg text-sm transition-all duration-200 flex items-center gap-2"
+              style={{
+                backgroundColor: "oklch(0.65 0.14 65)",
+                color: "oklch(0.10 0.04 80)",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              Download Sample Report →
+            </a>
           </div>
 
           {/* ─── Form ─── */}

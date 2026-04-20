@@ -27,7 +27,9 @@ export default function Method360Referral() {
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProperty Address: ${formData.address}\nTimeline: ${formData.timeline}\nNotes: ${formData.notes}`
     );
     window.open(`mailto:hello@handypioneers.com?subject=${subject}&body=${body}`);
-    setSubmitted(true);
+    sessionStorage.setItem("360_offer_origin", "/360-method/referral");
+    sessionStorage.setItem("360_offer_name", formData.name);
+    navigate("/360-method/offer");
   };
 
   const steps = [

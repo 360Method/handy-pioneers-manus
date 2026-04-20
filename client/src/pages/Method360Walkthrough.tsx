@@ -27,7 +27,9 @@ export default function Method360Walkthrough() {
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProperty Address: ${formData.address}\nApprox. Sq Ft: ${formData.sqft}\nYear Built: ${formData.yearBuilt}\nNotes: ${formData.notes}`
     );
     window.open(`mailto:hello@handypioneers.com?subject=${subject}&body=${body}`);
-    setSubmitted(true);
+    sessionStorage.setItem("360_offer_origin", "/360-method/walkthrough");
+    sessionStorage.setItem("360_offer_name", formData.name);
+    navigate("/360-method/offer");
   };
 
   const includes = [

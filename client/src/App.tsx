@@ -16,6 +16,7 @@ import Method360Translation from "./pages/Method360Translation";
 import Method360Walkthrough from "./pages/Method360Walkthrough";
 import Method360Referral from "./pages/Method360Referral";
 import Method360Membership from "./pages/Method360Membership";
+import Method360Offer from "./pages/Method360Offer";
 
 function Router() {
   return (
@@ -36,6 +37,7 @@ function Router() {
       <Route path="/360-method/walkthrough" component={Method360Walkthrough} />
       <Route path="/360-method/referral" component={Method360Referral} />
       <Route path="/360-method/membership" component={Method360Membership} />
+      <Route path="/360-method/offer" component={Method360Offer} />
       {/* 301-style redirects: all old paths → home */}
       <Route path="/about" component={Home} />
       <Route path="/services" component={Home} />

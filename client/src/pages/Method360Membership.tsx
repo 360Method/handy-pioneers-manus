@@ -257,6 +257,43 @@ export default function Method360Membership() {
         </div>
       </section>
 
+      {/* ─── Home Score Visual ─── */}
+      <section className="py-16" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+        <div className="container max-w-4xl">
+          <p
+            className="text-xs font-bold uppercase tracking-widest text-center mb-2"
+            style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+          >
+            What Membership Does to Your Home Over Time
+          </p>
+          <h2
+            className="text-3xl font-bold text-center mb-2"
+            style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+          >
+            Your Home Score Climbs. Your Risk Drops.
+          </h2>
+          <p
+            className="text-center text-sm mb-8 max-w-xl mx-auto"
+            style={{ color: "oklch(0.50 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+          >
+            Every visit, every completed item, every documented improvement raises your home's score.
+            Members average a 29-point gain over 18 months.
+          </p>
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/home-score-timeline_8704d21b.png"
+            alt="Home Score improvement timeline showing a property score rising from 62 to 91 over 18 months of 360° Method membership"
+            className="w-full rounded-2xl"
+            style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.10)" }}
+          />
+          <p
+            className="text-xs text-center mt-3"
+            style={{ color: "oklch(0.65 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+          >
+            Illustrative example. Results vary by property condition and scope of work completed.
+          </p>
+        </div>
+      </section>
+
       {/* ─── Tier Selection ─── */}
       <section className="py-20" style={{ backgroundColor: "oklch(0.96 0.008 80)" }}>
         <div className="container max-w-5xl">
