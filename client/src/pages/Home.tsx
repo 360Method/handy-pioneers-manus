@@ -384,19 +384,19 @@ function GoogleReviews() {
   return (
     <section
       className="py-16 px-4"
-      style={{ backgroundColor: "oklch(0.11 0.03 160)" }}
+      style={{ backgroundColor: "#ffffff" }}
     >
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-10">
           <p
             className="text-xs font-bold uppercase tracking-widest mb-3"
-            style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+            style={{ color: "oklch(0.45 0.12 65)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
             Google Reviews
           </p>
           <h2
-            className="text-3xl md:text-4xl font-bold text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
+            className="text-3xl md:text-4xl font-bold"
+            style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.20 0.05 160)" }}
           >
             What Clark County Homeowners Say
           </h2>
