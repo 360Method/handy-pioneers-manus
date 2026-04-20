@@ -386,7 +386,7 @@ export default function Method360Translation() {
             {/* PDF Embed */}
             <div className="flex-1 overflow-hidden" style={{ minHeight: 0 }}>
               <iframe
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-priority-roadmap-sample_945b4356.pdf#toolbar=0&navpanes=0"
+                src="https://docs.google.com/viewer?url=https%3A%2F%2Fd2xsxph8kpxj0f.cloudfront.net%2F310519663386531688%2FPMFhFJDf55eBmmtmS9ai7o%2F360-priority-roadmap-sample_945b4356.pdf&embedded=true"
                 title="360° Priority Roadmap Sample Report"
                 className="w-full h-full"
                 style={{ minHeight: "60vh", border: "none" }}
