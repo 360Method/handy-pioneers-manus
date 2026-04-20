@@ -5,15 +5,15 @@
  * Every section reinforces one of the two paths. No neutral content.
  */
 
-import { useEffect } from "react";
+
 import { useLocation } from "wouter";
 import { ArrowRight, Wrench, ShieldCheck, Star, Quote } from "lucide-react";
+import { useEffect, useRef } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
-import Testimonials from "@/components/Testimonials";
 
 declare global {
   interface Window {
@@ -365,34 +365,56 @@ function DualFinalCTA() {
   );
 }
 
-// ── Gallery Strip (condensed) ────────────────────────────────────────────────
-function GalleryStrip() {
-  const [, navigate] = useLocation();
+// ── Google Reviews Widget ────────────────────────────────────────────────────
+function GoogleReviews() {
+  const widgetRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Re-initialize Elfsight widget after React mounts the DOM node
+    const timer = setTimeout(() => {
+      if ((window as any).eapps) {
+        try {
+          (window as any).eapps.AppsManager.initAll();
+        } catch (_) {}
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section
       className="py-16 px-4"
-      style={{ backgroundColor: "oklch(0.12 0.04 160)" }}
+      style={{ backgroundColor: "oklch(0.11 0.03 160)" }}
     >
       <div className="max-w-5xl mx-auto">
-        <div className="flex items-end justify-between mb-8">
-          <div>
-            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Our Work</p>
-            <h2 className="text-2xl md:text-3xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Real Projects. Real Results.
-            </h2>
-          </div>
-          <button
-            onClick={() => navigate("/#gallery")}
-            className="hidden md:flex items-center gap-2 text-sm font-bold uppercase tracking-wider border-0 bg-transparent cursor-pointer"
+        <div className="text-center mb-10">
+          <p
+            className="text-xs font-bold uppercase tracking-widest mb-3"
             style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            View All <ArrowRight size={14} />
-          </button>
+            Google Reviews
+          </p>
+          <h2
+            className="text-3xl md:text-4xl font-bold text-white"
+            style={{ fontFamily: "'Playfair Display', serif" }}
+          >
+            What Clark County Homeowners Say
+          </h2>
         </div>
-        <Gallery />
+        <div ref={widgetRef}>
+          <div
+            className="elfsight-app-3439582a-5f81-4ddb-ab1a-54f99c9da7af"
+            data-elfsight-app-lazy
+          />
+        </div>
       </div>
     </section>
   );
+}
+
+// ── Gallery Strip ─────────────────────────────────────────────────────────────
+function GalleryStrip() {
+  return <Gallery />;
 }
 
 // ── Main Export ──────────────────────────────────────────────────────────────
@@ -410,6 +432,7 @@ export default function Home() {
       <ProofStrip />
       <TwoPathsExpanded />
       <SocialProof />
+      <GoogleReviews />
       <GalleryStrip />
       <DualFinalCTA />
       <Footer />
