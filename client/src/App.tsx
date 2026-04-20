@@ -11,6 +11,12 @@ import BlogPost from "./pages/BlogPost";
 import Reviews from "./pages/Reviews";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Method360 from "./pages/Method360";
+import Method360Translation from "./pages/Method360Translation";
+import Method360Walkthrough from "./pages/Method360Walkthrough";
+import Method360Referral from "./pages/Method360Referral";
+import Method360Membership from "./pages/Method360Membership";
+import Method360Offer from "./pages/Method360Offer";
 
 function Router() {
   return (
@@ -25,6 +31,13 @@ function Router() {
       {/* Legal pages */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-and-conditions" component={TermsAndConditions} />
+      {/* 360° Method funnel pages */}
+      <Route path="/360-method" component={Method360} />
+      <Route path="/360-method/translation" component={Method360Translation} />
+      <Route path="/360-method/walkthrough" component={Method360Walkthrough} />
+      <Route path="/360-method/referral" component={Method360Referral} />
+      <Route path="/360-method/membership" component={Method360Membership} />
+      <Route path="/360-method/offer" component={Method360Offer} />
       {/* 301-style redirects: all old paths → home */}
       <Route path="/about" component={Home} />
       <Route path="/services" component={Home} />
