@@ -133,6 +133,32 @@ export default function Method360Translation() {
             })}
           </div>
 
+          {/* ─── Roadmap Visual ─── */}
+          <div className="rounded-2xl overflow-hidden mb-10 relative" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-roadmap-desk-EVznZqGHziJ6M8u8QQzanJ.webp"
+              alt="A homeowner reviewing their 360° Priority Roadmap — a color-coded home assessment report with NOW, SOON, and WAIT sections"
+              className="w-full object-cover"
+              style={{ maxHeight: "340px", objectPosition: "center 30%" }}
+            />
+            <div
+              className="absolute inset-0 flex items-center justify-center"
+              style={{ background: "linear-gradient(to right, rgba(14,26,20,0.80) 0%, rgba(14,26,20,0.30) 60%, transparent 100%)" }}
+            >
+              <div className="container">
+                <p
+                  className="text-2xl md:text-3xl font-bold text-white max-w-sm"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Clarity replaces confusion.
+                </p>
+                <p className="text-sm mt-2" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Your report, translated into a clear action plan.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* ─── Disclaimer ─── */}
           <div
             className="rounded-xl p-5 border mb-12"

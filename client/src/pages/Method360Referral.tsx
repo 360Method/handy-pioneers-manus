@@ -113,6 +113,29 @@ export default function Method360Referral() {
             ))}
           </div>
 
+          {/* ─── Referral Image ─── */}
+          <div className="rounded-2xl overflow-hidden mb-10 relative" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-referral-handshake-L4abEVnnoUQFbb9ozAJnnp.webp"
+              alt="A licensed home inspector and Handy Pioneers contractor shaking hands in front of a Pacific Northwest home"
+              className="w-full object-cover"
+              style={{ maxHeight: "340px", objectPosition: "center 25%" }}
+            />
+            <div
+              className="absolute inset-0 flex items-end"
+              style={{ background: "linear-gradient(to top, rgba(14,26,20,0.80) 0%, transparent 55%)" }}
+            >
+              <div className="container pb-8">
+                <p
+                  className="text-xl md:text-2xl font-bold text-white max-w-md"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  A trusted network. One point of contact.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Form */}
           {!submitted ? (
             <div

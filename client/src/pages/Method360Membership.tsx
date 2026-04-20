@@ -227,6 +227,36 @@ export default function Method360Membership() {
         </div>
       </section>
 
+      {/* ─── Lifestyle Image ─── */}
+      <section className="py-0 overflow-hidden">
+        <div className="relative">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-membership-lifestyle-4YkLfTBpJGEjE7JVxZdMTW.webp"
+            alt="Affluent homeowners relaxing in their beautifully maintained Pacific Northwest home, confident their property is protected and advancing in value"
+            className="w-full object-cover"
+            style={{ maxHeight: "480px", objectPosition: "center 30%" }}
+          />
+          <div
+            className="absolute inset-0 flex items-center"
+            style={{ background: "linear-gradient(to right, rgba(14,26,20,0.85) 0%, rgba(14,26,20,0.50) 50%, transparent 100%)" }}
+          >
+            <div className="container">
+              <div className="max-w-lg">
+                <p
+                  className="text-3xl md:text-4xl font-bold text-white mb-3"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  This is what it feels like when your home is managed.
+                </p>
+                <p className="text-base" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  No deferred maintenance. No contractor coordination. No surprises.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Tier Selection ─── */}
       <section className="py-20" style={{ backgroundColor: "oklch(0.96 0.008 80)" }}>
         <div className="container max-w-5xl">

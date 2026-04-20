@@ -108,6 +108,29 @@ export default function Method360Walkthrough() {
             })}
           </div>
 
+          {/* ─── Walkthrough Image ─── */}
+          <div className="rounded-2xl overflow-hidden mb-10 relative" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}>
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-walkthrough-inspection-HvVKXnbzbnfPNTu7juk3RW.webp"
+              alt="Marcin conducting a 360° Baseline Walkthrough with a homeowner in a Pacific Northwest craftsman home"
+              className="w-full object-cover"
+              style={{ maxHeight: "380px", objectPosition: "center 20%" }}
+            />
+            <div
+              className="absolute inset-0 flex items-end"
+              style={{ background: "linear-gradient(to top, rgba(14,26,20,0.80) 0%, transparent 55%)" }}
+            >
+              <div className="container pb-8">
+                <p
+                  className="text-xl md:text-2xl font-bold text-white max-w-md"
+                  style={{ fontFamily: "'Playfair Display', serif" }}
+                >
+                  Every system. Every surface. Documented.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* Disclaimer */}
           <div
             className="rounded-xl p-5 border mb-10"

@@ -242,6 +242,36 @@ export default function Method360() {
         </div>
       </section>
 
+      {/* ─── Transformation Visual ─── */}
+      <section className="py-0 overflow-hidden" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+        <div className="relative">
+          <img
+            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-before-after-home-3RbSRiUr6wXkF6L9EM95NW.webp"
+            alt="Pacific Northwest home before and after the 360° Method — neglected exterior transformed into a pristine, well-maintained property"
+            className="w-full object-cover"
+            style={{ maxHeight: "520px", objectPosition: "center" }}
+          />
+          <div
+            className="absolute inset-0 flex items-end"
+            style={{ background: "linear-gradient(to top, rgba(14,26,20,0.75) 0%, transparent 50%)" }}
+          >
+            <div className="container pb-10">
+              <div className="flex gap-8 justify-center">
+                <div className="text-center">
+                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>Before</div>
+                  <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Reactive. Deferred. Declining.</div>
+                </div>
+                <div className="w-px bg-white/30" />
+                <div className="text-center">
+                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>After the 360° Method</div>
+                  <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Proactive. Protected. Advancing.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Choose Your Starting Point ─── */}
       <section className="py-20" style={{ backgroundColor: "oklch(0.96 0.008 80)" }}>
         <div className="container">
