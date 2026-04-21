@@ -312,7 +312,7 @@ export default function Home() {
                     <Wrench size={20} color="white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Path A</p>
+                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}></p>
                     <p className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>The Project Path</p>
                   </div>
                 </div>
@@ -363,7 +363,7 @@ export default function Home() {
                     <ShieldCheck size={20} color="white" />
                   </div>
                   <div>
-                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'Source Sans 3', sans-serif" }}>Path B</p>
+                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'Source Sans 3', sans-serif" }}></p>
                     <p className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>The Proactive Path</p>
                   </div>
                 </div>
@@ -371,7 +371,7 @@ export default function Home() {
                   "I want my home proactively managed."
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  The 360° Method gives you a complete picture of your home's condition, a prioritized roadmap, and a dedicated team to execute it — before problems become emergencies.
+                  Handy Pioneers delivers the 360° Method as a complete managed service — we assess your home, build your priority roadmap, and execute every item on it with our vetted crew. One relationship. One system. No surprises.
                 </p>
                 <ul className="space-y-2 mb-4">
                   {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Ongoing Home Score tracking", "Single point of contact — always"].map((item) => (
