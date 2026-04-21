@@ -115,26 +115,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Service Areas column */}
+          {/* Service Areas column — embedded map */}
           <div>
             <h4
-              className="text-sm font-bold uppercase tracking-widest mb-5"
+              className="text-sm font-bold uppercase tracking-widest mb-3"
               style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               Service Areas
             </h4>
-            <ul className="space-y-2">
-              {areas.map((a) => (
-                <li key={a}>
-                  <span
-                    className="text-sm"
-                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {a}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p className="text-xs mb-3" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Vancouver · Camas · Washougal · Battle Ground · La Center · Ridgefield · Clark County, WA
+            </p>
+            <div className="rounded-xl overflow-hidden" style={{ height: "180px", border: "1px solid rgba(255,255,255,0.10)" }}>
+              <iframe
+                title="Handy Pioneers Service Area — Clark County, WA"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d175263.0!2d-122.5!3d45.75!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5495a1f4e4e4e4e5%3A0x1234567890abcdef!2sClark%20County%2C%20WA!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                width="100%"
+                height="180"
+                style={{ border: 0, filter: "grayscale(30%)" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
           </div>
 
           {/* Quick Links / CTA column */}

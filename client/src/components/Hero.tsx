@@ -7,8 +7,10 @@
  * Mobile-first: stacked on mobile, side-by-side on md+
  */
 
-import { Star, ArrowRight, Wrench, ShieldCheck, ChevronDown } from "lucide-react";
+import { useState } from "react";
+import { Star, ArrowRight, Wrench, ShieldCheck, ChevronDown, FileText } from "lucide-react";
 import { useLocation } from "wouter";
+import SampleReportModal from "./SampleReportModal";
 
 declare global {
   interface Window {
@@ -21,6 +23,7 @@ const HERO_BG =
 
 export default function Hero() {
   const [, navigate] = useLocation();
+  const [showReport, setShowReport] = useState(false);
 
   const handleBookOnline = () => {
     if (window.HCPWidget) window.HCPWidget.openModal();
@@ -28,6 +31,7 @@ export default function Hero() {
   };
 
   return (
+    <>
     <section
       className="relative flex flex-col"
       style={{
@@ -217,9 +221,9 @@ export default function Hero() {
           </div>
 
           {/* ── Track B: Proactive Path ── */}
-          <button
+          <div
             onClick={() => navigate("/360-method")}
-            className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl"
+            className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl cursor-pointer"
             style={{
               backgroundColor: "rgba(30,55,42,0.60)",
               border: "1.5px solid rgba(255,255,255,0.18)",
@@ -263,7 +267,7 @@ export default function Hero() {
                 The 360° Method gives you a complete picture of your home's condition, a prioritized roadmap, and a dedicated team to execute it — before problems become emergencies.
               </p>
 
-              <ul className="space-y-2 mb-8">
+              <ul className="space-y-2 mb-4">
                 {[
                   "Full baseline property assessment",
                   "NOW / SOON / WAIT priority roadmap",
@@ -275,6 +279,14 @@ export default function Hero() {
                   </li>
                 ))}
               </ul>
+              <button
+                onClick={(e) => { e.stopPropagation(); setShowReport(true); }}
+                className="flex items-center gap-1.5 text-xs font-semibold mb-5 hover:opacity-80 transition-opacity"
+                style={{ color: "oklch(0.75 0.14 65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+              >
+                <FileText size={12} />
+                See a sample 360° Priority Roadmap
+              </button>
             </div>
 
             <div
@@ -289,7 +301,7 @@ export default function Hero() {
               </span>
               <ArrowRight size={18} color="white" className="group-hover:translate-x-1 transition-transform" />
             </div>
-          </button>
+          </div>
         </div>
 
         {/* ── Scroll nudge ── */}
@@ -302,5 +314,7 @@ export default function Hero() {
 
       </div>
     </section>
+    <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
+    </>
   );
 }

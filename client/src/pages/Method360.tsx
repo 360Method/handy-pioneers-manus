@@ -5,11 +5,12 @@
  * Vocabulary: asset, proactive, curated, assessment, roadmap. No "handyman", no "free".
  */
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowRight, Eye, Zap, TrendingUp, FileText, ClipboardList, Users, ChevronRight } from "lucide-react";
+import { ArrowRight, Eye, Zap, TrendingUp, FileText, ClipboardList, Users, ChevronRight, DollarSign } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SampleReportModal from "@/components/SampleReportModal";
 
 declare global {
   interface Window {
@@ -106,6 +107,7 @@ const paths = [
 
 export default function Method360() {
   const [, navigate] = useLocation();
+  const [showReport, setShowReport] = useState(false);
 
   useEffect(() => {
     document.title = "The 360° Method | Handy Pioneers";
@@ -460,8 +462,44 @@ export default function Method360() {
         </div>
       </section>
 
+      {/* ─── Pricing Signal ─── */}
+      <section className="py-16" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+        <div className="container max-w-4xl">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Transparent Pricing</p>
+            <h2 className="text-3xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>What Affects the Investment</h2>
+            <p className="mt-3 text-base" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every home is different. Here’s what shapes the cost of any project.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-5 mb-8">
+            {[
+              { label: "Scope & Complexity", detail: "A single rot repair vs. a full deck rebuild are priced differently. We assess the full scope before quoting — no surprises." },
+              { label: "Material Selections", detail: "We work with every budget tier. You choose the finish level — we price accordingly and document it in writing before work begins." },
+              { label: "Trade Coordination", detail: "Projects requiring licensed electricians, plumbers, or HVAC techs include vetted subcontractor costs, always disclosed upfront." },
+            ].map((item) => (
+              <div key={item.label} className="rounded-xl p-6 border" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.12)" }}>
+                <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "oklch(0.65 0.14 65)" }}>
+                  <DollarSign size={15} color="white" />
+                </div>
+                <h3 className="text-sm font-bold text-white mb-2" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{item.label}</h3>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>{item.detail}</p>
+              </div>
+            ))}
+          </div>
+          <div className="rounded-xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4" style={{ backgroundColor: "rgba(200,137,42,0.10)", borderColor: "rgba(200,137,42,0.35)" }}>
+            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every project starts with a written estimate. Call Marcin for a ballpark before scheduling: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
+            <button
+              onClick={() => setShowReport(true)}
+              className="shrink-0 text-sm font-bold px-5 py-2.5 rounded-lg border-0 cursor-pointer transition-opacity hover:opacity-80 whitespace-nowrap"
+              style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              See a Sample Report →
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Bottom CTA ─── */}
-      <section className="py-20" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+      <section className="py-20" style={{ backgroundColor: "oklch(0.16 0.05 160)" }}>
         <div className="container text-center max-w-2xl">
           <h2
             className="text-4xl font-bold text-white mb-4"
@@ -496,6 +534,7 @@ export default function Method360() {
       </section>
 
       <Footer />
+      <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
     </div>
   );
 }
