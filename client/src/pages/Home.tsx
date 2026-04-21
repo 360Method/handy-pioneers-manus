@@ -678,15 +678,9 @@ export default function Home() {
       <section id="faq" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
         <div className="container max-w-3xl mx-auto px-6">
           <div className="text-center mb-12">
-            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              FAQ
-            </p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
-              Questions Before You Pick Up the Phone
+              Frequently Asked Questions
             </h2>
-            <p className="text-base" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Answered honestly.
-            </p>
           </div>
           <div className="space-y-8">
             {faqs.map((cat) => (
