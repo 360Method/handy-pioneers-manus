@@ -30,6 +30,9 @@ const phases = [
     description:
       "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition — a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     color: "oklch(0.65 0.14 65)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-phase-2F635avV6WHaupFCDniGEq.webp",
+    imageAlt: "Handy Pioneers technician conducting a thorough home assessment with flashlight and clipboard",
+    bullets: ["Full home condition baseline", "Documented health record", "Every system assessed & tracked"],
   },
   {
     number: "02",
@@ -40,6 +43,9 @@ const phases = [
     description:
       "With a clear baseline in place, Phase 2 transforms data into decisions. Your home's needs are organized into a NOW / SOON / WAIT roadmap — a tiered action plan that eliminates guesswork, prevents deferred maintenance from compounding into costly emergencies, and puts every project on a timeline that works for your life.",
     color: "oklch(0.50 0.14 65)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-phase-YChSs8K3sNEUJqvQnAJWUe.webp",
+    imageAlt: "Skilled craftsman executing precision carpentry and repair work inside a Pacific Northwest home",
+    bullets: ["NOW / SOON / WAIT roadmap", "Zero deferred maintenance", "Projects on your timeline"],
   },
   {
     number: "03",
@@ -50,6 +56,9 @@ const phases = [
     description:
       "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate — whether your horizon is five years or twenty-five.",
     color: "oklch(0.32 0.07 160)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
+    imageAlt: "Beautifully maintained Pacific Northwest craftsman home at golden hour with new deck and landscaping",
+    bullets: ["Long-term value preservation", "Strategic upgrade roadmap", "Property appreciation plan"],
   },
 ];
 
@@ -194,47 +203,87 @@ export default function Method360() {
               return (
                 <div
                   key={p.number}
-                  className="rounded-2xl p-8 border flex flex-col"
+                  className="rounded-2xl overflow-hidden border flex flex-col"
                   style={{
                     backgroundColor: "oklch(1 0 0)",
                     borderColor: "oklch(0.88 0.015 80)",
-                    boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
+                    boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
                   }}
                 >
-                  <div className="flex items-start gap-4 mb-5">
+                  {/* Phase image */}
+                  <div className="relative overflow-hidden" style={{ height: "220px" }}>
+                    <img
+                      src={p.image}
+                      alt={p.imageAlt}
+                      className="w-full h-full object-cover"
+                      style={{ transition: "transform 0.4s ease" }}
+                      onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+                      onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+                    />
+                    {/* Phase badge overlay */}
                     <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                      style={{ backgroundColor: p.color }}
+                      className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                      style={{ backgroundColor: p.color, backdropFilter: "blur(4px)" }}
                     >
-                      <Icon size={22} color="white" />
-                    </div>
-                    <div>
-                      <div
-                        className="text-xs font-bold uppercase tracking-widest mb-0.5"
-                        style={{ color: p.color, fontFamily: "'Source Sans 3', sans-serif" }}
+                      <Icon size={14} color="white" />
+                      <span
+                        className="text-xs font-bold uppercase tracking-widest text-white"
+                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
                       >
                         {p.phase}
-                      </div>
-                      <div
-                        className="text-2xl font-bold"
+                      </span>
+                    </div>
+                    {/* Number watermark */}
+                    <div
+                      className="absolute bottom-3 right-4 text-6xl font-bold leading-none select-none"
+                      style={{ color: "rgba(255,255,255,0.18)", fontFamily: "'Playfair Display', serif" }}
+                    >
+                      {p.number}
+                    </div>
+                  </div>
+
+                  {/* Card body */}
+                  <div className="p-7 flex flex-col flex-1">
+                    <div className="mb-4">
+                      <h3
+                        className="text-2xl font-bold mb-1"
                         style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                       >
                         {p.name}
-                      </div>
+                      </h3>
                       <div
-                        className="text-xs mt-0.5"
-                        style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                        className="text-xs font-semibold uppercase tracking-widest"
+                        style={{ color: p.color, fontFamily: "'Source Sans 3', sans-serif" }}
                       >
                         {p.steps}
                       </div>
                     </div>
+
+                    <p
+                      className="text-sm leading-relaxed mb-5"
+                      style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    >
+                      {p.description}
+                    </p>
+
+                    {/* Bullet points */}
+                    <ul className="mt-auto space-y-2">
+                      {p.bullets.map((b) => (
+                        <li key={b} className="flex items-center gap-2">
+                          <span
+                            className="w-1.5 h-1.5 rounded-full shrink-0"
+                            style={{ backgroundColor: p.color }}
+                          />
+                          <span
+                            className="text-xs font-semibold"
+                            style={{ color: "oklch(0.38 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                          >
+                            {b}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <p
-                    className="text-sm leading-relaxed flex-1"
-                    style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {p.description}
-                  </p>
                 </div>
               );
             })}
