@@ -400,6 +400,80 @@ export default function Home() {
       {/* ══════════════════════════════════════════════════════════════════════
           OUTCOMES / SERVICES — What affluent buyers can expect
       ══════════════════════════════════════════════════════════════════════ */}
+      <section id="about" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
+        <div className="container max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Photo column */}
+            <div className="flex flex-col gap-6">
+              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
+                <img src={MARCIN_PHOTO} alt="Marcin Micek — Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
+              </div>
+              {/* License badge */}
+              <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                  <Shield size={18} color="white" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>WA License HANDYP*761NH</p>
+                  <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Licensed Contractor · $1M General Liability · 1-Year Labor Guarantee</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Story column */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Who We Are · Clark County, WA
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
+                A System Built Around Your Home
+              </h2>
+              <div className="space-y-4 mb-8">
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  The 360° Method was created after years of seeing the same pattern: homeowners reacting to problems instead of preventing them, paying the emergency premium, and never quite knowing the true condition of what they owned.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Every engagement runs through a single relationship — owner-led assessments, a vetted crew of skilled tradesmen for execution, and a documented roadmap that compounds in value over time. You're not a transaction. You're a long-term client.
+                </p>
+              </div>
+              {/* Credentials grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {credentials.map((c) => {
+                  const Icon = c.icon;
+                  return (
+                    <div key={c.label} className="rounded-xl p-4 border flex gap-3 items-start" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                        <Icon size={15} color="white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.label}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.detail}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Values */}
+          <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {values.map((v) => (
+              <div key={v.title} className="rounded-2xl p-7 border" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
+                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{v.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{v.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          FAQ
+      ══════════════════════════════════════════════════════════════════════ */}
       <section id="services" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
         <div className="container max-w-6xl mx-auto px-6">
           <div className="text-center mb-16">
@@ -593,80 +667,6 @@ export default function Home() {
 
       {/* ══════════════════════════════════════════════════════════════════════
           ABOUT
-      ══════════════════════════════════════════════════════════════════════ */}
-      <section id="about" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
-        <div className="container max-w-5xl mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Photo column */}
-            <div className="flex flex-col gap-6">
-              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
-                <img src={MARCIN_PHOTO} alt="Marcin Micek — Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
-              </div>
-              {/* License badge */}
-              <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
-                  <Shield size={18} color="white" />
-                </div>
-                <div>
-                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>WA License HANDYP*761NH</p>
-                  <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Licensed Contractor · $1M General Liability · 1-Year Labor Guarantee</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Story column */}
-            <div>
-              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                Who We Are · Clark County, WA
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
-                A System Built Around Your Home
-              </h2>
-              <div className="space-y-4 mb-8">
-                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
-                </p>
-                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  The 360° Method was created after years of seeing the same pattern: homeowners reacting to problems instead of preventing them, paying the emergency premium, and never quite knowing the true condition of what they owned.
-                </p>
-                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Every engagement runs through a single relationship — owner-led assessments, a vetted crew of skilled tradesmen for execution, and a documented roadmap that compounds in value over time. You're not a transaction. You're a long-term client.
-                </p>
-              </div>
-              {/* Credentials grid */}
-              <div className="grid grid-cols-2 gap-3">
-                {credentials.map((c) => {
-                  const Icon = c.icon;
-                  return (
-                    <div key={c.label} className="rounded-xl p-4 border flex gap-3 items-start" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
-                        <Icon size={15} color="white" />
-                      </div>
-                      <div>
-                        <p className="text-xs font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.label}</p>
-                        <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.detail}</p>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          </div>
-
-          {/* Values */}
-          <div className="grid md:grid-cols-3 gap-6 mt-16">
-            {values.map((v) => (
-              <div key={v.title} className="rounded-2xl p-7 border" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
-                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{v.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{v.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════════════════════════════════
-          FAQ
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="faq" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
         <div className="container max-w-3xl mx-auto px-6">
