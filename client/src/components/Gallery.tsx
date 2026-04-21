@@ -5,7 +5,7 @@
  */
 
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight, ZoomIn, MapPin, Wrench, CheckCircle } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, MapPin, Wrench, CheckCircle } from "lucide-react";
 
 // ─── PHOTO GALLERY DATA ───────────────────────────────────────────────────────
 interface Photo {
@@ -108,29 +108,7 @@ export default function Gallery() {
                 className="w-full object-cover transition-transform duration-500 group-hover:scale-105"
                 loading="lazy"
               />
-              <div
-                className="absolute inset-0 flex flex-col justify-end p-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ background: "linear-gradient(to top, oklch(0 0 0 / 0.72) 0%, transparent 55%)" }}
-              >
-                <div className="flex items-end justify-between gap-2">
-                  <div className="min-w-0">
-                    {photo.tag && (
-                      <span className="inline-block px-2 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mb-1" style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "oklch(1 0 0)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                        {photo.tag}
-                      </span>
-                    )}
-                    <p className="text-xs font-medium leading-snug truncate" style={{ color: "oklch(0.96 0.01 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                      {photo.caption}
-                    </p>
-                    {photo.location && (
-                      <p className="text-xs opacity-70 flex items-center gap-1 mt-0.5" style={{ color: "oklch(0.90 0.01 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                        <MapPin size={10} /> {photo.location}
-                      </p>
-                    )}
-                  </div>
-                  <ZoomIn size={16} color="oklch(0.96 0.01 80)" className="flex-none" />
-                </div>
-              </div>
+
             </div>
           ))}
         </div>
