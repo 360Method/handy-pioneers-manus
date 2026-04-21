@@ -31,7 +31,7 @@ const phases = [
     description:
       "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition — a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     color: "oklch(0.65 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-phase-2F635avV6WHaupFCDniGEq.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-v2-K9W9DXRGf7Br3qM2XqKHmr.webp",
     imageAlt: "Handy Pioneers technician conducting a thorough home assessment with flashlight and clipboard",
     bullets: ["Full home condition baseline", "Documented health record", "Every system assessed & tracked"],
   },
@@ -44,7 +44,7 @@ const phases = [
     description:
       "With a clear baseline in place, Phase 2 transforms data into decisions. Your home's needs are organized into a NOW / SOON / WAIT roadmap — a tiered action plan that eliminates guesswork, prevents deferred maintenance from compounding into costly emergencies, and puts every project on a timeline that works for your life.",
     color: "oklch(0.50 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-phase-YChSs8K3sNEUJqvQnAJWUe.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v2-LGS7Q3dTPo26uBWrpKeNas.webp",
     imageAlt: "Skilled craftsman executing precision carpentry and repair work inside a Pacific Northwest home",
     bullets: ["NOW / SOON / WAIT roadmap", "Zero deferred maintenance", "Projects on your timeline"],
   },
@@ -74,7 +74,7 @@ const paths = [
     cta: "Upload Your Report",
     route: "/360-method/translation",
     accent: "oklch(0.65 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-translation-eomtCv5VwKsAQfFYjgnQX5.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-handshake-v2-WsTkHZpz5mBcEGgxr9FxeZ.webp",
     imageAlt: "Home inspection report open on a desk with reading glasses and coffee",
   },
   {
@@ -87,7 +87,7 @@ const paths = [
     cta: "Schedule Your Walkthrough",
     route: "/360-method/walkthrough",
     accent: "oklch(0.32 0.07 160)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-walkthrough-CWMQUL8LTkJkmLirx7v9ff.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-inspection-v2-YJrC2At3mXhBTMwYkNQGDQ.webp",
     imageAlt: "Handy Pioneers technician checking window seal with moisture meter while homeowner watches",
   },
   {
@@ -100,7 +100,7 @@ const paths = [
     cta: "Request a Referral",
     route: "/360-method/referral",
     accent: "oklch(0.45 0.10 160)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-referral-UxEgcJC8wtSCy6WJEF5ag9.webp",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-referral-v2-VBXEZH9C4nbs2MJfDroBXe.webp",
     imageAlt: "Licensed inspector shaking hands with homeowner in front of a Pacific Northwest craftsman home",
   },
 ];
