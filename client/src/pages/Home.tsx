@@ -505,10 +505,10 @@ export default function Home() {
                   className="rounded-2xl p-7 border flex flex-col gap-4"
                   style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}
                 >
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
                     <Icon size={20} color="white" />
                   </div>
-                  <div>
+                  <div className="text-center">
                     <h3 className="text-lg font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
                       {o.title}
                     </h3>
@@ -537,7 +537,7 @@ export default function Home() {
                 return (
                   <div key={s.label} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
                     <Icon size={15} color="oklch(0.65 0.14 65)" className="shrink-0" />
-                    <span className="text-sm font-medium text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{s.label}</span>
+                    <span className="text-sm font-medium text-white leading-snug" style={{ fontFamily: "'Source Sans 3', sans-serif", wordBreak: "break-word", overflowWrap: "break-word", minWidth: 0 }}>{s.label}</span>
                   </div>
                 );
               })}
