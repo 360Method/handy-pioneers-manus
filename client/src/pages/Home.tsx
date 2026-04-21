@@ -91,6 +91,11 @@ const outcomes = [
     title: "Predictable, Prioritized Spending",
     body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost — before it becomes urgent.",
   },
+  {
+    icon: Clock,
+    title: "Proactive Maintenance as a Core Service",
+    body: "Seasonal walkthroughs, scheduled system checks, and preventive repairs are built into the relationship — not sold as add-ons. Maintenance is the foundation, not an afterthought.",
+  },
 ];
 
 const services = [
@@ -106,6 +111,8 @@ const services = [
   { icon: Hammer, label: "Carpentry & Custom Millwork" },
   { icon: Paintbrush, label: "Drywall & Texture" },
   { icon: Shield, label: "Gutter Cleaning & Repair" },
+  { icon: Clock, label: "Proactive Maintenance Programs" },
+  { icon: TrendingUp, label: "Seasonal Home Walkthroughs" },
 ];
 
 const phases = [
