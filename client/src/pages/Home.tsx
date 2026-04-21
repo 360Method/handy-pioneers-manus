@@ -1,362 +1,730 @@
 /**
- * Home.tsx — Decision Funnel Homepage
- * Architecture: Hero (choice gate) → Proof Strip → Two Paths Expanded →
- *               Social Proof → Gallery → Dual Final CTA → Footer
- * Every section reinforces one of the two paths. No neutral content.
+ * Home.tsx — Single-Page Layout
+ * Design: Dark forest green / warm cream. Playfair Display headings, Source Sans 3 body.
+ * All content lives here. Nav scrolls to anchors. Only two CTAs: Path A + Path B.
+ * Sections: hero → outcomes/services → 360-method → gallery → reviews → about → faq → footer
  */
 
-
+import { useState, useEffect, useRef } from "react";
+import {
+  ArrowRight, Shield, Award, MapPin, Clock, Users, Wrench,
+  ChevronDown, CheckCircle, Star, Home as HomeIcon, TrendingUp,
+  Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck
+} from "lucide-react";
 import { useLocation } from "wouter";
-import { ArrowRight, Wrench, ShieldCheck } from "lucide-react";
-import { useEffect, useRef } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
+import SampleReportModal from "@/components/SampleReportModal";
 
 declare global {
   interface Window {
     HCPWidget?: { openModal: () => void };
+    eapps?: { AppsManager: { initAll: () => void } };
   }
 }
 
-// ── Proof Strip ──────────────────────────────────────────────────────────────
-function ProofStrip() {
-  const stats = [
-    { value: "4.9★", label: "Google Rating" },
-    { value: "34+", label: "Verified Reviews" },
-    { value: "10+", label: "Years in Clark County" },
-    { value: "Licensed", label: "& Fully Insured" },
-    { value: "Free", label: "On-Site Consultation" },
-  ];
+// ── Constants ────────────────────────────────────────────────────────────────
+const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
+const MARCIN_PHOTO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
+
+const PHASE_IMAGES = {
+  aware: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-phase-2F635avV6WHaupFCDniGEq.webp",
+  act: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-phase-YChSs8K3sNEUJqvQnAJWUe.webp",
+  advance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
+};
+
+// ── Data ─────────────────────────────────────────────────────────────────────
+const credentials = [
+  { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor — Washington State" },
+  { icon: Award, label: "Insured up to $1,000,000", detail: "Full general liability coverage" },
+  { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
+  { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal" },
+  { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
+  { icon: Wrench, label: "Owner on Every Job", detail: "Marcin personally on every walkthrough & project" },
+];
+
+const values = [
+  {
+    title: "One Point of Contact",
+    body: "Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result. You're never handed off.",
+  },
+  {
+    title: "Transparent From Day One",
+    body: "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
+  },
+  {
+    title: "Built on Craftsmanship & Trust",
+    body: "Handy Pioneers takes on projects ranging from single-trade repairs to full kitchen, bathroom, and deck remodels. The standard is the same regardless of scope: do it right, stand behind it.",
+  },
+];
+
+const outcomes = [
+  {
+    icon: TrendingUp,
+    title: "Protected & Growing Asset Value",
+    body: "Proactive maintenance prevents the deferred-cost spiral. Homes under a structured maintenance plan consistently outperform neglected properties at resale — and you avoid the emergency repair premium.",
+  },
+  {
+    icon: HomeIcon,
+    title: "A Home That Performs at Its Best",
+    body: "Every system working as designed. No mystery leaks, no seasonal surprises, no 'we'll deal with it later.' You live in the home you paid for — not a version of it that's slowly declining.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Zero Contractor Coordination Burden",
+    body: "One call, one relationship. Marcin handles the full scope — from assessment to execution to trade coordination. You don't manage vendors. You manage your life.",
+  },
+  {
+    icon: FileText,
+    title: "A Documented Property Record",
+    body: "Every assessment, every project, every system update — documented in your 360° Priority Roadmap. When it's time to sell, refinance, or pass the property on, you have the receipts.",
+  },
+  {
+    icon: Hammer,
+    title: "Skilled Craftsmanship, Not Patch Work",
+    body: "We don't do quick fixes that create future problems. Every repair and renovation is done to last — using quality materials, proper technique, and the same standard regardless of project size.",
+  },
+  {
+    icon: Zap,
+    title: "Predictable, Prioritized Spending",
+    body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost — before it becomes urgent.",
+  },
+];
+
+const services = [
+  { icon: Hammer, label: "Kitchen & Bathroom Remodels" },
+  { icon: Paintbrush, label: "Interior Painting & Finishing" },
+  { icon: TreePine, label: "Deck & Fence Construction" },
+  { icon: Wrench, label: "Plumbing & Fixture Upgrades" },
+  { icon: Zap, label: "Electrical & Lighting" },
+  { icon: HomeIcon, label: "Flooring Installation" },
+  { icon: Shield, label: "Exterior Repairs & Siding" },
+  { icon: TrendingUp, label: "ADU & Garage Conversions" },
+  { icon: TreePine, label: "Pressure Washing & Moss Removal" },
+  { icon: Hammer, label: "Carpentry & Custom Millwork" },
+  { icon: Paintbrush, label: "Drywall & Texture" },
+  { icon: Shield, label: "Gutter Cleaning & Repair" },
+];
+
+const phases = [
+  {
+    phase: "PHASE 1",
+    title: "Aware",
+    tagline: "Know your home completely.",
+    description: "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition — a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
+    bullets: ["Full property walkthrough", "Documented baseline report", "System-by-system condition log"],
+    image: PHASE_IMAGES.aware,
+    color: "oklch(0.65 0.14 65)",
+  },
+  {
+    phase: "PHASE 2",
+    title: "Act",
+    tagline: "Execute the right work, in the right order.",
+    description: "With a clear baseline in place, Phase 2 transforms data into decisions. Your home's needs are organized into a NOW / SOON / WAIT roadmap — a tiered action plan that eliminates guesswork, prevents deferred maintenance from compounding into costly emergencies, and puts every project on a timeline that works for your life.",
+    bullets: ["NOW / SOON / WAIT roadmap", "Prioritized project execution", "Trade coordination included"],
+    image: PHASE_IMAGES.act,
+    color: "oklch(0.55 0.18 160)",
+  },
+  {
+    phase: "PHASE 3",
+    title: "Advance",
+    tagline: "Build long-term value, deliberately.",
+    description: "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate — whether your horizon is five years or twenty-five.",
+    bullets: ["Strategic upgrade planning", "Home Score tracking over time", "Value-building project roadmap"],
+    image: PHASE_IMAGES.advance,
+    color: "oklch(0.60 0.14 200)",
+  },
+];
+
+const faqs = [
+  {
+    category: "Pricing & Cost",
+    items: [
+      { q: "Do you provide free estimates?", a: "Yes. Every project starts with a free on-site consultation and written estimate. We assess the full scope before quoting — no ballpark numbers over the phone for complex work." },
+      { q: "What affects the final cost of a project?", a: "Scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding." },
+      { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30–40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
+    ],
+  },
+  {
+    category: "Who Does the Work",
+    items: [
+      { q: "Do you use subcontractors?", a: "For specialized trades (electrical, plumbing, HVAC), yes — we work with vetted, licensed subcontractors. Marcin coordinates and oversees all trade work. For general carpentry, maintenance, and renovation work, Marcin does the work himself." },
+      { q: "Will Marcin personally be on my project?", a: "Yes. Marcin personally conducts every assessment walkthrough and is present on every job. He is not a salesperson who hands you off — he is the technician. This is a deliberate choice, not a limitation." },
+      { q: "Are you licensed and insured?", a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor (HANDYP*761NH) and carries full general liability insurance up to $1,000,000. We're happy to provide proof of insurance before any work begins." },
+    ],
+  },
+  {
+    category: "The 360° Method",
+    items: [
+      { q: "What exactly is the 360° Method?", a: "It's a proactive home maintenance system — not a legal inspection. We assess your home's current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we update over time." },
+      { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside — and after — a licensed inspection." },
+      { q: "How long does a Baseline Walkthrough take?", a: "Typically 2–3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
+    ],
+  },
+  {
+    category: "Scheduling & Process",
+    items: [
+      { q: "How quickly can you start?", a: "For estimates, we typically schedule within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline when we provide your estimate. We don't overbook." },
+      { q: "What's your warranty on completed work?", a: "Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it." },
+      { q: "What areas do you serve?", a: "We serve Clark County, WA — including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities." },
+    ],
+  },
+];
+
+// ── Sub-components ────────────────────────────────────────────────────────────
+function FAQItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false);
   return (
-    <div
-      className="py-5 px-4"
-      style={{ backgroundColor: "oklch(0.14 0.04 160)", borderBottom: "1px solid oklch(0.20 0.04 160)" }}
-    >
-      <div className="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
-        {stats.map((s) => (
-          <div key={s.label} className="flex flex-col items-center">
-            <span
-              className="text-lg font-bold"
-              style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Playfair Display', serif" }}
-            >
-              {s.value}
-            </span>
-            <span
-              className="text-xs uppercase tracking-wider"
-              style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              {s.label}
-            </span>
-          </div>
-        ))}
-      </div>
+    <div className="border-b last:border-b-0" style={{ borderColor: "oklch(0.88 0.015 80)" }}>
+      <button
+        className="w-full text-left py-5 flex items-start justify-between gap-4"
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+      >
+        <span className="text-base font-semibold leading-snug" style={{ fontFamily: "'Source Sans 3', sans-serif", color: "oklch(0.22 0.07 160)" }}>
+          {q}
+        </span>
+        <ChevronDown
+          size={18}
+          className="shrink-0 mt-0.5 transition-transform duration-200"
+          style={{ color: "oklch(0.65 0.14 65)", transform: open ? "rotate(180deg)" : "rotate(0deg)" }}
+        />
+      </button>
+      {open && (
+        <p className="pb-5 text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+          {a}
+        </p>
+      )}
     </div>
   );
 }
 
-// ── Two Paths Expanded ───────────────────────────────────────────────────────
-function TwoPathsExpanded() {
-  const [, navigate] = useLocation();
-
-  const handleBookOnline = () => {
-    if (window.HCPWidget) window.HCPWidget.openModal();
-    else window.open("https://app.housecallpro.com/book/handy-pioneers", "_blank");
-  };
-
-  return (
-    <section
-      id="paths"
-      className="py-20 px-4"
-      style={{ backgroundColor: "oklch(0.11 0.03 160)" }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-14">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-3"
-            style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            Two Ways to Work With Us
-          </p>
-          <h2
-            className="text-3xl md:text-4xl font-bold text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Where Are You Starting From?
-          </h2>
-          <p
-            className="mt-4 text-base max-w-xl mx-auto"
-            style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            Both paths lead to the same outcome — a home that's protected, maintained, and advancing in value. The difference is where you are today.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Path A */}
-          <div
-            className="rounded-2xl p-8 flex flex-col"
-            style={{
-              backgroundColor: "oklch(0.16 0.05 160)",
-              border: "1px solid rgba(200,137,42,0.30)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                style={{ backgroundColor: "oklch(0.65 0.14 65)" }}
-              >
-                <Wrench size={22} color="white" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Path A</p>
-                <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>The Project Path</h3>
-              </div>
-            </div>
-
-            <p className="text-base italic mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              "I know what I need done. I want it done right, on time, and without managing a dozen contractors."
-            </p>
-
-            <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              You have a project — a deck, a bathroom, a fence, a full remodel. We walk the property with you, assess the full scope, and deliver a clear written plan. Marcin coordinates everything from first nail to final walkthrough.
-            </p>
-
-            <div className="space-y-2 mb-8 flex-1">
-              {["Decks, fences & outdoor structures", "Bathroom & kitchen remodels", "Interior repairs & improvements", "Painting, drywall & finishing", "Licensed trade coordination (electrical, plumbing, HVAC)"].map(item => (
-                <div key={item} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  <span style={{ color: "oklch(0.80 0.10 65)", marginTop: "2px" }}>→</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={handleBookOnline}
-              className="w-full flex items-center justify-between rounded-xl px-5 py-4 font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:brightness-110 border-0 cursor-pointer"
-              style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              Schedule a Free Consultation
-              <ArrowRight size={16} />
-            </button>
-          </div>
-
-          {/* Path B */}
-          <div
-            className="rounded-2xl p-8 flex flex-col"
-            style={{
-              backgroundColor: "oklch(0.16 0.05 160)",
-              border: "1px solid rgba(255,255,255,0.12)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-6">
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0"
-                style={{ backgroundColor: "oklch(0.32 0.07 160)" }}
-              >
-                <ShieldCheck size={22} color="white" />
-              </div>
-              <div>
-                <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>Path B</p>
-                <h3 className="text-xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>The Proactive Path</h3>
-              </div>
-            </div>
-
-            <p className="text-base italic mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              "I want my home managed before problems become emergencies. I want a plan, not a repair bill."
-            </p>
-
-            <p className="text-sm leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              The 360° Method starts with a complete baseline assessment of your home's condition. You receive a prioritized NOW / SOON / WAIT roadmap. We track your Home Score over time and execute the work — so your home is always advancing, never reacting.
-            </p>
-
-            <div className="space-y-2 mb-8 flex-1">
-              {["Baseline property walkthrough & assessment", "NOW / SOON / WAIT priority roadmap", "Home Score tracking over time", "Proactive maintenance scheduling", "Single point of contact for all trades"].map(item => (
-                <div key={item} className="flex items-start gap-2 text-sm" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  <span style={{ color: "oklch(0.65 0.18 160)", marginTop: "2px" }}>→</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={() => navigate("/360-method")}
-              className="w-full flex items-center justify-between rounded-xl px-5 py-4 font-bold text-sm uppercase tracking-wider transition-all duration-200 hover:brightness-110 border-0 cursor-pointer"
-              style={{ backgroundColor: "oklch(0.28 0.07 160)", color: "white", border: "1px solid rgba(255,255,255,0.20)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              Enter the 360° Method
-              <ArrowRight size={16} />
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Dual Final CTA ───────────────────────────────────────────────────────────
-function DualFinalCTA() {
-  const [, navigate] = useLocation();
-
-  const handleBookOnline = () => {
-    if (window.HCPWidget) window.HCPWidget.openModal();
-    else window.open("https://app.housecallpro.com/book/handy-pioneers", "_blank");
-  };
-
-  return (
-    <section
-      className="py-20 px-4"
-      style={{ backgroundColor: "oklch(0.10 0.03 160)" }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2
-            className="text-3xl md:text-4xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Ready to Take the Next Step?
-          </h2>
-          <p
-            className="text-base max-w-lg mx-auto"
-            style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            Both paths start with a single conversation. Choose yours.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-5 max-w-3xl mx-auto">
-          <button
-            onClick={handleBookOnline}
-            className="group rounded-2xl p-7 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              backgroundColor: "oklch(0.65 0.14 65)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <Wrench size={20} color="oklch(0.10 0.04 80)" />
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.20 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Path A</span>
-            </div>
-            <h3 className="text-xl font-bold mb-2" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Playfair Display', serif" }}>
-              I have a project.
-            </h3>
-            <p className="text-sm mb-5" style={{ color: "oklch(0.25 0.05 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Schedule a free on-site consultation. We'll assess the scope and present a clear plan.
-            </p>
-            <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Schedule a Consultation <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-
-          <button
-            onClick={() => navigate("/360-method")}
-            className="group rounded-2xl p-7 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              backgroundColor: "oklch(0.20 0.06 160)",
-              border: "1.5px solid rgba(255,255,255,0.15)",
-            }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <ShieldCheck size={20} color="white" />
-              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>Path B</span>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              I want a plan.
-            </h3>
-            <p className="text-sm mb-5" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Enter the 360° Method. Get a full assessment, a prioritized roadmap, and a team to execute it.
-            </p>
-            <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-              Enter the 360° Method <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-            </div>
-          </button>
-        </div>
-
-        <p
-          className="text-center text-sm mt-8"
-          style={{ color: "rgba(255,255,255,0.30)", fontFamily: "'Source Sans 3', sans-serif" }}
-        >
-          Questions? Call Marcin directly at{" "}
-          <a href="tel:+13605449858" style={{ color: "oklch(0.65 0.14 65)" }}>
-            (360) 544-9858
-          </a>
-        </p>
-      </div>
-    </section>
-  );
-}
-
-// ── Google Reviews Widget ────────────────────────────────────────────────────
-function GoogleReviews() {
-  const widgetRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Re-initialize Elfsight widget after React mounts the DOM node
-    const timer = setTimeout(() => {
-      if ((window as any).eapps) {
-        try {
-          (window as any).eapps.AppsManager.initAll();
-        } catch (_) {}
-      }
-    }, 300);
-    return () => clearTimeout(timer);
-  }, []);
-
-  return (
-    <section
-      className="py-16 px-4"
-      style={{ backgroundColor: "#ffffff" }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-10">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-3"
-            style={{ color: "oklch(0.45 0.12 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            Google Reviews
-          </p>
-          <h2
-            className="text-3xl md:text-4xl font-bold"
-            style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.20 0.05 160)" }}
-          >
-            What Clark County Homeowners Say
-          </h2>
-        </div>
-        <div ref={widgetRef}>
-          <div
-            className="elfsight-app-3439582a-5f81-4ddb-ab1a-54f99c9da7af"
-            data-elfsight-app-lazy
-          />
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ── Gallery Strip ─────────────────────────────────────────────────────────────
-function GalleryStrip() {
-  return <Gallery />;
-}
-
-// ── Main Export ──────────────────────────────────────────────────────────────
+// ── Main Export ───────────────────────────────────────────────────────────────
 export default function Home() {
+  const [, navigate] = useLocation();
+  const [showReport, setShowReport] = useState(false);
+  const reviewsRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     document.title = "Vancouver Handyman & Remodeler | Handy Pioneers";
     window.scrollTo({ top: 0 });
   }, []);
 
+  // Re-init Elfsight when reviews section mounts
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (window.eapps) {
+        try { window.eapps.AppsManager.initAll(); } catch (_) {}
+      }
+    }, 400);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const handleBookOnline = () => {
+    if (window.HCPWidget) window.HCPWidget.openModal();
+    else window.open("https://app.housecallpro.com/book/handy-pioneers", "_blank");
+  };
+
   return (
-    <div style={{ backgroundColor: "oklch(0.11 0.03 160)" }}>
+    <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
       <TopBar />
       <Navbar />
-      <Hero />
-      <ProofStrip />
-      <TwoPathsExpanded />
-      <GoogleReviews />
-      <GalleryStrip />
-      <DualFinalCTA />
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          HERO
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section
+        id="home"
+        className="relative flex flex-col"
+        style={{
+          backgroundImage: `url(${HERO_BG})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center 30%",
+          minHeight: "100vh",
+        }}
+      >
+        {/* Overlay */}
+        <div
+          className="absolute inset-0"
+          style={{ background: "linear-gradient(to bottom, rgba(10,20,15,0.92) 0%, rgba(10,20,15,0.85) 60%, rgba(10,20,15,0.96) 100%)" }}
+        />
+        <div className="relative z-10 flex flex-col flex-1" style={{ minHeight: "100vh" }}>
+          {/* Trust strip */}
+          <div className="flex items-center justify-center gap-3 py-3 px-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="flex">
+              {[...Array(5)].map((_, i) => <Star key={i} size={13} fill="#C8892A" color="#C8892A" />)}
+            </div>
+            <span className="text-xs font-semibold tracking-wide" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              4.9 · 34 Reviews · Licensed &amp; Insured · Clark County, WA
+            </span>
+          </div>
+
+          {/* Headline */}
+          <div className="flex flex-col items-center justify-center text-center px-6 pt-12 pb-8">
+            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Handy Pioneers · Clark County's Home Management Partner
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", maxWidth: "720px" }}>
+              Your Home Deserves a{" "}
+              <span style={{ color: "oklch(0.80 0.10 65)" }}>Plan,</span>
+              <br className="hidden sm:block" />
+              {" "}Not a Reaction.
+            </h1>
+            <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
+              Tell us where you are. We'll show you exactly where to go next.
+            </p>
+            {/* Marcin context */}
+            <div className="flex items-center gap-3 mt-1 mb-2">
+              <img
+                src={MARCIN_PHOTO}
+                alt="Marcin Micek — Owner"
+                className="w-10 h-10 rounded-full object-cover border-2 shrink-0"
+                style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
+              />
+              <p className="text-xs text-left" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}>
+                <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Marcin Micek</span>, owner &amp; lead technician — WA Lic. HANDYP*761NH. Personally on every walkthrough and job in Clark County, WA.
+              </p>
+            </div>
+            <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Choose your path ↓
+            </p>
+          </div>
+
+          {/* ── Two Paths ── */}
+          <div className="flex flex-col md:flex-row flex-1 px-4 md:px-8 pb-10 gap-4 max-w-5xl mx-auto w-full">
+            {/* Path A */}
+            <button
+              onClick={handleBookOnline}
+              className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl"
+              style={{ backgroundColor: "rgba(200,137,42,0.12)", border: "1.5px solid rgba(200,137,42,0.55)", backdropFilter: "blur(12px)" }}
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.65 0.14 65)" }}>
+                    <Wrench size={20} color="white" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Path A</p>
+                    <p className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>The Project Path</p>
+                  </div>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  "I have a specific project in mind."
+                </h2>
+                <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Deck repair. Bathroom remodel. Fence replacement. Whatever the project, we walk the property, assess the full scope, and present a clear plan with no surprises.
+                </p>
+                <ul className="space-y-2 mb-8">
+                  {["Free on-site consultation", "Detailed written estimate", "Licensed, insured, vetted crew", "Marcin on every walkthrough"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      <span style={{ color: "oklch(0.80 0.10 65)" }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="flex items-center justify-between rounded-xl px-5 py-4 transition-all duration-200 group-hover:brightness-110" style={{ backgroundColor: "oklch(0.65 0.14 65)" }}>
+                <span className="font-bold text-sm uppercase tracking-wider" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Schedule a Consultation</span>
+                <ArrowRight size={18} color="oklch(0.10 0.04 80)" className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
+
+            {/* Divider */}
+            <div className="hidden md:flex flex-col items-center justify-center gap-3 px-2">
+              <div className="flex-1" style={{ width: "1px", backgroundColor: "rgba(255,255,255,0.12)" }} />
+              <span className="text-xs font-bold uppercase tracking-widest px-3 py-2 rounded-full" style={{ color: "rgba(255,255,255,0.40)", backgroundColor: "rgba(255,255,255,0.06)", fontFamily: "'Source Sans 3', sans-serif" }}>or</span>
+              <div className="flex-1" style={{ width: "1px", backgroundColor: "rgba(255,255,255,0.12)" }} />
+            </div>
+            <div className="flex md:hidden items-center gap-3">
+              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(255,255,255,0.12)" }} />
+              <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.35)", fontFamily: "'Source Sans 3', sans-serif" }}>or</span>
+              <div className="flex-1 h-px" style={{ backgroundColor: "rgba(255,255,255,0.12)" }} />
+            </div>
+
+            {/* Path B */}
+            <div
+              onClick={() => {
+                const el = document.getElementById("method");
+                if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 72; window.scrollTo({ top, behavior: "smooth" }); }
+              }}
+              className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl cursor-pointer"
+              style={{ backgroundColor: "rgba(30,55,42,0.60)", border: "1.5px solid rgba(255,255,255,0.18)", backdropFilter: "blur(12px)" }}
+            >
+              <div>
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.32 0.07 160)" }}>
+                    <ShieldCheck size={20} color="white" />
+                  </div>
+                  <div>
+                    <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'Source Sans 3', sans-serif" }}>Path B</p>
+                    <p className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>The Proactive Path</p>
+                  </div>
+                </div>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 leading-snug" style={{ fontFamily: "'Playfair Display', serif" }}>
+                  "I want my home proactively managed."
+                </h2>
+                <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  The 360° Method gives you a complete picture of your home's condition, a prioritized roadmap, and a dedicated team to execute it — before problems become emergencies.
+                </p>
+                <ul className="space-y-2 mb-4">
+                  {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Ongoing Home Score tracking", "Single point of contact — always"].map((item) => (
+                    <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      <span style={{ color: "oklch(0.65 0.18 160)" }}>✓</span> {item}
+                    </li>
+                  ))}
+                </ul>
+                <button
+                  onClick={(e) => { e.stopPropagation(); setShowReport(true); }}
+                  className="flex items-center gap-1.5 text-xs font-semibold mb-5 hover:opacity-80 transition-opacity"
+                  style={{ color: "oklch(0.75 0.14 65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                >
+                  <FileText size={12} />
+                  See a sample 360° Priority Roadmap
+                </button>
+              </div>
+              <div className="flex items-center justify-between rounded-xl px-5 py-4 transition-all duration-200 group-hover:brightness-110" style={{ backgroundColor: "oklch(0.28 0.07 160)", border: "1px solid rgba(255,255,255,0.15)" }}>
+                <span className="font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Learn the 360° Method</span>
+                <ArrowRight size={18} color="white" className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </div>
+          </div>
+
+          {/* Scroll nudge */}
+          <div className="flex flex-col items-center pb-6 gap-1 opacity-40">
+            <span className="text-xs text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Scroll to learn more</span>
+            <ChevronDown size={16} color="white" className="animate-bounce" />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          OUTCOMES / SERVICES — What affluent buyers can expect
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="services" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              What You Gain
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
+              The Outcomes of Partnering With Handy Pioneers
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              We don't just complete projects. We protect your investment, eliminate the coordination burden, and give your home the management it deserves.
+            </p>
+          </div>
+
+          {/* Outcomes grid */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {outcomes.map((o) => {
+              const Icon = o.icon;
+              return (
+                <div
+                  key={o.title}
+                  className="rounded-2xl p-7 border flex flex-col gap-4"
+                  style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}
+                >
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                    <Icon size={20} color="white" />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
+                      {o.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      {o.body}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Services we perform */}
+          <div className="rounded-2xl p-8 md:p-10" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+            <div className="text-center mb-8">
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                What We Do
+              </p>
+              <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>
+                Services Performed In-House &amp; Coordinated
+              </h3>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+              {services.map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.label} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
+                    <Icon size={15} color="oklch(0.65 0.14 65)" className="shrink-0" />
+                    <span className="text-sm font-medium text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{s.label}</span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          360° METHOD
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="method" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.13 0.04 160)" }}>
+        <div className="container max-w-6xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              The 360° Method
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Three Phases. One Destination.
+            </h2>
+            <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              A structured system that transforms reactive homeownership into proactive wealth building — in three deliberate phases.
+            </p>
+          </div>
+
+          {/* Phase cards */}
+          <div className="grid md:grid-cols-3 gap-6 mb-16">
+            {phases.map((p, i) => (
+              <div
+                key={p.title}
+                className="rounded-2xl overflow-hidden flex flex-col"
+                style={{ backgroundColor: "oklch(0.18 0.05 160)", border: "1px solid rgba(255,255,255,0.10)" }}
+              >
+                {/* Image */}
+                <div className="relative overflow-hidden" style={{ height: "200px" }}>
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover transition-transform duration-500 hover:scale-105" />
+                  <div className="absolute inset-0" style={{ background: "linear-gradient(to top, rgba(0,0,0,0.70) 0%, transparent 60%)" }} />
+                  <div className="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest" style={{ backgroundColor: p.color, color: "oklch(0.10 0.04 80)" }}>
+                    {p.phase}
+                  </div>
+                  <div className="absolute bottom-4 left-4">
+                    <h3 className="text-2xl font-bold text-white" style={{ fontFamily: "'Playfair Display', serif" }}>{p.title}</h3>
+                    <p className="text-xs text-white opacity-70" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{p.tagline}</p>
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-1">
+                  <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                    {p.description}
+                  </p>
+                  <ul className="space-y-2 mt-auto">
+                    {p.bullets.map((b) => (
+                      <li key={b} className="flex items-center gap-2 text-xs" style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                        <CheckCircle size={13} color={p.color} className="shrink-0" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Disclaimer */}
+          <div className="rounded-xl p-5 mb-12" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)" }}>
+            <p className="text-xs text-center" style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              <strong style={{ color: "rgba(255,255,255,0.55)" }}>Important:</strong> The 360° Method is a proactive maintenance service, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. Handy Pioneers cannot be held liable for issues not identified during the assessment. This service is designed to complement — not replace — a licensed home inspection.
+            </p>
+          </div>
+
+          {/* Two entry points */}
+          <div className="text-center mb-8">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Choose Your Starting Point
+            </p>
+            <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Already have an inspection report? Or starting fresh?
+            </h3>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <button
+              onClick={() => navigate("/360-method/translation")}
+              className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              style={{ backgroundColor: "oklch(0.65 0.14 65)" }}
+            >
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.20 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>I have a report</p>
+              <h4 className="text-xl font-bold mb-2" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Playfair Display', serif" }}>Upload Your Inspection Report</h4>
+              <p className="text-sm mb-4" style={{ color: "oklch(0.25 0.05 80)", fontFamily: "'Source Sans 3', sans-serif" }}>We translate your inspector's findings into a clear, prioritized action plan.</p>
+              <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Get Started <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
+            <button
+              onClick={() => navigate("/360-method/walkthrough")}
+              className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
+              style={{ backgroundColor: "oklch(0.20 0.06 160)", border: "1.5px solid rgba(255,255,255,0.15)" }}
+            >
+              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>Starting fresh</p>
+              <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Schedule a Baseline Walkthrough</h4>
+              <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>Marcin assesses your home from top to bottom and delivers your full 360° report.</p>
+              <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                Book a Walkthrough <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          GALLERY
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="gallery" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
+        <Gallery />
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          REVIEWS
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="reviews" className="py-16 px-4" style={{ backgroundColor: "#ffffff" }}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-10">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.45 0.12 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Google Reviews
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.20 0.05 160)" }}>
+              What Clark County Homeowners Say
+            </h2>
+          </div>
+          <div ref={reviewsRef}>
+            <div className="elfsight-app-3439582a-5f81-4ddb-ab1a-54f99c9da7af" data-elfsight-app-lazy />
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          ABOUT
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="about" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
+        <div className="container max-w-5xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-12 items-start">
+            {/* Photo column */}
+            <div className="flex flex-col gap-6">
+              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
+                <img src={MARCIN_PHOTO} alt="Marcin Micek — Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
+              </div>
+              {/* License badge */}
+              <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
+                <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                  <Shield size={18} color="white" />
+                </div>
+                <div>
+                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>WA License HANDYP*761NH</p>
+                  <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Licensed Contractor · $1M General Liability · 1-Year Labor Guarantee</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Story column */}
+            <div>
+              <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                Who We Are · Clark County, WA
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
+                Built on Craftsmanship &amp; Trust
+              </h2>
+              <div className="space-y-4 mb-8">
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Handy Pioneers was founded on a simple premise: homeowners deserve a contractor who shows up, communicates clearly, and does the work right the first time.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Marcin Micek started Handy Pioneers after years of hearing the same frustrations from homeowners: contractors who ghost, estimates that balloon, and work that needs to be redone. He built this company to be the opposite of that experience.
+                </p>
+                <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result.
+                </p>
+              </div>
+              {/* Credentials grid */}
+              <div className="grid grid-cols-2 gap-3">
+                {credentials.map((c) => {
+                  const Icon = c.icon;
+                  return (
+                    <div key={c.label} className="rounded-xl p-4 border flex gap-3 items-start" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+                        <Icon size={15} color="white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.label}</p>
+                        <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{c.detail}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {/* Values */}
+          <div className="grid md:grid-cols-3 gap-6 mt-16">
+            {values.map((v) => (
+              <div key={v.title} className="rounded-2xl p-7 border" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 4px 20px rgba(0,0,0,0.05)" }}>
+                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{v.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{v.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          FAQ
+      ══════════════════════════════════════════════════════════════════════ */}
+      <section id="faq" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
+        <div className="container max-w-3xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              FAQ
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
+              Questions Every Skeptical Homeowner Asks
+            </h2>
+            <p className="text-base" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Answered honestly.
+            </p>
+          </div>
+          <div className="space-y-8">
+            {faqs.map((cat) => (
+              <div key={cat.category}>
+                <h3 className="text-sm font-bold uppercase tracking-widest mb-3 pb-2 border-b" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif", borderColor: "oklch(0.88 0.015 80)" }}>
+                  {cat.category}
+                </h3>
+                <div className="rounded-2xl border overflow-hidden" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                  <div className="px-6">
+                    {cat.items.map((item) => <FAQItem key={item.q} q={item.q} a={item.a} />)}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Final CTA */}
+          <div className="mt-16 text-center rounded-2xl p-10" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
+            <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Ready to Get Started?
+            </h3>
+            <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Every engagement starts with a free on-site consultation — no pressure, no commitment.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button
+                className="hcp-button"
+                onClick={handleBookOnline}
+              >
+                Request a Free Estimate
+              </button>
+              <a
+                href="tel:+13605449858"
+                className="inline-flex items-center justify-center px-6 py-3 rounded-lg border font-semibold text-sm transition-colors hover:opacity-80"
+                style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Call (360) 544-9858
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <Footer />
+      <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
     </div>
   );
 }
