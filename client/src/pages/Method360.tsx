@@ -73,6 +73,8 @@ const paths = [
     cta: "Upload Your Report",
     route: "/360-method/translation",
     accent: "oklch(0.65 0.14 65)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-translation-eomtCv5VwKsAQfFYjgnQX5.webp",
+    imageAlt: "Home inspection report open on a desk with reading glasses and coffee",
   },
   {
     number: "PATH 2",
@@ -84,6 +86,8 @@ const paths = [
     cta: "Schedule Your Walkthrough",
     route: "/360-method/walkthrough",
     accent: "oklch(0.32 0.07 160)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-walkthrough-CWMQUL8LTkJkmLirx7v9ff.webp",
+    imageAlt: "Handy Pioneers technician checking window seal with moisture meter while homeowner watches",
   },
   {
     number: "PATH 3",
@@ -95,6 +99,8 @@ const paths = [
     cta: "Request a Referral",
     route: "/360-method/referral",
     accent: "oklch(0.45 0.10 160)",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/path-referral-UxEgcJC8wtSCy6WJEF5ag9.webp",
+    imageAlt: "Licensed inspector shaking hands with homeowner in front of a Pacific Northwest craftsman home",
   },
 ];
 
@@ -349,49 +355,70 @@ export default function Method360() {
                 <button
                   key={path.number}
                   onClick={() => navigate(path.route)}
-                  className="group text-left rounded-2xl p-8 border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col"
+                  className="group text-left rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col"
                   style={{
                     backgroundColor: "oklch(1 0 0)",
                     borderColor: "oklch(0.88 0.015 80)",
-                    boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+                    boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
                   }}
                 >
-                  <div
-                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 shrink-0"
-                    style={{ backgroundColor: path.accent }}
-                  >
-                    <Icon size={22} color="white" />
+                  {/* Path image */}
+                  <div className="relative overflow-hidden" style={{ height: "200px" }}>
+                    <img
+                      src={path.image}
+                      alt={path.imageAlt}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    {/* Gradient overlay */}
+                    <div
+                      className="absolute inset-0"
+                      style={{ background: "linear-gradient(to top, rgba(14,26,20,0.55) 0%, transparent 60%)" }}
+                    />
+                    {/* Path badge */}
+                    <div
+                      className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                      style={{ backgroundColor: path.accent }}
+                    >
+                      <Icon size={13} color="white" />
+                      <span
+                        className="text-xs font-bold uppercase tracking-widest text-white"
+                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                      >
+                        {path.number}
+                      </span>
+                    </div>
+                    {/* Condition tag at bottom of image */}
+                    <div className="absolute bottom-3 left-4 right-4">
+                      <span
+                        className="text-xs font-semibold text-white/90 italic"
+                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                      >
+                        {path.condition}
+                      </span>
+                    </div>
                   </div>
-                  <div
-                    className="text-xs font-bold uppercase tracking-widest mb-2"
-                    style={{ color: path.accent, fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {path.number}
+
+                  {/* Card body */}
+                  <div className="p-6 flex flex-col flex-1">
+                    <h3
+                      className="text-xl font-bold mb-3 leading-snug"
+                      style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+                    >
+                      {path.title}
+                    </h3>
+                    <p
+                      className="text-sm leading-relaxed flex-1 mb-5"
+                      style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                    >
+                      {path.description}
+                    </p>
+                    <span
+                      className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all duration-200"
+                      style={{ color: path.accent, fontFamily: "'Source Sans 3', sans-serif" }}
+                    >
+                      {path.cta} <ChevronRight size={14} />
+                    </span>
                   </div>
-                  <h3
-                    className="text-xl font-bold mb-2 leading-snug"
-                    style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
-                  >
-                    {path.title}
-                  </h3>
-                  <p
-                    className="text-xs font-semibold uppercase tracking-wide mb-3"
-                    style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {path.condition}
-                  </p>
-                  <p
-                    className="text-sm leading-relaxed flex-1 mb-6"
-                    style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {path.description}
-                  </p>
-                  <span
-                    className="inline-flex items-center gap-1 text-sm font-bold uppercase tracking-wider group-hover:gap-2 transition-all"
-                    style={{ color: path.accent, fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {path.cta} <ChevronRight size={14} />
-                  </span>
                 </button>
               );
             })}
