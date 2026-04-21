@@ -7,7 +7,7 @@
 
 
 import { useLocation } from "wouter";
-import { ArrowRight, Wrench, ShieldCheck, Star, Quote } from "lucide-react";
+import { ArrowRight, Wrench, ShieldCheck } from "lucide-react";
 import { useEffect, useRef } from "react";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
@@ -196,84 +196,6 @@ function TwoPathsExpanded() {
   );
 }
 
-// ── Social Proof ─────────────────────────────────────────────────────────────
-function SocialProof() {
-  const quotes = [
-    {
-      text: "Marcin walked the entire property with me, caught things I never would have noticed, and had a written plan in my hands within days. The work was done on time and exactly as described.",
-      name: "Jennifer M.",
-      detail: "Camas, WA · Deck rebuild + exterior painting",
-      path: "A",
-    },
-    {
-      text: "We enrolled in the 360° Method after our home inspection flagged a dozen deferred items. Within 60 days, every NOW item was resolved. I finally feel like our home is ahead of the curve.",
-      name: "David & Sarah K.",
-      detail: "Washougal, WA · 360° Method member",
-      path: "B",
-    },
-    {
-      text: "I've used a lot of contractors over the years. Handy Pioneers is the first team where I never had to follow up, chase a timeline, or wonder what was happening. They just handled it.",
-      name: "Robert T.",
-      detail: "Battle Ground, WA · Full bathroom remodel",
-      path: "A",
-    },
-  ];
-
-  return (
-    <section
-      className="py-20 px-4"
-      style={{ backgroundColor: "oklch(0.13 0.04 160)" }}
-    >
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <p
-            className="text-xs font-bold uppercase tracking-widest mb-3"
-            style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
-          >
-            What Clients Say
-          </p>
-          <h2
-            className="text-3xl md:text-4xl font-bold text-white"
-            style={{ fontFamily: "'Playfair Display', serif" }}
-          >
-            Results Speak for Themselves
-          </h2>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-5">
-          {quotes.map((q) => (
-            <div
-              key={q.name}
-              className="rounded-2xl p-6 flex flex-col"
-              style={{
-                backgroundColor: "oklch(0.16 0.05 160)",
-                border: `1px solid ${q.path === "B" ? "rgba(255,255,255,0.10)" : "rgba(200,137,42,0.20)"}`,
-              }}
-            >
-              <Quote size={20} style={{ color: "oklch(0.65 0.14 65)", marginBottom: "12px", opacity: 0.6 }} />
-              <p
-                className="text-sm leading-relaxed flex-1 mb-5"
-                style={{ color: "rgba(255,255,255,0.78)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                "{q.text}"
-              </p>
-              <div>
-                <div className="flex mb-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={12} fill="#C8892A" color="#C8892A" />
-                  ))}
-                </div>
-                <p className="text-sm font-bold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>{q.name}</p>
-                <p className="text-xs" style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}>{q.detail}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 // ── Dual Final CTA ───────────────────────────────────────────────────────────
 function DualFinalCTA() {
   const [, navigate] = useLocation();
@@ -431,7 +353,6 @@ export default function Home() {
       <Hero />
       <ProofStrip />
       <TwoPathsExpanded />
-      <SocialProof />
       <GoogleReviews />
       <GalleryStrip />
       <DualFinalCTA />
