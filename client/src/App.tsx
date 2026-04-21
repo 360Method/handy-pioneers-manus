@@ -17,7 +17,8 @@ import Method360Walkthrough from "./pages/Method360Walkthrough";
 import Method360Referral from "./pages/Method360Referral";
 import Method360Membership from "./pages/Method360Membership";
 import Method360Offer from "./pages/Method360Offer";
-
+import About from "./pages/About";
+import FAQ from "./pages/FAQ";
 function Router() {
   return (
     <Switch>
@@ -38,8 +39,9 @@ function Router() {
       <Route path="/360-method/referral" component={Method360Referral} />
       <Route path="/360-method/membership" component={Method360Membership} />
       <Route path="/360-method/offer" component={Method360Offer} />
-      {/* 301-style redirects: all old paths → home */}
-      <Route path="/about" component={Home} />
+      {/* Real pages */}
+      <Route path="/about" component={About} />
+      <Route path="/faq" component={FAQ} />
       <Route path="/services" component={Home} />
       <Route path="/services/:slug" component={Home} />
       <Route path="/gallery" component={Home} />

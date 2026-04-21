@@ -93,6 +93,21 @@ export default function Hero() {
           >
             Tell us where you are. We'll show you exactly where to go next.
           </p>
+          {/* Marcin context */}
+          <div className="flex items-center gap-3 mt-1 mb-2">
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg"
+              alt="Marcin Micek — Owner"
+              className="w-10 h-10 rounded-full object-cover object-top border-2 shrink-0"
+              style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
+            />
+            <p
+              className="text-xs text-left"
+              style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}
+            >
+              <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Marcin Micek</span>, owner &amp; lead technician — WA Lic. HANDYP*761NH. Personally on every walkthrough and job in Clark County, WA.
+            </p>
+          </div>
           <p
             className="text-sm font-semibold uppercase tracking-widest"
             style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}

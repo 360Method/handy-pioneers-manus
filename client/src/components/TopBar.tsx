@@ -37,7 +37,7 @@ export default function TopBar() {
           letterSpacing: "0.02em",
         }}
       >
-        Client Portal
+        Existing Client? Log In
       </button>
     </div>
   );
