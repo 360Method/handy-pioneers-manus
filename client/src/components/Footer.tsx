@@ -154,6 +154,7 @@ export default function Footer() {
                 { label: "Project Gallery", href: "#gallery" },
                 { label: "Customer Reviews", href: "#reviews" },
                 { label: "About Us", href: "#about" },
+                { label: "FAQ", href: "#faq" },
               ].map(({ label, href }) => (
                 <li key={label}>
                   <a
@@ -183,9 +184,17 @@ export default function Footer() {
 
             <button
               className="hcp-button w-full"
-              onClick={() => (window as any).HCPWidget?.openModal()}
+              onClick={() => {
+                const el = document.getElementById("home");
+                if (el) {
+                  const top = el.getBoundingClientRect().top + window.scrollY - 72;
+                  window.scrollTo({ top, behavior: "smooth" });
+                } else {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
             >
-              Request Estimate
+              Choose Your Path
             </button>
           </div>
         </div>
