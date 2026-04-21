@@ -42,13 +42,13 @@ const credentials = [
   { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal" },
   { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
-  { icon: Wrench, label: "Owner on Every Job", detail: "Marcin personally on every walkthrough & project" },
+  { icon: Wrench, label: "Owner on Every Assessment", detail: "Marcin personally leads every walkthrough; skilled tradesmen execute the work" },
 ];
 
 const values = [
   {
     title: "One Point of Contact",
-    body: "Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result. You're never handed off.",
+    body: "Marcin personally leads every assessment and remains your single point of contact throughout — but the work is executed by skilled tradesmen and licensed specialists he has vetted and trusts. You get the accountability of an owner-operator with the quality of a curated crew.",
   },
   {
     title: "Transparent From Day One",
@@ -631,7 +631,7 @@ export default function Home() {
                   Marcin Micek started Handy Pioneers after years of hearing the same frustrations from homeowners: contractors who ghost, estimates that balloon, and work that needs to be redone. He built this company to be the opposite of that experience.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result.
+                  Marcin personally leads every assessment and remains your single point of contact — but the work is executed by skilled tradesmen and licensed specialists he has vetted. You get owner accountability with a curated crew.
                 </p>
               </div>
               {/* Credentials grid */}
@@ -699,17 +699,19 @@ export default function Home() {
           {/* Final CTA */}
           <div className="mt-16 text-center rounded-2xl p-10" style={{ backgroundColor: "oklch(0.22 0.07 160)" }}>
             <h3 className="text-2xl font-bold text-white mb-3" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Ready to Get Started?
+              Ready to Choose Your Path?
             </h3>
             <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Every engagement starts with a free on-site consultation — no pressure, no commitment.
+              Every engagement starts with a clear conversation — no pressure, no commitment. Choose the path that fits where you are today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 className="hcp-button"
-                onClick={handleBookOnline}
+                onClick={() => {
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }}
               >
-                Request a Free Estimate
+                Choose Your Path
               </button>
               <a
                 href="tel:+13605449858"
