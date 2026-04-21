@@ -47,16 +47,16 @@ const credentials = [
 
 const values = [
   {
-    title: "One Point of Contact",
-    body: "Marcin personally leads every assessment and remains your single point of contact throughout — but the work is executed by skilled tradesmen and licensed specialists he has vetted and trusts. You get the accountability of an owner-operator with the quality of a curated crew.",
+    title: "One Relationship, Full Accountability",
+    body: "Every engagement runs through a single point of contact — from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
   },
   {
     title: "Transparent From Day One",
     body: "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
   },
   {
-    title: "Built on Craftsmanship & Trust",
-    body: "Handy Pioneers takes on projects ranging from single-trade repairs to full kitchen, bathroom, and deck remodels. The standard is the same regardless of scope: do it right, stand behind it.",
+    title: "A System Built to Last",
+    body: "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time.",
   },
 ];
 
@@ -64,7 +64,7 @@ const outcomes = [
   {
     icon: TrendingUp,
     title: "Protected & Growing Asset Value",
-    body: "Proactive maintenance prevents the deferred-cost spiral. Homes under a structured maintenance plan consistently outperform neglected properties at resale — and you avoid the emergency repair premium.",
+    body: "A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale — and the emergency repair premium disappears entirely.",
   },
   {
     icon: HomeIcon,
@@ -74,7 +74,7 @@ const outcomes = [
   {
     icon: ShieldCheck,
     title: "Zero Contractor Coordination Burden",
-    body: "One call, one relationship. Marcin handles the full scope — from assessment to execution to trade coordination. You don't manage vendors. You manage your life.",
+    body: "One call, one relationship. The system handles the full scope — from assessment to execution to trade coordination. You don't manage vendors. You manage your life.",
   },
   {
     icon: FileText,
@@ -84,7 +84,7 @@ const outcomes = [
   {
     icon: Hammer,
     title: "Skilled Craftsmanship, Not Patch Work",
-    body: "We don't do quick fixes that create future problems. Every repair and renovation is done to last — using quality materials, proper technique, and the same standard regardless of project size.",
+    body: "Every repair and renovation is done to last — using quality materials, proper technique, and vetted tradesmen. The standard is the same regardless of project size.",
   },
   {
     icon: Zap,
@@ -263,7 +263,7 @@ export default function Home() {
 
           {/* Headline */}
           <div className="flex flex-col items-center justify-center text-center px-6 pt-12 pb-8">
-            <p className="text-xs font-bold uppercase tracking-widest mb-4" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+            <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
               Handy Pioneers · Clark County's Home Management Partner
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", maxWidth: "720px" }}>
@@ -273,9 +273,8 @@ export default function Home() {
               {" "}Not a Reaction.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Tell us where you are. We'll show you exactly where to go next.
-            </p>
-            {/* Marcin context */}
+              Tell us where you are. The system shows you exactly where to go next.
+            </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
                 src={MARCIN_PHOTO}
@@ -284,7 +283,7 @@ export default function Home() {
                 style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
               />
               <p className="text-xs text-left" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}>
-                <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Marcin Micek</span>, owner &amp; lead technician — WA Lic. HANDYP*761NH. Personally on every walkthrough and job in Clark County, WA.
+                <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Owner-led assessments.</span> WA Lic. HANDYP*761NH · $1M insured · Vetted tradesmen on every project · Clark County, WA.
               </p>
             </div>
             <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
@@ -621,17 +620,17 @@ export default function Home() {
                 Who We Are · Clark County, WA
               </p>
               <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
-                Built on Craftsmanship &amp; Trust
+                A System Built Around Your Home
               </h2>
               <div className="space-y-4 mb-8">
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Handy Pioneers was founded on a simple premise: homeowners deserve a contractor who shows up, communicates clearly, and does the work right the first time.
+                  Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Marcin Micek started Handy Pioneers after years of hearing the same frustrations from homeowners: contractors who ghost, estimates that balloon, and work that needs to be redone. He built this company to be the opposite of that experience.
+                  The 360° Method was created after years of seeing the same pattern: homeowners reacting to problems instead of preventing them, paying the emergency premium, and never quite knowing the true condition of what they owned.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Marcin personally leads every assessment and remains your single point of contact — but the work is executed by skilled tradesmen and licensed specialists he has vetted. You get owner accountability with a curated crew.
+                  Every engagement runs through a single relationship — owner-led assessments, a vetted crew of skilled tradesmen for execution, and a documented roadmap that compounds in value over time. You're not a transaction. You're a long-term client.
                 </p>
               </div>
               {/* Credentials grid */}
