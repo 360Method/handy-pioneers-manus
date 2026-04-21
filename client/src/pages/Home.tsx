@@ -31,7 +31,7 @@ const MARCIN_PHOTO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/P
 
 const PHASE_IMAGES = {
   aware: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-v3-c8jcSYFvmau28ZwUpGD4Vh.webp",
-  act: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v3-efjnmyPqq9UT5HjmGnXx9d.webp",
+  act: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v4-jwU4XG6UPccwgZoBTpgciD.webp",
   advance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
 };
 
