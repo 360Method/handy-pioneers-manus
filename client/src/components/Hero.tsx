@@ -172,7 +172,7 @@ export default function Hero() {
 
               <ul className="space-y-2 mb-8">
                 {[
-                  "Free on-site consultation",
+                  "Complimentary on-site consultation",
                   "Detailed written estimate",
                   "Licensed, insured, vetted crew",
                   "Marcin on every walkthrough",

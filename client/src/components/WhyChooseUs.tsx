@@ -110,13 +110,13 @@ export default function WhyChooseUs() {
             className="text-base mb-6"
             style={{ color: "oklch(0.45 0.05 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Ready to see the difference? Get a free, no-obligation estimate today.
+            Ready to begin your engagement? Request a complimentary on-site consultation today.
           </p>
           <button
             className="hcp-button text-base px-8 py-4"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Get a Free Estimate
+            Request a Complimentary Estimate
           </button>
         </div>
       </div>

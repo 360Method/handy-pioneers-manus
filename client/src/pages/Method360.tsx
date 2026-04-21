@@ -473,7 +473,7 @@ export default function Method360() {
           <div className="grid md:grid-cols-3 gap-5 mb-8">
             {[
               { label: "Scope & Complexity", detail: "A single rot repair vs. a full deck rebuild are priced differently. We assess the full scope before quoting — no surprises." },
-              { label: "Material Selections", detail: "We work with every budget tier. You choose the finish level — we price accordingly and document it in writing before work begins." },
+              { label: "Material Selections", detail: "You choose the finish level — we price accordingly and document it in writing before work begins." },
               { label: "Trade Coordination", detail: "Projects requiring licensed electricians, plumbers, or HVAC techs include vetted subcontractor costs, always disclosed upfront." },
             ].map((item) => (
               <div key={item.label} className="rounded-xl p-6 border" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.12)" }}>
@@ -486,7 +486,7 @@ export default function Method360() {
             ))}
           </div>
           <div className="rounded-xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4" style={{ backgroundColor: "rgba(200,137,42,0.10)", borderColor: "rgba(200,137,42,0.35)" }}>
-            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every project starts with a written estimate. Call Marcin for a ballpark before scheduling: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
+            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a written estimate. Call us for a ballpark before scheduling: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
             <button
               onClick={() => setShowReport(true)}
               className="shrink-0 text-sm font-bold px-5 py-2.5 rounded-lg border-0 cursor-pointer transition-opacity hover:opacity-80 whitespace-nowrap"
@@ -511,8 +511,7 @@ export default function Method360() {
             className="text-lg mb-8"
             style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Call Marcin directly. He'll help you identify the right entry point for your home in
-            under five minutes.
+            Reach us directly. We'll help you identify the right entry point for your home in under five minutes.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

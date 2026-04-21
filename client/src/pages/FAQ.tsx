@@ -36,7 +36,7 @@ const faqs: FAQCategory[] = [
       },
       {
         q: "What affects the final cost of a project?",
-        a: "The main factors are: scope and complexity, material selections (we can work with any budget tier), access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding.",
+        a: "The main factors are: scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding.",
       },
     ],
   },
@@ -45,11 +45,11 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "Do you use subcontractors?",
-        a: "For specialized trades (electrical, plumbing, HVAC), yes — we work with vetted, licensed subcontractors. Marcin coordinates and oversees all trade work. For general carpentry, maintenance, and renovation work, Marcin does the work himself. You'll always know in advance who is coming to your home.",
+        a: "For specialized trades (electrical, plumbing, HVAC), yes — we work with vetted, licensed subcontractors. Every trade partner is screened and coordinated through a single point of contact. You'll always know in advance who is coming to your home.",
       },
       {
-        q: "Will Marcin personally be on my project?",
-        a: "Yes. Marcin personally conducts every assessment walkthrough and is present on every job. He is not a salesperson who hands you off — he is the technician. This is a deliberate choice, not a limitation.",
+        q: "Who will actually be on my property?",
+        a: "Every assessment walkthrough is owner-led. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You are never handed off to someone you haven't met — the relationship is consistent from first call to final walkthrough.",
       },
       {
         q: "Are you licensed and insured?",
@@ -227,7 +227,7 @@ export default function FAQ() {
               className="mb-6 text-sm"
               style={{ color: "rgba(255,255,255,0.70)" }}
             >
-              Call Marcin directly — no gatekeepers, no callback queues.
+              Reach us directly — no gatekeepers, no callback queues.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
@@ -236,7 +236,7 @@ export default function FAQ() {
                   if (window.HCPWidget) window.HCPWidget.openModal();
                 }}
               >
-                Request a Free Estimate
+                Request a Complimentary Estimate
               </button>
               <a
                 href="tel:+13605449858"

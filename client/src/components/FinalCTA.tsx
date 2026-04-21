@@ -41,7 +41,7 @@ export default function FinalCTA() {
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            Book online in minutes and get a free, no-obligation estimate. Licensed,
+            Begin your engagement with a complimentary on-site consultation. Licensed,
             insured, and backed by a 1-year labor guarantee.
           </p>
 

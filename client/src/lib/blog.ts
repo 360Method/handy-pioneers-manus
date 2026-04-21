@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "What to check: Walk the exterior of your house and look at every window and door frame. Run your finger along the caulk line. If it's cracked, pulling away from the frame, or missing in sections, it needs to be replaced. This is a $150–$300 repair that prevents a $3,000–$8,000 wall repair." },
       { type: "blockquote", text: "\"The repairs that cost the most money are almost never the ones homeowners called about. They're the ones that were quietly getting worse in the background.\" — Marcin Micek, Handy Pioneers" },
       { type: "p", text: "At Handy Pioneers, we look at your home as a complete system — not just individual repairs. Our 360° approach means that when we come out for any job, we're also looking at the things you didn't call about. Because catching a $300 problem before it becomes a $10,000 problem is the best service we can offer." },
-      { type: "cta", text: "Book your free spring home assessment before our April schedule fills up.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Begin your spring home assessment before our April schedule fills up.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -171,7 +171,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Based on our conversations with local real estate agents and the pre-listing work we do for sellers, the most common inspection items that trigger price negotiations or deal cancellations in Clark County are: deck structural concerns (ledger connections, post bases), evidence of moisture intrusion (water staining, soft floors, crawl space issues), deferred exterior maintenance (peeling paint, failed caulking, moss on roof), and electrical safety items (GFCI outlets, panel age). None of these are expensive to address proactively. All of them are expensive to negotiate around after an inspection report." },
       { type: "h2", text: "The 360° Approach to Home Value" },
       { type: "p", text: "At Handy Pioneers, we look at your home as a complete system — not just individual repairs. We call it our 360° approach: a structured walk-through that identifies what's working, what needs attention now, and what can wait. For homeowners thinking about selling in the next one to three years, this kind of prioritized assessment is the most valuable thing you can do before you call a real estate agent." },
-      { type: "cta", text: "Not sure where to start? We'll walk your property and give you a prioritized list — free.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Not sure where to start? We'll walk your property and give you a prioritized list — complimentary.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -215,7 +215,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "7. Do you use subcontractors, and are they vetted?" },
       { type: "p", text: "Many contractors subcontract work without telling homeowners. That's not inherently wrong — specialty trades like electrical and plumbing require separate licensing. But you should know who is in your home and whether they're held to the same standards as the company you hired. At Handy Pioneers, we're transparent about when we use specialty partners, and every partner we work with is licensed, insured, and vetted." },
       { type: "blockquote", text: "\"We answer yes to all seven. That's not a boast — it's a baseline. It's what every contractor you hire should be able to say.\" — Marcin Micek, Handy Pioneers" },
-      { type: "cta", text: "We answer yes to all seven. Get your free estimate today.", ctaLabel: "Request Free Estimate", ctaAction: "booking" },
+      { type: "cta", text: "We answer yes to all seven. Request a complimentary estimate today.", ctaLabel: "Request Complimentary Estimate", ctaAction: "booking" },
     ],
   },
 
@@ -251,7 +251,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Total time: about four hours. Total cost: $680. The homeowner's reaction when we walked her through what we'd found and what we'd done: 'I had no idea the stringer was the problem. I thought it was just a board.'" },
       { type: "h2", text: "Why This Is Exactly What the 360° Method Is For" },
       { type: "p", text: "This is exactly why we developed the 360° Method — a complete walk-through of every system in your home, not just the one you called about. A broken board is a symptom. The 360° Method finds the cause. In this case, the cause was a rotted stringer and a moisture-trapping lattice panel. Finding both on the same visit saved this homeowner from two separate repair calls — and from a siding replacement that would have cost 10 times what the lattice repair cost." },
-      { type: "cta", text: "Don't wait for a fall. We'll assess your exterior for free.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Don't wait for a fall. We'll assess your exterior — complimentary.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -327,7 +327,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Total repair cost: $1,100. If the homeowner had waited another two months, the subfloor would have required replacement — a $3,500–$5,000 repair. Financial advisors recommend setting aside 1–4% of your home's value annually for maintenance precisely to avoid this kind of compounding cost. [2]" },
       { type: "h2", text: "The 360° Moisture Assessment" },
       { type: "p", text: "The 360° Method starts with a complete moisture assessment — because water damage rarely stays where you first find it. On this job, we also checked the dishwasher connection, the refrigerator water line, and the bathroom directly above the kitchen. The leak was isolated. But we needed to verify that before we could tell the homeowner she was in the clear." },
-      { type: "cta", text: "Noticed something under your sink? Don't wait. We'll take a look for free.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Noticed something under your sink? Don't wait. We'll take a look — complimentary.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -405,7 +405,7 @@ export const blogPosts: BlogPost[] = [
       ]},
       { type: "h2", text: "Our 360° Deck Assessment" },
       { type: "p", text: "Our 360° Method includes a structural deck assessment as part of every exterior evaluation. We check all of the above, photograph our findings, and give you a written report with repair priorities and estimated costs. No sales pressure — just information you can use to make a decision." },
-      { type: "cta", text: "Free deck assessment — we'll tell you exactly what you're working with.", ctaLabel: "Request Free Deck Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Complimentary deck assessment — we'll tell you exactly what you're working with.", ctaLabel: "Request Complimentary Deck Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -520,7 +520,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "A Vancouver Case Study" },
       { type: "p", text: "We had a Vancouver homeowner last year whose roof had four years of moss growth on the north slope. When we treated it and inspected the shingles underneath, we found that the moss had voided the manufacturer's warranty — the warranty explicitly excluded damage caused by biological growth. The homeowner was planning to sell in two years. A $400 treatment and a zinc strip installation saved them from a warranty dispute and a potential roof replacement negotiation at sale." },
       { type: "p", text: "Spring is the best time to treat moss — before summer heat bakes the moss into the shingles and makes removal more difficult. If you can see green on your roof from the street, it's time." },
-      { type: "cta", text: "Spring is the best time to treat moss before summer heat bakes it in. Get a free exterior assessment.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "cta", text: "Spring is the best time to treat moss before summer heat bakes it in. Request a complimentary exterior assessment.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -697,8 +697,8 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Proactive cost: $200–$500 (spot touch-up). Reactive cost: $4,000–$12,000 (full exterior repaint plus wood repair). Paint is your siding's primary moisture barrier. When it peels or cracks, moisture gets into the wood beneath. Spot touch-up every 2–3 years extends the life of a full paint job by 5–7 years." },
       { type: "h2", text: "5. Crawl Space Vapor Barrier" },
       { type: "p", text: "Proactive cost: $600–$1,200 (repair or replacement). Reactive cost: $8,000–$20,000 (floor joist replacement, mold remediation, structural repair). A torn or missing vapor barrier allows ground moisture to migrate into the crawl space, elevating humidity and causing wood rot and mold in the floor framing. This is the repair that homeowners most consistently discover too late." },
-      { type: "blockquote", text: "\"We'll walk your property and give you a prioritized repair list — free, no obligation. Because knowing what to fix first is worth more than any single repair.\" — Marcin Micek, Handy Pioneers" },
-      { type: "cta", text: "We'll walk your property and give you a prioritized repair list — free, no obligation.", ctaLabel: "Request Free Assessment", ctaAction: "booking" },
+      { type: "blockquote", text: "\"We'll walk your property and give you a prioritized repair list — complimentary, no obligation. Because knowing what to fix first is worth more than any single repair.\" — Marcin Micek, Handy Pioneers" },
+      { type: "cta", text: "We'll walk your property and give you a prioritized repair list — complimentary, no obligation.", ctaLabel: "Request Complimentary Assessment", ctaAction: "booking" },
     ],
   },
 
@@ -815,7 +815,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "The Track step is about memory. Every repair, every contractor, every dollar spent gets logged — not in a drawer full of receipts, but in a structured, searchable record. Over time, this log reveals patterns: the same contractor who does excellent work, the system that keeps failing, the repair that was done wrong and needs to be redone." },
       { type: "p", text: "The Track log is also your home's value documentation. When you sell, you hand the buyer a complete maintenance history. That's not just a nice-to-have — it's a negotiating tool. Buyers pay more for homes with documented care." },
       { type: "h2", text: "How to Start" },
-      { type: "p", text: "The 360° Method app at www.360degreemethod.com [2] walks you through the Baseline, Inspect, and Track steps with guided prompts, checklists, and a pre-built maintenance log. You can start free and upgrade when you want AI-powered insights and automated scheduling." },
+      { type: "p", text: "The 360° Method app at www.360degreemethod.com [2] walks you through the Baseline, Inspect, and Track steps with guided prompts, checklists, and a pre-built maintenance log. You can start at no cost and upgrade when you want AI-powered insights and automated scheduling." },
       { type: "p", text: "Or, if you'd rather have someone run the protocol for you, Handy Pioneers offers a full 360° assessment — we walk your home, document every system, identify every priority, and hand you a complete written report." },
       { type: "cta", text: "Start with a 360° assessment — we run Phase 1 for you and hand you the results.", ctaLabel: "Schedule 360° Assessment", ctaAction: "booking" },
     ],
@@ -854,7 +854,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Because we're confident in our work. A guarantee is only as meaningful as the company's willingness to honor it — and honoring it requires being in business, being reachable, and being willing to show up. We've been serving Clark County since 2019. We're not going anywhere." },
       { type: "p", text: "Washington State requires contractor registration and bonding through L&I. [1] The bond protects you if a contractor doesn't complete the work. Our guarantee goes further — it covers the quality of the work after it's complete. That's a choice we make because we believe it's the right way to operate." },
       { type: "blockquote", text: "\"A guarantee is only as meaningful as the company's willingness to honor it. We show up.\" — Marcin Micek, Handy Pioneers" },
-      { type: "cta", text: "Ready to work with a contractor who stands behind every job? Get your free estimate.", ctaLabel: "Request Free Estimate", ctaAction: "booking" },
+      { type: "cta", text: "Ready to work with a team that stands behind every project? Request a complimentary estimate.", ctaLabel: "Request Complimentary Estimate", ctaAction: "booking" },
     ],
   },
 
@@ -889,7 +889,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Full-county coverage means you have access to a licensed, insured, 5-star-rated team regardless of your zip code. It means the same 360° assessment, the same written estimates, the same 1-year labor guarantee, and the same communication standards — whether you're in a Vancouver suburb or a Ridgefield new construction." },
       { type: "h2", text: "A Note on Scheduling" },
       { type: "p", text: "We're honest about travel time. Jobs in La Center or Washougal may have slightly longer lead times than jobs in central Vancouver — not because we deprioritize those areas, but because we schedule efficiently to minimize drive time and keep costs reasonable for everyone. We'll always tell you the realistic timeline upfront." },
-      { type: "cta", text: "Wherever you are in Clark County, we serve you. Get your free estimate today.", ctaLabel: "Request Free Estimate", ctaAction: "booking" },
+      { type: "cta", text: "Wherever you are in Clark County, we serve you. Request a complimentary estimate today.", ctaLabel: "Request Complimentary Estimate", ctaAction: "booking" },
     ],
   },
 
@@ -929,7 +929,7 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "Feature 4: Direct Booking" },
       { type: "p", text: "Every reminder, every project queue item, and every assessment finding connects directly to a Handy Pioneers booking request. One tap from 'this needs attention' to 'job scheduled.' For Fully Managed clients, we handle the scheduling automatically." },
       { type: "h2", text: "Three Ways to Use It" },
-      { type: "p", text: "The platform offers three paths: DIY (you run the full system yourself, free), Hybrid (the app automates tracking and reminders, you handle execution), and Fully Managed (Handy Pioneers runs everything). You choose the level of support that fits your situation." },
+      { type: "p", text: "The platform offers three paths: DIY (you run the full system yourself, at no cost), Hybrid (the app automates tracking and reminders, you handle execution), and Fully Managed (Handy Pioneers runs everything). You choose the level of support that fits your situation." },
       { type: "p", text: "We're in active development now. Visit www.360degreemethod.com to learn more and get on the early access list. Current Handy Pioneers clients will have their existing assessment reports and repair history pre-loaded into their accounts." },
       { type: "cta", text: "Book a 360° assessment now and get early access to the platform when it launches.", ctaLabel: "Book 360° Assessment", ctaAction: "booking" },
     ],
@@ -964,7 +964,7 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "None of these things are required. They're choices. And the choices a contractor makes about the small things tell you everything about how they'll handle the big things." },
       { type: "blockquote", text: "\"The choices a contractor makes about the small things tell you everything about how they'll handle the big things.\" — Marcin Micek, Handy Pioneers" },
       { type: "p", text: "We're proud of the name on the truck. We've earned it one job at a time, in Clark County, since 2019. And we're not done." },
-      { type: "cta", text: "Ready to work with a team that takes the small things seriously? Get your free estimate.", ctaLabel: "Request Free Estimate", ctaAction: "booking" },
+      { type: "cta", text: "Ready to work with a team that takes the small things seriously? Request a complimentary estimate.", ctaLabel: "Request Complimentary Estimate", ctaAction: "booking" },
     ],
   },
 

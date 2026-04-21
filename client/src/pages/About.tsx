@@ -17,14 +17,14 @@ const credentials = [
   { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center" },
   { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
-  { icon: Wrench, label: "Owner on Every Job", detail: "Marcin personally on every walkthrough & project" },
+  { icon: Wrench, label: "Owner on Every Assessment", detail: "Owner-led assessments · Vetted crew on every project" },
 ];
 
 const values = [
   {
-    title: "One Point of Contact",
+    title: "One Relationship, Full Accountability",
     body:
-      "Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result. You're never handed off.",
+      "Every engagement runs through a single point of contact — from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
   },
   {
     title: "Transparent From Day One",
@@ -32,9 +32,9 @@ const values = [
       "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
   },
   {
-    title: "Built on Craftsmanship & Trust",
+    title: "A System Built to Last",
     body:
-      "Handy Pioneers takes on projects ranging from single-trade repairs to full kitchen, bathroom, and deck remodels. The standard is the same regardless of scope: do it right, stand behind it.",
+      "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function About() {
             className="text-4xl md:text-5xl font-bold text-white leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            Built on Craftsmanship<br />&amp; Trust
+            A System Built Around<br />Your Home
           </h1>
           <p
             className="mt-4 text-lg max-w-xl"
@@ -142,20 +142,20 @@ export default function About() {
                   className="text-3xl font-bold mb-5 leading-snug"
                   style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                 >
-                  Marcin Leads Every Project — From Estimate to Final Walkthrough
+                  Owner-Led Assessments. A Vetted Crew. One Relationship.
                 </h2>
                 <div
                   className="space-y-4 text-base leading-relaxed"
                   style={{ color: "oklch(0.38 0.02 80)" }}
                 >
                   <p>
-                    Handy Pioneers is an owner-operated remodeling and repair company serving Clark County, WA. Marcin leads every project — from the initial design and estimate through to the final walkthrough.
+                    Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
                   </p>
                   <p>
-                    On licensed trade work and larger remodels, we bring in a trusted network of vetted subcontractors and crew members so every aspect of your project is handled by the right hands.
+                    Every engagement runs through a single relationship. Owner-led assessments ensure nothing is missed. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — the system manages it for you.
                   </p>
                   <p>
-                    Founded by <strong>Marcin Micek</strong>, Handy Pioneers takes on projects ranging from single-trade repairs (rot repair, carpentry, fixture replacement) to full kitchen, bathroom, and deck remodels. Whether Marcin is swinging the hammer himself or coordinating licensed trade partners, he remains your single point of contact — accountable for quality, communication, and the finished result.
+                    The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time. You're not a transaction. You're a long-term client.
                   </p>
                 </div>
               </div>
@@ -258,13 +258,13 @@ export default function About() {
             className="text-3xl font-bold mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
           >
-            Ready to Work With Marcin?
+            Ready to Begin Your Engagement?
           </h2>
           <p
             className="text-base mb-8"
             style={{ color: "oklch(0.45 0.02 80)" }}
           >
-            Every engagement starts with a free on-site consultation — no pressure, no commitment. Tell us what you're dealing with and we'll tell you exactly how we can help.
+            Every engagement starts with a complimentary on-site consultation — no pressure, no commitment. Tell us what you're dealing with and we'll show you exactly where to go next.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
@@ -273,7 +273,7 @@ export default function About() {
                 if (window.HCPWidget) window.HCPWidget.openModal();
               }}
             >
-              Request a Free Estimate
+              Request a Complimentary Estimate
             </button>
             <a
               href="tel:+13605449858"
