@@ -403,8 +403,8 @@ export default function Home() {
       <section id="about" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
         <div className="container max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Photo column */}
-            <div className="flex flex-col gap-6">
+            {/* Photo column — shown second on mobile */}
+            <div className="flex flex-col gap-6 order-last md:order-first">
               <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
                 <img src={MARCIN_PHOTO} alt="Marcin Micek — Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
               </div>
@@ -414,14 +414,14 @@ export default function Home() {
                   <Shield size={18} color="white" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>WA License HANDYP*761NH</p>
-                  <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Licensed Contractor · $1M General Liability · 1-Year Labor Guarantee</p>
+                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>Marcin Micek — Owner</p>
+                  <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Handy Pioneers LLC · Clark County, WA</p>
                 </div>
               </div>
             </div>
 
-            {/* Story column */}
-            <div>
+            {/* Story column — shown first on mobile */}
+            <div className="order-first md:order-last">
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
                 Who We Are · Clark County, WA
               </p>
@@ -675,7 +675,7 @@ export default function Home() {
               FAQ
             </p>
             <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.18 0.07 160)" }}>
-              Questions Every Skeptical Homeowner Asks
+              Questions Before You Pick Up the Phone
             </h2>
             <p className="text-base" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
               Answered honestly.
