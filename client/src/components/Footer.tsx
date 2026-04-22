@@ -206,9 +206,7 @@ export default function Footer() {
                 More
               </h4>
               <a
-                href="https://360.handypioneers.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/membership"
                 className="text-sm hover:opacity-80 transition-opacity"
                 style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
               >

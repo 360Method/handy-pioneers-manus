@@ -334,7 +334,7 @@ export default function Method360Translation() {
             managed schedule. We execute. You own a better asset.
           </p>
           <button
-            onClick={() => navigate("/360-method/membership")}
+            onClick={() => navigate("/membership")}
             className="inline-flex items-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90"
             style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
           >

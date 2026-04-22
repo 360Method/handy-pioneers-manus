@@ -52,7 +52,7 @@ export default function Method360Offer() {
     // In a Stripe-enabled build, this would open the checkout flow.
     // For now, navigate to the membership page with tier pre-selected.
     sessionStorage.setItem("360_selected_tier", "managed");
-    setTimeout(() => navigate("/360-method/membership?enrolled=true"), 1200);
+    setTimeout(() => navigate("/membership?enrolled=true"), 1200);
   }
 
   function handleDecline() {
