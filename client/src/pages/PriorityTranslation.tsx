@@ -875,7 +875,7 @@ function ThankYouState() {
         Your Report Is Being Reviewed
       </h3>
       <p
-        className="text-base mb-3 mx-auto"
+        className="text-base mb-4 mx-auto"
         style={{
           color: "oklch(0.35 0.02 80)",
           fontFamily: "'Source Sans 3', sans-serif",
@@ -885,16 +885,27 @@ function ThankYouState() {
         You'll receive your 360° Priority Translation within 24 hours.
       </p>
       <p
+        className="text-sm mb-3 mx-auto"
+        style={{
+          color: "oklch(0.32 0.02 80)",
+          fontFamily: "'Source Sans 3', sans-serif",
+          maxWidth: "520px",
+          fontWeight: 600,
+        }}
+      >
+        We're creating your client portal account — look for a login link in your
+        email within 24 hours.
+      </p>
+      <p
         className="text-sm mx-auto"
         style={{
-          color: "oklch(0.42 0.02 80)",
+          color: "oklch(0.45 0.02 80)",
           fontFamily: "'Source Sans 3', sans-serif",
           maxWidth: "520px",
         }}
       >
-        We're also creating your private 360° client portal — a living health
-        record for your property. Watch your inbox for a magic-link login, along
-        with your roadmap PDF attached for convenience.
+        Your portal becomes the living health record for your property —
+        a single, private home for every roadmap, finding, and return visit.
       </p>
     </div>
   );
