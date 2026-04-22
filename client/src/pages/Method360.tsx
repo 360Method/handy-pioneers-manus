@@ -153,11 +153,35 @@ export default function Method360() {
               The Standard of Care Your Home Has Always Deserved.
             </p>
             <p
-              className="text-base leading-relaxed"
+              className="text-base leading-relaxed mb-8"
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "500px" }}
             >
               Most homeowners react. The ones who don't have a system — one that knows their home, maintains it with precision, and advances it with intention. Every season. Without exception.
             </p>
+
+            {/* Above-the-fold enrollment CTAs */}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+              <button
+                onClick={() => navigate("/membership")}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90"
+                style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Enroll in the 360° Method <ArrowRight size={16} />
+              </button>
+              <button
+                onClick={() => {
+                  const el = document.getElementById("framework");
+                  if (el) {
+                    const top = el.getBoundingClientRect().top + window.scrollY - 72;
+                    window.scrollTo({ top, behavior: "smooth" });
+                  }
+                }}
+                className="text-sm font-semibold underline underline-offset-4 transition-opacity hover:opacity-70 bg-transparent border-0 cursor-pointer"
+                style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Read the methodology first ↓
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -181,7 +205,7 @@ export default function Method360() {
       </section>
 
       {/* ─── Three Phases ─── */}
-      <section className="py-20" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+      <section id="framework" className="py-20" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
         <div className="container">
           <div className="text-center mb-14">
             <div className="section-divider mb-4 justify-center">

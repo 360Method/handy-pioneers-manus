@@ -25,7 +25,13 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [, navigate] = useLocation();
+  const [location, navigate] = useLocation();
+
+  const isMethodOrMembership =
+    location === "/360-method" ||
+    location.startsWith("/360-method/") ||
+    location === "/membership" ||
+    location.startsWith("/membership/");
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -157,9 +163,21 @@ export default function Navbar() {
           >
             (360) 544-9858
           </a>
-          <button className="hcp-button" onClick={handleBookOnline}>
-            Schedule a Consultation
-          </button>
+          {isMethodOrMembership ? (
+            <button
+              className="hcp-button"
+              onClick={() => {
+                setMobileOpen(false);
+                navigate("/membership");
+              }}
+            >
+              Enroll in 360° Method →
+            </button>
+          ) : (
+            <button className="hcp-button" onClick={handleBookOnline}>
+              Schedule a Consultation
+            </button>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -203,9 +221,21 @@ export default function Navbar() {
           >
             Call: (360) 544-9858
           </a>
-          <button className="hcp-button w-full mt-2" onClick={handleBookOnline}>
-            Schedule a Consultation
-          </button>
+          {isMethodOrMembership ? (
+            <button
+              className="hcp-button w-full mt-2"
+              onClick={() => {
+                setMobileOpen(false);
+                navigate("/membership");
+              }}
+            >
+              Enroll in 360° Method →
+            </button>
+          ) : (
+            <button className="hcp-button w-full mt-2" onClick={handleBookOnline}>
+              Schedule a Consultation
+            </button>
+          )}
         </div>
       )}
     </nav>

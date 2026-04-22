@@ -153,6 +153,18 @@ async function startServer() {
     }
   );
 
+  // Same-origin lead-capture fallback used by the /membership checkout UI
+  // when the cross-origin POST to pro.handypioneers.com is blocked (CORS/network).
+  // Logs a structured line so leads are retrievable from Railway logs during
+  // the outage window. Temporary bridge until HP Pro API CORS ships.
+  app.post("/api/fallback-lead", (req, res) => {
+    const payload = req.body ?? {};
+    console.log(
+      `[FALLBACK_LEAD] ${new Date().toISOString()} ${JSON.stringify(payload)}`
+    );
+    res.json({ ok: true });
+  });
+
   // ─── Static SPA ──────────────────────────────────────────────────────────
   const staticPath =
     process.env.NODE_ENV === "production"

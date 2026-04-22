@@ -75,6 +75,7 @@ export default function MembershipCheckout() {
   const [error, setError] = useState<string | null>(null);
   const [zipError, setZipError] = useState<string | null>(null);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [fallbackCaptured, setFallbackCaptured] = useState(false);
   const [form, setForm] = useState({
     firstName: "", lastName: "", email: "", phone: "",
     address: "", city: "", state: "WA", zip: "",
@@ -160,6 +161,32 @@ export default function MembershipCheckout() {
       sessionStorage.setItem("hp360_type", "homeowner");
       window.location.href = url;
     } catch (err: unknown) {
+      // Detect network/CORS failure (TypeError: "Failed to fetch") and route
+      // to the same-origin fallback endpoint so the lead isn't lost while
+      // HP Estimator CORS is broken. See BACKEND_CORS_FIX.md.
+      const isNetworkOrCors = err instanceof TypeError;
+      if (isNetworkOrCors) {
+        try {
+          await fetch("/api/fallback-lead", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              source: "membership_checkout_cors_fallback",
+              tier: apiTier,
+              cadence: activeCadence,
+              propertyType,
+              customer,
+              submittedAt: new Date().toISOString(),
+            }),
+          });
+        } catch {
+          // Even the same-origin fallback failed — still show fallback UI so
+          // the visitor has a next step.
+        }
+        setFallbackCaptured(true);
+        setLoading(false);
+        return;
+      }
       setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
       setLoading(false);
     }
@@ -185,6 +212,61 @@ export default function MembershipCheckout() {
   const cadenceSuffix = activeCadence === "monthly" ? "mo" : activeCadence === "quarterly" ? "qtr" : "yr";
   const hasLaborBank = tierData.laborBankDollars > 0;
   const visitsDesc = tierData.visits === 2 ? "2 seasonal visits/yr" : "4 seasonal visits/yr";
+
+  if (fallbackCaptured) {
+    return (
+      <div className="min-h-screen font-sans flex flex-col" style={{ background: "oklch(96% 0.015 80)" }}>
+        <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
+          <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
+            <span>5-Star Rated · Licensed &amp; Insured · WA Lic. HANDYP*761NH</span>
+            <a href="tel:3605449858" className="hover:text-white transition-colors font-medium">
+              (360) 544-9858
+            </a>
+          </div>
+        </div>
+        <main className="flex-1 flex items-center justify-center px-4 py-16">
+          <div
+            className="w-full max-w-xl rounded-2xl p-8 md:p-10 text-center bg-white"
+            style={{ border: `2px solid ${G}`, boxShadow: "0 4px 32px oklch(0 0 0 / 0.08)" }}
+          >
+            <div
+              className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-5"
+              style={{ background: "oklch(22% 0.07 155 / 0.10)" }}
+            >
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={G} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+            <h1 className="font-display text-2xl md:text-3xl font-black mb-3" style={{ color: G }}>
+              We've Captured Your Interest
+            </h1>
+            <p className="text-sm leading-relaxed mb-4" style={{ color: M }}>
+              Payment processing is temporarily unavailable. A member of the Handy Pioneers team will reach out within 24 hours to complete your enrollment in the 360° Method and confirm your first visit.
+            </p>
+            <p className="text-sm leading-relaxed mb-6" style={{ color: M }}>
+              You'll hear from us at <strong style={{ color: G }}>{form.email}</strong> or <strong style={{ color: G }}>{form.phone}</strong>.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <a
+                href="tel:+13605449858"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-bold text-sm text-white transition-opacity hover:opacity-90"
+                style={{ background: G, textDecoration: "none" }}
+              >
+                Call (360) 544-9858
+              </a>
+              <button
+                onClick={() => navigate("/membership")}
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold text-sm border transition-opacity hover:opacity-80"
+                style={{ borderColor: G, color: G, background: "white" }}
+              >
+                Back to Membership
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>

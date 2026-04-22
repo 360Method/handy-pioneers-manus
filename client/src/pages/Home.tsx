@@ -322,13 +322,20 @@ export default function Home() {
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
                   Deck repair. Bathroom remodel. Fence replacement. Whatever the project, we walk the property, assess the full scope, and present a clear plan with no surprises.
                 </p>
-                <ul className="space-y-2 mb-8">
+                <ul className="space-y-2 mb-5">
                   {["Complimentary on-site consultation", "Written scope of work and project plan", "Licensed, insured, vetted crew", "Owner-led assessment"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <span style={{ color: "oklch(0.80 0.10 65)" }}>✓</span> {item}
                     </li>
                   ))}
                 </ul>
+                {/* TODO: confirm portal auto-provisioning on Path A submit — nucleus architecture item. */}
+                <p
+                  className="text-xs leading-relaxed mb-8 italic"
+                  style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  You'll receive a client portal login link along with your written scope of work.
+                </p>
               </div>
               <div className="flex items-center justify-between rounded-xl px-5 py-4 transition-all duration-200 group-hover:brightness-110" style={{ backgroundColor: "oklch(0.65 0.14 65)" }}>
                 <span className="font-bold text-sm uppercase tracking-wider" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Schedule a Consultation</span>
