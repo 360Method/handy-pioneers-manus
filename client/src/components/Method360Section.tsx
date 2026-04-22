@@ -137,6 +137,15 @@ export default function Method360Section() {
           >
             Read the Full Story
           </button>
+          <a
+            href="https://360.handypioneers.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-base border-2 border-amber-400/60 text-amber-300 hover:bg-amber-400/10 transition-all"
+            style={{ fontFamily: "'Source Sans 3', sans-serif", fontSize: "1rem" }}
+          >
+            Explore the 360° Method
+          </a>
         </div>
       </div>
     </section>

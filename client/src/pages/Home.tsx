@@ -437,7 +437,7 @@ export default function Home() {
               </h2>
               <div className="space-y-4 mb-8">
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
+                  Handy Pioneers was built around a singular belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                   The 360° Method was created after years of seeing the same pattern: homeowners reacting to problems instead of preventing them, paying the emergency premium, and never quite knowing the true condition of what they owned.

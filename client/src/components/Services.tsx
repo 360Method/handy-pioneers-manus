@@ -50,6 +50,7 @@ export default function Services() {
           {services.map(({ icon: Icon, name, desc }, i) => (
             <div
               key={name}
+              id={`service-${name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`}
               className="reveal group flex flex-col items-center text-center p-4 rounded-lg border transition-all duration-200 hover:-translate-y-1 hover:shadow-md cursor-default"
               style={{
                 backgroundColor: "oklch(1 0 0)",

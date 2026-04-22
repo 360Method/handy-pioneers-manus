@@ -36,7 +36,7 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6"
               style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              Licensed and insured handyman and remodeling contractor serving Clark County, WA.
+              Licensed and insured home care and remodeling contractor serving Clark County, WA. (WA Lic. HANDYP★761NH)
               Quality craftsmanship backed by a 1-year labor guarantee.
             </p>
 
@@ -196,6 +196,25 @@ export default function Footer() {
             >
               Choose Your Path
             </button>
+
+            {/* Related */}
+            <div className="mt-8">
+              <h4
+                className="text-sm font-bold uppercase tracking-widest mb-3"
+                style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                More
+              </h4>
+              <a
+                href="https://360.handypioneers.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm hover:opacity-80 transition-opacity"
+                style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Explore the 360° Method
+              </a>
+            </div>
           </div>
         </div>
       </div>
