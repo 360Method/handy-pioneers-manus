@@ -156,7 +156,7 @@ export default function LocationMap() {
               className="hcp-button w-full mt-8"
               onClick={() => (window as any).HCPWidget?.openModal()}
             >
-              Request Complimentary Estimate
+              Schedule a Complimentary Consultation
             </button>
           </div>
         </div>

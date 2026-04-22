@@ -173,7 +173,7 @@ export default function Hero() {
               <ul className="space-y-2 mb-8">
                 {[
                   "Complimentary on-site consultation",
-                  "Detailed written estimate",
+                  "Written scope of work and project plan",
                   "Licensed, insured, vetted crew",
                   "Marcin on every walkthrough",
                 ].map((item) => (

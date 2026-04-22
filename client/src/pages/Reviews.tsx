@@ -116,14 +116,14 @@ export default function Reviews() {
           style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}
         >
           Join Clark County homeowners who trust Handy Pioneers for quality work,
-          honest communication, and a 1-year labor guarantee.
+          honest communication, and a home that gets better every season.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             className="hcp-button text-base px-8 py-4"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Request a Complimentary Estimate
+            Schedule a Complimentary Consultation
           </button>
           <a
             href="tel:+13605449858"

@@ -50,7 +50,7 @@ export default function TermsAndConditions() {
 
           <Section title="1. Agreement to Terms">
             <p>
-              These Terms and Conditions ("Terms") govern your use of the services provided by Handy Pioneers ("we," "us," or "our"), a licensed home services and remodeling contractor serving Clark County, Washington. By requesting a service estimate, scheduling a project, or communicating with us via our website, phone, email, or text message, you agree to be bound by these Terms.
+              These Terms and Conditions ("Terms") govern your use of the services provided by Handy Pioneers ("we," "us," or "our"), a licensed home services and remodeling contractor serving Clark County, Washington. By requesting a consultation, scheduling a project, or communicating with us via our website, phone, email, or text message, you agree to be bound by these Terms.
             </p>
           </Section>
 
@@ -59,7 +59,7 @@ export default function TermsAndConditions() {
               Handy Pioneers provides residential home services, repair, and remodeling in Clark County, Washington, including but not limited to carpentry, painting, flooring, deck maintenance, pressure washing, and general home repair. All services are performed by licensed and insured professionals. Washington State Contractor License: HANDYP*761NH.
             </p>
             <p>
-              Estimates are provided at no charge and are valid for 30 days from the date of issue. Acceptance of an estimate constitutes agreement to proceed with the described work at the quoted price, subject to any conditions noted in the estimate.
+              Initial consultations are provided at no charge. Following your consultation, a written scope of work and project plan will be issued and is valid for 30 days from the date of issue. Acceptance of the written scope constitutes agreement to proceed with the described work at the quoted price, subject to any conditions noted therein.
             </p>
           </Section>
 
@@ -68,10 +68,10 @@ export default function TermsAndConditions() {
               <strong>Program Name:</strong> Handy Pioneers SMS Service Communications
             </p>
             <p>
-              <strong>Program Description:</strong> By providing your mobile phone number and consenting to receive text messages, you agree to receive SMS messages from Handy Pioneers related to your service request. These messages may include estimate confirmations, appointment reminders, project status updates, follow-up messages after service completion, and responses to inquiries you initiate.
+              <strong>Program Description:</strong> By providing your mobile phone number and consenting to receive text messages, you agree to receive SMS messages from Handy Pioneers related to your service request. These messages may include consultation confirmations, appointment reminders, project status updates, follow-up messages after service completion, and responses to inquiries you initiate.
             </p>
             <p>
-              <strong>Message Frequency:</strong> Message frequency varies based on your service activity. You may receive up to 5 messages per service engagement (estimate request, scheduling, appointment reminder, day-of confirmation, and follow-up).
+              <strong>Message Frequency:</strong> Message frequency varies based on your service activity. You may receive up to 5 messages per service engagement (consultation request, scheduling, appointment reminder, day-of confirmation, and follow-up).
             </p>
             <p>
               <strong>Message and Data Rates:</strong> Message and data rates may apply. Check with your mobile carrier for details about your plan's messaging rates.

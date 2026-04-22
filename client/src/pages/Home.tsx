@@ -52,7 +52,7 @@ const values = [
   },
   {
     title: "Transparent From Day One",
-    body: "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
+    body: "Every engagement starts with a complimentary on-site consultation — we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A System Built to Last",
@@ -149,7 +149,7 @@ const faqs = [
   {
     category: "Pricing & Cost",
     items: [
-      { q: "Do you provide complimentary estimates?", a: "Yes. Every project starts with a complimentary on-site consultation and written estimate. We assess the full scope before quoting — no ballpark numbers over the phone for complex work." },
+      { q: "What does the initial consultation include?", a: "Every engagement starts with a complimentary on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home — not a generic quote. No ballpark numbers over the phone for complex work." },
       { q: "What affects the final cost of a project?", a: "Scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding." },
       { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30–40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
     ],
@@ -173,7 +173,7 @@ const faqs = [
   {
     category: "Scheduling & Process",
     items: [
-      { q: "How quickly can you start?", a: "For estimates, we typically schedule within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline when we provide your estimate. We don't overbook." },
+      { q: "How quickly can you start?", a: "We typically schedule your initial consultation within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline during your consultation. We don't overbook." },
       { q: "What's your warranty on completed work?", a: "Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it." },
       { q: "What areas do you serve?", a: "We serve Clark County, WA — including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities." },
     ],
@@ -323,7 +323,7 @@ export default function Home() {
                   Deck repair. Bathroom remodel. Fence replacement. Whatever the project, we walk the property, assess the full scope, and present a clear plan with no surprises.
                 </p>
                 <ul className="space-y-2 mb-8">
-                  {["Complimentary on-site consultation", "Detailed written estimate", "Licensed, insured, vetted crew", "Owner-led assessment"].map((item) => (
+                  {["Complimentary on-site consultation", "Written scope of work and project plan", "Licensed, insured, vetted crew", "Owner-led assessment"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <span style={{ color: "oklch(0.80 0.10 65)" }}>✓</span> {item}
                     </li>

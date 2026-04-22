@@ -47,7 +47,7 @@ export default function Testimonials() {
             className="hcp-button"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Request Estimate Today
+            Schedule a Consultation
           </button>
         </div>
       </div>

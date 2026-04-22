@@ -91,7 +91,7 @@ export default function Services() {
             className="hcp-button"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Request a Complimentary Estimate
+            Schedule a Complimentary Consultation
           </button>
         </div>
       </div>

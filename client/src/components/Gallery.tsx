@@ -116,7 +116,7 @@ export default function Gallery() {
         {/* CTA */}
         <div className="text-center mt-10">
           <button className="hcp-button" onClick={() => (window as any).HCPWidget?.openModal()}>
-            Request Estimate Today
+            Schedule a Consultation
           </button>
         </div>
       </div>

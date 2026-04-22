@@ -186,7 +186,7 @@ function RenderBlock({ block }: { block: BlogBlock }) {
               onClick={() => window.HCPWidget?.openModal()}
               style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem" }}
             >
-              {block.ctaLabel || "Request Estimate"}
+              {block.ctaLabel || "Schedule a Consultation"}
             </button>
             <a
               href="tel:+13605449858"
@@ -265,8 +265,8 @@ export default function BlogPost() {
 
     return () => {
       // Restore site-level defaults on unmount
-      const siteTitle = "Vancouver Home Services & Remodeling Contractor, Handy Pioneers | Complimentary Estimates For Our Professional Home Services";
-      const siteDesc = "Complimentary Estimates. 5 Star Rated. Licensed & Insured. Handy Pioneers is the #1 Vancouver Home Services & Remodeling Company. Call or visit today.";
+      const siteTitle = "Vancouver Home Services & Remodeling | Handy Pioneers | Complimentary Consultations for Clark County Homeowners";
+      const siteDesc = "Complimentary consultations. 5 Star Rated. Licensed & Insured. Handy Pioneers is Clark County's trusted home services and remodeling partner. Call or visit today.";
 
       const siteImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_2d8f1c3a.jpg";
       const siteUrl = "https://handypioneers.com/";
@@ -345,7 +345,7 @@ export default function BlogPost() {
               onClick={() => window.HCPWidget?.openModal()}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
-              Request Estimate
+              Schedule a Consultation
             </button>
           </div>
         </div>

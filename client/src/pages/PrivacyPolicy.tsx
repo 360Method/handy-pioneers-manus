@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
 
           <Section title="1. Introduction">
             <p>
-              Handy Pioneers ("we," "us," or "our") operates as a licensed home services and remodeling contractor serving Clark County, Washington. This Privacy Policy explains how we collect, use, disclose, and protect information you provide when you contact us, request an estimate, or communicate with us via phone, text message, email, or our website at <strong>handypioneers.com</strong>.
+              Handy Pioneers ("we," "us," or "our") operates as a licensed home services and remodeling contractor serving Clark County, Washington. This Privacy Policy explains how we collect, use, disclose, and protect information you provide when you contact us, request a consultation, or communicate with us via phone, text message, email, or our website at <strong>handypioneers.com</strong>.
             </p>
             <p>
               By using our website or submitting your information, you agree to the practices described in this policy. If you do not agree, please do not submit your information or use our services.
@@ -58,7 +58,7 @@ export default function PrivacyPolicy() {
           <Section title="2. Information We Collect">
             <p>We collect the following categories of information:</p>
             <ul>
-              <li><strong>Contact Information:</strong> Name, phone number, email address, and service address provided when you request an estimate or contact us.</li>
+              <li><strong>Contact Information:</strong> Name, phone number, email address, and service address provided when you request a consultation or contact us.</li>
               <li><strong>Project Information:</strong> Details about your home repair or remodeling project, including photos or descriptions you voluntarily share.</li>
               <li><strong>Communication Records:</strong> Records of phone calls, text messages, and emails exchanged between you and Handy Pioneers.</li>
               <li><strong>Website Usage Data:</strong> Pages visited, time spent on pages, browser type, and general geographic location (city/region), collected via standard web analytics tools.</li>
@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
           <Section title="3. How We Use Your Information">
             <p>We use the information we collect solely for the following purposes:</p>
             <ul>
-              <li>To respond to estimate requests and schedule service appointments.</li>
+              <li>To respond to consultation requests and schedule service appointments.</li>
               <li>To communicate with you about your project, including sending appointment reminders and follow-up messages.</li>
               <li>To send transactional SMS messages related to your service request (see Section 5 for SMS-specific terms).</li>
               <li>To improve our website and service quality based on aggregate, anonymized usage data.</li>
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
 
           <Section title="5. SMS / Text Message Communications">
             <p>
-              If you provide your phone number and consent to receive text messages, Handy Pioneers may send you SMS messages related to your service request, including estimate confirmations, appointment reminders, and follow-up messages. Message frequency varies based on your service activity.
+              If you provide your phone number and consent to receive text messages, Handy Pioneers may send you SMS messages related to your service request, including consultation confirmations, appointment reminders, and follow-up messages. Message frequency varies based on your service activity.
             </p>
             <p>
               <strong>Message and data rates may apply.</strong> You may opt out of SMS communications at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further SMS messages will be sent. To request help, reply <strong>HELP</strong> to any message or contact us at (360) 544-9858 or info@handypioneers.com.

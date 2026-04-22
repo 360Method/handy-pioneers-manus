@@ -29,7 +29,7 @@ export default function About() {
               style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               Handy Pioneers is an owner-operated remodeling and repair company serving Clark County, WA.
-              Marcin leads every project — from the initial design and estimate through to the final walkthrough.
+              Marcin leads every engagement — from the initial consultation and written plan through to the final walkthrough.
               On licensed trade work and larger remodels, we bring in a trusted network of vetted subcontractors
               and crew members so every aspect of your project is handled by the right hands.
             </p>

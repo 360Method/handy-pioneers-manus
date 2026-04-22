@@ -486,7 +486,7 @@ export default function Method360() {
             ))}
           </div>
           <div className="rounded-xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4" style={{ backgroundColor: "rgba(200,137,42,0.10)", borderColor: "rgba(200,137,42,0.35)" }}>
-            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a written estimate. Call us for a ballpark before scheduling: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
+            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a complimentary on-site consultation — we assess the full scope and present a written plan tailored to your home. Questions first? Call us: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
             <button
               onClick={() => setShowReport(true)}
               className="shrink-0 text-sm font-bold px-5 py-2.5 rounded-lg border-0 cursor-pointer transition-opacity hover:opacity-80 whitespace-nowrap"

@@ -18,13 +18,13 @@ const values = [
   },
   {
     icon: FileText,
-    title: "Clear, Itemized Estimates",
-    desc: "No vague quotes. You get a written, line-by-line estimate before any work begins — no surprises at invoice.",
+    title: "Written Scope of Work, Every Time",
+    desc: "No vague quotes. Every engagement begins with a written, line-by-line plan tailored to your home — no surprises at invoice.",
   },
   {
     icon: Users,
     title: "Direct Access to Marcin",
-    desc: "You work with the owner, not a dispatcher. Marcin personally oversees every project from estimate to completion.",
+    desc: "You work with the owner, not a dispatcher. Marcin personally oversees every engagement from the initial consultation through to the final walkthrough.",
   },
   {
     icon: Hammer,
@@ -116,7 +116,7 @@ export default function WhyChooseUs() {
             className="hcp-button text-base px-8 py-4"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Request a Complimentary Estimate
+            Schedule a Complimentary Consultation
           </button>
         </div>
       </div>

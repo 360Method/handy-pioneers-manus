@@ -24,7 +24,7 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "Why don't you list prices on your website?",
-        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We provide a written estimate before any work begins — no surprises, no change orders without your approval. We're happy to give you a ballpark range on a call before we even schedule a visit.",
+        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with a complimentary on-site consultation — we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
       },
       {
         q: "What do most projects cost?",
@@ -83,7 +83,7 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "How quickly can you start?",
-        a: "For estimates, we typically schedule within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline when we provide your estimate. We don't overbook.",
+        a: "We typically schedule your initial consultation within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline during your consultation. We don't overbook.",
       },
       {
         q: "What's your warranty on completed work?",
@@ -236,7 +236,7 @@ export default function FAQ() {
                   if (window.HCPWidget) window.HCPWidget.openModal();
                 }}
               >
-                Request a Complimentary Estimate
+                Schedule a Complimentary Consultation
               </button>
               <a
                 href="tel:+13605449858"

@@ -29,7 +29,7 @@ const values = [
   {
     title: "Transparent From Day One",
     body:
-      "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
+      "Every engagement starts with a complimentary on-site consultation — we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A Partnership Built to Last",
@@ -273,7 +273,7 @@ export default function About() {
                 if (window.HCPWidget) window.HCPWidget.openModal();
               }}
             >
-              Request a Complimentary Estimate
+              Schedule a Complimentary Consultation
             </button>
             <a
               href="tel:+13605449858"

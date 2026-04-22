@@ -6,8 +6,8 @@ const steps = [
   },
   {
     num: "02",
-    title: "Get Your Estimate",
-    desc: "We'll review your project and provide a clear, itemized estimate — no surprises, no hidden fees.",
+    title: "We Listen and Build Your Plan",
+    desc: "We walk the property, assess the full scope, and present a written plan tailored to your home — not a generic quote.",
   },
   {
     num: "03",

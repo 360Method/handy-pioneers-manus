@@ -304,7 +304,7 @@ export default function HeroGallery() {
             className="hcp-button"
             onClick={() => (window as any).HCPWidget?.openModal()}
           >
-            Request Estimate Today
+            Schedule a Consultation
           </button>
         </div>
       </div>

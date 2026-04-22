@@ -110,7 +110,7 @@ export default function ProjectDetail() {
               onClick={() => window.HCPWidget?.openModal()}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
-              Request Estimate
+              Schedule a Consultation
             </button>
           </div>
         </div>
@@ -241,7 +241,7 @@ export default function ProjectDetail() {
             className="text-sm mb-5"
             style={{ color: "oklch(0.78 0.04 80)" }}
           >
-            Handy Pioneers serves Clark County, WA. Licensed, insured, and ready to help.
+            Handy Pioneers serves Clark County, WA. We’ll walk the property, listen to your priorities, and present a written plan tailored to your home.
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <button
@@ -249,7 +249,7 @@ export default function ProjectDetail() {
               onClick={() => window.HCPWidget?.openModal()}
               style={{ fontSize: "1rem", padding: "0.875rem 2rem" }}
             >
-              Request Estimate Online
+              Schedule a Consultation
             </button>
             <a
               href="tel:+13605449858"

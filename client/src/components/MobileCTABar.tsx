@@ -50,7 +50,7 @@ export default function MobileCTABar() {
       {/* Divider */}
       <div style={{ width: "1px", backgroundColor: "oklch(0.35 0.07 160)" }} />
 
-      {/* Request Estimate button — right half */}
+      {/* Schedule Consultation button — right half */}
       <button
         onClick={handleEstimate}
         className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
@@ -79,7 +79,7 @@ export default function MobileCTABar() {
           <line x1="16" y1="17" x2="8" y2="17" />
           <polyline points="10 9 9 9 8 9" />
         </svg>
-        Request Estimate
+        Book Consultation
       </button>
     </div>
   );

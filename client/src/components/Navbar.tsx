@@ -157,7 +157,7 @@ export default function Navbar() {
             (360) 544-9858
           </a>
           <button className="hcp-button" onClick={handleBookOnline}>
-            Request Estimate
+            Schedule a Consultation
           </button>
         </div>
 
@@ -203,7 +203,7 @@ export default function Navbar() {
             Call: (360) 544-9858
           </a>
           <button className="hcp-button w-full mt-2" onClick={handleBookOnline}>
-            Request Estimate
+            Schedule a Consultation
           </button>
         </div>
       )}
