@@ -74,7 +74,7 @@ const outcomes = [
   {
     icon: ShieldCheck,
     title: "Zero Contractor Coordination Burden",
-    body: "One call, one relationship. The system handles the full scope — from assessment to execution to trade coordination. You don't manage vendors. You manage your life.",
+    body: "One call, one relationship. We handle the full scope — from assessment to execution to trade coordination. You don’t manage vendors. You manage your life.",
   },
   {
     icon: FileText,
@@ -165,7 +165,7 @@ const faqs = [
   {
     category: "The 360° Method",
     items: [
-      { q: "What exactly is the 360° Method?", a: "It's a proactive home maintenance system — not a legal inspection. We assess your home's current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we update over time." },
+      { q: "What exactly is the 360° Method?", a: "The 360° Method is a proactive home maintenance service — not a legal inspection. We assess your home’s current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we maintain over time." },
       { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside — and after — a licensed inspection." },
       { q: "How long does a Baseline Walkthrough take?", a: "Typically 2–3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
     ],
@@ -280,7 +280,7 @@ export default function Home() {
               {" "}Not a Reaction.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Tell us where you are. The system shows you exactly where to go next.
+              Tell us where you are. We’ll show you exactly what your home needs — and take care of it.
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
@@ -371,7 +371,7 @@ export default function Home() {
                   "I want my home proactively managed."
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Handy Pioneers delivers the 360° Method as a complete managed service — we assess your home, build your priority roadmap, and execute every item on it with our vetted crew. One relationship. One system. No surprises.
+                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. One relationship. One point of contact. No surprises.
                 </p>
                 <ul className="space-y-2 mb-4">
                   {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Ongoing Home Score tracking", "Single point of contact — always"].map((item) => (

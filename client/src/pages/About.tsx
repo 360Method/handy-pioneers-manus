@@ -32,7 +32,7 @@ const values = [
       "Every project starts with a clear written estimate. No surprises, no change orders without your sign-off. You know exactly what you're getting before a single nail is driven.",
   },
   {
-    title: "A System Built to Last",
+    title: "A Partnership Built to Last",
     body:
       "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time.",
   },
@@ -63,7 +63,7 @@ export default function About() {
             className="text-4xl md:text-5xl font-bold text-white leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            A System Built Around<br />Your Home
+            A Relationship Built Around<br />Your Home
           </h1>
           <p
             className="mt-4 text-lg max-w-xl"
@@ -149,10 +149,10 @@ export default function About() {
                   style={{ color: "oklch(0.38 0.02 80)" }}
                 >
                   <p>
-                    Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
+                    Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a dedicated partner — not a rotating cast of contractors.
                   </p>
                   <p>
-                    Every engagement runs through a single relationship. Owner-led assessments ensure nothing is missed. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — the system manages it for you.
+                    Every engagement runs through a single relationship. Owner-led assessments ensure nothing is missed. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — we manage it for you.
                   </p>
                   <p>
                     The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time. You're not a transaction. You're a long-term client.
