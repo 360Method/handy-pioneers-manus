@@ -290,7 +290,7 @@ export default function Home() {
                 style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
               />
               <p className="text-xs text-left" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}>
-                <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Owner-led assessments.</span> WA Lic. HANDYP*761NH · $1M insured · Vetted tradesmen on every project · Clark County, WA.
+                <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Same protocol. Every visit.</span> WA Lic. HANDYP*761NH · $1M insured · Vetted tradesmen on every project · Clark County, WA.
               </p>
             </div>
             <p className="text-sm font-semibold uppercase tracking-widest" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
