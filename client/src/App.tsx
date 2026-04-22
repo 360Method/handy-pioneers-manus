@@ -17,6 +17,9 @@ import Method360Walkthrough from "./pages/Method360Walkthrough";
 import Method360Referral from "./pages/Method360Referral";
 import Method360Membership from "./pages/Method360Membership";
 import Method360Offer from "./pages/Method360Offer";
+import Membership from "./pages/Membership";
+import MembershipCheckout from "./pages/MembershipCheckout";
+import MembershipConfirmation from "./pages/MembershipConfirmation";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 function Router() {
@@ -39,6 +42,10 @@ function Router() {
       <Route path="/360-method/referral" component={Method360Referral} />
       <Route path="/360-method/membership" component={Method360Membership} />
       <Route path="/360-method/offer" component={Method360Offer} />
+      {/* Canonical membership enrollment flow */}
+      <Route path="/membership" component={Membership} />
+      <Route path="/membership/checkout" component={MembershipCheckout} />
+      <Route path="/membership/confirmation" component={MembershipConfirmation} />
       {/* Real pages */}
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />
