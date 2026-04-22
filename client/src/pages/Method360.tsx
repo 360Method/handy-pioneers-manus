@@ -150,15 +150,13 @@ export default function Method360() {
               className="text-xl leading-relaxed mb-4"
               style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              A Roadmap to Home Ownership Mastery.
+              The Standard of Care Your Home Has Always Deserved.
             </p>
             <p
               className="text-base leading-relaxed"
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "500px" }}
             >
-              A nine-step framework that moves homeowners from reactive maintenance to proactive
-              wealth building — in three deliberate phases. Delivered exclusively by Handy Pioneers
-              in Clark County, Washington.
+              Most homeowners react. The ones who don't have a system — one that knows their home, maintains it with precision, and advances it with intention. Every season. Without exception.
             </p>
           </div>
         </div>
@@ -171,8 +169,7 @@ export default function Method360() {
             className="text-xl md:text-2xl leading-relaxed text-white/90 italic"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            "The 360° Method is the roadmap. Handy Pioneers is the exclusive, certified team that
-            executes it. Together, they give you not just a repaired home — but a managed asset."
+            “The homeowners who sleep well at night aren’t the ones who got lucky. They’re the ones who decided their home deserved the same attention they give everything else that matters — and found a partner who shows up every season to make sure it does.”
           </p>
           <p
             className="mt-4 text-sm font-semibold uppercase tracking-widest"
@@ -200,8 +197,7 @@ export default function Method360() {
               className="mt-4 text-lg max-w-xl mx-auto"
               style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              From establishing your home's baseline to advancing its long-term value — the 360°
-              Method is a complete system, not a checklist.
+              Know what your home needs. Maintain it without compromise. Advance it with intention. This is what a high standard of care looks like, applied to your most important asset.
             </p>
           </div>
 

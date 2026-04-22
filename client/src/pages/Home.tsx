@@ -271,7 +271,7 @@ export default function Home() {
           {/* Headline */}
           <div className="flex flex-col items-center justify-center text-center px-6 pt-12 pb-8">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Handy Pioneers · Clark County's Home Management Partner
+              For homeowners who hold their asset to a higher standard.
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", maxWidth: "720px" }}>
               Your Home Deserves the Same{" "}
