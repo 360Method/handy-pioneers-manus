@@ -20,6 +20,7 @@ import Method360Offer from "./pages/Method360Offer";
 import Membership from "./pages/Membership";
 import MembershipCheckout from "./pages/MembershipCheckout";
 import MembershipConfirmation from "./pages/MembershipConfirmation";
+import PriorityTranslation from "./pages/PriorityTranslation";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 function Router() {
@@ -46,6 +47,8 @@ function Router() {
       <Route path="/membership" component={Membership} />
       <Route path="/membership/checkout" component={MembershipCheckout} />
       <Route path="/membership/confirmation" component={MembershipConfirmation} />
+      {/* Priority Translation lead magnet (Path B entry) */}
+      <Route path="/priority-translation" component={PriorityTranslation} />
       {/* Real pages */}
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />

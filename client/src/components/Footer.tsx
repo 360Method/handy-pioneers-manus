@@ -205,13 +205,26 @@ export default function Footer() {
               >
                 More
               </h4>
-              <a
-                href="/membership"
-                className="text-sm hover:opacity-80 transition-opacity"
-                style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
-              >
-                Explore the 360° Method
-              </a>
+              <ul className="space-y-2">
+                <li>
+                  <a
+                    href="/membership"
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    Explore the 360° Method
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/priority-translation"
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600 }}
+                  >
+                    Get a 360° Priority Translation →
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>

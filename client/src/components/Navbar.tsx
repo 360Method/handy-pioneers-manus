@@ -15,6 +15,7 @@ const navLinks = [
   { label: "Home", section: "", route: null },
   { label: "Services", section: "services", route: null },
   { label: "360° Method", section: "method", route: null },
+  { label: "Priority Translation", section: null, route: "/priority-translation" },
   { label: "Gallery", section: "gallery", route: null },
   { label: "Reviews", section: "reviews", route: null },
   { label: "About", section: "about", route: null },

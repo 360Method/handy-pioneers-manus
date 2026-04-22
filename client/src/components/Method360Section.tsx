@@ -120,6 +120,41 @@ export default function Method360Section() {
           </p>
         </div>
 
+        {/* Priority Translation CTA — Path B lead magnet */}
+        <div
+          className="rounded-xl p-6 mb-8 flex flex-col md:flex-row items-start md:items-center gap-4 reveal"
+          style={{
+            backgroundColor: "rgba(200,137,42,0.14)",
+            border: "1px solid oklch(0.80 0.10 65 / 0.35)",
+          }}
+        >
+          <div className="flex-1">
+            <p
+              className="text-xs font-bold uppercase tracking-widest mb-1"
+              style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Complimentary · 24-Hour Turnaround
+            </p>
+            <p
+              className="text-lg text-white"
+              style={{ fontFamily: "'Playfair Display', serif" }}
+            >
+              Have an inspection report? Get a 360° Priority Translation →
+            </p>
+          </div>
+          <a
+            href="/priority-translation"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90 shrink-0"
+            style={{
+              backgroundColor: "oklch(0.80 0.10 65)",
+              color: "oklch(0.15 0.04 160)",
+              fontFamily: "'Source Sans 3', sans-serif",
+            }}
+          >
+            Request Yours
+          </a>
+        </div>
+
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center reveal">
           <button
