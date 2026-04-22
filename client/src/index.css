@@ -196,4 +196,111 @@
     opacity: 1;
     transform: none;
   }
+
+  /* ═══════════════════════════════════════════════════════════════
+     /membership page utilities — ported from 360-funnel design system
+     Forest green dark sections, warm cream light sections,
+     amber CTA buttons, uppercase tracked overlines.
+     ═══════════════════════════════════════════════════════════════ */
+  .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .hp-overline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: oklch(65% 0.15 72);
+    margin-bottom: 1rem;
+  }
+  .hp-overline::before,
+  .hp-overline::after {
+    content: "";
+    flex: 1;
+    max-width: 3rem;
+    height: 1px;
+    background: oklch(65% 0.15 72);
+    opacity: 0.6;
+  }
+
+  .btn-hp-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: oklch(65% 0.15 72);
+    color: oklch(100% 0 0);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 0.375rem;
+    border: none;
+    transition: background 0.2s, transform 0.15s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-hp-primary:hover {
+    background: oklch(55% 0.14 68);
+    transform: translateY(-1px);
+  }
+
+  .btn-hp-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    color: oklch(65% 0.15 72);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.85rem 2rem;
+    border-radius: 0.375rem;
+    border: 2px dashed oklch(65% 0.15 72);
+    transition: background 0.2s, color 0.2s;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .btn-hp-outline:hover {
+    background: oklch(65% 0.15 72);
+    color: oklch(100% 0 0);
+  }
+
+  .section-cream {
+    background: oklch(96% 0.015 80);
+  }
+  .section-white {
+    background: oklch(100% 0 0);
+  }
+  .section-green {
+    background: oklch(22% 0.07 155);
+    color: oklch(100% 0 0);
+  }
+  .section-green-dark {
+    background: oklch(16% 0.06 155);
+    color: oklch(100% 0 0);
+  }
+
+  .hp-card {
+    background: oklch(100% 0 0);
+    border: 1px solid oklch(85% 0.02 80);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .hp-card:hover {
+    box-shadow: 0 4px 20px oklch(0% 0 0 / 0.08);
+    transform: translateY(-2px);
+  }
 }
