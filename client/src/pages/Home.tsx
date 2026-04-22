@@ -274,13 +274,13 @@ export default function Home() {
               Handy Pioneers · Clark County's Home Management Partner
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", maxWidth: "720px" }}>
-              Your Home Deserves a{" "}
-              <span style={{ color: "oklch(0.80 0.10 65)" }}>Plan,</span>
+              Your Home Deserves the Same{" "}
+              <span style={{ color: "oklch(0.80 0.10 65)" }}>Standard of Care</span>
               <br className="hidden sm:block" />
-              {" "}Not a Reaction.
+              {" "}You Bring to Everything Else.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Tell us where you are. We’ll show you exactly what your home needs — and take care of it.
+              Every season. Every system. Every detail — taken care of.
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
