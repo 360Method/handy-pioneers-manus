@@ -17,7 +17,7 @@ const credentials = [
   { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center" },
   { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
-  { icon: Wrench, label: "Owner on Every Assessment", detail: "Owner-led assessments · Vetted crew on every project" },
+  { icon: Wrench, label: "Consistent Assessment Protocol", detail: "Same standard on every walkthrough · Vetted crew on every project" },
 ];
 
 const values = [
@@ -63,13 +63,13 @@ export default function About() {
             className="text-4xl md:text-5xl font-bold text-white leading-tight"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            A Relationship Built Around<br />Your Home
+            The Standard Doesn’t Change.<br />Regardless of Who’s on the Job.
           </h1>
           <p
             className="mt-4 text-lg max-w-xl"
             style={{ color: "rgba(255,255,255,0.70)" }}
           >
-            An owner-operated remodeling and repair company serving Clark County, WA since day one.
+            Owner-founded. Crew-executed. Accountable at every level.
           </p>
         </div>
       </section>
@@ -111,7 +111,7 @@ export default function About() {
                     className="text-sm font-bold"
                     style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                   >
-                    Marcin Micek — Owner &amp; Lead Technician
+                    Handy Pioneers — Owner-Founded, Crew-Executed
                   </p>
                   <p
                     className="text-xs mt-1"
@@ -142,17 +142,17 @@ export default function About() {
                   className="text-3xl font-bold mb-5 leading-snug"
                   style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                 >
-                  Owner-Led Assessments. A Vetted Crew. One Relationship.
+                  One Relationship. A Vetted Crew. The Same Standard — Every Time.
                 </h2>
                 <div
                   className="space-y-4 text-base leading-relaxed"
                   style={{ color: "oklch(0.38 0.02 80)" }}
                 >
                   <p>
-                    Handy Pioneers was built around a simple belief: your home is your most valuable asset, and it deserves a dedicated partner — not a rotating cast of contractors.
+                    Most homeowners have dealt with the rotating cast — a different face every job, no one who knows the house, no one accountable when something goes wrong. Handy Pioneers was built to be the opposite of that.
                   </p>
                   <p>
-                    Every engagement runs through a single relationship. Owner-led assessments ensure nothing is missed. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — we manage it for you.
+                    Every engagement runs through a single point of contact. Every assessment follows the same protocol. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — the relationship manages it for you.
                   </p>
                   <p>
                     The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time. You're not a transaction. You're a long-term client.
@@ -219,7 +219,7 @@ export default function About() {
               className="text-3xl font-bold"
               style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
             >
-              The Principles Behind Every Project
+              What You Can Expect, Every Time
             </h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
@@ -258,7 +258,7 @@ export default function About() {
             className="text-3xl font-bold mb-4"
             style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
           >
-            Ready to Begin Your Engagement?
+            The First Conversation Costs Nothing.
           </h2>
           <p
             className="text-base mb-8"
