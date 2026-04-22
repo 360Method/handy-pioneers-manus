@@ -265,8 +265,8 @@ export default function BlogPost() {
 
     return () => {
       // Restore site-level defaults on unmount
-      const siteTitle = "Vancouver Handyman & Remodeling Contractor, Handy Pioneers | Complimentary Estimates For Our Professional Handyman Services";
-      const siteDesc = "Complimentary Estimates. 5 Star Rated. Licensed & Insured. Handy Pioneers is the #1 Vancouver Handyman & Remodeling Service. Call or visit today.";
+      const siteTitle = "Vancouver Home Services & Remodeling Contractor, Handy Pioneers | Complimentary Estimates For Our Professional Home Services";
+      const siteDesc = "Complimentary Estimates. 5 Star Rated. Licensed & Insured. Handy Pioneers is the #1 Vancouver Home Services & Remodeling Company. Call or visit today.";
 
       const siteImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_2d8f1c3a.jpg";
       const siteUrl = "https://handypioneers.com/";

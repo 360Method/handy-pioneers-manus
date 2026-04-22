@@ -48,7 +48,7 @@ export default function PrivacyPolicy() {
 
           <Section title="1. Introduction">
             <p>
-              Handy Pioneers ("we," "us," or "our") operates as a licensed handyman and remodeling contractor serving Clark County, Washington. This Privacy Policy explains how we collect, use, disclose, and protect information you provide when you contact us, request an estimate, or communicate with us via phone, text message, email, or our website at <strong>handypioneers.com</strong>.
+              Handy Pioneers ("we," "us," or "our") operates as a licensed home services and remodeling contractor serving Clark County, Washington. This Privacy Policy explains how we collect, use, disclose, and protect information you provide when you contact us, request an estimate, or communicate with us via phone, text message, email, or our website at <strong>handypioneers.com</strong>.
             </p>
             <p>
               By using our website or submitting your information, you agree to the practices described in this policy. If you do not agree, please do not submit your information or use our services.

@@ -50,13 +50,13 @@ export default function TermsAndConditions() {
 
           <Section title="1. Agreement to Terms">
             <p>
-              These Terms and Conditions ("Terms") govern your use of the services provided by Handy Pioneers ("we," "us," or "our"), a licensed handyman and remodeling contractor serving Clark County, Washington. By requesting a service estimate, scheduling a project, or communicating with us via our website, phone, email, or text message, you agree to be bound by these Terms.
+              These Terms and Conditions ("Terms") govern your use of the services provided by Handy Pioneers ("we," "us," or "our"), a licensed home services and remodeling contractor serving Clark County, Washington. By requesting a service estimate, scheduling a project, or communicating with us via our website, phone, email, or text message, you agree to be bound by these Terms.
             </p>
           </Section>
 
           <Section title="2. Services">
             <p>
-              Handy Pioneers provides residential handyman, repair, and remodeling services in Clark County, Washington, including but not limited to carpentry, painting, flooring, deck maintenance, pressure washing, and general home repair. All services are performed by licensed and insured professionals. Washington State Contractor License: HANDYP*761NH.
+              Handy Pioneers provides residential home services, repair, and remodeling in Clark County, Washington, including but not limited to carpentry, painting, flooring, deck maintenance, pressure washing, and general home repair. All services are performed by licensed and insured professionals. Washington State Contractor License: HANDYP*761NH.
             </p>
             <p>
               Estimates are provided at no charge and are valid for 30 days from the date of issue. Acceptance of an estimate constitutes agreement to proceed with the described work at the quoted price, subject to any conditions noted in the estimate.

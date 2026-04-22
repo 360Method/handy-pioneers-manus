@@ -94,7 +94,7 @@ const outcomes = [
   {
     icon: Clock,
     title: "Proactive Maintenance as a Core Service",
-    body: "Seasonal walkthroughs, scheduled system checks, and preventive repairs are built into the relationship — not sold as add-ons. Maintenance is the foundation, not an afterthought.",
+    body: "Four times a year, we return to your home and work through a pre-defined seasonal task list built around the specific wear patterns of the Pacific Northwest. Moss treatment in spring. Deck sealing in summer. Gutter clearing before the rains. Pipe protection before the freeze. These visits are not improvised — they follow a standing protocol, and they happen regardless of what the assessment found. The program does not end when the roadmap is complete. It continues, season after season.",
   },
 ];
 
@@ -128,9 +128,9 @@ const phases = [
   {
     phase: "PHASE 2",
     title: "Act",
-    tagline: "Execute the right work, in the right order.",
-    description: "With a clear baseline in place, Phase 2 transforms data into decisions. Your home's needs are organized into a NOW / SOON / WAIT roadmap — a tiered action plan that eliminates guesswork, prevents deferred maintenance from compounding into costly emergencies, and puts every project on a timeline that works for your life.",
-    bullets: ["NOW / SOON / WAIT roadmap", "Prioritized project execution", "Trade coordination included"],
+    tagline: "Four visits a year. A standing seasonal task list. Nothing missed.",
+    description: "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second — and what makes this a proactive program, not a one-time fix — is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest–specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
+    bullets: ["NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Trade coordination included"],
     image: PHASE_IMAGES.act,
     color: "oklch(0.55 0.18 160)",
   },
@@ -215,7 +215,7 @@ export default function Home() {
   const reviewsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    document.title = "Vancouver Handyman & Remodeler | Handy Pioneers";
+    document.title = "Vancouver Home Services & Remodeling | Handy Pioneers";
     window.scrollTo({ top: 0 });
   }, []);
 
@@ -371,10 +371,10 @@ export default function Home() {
                   "I want my home proactively managed."
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. One relationship. One point of contact. No surprises.
+                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. And four times a year — every season — we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks. The program does not end when the roadmap is complete. It continues, season after season.
                 </p>
                 <ul className="space-y-2 mb-4">
-                  {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Ongoing Home Score tracking", "Single point of contact — always"].map((item) => (
+                  {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Single point of contact — always"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <span style={{ color: "oklch(0.65 0.18 160)" }}>✓</span> {item}
                     </li>
@@ -559,7 +559,7 @@ export default function Home() {
               Three Phases. One Destination.
             </h2>
             <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              A structured system that transforms reactive homeownership into proactive wealth building — in three deliberate phases.
+              A structured approach that transforms reactive homeownership into proactive stewardship — in three deliberate phases. Four visits per year. A standing seasonal task list. A home that gets better every season.
             </p>
           </div>
 

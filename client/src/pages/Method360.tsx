@@ -39,14 +39,14 @@ const phases = [
     number: "02",
     phase: "PHASE 2",
     name: "ACT",
-    steps: "Prioritize · Schedule · Execute",
+    steps: "Seasonal Visits · Priority Roadmap · Execute",
     icon: Zap,
     description:
-      "With a clear baseline in place, Phase 2 transforms data into decisions. Your home's needs are organized into a NOW / SOON / WAIT roadmap — a tiered action plan that eliminates guesswork, prevents deferred maintenance from compounding into costly emergencies, and puts every project on a timeline that works for your life.",
+      "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second — and what makes this a proactive program, not a one-time fix — is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest–specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
     color: "oklch(0.50 0.14 65)",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v4-jwU4XG6UPccwgZoBTpgciD.webp",
     imageAlt: "Skilled craftsman executing precision carpentry and repair work inside a Pacific Northwest home",
-    bullets: ["NOW / SOON / WAIT roadmap", "Zero deferred maintenance", "Projects on your timeline"],
+    bullets: ["NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Trade coordination included"],
   },
   {
     number: "03",
