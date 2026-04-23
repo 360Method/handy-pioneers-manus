@@ -1,6 +1,6 @@
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
-import { Route, Switch } from "wouter";
+import { Redirect, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
@@ -20,7 +20,7 @@ import Method360Offer from "./pages/Method360Offer";
 import Membership from "./pages/Membership";
 import MembershipCheckout from "./pages/MembershipCheckout";
 import MembershipConfirmation from "./pages/MembershipConfirmation";
-import PriorityTranslation from "./pages/PriorityTranslation";
+import RoadmapGenerator from "./pages/RoadmapGenerator";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 function Router() {
@@ -47,8 +47,10 @@ function Router() {
       <Route path="/membership" component={Membership} />
       <Route path="/membership/checkout" component={MembershipCheckout} />
       <Route path="/membership/confirmation" component={MembershipConfirmation} />
-      {/* Priority Translation lead magnet (Path B entry) */}
-      <Route path="/priority-translation" component={PriorityTranslation} />
+      {/* 360° Roadmap Generator lead magnet (Path B entry) */}
+      <Route path="/roadmap-generator" component={RoadmapGenerator} />
+      {/* Legacy alias — keep existing email/campaign links alive */}
+      <Route path="/priority-translation">{() => <Redirect to="/roadmap-generator" />}</Route>
       {/* Real pages */}
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />

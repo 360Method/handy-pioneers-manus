@@ -1,11 +1,11 @@
 /**
- * PriorityTranslation.tsx — /priority-translation
+ * RoadmapGenerator.tsx — /roadmap-generator
  *
- * Complimentary lead magnet: homeowner uploads an inspection report (PDF or URL),
- * receives a branded NOW/SOON/WAIT roadmap with investment ranges in their 360°
- * client portal within 24 hours.
+ * Complimentary lead magnet ("360° Roadmap Generator"): homeowner uploads an
+ * inspection report (PDF or URL), receives a branded NOW/SOON/WAIT roadmap
+ * with investment ranges in their 360° client portal within 24 hours.
  *
- * Submits multipart/form-data to /api/priority-translation/submit. Backend is
+ * Submits multipart/form-data to /api/roadmap-generator/submit. Backend is
  * expected at pro.handypioneers.com (see CROSS-REPO_CONTRACT in report); until
  * that is live, the manus Express server accepts the same shape at a local
  * intake endpoint and forwards via email.
@@ -41,7 +41,7 @@ import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // TODO: move to CMS (nucleus) — endpoint URL should be environment-aware
-const SUBMIT_ENDPOINT = "/api/priority-translation/submit";
+const SUBMIT_ENDPOINT = "/api/roadmap-generator/submit";
 const MAX_PDF_BYTES = 25 * 1024 * 1024; // 25 MB
 
 // ─── Schema ──────────────────────────────────────────────────────────────────
@@ -79,7 +79,7 @@ const formSchema = z
 type FormValues = z.infer<typeof formSchema>;
 
 // ─── Page ────────────────────────────────────────────────────────────────────
-export default function PriorityTranslation() {
+export default function RoadmapGenerator() {
   const [, navigate] = useLocation();
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -112,7 +112,28 @@ export default function PriorityTranslation() {
   });
 
   useEffect(() => {
-    document.title = "360° Priority Translation | Handy Pioneers";
+    // TODO: move to CMS (nucleus) — page metadata for the 360° Roadmap Generator
+    document.title = "360° Roadmap Generator — Upload Your Inspection Report | Handy Pioneers";
+
+    const setMeta = (name: string, value: string, attr: "name" | "property" = "name") => {
+      let el = document.querySelector<HTMLMetaElement>(`meta[${attr}="${name}"]`);
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute(attr, name);
+        document.head.appendChild(el);
+      }
+      el.setAttribute("content", value);
+    };
+
+    const description =
+      "Upload your home inspection report and receive a prioritized NOW / SOON / WAIT roadmap in your private 360° client portal within 24 hours. Complimentary for Clark County, WA homeowners.";
+
+    setMeta("description", description);
+    setMeta("og:title", "360° Roadmap Generator | Handy Pioneers", "property");
+    setMeta("og:description", description, "property");
+    setMeta("twitter:title", "360° Roadmap Generator | Handy Pioneers");
+    setMeta("twitter:description", description);
+
     window.scrollTo({ top: 0 });
   }, []);
 
@@ -164,7 +185,7 @@ export default function PriorityTranslation() {
       if (pdfFile) body.append("report_pdf", pdfFile);
       body.append(
         "source",
-        inArea ? "priority_translation_lead_magnet" : "priority_translation_waitlist_out_of_area"
+        inArea ? "roadmap_generator_lead_magnet" : "roadmap_generator_waitlist_out_of_area"
       );
       body.append("in_service_area", inArea ? "true" : "false");
 
@@ -184,7 +205,7 @@ export default function PriorityTranslation() {
         "We couldn't receive your submission just now. Please try again in a moment, or email help@handypioneers.com."
       );
       // eslint-disable-next-line no-console
-      console.error("PriorityTranslation submit error", err);
+      console.error("RoadmapGenerator submit error", err);
     } finally {
       setSubmitting(false);
     }
@@ -226,17 +247,17 @@ export default function PriorityTranslation() {
   const steps = [
     {
       n: "1",
-      title: "You Submit Your Report",
-      desc: "Upload the inspection PDF you already have, or paste a link to your web-hosted report. We accept Spectora, HomeGauge, and most major formats.",
+      title: "Upload Your Inspection Report",
+      desc: "Attach the PDF you already have, or paste a link to your web-hosted report. The Generator accepts Spectora, HomeGauge, and most major formats.",
     },
     {
       n: "2",
-      title: "We Produce Your Roadmap",
-      desc: "Our advisors translate every finding into plain language, assign a NOW / SOON / WAIT priority, and attach an investment range grounded in Clark County market data.",
+      title: "The Generator Produces Your Roadmap",
+      desc: "Our advisors run the report through the 360° Roadmap Generator — translating every finding into plain language, assigning a NOW / SOON / WAIT priority, and attaching an investment range grounded in Clark County market data.",
     },
     {
       n: "3",
-      title: "You Receive Your Portal",
+      title: "Your 360° Roadmap Arrives In Your Portal",
       desc: "Within 24 hours, your 360° client portal is ready. Your roadmap lives inside — a single source of truth for your property, with progress tracking and direct access to our advisors.",
     },
   ];
@@ -245,11 +266,11 @@ export default function PriorityTranslation() {
   const faqItems = [
     {
       q: "Is this a home inspection?",
-      a: "No. The 360° Priority Translation summarizes the inspection report you already have. It is not a legal home inspection and does not substitute for a licensed inspector's findings. Think of it as your trusted advisor translating the inspector's technical language into a clear action plan.",
+      a: "No. The 360° Roadmap Generator summarizes the inspection report you already have. It is not a legal home inspection and does not substitute for a licensed inspector's findings. Think of it as your trusted advisor translating the inspector's technical language into a clear action plan.",
     },
     {
       q: "What does it cost?",
-      a: "Nothing. The Priority Translation is complimentary. It is our way of introducing you to the 360° Method — the proactive standard of care we apply to every property we steward.",
+      a: "Nothing. The 360° Roadmap Generator is complimentary. It is our way of introducing you to the 360° Method — the proactive standard of care we apply to every property we steward.",
     },
     {
       q: "How are investment ranges calculated?",
@@ -291,7 +312,7 @@ export default function PriorityTranslation() {
             className="text-4xl md:text-5xl font-bold text-white mb-5"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            The 360° Priority Translation
+            The 360° Roadmap Generator
           </h1>
           <p
             className="text-lg leading-relaxed mb-8"
@@ -301,10 +322,10 @@ export default function PriorityTranslation() {
               maxWidth: "620px",
             }}
           >
-            You already have an inspection report. What you need is a plan.
-            Submit your report and, within 24 hours, your private 360° client
-            portal will contain a prioritized NOW / SOON / WAIT roadmap with
-            investment ranges — the same standard of care our members receive.
+            Upload your inspection report. Within 24 hours, the 360° Roadmap
+            Generator produces a prioritized NOW / SOON / WAIT plan with
+            investment ranges, delivered to your private client portal — the
+            same standard of care our members receive.
           </p>
           <div className="flex flex-wrap gap-6 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
             <div className="flex items-center gap-2" style={{ color: "rgba(255,255,255,0.75)" }}>
@@ -433,7 +454,7 @@ export default function PriorityTranslation() {
                   color: "oklch(0.22 0.07 160)",
                 }}
               >
-                Request Your Priority Translation
+                Generate Your 360° Roadmap
               </h2>
               <p
                 className="text-sm mb-6"
@@ -442,9 +463,9 @@ export default function PriorityTranslation() {
                   fontFamily: "'Source Sans 3', sans-serif",
                 }}
               >
-                Complete the fields below and attach your inspection report. We'll produce
-                your roadmap and deliver it to your private 360° client portal within
-                24 hours.
+                Complete the fields below and attach your inspection report. The 360°
+                Roadmap Generator will produce your roadmap and deliver it to your
+                private client portal within 24 hours.
               </p>
 
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5" noValidate>
@@ -674,7 +695,7 @@ export default function PriorityTranslation() {
                       fontFamily: "'Source Sans 3', sans-serif",
                     }}
                   >
-                    The 360° Priority Translation summarizes the inspection report you
+                    The 360° Roadmap Generator summarizes the inspection report you
                     provide. It is not a legal home inspection and does not replace a
                     licensed home inspector's findings.
                   </p>
@@ -693,7 +714,7 @@ export default function PriorityTranslation() {
                       style={{ color: "oklch(0.35 0.02 80)" }}
                     >
                       I understand and would like to receive my complimentary 360°
-                      Priority Translation.
+                      Roadmap.
                     </span>
                   </label>
                   {errors.consent?.message && (
@@ -724,10 +745,10 @@ export default function PriorityTranslation() {
                   }}
                 >
                   {submitting ? (
-                    "Submitting…"
+                    "Generating…"
                   ) : (
                     <>
-                      <Upload size={16} /> Submit Report for Translation{" "}
+                      <Upload size={16} /> Generate Your 360° Roadmap{" "}
                       <ArrowRight size={16} />
                     </>
                   )}
@@ -954,7 +975,7 @@ function ThankYouState() {
           color: "oklch(0.22 0.07 160)",
         }}
       >
-        Your Report Is Being Reviewed
+        Your 360° Roadmap Is Being Generated
       </h3>
       <p
         className="text-base mb-4 mx-auto"
@@ -964,7 +985,7 @@ function ThankYouState() {
           maxWidth: "520px",
         }}
       >
-        You'll receive your 360° Priority Translation within 24 hours.
+        You'll receive your 360° Roadmap within 24 hours.
       </p>
       <p
         className="text-sm mb-3 mx-auto"
