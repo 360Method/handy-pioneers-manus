@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Link } from "wouter";
 import { Star, ArrowLeft, Phone } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function Reviews() {
   useEffect(() => {
@@ -15,7 +16,13 @@ export default function Reviews() {
   }, []);
 
   return (
-    <div
+    <>
+      <SEO
+        path="/reviews"
+        title="Customer Reviews — 4.9★ on Google | Handy Pioneers — Vancouver WA"
+        description="Read verified reviews from Clark County homeowners. Handy Pioneers holds a 4.9 star rating across 34+ Google reviews from Vancouver WA, Camas, and Battle Ground clients."
+      />
+      <div
       className="min-h-screen"
       style={{ backgroundColor: "oklch(0.97 0.015 80)" }}
     >
@@ -151,5 +158,6 @@ export default function Reviews() {
         </Link>
       </div>
     </div>
+    </>
   );
 }

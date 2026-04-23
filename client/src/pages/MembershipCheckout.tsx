@@ -10,6 +10,7 @@ import { useLocation } from "wouter";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
 import { TIERS, CADENCE_LABELS, getPrice, TIER_API_MAP } from "@/lib/tiers";
 import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
+import SEO from "@/components/SEO";
 
 const HO_PROPERTY_TYPE_OPTIONS = [
   { value: "sfh", label: "Single-Family Home" },
@@ -198,6 +199,12 @@ export default function MembershipCheckout() {
 
   if (fallbackCaptured) {
     return (
+      <>
+      <SEO
+        path="/membership/checkout"
+        title="Confirm Your 360° Membership | Handy Pioneers — Clark County, WA"
+        description="Complete your 360° Method membership enrollment. Seasonal visits, labor bank, and member rates for Vancouver WA, Camas, Washougal, Ridgefield and Battle Ground homeowners."
+      />
       <div className="min-h-screen font-sans flex flex-col" style={{ background: "oklch(96% 0.015 80)" }}>
         <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
@@ -248,7 +255,8 @@ export default function MembershipCheckout() {
           </div>
         </main>
       </div>
-    );
+    </>
+  );
   }
 
   return (

@@ -215,73 +215,17 @@ export default function BlogPost() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    const setMeta = (selector: string, attr: string, value: string) => {
-      let el = document.querySelector(selector) as HTMLMetaElement | null;
-      if (!el) {
-        el = document.createElement("meta");
-        const [attrName, attrVal] = selector
-          .replace('meta[', '')
-          .replace(']', '')
-          .split('="');
-        el.setAttribute(attrName, attrVal.replace('"', ''));
-        document.head.appendChild(el);
-      }
-      el.setAttribute(attr, value);
-    };
-
-    if (post) {
-      const title = post.seoTitle || `${post.title} | Handy Pioneers`;
-      const desc = post.seoDesc || post.excerpt;
-      const image = post.image;
-      const url = currentUrl;
-
-      document.title = title;
-
-      // Standard meta
-      setMeta('meta[name="description"]', 'content', desc);
-
-      // Open Graph
-      setMeta('meta[property="og:title"]', 'content', title);
-      setMeta('meta[property="og:description"]', 'content', desc);
-      setMeta('meta[property="og:image"]', 'content', image);
-      setMeta('meta[property="og:url"]', 'content', url);
-      setMeta('meta[property="og:type"]', 'content', 'article');
-
-      // Twitter / X Card
-      setMeta('meta[name="twitter:title"]', 'content', title);
-      setMeta('meta[name="twitter:description"]', 'content', desc);
-      setMeta('meta[name="twitter:image"]', 'content', image);
-      setMeta('meta[name="twitter:card"]', 'content', 'summary_large_image');
-    } else {
-      document.title = "Post Not Found | Handy Pioneers";
-    }
-
-    return () => {
-      // Restore site-level defaults on unmount
-      const siteTitle = "Vancouver Home Services & Remodeling | Handy Pioneers | Complimentary Consultations for Clark County Homeowners";
-      const siteDesc = "Complimentary consultations. 5 Star Rated. Licensed & Insured. Handy Pioneers is Clark County's trusted home services and remodeling partner. Call or visit today.";
-
-      const siteImage = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_2d8f1c3a.jpg";
-      const siteUrl = "https://handypioneers.com/";
-      document.title = "Handy Pioneers — Reliable Renovations, Trusted Results";
-      const restore = (selector: string, value: string) => {
-        const el = document.querySelector(selector) as HTMLMetaElement | null;
-        if (el) el.setAttribute('content', value);
-      };
-      restore('meta[name="description"]', siteDesc);
-      restore('meta[property="og:title"]', siteTitle);
-      restore('meta[property="og:description"]', siteDesc);
-      restore('meta[property="og:image"]', siteImage);
-      restore('meta[property="og:url"]', siteUrl);
-      restore('meta[name="twitter:title"]', siteTitle);
-      restore('meta[name="twitter:description"]', siteDesc);
-      restore('meta[name="twitter:image"]', siteImage);
-    };
-  }, [post, currentUrl]);
+  }, [slug]);
 
   if (!post) {
     return (
+      <>
+        <SEO
+          path={`/blog/${slug ?? ""}`}
+          title="Post Not Found | Handy Pioneers"
+          description="The blog post you're looking for may have moved. Browse our other field notes from Clark County, WA."
+          noindex
+        />
       <div
         className="min-h-screen flex flex-col items-center justify-center gap-6 px-4"
         style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
@@ -301,10 +245,21 @@ export default function BlogPost() {
           Back to Blog
         </a>
       </div>
+      </>
     );
   }
 
   return (
+    <>
+      <SEO
+        path={`/blog/${post.slug}`}
+        title={post.seoTitle || `${post.title} | Handy Pioneers`}
+        description={post.seoDesc || post.excerpt}
+        image={post.image}
+        ogType="article"
+        publishedTime={post.isoDate}
+        author={post.author}
+      />
     <div
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
@@ -558,5 +513,6 @@ export default function BlogPost() {
         </p>
       </footer>
     </div>
+    </>
   );
 }

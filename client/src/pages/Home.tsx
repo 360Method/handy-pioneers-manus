@@ -17,6 +17,7 @@ import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
+import SEO from "@/components/SEO";
 
 declare global {
   interface Window {
@@ -179,6 +180,111 @@ const faqs = [
   },
 ];
 
+// ── JSON-LD structured data (homepage) ──────────────────────────────────────
+const HOMEPAGE_JSONLD = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://handypioneers.com/#business",
+    name: "Handy Pioneers",
+    alternateName: "Handy Pioneers LLC",
+    url: "https://handypioneers.com/",
+    telephone: "+1-360-838-6731",
+    email: "help@handypioneers.com",
+    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_c4d500b1.jpg",
+    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg",
+    priceRange: "$$",
+    description:
+      "Licensed, insured remodeling and home restoration company serving Vancouver WA and the rest of Clark County. Family-owned craftsmen led by Marcin Micek.",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Vancouver",
+      addressRegion: "WA",
+      postalCode: "98665",
+      addressCountry: "US",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 45.6387,
+      longitude: -122.6615,
+    },
+    areaServed: [
+      { "@type": "City", name: "Vancouver", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "Camas", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "Washougal", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "Ridgefield", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "Battle Ground", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "La Center", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+      { "@type": "City", name: "Yacolt", address: { "@type": "PostalAddress", addressRegion: "WA" } },
+    ],
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        opens: "08:00",
+        closes: "18:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Saturday"],
+        opens: "09:00",
+        closes: "14:00",
+      },
+    ],
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.9",
+      reviewCount: "34",
+    },
+    sameAs: [
+      "https://www.facebook.com/handypioneers",
+      "https://www.instagram.com/handypioneers",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Kitchen Remodeling",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Bathroom Remodeling",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Deck & Porch Restoration",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Flooring Installation",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Interior & Exterior Painting",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    serviceType: "Whole-Home Restoration",
+    provider: { "@id": "https://handypioneers.com/#business" },
+    areaServed: { "@type": "AdministrativeArea", name: "Clark County, WA" },
+  },
+];
+
 // ── Sub-components ────────────────────────────────────────────────────────────
 function FAQItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false);
@@ -233,7 +339,14 @@ export default function Home() {
   };
 
   return (
-    <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
+    <>
+      <SEO
+        path="/"
+        title="Handy Pioneers — Remodeling & Restoration in Vancouver, WA & Clark County"
+        description="Licensed craftsmen handling whole-home remodels, deck & porch restoration, kitchen and bath builds across Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center. 4.9 stars, one-year labor guarantee."
+        jsonLd={HOMEPAGE_JSONLD}
+      />
+      <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
       <TopBar />
       <Navbar />
 
@@ -733,5 +846,6 @@ export default function Home() {
       <Footer />
       <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
     </div>
+    </>
   );
 }

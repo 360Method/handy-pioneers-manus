@@ -6,6 +6,7 @@
 
 import { useEffect, useState } from "react";
 import { CheckCircle, Star, ArrowLeft, Phone } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
@@ -36,7 +37,14 @@ export default function ThankYou() {
   }, []);
 
   return (
-    <div
+    <>
+      <SEO
+        path="/thankyou"
+        title="Thank You — We've Got Your Request | Handy Pioneers"
+        description="Your inquiry reached Handy Pioneers. Marcin will personally review it and reach out."
+        noindex
+      />
+      <div
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
     >
@@ -177,5 +185,6 @@ export default function ThankYou() {
         <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 838-6731</p>
       </footer>
     </div>
+    </>
   );
 }

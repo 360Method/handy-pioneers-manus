@@ -9,6 +9,7 @@ import { useLocation } from "wouter";
 import { ClipboardList, CheckCircle, ArrowRight, Home, FileSearch, MapPin, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 export default function Method360Walkthrough() {
   const [, navigate] = useLocation();
@@ -40,7 +41,13 @@ export default function Method360Walkthrough() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+    <>
+      <SEO
+        path="/360-method/walkthrough"
+        title="360° Baseline Walkthrough | Handy Pioneers — Vancouver WA"
+        description="A documented 2–3 hour whole-home assessment for Clark County homeowners. Written report, photo documentation, prioritized scope — yours to keep."
+      />
+      <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
 
       {/* ─── Header ─── */}
@@ -253,5 +260,6 @@ export default function Method360Walkthrough() {
 
       <Footer />
     </div>
+    </>
   );
 }

@@ -6,6 +6,7 @@
 
 import { useEffect } from "react";
 import { Link } from "wouter";
+import SEO from "@/components/SEO";
 
 export default function PrivacyPolicy() {
   useEffect(() => {
@@ -17,7 +18,13 @@ export default function PrivacyPolicy() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.97 0.015 80)" }}>
+    <>
+      <SEO
+        path="/privacy-policy"
+        title="Privacy Policy | Handy Pioneers"
+        description="How Handy Pioneers collects, uses, and protects information from our Clark County WA clients."
+      />
+      <div className="min-h-screen" style={{ backgroundColor: "oklch(0.97 0.015 80)" }}>
       {/* Header bar */}
       <div className="py-4 px-6 border-b" style={{ backgroundColor: "oklch(0.18 0.06 160)", borderColor: "oklch(0.25 0.06 160)" }}>
         <div className="max-w-4xl mx-auto flex items-center justify-between">
@@ -169,6 +176,7 @@ export default function PrivacyPolicy() {
         </p>
       </div>
     </div>
+    </>
   );
 }
 

@@ -11,6 +11,7 @@ import { ArrowRight, Eye, Zap, TrendingUp, FileText, ClipboardList, Users, Chevr
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
+import SEO from "@/components/SEO";
 
 const HERO_BG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
@@ -109,7 +110,13 @@ export default function Method360() {
   }, []);
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+    <>
+      <SEO
+        path="/360-method"
+        title="The 360° Method — How We Care for Clark County Homes | Handy Pioneers"
+        description="Our end-to-end approach for Vancouver WA homeowners: documented baseline walkthrough, prioritized scope, and seasonal visits. Licensed restoration specialists serving all of Clark County."
+      />
+      <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
 
       {/* ─── Hero ─── */}
@@ -549,5 +556,6 @@ export default function Method360() {
       <Footer />
       <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
     </div>
+    </>
   );
 }

@@ -18,6 +18,7 @@ import CadenceToggle from "@/components/membership/CadenceToggle";
 import StatBubbles from "@/components/membership/StatBubbles";
 import SeasonalVisitsGrid from "@/components/membership/SeasonalVisitsGrid";
 import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTimeline";
+import SEO from "@/components/SEO";
 
 const FAQS = [
   {
@@ -65,7 +66,13 @@ export default function Membership() {
   };
 
   return (
-    <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
+    <>
+      <SEO
+        path="/membership"
+        title="360° Method Membership for Clark County Homeowners | Handy Pioneers"
+        description="A seasonal whole-home care membership for Vancouver WA and Clark County homeowners who want their home monitored, documented, and kept in top condition — not patched up when something breaks."
+      />
+      <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
       <Navbar />
 
       {/* ── HERO ── */}
@@ -677,5 +684,6 @@ export default function Membership() {
 
       <Footer />
     </div>
+    </>
   );
 }

@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import { Shield, Award, MapPin, Clock, Users, Wrench } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const MARCIN_PHOTO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
@@ -40,7 +41,13 @@ const values = [
 
 export default function About() {
   return (
-    <div
+    <>
+      <SEO
+        path="/about"
+        title="About Handy Pioneers — Family-Owned Craftsmen in Vancouver, WA"
+        description="Marcin Micek and the Handy Pioneers team — licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center since day one."
+      />
+      <div
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "oklch(0.98 0.012 80)", fontFamily: "'Source Sans 3', sans-serif" }}
     >
@@ -290,5 +297,6 @@ export default function About() {
 
       <Footer />
     </div>
+    </>
   );
 }

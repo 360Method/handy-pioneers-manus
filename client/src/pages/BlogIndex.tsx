@@ -11,6 +11,7 @@ import { Clock, Tag, ArrowRight, ArrowLeft } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
+import SEO from "@/components/SEO";
 
 export default function BlogIndex() {
   useEffect(() => {
@@ -26,7 +27,13 @@ export default function BlogIndex() {
   );
 
   return (
-    <div
+    <>
+      <SEO
+        path="/blog"
+        title="Notes from the Field — The Handy Pioneers Blog | Clark County, WA"
+        description="Project write-ups, Pacific Northwest homeowner guidance, and field notes from our craftsmen working across Vancouver WA, Camas, Washougal, and Battle Ground."
+      />
+      <div
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
     >
@@ -186,5 +193,6 @@ export default function BlogIndex() {
 
       <Footer />
     </div>
+    </>
   );
 }

@@ -11,6 +11,7 @@ import { useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle, Clock, Star, Shield, Home } from "lucide-react";
+import SEO from "@/components/SEO";
 
 const PDF_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-priority-roadmap-sample_945b4356.pdf";
@@ -61,7 +62,14 @@ export default function Method360Offer() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0D1F14] text-[#F5F0E8]">
+    <>
+      <SEO
+        path="/360-method/offer"
+        title="One-Time 360° Offer | Handy Pioneers"
+        description="A first-year introductory offer on the 360° Method for Clark County homeowners. Seasonal visits, labor bank, and a complete home record."
+        noindex
+      />
+      <div className="min-h-screen bg-[#0D1F14] text-[#F5F0E8]">
       <Navbar />
 
       {/* ── URGENCY BANNER ── */}
@@ -229,5 +237,6 @@ export default function Method360Offer() {
 
       <Footer />
     </div>
+    </>
   );
 }

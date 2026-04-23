@@ -7,6 +7,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import { ChevronDown } from "lucide-react";
+import SEO from "@/components/SEO";
 
 interface FAQItem {
   q: string;
@@ -97,6 +98,20 @@ const faqs: FAQCategory[] = [
   },
 ];
 
+
+// ── FAQPage JSON-LD (derived from faqs) ─────────────────────────────────────
+const FAQ_JSONLD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.flatMap((cat) =>
+    cat.items.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    }))
+  ),
+};
+
 function FAQAccordion({ item }: { item: FAQItem }) {
   const [open, setOpen] = useState(false);
   return (
@@ -141,7 +156,14 @@ function FAQAccordion({ item }: { item: FAQItem }) {
 
 export default function FAQ() {
   return (
-    <div
+    <>
+      <SEO
+        path="/faq"
+        title="Frequently Asked Questions | Handy Pioneers — Clark County, WA"
+        description="Answers to common questions from Vancouver WA and Clark County homeowners about pricing, scheduling, service areas, licensing, and the 360° Method."
+        jsonLd={FAQ_JSONLD}
+      />
+      <div
       className="min-h-screen flex flex-col"
       style={{ backgroundColor: "oklch(0.98 0.012 80)", fontFamily: "'Source Sans 3', sans-serif" }}
     >
@@ -253,5 +275,6 @@ export default function FAQ() {
 
       <Footer />
     </div>
+    </>
   );
 }

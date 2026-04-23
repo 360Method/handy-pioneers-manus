@@ -7,6 +7,7 @@
 import { useMemo } from "react";
 import { TIERS, CADENCE_LABELS } from "@/lib/tiers";
 import type { BillingCadence } from "@/lib/tiers";
+import SEO from "@/components/SEO";
 
 const G = "oklch(22% 0.07 155)";
 const A = "oklch(65% 0.15 72)";
@@ -82,7 +83,14 @@ export default function MembershipConfirmation() {
   ];
 
   return (
-    <div className="min-h-screen font-sans flex flex-col" style={{ background: "oklch(96% 0.015 80)" }}>
+    <>
+      <SEO
+        path="/membership/confirmation"
+        title="Membership Confirmed | Handy Pioneers"
+        description="Your 360° Method membership is active. Here's what happens next for your Clark County home."
+        noindex
+      />
+      <div className="min-h-screen font-sans flex flex-col" style={{ background: "oklch(96% 0.015 80)" }}>
       <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
           <span>5-Star Rated · Licensed &amp; Insured · WA Lic. HANDYP*761NH</span>
@@ -199,5 +207,6 @@ export default function MembershipConfirmation() {
         </div>
       </div>
     </div>
+    </>
   );
 }

@@ -38,6 +38,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
+import SEO from "@/components/SEO";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // TODO: move to CMS (nucleus) — endpoint URL should be environment-aware
@@ -292,7 +293,13 @@ export default function RoadmapGenerator() {
 
   // ─── JSX ──────────────────────────────────────────────────────────────────
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+    <>
+      <SEO
+        path="/priority-translation"
+        title="Priority Translation — Turn Your Inspection Report into a Plan | Handy Pioneers"
+        description="Upload your Clark County WA home inspection report and our craftsmen will translate the findings into a prioritized, written scope of work. Built for Vancouver, Camas, Washougal, and Battle Ground homeowners."
+      />
+      <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
 
       {/* ─── Hero ─── */}
@@ -851,6 +858,7 @@ export default function RoadmapGenerator() {
 
       <Footer />
     </div>
+    </>
   );
 }
 

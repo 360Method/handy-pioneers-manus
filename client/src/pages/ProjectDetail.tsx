@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { useParams, Link } from "wouter";
 import { projects } from "@/lib/projects";
 import { Calendar, MapPin, Tag, ArrowLeft, Phone } from "lucide-react";
+import SEO from "@/components/SEO";
 
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
@@ -34,6 +35,13 @@ export default function ProjectDetail() {
 
   if (!project) {
     return (
+      <>
+      <SEO
+        path={`/project/${slug ?? ""}`}
+        title="Project Not Found | Handy Pioneers"
+        description="The project you're looking for may have moved or been removed. Browse our completed work across Clark County, WA."
+        noindex
+      />
       <div
         className="min-h-screen flex flex-col items-center justify-center gap-6 px-4"
         style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
@@ -61,12 +69,20 @@ export default function ProjectDetail() {
           </a>
         </Link>
       </div>
+      </>
     );
   }
 
   const extraImages = (project as any).extraImages as string[] | undefined;
 
   return (
+    <>
+      <SEO
+        path={`/project/${project.slug}`}
+        title={`${project.title} | Handy Pioneers — ${project.location}`}
+        description={project.excerpt}
+        image={project.image}
+      />
     <div
       className="min-h-screen"
       style={{ backgroundColor: "oklch(0.97 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
@@ -299,5 +315,6 @@ export default function ProjectDetail() {
         </p>
       </footer>
     </div>
+    </>
   );
 }

@@ -9,6 +9,7 @@ import { useLocation } from "wouter";
 import { Users, CheckCircle, ArrowRight } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SEO from "@/components/SEO";
 
 export default function Method360Referral() {
   const [, navigate] = useLocation();
@@ -39,7 +40,13 @@ export default function Method360Referral() {
   ];
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
+    <>
+      <SEO
+        path="/360-method/referral"
+        title="360° Inspector Referral | Handy Pioneers"
+        description="Home inspectors in Clark County WA: refer your clients to the 360° Method and keep a long-term relationship with the homes you inspect."
+      />
+      <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
 
       {/* Header */}
@@ -225,5 +232,6 @@ export default function Method360Referral() {
 
       <Footer />
     </div>
+    </>
   );
 }
