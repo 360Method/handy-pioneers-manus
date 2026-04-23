@@ -60,7 +60,7 @@ const phases = [
 const paths = [
   {
     number: "PATH 1",
-    title: "The 360° Priority Translation",
+    title: "The 360° Roadmap Generator",
     condition: "You have a recent inspection report.",
     icon: FileText,
     description:

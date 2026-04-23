@@ -1,7 +1,7 @@
 /**
  * Method360Translation.tsx — /360-method/translation
  * Path 1: "I have a recent inspection report."
- * The 360° Priority Translation — upload report, receive NOW/SOON/WAIT roadmap.
+ * The 360° Roadmap Generator — upload report, receive NOW/SOON/WAIT roadmap.
  * This is a front-end funnel page. Form submission triggers email to Marcin.
  */
 
@@ -18,14 +18,14 @@ export default function Method360Translation() {
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", address: "", notes: "" });
 
   useEffect(() => {
-    document.title = "360° Priority Translation | Handy Pioneers";
+    document.title = "360° Roadmap Generator | Handy Pioneers";
     window.scrollTo({ top: 0 });
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Front-end funnel: mailto fallback until backend is connected
-    const subject = encodeURIComponent("360° Priority Translation Request");
+    const subject = encodeURIComponent("360° Roadmap Generator Request");
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProperty Address: ${formData.address}\nNotes: ${formData.notes}\n\n[Inspection report will be attached separately]`
     );
@@ -86,7 +86,7 @@ export default function Method360Translation() {
             className="text-4xl md:text-5xl font-bold text-white mb-4"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            The 360° Priority Translation
+            The 360° Roadmap Generator
           </h1>
           <p
             className="text-lg leading-relaxed"
@@ -181,9 +181,9 @@ export default function Method360Translation() {
               className="text-xs leading-relaxed"
               style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              The 360° Priority Translation is a proactive maintenance advisory service. It is not
+              The 360° Roadmap Generator is a proactive maintenance advisory service. It is not
               a legally binding real estate home inspection. Handy Pioneers does not assume
-              liability for conditions not identified during the translation process. This service
+              liability for conditions not identified during the roadmap process. This service
               is designed to work in partnership with your licensed inspection report, not as a
               substitute for professional inspection services.
             </p>
@@ -242,7 +242,7 @@ export default function Method360Translation() {
                 className="text-2xl font-bold mb-2"
                 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
               >
-                Request Your Priority Translation
+                Generate Your 360° Roadmap
               </h3>
               <p
                 className="text-sm mb-6"
@@ -281,7 +281,7 @@ export default function Method360Translation() {
                   className="inline-flex items-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-sm text-white transition-all hover:opacity-90"
                   style={{ backgroundColor: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
-                  <Upload size={16} /> Submit Translation Request <ArrowRight size={16} />
+                  <Upload size={16} /> Generate Your 360° Roadmap <ArrowRight size={16} />
                 </button>
               </form>
             </div>

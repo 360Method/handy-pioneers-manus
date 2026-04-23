@@ -70,7 +70,7 @@ export default function Method360Referral() {
           >
             For homeowners who want a comprehensive, legally documented assessment — or who are
             preparing to list. We connect you with a vetted licensed inspector, then execute the
-            full 360° Priority Translation on the results.
+            full 360° Roadmap Generator on the results.
           </p>
         </div>
       </section>

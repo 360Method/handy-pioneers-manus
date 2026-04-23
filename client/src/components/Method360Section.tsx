@@ -120,7 +120,7 @@ export default function Method360Section() {
           </p>
         </div>
 
-        {/* Priority Translation CTA — Path B lead magnet */}
+        {/* 360° Roadmap Generator CTA — Path B lead magnet */}
         <div
           className="rounded-xl p-6 mb-8 flex flex-col md:flex-row items-start md:items-center gap-4 reveal"
           style={{
@@ -139,11 +139,11 @@ export default function Method360Section() {
               className="text-lg text-white"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              Have an inspection report? Get a 360° Priority Translation →
+              Have an inspection report? Run the 360° Roadmap Generator →
             </p>
           </div>
           <a
-            href="/priority-translation"
+            href="/roadmap-generator"
             className="inline-flex items-center gap-2 px-6 py-3 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90 shrink-0"
             style={{
               backgroundColor: "oklch(0.80 0.10 65)",

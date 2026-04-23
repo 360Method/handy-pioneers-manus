@@ -217,11 +217,11 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="/priority-translation"
+                    href="/roadmap-generator"
                     className="text-sm hover:opacity-80 transition-opacity"
                     style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600 }}
                   >
-                    Get a 360° Priority Translation →
+                    Run the 360° Roadmap Generator →
                   </a>
                 </li>
               </ul>
