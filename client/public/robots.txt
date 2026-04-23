@@ -1,0 +1,10 @@
+# Handy Pioneers — robots.txt
+# https://handypioneers.com/
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+
+# Sitemap
+Sitemap: https://handypioneers.com/sitemap.xml
