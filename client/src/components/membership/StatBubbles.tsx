@@ -34,7 +34,7 @@ const STAT_BUBBLES: StatBubble[] = [
     label: "median return on membership vs. annual cost",
     modalTitle: "The ROI of Managed Maintenance",
     modalBody:
-      "Across 47 Portland metro member homes tracked from 2023–2025, the median value of issues caught and resolved early — versus the cost of those same issues left unaddressed — was 7.7 times the annual membership fee. This is not a savings pitch. It is an asset management outcome.",
+      "Across 47 Clark County member homes tracked from 2023–2025, the median value of issues caught and resolved early — versus the cost of those same issues left unaddressed — was 7.7 times the annual membership fee. This is not a savings pitch. It is an asset management outcome.",
     source: "Handy Pioneers field data, 2023–2025",
   },
 ];

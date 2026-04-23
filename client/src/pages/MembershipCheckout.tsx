@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
 import { TIERS, CADENCE_LABELS, getPrice, TIER_API_MAP } from "@/lib/tiers";
+import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
 
 const HO_PROPERTY_TYPE_OPTIONS = [
   { value: "sfh", label: "Single-Family Home" },
@@ -23,22 +24,6 @@ const HO_TIER_OPTIONS: { value: MemberTier; label: string; desc: string }[] = [
 ];
 
 const PRO_API = "https://pro.handypioneers.com";
-
-const SERVICE_AREA_ZIPS = new Set([
-  "98660", "98661", "98662", "98663", "98664", "98665", "98666", "98667", "98668",
-  "98671", "98672", "98673", "98674", "98675", "98682", "98683", "98684", "98685",
-  "98686", "98687", "98604", "98606", "98607", "98629", "98642",
-  "97201", "97202", "97203", "97204", "97205", "97206", "97207", "97208", "97209",
-  "97210", "97211", "97212", "97213", "97214", "97215", "97216", "97217", "97218",
-  "97219", "97220", "97221", "97222", "97223", "97224", "97225", "97227", "97229",
-  "97230", "97231", "97232", "97233", "97236", "97239", "97240", "97242", "97258",
-  "97266", "97267", "97268", "97269", "97271", "97272", "97280", "97281", "97282",
-  "97283", "97286", "97290", "97291", "97292", "97293", "97294", "97296", "97298",
-  "97301", "97302", "97303", "97304", "97305", "97306", "97307", "97308", "97309",
-  "97310", "97311", "97312", "97313", "97314", "97317", "97321", "97325", "97330",
-  "97331", "97333", "97338", "97351", "97352", "97361", "97362", "97371", "97374",
-  "97375", "97376", "97377", "97378", "97381", "97383", "97384", "97385", "97386",
-]);
 
 function Spinner() {
   return (
@@ -101,10 +86,8 @@ export default function MembershipCheckout() {
     }
 
     const zip = form.zip.trim();
-    if (zip && !SERVICE_AREA_ZIPS.has(zip)) {
-      setZipError(
-        "This ZIP code is outside our current service area (Clark County WA & Portland metro OR). Call us at (360) 838-6731 to discuss coverage."
-      );
+    if (zip && !isInServiceArea(zip)) {
+      setZipError(OUT_OF_AREA_MESSAGE);
       return;
     }
 

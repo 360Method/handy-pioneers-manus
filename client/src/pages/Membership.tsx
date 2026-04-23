@@ -37,8 +37,8 @@ const FAQS = [
     a: "No contract. Monthly and quarterly memberships cancel at the end of the current billing period. Annual memberships can be cancelled with a prorated refund for unused months, net of any labor bank credits already applied. We expect to earn your renewal — not enforce it.",
   },
   {
-    q: "Is this available outside Portland and SW Washington?",
-    a: "Currently the 360° Method is delivered in the Portland metro and SW Washington area. We are expanding regionally — join the waitlist for your area at the bottom of this page.",
+    q: "Is this available outside Clark County, Washington?",
+    a: "Currently the 360° Method is delivered in Clark County, Washington — Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center, and surrounding communities. We are expanding regionally — join the waitlist for your area at the bottom of this page.",
   },
   {
     q: "How do member rates apply to work beyond the scheduled visits?",
@@ -106,7 +106,7 @@ export default function Membership() {
             See Plans & Pricing →
           </a>
           <p className="mt-4 text-sm" style={{ color: "oklch(100% 0 0 / 0.45)" }}>
-            No contracts · Cancel anytime · Portland metro & SW Washington
+            No contracts · Cancel anytime · Currently serving Clark County, Washington
           </p>
 
           <div className="flex flex-wrap justify-center gap-6 mt-12 text-sm" style={{ color: "oklch(100% 0 0 / 0.6)" }}>
@@ -380,7 +380,7 @@ export default function Membership() {
             ))}
           </div>
           <p className="text-sm max-w-xl mx-auto" style={{ color: "oklch(50% 0.02 60)" }}>
-            Based on Handy Pioneers field data from 2023–2025 across 47 Portland metro member
+            Based on Handy Pioneers field data from 2023–2025 across 47 Clark County member
             homes. Figures represent median outcomes; individual results vary by home age,
             condition, and tier.
           </p>
