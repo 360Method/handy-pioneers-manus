@@ -43,12 +43,12 @@ export default function Footer() {
             {/* Contact info */}
             <div className="space-y-3">
               <a
-                href="tel:+13605449858"
+                href="tel:+13608386731"
                 className="flex items-center gap-3 text-sm hover:opacity-80 transition-opacity"
                 style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}
               >
                 <Phone size={15} style={{ color: "oklch(0.65 0.14 65)" }} />
-                (360) 544-9858
+                (360) 838-6731
               </a>
               <a
                 href="mailto:help@handypioneers.com"

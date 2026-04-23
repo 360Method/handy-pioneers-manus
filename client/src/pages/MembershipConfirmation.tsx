@@ -86,8 +86,8 @@ export default function MembershipConfirmation() {
       <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
           <span>5-Star Rated · Licensed &amp; Insured · WA Lic. HANDYP*761NH</span>
-          <a href="tel:3605449858" className="hover:text-white transition-colors font-medium">
-            (360) 544-9858
+          <a href="tel:+13608386731" className="hover:text-white transition-colors font-medium">
+            (360) 838-6731
           </a>
         </div>
       </div>
@@ -173,11 +173,11 @@ export default function MembershipConfirmation() {
               Access My Member Portal →
             </a>
             <a
-              href="tel:3605449858"
+              href="tel:+13608386731"
               className="block w-full text-center font-medium py-3 rounded-md text-sm transition-all"
               style={{ background: "oklch(100% 0 0)", border: `1px solid ${B}`, color: G }}
             >
-              Questions? Call (360) 544-9858
+              Questions? Call (360) 838-6731
             </a>
           </div>
 

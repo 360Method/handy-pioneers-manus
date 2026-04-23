@@ -93,11 +93,11 @@ export default function LocationMap() {
                       Phone
                     </p>
                     <a
-                      href="tel:+13605449858"
+                      href="tel:+13608386731"
                       className="text-sm hover:opacity-80 transition-opacity"
                       style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}
                     >
-                      (360) 544-9858
+                      (360) 838-6731
                     </a>
                   </div>
                 </div>

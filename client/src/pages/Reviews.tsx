@@ -34,12 +34,12 @@ export default function Reviews() {
           </a>
         </Link>
         <a
-          href="tel:+13605449858"
+          href="tel:+13608386731"
           className="flex items-center gap-2 hover:opacity-80 transition-opacity font-semibold"
           style={{ fontFamily: "'Source Sans 3', sans-serif" }}
         >
           <Phone size={14} />
-          (360) 544-9858
+          (360) 838-6731
         </a>
       </div>
 
@@ -126,12 +126,12 @@ export default function Reviews() {
             Schedule a Complimentary Consultation
           </button>
           <a
-            href="tel:+13605449858"
+            href="tel:+13608386731"
             className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-base border-2 border-white text-white hover:bg-white/10 transition-all"
             style={{ fontFamily: "'Source Sans 3', sans-serif" }}
           >
             <Phone size={18} />
-            (360) 544-9858
+            (360) 838-6731
           </a>
         </div>
       </div>

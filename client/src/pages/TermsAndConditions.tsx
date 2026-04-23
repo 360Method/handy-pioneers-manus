@@ -80,7 +80,7 @@ export default function TermsAndConditions() {
               <strong>Opt-Out:</strong> You may opt out of SMS communications at any time by replying <strong>STOP</strong> to any message from Handy Pioneers. After opting out, you will receive one final confirmation message confirming your opt-out, and no further SMS messages will be sent. To opt back in, contact us directly.
             </p>
             <p>
-              <strong>Help:</strong> For assistance, reply <strong>HELP</strong> to any message or contact us at (360) 544-9858 or info@handypioneers.com.
+              <strong>Help:</strong> For assistance, reply <strong>HELP</strong> to any message or contact us at (360) 838-6731 or info@handypioneers.com.
             </p>
             <p>
               <strong>Supported Carriers:</strong> SMS service is available on most major U.S. carriers. Carrier support may vary.
@@ -140,7 +140,7 @@ export default function TermsAndConditions() {
             <address className="not-italic mt-2" style={{ color: "oklch(0.35 0.04 80)" }}>
               <strong>Handy Pioneers</strong><br />
               Vancouver, WA (Clark County)<br />
-              Phone: <a href="tel:3605449858" style={{ color: "oklch(0.32 0.07 160)" }}>(360) 544-9858</a><br />
+              Phone: <a href="tel:+13608386731" style={{ color: "oklch(0.32 0.07 160)" }}>(360) 838-6731</a><br />
               Email: <a href="mailto:info@handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>info@handypioneers.com</a><br />
               Website: <a href="https://handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>handypioneers.com</a>
             </address>

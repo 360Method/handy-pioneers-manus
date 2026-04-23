@@ -8,12 +8,12 @@ export default function TopBar() {
     >
       {/* Left: Phone */}
       <a
-        href="tel:+13605449858"
+        href="tel:+13608386731"
         className="flex items-center gap-2 hover:opacity-80 transition-opacity font-semibold tracking-wide"
         style={{ fontFamily: "'Source Sans 3', sans-serif" }}
       >
         <Phone size={14} />
-        <span>(360) 544-9858</span>
+        <span>(360) 838-6731</span>
       </a>
 
       {/* Right: Portal Login — de-emphasized for new visitors */}

@@ -91,12 +91,12 @@ export default function ProjectDetail() {
 
           <div className="flex items-center gap-3">
             <a
-              href="tel:+13605449858"
+              href="tel:+13608386731"
               className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold"
               style={{ color: "oklch(0.80 0.10 80)", textDecoration: "none" }}
             >
               <Phone size={14} />
-              (360) 544-9858
+              (360) 838-6731
             </a>
             <button
               className="hcp-button"
@@ -245,7 +245,7 @@ export default function ProjectDetail() {
               Schedule a Consultation
             </button>
             <a
-              href="tel:+13605449858"
+              href="tel:+13608386731"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border transition-colors"
               style={{
                 borderColor: "oklch(0.65 0.10 80)",
@@ -254,7 +254,7 @@ export default function ProjectDetail() {
               }}
             >
               <Phone size={15} />
-              (360) 544-9858
+              (360) 838-6731
             </a>
           </div>
         </div>
@@ -281,7 +281,7 @@ export default function ProjectDetail() {
           color: "oklch(0.65 0.03 80)",
         }}
       >
-        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 544-9858</p>
+        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 838-6731</p>
         <p className="mt-1">
           <a
             href="/"

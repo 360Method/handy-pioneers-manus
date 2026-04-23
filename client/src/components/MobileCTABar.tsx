@@ -13,7 +13,7 @@ export default function MobileCTABar() {
     <div className="md:hidden flex w-full" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }}>
       {/* Call button — left half */}
       <a
-        href="tel:+13605449858"
+        href="tel:+13608386731"
         className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
         style={{
           backgroundColor: "oklch(0.27 0.07 160)",

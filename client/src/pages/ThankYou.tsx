@@ -63,12 +63,12 @@ export default function ThankYou() {
             </span>
           </a>
           <a
-            href="tel:+13605449858"
+            href="tel:+13608386731"
             className="inline-flex items-center gap-1.5 text-sm font-semibold"
             style={{ color: "oklch(0.80 0.10 80)", textDecoration: "none" }}
           >
             <Phone size={14} />
-            (360) 544-9858
+            (360) 838-6731
           </a>
         </div>
       </header>
@@ -139,7 +139,7 @@ export default function ThankYou() {
               Back to Home
             </a>
             <a
-              href="tel:+13605449858"
+              href="tel:+13608386731"
               className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold text-sm border transition-colors hover:opacity-80"
               style={{
                 borderColor: "oklch(0.32 0.07 160)",
@@ -149,7 +149,7 @@ export default function ThankYou() {
               }}
             >
               <Phone size={15} />
-              (360) 544-9858
+              (360) 838-6731
             </a>
           </div>
 
@@ -174,7 +174,7 @@ export default function ThankYou() {
           color: "oklch(0.65 0.03 80)",
         }}
       >
-        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 544-9858</p>
+        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 838-6731</p>
       </footer>
     </div>
   );

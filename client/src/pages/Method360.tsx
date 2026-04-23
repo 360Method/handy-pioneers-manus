@@ -500,7 +500,7 @@ export default function Method360() {
             ))}
           </div>
           <div className="rounded-xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4" style={{ backgroundColor: "rgba(200,137,42,0.10)", borderColor: "rgba(200,137,42,0.35)" }}>
-            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a complimentary on-site consultation — we assess the full scope and present a written plan tailored to your home. Questions first? Call us: <a href="tel:+13605449858" className="font-bold underline hover:opacity-80">(360) 544-9858</a></p>
+            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a complimentary on-site consultation — we assess the full scope and present a written plan tailored to your home. Questions first? Call us: <a href="tel:+13608386731" className="font-bold underline hover:opacity-80">(360) 838-6731</a></p>
             <button
               onClick={() => setShowReport(true)}
               className="shrink-0 text-sm font-bold px-5 py-2.5 rounded-lg border-0 cursor-pointer transition-opacity hover:opacity-80 whitespace-nowrap"
@@ -529,11 +529,11 @@ export default function Method360() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="tel:+13605449858"
+              href="tel:+13608386731"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-base border-2 border-white text-white hover:bg-white/10 transition-all"
               style={{ fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              📞 (360) 544-9858
+              📞 (360) 838-6731
             </a>
             <button
               onClick={() => navigate("/360-method/walkthrough")}

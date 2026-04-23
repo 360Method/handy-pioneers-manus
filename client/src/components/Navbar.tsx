@@ -149,11 +149,11 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex items-center gap-3">
           <a
-            href="tel:+13605449858"
+            href="tel:+13608386731"
             className="text-sm font-semibold"
             style={{ color: "oklch(0.32 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            (360) 544-9858
+            (360) 838-6731
           </a>
           {isMethodOrMembership ? (
             <button
@@ -207,11 +207,11 @@ export default function Navbar() {
             </button>
           ))}
           <a
-            href="tel:+13605449858"
+            href="tel:+13608386731"
             className="text-sm font-semibold py-3 text-right"
             style={{ color: "oklch(0.32 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Call: (360) 544-9858
+            Call: (360) 838-6731
           </a>
           {isMethodOrMembership ? (
             <button

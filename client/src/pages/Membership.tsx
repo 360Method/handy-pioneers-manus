@@ -665,11 +665,11 @@ export default function Membership() {
           <p className="mt-4 text-sm" style={{ color: "oklch(100% 0 0 / 0.5)" }}>
             Questions? Call us at{" "}
             <a
-              href="tel:3605449858"
+              href="tel:+13608386731"
               className="hover:underline"
               style={{ color: "oklch(65% 0.15 72)" }}
             >
-              (360) 544-9858
+              (360) 838-6731
             </a>
           </p>
         </div>

@@ -101,7 +101,7 @@ export default function PrivacyPolicy() {
               If you provide your phone number and consent to receive text messages, Handy Pioneers may send you SMS messages related to your service request, including consultation confirmations, appointment reminders, and follow-up messages. Message frequency varies based on your service activity.
             </p>
             <p>
-              <strong>Message and data rates may apply.</strong> You may opt out of SMS communications at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further SMS messages will be sent. To request help, reply <strong>HELP</strong> to any message or contact us at (360) 544-9858 or info@handypioneers.com.
+              <strong>Message and data rates may apply.</strong> You may opt out of SMS communications at any time by replying <strong>STOP</strong> to any message. After opting out, you will receive one final confirmation message and no further SMS messages will be sent. To request help, reply <strong>HELP</strong> to any message or contact us at (360) 838-6731 or info@handypioneers.com.
             </p>
             <p>
               We do not share your phone number or SMS consent with third parties for marketing purposes. SMS opt-in data is not shared with any third party under any circumstances.
@@ -151,7 +151,7 @@ export default function PrivacyPolicy() {
             <address className="not-italic mt-2" style={{ color: "oklch(0.35 0.04 80)" }}>
               <strong>Handy Pioneers</strong><br />
               Vancouver, WA (Clark County)<br />
-              Phone: <a href="tel:3605449858" style={{ color: "oklch(0.32 0.07 160)" }}>(360) 544-9858</a><br />
+              Phone: <a href="tel:+13608386731" style={{ color: "oklch(0.32 0.07 160)" }}>(360) 838-6731</a><br />
               Email: <a href="mailto:info@handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>info@handypioneers.com</a><br />
               Website: <a href="https://handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>handypioneers.com</a>
             </address>

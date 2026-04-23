@@ -183,7 +183,7 @@ function RenderBlock({ block }: { block: BlogBlock }) {
               {block.ctaLabel || "Schedule a Consultation"}
             </button>
             <a
-              href="tel:+13605449858"
+              href="tel:+13608386731"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm border"
               style={{
                 borderColor: "oklch(0.65 0.10 80)",
@@ -192,7 +192,7 @@ function RenderBlock({ block }: { block: BlogBlock }) {
               }}
             >
               <Phone size={14} />
-              (360) 544-9858
+              (360) 838-6731
             </a>
           </div>
         </div>
@@ -542,7 +542,7 @@ export default function BlogPost() {
           color: "oklch(0.65 0.03 80)",
         }}
       >
-        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 544-9858</p>
+        <p>© {new Date().getFullYear()} Handy Pioneers, LLC · Clark County, WA · (360) 838-6731</p>
         <p className="mt-1">
           <a href="/" style={{ color: "oklch(0.75 0.06 80)", textDecoration: "none" }}>
             handypioneers.com

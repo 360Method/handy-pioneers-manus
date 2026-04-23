@@ -103,7 +103,7 @@ export default function MembershipCheckout() {
     const zip = form.zip.trim();
     if (zip && !SERVICE_AREA_ZIPS.has(zip)) {
       setZipError(
-        "This ZIP code is outside our current service area (Clark County WA & Portland metro OR). Call us at (360) 544-9858 to discuss coverage."
+        "This ZIP code is outside our current service area (Clark County WA & Portland metro OR). Call us at (360) 838-6731 to discuss coverage."
       );
       return;
     }
@@ -219,8 +219,8 @@ export default function MembershipCheckout() {
         <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
           <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
             <span>5-Star Rated · Licensed &amp; Insured · WA Lic. HANDYP*761NH</span>
-            <a href="tel:3605449858" className="hover:text-white transition-colors font-medium">
-              (360) 544-9858
+            <a href="tel:+13608386731" className="hover:text-white transition-colors font-medium">
+              (360) 838-6731
             </a>
           </div>
         </div>
@@ -248,11 +248,11 @@ export default function MembershipCheckout() {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <a
-                href="tel:+13605449858"
+                href="tel:+13608386731"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-md font-bold text-sm text-white transition-opacity hover:opacity-90"
                 style={{ background: G, textDecoration: "none" }}
               >
-                Call (360) 544-9858
+                Call (360) 838-6731
               </a>
               <button
                 onClick={() => navigate("/membership")}
@@ -274,8 +274,8 @@ export default function MembershipCheckout() {
       <div style={{ background: "oklch(16% 0.06 155)" }} className="text-white/80 text-xs py-2 px-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between gap-4">
           <span>5-Star Rated · Licensed &amp; Insured · WA Lic. HANDYP*761NH</span>
-          <a href="tel:3605449858" className="hover:text-white transition-colors font-medium">
-            (360) 544-9858
+          <a href="tel:+13608386731" className="hover:text-white transition-colors font-medium">
+            (360) 838-6731
           </a>
         </div>
       </div>

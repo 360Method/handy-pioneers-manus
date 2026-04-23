@@ -719,11 +719,11 @@ export default function Home() {
                 Choose Your Path
               </button>
               <a
-                href="tel:+13605449858"
+                href="tel:+13608386731"
                 className="inline-flex items-center justify-center px-6 py-3 rounded-lg border font-semibold text-sm transition-colors hover:opacity-80"
                 style={{ borderColor: "rgba(255,255,255,0.35)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
               >
-                Call (360) 544-9858
+                Call (360) 838-6731
               </a>
             </div>
           </div>
