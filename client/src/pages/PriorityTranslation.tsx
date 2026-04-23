@@ -37,6 +37,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // TODO: move to CMS (nucleus) — endpoint URL should be environment-aware
@@ -64,6 +65,10 @@ const formSchema = z
       .min(7, "Please enter a valid phone")
       .max(32, "Too long"),
     property_address: z.string().trim().min(5, "Required").max(200),
+    property_zip: z
+      .string()
+      .trim()
+      .regex(/^\d{5}(-\d{4})?$/, "Please enter a valid 5-digit ZIP code"),
     report_url: urlOrEmpty,
     notes: z.string().trim().max(1000).optional(),
     consent: z.literal(true, {
@@ -79,6 +84,7 @@ export default function PriorityTranslation() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [outOfAreaCaptured, setOutOfAreaCaptured] = useState(false);
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [pdfError, setPdfError] = useState<string | null>(null);
   const [dragOver, setDragOver] = useState(false);
@@ -97,6 +103,7 @@ export default function PriorityTranslation() {
       email: "",
       phone: "",
       property_address: "",
+      property_zip: "",
       report_url: "",
       notes: "",
       consent: undefined as unknown as true,
@@ -138,7 +145,10 @@ export default function PriorityTranslation() {
   // ─── Submit ───────────────────────────────────────────────────────────────
   const onSubmit = async (values: FormValues) => {
     setSubmitError(null);
-    if (!pdfFile && !values.report_url) {
+
+    const inArea = isInServiceArea(values.property_zip);
+
+    if (inArea && !pdfFile && !values.report_url) {
       setSubmitError(
         "Please attach a PDF or paste a web report URL so we can produce your roadmap."
       );
@@ -152,12 +162,20 @@ export default function PriorityTranslation() {
         if (v !== undefined && v !== null && v !== "") body.append(k, String(v));
       });
       if (pdfFile) body.append("report_pdf", pdfFile);
-      body.append("source", "priority_translation_lead_magnet");
+      body.append(
+        "source",
+        inArea ? "priority_translation_lead_magnet" : "priority_translation_waitlist_out_of_area"
+      );
+      body.append("in_service_area", inArea ? "true" : "false");
 
       const res = await fetch(SUBMIT_ENDPOINT, { method: "POST", body });
       if (!res.ok) throw new Error(`Submission failed (${res.status})`);
 
-      setSubmitted(true);
+      if (inArea) {
+        setSubmitted(true);
+      } else {
+        setOutOfAreaCaptured(true);
+      }
       reset();
       setPdfFile(null);
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -397,6 +415,8 @@ export default function PriorityTranslation() {
         <div className="container max-w-3xl">
           {submitted ? (
             <ThankYouState />
+          ) : outOfAreaCaptured ? (
+            <WaitlistState />
           ) : (
             <div
               className="rounded-2xl p-8 border"
@@ -458,13 +478,24 @@ export default function PriorityTranslation() {
                   />
                 </div>
 
-                {/* Property address */}
+                {/* Property address + ZIP (gated to Clark County WA) */}
                 <Field
                   label="Property Address"
-                  placeholder="Street, city, ZIP"
+                  placeholder="Street, city"
                   error={errors.property_address?.message}
                   {...register("property_address")}
                 />
+                <div className="grid sm:grid-cols-[1fr_180px] gap-4">
+                  <div className="hidden sm:block" />
+                  <Field
+                    label="Property ZIP"
+                    placeholder="98683"
+                    inputMode="numeric"
+                    maxLength={10}
+                    error={errors.property_zip?.message}
+                    {...register("property_zip")}
+                  />
+                </div>
 
                 {/* ─── Report upload ─── */}
                 <div>
@@ -848,6 +879,57 @@ function InlineError({ children }: { children: React.ReactNode }) {
     >
       {children}
     </p>
+  );
+}
+
+function WaitlistState() {
+  return (
+    <div
+      className="rounded-2xl p-10 border text-center"
+      style={{
+        backgroundColor: "oklch(0.97 0.04 65)",
+        borderColor: "oklch(0.85 0.10 65)",
+      }}
+    >
+      <CheckCircle
+        size={48}
+        className="mx-auto mb-4"
+        style={{ color: "oklch(0.55 0.14 65)" }}
+      />
+      <h3
+        className="text-2xl font-bold mb-3"
+        style={{
+          fontFamily: "'Playfair Display', serif",
+          color: "oklch(0.22 0.07 160)",
+        }}
+      >
+        Thank You — You're On Our List
+      </h3>
+      <p
+        className="text-base mb-3 mx-auto"
+        style={{
+          color: "oklch(0.35 0.02 80)",
+          fontFamily: "'Source Sans 3', sans-serif",
+          maxWidth: "520px",
+        }}
+      >
+        We currently steward properties in Clark County, Washington only.
+        We've kept your details on file and will reach out the moment we
+        expand into your area.
+      </p>
+      <p
+        className="text-sm mx-auto"
+        style={{
+          color: "oklch(0.45 0.02 80)",
+          fontFamily: "'Source Sans 3', sans-serif",
+          maxWidth: "520px",
+        }}
+      >
+        In the meantime, the standard of care behind the 360° Method is
+        documented across our blog and project library — you're welcome
+        to use it as a reference.
+      </p>
+    </div>
   );
 }
 
