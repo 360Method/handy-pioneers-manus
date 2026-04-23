@@ -10,20 +10,21 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 /**
- * Temporary intake endpoint for the 360° Priority Translation lead magnet.
+ * Temporary intake endpoint for the 360° Roadmap Generator lead magnet.
  *
  * The canonical backend lives at pro.handypioneers.com and will own parsing,
  * Claude enrichment, portal account creation, and email delivery. Until it is
  * deployed, this fallback:
- *   - Accepts multipart/form-data at /api/priority-translation/submit
- *   - Persists the PDF (if any) to /tmp/priority-translations/<id>.pdf
+ *   - Accepts multipart/form-data at /api/roadmap-generator/submit
+ *     (legacy /api/priority-translation/submit is aliased for in-flight email links)
+ *   - Persists the PDF (if any) to /tmp/roadmap-generator/<id>.pdf
  *   - Forwards the submission via Resend to help@handypioneers.com (if
  *     RESEND_API_KEY is set), otherwise logs the payload and returns 202.
  *
  * TODO: move to CMS (nucleus) — switch SUBMIT_TARGET to external backend once live.
  */
 
-const UPLOAD_DIR = path.resolve(process.env.UPLOAD_DIR || "/tmp/priority-translations");
+const UPLOAD_DIR = path.resolve(process.env.UPLOAD_DIR || "/tmp/roadmap-generator");
 const INTAKE_RECIPIENT = process.env.INTAKE_RECIPIENT || "help@handypioneers.com";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
 const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
@@ -32,7 +33,7 @@ function ensureUploadDir() {
   try {
     fs.mkdirSync(UPLOAD_DIR, { recursive: true });
   } catch (err) {
-    console.error("[priority-translation] failed to create upload dir", err);
+    console.error("[roadmap-generator] failed to create upload dir", err);
   }
 }
 
@@ -50,10 +51,10 @@ const uploader = multer({
 
 async function sendIntakeEmail(payload: Record<string, string>, pdf?: Express.Multer.File) {
   if (!RESEND_API_KEY) {
-    console.log("[priority-translation] RESEND_API_KEY not set — logging instead");
-    console.log("[priority-translation] payload:", payload);
+    console.log("[roadmap-generator] RESEND_API_KEY not set — logging instead");
+    console.log("[roadmap-generator] payload:", payload);
     if (pdf) {
-      console.log(`[priority-translation] pdf: ${pdf.originalname} (${pdf.size} bytes)`);
+      console.log(`[roadmap-generator] pdf: ${pdf.originalname} (${pdf.size} bytes)`);
     }
     return { sent: false };
   }
@@ -66,8 +67,8 @@ async function sendIntakeEmail(payload: Record<string, string>, pdf?: Express.Mu
   const body: Record<string, unknown> = {
     from: "Handy Pioneers <noreply@handypioneers.com>",
     to: [INTAKE_RECIPIENT],
-    subject: "New 360° Priority Translation request",
-    html: `<h2>New Priority Translation submission</h2><p>${lines}</p>`,
+    subject: "New 360° Roadmap Generator request",
+    html: `<h2>New 360° Roadmap Generator submission</h2><p>${lines}</p>`,
   };
   if (pdf) {
     body.attachments = [
@@ -85,7 +86,7 @@ async function sendIntakeEmail(payload: Record<string, string>, pdf?: Express.Mu
   });
   if (!res.ok) {
     const text = await res.text();
-    console.error("[priority-translation] Resend error", res.status, text);
+    console.error("[roadmap-generator] Resend error", res.status, text);
     return { sent: false, error: text };
   }
   return { sent: true };
@@ -117,11 +118,10 @@ async function startServer() {
     next();
   });
 
-  // ─── Priority Translation intake (fallback) ──────────────────────────────
-  app.post(
-    "/api/priority-translation/submit",
-    uploader.single("report_pdf"),
-    async (req: Request, res: Response) => {
+  // ─── 360° Roadmap Generator intake (fallback) ────────────────────────────
+  // Legacy /api/priority-translation/submit is aliased below so any in-flight
+  // campaigns pointed at the old path keep working.
+  const roadmapIntake = async (req: Request, res: Response) => {
       try {
         const id = randomUUID();
         const fields = req.body as Record<string, string>;
@@ -132,7 +132,7 @@ async function startServer() {
           try {
             fs.writeFileSync(savePath, pdf.buffer);
           } catch (err) {
-            console.error("[priority-translation] failed to persist pdf", err);
+            console.error("[roadmap-generator] failed to persist pdf", err);
           }
         }
 
@@ -145,13 +145,21 @@ async function startServer() {
           note: "Canonical backend not yet connected. Submission queued via manus fallback.",
         });
       } catch (err) {
-        console.error("[priority-translation] submit error", err);
+        console.error("[roadmap-generator] submit error", err);
         res
           .status(500)
           .json({ error: "Unable to accept submission. Please email help@handypioneers.com." });
       }
-    }
-  );
+  };
+
+  app.post("/api/roadmap-generator/submit", uploader.single("report_pdf"), roadmapIntake);
+  app.post("/api/priority-translation/submit", uploader.single("report_pdf"), roadmapIntake);
+
+  // ─── Legacy page redirect: /priority-translation → /roadmap-generator ────
+  // Emails and external links pointed at the old URL continue to land correctly.
+  app.get("/priority-translation", (_req, res) => {
+    res.redirect(301, "/roadmap-generator");
+  });
 
   // Same-origin lead-capture fallback used by the /membership checkout UI
   // when the cross-origin POST to pro.handypioneers.com is blocked (CORS/network).
