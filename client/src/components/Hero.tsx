@@ -12,12 +12,6 @@ import { Star, ArrowRight, Wrench, ShieldCheck, ChevronDown, FileText } from "lu
 import { useLocation } from "wouter";
 import SampleReportModal from "./SampleReportModal";
 
-declare global {
-  interface Window {
-    HCPWidget?: { openModal: () => void };
-  }
-}
-
 const HERO_BG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
 
@@ -26,8 +20,7 @@ export default function Hero() {
   const [showReport, setShowReport] = useState(false);
 
   const handleBookOnline = () => {
-    if (window.HCPWidget) window.HCPWidget.openModal();
-    else window.open("https://app.housecallpro.com/book/handy-pioneers", "_blank");
+    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
   };
 
   return (

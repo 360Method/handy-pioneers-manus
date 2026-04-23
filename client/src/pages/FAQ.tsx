@@ -232,9 +232,7 @@ export default function FAQ() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 className="hcp-button"
-                onClick={() => {
-                  if (window.HCPWidget) window.HCPWidget.openModal();
-                }}
+                onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               >
                 Schedule a Complimentary Consultation
               </button>

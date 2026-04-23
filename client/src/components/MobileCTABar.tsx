@@ -4,17 +4,9 @@
  * so it doesn't conflict with the Google Reviews floater at the bottom.
  */
 
-declare global {
-  interface Window {
-    HCPWidget?: { openModal: () => void };
-  }
-}
-
 export default function MobileCTABar() {
   const handleEstimate = () => {
-    if (window.HCPWidget) {
-      window.HCPWidget.openModal();
-    }
+    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
   };
 
   return (

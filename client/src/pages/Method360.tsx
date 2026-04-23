@@ -12,12 +12,6 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
 
-declare global {
-  interface Window {
-    HCPWidget?: { openModal: () => void };
-  }
-}
-
 const HERO_BG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
 

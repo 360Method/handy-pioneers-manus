@@ -27,12 +27,6 @@ const LOGO_URL =
 // GMB profile link
 const GMB_URL = "https://share.google/OJgEhJ3AIQZ7AZP";
 
-declare global {
-  interface Window {
-    HCPWidget?: { openModal: () => void };
-  }
-}
-
 function ShareButtons({ title, url }: { title: string; url: string }) {
   const encoded = encodeURIComponent(url);
   const encodedTitle = encodeURIComponent(title);
@@ -183,7 +177,7 @@ function RenderBlock({ block }: { block: BlogBlock }) {
           <div className="flex flex-wrap justify-center gap-3">
             <button
               className="hcp-button"
-              onClick={() => window.HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem" }}
             >
               {block.ctaLabel || "Schedule a Consultation"}
@@ -342,7 +336,7 @@ export default function BlogPost() {
             </a>
             <button
               className="hcp-button"
-              onClick={() => window.HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
               Schedule a Consultation

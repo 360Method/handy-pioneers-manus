@@ -45,7 +45,7 @@ export default function Testimonials() {
         <div className="text-center mt-10 reveal">
           <button
             className="hcp-button"
-            onClick={() => (window as any).HCPWidget?.openModal()}
+            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
           >
             Schedule a Consultation
           </button>

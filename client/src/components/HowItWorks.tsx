@@ -83,7 +83,7 @@ export default function HowItWorks() {
         <div className="text-center mt-12 reveal">
           <button
             className="hcp-button"
-            onClick={() => (window as any).HCPWidget?.openModal()}
+            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
           >
             📅 Start Your Project
           </button>

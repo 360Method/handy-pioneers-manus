@@ -115,7 +115,7 @@ export default function Gallery() {
 
         {/* CTA */}
         <div className="text-center mt-10">
-          <button className="hcp-button" onClick={() => (window as any).HCPWidget?.openModal()}>
+          <button className="hcp-button" onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}>
             Schedule a Consultation
           </button>
         </div>
@@ -224,7 +224,7 @@ export default function Gallery() {
               <button
                 className="mt-5 w-full py-2.5 rounded-lg text-xs font-bold uppercase tracking-wide border-0 cursor-pointer transition-opacity hover:opacity-80"
                 style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
-                onClick={() => { closeLightbox(); (window as any).HCPWidget?.openModal(); }}
+                onClick={() => { closeLightbox(); window.open("https://client.handypioneers.com/book", "_blank", "noopener"); }}
               >
                 Request a Similar Project
               </button>

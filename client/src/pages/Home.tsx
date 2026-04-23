@@ -20,7 +20,6 @@ import SampleReportModal from "@/components/SampleReportModal";
 
 declare global {
   interface Window {
-    HCPWidget?: { openModal: () => void };
     eapps?: { AppsManager: { initAll: () => void } };
   }
 }
@@ -230,8 +229,7 @@ export default function Home() {
   }, []);
 
   const handleBookOnline = () => {
-    if (window.HCPWidget) window.HCPWidget.openModal();
-    else window.open("https://app.housecallpro.com/book/handy-pioneers", "_blank");
+    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
   };
 
   return (

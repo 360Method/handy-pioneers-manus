@@ -159,7 +159,7 @@ export default function Method360Section() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center reveal">
           <button
             className="hcp-button text-base px-8 py-4"
-            onClick={() => (window as any).HCPWidget?.openModal()}
+            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
           >
             Schedule a 360° Assessment
           </button>

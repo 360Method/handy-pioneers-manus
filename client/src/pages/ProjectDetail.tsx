@@ -10,13 +10,6 @@ import { useParams, Link } from "wouter";
 import { projects } from "@/lib/projects";
 import { Calendar, MapPin, Tag, ArrowLeft, Phone } from "lucide-react";
 
-// Housecall Pro booking widget trigger
-declare global {
-  interface Window {
-    HCPWidget?: { openModal: () => void };
-  }
-}
-
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
   const slug = params.slug;
@@ -107,7 +100,7 @@ export default function ProjectDetail() {
             </a>
             <button
               className="hcp-button"
-              onClick={() => window.HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
               Schedule a Consultation
@@ -246,7 +239,7 @@ export default function ProjectDetail() {
           <div className="flex flex-wrap justify-center gap-3">
             <button
               className="hcp-button"
-              onClick={() => window.HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               style={{ fontSize: "1rem", padding: "0.875rem 2rem" }}
             >
               Schedule a Consultation

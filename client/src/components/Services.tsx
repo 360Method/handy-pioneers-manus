@@ -90,7 +90,7 @@ export default function Services() {
           </p>
           <button
             className="hcp-button"
-            onClick={() => (window as any).HCPWidget?.openModal()}
+            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
           >
             Schedule a Complimentary Consultation
           </button>

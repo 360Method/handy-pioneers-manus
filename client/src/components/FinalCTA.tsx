@@ -48,7 +48,7 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               className="hcp-button"
-              onClick={() => (window as any).HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
               style={{ fontSize: "1.125rem", padding: "1.125rem 2.5rem" }}
             >
               Schedule a Complimentary Consultation

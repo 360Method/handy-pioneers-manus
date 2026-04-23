@@ -154,7 +154,7 @@ export default function LocationMap() {
 
             <button
               className="hcp-button w-full mt-8"
-              onClick={() => (window as any).HCPWidget?.openModal()}
+              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
             >
               Schedule a Complimentary Consultation
             </button>
