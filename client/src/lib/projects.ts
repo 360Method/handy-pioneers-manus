@@ -64,7 +64,7 @@ export const projects: Project[] = [
     category: "Screen Installation",
     date: "October 1, 2025",
     excerpt: "Installed a privacy screen and rod for a homeowner who needed it done right but lacked the time and tools.",
-    description: "This client wanted a porch screen and rod installed but lacked the necessary time and tools. Our skilled handymen stepped in, ensuring a quick and efficient installation that met the client's desires — proving how our quality handyman services make a big difference.",
+    description: "This Vancouver homeowner wanted a privacy screen and rod installed but lacked the time and tooling to do it cleanly. Our craftsmen measured, mounted, and finished the install in a single visit — the kind of small-but-precise job where a restoration specialist beats a DIY weekend every time.",
     image: `${CDN}/porch-screen-before-after_71f6836e.png`,
     tags: ["porch screen installation", "privacy screen", "rod installation", "Clark County", "Vancouver WA"],
     location: "Vancouver, WA",
