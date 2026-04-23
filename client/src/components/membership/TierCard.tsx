@@ -100,7 +100,7 @@ export default function TierCard({ tier, cadence, onEnroll }: Props) {
               </span>
               <span style={{ color: "oklch(50% 0.02 60)" }}>
                 {" "}— ${tier.laborBankDollars} becomes available after your first 90 days. Switch
-                to Quarterly or Annual to unlock the full credit on day one.
+                to Quarterly or Annual to receive the full credit on day one.
               </span>
             </>
           ) : (

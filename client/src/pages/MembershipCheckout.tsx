@@ -415,7 +415,7 @@ export default function MembershipCheckout() {
               }}
             >
               <span style={{ color: "oklch(45% 0.12 68)" }}>
-                💡 <strong>Unlock ${tierData.laborBankDollars} in labor bank credit on day one</strong> — switch to Quarterly or Annual above.
+                💡 <strong>Receive ${tierData.laborBankDollars} in labor bank credit on day one</strong> — switch to Quarterly or Annual above.
               </span>
             </div>
           )}
