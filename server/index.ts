@@ -155,9 +155,12 @@ async function startServer() {
   app.post("/api/roadmap-generator/submit", uploader.single("report_pdf"), roadmapIntake);
   app.post("/api/priority-translation/submit", uploader.single("report_pdf"), roadmapIntake);
 
-  // ─── Legacy page redirect: /priority-translation → /roadmap-generator ────
-  // Emails and external links pointed at the old URL continue to land correctly.
+  // ─── Legacy page redirects → /roadmap-generator ──────────────────────────
+  // Emails and external links pointed at the old URLs continue to land correctly.
   app.get("/priority-translation", (_req, res) => {
+    res.redirect(301, "/roadmap-generator");
+  });
+  app.get("/360-method/translation", (_req, res) => {
     res.redirect(301, "/roadmap-generator");
   });
 

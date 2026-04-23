@@ -66,7 +66,7 @@ const paths = [
     description:
       "You've already invested in a home inspection. That 50-page report is sitting in your inbox — detailed, technical, and overwhelming. We translate it into a clear, prioritized NOW / SOON / WAIT roadmap, so you know exactly what to address and in what order.",
     cta: "Upload Your Report",
-    route: "/360-method/translation",
+    route: "/roadmap-generator",
     accent: "oklch(0.65 0.14 65)",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-handshake-v2-WsTkHZpz5mBcEGgxr9FxeZ.webp",
     imageAlt: "Home inspection report open on a desk with reading glasses and coffee",

@@ -624,7 +624,7 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <button
-              onClick={() => navigate("/360-method/translation")}
+              onClick={() => navigate("/roadmap-generator")}
               className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               style={{ backgroundColor: "oklch(0.65 0.14 65)" }}
             >
