@@ -142,7 +142,7 @@ async function startServer() {
           id,
           status: "received_via_fallback",
           emailed: emailResult.sent,
-          note: "Canonical backend not yet connected. Submission queued via manus fallback.",
+          note: "Canonical backend not yet connected. Submission queued via local email fallback.",
         });
       } catch (err) {
         console.error("[roadmap-generator] submit error", err);

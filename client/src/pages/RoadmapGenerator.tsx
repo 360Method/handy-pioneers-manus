@@ -7,7 +7,7 @@
  *
  * Submits multipart/form-data to /api/roadmap-generator/submit. Backend is
  * expected at pro.handypioneers.com (see CROSS-REPO_CONTRACT in report); until
- * that is live, the manus Express server accepts the same shape at a local
+ * that is live, this site's Express server accepts the same shape at a local
  * intake endpoint and forwards via email.
  *
  * Voice: affluent. No forbidden vocabulary in any string below.
@@ -42,7 +42,7 @@ import SEO from "@/components/SEO";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 // TODO: move to CMS (nucleus) — endpoint URLs should be environment-aware
-// Primary intake lives on the pro backend; the manus Express server intake is a fallback
+// Primary intake lives on the pro backend; the local Express server intake is a fallback
 // so submissions still land (by email) if the pro endpoint is unreachable.
 const PRIMARY_SUBMIT_ENDPOINT = "https://pro.handypioneers.com/api/roadmap-generator/submit";
 const FALLBACK_SUBMIT_ENDPOINT = "/api/priority-translation/submit";
@@ -193,7 +193,7 @@ export default function RoadmapGenerator() {
       );
       body.append("in_service_area", inArea ? "true" : "false");
 
-      // Prefer the pro backend; fall back to the manus local intake so submissions
+      // Prefer the pro backend; fall back to the local intake so submissions
       // still land (by email) if pro is unreachable / CORS-blocked / misconfigured.
       let res: Response;
       try {

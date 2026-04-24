@@ -5,7 +5,7 @@
  *
  * TO ADD MORE PHOTOS: append a new object to the `photos` array below with:
  *   id: next sequential number
- *   src: CDN URL from `manus-upload-file --webdev`
+ *   src: local path under /images/hero-gallery/<filename>.jpg
  *   caption: short description of the project (10-15 words)
  *   tag: one of "Before & After" | "Remodel" | "Repair" | "Painting" | "Pressure Washing" | "Carpentry" | "Cleaning"
  */

@@ -6,7 +6,7 @@ Staging lets you preview changes at **https://staging.handypioneers.com** before
 
 | Piece | Value |
 |---|---|
-| Staging branch | `staging` on `360Method/handy-pioneers-manus` |
+| Staging branch | `staging` on this repo (`360Method/handy-pioneers-www`) |
 | Staging Railway service | `www-staging` in project `enthusiastic-endurance` |
 | Staging URL | https://staging.handypioneers.com |
 | Production branch | `main` |
