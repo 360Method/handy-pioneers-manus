@@ -27,7 +27,7 @@ const __dirname = path.dirname(__filename);
 const UPLOAD_DIR = path.resolve(process.env.UPLOAD_DIR || "/tmp/roadmap-generator");
 const INTAKE_RECIPIENT = process.env.INTAKE_RECIPIENT || "help@handypioneers.com";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
+const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
 
 function ensureUploadDir() {
   try {

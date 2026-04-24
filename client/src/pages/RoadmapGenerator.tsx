@@ -41,9 +41,12 @@ import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
 import SEO from "@/components/SEO";
 
 // ─── Config ──────────────────────────────────────────────────────────────────
-// TODO: move to CMS (nucleus) — endpoint URL should be environment-aware
-const SUBMIT_ENDPOINT = "/api/roadmap-generator/submit";
-const MAX_PDF_BYTES = 25 * 1024 * 1024; // 25 MB
+// TODO: move to CMS (nucleus) — endpoint URLs should be environment-aware
+// Primary intake lives on the pro backend; the manus Express server intake is a fallback
+// so submissions still land (by email) if the pro endpoint is unreachable.
+const PRIMARY_SUBMIT_ENDPOINT = "https://pro.handypioneers.com/api/roadmap-generator/submit";
+const FALLBACK_SUBMIT_ENDPOINT = "/api/priority-translation/submit";
+const MAX_PDF_BYTES = 100 * 1024 * 1024; // 100 MB
 
 // ─── Schema ──────────────────────────────────────────────────────────────────
 const urlOrEmpty = z
@@ -151,7 +154,7 @@ export default function RoadmapGenerator() {
       return;
     }
     if (file.size > MAX_PDF_BYTES) {
-      setPdfError("PDF must be 25 MB or smaller");
+      setPdfError("PDF must be 100 MB or smaller");
       setPdfFile(null);
       return;
     }
@@ -190,8 +193,17 @@ export default function RoadmapGenerator() {
       );
       body.append("in_service_area", inArea ? "true" : "false");
 
-      const res = await fetch(SUBMIT_ENDPOINT, { method: "POST", body });
-      if (!res.ok) throw new Error(`Submission failed (${res.status})`);
+      // Prefer the pro backend; fall back to the manus local intake so submissions
+      // still land (by email) if pro is unreachable / CORS-blocked / misconfigured.
+      let res: Response;
+      try {
+        res = await fetch(PRIMARY_SUBMIT_ENDPOINT, { method: "POST", body });
+        if (!res.ok) throw new Error(`Primary submission failed (${res.status})`);
+      } catch (primaryErr) {
+        console.warn("[roadmap-generator] primary endpoint unreachable, falling back", primaryErr);
+        res = await fetch(FALLBACK_SUBMIT_ENDPOINT, { method: "POST", body });
+        if (!res.ok) throw new Error(`Submission failed (${res.status})`);
+      }
 
       if (inArea) {
         setSubmitted(true);
@@ -275,7 +287,7 @@ export default function RoadmapGenerator() {
     },
     {
       q: "How are investment ranges calculated?",
-      a: "Ranges reflect current Clark County labor and materials costs for an affluent Pacific Northwest home — the kind of craftsmanship and materials a $600K–$1M+ property warrants. The high end of each range reflects our 30% minimum gross-margin standard, so you can plan with confidence rather than surprise.",
+      a: "Each range is derived from the specific findings in your inspection report — what your home is telling us about the scope of work ahead. Consider them directional guides: a sense of the investment your property may warrant to address each priority. Actual figures come only after we walk the site with you and prepare a written scope of work. The ranges here are meant to orient your thinking, not to serve as a quote.",
     },
     {
       q: "Do I have to become a member?",
@@ -593,7 +605,7 @@ export default function RoadmapGenerator() {
                               className="text-xs mt-1"
                               style={{ color: "oklch(0.50 0.02 80)" }}
                             >
-                              PDF only · up to 25 MB
+                              PDF only · up to 100 MB
                             </div>
                           </>
                         )}
