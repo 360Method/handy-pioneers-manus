@@ -14,6 +14,7 @@ import SEO from "@/components/SEO";
 export default function Method360Referral() {
   const [, navigate] = useLocation();
   const [submitted, setSubmitted] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [formData, setFormData] = useState({ name: "", email: "", phone: "", address: "", timeline: "", notes: "" });
 
   useEffect(() => {
@@ -23,6 +24,7 @@ export default function Method360Referral() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!smsConsent) return;
     const subject = encodeURIComponent("360° Inspector Referral Request");
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nProperty Address: ${formData.address}\nTimeline: ${formData.timeline}\nNotes: ${formData.notes}`
@@ -183,6 +185,12 @@ export default function Method360Referral() {
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Phone Number *</label>
                     <input required type="tel" className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2" style={{ borderColor: "oklch(0.85 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }} value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} />
+                    <p className="text-xs leading-relaxed mt-2" style={{ color: "oklch(0.50 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      By providing your phone number, you agree to receive text messages from Handy Pioneers including appointment reminders and project updates. Msg &amp; data rates may apply. Reply STOP to opt out. View our{" "}
+                      <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.45 0.10 160)", textDecoration: "underline" }}>Privacy Policy</a>{" "}
+                      and{" "}
+                      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.45 0.10 160)", textDecoration: "underline" }}>Terms</a>.
+                    </p>
                   </div>
                   <div>
                     <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Property Address *</label>
@@ -197,9 +205,25 @@ export default function Method360Referral() {
                   <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Additional Notes</label>
                   <textarea rows={3} className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2 resize-none" style={{ borderColor: "oklch(0.85 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }} placeholder="Any context about the property or your goals..." value={formData.notes} onChange={e => setFormData({ ...formData, notes: e.target.value })} />
                 </div>
+                <label className="flex gap-3 items-start cursor-pointer" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                  <input
+                    type="checkbox"
+                    checked={smsConsent}
+                    onChange={(e) => setSmsConsent(e.target.checked)}
+                    className="mt-1"
+                    style={{ accentColor: "oklch(0.45 0.10 160)" }}
+                  />
+                  <span className="text-xs" style={{ color: "oklch(0.40 0.02 80)" }}>
+                    I agree to receive SMS text messages from Handy Pioneers at the phone number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. See{" "}
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.45 0.10 160)", textDecoration: "underline" }}>Privacy Policy</a>{" "}
+                    and{" "}
+                    <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.45 0.10 160)", textDecoration: "underline" }}>Terms</a>.
+                  </span>
+                </label>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-sm text-white transition-all hover:opacity-90"
+                  disabled={!smsConsent}
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-sm text-white transition-all hover:opacity-90 disabled:opacity-60 disabled:cursor-not-allowed"
                   style={{ backgroundColor: "oklch(0.45 0.10 160)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
                   Request My Referral <ArrowRight size={16} />
