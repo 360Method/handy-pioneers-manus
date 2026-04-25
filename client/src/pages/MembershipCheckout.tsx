@@ -61,6 +61,7 @@ export default function MembershipCheckout() {
   const [error, setError] = useState<string | null>(null);
   const [zipError, setZipError] = useState<string | null>(null);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [smsConsent, setSmsConsent] = useState(false);
   const [fallbackCaptured, setFallbackCaptured] = useState(false);
   const [form, setForm] = useState({
     firstName: "", lastName: "", email: "", phone: "",
@@ -81,8 +82,8 @@ export default function MembershipCheckout() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!agreedToTerms) {
-      setError("Please agree to the terms.");
+    if (!agreedToTerms || !smsConsent) {
+      setError("Please agree to the Terms & Conditions and SMS consent.");
       return;
     }
 
@@ -473,6 +474,12 @@ export default function MembershipCheckout() {
                 onFocus={focusAmber}
                 onBlur={blurReset}
               />
+              <p className="text-xs leading-relaxed mt-2" style={{ color: "oklch(50% 0.02 60)" }}>
+                By providing your phone number, you agree to receive text messages from Handy Pioneers including estimate-ready notifications, appointment reminders, project status updates, and occasional service-related offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. View our{" "}
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: A, textDecoration: "underline" }}>Privacy Policy</a>{" "}
+                and{" "}
+                <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" style={{ color: A, textDecoration: "underline" }}>Terms</a>.
+              </p>
             </div>
 
             <div>
@@ -591,13 +598,28 @@ export default function MembershipCheckout() {
               </span>
             </label>
 
+            <label className="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={smsConsent}
+                onChange={(e) => setSmsConsent(e.target.checked)}
+                className="mt-0.5 flex-shrink-0 w-4 h-4 rounded accent-amber-600"
+              />
+              <span className="text-xs leading-relaxed" style={{ color: M }}>
+                I agree to receive SMS text messages from Handy Pioneers at the phone number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. See{" "}
+                <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 font-semibold transition-colors hover:opacity-70" style={{ color: G }}>Privacy Policy</a>{" "}
+                and{" "}
+                <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 font-semibold transition-colors hover:opacity-70" style={{ color: G }}>Terms</a>.
+              </span>
+            </label>
+
             <button
               type="submit"
-              disabled={loading || !agreedToTerms}
+              disabled={loading || !agreedToTerms || !smsConsent}
               className="w-full text-white font-bold py-3 rounded-md transition-all text-sm uppercase tracking-wide disabled:opacity-60"
               style={{ background: G }}
               onMouseEnter={(e) =>
-                !loading && agreedToTerms &&
+                !loading && agreedToTerms && smsConsent &&
                 ((e.currentTarget as HTMLButtonElement).style.background = "oklch(30% 0.08 155)")
               }
               onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = G)}

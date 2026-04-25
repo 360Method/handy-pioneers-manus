@@ -78,6 +78,9 @@ const formSchema = z
     consent: z.literal(true, {
       message: "Please confirm the acknowledgment to continue",
     } as any),
+    sms_consent: z.literal(true, {
+      message: "Please consent to receive SMS messages to continue",
+    } as any),
   });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -510,12 +513,20 @@ export default function RoadmapGenerator() {
                     error={errors.email?.message}
                     {...register("email")}
                   />
-                  <Field
-                    label="Phone"
-                    type="tel"
-                    error={errors.phone?.message}
-                    {...register("phone")}
-                  />
+                  <div>
+                    <Field
+                      label="Phone"
+                      type="tel"
+                      error={errors.phone?.message}
+                      {...register("phone")}
+                    />
+                    <p className="text-xs leading-relaxed mt-2" style={{ color: "oklch(0.50 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      By providing your phone number, you agree to receive text messages from Handy Pioneers including estimate-ready notifications, appointment reminders, project status updates, and occasional service-related offers. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out, HELP for help. View our{" "}
+                      <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.55 0.12 65)", textDecoration: "underline" }}>Privacy Policy</a>{" "}
+                      and{" "}
+                      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.55 0.12 65)", textDecoration: "underline" }}>Terms</a>.
+                    </p>
+                  </div>
                 </div>
 
                 {/* Property address + ZIP (gated to Clark County WA) */}
@@ -738,6 +749,26 @@ export default function RoadmapGenerator() {
                   </label>
                   {errors.consent?.message && (
                     <InlineError>{errors.consent.message}</InlineError>
+                  )}
+                  <label
+                    className="flex gap-3 items-start cursor-pointer"
+                    style={{ fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    <input
+                      type="checkbox"
+                      {...register("sms_consent")}
+                      className="mt-1"
+                      style={{ accentColor: "oklch(0.65 0.14 65)" }}
+                    />
+                    <span className="text-xs" style={{ color: "oklch(0.35 0.02 80)" }}>
+                      I agree to receive SMS text messages from Handy Pioneers at the phone number provided. Message frequency varies. Msg &amp; data rates may apply. Reply STOP to opt out. See{" "}
+                      <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.55 0.12 65)", textDecoration: "underline" }}>Privacy Policy</a>{" "}
+                      and{" "}
+                      <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" style={{ color: "oklch(0.55 0.12 65)", textDecoration: "underline" }}>Terms</a>.
+                    </span>
+                  </label>
+                  {errors.sms_consent?.message && (
+                    <InlineError>{errors.sms_consent.message}</InlineError>
                   )}
                 </div>
 
