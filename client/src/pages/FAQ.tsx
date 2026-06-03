@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import { ChevronDown } from "lucide-react";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 interface FAQItem {
   q: string;
@@ -254,7 +255,7 @@ export default function FAQ() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 className="hcp-button"
-                onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+                onClick={() => openInquiry()}
               >
                 Schedule a Complimentary Consultation
               </button>

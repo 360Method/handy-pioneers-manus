@@ -4,6 +4,7 @@ import { Redirect, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Analytics from "./components/Analytics";
 import ConsentBanner from "./components/ConsentBanner";
+import InquiryModal from "./components/InquiryModal";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
@@ -76,6 +77,7 @@ export default function App() {
           <Toaster />
           <Analytics />
           <Router />
+          <InquiryModal />
           <ConsentBanner />
         </TooltipProvider>
       </ThemeProvider>

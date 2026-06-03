@@ -1,4 +1,5 @@
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { openInquiry } from "@/lib/inquiry";
 
 export default function LocationMap() {
   return (
@@ -154,7 +155,7 @@ export default function LocationMap() {
 
             <button
               className="hcp-button w-full mt-8"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
             >
               Schedule a Complimentary Consultation
             </button>

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { openInquiry } from "@/lib/inquiry";
 
 export default function Testimonials() {
   // Re-initialize Elfsight widget after React mounts the DOM node
@@ -45,7 +46,7 @@ export default function Testimonials() {
         <div className="text-center mt-10 reveal">
           <button
             className="hcp-button"
-            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+            onClick={() => openInquiry()}
           >
             Schedule a Consultation
           </button>

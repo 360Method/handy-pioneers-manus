@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { toast } from "sonner";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
@@ -178,7 +179,7 @@ function RenderBlock({ block }: { block: BlogBlock }) {
           <div className="flex flex-wrap justify-center gap-3">
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
               style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem" }}
             >
               {block.ctaLabel || "Schedule a Consultation"}
@@ -292,7 +293,7 @@ export default function BlogPost() {
             </a>
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
               Schedule a Consultation

@@ -11,6 +11,7 @@ import { useState } from "react";
 import { Star, ArrowRight, Wrench, ShieldCheck, ChevronDown, FileText } from "lucide-react";
 import { useLocation } from "wouter";
 import SampleReportModal from "./SampleReportModal";
+import { openInquiry } from "@/lib/inquiry";
 
 const HERO_BG =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
@@ -20,7 +21,7 @@ export default function Hero() {
   const [showReport, setShowReport] = useState(false);
 
   const handleBookOnline = () => {
-    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
+    openInquiry();
   };
 
   return (

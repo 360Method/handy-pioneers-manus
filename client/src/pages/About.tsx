@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import { Shield, Award, MapPin, Clock, Users, Wrench } from "lucide-react";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 const MARCIN_PHOTO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
@@ -276,7 +277,7 @@ export default function About() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
             >
               Schedule a Complimentary Consultation
             </button>

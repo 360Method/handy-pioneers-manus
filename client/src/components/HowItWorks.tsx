@@ -1,3 +1,4 @@
+import { openInquiry } from "@/lib/inquiry";
 const steps = [
   {
     num: "01",
@@ -83,7 +84,7 @@ export default function HowItWorks() {
         <div className="text-center mt-12 reveal">
           <button
             className="hcp-button"
-            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+            onClick={() => openInquiry()}
           >
             📅 Start Your Project
           </button>

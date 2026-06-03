@@ -127,10 +127,18 @@ export default function MembershipCheckout() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          type: "homeowner",
+          // Flat shape required by threeSixty.checkout.createSession (the REST
+          // route passes this body straight through). Sending nested {customer}
+          // would be dropped by Zod, losing the member's name/address.
           tier: apiTier,
           cadence: activeCadence,
-          customer,
+          customerName: customer.name,
+          customerEmail: customer.email,
+          customerPhone: customer.phone,
+          serviceAddress: customer.address,
+          serviceCity: customer.city,
+          serviceState: customer.state,
+          serviceZip: customer.zip,
           origin: window.location.origin,
         }),
       });

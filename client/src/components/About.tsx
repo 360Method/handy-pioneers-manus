@@ -1,4 +1,5 @@
 import { CheckCircle } from "lucide-react";
+import { openInquiry } from "@/lib/inquiry";
 
 const credentials = [
   "Licensed Contractor — WA License HANDYP*761NH",
@@ -65,7 +66,7 @@ export default function About() {
 
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
             >
               Work With Us
             </button>

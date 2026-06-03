@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { Star, ArrowLeft, Phone } from "lucide-react";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 export default function Reviews() {
   useEffect(() => {
@@ -128,7 +129,7 @@ export default function Reviews() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             className="hcp-button text-base px-8 py-4"
-            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+            onClick={() => openInquiry()}
           >
             Schedule a Complimentary Consultation
           </button>

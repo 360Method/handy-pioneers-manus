@@ -5,6 +5,7 @@
  */
 import { useLocation } from "wouter";
 import { Search, ClipboardList, Wrench, ShieldCheck } from "lucide-react";
+import { openInquiry } from "@/lib/inquiry";
 
 const steps = [
   {
@@ -159,7 +160,7 @@ export default function Method360Section() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center reveal">
           <button
             className="hcp-button text-base px-8 py-4"
-            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+            onClick={() => openInquiry()}
           >
             Schedule a 360° Assessment
           </button>

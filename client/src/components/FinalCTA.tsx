@@ -1,3 +1,4 @@
+import { openInquiry } from "@/lib/inquiry";
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-cta-bg-aoXSQumAFkkVoFJ3HQ2vPV.webp";
 
 export default function FinalCTA() {
@@ -48,7 +49,7 @@ export default function FinalCTA() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
               style={{ fontSize: "1.125rem", padding: "1.125rem 2.5rem" }}
             >
               Schedule a Complimentary Consultation

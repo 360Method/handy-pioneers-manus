@@ -4,6 +4,7 @@
  * Positioned after Testimonials to convert visitors who have seen social proof
  */
 import { BadgeCheck, Clock, FileText, Users, Hammer, ThumbsUp } from "lucide-react";
+import { openInquiry } from "@/lib/inquiry";
 
 const values = [
   {
@@ -114,7 +115,7 @@ export default function WhyChooseUs() {
           </p>
           <button
             className="hcp-button text-base px-8 py-4"
-            onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+            onClick={() => openInquiry()}
           >
             Schedule a Complimentary Consultation
           </button>

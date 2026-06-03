@@ -18,6 +18,7 @@ import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 declare global {
   interface Window {
@@ -335,7 +336,7 @@ export default function Home() {
   }, []);
 
   const handleBookOnline = () => {
-    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
+    openInquiry();
   };
 
   return (

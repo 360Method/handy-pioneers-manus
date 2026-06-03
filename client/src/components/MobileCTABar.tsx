@@ -1,3 +1,4 @@
+import { openInquiry } from "@/lib/inquiry";
 /**
  * MobileCTABar — shown only on mobile (<md).
  * Sits inline between TopBar and Navbar, scrolls away with the page
@@ -6,7 +7,7 @@
 
 export default function MobileCTABar() {
   const handleEstimate = () => {
-    window.open("https://client.handypioneers.com/book", "_blank", "noopener");
+    openInquiry();
   };
 
   return (

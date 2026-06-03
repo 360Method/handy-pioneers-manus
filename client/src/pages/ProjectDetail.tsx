@@ -10,6 +10,7 @@ import { useParams, Link } from "wouter";
 import { projects } from "@/lib/projects";
 import { Calendar, MapPin, Tag, ArrowLeft, Phone } from "lucide-react";
 import SEO from "@/components/SEO";
+import { openInquiry } from "@/lib/inquiry";
 
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
@@ -116,7 +117,7 @@ export default function ProjectDetail() {
             </a>
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
               style={{ fontSize: "0.8rem", padding: "0.5rem 1.25rem" }}
             >
               Schedule a Consultation
@@ -255,7 +256,7 @@ export default function ProjectDetail() {
           <div className="flex flex-wrap justify-center gap-3">
             <button
               className="hcp-button"
-              onClick={() => window.open("https://client.handypioneers.com/book", "_blank", "noopener")}
+              onClick={() => openInquiry()}
               style={{ fontSize: "1rem", padding: "0.875rem 2rem" }}
             >
               Schedule a Consultation
