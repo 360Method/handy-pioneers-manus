@@ -17,6 +17,7 @@ import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
+import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
 
@@ -790,6 +791,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          BLOG — Project Stories + drip-released SEO articles (#blog)
+      ══════════════════════════════════════════════════════════════════════ */}
+      <BlogSection />
 
       {/* ══════════════════════════════════════════════════════════════════════
           ABOUT

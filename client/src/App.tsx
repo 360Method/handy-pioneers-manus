@@ -33,7 +33,8 @@ function Router() {
       <Route path="/project/:slug" component={ProjectDetail} />
       {/* Post-inquiry thank you page */}
       <Route path="/thankyou" component={ThankYou} />
-      {/* Blog post detail pages — open in new tab from homepage blog section */}
+      {/* Blog index + post detail pages */}
+      <Route path="/blog" component={BlogIndex} />
       <Route path="/blog/:slug" component={BlogPost} />
       {/* Legal pages */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />

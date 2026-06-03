@@ -13,6 +13,7 @@ const navLinks = [
   { label: "Roadmap Generator", section: null, route: "/roadmap-generator" },
   { label: "Gallery", section: "gallery", route: null },
   { label: "Reviews", section: "reviews", route: null },
+  { label: "Blog", section: "blog-section", route: null },
   { label: "About", section: "about", route: null },
   { label: "FAQ", section: "faq", route: null },
 ];
