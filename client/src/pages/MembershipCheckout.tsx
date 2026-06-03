@@ -8,7 +8,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
-import { TIERS, CADENCE_LABELS, getPrice, TIER_API_MAP } from "@/lib/tiers";
+import { TIERS, CADENCE_LABELS, getPrice } from "@/lib/tiers";
 import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
 import SEO from "@/components/SEO";
 
@@ -96,7 +96,10 @@ export default function MembershipCheckout() {
     setLoading(true);
     setError(null);
 
-    const apiTier = TIER_API_MAP[activeTier] ?? activeTier;
+    // The homeowner checkout (threeSixty.checkout.createSession) accepts the raw
+    // tier ids bronze|silver|gold. Send activeTier directly — do NOT remap to the
+    // portfolio vocabulary, which the backend rejects with a 400.
+    const apiTier = activeTier;
     const customer = {
       name: `${form.firstName} ${form.lastName}`.trim(),
       email: form.email,

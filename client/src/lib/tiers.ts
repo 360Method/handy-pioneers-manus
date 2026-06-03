@@ -125,10 +125,3 @@ export const CADENCE_LABELS: Record<BillingCadence, string> = {
   quarterly: "Quarterly",
   annual: "Annual",
 };
-
-/** Maps internal tier IDs to backend Stripe product IDs at pro.handypioneers.com */
-export const TIER_API_MAP: Record<MemberTier, string> = {
-  bronze: "exterior_shield",
-  silver: "full_coverage",
-  gold: "max",
-};
