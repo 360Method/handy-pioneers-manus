@@ -51,6 +51,10 @@ function Router() {
       <Route path="/membership" component={Membership} />
       <Route path="/membership/checkout" component={MembershipCheckout} />
       <Route path="/membership/confirmation" component={MembershipConfirmation} />
+      {/* Stripe success/cancel redirect targets — the backend builds /360/* URLs.
+          Without these, the post-payment redirect falls through to the home page. */}
+      <Route path="/360/confirmation" component={MembershipConfirmation} />
+      <Route path="/360/checkout" component={MembershipCheckout} />
       {/* 360° Roadmap Generator lead magnet (Path B entry) */}
       <Route path="/roadmap-generator" component={RoadmapGenerator} />
       {/* Legacy alias — keep existing email/campaign links alive */}
