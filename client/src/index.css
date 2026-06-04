@@ -303,4 +303,20 @@
     box-shadow: 0 4px 20px oklch(0% 0 0 / 0.08);
     transform: translateY(-2px);
   }
+
+  /* Brand the size-personalizer slider so it reads as interactive at a glance. */
+  .hp-size-slider [data-slot="slider-track"] {
+    height: 0.5rem;
+    background: oklch(86% 0.03 80);
+  }
+  .hp-size-slider [data-slot="slider-range"] {
+    background: oklch(65% 0.15 72);
+  }
+  .hp-size-slider [data-slot="slider-thumb"] {
+    width: 1.6rem;
+    height: 1.6rem;
+    background: oklch(65% 0.15 72);
+    border: 3px solid oklch(100% 0 0);
+    box-shadow: 0 2px 8px oklch(0% 0 0 / 0.28);
+  }
 }

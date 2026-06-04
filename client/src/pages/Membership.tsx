@@ -420,17 +420,29 @@ export default function Membership() {
           {/* Home-size personalizer — size is an internal pricing input. No size
               label is ever shown to the visitor, only the price tailored to it. */}
           <div
-            className="max-w-2xl mx-auto mb-8 rounded-xl p-6"
-            style={{ background: "oklch(97% 0.01 80)", border: "1px solid oklch(88% 0.02 80)" }}
+            className="max-w-2xl mx-auto mb-8 rounded-xl p-6 sm:p-7"
+            style={{
+              background: "oklch(65% 0.15 72 / 0.08)",
+              border: "2px solid oklch(65% 0.15 72 / 0.55)",
+              borderLeft: "6px solid oklch(65% 0.15 72)",
+              boxShadow: "0 6px 24px oklch(65% 0.15 72 / 0.12)",
+            }}
           >
-            <div className="hp-overline" style={{ marginBottom: "0.5rem" }}>
-              Tailored to your home
+            <div
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+              style={{ background: "oklch(65% 0.15 72)", color: "white" }}
+            >
+              Step 1 · Your home
             </div>
-            <label className="block font-bold mb-1" style={{ color: "oklch(22% 0.07 155)" }}>
-              About how large is your home?
+            <label
+              className="block font-display text-xl sm:text-2xl font-black mb-1"
+              style={{ color: "oklch(22% 0.07 155)" }}
+            >
+              How large is your home?
             </label>
-            <p className="text-sm mb-5" style={{ color: "oklch(50% 0.02 60)" }}>
-              We tune your plan to the home we'll be caring for. A rough figure is all we need.
+            <p className="text-sm mb-6" style={{ color: "oklch(45% 0.02 60)" }}>
+              Drag the slider to your home's size — the prices below update instantly. A rough
+              figure is all we need.
             </p>
 
             {sizeMode === "sqft" ? (
@@ -452,13 +464,15 @@ export default function Membership() {
                     </span>
                   </span>
                 </div>
-                <Slider
-                  min={800}
-                  max={8000}
-                  step={100}
-                  value={[sqft]}
-                  onValueChange={(v) => setSqft(v[0])}
-                />
+                <div className="hp-size-slider">
+                  <Slider
+                    min={800}
+                    max={8000}
+                    step={100}
+                    value={[sqft]}
+                    onValueChange={(v) => setSqft(v[0])}
+                  />
+                </div>
                 <button
                   type="button"
                   onClick={() => setSizeMode("bedrooms")}
@@ -502,8 +516,11 @@ export default function Membership() {
                 </button>
               </div>
             )}
-            <p className="text-xs mt-4" style={{ color: "oklch(60% 0.02 60)" }}>
-              The prices below are tailored to your home.
+            <p
+              className="text-sm font-semibold mt-5"
+              style={{ color: "oklch(55% 0.14 68)" }}
+            >
+              ↓ Prices below are tailored to your home
             </p>
           </div>
 

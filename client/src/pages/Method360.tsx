@@ -7,7 +7,7 @@
 
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
-import { ArrowRight, Eye, Zap, TrendingUp, FileText, ClipboardList, Users, ChevronRight, DollarSign } from "lucide-react";
+import { ArrowRight, Eye, Zap, TrendingUp, DollarSign } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
@@ -55,48 +55,6 @@ const phases = [
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
     imageAlt: "Beautifully maintained Pacific Northwest craftsman home at golden hour with new deck and landscaping",
     bullets: ["Long-term value preservation", "Strategic upgrade roadmap", "Property appreciation plan"],
-  },
-];
-
-const paths = [
-  {
-    number: "PATH 1",
-    title: "The 360° Roadmap Generator",
-    condition: "You have a recent inspection report.",
-    icon: FileText,
-    description:
-      "You've already invested in a home inspection. That 50-page report is sitting in your inbox — detailed, technical, and overwhelming. We translate it into a clear, prioritized NOW / SOON / WAIT roadmap, so you know exactly what to address and in what order.",
-    cta: "Upload Your Report",
-    route: "/roadmap-generator",
-    accent: "oklch(0.65 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-handshake-v2-WsTkHZpz5mBcEGgxr9FxeZ.webp",
-    imageAlt: "Home inspection report open on a desk with reading glasses and coffee",
-  },
-  {
-    number: "PATH 2",
-    title: "The 360° Baseline Walkthrough",
-    condition: "You don't have a recent inspection report.",
-    icon: ClipboardList,
-    description:
-      "Our certified technician conducts a comprehensive 2–3 hour proactive maintenance assessment of your home — establishing the baseline that becomes your property's permanent health record. You receive a detailed written report, a prioritized action plan, and a clear picture of where your home stands today.",
-    cta: "Schedule Your Walkthrough",
-    route: "/360-method/walkthrough",
-    accent: "oklch(0.32 0.07 160)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-inspection-v2-YJrC2At3mXhBTMwYkNQGDQ.webp",
-    imageAlt: "Handy Pioneers technician checking window seal with moisture meter while homeowner watches",
-  },
-  {
-    number: "PATH 3",
-    title: "The 360° Inspector Referral",
-    condition: "You need a deep dive or are preparing to list.",
-    icon: Users,
-    description:
-      "For homeowners who want a comprehensive, legally documented assessment — or who are preparing for a sale — we connect you with a vetted, licensed inspector from our professional network. Once complete, we execute Path 1: translating the report into your prioritized roadmap.",
-    cta: "Request a Referral",
-    route: "/360-method/referral",
-    accent: "oklch(0.45 0.10 160)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-referral-v2-VBXEZH9C4nbs2MJfDroBXe.webp",
-    imageAlt: "Licensed inspector shaking hands with homeowner in front of a Pacific Northwest craftsman home",
   },
 ];
 
@@ -167,7 +125,7 @@ export default function Method360() {
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90"
                 style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
               >
-                Enroll in the 360° Method <ArrowRight size={16} />
+                Schedule Your Baseline Walkthrough <ArrowRight size={16} />
               </button>
               <button
                 onClick={() => {
@@ -350,104 +308,6 @@ export default function Method360() {
         </div>
       </section>
 
-      {/* ─── Choose Your Starting Point ─── */}
-      <section className="py-20" style={{ backgroundColor: "oklch(0.96 0.008 80)" }}>
-        <div className="container">
-          <div className="text-center mb-14">
-            <div className="section-divider mb-4 justify-center">
-              <span className="section-divider-label">Your Entry Point</span>
-            </div>
-            <h2
-              className="text-4xl md:text-5xl font-bold"
-              style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
-            >
-              Choose Your Starting Point
-            </h2>
-            <p
-              className="mt-4 text-lg max-w-xl mx-auto"
-              style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-            >
-              Three entry points. One destination: a home that works for you.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {paths.map((path) => {
-              const Icon = path.icon;
-              return (
-                <button
-                  key={path.number}
-                  onClick={() => navigate(path.route)}
-                  className="group text-left rounded-2xl overflow-hidden border transition-all duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col"
-                  style={{
-                    backgroundColor: "oklch(1 0 0)",
-                    borderColor: "oklch(0.88 0.015 80)",
-                    boxShadow: "0 4px 20px rgba(0,0,0,0.07)",
-                  }}
-                >
-                  {/* Path image */}
-                  <div className="relative overflow-hidden" style={{ height: "200px" }}>
-                    <img
-                      src={path.image}
-                      alt={path.imageAlt}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    {/* Gradient overlay */}
-                    <div
-                      className="absolute inset-0"
-                      style={{ background: "linear-gradient(to top, rgba(14,26,20,0.55) 0%, transparent 60%)" }}
-                    />
-                    {/* Path badge */}
-                    <div
-                      className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
-                      style={{ backgroundColor: path.accent }}
-                    >
-                      <Icon size={13} color="white" />
-                      <span
-                        className="text-xs font-bold uppercase tracking-widest text-white"
-                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        {path.number}
-                      </span>
-                    </div>
-                    {/* Condition tag at bottom of image */}
-                    <div className="absolute bottom-3 left-4 right-4">
-                      <span
-                        className="text-xs font-semibold text-white/90 italic"
-                        style={{ fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        {path.condition}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Card body */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3
-                      className="text-xl font-bold mb-3 leading-snug"
-                      style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
-                    >
-                      {path.title}
-                    </h3>
-                    <p
-                      className="text-sm leading-relaxed flex-1 mb-5"
-                      style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-                    >
-                      {path.description}
-                    </p>
-                    <span
-                      className="inline-flex items-center gap-1.5 text-sm font-bold uppercase tracking-wider group-hover:gap-3 transition-all duration-200"
-                      style={{ color: path.accent, fontFamily: "'Source Sans 3', sans-serif" }}
-                    >
-                      {path.cta} <ChevronRight size={14} />
-                    </span>
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      </section>
 
       {/* ─── Disclaimer ─── */}
       <section className="py-10" style={{ backgroundColor: "oklch(0.94 0.008 80)" }}>
@@ -543,7 +403,7 @@ export default function Method360() {
               📞 (360) 838-6731
             </a>
             <button
-              onClick={() => navigate("/360-method/walkthrough")}
+              onClick={() => navigate("/membership")}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-base transition-all hover:opacity-90"
               style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
             >
