@@ -55,7 +55,7 @@ const FAQS = [
 export default function Membership() {
   const [cadence, setCadence] = useState<BillingCadence>("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [sqft, setSqft] = useState<number>(2400);
+  const [sqft, setSqft] = useState<number>(1800);
   const [sizeMode, setSizeMode] = useState<"sqft" | "bedrooms">("sqft");
   const band = bandForSqft(sqft);
 

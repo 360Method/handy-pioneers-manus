@@ -110,8 +110,8 @@ export const TIERS: TierData[] = [
 
 /* ── Home-size pricing (size is an INTERNAL pricing input only) ──────────────
  * The visitor never sees a size label, band name, or the multiplier — only the
- * final price for their home. The standard (small-to-average) home is the FLOOR
- * and pays the published base prices ($59/$99/$149); there is no discount below
+ * final price for their home. The smallest homes (under 2,000 sq ft) are the FLOOR
+ * and pay the published base prices ($59/$99/$149); there is no discount below
  * that. Larger homes build up with a multiplication markup.
  * Monthly figures are hand-set to the $9 convention; other cadences apply the
  * band multiplier to the base cadence price.
@@ -125,10 +125,10 @@ export interface SizeBandData {
 }
 
 export const SIZE_BANDS: SizeBandData[] = [
-  { id: "standard", multiplier: 1.0, sqftMax: 3500 }, // floor — small + average homes
-  { id: "large", multiplier: 1.3, sqftMax: 5000 },
-  { id: "estate", multiplier: 1.6, sqftMax: 6500 },
-  { id: "grand", multiplier: 1.9, sqftMax: null },
+  { id: "standard", multiplier: 1.0, sqftMax: 2000 }, // floor — under 2,000 sq ft
+  { id: "large", multiplier: 1.3, sqftMax: 3500 }, // 2,000–3,500
+  { id: "estate", multiplier: 1.6, sqftMax: 5000 }, // 3,500–5,000
+  { id: "grand", multiplier: 1.9, sqftMax: null }, // 5,000+
 ];
 
 export const DEFAULT_BAND: HomeSizeBand = "standard";
