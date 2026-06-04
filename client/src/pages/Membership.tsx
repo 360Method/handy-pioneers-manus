@@ -7,11 +7,12 @@
  */
 
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
-import { TIERS } from "@/lib/tiers";
+import { TIERS, bandForSqft } from "@/lib/tiers";
+import { openInquiry } from "@/lib/inquiry";
+import { Slider } from "@/components/ui/slider";
 import { HomeScoreAnimation } from "@/components/membership/HomeScoreAnimation";
 import TierCard from "@/components/membership/TierCard";
 import CadenceToggle from "@/components/membership/CadenceToggle";
@@ -52,17 +53,21 @@ const FAQS = [
 ];
 
 export default function Membership() {
-  const [, navigate] = useLocation();
   const [cadence, setCadence] = useState<BillingCadence>("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [sqft, setSqft] = useState<number>(2400);
+  const [sizeMode, setSizeMode] = useState<"sqft" | "bedrooms">("sqft");
+  const band = bandForSqft(sqft);
 
   useEffect(() => {
     document.title = "360° Method Membership | Handy Pioneers";
     window.scrollTo(0, 0);
   }, []);
 
-  const handleEnroll = (tier: MemberTier, c: BillingCadence) => {
-    navigate(`/membership/checkout?tier=${tier}&cadence=${c}`);
+  // Consult-first (interim): the enroll CTA opens the consultation request.
+  // Direct Stripe checkout returns as a fast-follow once per-band prices exist.
+  const handleEnroll = (_tier: MemberTier, _c: BillingCadence) => {
+    openInquiry();
   };
 
   return (
@@ -412,6 +417,96 @@ export default function Membership() {
             scheduled visits — the higher the tier, the more comprehensive the coverage.
           </p>
 
+          {/* Home-size personalizer — size is an internal pricing input. No size
+              label is ever shown to the visitor, only the price tailored to it. */}
+          <div
+            className="max-w-2xl mx-auto mb-8 rounded-xl p-6"
+            style={{ background: "oklch(97% 0.01 80)", border: "1px solid oklch(88% 0.02 80)" }}
+          >
+            <div className="hp-overline" style={{ marginBottom: "0.5rem" }}>
+              Tailored to your home
+            </div>
+            <label className="block font-bold mb-1" style={{ color: "oklch(22% 0.07 155)" }}>
+              About how large is your home?
+            </label>
+            <p className="text-sm mb-5" style={{ color: "oklch(50% 0.02 60)" }}>
+              We tune your plan to the home we'll be caring for. A rough figure is all we need.
+            </p>
+
+            {sizeMode === "sqft" ? (
+              <div>
+                <div className="flex items-baseline justify-between mb-3">
+                  <span
+                    className="text-xs uppercase tracking-wide"
+                    style={{ color: "oklch(60% 0.02 60)" }}
+                  >
+                    Approximate size
+                  </span>
+                  <span
+                    className="font-display text-2xl font-black"
+                    style={{ color: "oklch(22% 0.07 155)" }}
+                  >
+                    {sqft.toLocaleString()}{" "}
+                    <span className="text-sm font-sans" style={{ color: "oklch(50% 0.02 60)" }}>
+                      sq ft
+                    </span>
+                  </span>
+                </div>
+                <Slider
+                  min={800}
+                  max={8000}
+                  step={100}
+                  value={[sqft]}
+                  onValueChange={(v) => setSqft(v[0])}
+                />
+                <button
+                  type="button"
+                  onClick={() => setSizeMode("bedrooms")}
+                  className="text-xs mt-4 underline"
+                  style={{ color: "oklch(45% 0.12 155)" }}
+                >
+                  Not sure? Use bedrooms instead
+                </button>
+              </div>
+            ) : (
+              <div>
+                <label
+                  className="block text-xs uppercase tracking-wide mb-2"
+                  style={{ color: "oklch(60% 0.02 60)" }}
+                >
+                  Number of bedrooms
+                </label>
+                <select
+                  value={sqft}
+                  onChange={(e) => setSqft(Number(e.target.value))}
+                  className="w-full rounded-md px-4 py-3 text-sm"
+                  style={{
+                    border: "1px solid oklch(85% 0.02 80)",
+                    background: "white",
+                    color: "oklch(22% 0.07 155)",
+                  }}
+                >
+                  <option value={1100}>1–2 bedrooms</option>
+                  <option value={2300}>3 bedrooms</option>
+                  <option value={3000}>4 bedrooms</option>
+                  <option value={4200}>5 bedrooms</option>
+                  <option value={5500}>6 or more bedrooms</option>
+                </select>
+                <button
+                  type="button"
+                  onClick={() => setSizeMode("sqft")}
+                  className="text-xs mt-4 underline"
+                  style={{ color: "oklch(45% 0.12 155)" }}
+                >
+                  I know the square footage
+                </button>
+              </div>
+            )}
+            <p className="text-xs mt-4" style={{ color: "oklch(60% 0.02 60)" }}>
+              The prices below are tailored to your home.
+            </p>
+          </div>
+
           <CadenceToggle value={cadence} onChange={setCadence} />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -420,6 +515,7 @@ export default function Membership() {
                 key={tier.id}
                 tier={tier}
                 cadence={cadence}
+                band={band}
                 onEnroll={handleEnroll}
               />
             ))}

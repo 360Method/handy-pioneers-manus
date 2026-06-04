@@ -108,15 +108,80 @@ export const TIERS: TierData[] = [
   },
 ];
 
-export function getPrice(tier: TierData, cadence: BillingCadence): number {
-  return tier.prices[cadence];
+/* ── Home-size pricing (size is an INTERNAL pricing input only) ──────────────
+ * The visitor never sees a size label, band name, or the multiplier — only the
+ * final price for their home. The typical single-family home is the "estate"
+ * anchor and pays the published base prices; smaller homes price down, larger up.
+ * Monthly figures are the approved grid (hand-set to the $9 convention); other
+ * cadences apply the band multiplier to the base cadence price.
+ */
+export type HomeSizeBand = "residence" | "estate" | "manor" | "signature";
+
+export interface SizeBandData {
+  id: HomeSizeBand;
+  multiplier: number;
+  sqftMax: number | null; // exclusive upper bound; null = no cap (top band)
 }
 
-export function getSavingsVsMonthly(tier: TierData, cadence: BillingCadence): number {
+export const SIZE_BANDS: SizeBandData[] = [
+  { id: "residence", multiplier: 0.85, sqftMax: 2000 },
+  { id: "estate", multiplier: 1.0, sqftMax: 3500 },
+  { id: "manor", multiplier: 1.3, sqftMax: 5000 },
+  { id: "signature", multiplier: 1.6, sqftMax: null },
+];
+
+export const DEFAULT_BAND: HomeSizeBand = "estate";
+
+export function bandForSqft(sqft: number): HomeSizeBand {
+  for (const b of SIZE_BANDS) {
+    if (b.sqftMax === null || sqft < b.sqftMax) return b.id;
+  }
+  return "signature";
+}
+
+function bandMultiplier(band: HomeSizeBand): number {
+  return SIZE_BANDS.find((b) => b.id === band)?.multiplier ?? 1;
+}
+
+// Approved monthly grid — internal source of truth, never surfaced as a label.
+const MONTHLY_GRID: Record<HomeSizeBand, Record<MemberTier, number>> = {
+  residence: { bronze: 49, silver: 85, gold: 129 },
+  estate: { bronze: 59, silver: 99, gold: 149 },
+  manor: { bronze: 79, silver: 129, gold: 199 },
+  signature: { bronze: 99, silver: 159, gold: 239 },
+};
+
+export function getPrice(
+  tier: TierData,
+  cadence: BillingCadence,
+  band: HomeSizeBand = DEFAULT_BAND
+): number {
+  if (cadence === "monthly") return MONTHLY_GRID[band][tier.id];
+  return Math.round(tier.prices[cadence] * bandMultiplier(band));
+}
+
+// Monthly-equivalent display price for any cadence (what a card shows as "/mo").
+export function getMonthlyEquivalent(
+  tier: TierData,
+  cadence: BillingCadence,
+  band: HomeSizeBand = DEFAULT_BAND
+): number {
+  if (cadence === "monthly") return getPrice(tier, "monthly", band);
+  if (cadence === "quarterly") return Math.round((getPrice(tier, "quarterly", band) * 4) / 12);
+  return Math.round(getPrice(tier, "annual", band) / 12);
+}
+
+export function getSavingsVsMonthly(
+  tier: TierData,
+  cadence: BillingCadence,
+  band: HomeSizeBand = DEFAULT_BAND
+): number {
   if (cadence === "monthly") return 0;
-  const monthlyTotal = tier.prices.monthly * 12;
+  const monthlyTotal = getPrice(tier, "monthly", band) * 12;
   const cadenceTotal =
-    cadence === "quarterly" ? tier.prices.quarterly * 4 : tier.prices.annual;
+    cadence === "quarterly"
+      ? getPrice(tier, "quarterly", band) * 4
+      : getPrice(tier, "annual", band);
   return monthlyTotal - cadenceTotal;
 }
 

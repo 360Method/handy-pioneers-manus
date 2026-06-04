@@ -1,15 +1,17 @@
-import type { TierData, BillingCadence, MemberTier } from "@/lib/tiers";
-import { getPrice, getSavingsVsMonthly } from "@/lib/tiers";
+import type { TierData, BillingCadence, MemberTier, HomeSizeBand } from "@/lib/tiers";
+import { getPrice, getSavingsVsMonthly, getMonthlyEquivalent, DEFAULT_BAND } from "@/lib/tiers";
 
 interface Props {
   tier: TierData;
   cadence: BillingCadence;
+  band?: HomeSizeBand;
   onEnroll: (tier: MemberTier, cadence: BillingCadence) => void;
 }
 
-export default function TierCard({ tier, cadence, onEnroll }: Props) {
-  const price = getPrice(tier, cadence);
-  const savings = getSavingsVsMonthly(tier, cadence);
+export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll }: Props) {
+  const price = getPrice(tier, cadence, band);
+  const monthlyEq = getMonthlyEquivalent(tier, cadence, band);
+  const savings = getSavingsVsMonthly(tier, cadence, band);
 
   return (
     <div
@@ -43,12 +45,7 @@ export default function TierCard({ tier, cadence, onEnroll }: Props) {
           className="text-4xl font-black font-display"
           style={{ color: "oklch(22% 0.07 155)" }}
         >
-          $
-          {cadence === "annual"
-            ? tier.annualMonthly
-            : cadence === "quarterly"
-            ? Math.round((price * 4) / 12)
-            : price}
+          ${monthlyEq}
         </span>
         <span className="text-sm ml-1" style={{ color: "oklch(50% 0.02 60)" }}>
           /mo
@@ -172,11 +169,11 @@ export default function TierCard({ tier, cadence, onEnroll }: Props) {
             : "oklch(65% 0.15 72)";
         }}
       >
-        Enroll — ${price}/{cadence === "monthly" ? "mo" : cadence === "quarterly" ? "qtr" : "yr"}
+        Schedule My Baseline Walkthrough →
       </button>
       <p className="text-center text-xs mt-2" style={{ color: "oklch(60% 0.02 60)" }}>
-        You'll confirm your address, select billing frequency, and get your first visit scheduled
-        within 48 hours.
+        Your complimentary baseline walkthrough comes first. We confirm your plan and pricing
+        together — no commitment up front.
       </p>
     </div>
   );
