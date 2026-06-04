@@ -70,8 +70,10 @@ export default function BaselineOffer() {
   const tier = TIERS.find((t) => t.id === (stash?.tier ?? "silver")) ?? TIERS[1];
   const monthly = tier.prices.monthly;
   const annualizedMonthly = monthly * 12; // pay-monthly cost over a year
+  const standardAnnual = tier.prices.annual; // our normal annual rate
   const buyNow = Math.round(annualizedMonthly * 0.7); // 30% off month-to-month
-  const savings = annualizedMonthly - buyNow;
+  const savings = annualizedMonthly - buyNow; // vs paying monthly
+  const belowAnnual = standardAnnual - buyNow; // how much buy-now beats the normal annual
   const buyNowMonthly = Math.round(buyNow / 12);
 
   async function handleAccept() {
@@ -155,23 +157,34 @@ export default function BaselineOffer() {
               ))}
             </div>
 
-            <div className="bg-[#0D1F14] rounded-xl p-5 mb-6 text-center">
-              <p className="text-[#8BA898] text-xs uppercase tracking-widest mb-1">
-                Pay month-to-month and a year runs {usd(annualizedMonthly)}
-              </p>
-              <p
-                className="text-[#C9A84C] text-5xl font-black mb-1"
-                style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
-              >
-                {usd(buyNow)}/yr
-              </p>
-              <p className="text-[#F5F0E8] text-sm mb-1">
-                That's about {usd(buyNowMonthly)}/mo — and you save{" "}
-                <span className="font-bold text-[#C9A84C]">{usd(savings)}</span> this year.
-              </p>
-              <p className="text-[#6A8A78] text-xs">
-                30% off the month-to-month cost. This rate is only on this page.
-              </p>
+            <div className="bg-[#0D1F14] rounded-xl p-5 mb-6">
+              <div className="flex items-center justify-between text-sm mb-2">
+                <span className="text-[#8BA898]">Pay month-to-month, a year is</span>
+                <span className="text-[#B8C8B8] line-through">{usd(annualizedMonthly)}/yr</span>
+              </div>
+              <div className="flex items-center justify-between text-sm pb-3 mb-4 border-b border-[#2A4A38]">
+                <span className="text-[#8BA898]">Our standard annual rate</span>
+                <span className="text-[#B8C8B8]">{usd(standardAnnual)}/yr</span>
+              </div>
+              <div className="text-center">
+                <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-1">
+                  Today only — buy now
+                </p>
+                <p
+                  className="text-[#C9A84C] text-5xl font-black mb-1"
+                  style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
+                >
+                  {usd(buyNow)}/yr
+                </p>
+                <p className="text-[#F5F0E8] text-sm mb-1">
+                  About {usd(buyNowMonthly)}/mo — save{" "}
+                  <span className="font-bold text-[#C9A84C]">{usd(savings)}</span> vs monthly
+                  {belowAnnual > 0 ? <>, {usd(belowAnnual)} below our annual rate</> : null}.
+                </p>
+                <p className="text-[#6A8A78] text-xs">
+                  30% off the month-to-month cost. This rate is only on this page.
+                </p>
+              </div>
             </div>
 
             {error && (

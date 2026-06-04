@@ -110,12 +110,13 @@ export const TIERS: TierData[] = [
 
 /* ── Home-size pricing (size is an INTERNAL pricing input only) ──────────────
  * The visitor never sees a size label, band name, or the multiplier — only the
- * final price for their home. The typical single-family home is the "estate"
- * anchor and pays the published base prices; smaller homes price down, larger up.
- * Monthly figures are the approved grid (hand-set to the $9 convention); other
- * cadences apply the band multiplier to the base cadence price.
+ * final price for their home. The standard (small-to-average) home is the FLOOR
+ * and pays the published base prices ($59/$99/$149); there is no discount below
+ * that. Larger homes build up with a multiplication markup.
+ * Monthly figures are hand-set to the $9 convention; other cadences apply the
+ * band multiplier to the base cadence price.
  */
-export type HomeSizeBand = "residence" | "estate" | "manor" | "signature";
+export type HomeSizeBand = "standard" | "large" | "estate" | "grand";
 
 export interface SizeBandData {
   id: HomeSizeBand;
@@ -124,31 +125,32 @@ export interface SizeBandData {
 }
 
 export const SIZE_BANDS: SizeBandData[] = [
-  { id: "residence", multiplier: 0.85, sqftMax: 2000 },
-  { id: "estate", multiplier: 1.0, sqftMax: 3500 },
-  { id: "manor", multiplier: 1.3, sqftMax: 5000 },
-  { id: "signature", multiplier: 1.6, sqftMax: null },
+  { id: "standard", multiplier: 1.0, sqftMax: 3500 }, // floor — small + average homes
+  { id: "large", multiplier: 1.3, sqftMax: 5000 },
+  { id: "estate", multiplier: 1.6, sqftMax: 6500 },
+  { id: "grand", multiplier: 1.9, sqftMax: null },
 ];
 
-export const DEFAULT_BAND: HomeSizeBand = "estate";
+export const DEFAULT_BAND: HomeSizeBand = "standard";
 
 export function bandForSqft(sqft: number): HomeSizeBand {
   for (const b of SIZE_BANDS) {
     if (b.sqftMax === null || sqft < b.sqftMax) return b.id;
   }
-  return "signature";
+  return "grand";
 }
 
 function bandMultiplier(band: HomeSizeBand): number {
   return SIZE_BANDS.find((b) => b.id === band)?.multiplier ?? 1;
 }
 
-// Approved monthly grid — internal source of truth, never surfaced as a label.
+// Monthly grid — internal source of truth, never surfaced as a label.
+// Floor is $59/$99/$149; larger bands build up via the band multiplier.
 const MONTHLY_GRID: Record<HomeSizeBand, Record<MemberTier, number>> = {
-  residence: { bronze: 49, silver: 85, gold: 129 },
-  estate: { bronze: 59, silver: 99, gold: 149 },
-  manor: { bronze: 79, silver: 129, gold: 199 },
-  signature: { bronze: 99, silver: 159, gold: 239 },
+  standard: { bronze: 59, silver: 99, gold: 149 },
+  large: { bronze: 79, silver: 129, gold: 199 },
+  estate: { bronze: 99, silver: 159, gold: 239 },
+  grand: { bronze: 119, silver: 189, gold: 289 },
 };
 
 export function getPrice(
