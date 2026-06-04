@@ -6,7 +6,19 @@ import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { getApiBase } from "@/lib/api";
+import { getApiBase, isStagingHost } from "@/lib/api";
+
+// Review-only placeholder so the page renders on direct navigation on staging.
+const PREVIEW_STASH: Stash = {
+  leadId: "preview",
+  customerId: "preview",
+  firstName: "Preview",
+  lastName: "Visitor",
+  phone: "(360) 555-0100",
+  email: "preview@example.com",
+  tier: "silver",
+  sqft: 2400,
+};
 
 interface Stash {
   leadId?: string;
@@ -40,6 +52,11 @@ export default function BaselineDetails() {
     try {
       const raw = sessionStorage.getItem("hp_baseline");
       if (!raw) {
+        if (isStagingHost()) {
+          setStash(PREVIEW_STASH);
+          setForm((f) => ({ ...f, sqft: String(PREVIEW_STASH.sqft) }));
+          return;
+        }
         navigate("/membership");
         return;
       }

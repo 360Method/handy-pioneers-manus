@@ -9,7 +9,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle, Clock } from "lucide-react";
 import { TIERS } from "@/lib/tiers";
-import { getApiBase } from "@/lib/api";
+import { getApiBase, isStagingHost } from "@/lib/api";
 
 interface Stash {
   leadId?: string;
@@ -27,6 +27,21 @@ interface Stash {
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
 
+// Review-only placeholder so the page renders on direct navigation on staging.
+const PREVIEW_STASH: Stash = {
+  leadId: "preview",
+  customerId: "preview",
+  firstName: "Preview",
+  lastName: "Visitor",
+  phone: "(360) 555-0100",
+  email: "preview@example.com",
+  tier: "silver",
+  street: "123 NE Main St",
+  city: "Vancouver",
+  state: "WA",
+  zip: "98661",
+};
+
 export default function BaselineOffer() {
   const [, navigate] = useLocation();
   const [stash, setStash] = useState<Stash | null>(null);
@@ -39,6 +54,10 @@ export default function BaselineOffer() {
     try {
       const raw = sessionStorage.getItem("hp_baseline");
       if (!raw) {
+        if (isStagingHost()) {
+          setStash(PREVIEW_STASH);
+          return;
+        }
         navigate("/membership");
         return;
       }

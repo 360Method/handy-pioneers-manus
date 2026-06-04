@@ -9,9 +9,12 @@ const PROD = "https://pro.handypioneers.com";
 const STAGING = "https://staging-pro.handypioneers.com";
 
 export function getApiBase(): string {
-  if (typeof window !== "undefined") {
-    const host = window.location.hostname;
-    if (host.includes("staging") || host.includes("-staging")) return STAGING;
-  }
+  if (isStagingHost()) return STAGING;
   return PROD;
+}
+
+/** True on the staging website host. Used to enable review-only previews. */
+export function isStagingHost(): boolean {
+  if (typeof window === "undefined") return false;
+  return window.location.hostname.includes("staging");
 }
