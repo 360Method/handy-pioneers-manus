@@ -106,6 +106,12 @@ export default function BaselineDetails() {
       sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
       navigate("/baseline/offer");
     } catch (err: any) {
+      // On staging the backend may be down — let reviewers walk the flow anyway.
+      if (isStagingHost()) {
+        sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
+        navigate("/baseline/offer");
+        return;
+      }
       setError(err?.message ?? "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);

@@ -7,7 +7,7 @@
  */
 import { useState } from "react";
 import { useLocation } from "wouter";
-import { getApiBase } from "@/lib/api";
+import { getApiBase, isStagingHost } from "@/lib/api";
 
 interface Props {
   tier?: string;
@@ -22,6 +22,23 @@ export default function BaselineInquiryForm({ tier, sqft }: Props) {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const proceed = (leadId: string, customerId: string) => {
+    sessionStorage.setItem(
+      "hp_baseline",
+      JSON.stringify({
+        leadId,
+        customerId,
+        firstName: form.firstName.trim(),
+        lastName: form.lastName.trim(),
+        phone: form.phone.trim(),
+        email: form.email.trim().toLowerCase(),
+        tier: tier ?? "silver",
+        sqft: sqft ?? null,
+      })
+    );
+    navigate("/baseline/details");
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,21 +70,13 @@ export default function BaselineInquiryForm({ tier, sqft }: Props) {
         throw new Error(d?.error ?? "Something went wrong. Please try again.");
       }
       const data = await res.json();
-      sessionStorage.setItem(
-        "hp_baseline",
-        JSON.stringify({
-          leadId: data.leadId,
-          customerId: data.customerId,
-          firstName: form.firstName.trim(),
-          lastName: form.lastName.trim(),
-          phone: form.phone.trim(),
-          email: form.email.trim().toLowerCase(),
-          tier: tier ?? "silver",
-          sqft: sqft ?? null,
-        })
-      );
-      navigate("/baseline/details");
+      proceed(data.leadId, data.customerId);
     } catch (err: any) {
+      // On staging the backend may be down — let reviewers walk the flow anyway.
+      if (isStagingHost()) {
+        proceed("preview", "preview");
+        return;
+      }
       setError(err?.message ?? "Something went wrong. Please try again.");
     } finally {
       setSubmitting(false);
