@@ -1,8 +1,10 @@
 /**
- * InquiryModal — one global dialog holding the CRM ProjectInquiryForm.
+ * InquiryModal — one global dialog holding the CRM lead form.
  *
  * Rendered once at the App root. Opens whenever any CTA calls openInquiry().
- * Auto-closes on route change (the form navigates to /thankyou on success).
+ * Project mode shows ProjectInquiryForm; baseline mode (openInquiry({ mode:
+ * "baseline", tier, sqft })) shows Step 1 of the baseline-walkthrough funnel.
+ * Auto-closes on route change (forms navigate away on success).
  */
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
@@ -14,21 +16,28 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog";
 import ProjectInquiryForm from "@/components/ProjectInquiryForm";
-import { registerInquiry } from "@/lib/inquiry";
+import BaselineInquiryForm from "@/components/BaselineInquiryForm";
+import { registerInquiry, type InquiryContext } from "@/lib/inquiry";
 
 export default function InquiryModal() {
   const [open, setOpen] = useState(false);
+  const [ctx, setCtx] = useState<InquiryContext>({});
   const [location] = useLocation();
 
   useEffect(() => {
-    registerInquiry(() => setOpen(true));
+    registerInquiry((c) => {
+      setCtx(c);
+      setOpen(true);
+    });
     return () => registerInquiry(null);
   }, []);
 
-  // Close when the route changes (e.g. the form redirects to /thankyou on submit).
+  // Close when the route changes (forms redirect away on submit).
   useEffect(() => {
     setOpen(false);
   }, [location]);
+
+  const isBaseline = ctx.mode === "baseline";
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -38,13 +47,19 @@ export default function InquiryModal() {
             className="text-2xl"
             style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
           >
-            Request a Complimentary Estimate
+            {isBaseline ? "Schedule Your Baseline Walkthrough" : "Request a Complimentary Estimate"}
           </DialogTitle>
           <DialogDescription>
-            Tell us what you need. We'll reach out within one business day.
+            {isBaseline
+              ? "First, a few quick details so we can reach out. Takes about 20 seconds."
+              : "Tell us what you need. We'll reach out within one business day."}
           </DialogDescription>
         </DialogHeader>
-        <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
+        {isBaseline ? (
+          <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} />
+        ) : (
+          <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
+        )}
       </DialogContent>
     </Dialog>
   );

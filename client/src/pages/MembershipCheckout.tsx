@@ -10,6 +10,7 @@ import { useLocation } from "wouter";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
 import { TIERS, CADENCE_LABELS, getPrice } from "@/lib/tiers";
 import { isInServiceArea, OUT_OF_AREA_MESSAGE } from "@/lib/serviceArea";
+import { getApiBase } from "@/lib/api";
 import SEO from "@/components/SEO";
 
 const HO_PROPERTY_TYPE_OPTIONS = [
@@ -24,7 +25,7 @@ const HO_TIER_OPTIONS: { value: MemberTier; label: string; desc: string }[] = [
   { value: "gold", label: "Maximum Protection", desc: "4 visits/yr · 12% member rate · $600 labor bank" },
 ];
 
-const PRO_API = "https://pro.handypioneers.com";
+const PRO_API = getApiBase();
 
 function Spinner() {
   return (

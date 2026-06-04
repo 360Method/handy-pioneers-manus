@@ -22,6 +22,9 @@ import Method360Offer from "./pages/Method360Offer";
 import Membership from "./pages/Membership";
 import MembershipCheckout from "./pages/MembershipCheckout";
 import MembershipConfirmation from "./pages/MembershipConfirmation";
+import BaselineDetails from "./pages/BaselineDetails";
+import BaselineOffer from "./pages/BaselineOffer";
+import BaselineConfirmation from "./pages/BaselineConfirmation";
 import RoadmapGenerator from "./pages/RoadmapGenerator";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
@@ -51,6 +54,10 @@ function Router() {
       <Route path="/membership" component={Membership} />
       <Route path="/membership/checkout" component={MembershipCheckout} />
       <Route path="/membership/confirmation" component={MembershipConfirmation} />
+      {/* Baseline-walkthrough funnel: Step 1 popup -> details -> upsell -> confirm */}
+      <Route path="/baseline/details" component={BaselineDetails} />
+      <Route path="/baseline/offer" component={BaselineOffer} />
+      <Route path="/baseline/confirmed" component={BaselineConfirmation} />
       {/* Stripe success/cancel redirect targets — the backend builds /360/* URLs.
           Without these, the post-payment redirect falls through to the home page. */}
       <Route path="/360/confirmation" component={MembershipConfirmation} />

@@ -64,10 +64,10 @@ export default function Membership() {
     window.scrollTo(0, 0);
   }, []);
 
-  // Consult-first (interim): the enroll CTA opens the consultation request.
-  // Direct Stripe checkout returns as a fast-follow once per-band prices exist.
-  const handleEnroll = (_tier: MemberTier, _c: BillingCadence) => {
-    openInquiry();
+  // Baseline funnel: the tier CTA opens Step 1 (basics popup), carrying the chosen
+  // tier + home size so the later upsell can present the right annual offer.
+  const handleEnroll = (tier: MemberTier, _c: BillingCadence) => {
+    openInquiry({ mode: "baseline", tier, sqft });
   };
 
   return (

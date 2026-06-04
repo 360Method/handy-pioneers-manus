@@ -9,8 +9,7 @@
 
 import { useState } from "react";
 import { useLocation } from "wouter";
-
-const APP_API_BASE = "https://pro.handypioneers.com";
+import { getApiBase } from "@/lib/api";
 
 type Funnel = "project" | "360_method";
 
@@ -82,7 +81,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
 
     setSubmitting(true);
     try {
-      const res = await fetch(`${APP_API_BASE}/api/public/inquiry`, {
+      const res = await fetch(`${getApiBase()}/api/public/inquiry`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
