@@ -104,6 +104,10 @@ export default function BaselineOffer() {
       }
       const json = await res.json();
       if (!json?.url) throw new Error(json?.error ?? "Checkout could not start.");
+      // Carry plan context so the post-payment confirmation page personalizes.
+      sessionStorage.setItem("hp360_tier", stash.tier ?? "silver");
+      sessionStorage.setItem("hp360_cadence", "annual");
+      sessionStorage.setItem("hp360_type", "homeowner");
       window.location.href = json.url;
     } catch (err: any) {
       setError(

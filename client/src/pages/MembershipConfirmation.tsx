@@ -4,7 +4,7 @@
  * session_id from URL params. Portal deep-link CTA.
  */
 
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { TIERS, CADENCE_LABELS } from "@/lib/tiers";
 import type { BillingCadence } from "@/lib/tiers";
 import SEO from "@/components/SEO";
@@ -42,6 +42,13 @@ export default function MembershipConfirmation() {
   const cadenceLabel = cadenceParam ? CADENCE_LABELS[cadenceParam] : null;
   const hasLaborBank = tierData ? tierData.laborBankDollars > 0 : false;
   const laborBankActive = hasLaborBank && cadenceParam !== null && cadenceParam !== "monthly";
+
+  // Tidy the long Stripe session_id out of the address bar once we've read it.
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.search) {
+      window.history.replaceState({}, "", window.location.pathname);
+    }
+  }, []);
 
   const portalUrl = sessionId
     ? `https://client.handypioneers.com/portal/home?session_id=${sessionId}`
