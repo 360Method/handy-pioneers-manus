@@ -23,6 +23,15 @@ interface Stash {
   city?: string;
   state?: string;
   zip?: string;
+  sqft?: string | number;
+  yearBuilt?: string | number;
+}
+
+/** Strip commas/spaces and coerce to a positive integer, or undefined. */
+function toInt(v: string | number | undefined): number | undefined {
+  if (v === undefined || v === null) return undefined;
+  const n = parseInt(String(v).replace(/[^0-9]/g, ""), 10);
+  return Number.isFinite(n) && n > 0 ? n : undefined;
 }
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
@@ -95,6 +104,10 @@ export default function BaselineOffer() {
           serviceCity: stash.city,
           serviceState: stash.state,
           serviceZip: stash.zip,
+          sqft: toInt(stash.sqft),
+          yearBuilt: toInt(stash.yearBuilt),
+          // Link the membership back to the CRM lead created in Step 1 (explicit, not email-only).
+          hpCustomerId: stash.customerId,
           origin: window.location.origin,
         }),
       });
