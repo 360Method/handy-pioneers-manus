@@ -187,7 +187,7 @@ export default function RoadmapGenerator() {
                   aria-label="View the full sample roadmap"
                 >
                   <img
-                    src="/images/roadmap-sample/stewardship-1.webp"
+                    src="/images/roadmap-sample/stewardship-cover.webp"
                     alt="Sample 360° Roadmap: findings sorted into NOW, SOON, and WAIT with cost ranges"
                     className="w-full rounded-lg shadow-2xl"
                     style={{ transform: "rotate(1.5deg)" }}
@@ -223,16 +223,19 @@ export default function RoadmapGenerator() {
 
             {/* The other two sample pages — more give */}
             <div className="grid grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
-              {[2, 3].map((n) => (
+              {[
+                { src: "stewardship-score.webp", alt: "Sample roadmap summary with Home Score and NOW / SOON / WAIT totals" },
+                { src: "stewardship-item.webp", alt: "Sample roadmap item: finding, what it means, approach, and investment range" },
+              ].map((img) => (
                 <button
-                  key={n}
+                  key={img.src}
                   onClick={() => setSampleOpen(true)}
                   className="bg-transparent border-0 p-0 cursor-zoom-in"
-                  aria-label={`View sample roadmap page ${n}`}
+                  aria-label={img.alt}
                 >
                   <img
-                    src={`/images/roadmap-sample/stewardship-${n}.webp`}
-                    alt={`Sample 360° Roadmap page ${n}`}
+                    src={`/images/roadmap-sample/${img.src}`}
+                    alt={img.alt}
                     className="w-full rounded-lg shadow-lg transition-transform hover:scale-[1.02]"
                     loading="lazy"
                   />
