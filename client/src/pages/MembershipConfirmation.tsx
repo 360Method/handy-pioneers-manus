@@ -31,11 +31,16 @@ export default function MembershipConfirmation() {
   const isPortfolio =
     (typeof window !== "undefined" && sessionStorage.getItem("hp360_type") === "portfolio") ||
     params.get("type") === "portfolio";
+  // Arrived from the roadmap funnel's one-time offer — their free roadmap is
+  // still being generated in the background; say so.
+  const fromRoadmap =
+    typeof window !== "undefined" && sessionStorage.getItem("hp360_fromRoadmap") === "1";
 
   if (typeof window !== "undefined" && sessionId) {
     sessionStorage.removeItem("hp360_tier");
     sessionStorage.removeItem("hp360_cadence");
     sessionStorage.removeItem("hp360_type");
+    sessionStorage.removeItem("hp360_fromRoadmap");
   }
 
   const tierData = tierParam ? TIERS.find((t) => t.id === tierParam) ?? null : null;
@@ -55,6 +60,15 @@ export default function MembershipConfirmation() {
     : "https://client.handypioneers.com/portal/home";
 
   const nextSteps = [
+    ...(fromRoadmap
+      ? [
+          {
+            icon: "🗺️",
+            title: "Your free roadmap is still on its way",
+            body: "The 360° Roadmap you started is being generated right now and will arrive by email within 24 hours — your membership doesn't change that.",
+          },
+        ]
+      : []),
     {
       icon: "📧",
       title: "Check your email",

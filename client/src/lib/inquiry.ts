@@ -8,7 +8,7 @@
  * carries the chosen tier + home size into the funnel.
  */
 export interface InquiryContext {
-  mode?: "project" | "baseline";
+  mode?: "project" | "baseline" | "roadmap";
   tier?: string;
   sqft?: number;
 }

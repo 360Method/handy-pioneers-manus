@@ -1,0 +1,489 @@
+/**
+ * RoadmapDetails.tsx — /roadmap/details (Step 2 of the roadmap-generator funnel)
+ *
+ * Captures the property (personal home vs investment toggle), the address with
+ * a Clark County ZIP gate (out-of-area → waitlist branch), home details (sqft
+ * or unit count + year built), and the inspection report (PDF drag-drop or a
+ * web-hosted report URL). Submitting starts roadmap processing immediately in
+ * the background, then advances to the one-time offer (/roadmap/offer?tid=…).
+ */
+import { useEffect, useMemo, useState } from "react";
+import { useLocation } from "wouter";
+import { Upload, Link as LinkIcon, CheckCircle } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import { getApiBase, isStagingHost } from "@/lib/api";
+import { isInServiceArea } from "@/lib/serviceArea";
+
+const MAX_PDF_BYTES = 100 * 1024 * 1024; // 100 MB
+
+interface Stash {
+  leadId?: string;
+  customerId?: string;
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  email?: string;
+  smsConsent?: boolean;
+}
+
+// Review-only placeholder so the page renders on direct navigation on staging.
+const PREVIEW_STASH: Stash = {
+  leadId: "preview",
+  customerId: "preview",
+  firstName: "Preview",
+  lastName: "Visitor",
+  phone: "(360) 555-0100",
+  email: "preview@example.com",
+  smsConsent: true,
+};
+
+const UNIT_OPTIONS = [
+  { value: 1, label: "Single-family rental" },
+  { value: 2, label: "Duplex" },
+  { value: 3, label: "Triplex" },
+  { value: 4, label: "4-plex" },
+  { value: 5, label: "5+ units" },
+];
+
+export default function RoadmapDetails() {
+  const [, navigate] = useLocation();
+  const [stash, setStash] = useState<Stash>({});
+  const [propertyKind, setPropertyKind] = useState<"personal" | "investment">("personal");
+  const [form, setForm] = useState({
+    street: "",
+    city: "",
+    state: "WA",
+    zip: "",
+    sqft: "",
+    yearBuilt: "",
+    notes: "",
+  });
+  const [unitCount, setUnitCount] = useState<number>(1);
+  const [pdfFile, setPdfFile] = useState<File | null>(null);
+  const [pdfError, setPdfError] = useState<string | null>(null);
+  const [dragOver, setDragOver] = useState(false);
+  const [useUrlInstead, setUseUrlInstead] = useState(false);
+  const [reportUrl, setReportUrl] = useState("");
+  const [consent, setConsent] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [waitlisted, setWaitlisted] = useState(false);
+
+  useEffect(() => {
+    document.title = "Your Home — 360° Roadmap | Handy Pioneers";
+    window.scrollTo(0, 0);
+    try {
+      const raw = sessionStorage.getItem("hp_roadmap");
+      if (!raw) {
+        if (isStagingHost()) {
+          setStash(PREVIEW_STASH);
+          return;
+        }
+        navigate("/roadmap-generator");
+        return;
+      }
+      setStash(JSON.parse(raw) as Stash);
+    } catch {
+      navigate("/roadmap-generator");
+    }
+  }, [navigate]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const onFile = (file: File | null) => {
+    setPdfError(null);
+    if (!file) {
+      setPdfFile(null);
+      return;
+    }
+    if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+      setPdfError("Please upload a PDF file");
+      setPdfFile(null);
+      return;
+    }
+    if (file.size > MAX_PDF_BYTES) {
+      setPdfError("PDF must be 100 MB or smaller");
+      setPdfFile(null);
+      return;
+    }
+    setPdfFile(file);
+  };
+
+  const fileSizeLabel = useMemo(() => {
+    if (!pdfFile) return null;
+    const mb = pdfFile.size / (1024 * 1024);
+    return mb < 1 ? `${Math.round(pdfFile.size / 1024)} KB` : `${mb.toFixed(1)} MB`;
+  }, [pdfFile]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    if (!form.street || !form.city || !form.zip) {
+      setError("Please add your street, city, and ZIP.");
+      return;
+    }
+
+    // Out-of-area → waitlist branch: no report needed; the funnel ends here.
+    if (!isInServiceArea(form.zip)) {
+      setSubmitting(true);
+      try {
+        await fetch(`${getApiBase()}/api/public/inquiry/details`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerId: stash.customerId,
+            leadId: stash.leadId,
+            street: form.street.trim(),
+            city: form.city.trim(),
+            state: form.state.trim(),
+            zip: form.zip.trim(),
+            sqft: form.sqft.trim(),
+            yearBuilt: form.yearBuilt.trim(),
+            notes: form.notes.trim(),
+            funnel: "roadmap_generator",
+            outOfArea: true,
+          }),
+        });
+      } catch {
+        /* best-effort — the lead already exists from step 1 */
+      }
+      setWaitlisted(true);
+      setSubmitting(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    if (!pdfFile && !reportUrl.trim()) {
+      setError("Please attach a PDF or paste a web report URL so we can produce your roadmap.");
+      return;
+    }
+    if (!consent) {
+      setError("Please confirm the acknowledgment to continue.");
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      const body = new FormData();
+      body.append("firstName", stash.firstName ?? "");
+      body.append("lastName", stash.lastName ?? "");
+      body.append("email", stash.email ?? "");
+      body.append("phone", stash.phone ?? "");
+      body.append("propertyAddress", form.street.trim());
+      body.append("city", form.city.trim());
+      body.append("state", form.state.trim());
+      body.append("zip", form.zip.trim());
+      if (propertyKind === "personal") {
+        if (form.sqft.trim()) body.append("sqft", form.sqft.trim());
+      } else {
+        body.append("unitCount", String(unitCount));
+      }
+      body.append("propertyKind", propertyKind);
+      if (form.yearBuilt.trim()) body.append("yearBuilt", form.yearBuilt.trim());
+      if (form.notes.trim()) body.append("notes", form.notes.trim());
+      if (pdfFile) body.append("report_pdf", pdfFile);
+      if (!pdfFile && reportUrl.trim()) body.append("reportUrl", reportUrl.trim());
+      body.append("source", "roadmap_funnel");
+      // Funnel linkage — step 1 created these; the backend reuses them so one
+      // funnel walk never makes duplicate CRM records.
+      if (stash.customerId && stash.customerId !== "preview") body.append("hpCustomerId", stash.customerId);
+      if (stash.leadId && stash.leadId !== "preview") body.append("hpLeadId", stash.leadId);
+
+      const res = await fetch(`${getApiBase()}/api/roadmap-generator/submit`, {
+        method: "POST",
+        body,
+      });
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d?.error ?? `Submission failed (${res.status})`);
+      }
+      const data = await res.json();
+      // Carry everything the offer page needs (tid in the URL is the
+      // sessionStorage-loss fallback for the decline path).
+      sessionStorage.setItem(
+        "hp_roadmap",
+        JSON.stringify({
+          ...stash,
+          ...form,
+          propertyKind,
+          unitCount: propertyKind === "investment" ? unitCount : undefined,
+          translationId: data.id,
+          confirmationUrl: data.confirmationUrl,
+        })
+      );
+      navigate(`/roadmap/offer?tid=${encodeURIComponent(data.id ?? "")}`);
+    } catch (err: any) {
+      // On staging the backend may be down — let reviewers walk the flow anyway.
+      if (isStagingHost()) {
+        sessionStorage.setItem(
+          "hp_roadmap",
+          JSON.stringify({ ...stash, ...form, propertyKind, unitCount, translationId: "preview" })
+        );
+        navigate("/roadmap/offer?tid=preview");
+        return;
+      }
+      setError(err?.message ?? "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const inputClass =
+    "w-full rounded-md px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50 transition-all";
+  const inputStyle = { border: "1px solid oklch(85% 0.02 80)", background: "white", color: "oklch(22% 0.07 155)" } as const;
+  const labelClass = "block text-xs font-semibold uppercase tracking-wide mb-1";
+  const labelStyle = { color: "oklch(45% 0.02 60)" } as const;
+
+  const toggleBase =
+    "flex-1 py-3 px-4 rounded-md text-sm font-bold transition-all border";
+
+  return (
+    <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
+      <Navbar />
+
+      <section className="text-white pt-16 pb-10 px-4" style={{ background: "oklch(22% 0.07 155)" }}>
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs uppercase tracking-widest mb-2" style={{ color: "oklch(78% 0.13 78)" }}>
+            Step 2 of 3 · Your home &amp; your report
+          </p>
+          <h1 className="font-display text-3xl sm:text-4xl font-black leading-tight">
+            {stash.firstName ? `Thanks, ${stash.firstName}. ` : ""}Tell us about the property.
+          </h1>
+          <p className="mt-3 text-sm" style={{ color: "oklch(100% 0 0 / 0.7)" }}>
+            Add the property and attach your inspection report. Your roadmap starts
+            generating the moment you continue.
+          </p>
+        </div>
+      </section>
+
+      <section className="py-12 px-4">
+        <div className="max-w-2xl mx-auto">
+          {waitlisted ? (
+            <div
+              className="rounded-2xl p-10 border text-center"
+              style={{ backgroundColor: "oklch(0.97 0.04 65)", borderColor: "oklch(0.85 0.10 65)" }}
+            >
+              <CheckCircle size={48} className="mx-auto mb-4" style={{ color: "oklch(0.55 0.14 65)" }} />
+              <h3
+                className="text-2xl font-bold mb-3"
+                style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+              >
+                Thank You — You're On Our List
+              </h3>
+              <p className="text-base mx-auto" style={{ color: "oklch(0.35 0.02 80)", maxWidth: "520px" }}>
+                We currently steward properties in Clark County, Washington only. We've kept
+                your details on file and will reach out the moment we expand into your area.
+              </p>
+            </div>
+          ) : (
+            <form
+              onSubmit={handleSubmit}
+              className="rounded-xl p-6 sm:p-8 space-y-5"
+              style={{ background: "white", border: "1px solid oklch(88% 0.02 80)", boxShadow: "0 6px 24px oklch(0% 0 0 / 0.06)" }}
+              noValidate
+            >
+              {/* Property type toggle */}
+              <div>
+                <label className={labelClass} style={labelStyle}>This property is my…</label>
+                <div className="flex gap-3 mt-1">
+                  <button
+                    type="button"
+                    onClick={() => setPropertyKind("personal")}
+                    className={toggleBase}
+                    style={
+                      propertyKind === "personal"
+                        ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
+                        : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
+                    }
+                  >
+                    Personal home
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setPropertyKind("investment")}
+                    className={toggleBase}
+                    style={
+                      propertyKind === "investment"
+                        ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
+                        : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
+                    }
+                  >
+                    Investment property
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <label className={labelClass} style={labelStyle} htmlFor="rd-street">Street Address</label>
+                <input id="rd-street" name="street" type="text" autoComplete="address-line1" placeholder="123 NE Main St" value={form.street} onChange={handleChange} className={inputClass} style={inputStyle} required />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="sm:col-span-1">
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-city">City</label>
+                  <input id="rd-city" name="city" type="text" autoComplete="address-level2" placeholder="Vancouver" value={form.city} onChange={handleChange} className={inputClass} style={inputStyle} required />
+                </div>
+                <div>
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-state">State</label>
+                  <input id="rd-state" name="state" type="text" autoComplete="address-level1" value={form.state} onChange={handleChange} className={inputClass} style={inputStyle} />
+                </div>
+                <div>
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-zip">ZIP</label>
+                  <input id="rd-zip" name="zip" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="98661" value={form.zip} onChange={handleChange} className={inputClass} style={inputStyle} required />
+                </div>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {propertyKind === "personal" ? (
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-sqft">Approx. Square Footage</label>
+                    <input id="rd-sqft" name="sqft" type="text" inputMode="numeric" placeholder="2,400" value={form.sqft} onChange={handleChange} className={inputClass} style={inputStyle} />
+                  </div>
+                ) : (
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-units">Property Size</label>
+                    <select
+                      id="rd-units"
+                      value={unitCount}
+                      onChange={(e) => setUnitCount(parseInt(e.target.value, 10))}
+                      className={inputClass}
+                      style={inputStyle}
+                    >
+                      {UNIT_OPTIONS.map((o) => (
+                        <option key={o.value} value={o.value}>{o.label}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
+                <div>
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-year">Year Built (if known)</label>
+                  <input id="rd-year" name="yearBuilt" type="text" inputMode="numeric" placeholder="1998" value={form.yearBuilt} onChange={handleChange} className={inputClass} style={inputStyle} />
+                </div>
+              </div>
+
+              {/* Report upload */}
+              <div>
+                <label className={labelClass} style={labelStyle}>Your Inspection Report</label>
+                {!useUrlInstead ? (
+                  <>
+                    <label
+                      htmlFor="rd-pdf-upload"
+                      onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
+                      onDragLeave={() => setDragOver(false)}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        setDragOver(false);
+                        const f = e.dataTransfer.files?.[0];
+                        if (f) onFile(f);
+                      }}
+                      className="block rounded-xl border-2 border-dashed px-6 py-8 text-center cursor-pointer transition-colors mt-1"
+                      style={{
+                        borderColor: dragOver ? "oklch(0.65 0.14 65)" : "oklch(0.80 0.03 80)",
+                        backgroundColor: dragOver ? "oklch(0.97 0.04 65)" : "white",
+                      }}
+                    >
+                      <Upload size={26} className="mx-auto mb-2" style={{ color: "oklch(0.50 0.06 65)" }} />
+                      {pdfFile ? (
+                        <>
+                          <div className="font-semibold text-sm" style={{ color: "oklch(0.22 0.07 160)" }}>{pdfFile.name}</div>
+                          <div className="text-xs mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{fileSizeLabel} · Click to replace</div>
+                        </>
+                      ) : (
+                        <>
+                          <div className="font-semibold text-sm" style={{ color: "oklch(0.22 0.07 160)" }}>Drag a PDF here, or click to browse</div>
+                          <div className="text-xs mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>PDF only · up to 100 MB</div>
+                        </>
+                      )}
+                      <input
+                        id="rd-pdf-upload"
+                        type="file"
+                        accept="application/pdf,.pdf"
+                        className="hidden"
+                        onChange={(e) => onFile(e.target.files?.[0] ?? null)}
+                      />
+                    </label>
+                    {pdfError && <p className="mt-1 text-xs" style={{ color: "oklch(0.55 0.18 25)" }}>{pdfError}</p>}
+                    <button
+                      type="button"
+                      onClick={() => setUseUrlInstead(true)}
+                      className="mt-2 text-xs font-semibold underline bg-transparent border-0 cursor-pointer"
+                      style={{ color: "oklch(0.50 0.06 65)" }}
+                    >
+                      I have a Spectora or web-hosted report instead →
+                    </button>
+                  </>
+                ) : (
+                  <>
+                    <div className="relative mt-1">
+                      <LinkIcon size={16} className="absolute top-1/2 left-3 -translate-y-1/2" style={{ color: "oklch(0.50 0.06 65)" }} />
+                      <input
+                        placeholder="https://app.spectora.com/reports/…"
+                        value={reportUrl}
+                        onChange={(e) => setReportUrl(e.target.value)}
+                        className="w-full rounded-md pl-10 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500/50"
+                        style={inputStyle}
+                      />
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setUseUrlInstead(false)}
+                      className="mt-2 text-xs font-semibold underline bg-transparent border-0 cursor-pointer"
+                      style={{ color: "oklch(0.50 0.06 65)" }}
+                    >
+                      ← Upload a PDF instead
+                    </button>
+                  </>
+                )}
+              </div>
+
+              <div>
+                <label className={labelClass} style={labelStyle} htmlFor="rd-notes">Anything we should know? (optional)</label>
+                <textarea id="rd-notes" name="notes" rows={3} placeholder="Context about the property, concerns you want prioritized, upcoming renovation plans…" value={form.notes} onChange={handleChange} className={inputClass} style={inputStyle} />
+              </div>
+
+              {/* Acknowledgment */}
+              <div
+                className="rounded-xl p-4 border"
+                style={{ backgroundColor: "oklch(0.99 0.005 80)", borderColor: "oklch(0.85 0.015 80)", borderLeft: "4px solid oklch(0.65 0.14 65)" }}
+              >
+                <label className="flex gap-3 items-start cursor-pointer">
+                  <input
+                    type="checkbox"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    className="mt-1"
+                    style={{ accentColor: "oklch(0.65 0.14 65)" }}
+                  />
+                  <span className="text-xs leading-relaxed" style={{ color: "oklch(0.35 0.02 80)" }}>
+                    I understand the 360° Roadmap summarizes the inspection report I provide. It is
+                    not a legal home inspection and does not replace a licensed home inspector's
+                    findings. I'd like to receive my complimentary 360° Roadmap.
+                  </span>
+                </label>
+              </div>
+
+              {error && <p className="text-sm font-medium" style={{ color: "oklch(55% 0.18 25)" }}>{error}</p>}
+
+              <button
+                type="submit"
+                disabled={submitting}
+                className="w-full py-4 rounded-md font-bold text-sm uppercase tracking-wide transition-all text-white disabled:opacity-60 disabled:cursor-not-allowed"
+                style={{ background: "oklch(22% 0.07 155)" }}
+              >
+                {submitting ? "Uploading…" : "Generate My Roadmap →"}
+              </button>
+              <p className="text-center text-xs" style={{ color: "oklch(60% 0.02 60)" }}>
+                Your report stays private. We never resell your data.
+              </p>
+            </form>
+          )}
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

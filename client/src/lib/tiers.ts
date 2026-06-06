@@ -192,3 +192,17 @@ export const CADENCE_LABELS: Record<BillingCadence, string> = {
   quarterly: "Quarterly",
   annual: "Annual",
 };
+
+/* ── Roadmap-funnel OTO: Maximum (gold) annual buy-now, sized by band ─────────
+ * Derived from MONTHLY_GRID.gold × 12 × 0.70, rounded to the $9 convention.
+ * MUST match the Stripe prices behind STRIPE_PRICE_MAX_ANNUAL_BUYNOW_{BAND}
+ * (124900 / 166900 / 200900 / 242900 cents) and the band helpers in
+ * HP-Estimator-app shared/threeSixtyContract.ts. Display-only here — the
+ * backend resolves the band server-side at checkout.
+ */
+export const GOLD_BUYNOW_ANNUAL: Record<HomeSizeBand, number> = {
+  standard: 1249,
+  large: 1669,
+  estate: 2009,
+  grand: 2429,
+};

@@ -26,6 +26,8 @@ import BaselineDetails from "./pages/BaselineDetails";
 import BaselineOffer from "./pages/BaselineOffer";
 import BaselineConfirmation from "./pages/BaselineConfirmation";
 import RoadmapGenerator from "./pages/RoadmapGenerator";
+import RoadmapDetails from "./pages/RoadmapDetails";
+import RoadmapOffer from "./pages/RoadmapOffer";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 function Router() {
@@ -62,8 +64,11 @@ function Router() {
           Without these, the post-payment redirect falls through to the home page. */}
       <Route path="/360/confirmation" component={MembershipConfirmation} />
       <Route path="/360/checkout" component={MembershipCheckout} />
-      {/* 360° Roadmap Generator lead magnet (Path B entry) */}
+      {/* 360° Roadmap Generator lead magnet (Path B entry) — 3-step funnel:
+          popup (step 1) -> /roadmap/details (step 2) -> /roadmap/offer (step 3) */}
       <Route path="/roadmap-generator" component={RoadmapGenerator} />
+      <Route path="/roadmap/details" component={RoadmapDetails} />
+      <Route path="/roadmap/offer" component={RoadmapOffer} />
       {/* Legacy alias — keep existing email/campaign links alive */}
       <Route path="/priority-translation">{() => <Redirect to="/roadmap-generator" />}</Route>
       {/* Real pages */}

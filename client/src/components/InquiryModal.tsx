@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 import ProjectInquiryForm from "@/components/ProjectInquiryForm";
 import BaselineInquiryForm from "@/components/BaselineInquiryForm";
+import RoadmapInquiryForm from "@/components/RoadmapInquiryForm";
 import { registerInquiry, type InquiryContext } from "@/lib/inquiry";
 
 export default function InquiryModal() {
@@ -38,6 +39,7 @@ export default function InquiryModal() {
   }, [location]);
 
   const isBaseline = ctx.mode === "baseline";
+  const isRoadmap = ctx.mode === "roadmap";
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -47,15 +49,23 @@ export default function InquiryModal() {
             className="text-2xl"
             style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
           >
-            {isBaseline ? "Schedule Your Baseline Walkthrough" : "Request a Complimentary Estimate"}
+            {isRoadmap
+              ? "Get Your Complimentary 360° Roadmap"
+              : isBaseline
+                ? "Schedule Your Baseline Walkthrough"
+                : "Request a Complimentary Estimate"}
           </DialogTitle>
           <DialogDescription>
-            {isBaseline
-              ? "First, a few quick details so we can reach out. Takes about 20 seconds."
-              : "Tell us what you need. We'll reach out within one business day."}
+            {isRoadmap
+              ? "First, a few quick details. Takes about 20 seconds."
+              : isBaseline
+                ? "First, a few quick details so we can reach out. Takes about 20 seconds."
+                : "Tell us what you need. We'll reach out within one business day."}
           </DialogDescription>
         </DialogHeader>
-        {isBaseline ? (
+        {isRoadmap ? (
+          <RoadmapInquiryForm />
+        ) : isBaseline ? (
           <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} />
         ) : (
           <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
