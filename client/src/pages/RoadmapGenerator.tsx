@@ -187,7 +187,7 @@ export default function RoadmapGenerator() {
                   aria-label="View the full sample roadmap"
                 >
                   <img
-                    src="/images/roadmap-sample/page-1.webp"
+                    src="/images/roadmap-sample/stewardship-1.webp"
                     alt="Sample 360° Roadmap: findings sorted into NOW, SOON, and WAIT with cost ranges"
                     className="w-full rounded-lg shadow-2xl"
                     style={{ transform: "rotate(1.5deg)" }}
@@ -231,7 +231,7 @@ export default function RoadmapGenerator() {
                   aria-label={`View sample roadmap page ${n}`}
                 >
                   <img
-                    src={`/images/roadmap-sample/page-${n}.webp`}
+                    src={`/images/roadmap-sample/stewardship-${n}.webp`}
                     alt={`Sample 360° Roadmap page ${n}`}
                     className="w-full rounded-lg shadow-lg transition-transform hover:scale-[1.02]"
                     loading="lazy"
