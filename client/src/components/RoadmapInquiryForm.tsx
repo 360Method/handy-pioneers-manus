@@ -62,6 +62,7 @@ export default function RoadmapInquiryForm() {
           state: "WA",
           timeline: "Flexible",
           smsConsent,
+          partnerRef: sessionStorage.getItem("hp_roadmap_ref") ?? undefined,
         }),
       });
       if (!res.ok) {

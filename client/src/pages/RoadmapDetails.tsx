@@ -66,6 +66,7 @@ export default function RoadmapDetails() {
   const [useUrlInstead, setUseUrlInstead] = useState(false);
   const [reportUrl, setReportUrl] = useState("");
   const [consent, setConsent] = useState(false);
+  const [honeypot, setHoneypot] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [waitlisted, setWaitlisted] = useState(false);
@@ -189,6 +190,10 @@ export default function RoadmapDetails() {
       if (pdfFile) body.append("report_pdf", pdfFile);
       if (!pdfFile && reportUrl.trim()) body.append("reportUrl", reportUrl.trim());
       body.append("source", "roadmap_funnel");
+      const partnerRef = sessionStorage.getItem("hp_roadmap_ref");
+      if (partnerRef) body.append("partnerRef", partnerRef);
+      // Honeypot — hidden field real visitors never fill (bot filter).
+      body.append("website", honeypot);
       // Funnel linkage — step 1 created these; the backend reuses them so one
       // funnel walk never makes duplicate CRM records.
       if (stash.customerId && stash.customerId !== "preview") body.append("hpCustomerId", stash.customerId);
@@ -203,6 +208,14 @@ export default function RoadmapDetails() {
         throw new Error(d?.error ?? `Submission failed (${res.status})`);
       }
       const data = await res.json();
+      // Server-side service-area gate disagreed with the client list (defense
+      // in depth) — show the waitlist state instead of the offer.
+      if (data?.waitlisted) {
+        setWaitlisted(true);
+        setSubmitting(false);
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
       // Carry everything the offer page needs (tid in the URL is the
       // sessionStorage-loss fallback for the decline path).
       sessionStorage.setItem(
@@ -463,6 +476,19 @@ export default function RoadmapDetails() {
                     findings. I'd like to receive my complimentary 360° Roadmap.
                   </span>
                 </label>
+              </div>
+
+              {/* Honeypot — visually hidden; bots fill it, people never see it */}
+              <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
+                <label htmlFor="rd-website">Website</label>
+                <input
+                  id="rd-website"
+                  type="text"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  value={honeypot}
+                  onChange={(e) => setHoneypot(e.target.value)}
+                />
               </div>
 
               {error && <p className="text-sm font-medium" style={{ color: "oklch(55% 0.18 25)" }}>{error}</p>}

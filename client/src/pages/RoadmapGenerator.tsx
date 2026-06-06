@@ -56,6 +56,11 @@ export default function RoadmapGenerator() {
     setMeta("twitter:title", "360° Roadmap Generator | Handy Pioneers");
     setMeta("twitter:description", description);
 
+    // Partner attribution: realtor/inspector links look like
+    // /roadmap-generator?ref=jane-inspector — stash it for the funnel posts.
+    const ref = new URLSearchParams(window.location.search).get("ref");
+    if (ref) sessionStorage.setItem("hp_roadmap_ref", ref.slice(0, 64));
+
     window.scrollTo({ top: 0 });
   }, []);
 
