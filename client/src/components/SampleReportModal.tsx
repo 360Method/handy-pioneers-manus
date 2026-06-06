@@ -3,8 +3,10 @@
 
 import { X } from "lucide-react";
 
-const PDF_URL =
-  "https://docs.google.com/viewer?url=https%3A%2F%2Fd2xsxph8kpxj0f.cloudfront.net%2F310519663386531688%2FPMFhFJDf55eBmmtmS9ai7o%2F360-priority-roadmap-sample_945b4356.pdf&embedded=true";
+// The current Stewardship Roadmap sample, rendered by the real generator from
+// fictional data (regenerate in HP-Estimator-app: scripts/generate-roadmap-sample.mjs,
+// then copy docs/samples/roadmap-sample-latest.pdf here).
+const PDF_URL = "/sample/360-roadmap-sample.pdf";
 
 interface SampleReportModalProps {
   open: boolean;
