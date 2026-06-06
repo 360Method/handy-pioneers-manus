@@ -25,13 +25,21 @@ export default function InquiryModal() {
   const [ctx, setCtx] = useState<InquiryContext>({});
   const [location] = useLocation();
 
+  const [, navigate] = useLocation();
+
   useEffect(() => {
     registerInquiry((c) => {
+      // Give-first funnel (2026-06-06): roadmap CTAs no longer open a contact
+      // form — the report goes in first at /roadmap/details, email comes after.
+      if (c.mode === "roadmap") {
+        navigate("/roadmap/details");
+        return;
+      }
       setCtx(c);
       setOpen(true);
     });
     return () => registerInquiry(null);
-  }, []);
+  }, [navigate]);
 
   // Close when the route changes (forms redirect away on submit).
   useEffect(() => {

@@ -76,7 +76,7 @@ export default function SampleReportModal({ open, onClose }: SampleReportModalPr
             className="text-xs"
             style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            This is what you receive within 5 business days of submitting your inspection report.
+            This is what you receive within 24 hours of submitting your inspection report.
           </p>
           <button
             onClick={onClose}

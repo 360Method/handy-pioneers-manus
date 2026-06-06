@@ -1,19 +1,25 @@
 /**
- * RoadmapDetails.tsx — /roadmap/details (Step 2 of the roadmap-generator funnel)
+ * RoadmapDetails.tsx — /roadmap/details (the roadmap-generator form)
  *
- * Captures the property (personal home vs investment toggle), the address with
- * a Clark County ZIP gate (out-of-area → waitlist branch), home details (sqft
- * or unit count + year built), and the inspection report (PDF drag-drop or a
- * web-hosted report URL). Submitting starts roadmap processing immediately in
- * the background, then advances to the one-time offer (/roadmap/offer?tid=…).
+ * Give-first order (2026-06-06 redesign): the report comes FIRST (PDF drag-drop
+ * or a web-hosted report URL — pre-filled when the landing-page dropzone handed
+ * a file over), then the property (personal/investment toggle, address with the
+ * Clark County ZIP gate, details), and only then the ask: email + optional
+ * first name. No popup before this page; no last name or phone anywhere.
+ *
+ * Quiet capture: the moment a valid email is typed (field blur), the lead is
+ * created in the background (POST /api/public/inquiry) so the dropout-recovery
+ * drip arms even if the visitor never clicks Generate. The backend suppresses
+ * the instant ack email for these (source: roadmap-funnel-quiet-capture).
  */
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { Upload, Link as LinkIcon, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getApiBase, isStagingHost } from "@/lib/api";
 import { isInServiceArea } from "@/lib/serviceArea";
+import { takePendingReport } from "@/lib/roadmapFile";
 
 const MAX_PDF_BYTES = 100 * 1024 * 1024; // 100 MB
 
@@ -21,22 +27,8 @@ interface Stash {
   leadId?: string;
   customerId?: string;
   firstName?: string;
-  lastName?: string;
-  phone?: string;
   email?: string;
-  smsConsent?: boolean;
 }
-
-// Review-only placeholder so the page renders on direct navigation on staging.
-const PREVIEW_STASH: Stash = {
-  leadId: "preview",
-  customerId: "preview",
-  firstName: "Preview",
-  lastName: "Visitor",
-  phone: "(360) 555-0100",
-  email: "preview@example.com",
-  smsConsent: true,
-};
 
 const UNIT_OPTIONS = [
   { value: 1, label: "Single-family rental" },
@@ -45,6 +37,8 @@ const UNIT_OPTIONS = [
   { value: 4, label: "4-plex" },
   { value: 5, label: "5+ units" },
 ];
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function RoadmapDetails() {
   const [, navigate] = useLocation();
@@ -58,6 +52,8 @@ export default function RoadmapDetails() {
     sqft: "",
     yearBuilt: "",
     notes: "",
+    email: "",
+    firstName: "",
   });
   const [unitCount, setUnitCount] = useState<number>(1);
   const [pdfFile, setPdfFile] = useState<File | null>(null);
@@ -70,30 +66,82 @@ export default function RoadmapDetails() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [waitlisted, setWaitlisted] = useState(false);
+  // Quiet capture fires once per email value; an in-flight ref dedupes blurs.
+  const capturedEmailRef = useRef<string | null>(null);
+  const captureInFlightRef = useRef(false);
 
   useEffect(() => {
-    document.title = "Your Home — 360° Roadmap | Handy Pioneers";
+    document.title = "Your Report → Your Roadmap | Handy Pioneers";
     window.scrollTo(0, 0);
+    // Landing-page dropzone handoff (in-memory; gone after a hard refresh).
+    const handed = takePendingReport();
+    if (handed) setPdfFile(handed);
+    // Returning visitor in the same tab — restore quiet-capture linkage.
     try {
       const raw = sessionStorage.getItem("hp_roadmap");
-      if (!raw) {
-        if (isStagingHost()) {
-          setStash(PREVIEW_STASH);
-          return;
-        }
-        navigate("/roadmap-generator");
-        return;
+      if (raw) {
+        const s = JSON.parse(raw) as Stash;
+        setStash(s);
+        setForm((prev) => ({
+          ...prev,
+          email: s.email ?? prev.email,
+          firstName: s.firstName ?? prev.firstName,
+        }));
+        if (s.email) capturedEmailRef.current = s.email.toLowerCase().trim();
       }
-      setStash(JSON.parse(raw) as Stash);
     } catch {
-      navigate("/roadmap-generator");
+      /* fresh start is fine */
     }
-  }, [navigate]);
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  /**
+   * Quiet capture: create the lead the moment we have a working email, so the
+   * recovery drip arms for visitors who fill this in but never click Generate.
+   * Best-effort — a failure here never blocks the form.
+   */
+  const quietCapture = async (): Promise<Stash> => {
+    const email = form.email.toLowerCase().trim();
+    if (!EMAIL_RE.test(email)) return stash;
+    if (capturedEmailRef.current === email) return stash;
+    if (captureInFlightRef.current) return stash;
+    captureInFlightRef.current = true;
+    try {
+      const res = await fetch(`${getApiBase()}/api/public/inquiry`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          firstName: form.firstName.trim() || undefined,
+          funnel: "roadmap_generator",
+          source: "roadmap-funnel-quiet-capture",
+          partnerRef: sessionStorage.getItem("hp_roadmap_ref") ?? undefined,
+        }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        const next: Stash = {
+          leadId: data.leadId,
+          customerId: data.customerId,
+          email,
+          firstName: form.firstName.trim() || undefined,
+        };
+        capturedEmailRef.current = email;
+        setStash(next);
+        sessionStorage.setItem("hp_roadmap", JSON.stringify(next));
+        return next;
+      }
+    } catch {
+      /* best-effort */
+    } finally {
+      captureInFlightRef.current = false;
+    }
+    return stash;
   };
 
   const onFile = (file: File | null) => {
@@ -124,12 +172,23 @@ export default function RoadmapDetails() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (!pdfFile && !reportUrl.trim()) {
+      setError("Attach your report (PDF) or paste its web link so we can produce your roadmap.");
+      return;
+    }
     if (!form.street || !form.city || !form.zip) {
-      setError("Please add your street, city, and ZIP.");
+      setError("Please add the street, city, and ZIP.");
+      return;
+    }
+    if (!EMAIL_RE.test(form.email.trim())) {
+      setError("Add the email where your roadmap should arrive.");
       return;
     }
 
-    // Out-of-area → waitlist branch: no report needed; the funnel ends here.
+    // Make sure the lead exists (quiet capture may not have fired yet).
+    const linked = await quietCapture();
+
+    // Out-of-area → waitlist branch: no roadmap is generated; the funnel ends here.
     if (!isInServiceArea(form.zip)) {
       setSubmitting(true);
       try {
@@ -137,8 +196,8 @@ export default function RoadmapDetails() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            customerId: stash.customerId,
-            leadId: stash.leadId,
+            customerId: linked.customerId,
+            leadId: linked.leadId,
             street: form.street.trim(),
             city: form.city.trim(),
             state: form.state.trim(),
@@ -151,7 +210,7 @@ export default function RoadmapDetails() {
           }),
         });
       } catch {
-        /* best-effort — the lead already exists from step 1 */
+        /* best-effort — the quiet-capture lead already holds the contact */
       }
       setWaitlisted(true);
       setSubmitting(false);
@@ -159,10 +218,6 @@ export default function RoadmapDetails() {
       return;
     }
 
-    if (!pdfFile && !reportUrl.trim()) {
-      setError("Please attach a PDF or paste a web report URL so we can produce your roadmap.");
-      return;
-    }
     if (!consent) {
       setError("Please confirm the acknowledgment to continue.");
       return;
@@ -171,10 +226,8 @@ export default function RoadmapDetails() {
     setSubmitting(true);
     try {
       const body = new FormData();
-      body.append("firstName", stash.firstName ?? "");
-      body.append("lastName", stash.lastName ?? "");
-      body.append("email", stash.email ?? "");
-      body.append("phone", stash.phone ?? "");
+      body.append("email", form.email.trim());
+      if (form.firstName.trim()) body.append("firstName", form.firstName.trim());
       body.append("propertyAddress", form.street.trim());
       body.append("city", form.city.trim());
       body.append("state", form.state.trim());
@@ -194,10 +247,10 @@ export default function RoadmapDetails() {
       if (partnerRef) body.append("partnerRef", partnerRef);
       // Honeypot — hidden field real visitors never fill (bot filter).
       body.append("website", honeypot);
-      // Funnel linkage — step 1 created these; the backend reuses them so one
-      // funnel walk never makes duplicate CRM records.
-      if (stash.customerId && stash.customerId !== "preview") body.append("hpCustomerId", stash.customerId);
-      if (stash.leadId && stash.leadId !== "preview") body.append("hpLeadId", stash.leadId);
+      // Funnel linkage — quiet capture created these; the backend reuses them
+      // so one funnel walk never makes duplicate CRM records.
+      if (linked.customerId) body.append("hpCustomerId", linked.customerId);
+      if (linked.leadId) body.append("hpLeadId", linked.leadId);
 
       const res = await fetch(`${getApiBase()}/api/roadmap-generator/submit`, {
         method: "POST",
@@ -221,7 +274,7 @@ export default function RoadmapDetails() {
       sessionStorage.setItem(
         "hp_roadmap",
         JSON.stringify({
-          ...stash,
+          ...linked,
           ...form,
           propertyKind,
           unitCount: propertyKind === "investment" ? unitCount : undefined,
@@ -251,6 +304,8 @@ export default function RoadmapDetails() {
   const inputStyle = { border: "1px solid oklch(85% 0.02 80)", background: "white", color: "oklch(22% 0.07 155)" } as const;
   const labelClass = "block text-xs font-semibold uppercase tracking-wide mb-1";
   const labelStyle = { color: "oklch(45% 0.02 60)" } as const;
+  const sectionTitleClass = "text-sm font-bold uppercase tracking-widest";
+  const sectionTitleStyle = { color: "oklch(0.50 0.06 65)", fontFamily: "'Source Sans 3', sans-serif" } as const;
 
   const toggleBase =
     "flex-1 py-3 px-4 rounded-md text-sm font-bold transition-all border";
@@ -259,17 +314,14 @@ export default function RoadmapDetails() {
     <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
       <Navbar />
 
-      <section className="text-white pt-16 pb-10 px-4" style={{ background: "oklch(22% 0.07 155)" }}>
+      <section className="text-white pt-14 pb-9 px-4" style={{ background: "oklch(22% 0.07 155)" }}>
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-xs uppercase tracking-widest mb-2" style={{ color: "oklch(78% 0.13 78)" }}>
-            Step 2 of 3 · Your home &amp; your report
-          </p>
           <h1 className="font-display text-3xl sm:text-4xl font-black leading-tight">
-            {stash.firstName ? `Thanks, ${stash.firstName}. ` : ""}Tell us about the property.
+            Your report in, your roadmap out.
           </h1>
           <p className="mt-3 text-sm" style={{ color: "oklch(100% 0 0 / 0.7)" }}>
-            Add the property and attach your inspection report. Your roadmap starts
-            generating the moment you continue.
+            Attach the report, tell us where the home is, and your roadmap starts
+            generating. Free, delivered within 24 hours.
           </p>
         </div>
       </section>
@@ -296,90 +348,13 @@ export default function RoadmapDetails() {
           ) : (
             <form
               onSubmit={handleSubmit}
-              className="rounded-xl p-6 sm:p-8 space-y-5"
+              className="rounded-xl p-6 sm:p-8 space-y-6"
               style={{ background: "white", border: "1px solid oklch(88% 0.02 80)", boxShadow: "0 6px 24px oklch(0% 0 0 / 0.06)" }}
               noValidate
             >
-              {/* Property type toggle */}
+              {/* ── 1. The report (first — it's the whole point) ── */}
               <div>
-                <label className={labelClass} style={labelStyle}>This property is my…</label>
-                <div className="flex gap-3 mt-1">
-                  <button
-                    type="button"
-                    onClick={() => setPropertyKind("personal")}
-                    className={toggleBase}
-                    style={
-                      propertyKind === "personal"
-                        ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
-                        : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
-                    }
-                  >
-                    Personal home
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setPropertyKind("investment")}
-                    className={toggleBase}
-                    style={
-                      propertyKind === "investment"
-                        ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
-                        : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
-                    }
-                  >
-                    Investment property
-                  </button>
-                </div>
-              </div>
-
-              <div>
-                <label className={labelClass} style={labelStyle} htmlFor="rd-street">Street Address</label>
-                <input id="rd-street" name="street" type="text" autoComplete="address-line1" placeholder="123 NE Main St" value={form.street} onChange={handleChange} className={inputClass} style={inputStyle} required />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="sm:col-span-1">
-                  <label className={labelClass} style={labelStyle} htmlFor="rd-city">City</label>
-                  <input id="rd-city" name="city" type="text" autoComplete="address-level2" placeholder="Vancouver" value={form.city} onChange={handleChange} className={inputClass} style={inputStyle} required />
-                </div>
-                <div>
-                  <label className={labelClass} style={labelStyle} htmlFor="rd-state">State</label>
-                  <input id="rd-state" name="state" type="text" autoComplete="address-level1" value={form.state} onChange={handleChange} className={inputClass} style={inputStyle} />
-                </div>
-                <div>
-                  <label className={labelClass} style={labelStyle} htmlFor="rd-zip">ZIP</label>
-                  <input id="rd-zip" name="zip" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="98661" value={form.zip} onChange={handleChange} className={inputClass} style={inputStyle} required />
-                </div>
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {propertyKind === "personal" ? (
-                  <div>
-                    <label className={labelClass} style={labelStyle} htmlFor="rd-sqft">Approx. Square Footage</label>
-                    <input id="rd-sqft" name="sqft" type="text" inputMode="numeric" placeholder="2,400" value={form.sqft} onChange={handleChange} className={inputClass} style={inputStyle} />
-                  </div>
-                ) : (
-                  <div>
-                    <label className={labelClass} style={labelStyle} htmlFor="rd-units">Property Size</label>
-                    <select
-                      id="rd-units"
-                      value={unitCount}
-                      onChange={(e) => setUnitCount(parseInt(e.target.value, 10))}
-                      className={inputClass}
-                      style={inputStyle}
-                    >
-                      {UNIT_OPTIONS.map((o) => (
-                        <option key={o.value} value={o.value}>{o.label}</option>
-                      ))}
-                    </select>
-                  </div>
-                )}
-                <div>
-                  <label className={labelClass} style={labelStyle} htmlFor="rd-year">Year Built (if known)</label>
-                  <input id="rd-year" name="yearBuilt" type="text" inputMode="numeric" placeholder="1998" value={form.yearBuilt} onChange={handleChange} className={inputClass} style={inputStyle} />
-                </div>
-              </div>
-
-              {/* Report upload */}
-              <div>
-                <label className={labelClass} style={labelStyle}>Your Inspection Report</label>
+                <p className={sectionTitleClass} style={sectionTitleStyle}>1 · Your inspection report</p>
                 {!useUrlInstead ? (
                   <>
                     <label
@@ -392,17 +367,17 @@ export default function RoadmapDetails() {
                         const f = e.dataTransfer.files?.[0];
                         if (f) onFile(f);
                       }}
-                      className="block rounded-xl border-2 border-dashed px-6 py-8 text-center cursor-pointer transition-colors mt-1"
+                      className="block rounded-xl border-2 border-dashed px-6 py-8 text-center cursor-pointer transition-colors mt-2"
                       style={{
-                        borderColor: dragOver ? "oklch(0.65 0.14 65)" : "oklch(0.80 0.03 80)",
-                        backgroundColor: dragOver ? "oklch(0.97 0.04 65)" : "white",
+                        borderColor: pdfFile ? "oklch(0.55 0.10 160)" : dragOver ? "oklch(0.65 0.14 65)" : "oklch(0.80 0.03 80)",
+                        backgroundColor: pdfFile ? "oklch(0.97 0.02 160)" : dragOver ? "oklch(0.97 0.04 65)" : "white",
                       }}
                     >
-                      <Upload size={26} className="mx-auto mb-2" style={{ color: "oklch(0.50 0.06 65)" }} />
+                      <Upload size={26} className="mx-auto mb-2" style={{ color: pdfFile ? "oklch(0.45 0.08 160)" : "oklch(0.50 0.06 65)" }} />
                       {pdfFile ? (
                         <>
                           <div className="font-semibold text-sm" style={{ color: "oklch(0.22 0.07 160)" }}>{pdfFile.name}</div>
-                          <div className="text-xs mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{fileSizeLabel} · Click to replace</div>
+                          <div className="text-xs mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{fileSizeLabel} · attached. Click to replace</div>
                         </>
                       ) : (
                         <>
@@ -430,7 +405,7 @@ export default function RoadmapDetails() {
                   </>
                 ) : (
                   <>
-                    <div className="relative mt-1">
+                    <div className="relative mt-2">
                       <LinkIcon size={16} className="absolute top-1/2 left-3 -translate-y-1/2" style={{ color: "oklch(0.50 0.06 65)" }} />
                       <input
                         placeholder="https://app.spectora.com/reports/…"
@@ -452,9 +427,125 @@ export default function RoadmapDetails() {
                 )}
               </div>
 
-              <div>
-                <label className={labelClass} style={labelStyle} htmlFor="rd-notes">Anything we should know? (optional)</label>
-                <textarea id="rd-notes" name="notes" rows={3} placeholder="Context about the property, concerns you want prioritized, upcoming renovation plans…" value={form.notes} onChange={handleChange} className={inputClass} style={inputStyle} />
+              {/* ── 2. The property ── */}
+              <div className="space-y-5">
+                <p className={sectionTitleClass} style={sectionTitleStyle}>2 · The property</p>
+                <div>
+                  <label className={labelClass} style={labelStyle}>This property is my…</label>
+                  <div className="flex gap-3 mt-1">
+                    <button
+                      type="button"
+                      onClick={() => setPropertyKind("personal")}
+                      className={toggleBase}
+                      style={
+                        propertyKind === "personal"
+                          ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
+                          : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
+                      }
+                    >
+                      Personal home
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setPropertyKind("investment")}
+                      className={toggleBase}
+                      style={
+                        propertyKind === "investment"
+                          ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
+                          : { background: "white", color: "oklch(40% 0.02 60)", borderColor: "oklch(85% 0.02 80)" }
+                      }
+                    >
+                      Investment property
+                    </button>
+                  </div>
+                </div>
+
+                <div>
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-street">Street Address</label>
+                  <input id="rd-street" name="street" type="text" autoComplete="address-line1" placeholder="123 NE Main St" value={form.street} onChange={handleChange} className={inputClass} style={inputStyle} required />
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="sm:col-span-1">
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-city">City</label>
+                    <input id="rd-city" name="city" type="text" autoComplete="address-level2" placeholder="Vancouver" value={form.city} onChange={handleChange} className={inputClass} style={inputStyle} required />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-state">State</label>
+                    <input id="rd-state" name="state" type="text" autoComplete="address-level1" value={form.state} onChange={handleChange} className={inputClass} style={inputStyle} />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-zip">ZIP</label>
+                    <input id="rd-zip" name="zip" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="98661" value={form.zip} onChange={handleChange} className={inputClass} style={inputStyle} required />
+                  </div>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {propertyKind === "personal" ? (
+                    <div>
+                      <label className={labelClass} style={labelStyle} htmlFor="rd-sqft">Approx. Square Footage (optional)</label>
+                      <input id="rd-sqft" name="sqft" type="text" inputMode="numeric" placeholder="2,400" value={form.sqft} onChange={handleChange} className={inputClass} style={inputStyle} />
+                    </div>
+                  ) : (
+                    <div>
+                      <label className={labelClass} style={labelStyle} htmlFor="rd-units">Property Size</label>
+                      <select
+                        id="rd-units"
+                        value={unitCount}
+                        onChange={(e) => setUnitCount(parseInt(e.target.value, 10))}
+                        className={inputClass}
+                        style={inputStyle}
+                      >
+                        {UNIT_OPTIONS.map((o) => (
+                          <option key={o.value} value={o.value}>{o.label}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-year">Year Built (if known)</label>
+                    <input id="rd-year" name="yearBuilt" type="text" inputMode="numeric" placeholder="1998" value={form.yearBuilt} onChange={handleChange} className={inputClass} style={inputStyle} />
+                  </div>
+                </div>
+                <div>
+                  <label className={labelClass} style={labelStyle} htmlFor="rd-notes">Anything we should know? (optional)</label>
+                  <textarea id="rd-notes" name="notes" rows={2} placeholder="Concerns to prioritize, renovation plans…" value={form.notes} onChange={handleChange} className={inputClass} style={inputStyle} />
+                </div>
+              </div>
+
+              {/* ── 3. Where the roadmap goes (the only ask) ── */}
+              <div className="space-y-4">
+                <p className={sectionTitleClass} style={sectionTitleStyle}>3 · Where should we send it?</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-email">Email</label>
+                    <input
+                      id="rd-email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      placeholder="you@example.com"
+                      value={form.email}
+                      onChange={handleChange}
+                      onBlur={() => void quietCapture()}
+                      className={inputClass}
+                      style={inputStyle}
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className={labelClass} style={labelStyle} htmlFor="rd-firstname">First Name (optional)</label>
+                    <input
+                      id="rd-firstname"
+                      name="firstName"
+                      type="text"
+                      autoComplete="given-name"
+                      placeholder="So the roadmap greets you"
+                      value={form.firstName}
+                      onChange={handleChange}
+                      className={inputClass}
+                      style={inputStyle}
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Acknowledgment */}
