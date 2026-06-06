@@ -2,8 +2,8 @@
  * Resolves the HP Estimator backend base URL.
  *
  * The staging website (staging.handypioneers.com / *-staging*.up.railway.app) talks
- * to the staging backend (test Stripe keys, MySQL-Staging) so funnel testing never
- * touches production data. Everything else uses production.
+ * to the staging backend (test Stripe keys, the Postgres staging DB) so funnel
+ * testing never touches production data. Everything else uses production.
  */
 const PROD = "https://pro.handypioneers.com";
 const STAGING = "https://staging-pro.handypioneers.com";
