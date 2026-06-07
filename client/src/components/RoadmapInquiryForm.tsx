@@ -1,9 +1,9 @@
 /**
- * RoadmapInquiryForm — Step 1 of the roadmap-generator funnel.
+ * RoadmapInquiryForm - Step 1 of the roadmap-generator funnel.
  *
  * Captures basics only (first/last name, phone, email + SMS consent), saves the
  * lead to the HP Estimator CRM with funnel "roadmap_generator" (this is the
- * dropout-drip anchor — the backend schedules the recovery cadence here),
+ * dropout-drip anchor - the backend schedules the recovery cadence here),
  * stashes the returned ids in sessionStorage, then advances to Step 2
  * (/roadmap/details).
  */
@@ -72,7 +72,7 @@ export default function RoadmapInquiryForm() {
       const data = await res.json();
       proceed(data.leadId, data.customerId);
     } catch (err: any) {
-      // On staging the backend may be down — let reviewers walk the flow anyway.
+      // On staging the backend may be down - let reviewers walk the flow anyway.
       if (isStagingHost()) {
         proceed("preview", "preview");
         return;

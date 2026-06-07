@@ -1,9 +1,9 @@
 /**
- * TermsAndConditions — /terms-and-conditions
+ * TermsAndConditions - /terms-and-conditions
  * Compliant with Twilio SMS requirements.
  * Includes: program name, description, message/data rates, message frequency,
  * support contact info, and opt-out instructions (HELP and STOP in bold).
- * Design: Pacific Northwest Craftsman — matches site typography and color system.
+ * Design: Pacific Northwest Craftsman - matches site typography and color system.
  */
 
 import { useEffect } from "react";
@@ -70,7 +70,7 @@ export default function TermsAndConditions() {
             </p>
           </Section>
 
-          <Section title="3. SMS Messaging Program — Terms">
+          <Section title="3. SMS Messaging Program - Terms">
             <p>
               <strong>Program Name:</strong> Handy Pioneers SMS Service Communications
             </p>

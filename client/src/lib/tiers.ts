@@ -37,16 +37,16 @@ export const TIERS: TierData[] = [
     visitDescription: "Spring + Fall",
     discountBrackets: [
       { label: "Jobs under $1,000", pct: "5% member rate" },
-      { label: "Jobs $1,000–$5,000", pct: "3% member rate" },
+      { label: "Jobs $1,000-$5,000", pct: "3% member rate" },
       { label: "Jobs over $5,000", pct: "1.5% member rate" },
     ],
     features: [
-      "Annual 360° Home Scan (2–3 hr documented assessment)",
-      "Spring visit — post-rain assessment + moss & gutter service",
-      "Fall visit — rain-season prep + weatherization",
+      "Annual 360° Home Scan (2-3 hr documented assessment)",
+      "Spring visit - post-rain assessment + moss & gutter service",
+      "Fall visit - rain-season prep + weatherization",
       "Prioritized findings report with written scope of work",
       "Member rates on all out-of-scope work",
-      "HP direct line — no hold queues",
+      "HP direct line - no hold queues",
     ],
   },
   {
@@ -66,14 +66,14 @@ export const TIERS: TierData[] = [
     popular: true,
     discountBrackets: [
       { label: "Jobs under $1,000", pct: "8% member rate" },
-      { label: "Jobs $1,000–$5,000", pct: "5% member rate" },
+      { label: "Jobs $1,000-$5,000", pct: "5% member rate" },
       { label: "Jobs over $5,000", pct: "2.5% member rate" },
     ],
     features: [
       "Everything in Essential, plus:",
       "$300 labor bank credit (applied to any in-between visit task)",
-      "Summer visit — dry-season exterior + HVAC prep",
-      "Winter visit — freeze protection + moisture inspection",
+      "Summer visit - dry-season exterior + HVAC prep",
+      "Winter visit - freeze protection + moisture inspection",
       "Findings convert to written scope in one tap",
       "Annual maintenance report for home equity documentation",
     ],
@@ -94,13 +94,13 @@ export const TIERS: TierData[] = [
     visitDescription: "All 4 Seasons + Priority",
     discountBrackets: [
       { label: "Jobs under $1,000", pct: "12% member rate" },
-      { label: "Jobs $1,000–$5,000", pct: "8% member rate" },
+      { label: "Jobs $1,000-$5,000", pct: "8% member rate" },
       { label: "Jobs over $5,000", pct: "4% member rate" },
     ],
     features: [
       "Everything in Full Coverage, plus:",
-      "$600 labor bank credit — you're ahead after month 5",
-      "Priority scheduling — your calls go first",
+      "$600 labor bank credit - you're ahead after month 5",
+      "Priority scheduling - your calls go first",
       "Dedicated HP account manager",
       "Pre-negotiated vetted-tradesman rates on major work",
       "Home equity maintenance log for refinancing or sale",
@@ -109,7 +109,7 @@ export const TIERS: TierData[] = [
 ];
 
 /* ── Home-size pricing (size is an INTERNAL pricing input only) ──────────────
- * The visitor never sees a size label, band name, or the multiplier — only the
+ * The visitor never sees a size label, band name, or the multiplier - only the
  * final price for their home. The smallest homes (under 2,000 sq ft) are the FLOOR
  * and pay the published base prices ($59/$99/$149); there is no discount below
  * that. Larger homes build up with a multiplication markup.
@@ -125,9 +125,9 @@ export interface SizeBandData {
 }
 
 export const SIZE_BANDS: SizeBandData[] = [
-  { id: "standard", multiplier: 1.0, sqftMax: 2000 }, // floor — under 2,000 sq ft
-  { id: "large", multiplier: 1.3, sqftMax: 3500 }, // 2,000–3,500
-  { id: "estate", multiplier: 1.6, sqftMax: 5000 }, // 3,500–5,000
+  { id: "standard", multiplier: 1.0, sqftMax: 2000 }, // floor - under 2,000 sq ft
+  { id: "large", multiplier: 1.3, sqftMax: 3500 }, // 2,000-3,500
+  { id: "estate", multiplier: 1.6, sqftMax: 5000 }, // 3,500-5,000
   { id: "grand", multiplier: 1.9, sqftMax: null }, // 5,000+
 ];
 
@@ -144,7 +144,7 @@ function bandMultiplier(band: HomeSizeBand): number {
   return SIZE_BANDS.find((b) => b.id === band)?.multiplier ?? 1;
 }
 
-// Monthly grid — internal source of truth, never surfaced as a label.
+// Monthly grid - internal source of truth, never surfaced as a label.
 // Floor is $59/$99/$149; larger bands build up via the band multiplier.
 const MONTHLY_GRID: Record<HomeSizeBand, Record<MemberTier, number>> = {
   standard: { bronze: 59, silver: 99, gold: 149 },
@@ -197,7 +197,7 @@ export const CADENCE_LABELS: Record<BillingCadence, string> = {
  * Derived from MONTHLY_GRID.gold × 12 × 0.70, rounded to the $9 convention.
  * MUST match the Stripe prices behind STRIPE_PRICE_MAX_ANNUAL_BUYNOW_{BAND}
  * (124900 / 166900 / 200900 / 242900 cents) and the band helpers in
- * HP-Estimator-app shared/threeSixtyContract.ts. Display-only here — the
+ * HP-Estimator-app shared/threeSixtyContract.ts. Display-only here - the
  * backend resolves the band server-side at checkout.
  */
 export const GOLD_BUYNOW_ANNUAL: Record<HomeSizeBand, number> = {

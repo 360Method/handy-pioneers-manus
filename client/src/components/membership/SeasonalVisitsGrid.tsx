@@ -9,7 +9,7 @@ const SEASONS: SeasonData[] = [
   {
     season: "Spring",
     emoji: "🌱",
-    timing: "March–April",
+    timing: "March-April",
     tasks: [
       "Scrub and treat moss colonies on walkable roof surfaces; flag lifted shingles and failed flashing for written scope",
       "Flush gutters and downspouts; clear Douglas Fir needle and moss buildup at all outlets",
@@ -22,7 +22,7 @@ const SEASONS: SeasonData[] = [
   {
     season: "Summer",
     emoji: "☀️",
-    timing: "June–July",
+    timing: "June-July",
     tasks: [
       "Swap HVAC filters; test heat pump output and flag any efficiency drop for service",
       "Document paint and stain condition; apply touch-up coat or scope full repaint",
@@ -35,7 +35,7 @@ const SEASONS: SeasonData[] = [
   {
     season: "Fall",
     emoji: "🍂",
-    timing: "September–October",
+    timing: "September-October",
     tasks: [
       "Clear gutters and downspouts before PNW rain season; flush to confirm full drainage",
       "Replace worn weatherstripping at all exterior doors and windows; test for drafts",
@@ -48,7 +48,7 @@ const SEASONS: SeasonData[] = [
   {
     season: "Winter",
     emoji: "❄️",
-    timing: "December–January",
+    timing: "December-January",
     tasks: [
       "Wrap exposed pipes in crawl space and exterior walls; flag uninsulated runs for written scope",
       "Check vapor barrier condition in crawl space; remove standing water and resecure barrier",
@@ -76,7 +76,7 @@ export default function SeasonalVisitsGrid() {
           style={{ color: "oklch(50% 0.02 60)" }}
         >
           Right now, your home is accumulating the specific wear patterns of the Pacific Northwest
-          — moss on the roof, debris in the gutters, freeze-thaw stress on the foundation. Your
+ - moss on the roof, debris in the gutters, freeze-thaw stress on the foundation. Your
           technician knows exactly what to address each season. You receive the report.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">

@@ -1,9 +1,9 @@
 /**
- * RoadmapGenerator.tsx — /roadmap-generator
+ * RoadmapGenerator.tsx - /roadmap-generator
  *
  * Give-first landing page (2026-06-06 redesign). The visitor sees the actual
  * deliverable before any ask: rendered pages of the sample roadmap, a
- * drag-drop zone right in the hero, and short copy. No contact popup — the
+ * drag-drop zone right in the hero, and short copy. No contact popup - the
  * report goes in first; email is collected on the details form at the moment
  * of generating.
  *
@@ -39,10 +39,10 @@ export default function RoadmapGenerator() {
   const [sampleOpen, setSampleOpen] = useState(false);
 
   useEffect(() => {
-    document.title = "360° Roadmap Generator — Upload Your Inspection Report | Handy Pioneers";
+    document.title = "360° Roadmap Generator - Upload Your Inspection Report | Handy Pioneers";
 
     // Partner attribution: realtor/inspector links look like
-    // /roadmap-generator?ref=jane-inspector — stash it for the funnel posts.
+    // /roadmap-generator?ref=jane-inspector - stash it for the funnel posts.
     const ref = new URLSearchParams(window.location.search).get("ref");
     if (ref) sessionStorage.setItem("hp_roadmap_ref", ref.slice(0, 64));
 
@@ -67,14 +67,14 @@ export default function RoadmapGenerator() {
     navigate("/roadmap/details");
   };
 
-  // TODO: move to CMS (nucleus) — tier chips
+  // TODO: move to CMS (nucleus) - tier chips
   const tiers = [
-    { label: "NOW", color: "oklch(0.55 0.18 25)", bg: "oklch(0.97 0.04 25)", desc: "Fix in 30–60 days" },
+    { label: "NOW", color: "oklch(0.55 0.18 25)", bg: "oklch(0.97 0.04 25)", desc: "Fix in 30-60 days" },
     { label: "SOON", color: "oklch(0.60 0.14 65)", bg: "oklch(0.97 0.04 65)", desc: "Plan within 6 months" },
     { label: "WAIT", color: "oklch(0.45 0.08 160)", bg: "oklch(0.96 0.02 160)", desc: "Monitor, no rush" },
   ];
 
-  // TODO: move to CMS (nucleus) — FAQ items
+  // TODO: move to CMS (nucleus) - FAQ items
   const faqItems = [
     {
       q: "Is this a home inspection?",
@@ -107,7 +107,7 @@ export default function RoadmapGenerator() {
     <>
       <SEO
         path="/roadmap-generator"
-        title="360° Roadmap Generator — Turn Your Inspection Report into a Plan | Handy Pioneers"
+        title="360° Roadmap Generator - Turn Your Inspection Report into a Plan | Handy Pioneers"
         description="See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours. Free."
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
@@ -133,7 +133,7 @@ export default function RoadmapGenerator() {
                   ranges. Free, within 24 hours. This is what it looks like →
                 </p>
 
-                {/* Dropzone — the page's primary action */}
+                {/* Dropzone - the page's primary action */}
                 <label
                   htmlFor="hero-pdf-upload"
                   onDragOver={(e) => { e.preventDefault(); setDragOver(true); }}
@@ -187,7 +187,7 @@ export default function RoadmapGenerator() {
                   aria-label="View the full sample roadmap"
                 >
                   <img
-                    src="/images/roadmap-sample/alder-page-01.webp"
+                    src="/images/roadmap-sample/alder2-page-01.webp"
                     alt="Sample 360° Roadmap: findings sorted into NOW, SOON, and WAIT with cost ranges"
                     className="w-full rounded-lg shadow-2xl"
                     style={{ transform: "rotate(1.5deg)" }}
@@ -221,11 +221,11 @@ export default function RoadmapGenerator() {
               ))}
             </div>
 
-            {/* The other two sample pages — more give */}
+            {/* The other two sample pages - more give */}
             <div className="grid grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
               {[
-                { src: "alder-page-03.webp", alt: "Sample roadmap summary with Home Score and NOW / SOON / WAIT totals" },
-                { src: "alder-page-05.webp", alt: "Sample roadmap item: finding, what it means, approach, investment range, and the inspector's photo" },
+                { src: "alder2-page-03.webp", alt: "Sample roadmap summary with Home Score and NOW / SOON / WAIT totals" },
+                { src: "alder2-page-05.webp", alt: "Sample roadmap item: finding, what it means, approach, investment range, and the inspector's photo" },
               ].map((img) => (
                 <button
                   key={img.src}
@@ -243,7 +243,7 @@ export default function RoadmapGenerator() {
               ))}
             </div>
 
-            {/* How it works — one line each */}
+            {/* How it works - one line each */}
             <div className="max-w-2xl mx-auto mb-12">
               {[
                 "Upload the inspection report you already have.",

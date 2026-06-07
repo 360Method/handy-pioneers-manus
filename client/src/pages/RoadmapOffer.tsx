@@ -1,9 +1,9 @@
 /**
- * RoadmapOffer.tsx — /roadmap/offer?tid=… (Step 3 of the roadmap-generator funnel)
+ * RoadmapOffer.tsx - /roadmap/offer?tid=… (Step 3 of the roadmap-generator funnel)
  *
  * One-time offer shown while the roadmap is being generated in the background.
  * Personal homes: Maximum plan only, annual buy-now, priced for their home
- * (the size band is internal — only the final price renders; the backend
+ * (the size band is internal - only the final price renders; the backend
  * re-resolves the band server-side at checkout). Investment properties: a
  * consultation pitch instead of self-serve checkout (unit pricing is decided
  * on a portfolio walkthrough). Decline → the live processing page.
@@ -43,7 +43,7 @@ function toInt(v: string | number | undefined): number | undefined {
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
 
-/** Where "just send my free roadmap" lands — the live processing page. */
+/** Where "just send my free roadmap" lands - the live processing page. */
 function processingUrl(stash: Stash | null, tid: string | null): string {
   if (stash?.confirmationUrl) return stash.confirmationUrl;
   const base = isStagingHost()
@@ -61,7 +61,7 @@ export default function RoadmapOffer() {
   const [walkthroughRequested, setWalkthroughRequested] = useState(false);
 
   useEffect(() => {
-    document.title = "One-Time Offer | 360° Roadmap — Handy Pioneers";
+    document.title = "One-Time Offer | 360° Roadmap - Handy Pioneers";
     window.scrollTo(0, 0);
     const urlTid = new URLSearchParams(window.location.search).get("tid");
     setTid(urlTid);
@@ -75,7 +75,7 @@ export default function RoadmapOffer() {
       /* fall through */
     }
     // Stash lost but the report was submitted (tid present): the roadmap is
-    // still on its way — send them to the live processing page.
+    // still on its way - send them to the live processing page.
     if (urlTid) {
       window.location.href = processingUrl(null, urlTid);
     } else {
@@ -139,7 +139,7 @@ export default function RoadmapOffer() {
     } catch (err: any) {
       setError(
         err?.message ??
-          "We couldn't start checkout. No worries — your roadmap is still on its way; we'll follow up."
+          "We couldn't start checkout. No worries - your roadmap is still on its way; we'll follow up."
       );
       setLoading(false);
     }
@@ -162,14 +162,14 @@ export default function RoadmapOffer() {
             city: stash.city ?? "",
             state: stash.state ?? "WA",
             zip: stash.zip ?? "",
-            notes: "INVESTOR WALKTHROUGH REQUESTED — wants to discuss the maintenance program for this property.",
+            notes: "INVESTOR WALKTHROUGH REQUESTED - wants to discuss the maintenance program for this property.",
             funnel: "roadmap_generator",
           }),
         });
       }
       setWalkthroughRequested(true);
     } catch {
-      // The lead already exists and is routed — treat as requested anyway.
+      // The lead already exists and is routed - treat as requested anyway.
       setWalkthroughRequested(true);
     } finally {
       setLoading(false);
@@ -187,7 +187,7 @@ export default function RoadmapOffer() {
       <div className="bg-[#C9A84C] text-[#0D1F14] py-2 px-4 text-center text-sm font-bold tracking-wide">
         {isInvestment
           ? "Your roadmap is being generated right now."
-          : "One-time offer — only on this page, only right now."}
+          : "One-time offer - only on this page, only right now."}
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-14">
@@ -207,7 +207,7 @@ export default function RoadmapOffer() {
             </h1>
             <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               For rental properties, our maintenance program is built around a portfolio
-              walkthrough — we walk the property with you, document every system, and put
+              walkthrough - we walk the property with you, document every system, and put
               the upkeep on a schedule that protects rent-readiness year round.
             </p>
 
@@ -235,12 +235,12 @@ export default function RoadmapOffer() {
                   <>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                       {[
-                        "Seasonal visits across every unit — one schedule, one partner",
+                        "Seasonal visits across every unit - one schedule, one partner",
                         "Documented condition record for every system",
                         "Owner reports you can file (and show a lender or buyer)",
                         "Priority response when a tenant calls about a problem",
                         "Member rates on all out-of-scope work",
-                        "One number to call — no juggling trades",
+                        "One number to call - no juggling trades",
                       ].map((text, i) => (
                         <div key={i} className="flex items-start gap-3">
                           <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
@@ -257,7 +257,7 @@ export default function RoadmapOffer() {
                       >
                         {loading ? "One moment…" : (
                           <>
-                            Yes — book my portfolio walkthrough
+                            Yes - book my portfolio walkthrough
                             <ArrowRight className="w-5 h-5" />
                           </>
                         )}
@@ -266,7 +266,7 @@ export default function RoadmapOffer() {
                         href={declineHref}
                         className="w-full text-center text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
                       >
-                        No thanks — just send my free roadmap
+                        No thanks - just send my free roadmap
                       </a>
                     </div>
                   </>
@@ -286,13 +286,13 @@ export default function RoadmapOffer() {
             </h1>
             <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
               Your roadmap will tell you what your home needs. Maximum Protection puts every
-              item on a schedule we own together — and right now, before your roadmap even
+              item on a schedule we own together - and right now, before your roadmap even
               lands, you can lock our deepest rate of the year.
             </p>
 
             <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#1A3A28] overflow-hidden mb-6">
               <div className="bg-[#C9A84C] text-[#0D1F14] px-6 py-3 flex items-center justify-between">
-                <span className="font-black text-sm tracking-widest uppercase">Maximum Protection — Annual</span>
+                <span className="font-black text-sm tracking-widest uppercase">Maximum Protection - Annual</span>
                 <span className="flex items-center gap-1 text-sm font-bold">
                   <Clock className="w-4 h-4" /> Buy-now rate
                 </span>
@@ -301,10 +301,10 @@ export default function RoadmapOffer() {
               <div className="px-6 py-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                   {[
-                    "4 seasonal visits — all four seasons, priority scheduling",
-                    "$600 labor bank credit — you're ahead after month 5",
+                    "4 seasonal visits - all four seasons, priority scheduling",
+                    "$600 labor bank credit - you're ahead after month 5",
                     "Our deepest member rates on all out-of-scope work",
-                    "Annual 360° Home Scan (2–3 hr documented assessment)",
+                    "Annual 360° Home Scan (2-3 hr documented assessment)",
                     "Dedicated HP account manager",
                     "Home equity maintenance log for refinancing or sale",
                   ].map((text, i) => (
@@ -326,7 +326,7 @@ export default function RoadmapOffer() {
                   </div>
                   <div className="text-center">
                     <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-1">
-                      Today only — buy now
+                      Today only - buy now
                     </p>
                     <p
                       className="text-[#C9A84C] text-5xl font-black mb-1"
@@ -335,7 +335,7 @@ export default function RoadmapOffer() {
                       {usd(buyNow)}/yr
                     </p>
                     <p className="text-[#F5F0E8] text-sm mb-1">
-                      About {usd(buyNowMonthly)}/mo — save{" "}
+                      About {usd(buyNowMonthly)}/mo - save{" "}
                       <span className="font-bold text-[#C9A84C]">{usd(savings)}</span> vs monthly
                       {belowAnnual > 0 ? <>, {usd(belowAnnual)} below our annual rate</> : null}.
                     </p>
@@ -355,7 +355,7 @@ export default function RoadmapOffer() {
                   >
                     {loading ? "Starting checkout…" : (
                       <>
-                        Yes — lock my annual rate ({usd(buyNow)}/yr)
+                        Yes - lock my annual rate ({usd(buyNow)}/yr)
                         <ArrowRight className="w-5 h-5" />
                       </>
                     )}
@@ -364,7 +364,7 @@ export default function RoadmapOffer() {
                     href={declineHref}
                     className="w-full text-center text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
                   >
-                    No thanks — just send my free roadmap
+                    No thanks - just send my free roadmap
                   </a>
                 </div>
               </div>

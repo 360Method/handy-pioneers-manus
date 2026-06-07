@@ -145,7 +145,7 @@ export default function LocationMap() {
                       className="text-sm"
                       style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}
                     >
-                      Mon – Fri: 8:00 AM – 6:00 PM<br />
+                      Mon - Fri: 8:00 AM - 6:00 PM<br />
                       Sat: By appointment
                     </p>
                   </div>

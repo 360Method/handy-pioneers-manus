@@ -1,5 +1,5 @@
 /**
- * Method360Membership.tsx — /360-method/membership
+ * Method360Membership.tsx - /360-method/membership
  * Legacy route. Permanently redirects to the canonical /membership page.
  */
 

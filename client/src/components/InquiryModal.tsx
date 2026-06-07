@@ -1,5 +1,5 @@
 /**
- * InquiryModal — one global dialog holding the CRM lead form.
+ * InquiryModal - one global dialog holding the CRM lead form.
  *
  * Rendered once at the App root. Opens whenever any CTA calls openInquiry().
  * Project mode shows ProjectInquiryForm; baseline mode (openInquiry({ mode:
@@ -30,7 +30,7 @@ export default function InquiryModal() {
   useEffect(() => {
     registerInquiry((c) => {
       // Give-first funnel (2026-06-06): roadmap CTAs no longer open a contact
-      // form — the report goes in first at /roadmap/details, email comes after.
+      // form - the report goes in first at /roadmap/details, email comes after.
       if (c.mode === "roadmap") {
         navigate("/roadmap/details");
         return;

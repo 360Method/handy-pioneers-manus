@@ -1,7 +1,7 @@
 /**
- * ProjectDetail — Full-page project story view
+ * ProjectDetail - Full-page project story view
  * Opens at /project/:slug in a new browser tab
- * Design: Pacific Northwest Craftsman — matches main site aesthetic
+ * Design: Pacific Northwest Craftsman - matches main site aesthetic
  * Includes: back-to-home link, full story, photo(s), tags, and Book Service CTA
  */
 
@@ -30,7 +30,7 @@ export default function ProjectDetail() {
       document.title = "Project Not Found | Handy Pioneers";
     }
     return () => {
-      document.title = "Handy Pioneers — Reliable Renovations, Trusted Results";
+      document.title = "Handy Pioneers - Reliable Renovations, Trusted Results";
     };
   }, [project]);
 
@@ -80,7 +80,7 @@ export default function ProjectDetail() {
     <>
       <SEO
         path={`/project/${project.slug}`}
-        title={`${project.title} | Handy Pioneers — ${project.location}`}
+        title={`${project.title} | Handy Pioneers - ${project.location}`}
         description={project.excerpt}
         image={project.image}
       />
@@ -204,7 +204,7 @@ export default function ProjectDetail() {
               <div key={i} className="rounded-xl overflow-hidden">
                 <img
                   src={src}
-                  alt={`${project.title} — photo ${i + 2}`}
+                  alt={`${project.title} - photo ${i + 2}`}
                   className="w-full object-cover"
                   style={{ maxHeight: "340px" }}
                 />

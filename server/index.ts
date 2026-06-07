@@ -21,7 +21,7 @@ const __dirname = path.dirname(__filename);
  *   - Forwards the submission via Resend to help@handypioneers.com (if
  *     RESEND_API_KEY is set), otherwise logs the payload and returns 202.
  *
- * TODO: move to CMS (nucleus) — switch SUBMIT_TARGET to external backend once live.
+ * TODO: move to CMS (nucleus) - switch SUBMIT_TARGET to external backend once live.
  */
 
 const UPLOAD_DIR = path.resolve(process.env.UPLOAD_DIR || "/tmp/roadmap-generator");
@@ -51,7 +51,7 @@ const uploader = multer({
 
 async function sendIntakeEmail(payload: Record<string, string>, pdf?: Express.Multer.File) {
   if (!RESEND_API_KEY) {
-    console.log("[roadmap-generator] RESEND_API_KEY not set — logging instead");
+    console.log("[roadmap-generator] RESEND_API_KEY not set - logging instead");
     console.log("[roadmap-generator] payload:", payload);
     if (pdf) {
       console.log(`[roadmap-generator] pdf: ${pdf.originalname} (${pdf.size} bytes)`);

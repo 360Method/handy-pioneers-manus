@@ -1,7 +1,7 @@
 /**
- * BlogPost — /blog/:slug
+ * BlogPost - /blog/:slug
  * Full blog post detail page with share buttons.
- * Design: Pacific Northwest Craftsman — matches main site aesthetic.
+ * Design: Pacific Northwest Craftsman - matches main site aesthetic.
  * Opens in a new tab from blog index cards.
  */
 
@@ -356,7 +356,7 @@ export default function BlogPost() {
           {post.excerpt}
         </p>
 
-        {/* Share buttons — top */}
+        {/* Share buttons - top */}
         <div className="mb-8 pb-6 border-b" style={{ borderColor: "oklch(0.88 0.015 80)" }}>
           <ShareButtons title={post.title} url={currentUrl} />
         </div>
@@ -382,7 +382,7 @@ export default function BlogPost() {
           ))}
         </div>
 
-        {/* Share buttons — bottom */}
+        {/* Share buttons - bottom */}
         <div
           className="py-6 border-t border-b mb-8"
           style={{ borderColor: "oklch(0.88 0.015 80)" }}
@@ -412,7 +412,7 @@ export default function BlogPost() {
               Happy with Handy Pioneers?
             </p>
             <p className="text-sm" style={{ color: "oklch(0.45 0.02 80)" }}>
-              Leave us a Google review — it helps Clark County homeowners find trusted local service.
+              Leave us a Google review - it helps Clark County homeowners find trusted local service.
             </p>
           </div>
           <a

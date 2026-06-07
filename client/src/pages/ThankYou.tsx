@@ -1,6 +1,6 @@
 /**
- * ThankYou — Post-inquiry confirmation page at /thankyou
- * Design: Pacific Northwest Craftsman — matches main site aesthetic
+ * ThankYou - Post-inquiry confirmation page at /thankyou
+ * Design: Pacific Northwest Craftsman - matches main site aesthetic
  * Auto-redirects to home after 10 seconds with a visible countdown.
  */
 
@@ -32,7 +32,7 @@ export default function ThankYou() {
 
     return () => {
       clearInterval(interval);
-      document.title = "Handy Pioneers — Reliable Renovations, Trusted Results";
+      document.title = "Handy Pioneers - Reliable Renovations, Trusted Results";
     };
   }, []);
 
@@ -40,7 +40,7 @@ export default function ThankYou() {
     <>
       <SEO
         path="/thankyou"
-        title="Thank You — We've Got Your Request | Handy Pioneers"
+        title="Thank You - We've Got Your Request | Handy Pioneers"
         description="Your inquiry reached Handy Pioneers. Marcin will personally review it and reach out."
         noindex
       />

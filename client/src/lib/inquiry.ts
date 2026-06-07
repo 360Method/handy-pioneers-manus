@@ -25,7 +25,7 @@ export function openInquiry(ctx: InquiryContext = {}) {
   if (listener) {
     listener(ctx);
   } else if (typeof window !== "undefined") {
-    // Modal not mounted yet (shouldn't happen — it lives at the App root).
+    // Modal not mounted yet (shouldn't happen - it lives at the App root).
     window.location.href = "/";
   }
 }

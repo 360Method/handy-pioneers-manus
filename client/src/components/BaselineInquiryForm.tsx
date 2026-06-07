@@ -1,5 +1,5 @@
 /**
- * BaselineInquiryForm — Step 1 of the baseline-walkthrough funnel.
+ * BaselineInquiryForm - Step 1 of the baseline-walkthrough funnel.
  *
  * Captures basics only (first/last name, phone, email), saves the lead to the HP
  * Estimator CRM with funnel "baseline_walkthrough", stashes the returned ids + the
@@ -72,7 +72,7 @@ export default function BaselineInquiryForm({ tier, sqft }: Props) {
       const data = await res.json();
       proceed(data.leadId, data.customerId);
     } catch (err: any) {
-      // On staging the backend may be down — let reviewers walk the flow anyway.
+      // On staging the backend may be down - let reviewers walk the flow anyway.
       if (isStagingHost()) {
         proceed("preview", "preview");
         return;

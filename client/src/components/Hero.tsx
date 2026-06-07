@@ -1,7 +1,7 @@
 /**
- * Hero.tsx — Full-Viewport Decision Gate
+ * Hero.tsx - Full-Viewport Decision Gate
  * Design: Dark forest green. Two dominant split choices fill the viewport.
- * Every element pushes toward one of two paths — no neutral content.
+ * Every element pushes toward one of two paths - no neutral content.
  * Track A: Project Path → HousecallPro modal
  * Track B: Proactive Path → /360-method
  * Mobile-first: stacked on mobile, side-by-side on md+
@@ -95,7 +95,7 @@ export default function Hero() {
           <div className="flex items-center gap-3 mt-1 mb-2">
             <img
               src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg"
-              alt="Marcin Micek — Owner"
+              alt="Marcin Micek - Owner"
               className="w-10 h-10 rounded-full object-cover object-top border-2 shrink-0"
               style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
             />
@@ -103,7 +103,7 @@ export default function Hero() {
               className="text-xs text-left"
               style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}
             >
-              <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Marcin Micek</span>, owner &amp; lead technician — WA Lic. HANDYP*761NH. Personally on every walkthrough and job in Clark County, WA.
+              <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Marcin Micek</span>, owner &amp; lead technician - WA Lic. HANDYP*761NH. Personally on every walkthrough and job in Clark County, WA.
             </p>
           </div>
           <p
@@ -258,7 +258,7 @@ export default function Hero() {
                 className="text-sm md:text-base leading-relaxed mb-6"
                 style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}
               >
-                The 360° Method gives you a complete picture of your home's condition, a prioritized roadmap, and a dedicated team to execute it — before problems become emergencies.
+                The 360° Method gives you a complete picture of your home's condition, a prioritized roadmap, and a dedicated team to execute it - before problems become emergencies.
               </p>
 
               <ul className="space-y-2 mb-4">
@@ -266,7 +266,7 @@ export default function Hero() {
                   "Full baseline property assessment",
                   "NOW / SOON / WAIT priority roadmap",
                   "Ongoing Home Score tracking",
-                  "Single point of contact — always",
+                  "Single point of contact - always",
                 ].map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                     <span style={{ color: "oklch(0.65 0.18 160)" }}>✓</span> {item}

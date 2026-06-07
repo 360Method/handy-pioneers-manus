@@ -1,8 +1,8 @@
 /**
- * Method360Offer — One-Time Offer (OTO) Page
+ * Method360Offer - One-Time Offer (OTO) Page
  * Design: Dark forest green / gold affluent positioning
  * Fires after ANY 360° Method form submission before delivering the original ask.
- * Framing: "Before we send you what you asked for — one thing."
+ * Framing: "Before we send you what you asked for - one thing."
  * Offer: Baseline Walkthrough + Full Membership at a limited-time rate
  */
 
@@ -44,7 +44,7 @@ export default function Method360Offer() {
   const firstName = sessionStorage.getItem("360_offer_name")?.split(" ")[0] || "there";
 
   useEffect(() => {
-    document.title = "One-Time Offer | 360° Method — Handy Pioneers";
+    document.title = "One-Time Offer | 360° Method - Handy Pioneers";
     window.scrollTo(0, 0);
   }, []);
 
@@ -82,7 +82,7 @@ export default function Method360Offer() {
             <span className="font-black text-base">
               {m}:{s.toString().padStart(2, "0")}
             </span>{" "}
-            — it will not appear again.
+ - it will not appear again.
           </span>
         )}
       </div>
@@ -95,7 +95,7 @@ export default function Method360Offer() {
         </p>
         <h1 className="text-4xl md:text-5xl font-bold text-center leading-tight mb-4"
             style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
-          Before we send you what you asked for —
+          Before we send you what you asked for - 
           <br />
           <span className="text-[#C9A84C]">one thing.</span>
         </h1>
@@ -120,18 +120,18 @@ export default function Method360Offer() {
               Baseline Walkthrough + Full 360° Membership
             </h2>
             <p className="text-[#8BA898] text-sm mb-6">
-              Everything you need to know what you own — and a team to keep it that way.
+              Everything you need to know what you own - and a team to keep it that way.
             </p>
 
             {/* What's included */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
               {[
-                { icon: Home, text: "Baseline Walkthrough — full property scan, every system rated and photographed" },
-                { icon: Star, text: "360° Priority Roadmap — your NOW / SOON / WAIT action plan delivered within 5 days" },
-                { icon: CheckCircle, text: "Home Score established — your baseline number, tracked every visit" },
-                { icon: Shield, text: "Four seasonal visits per year — spring, summer, fall, winter" },
-                { icon: CheckCircle, text: "Shareable PDF record — ready for your agent, lender, or insurer" },
-                { icon: CheckCircle, text: "Direct access to Marcin — one call, one point of contact, always" },
+                { icon: Home, text: "Baseline Walkthrough - full property scan, every system rated and photographed" },
+                { icon: Star, text: "360° Priority Roadmap - your NOW / SOON / WAIT action plan delivered within 5 days" },
+                { icon: CheckCircle, text: "Home Score established - your baseline number, tracked every visit" },
+                { icon: Shield, text: "Four seasonal visits per year - spring, summer, fall, winter" },
+                { icon: CheckCircle, text: "Shareable PDF record - ready for your agent, lender, or insurer" },
+                { icon: CheckCircle, text: "Direct access to Marcin - one call, one point of contact, always" },
               ].map(({ icon: Icon, text }, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <Icon className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
@@ -147,7 +147,7 @@ export default function Method360Offer() {
                 First Month Complimentary
               </p>
               <p className="text-[#B8C8B8] text-sm mb-1">
-                Baseline Walkthrough included. Then $99/mo — cancel anytime.
+                Baseline Walkthrough included. Then $99/mo - cancel anytime.
               </p>
               <p className="text-[#6A8A78] text-xs">
                 Standard rate: $99/mo + $349 Baseline Walkthrough fee. You save $349 today.
@@ -161,14 +161,14 @@ export default function Method360Offer() {
                   onClick={handleAccept}
                   className="w-full bg-[#C9A84C] hover:bg-[#B8973B] text-[#0D1F14] font-black py-4 px-6 rounded-xl text-lg transition-all duration-200 flex items-center justify-center gap-2 shadow-lg"
                 >
-                  Yes — Add the Baseline + Membership
+                  Yes - Add the Baseline + Membership
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <button
                   onClick={handleDecline}
                   className="w-full text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
                 >
-                  No thanks — just send me what I originally asked for
+                  No thanks - just send me what I originally asked for
                 </button>
               </div>
             )}
@@ -211,7 +211,7 @@ export default function Method360Offer() {
               See the actual report before you decide
             </h3>
             <p className="text-[#8BA898] text-sm">
-              This is what you receive within 5 days of your Baseline Walkthrough — a full
+              This is what you receive within 5 days of your Baseline Walkthrough - a full
               NOW / SOON / WAIT priority roadmap for your home.
             </p>
           </div>

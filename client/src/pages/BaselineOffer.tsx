@@ -1,5 +1,5 @@
 /**
- * BaselineOffer.tsx — /baseline/offer (Step 3 of the baseline funnel)
+ * BaselineOffer.tsx - /baseline/offer (Step 3 of the baseline funnel)
  * One-time buy-now upsell: lock the annual plan at 30% off the month-to-month cost.
  * Accept -> Stripe checkout (offer=buynow, annual). Decline -> confirmation.
  */
@@ -58,7 +58,7 @@ export default function BaselineOffer() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    document.title = "One-Time Offer | Baseline Walkthrough — Handy Pioneers";
+    document.title = "One-Time Offer | Baseline Walkthrough - Handy Pioneers";
     window.scrollTo(0, 0);
     try {
       const raw = sessionStorage.getItem("hp_baseline");
@@ -125,7 +125,7 @@ export default function BaselineOffer() {
     } catch (err: any) {
       setError(
         err?.message ??
-          "We couldn't start checkout. No worries — your walkthrough is still booked; we'll follow up."
+          "We couldn't start checkout. No worries - your walkthrough is still booked; we'll follow up."
       );
       setLoading(false);
     }
@@ -138,7 +138,7 @@ export default function BaselineOffer() {
       <Navbar />
 
       <div className="bg-[#C9A84C] text-[#0D1F14] py-2 px-4 text-center text-sm font-bold tracking-wide">
-        One-time offer — only on this page, only right now.
+        One-time offer - only on this page, only right now.
       </div>
 
       <div className="max-w-3xl mx-auto px-4 py-14">
@@ -153,12 +153,12 @@ export default function BaselineOffer() {
         </h1>
         <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
           We'll be in touch to schedule your baseline either way. But homeowners who commit to the
-          annual plan right now — before the walkthrough — get our deepest rate of the year.
+          annual plan right now - before the walkthrough - get our deepest rate of the year.
         </p>
 
         <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#1A3A28] overflow-hidden mb-6">
           <div className="bg-[#C9A84C] text-[#0D1F14] px-6 py-3 flex items-center justify-between">
-            <span className="font-black text-sm tracking-widest uppercase">{tier.name} — Annual</span>
+            <span className="font-black text-sm tracking-widest uppercase">{tier.name} - Annual</span>
             <span className="flex items-center gap-1 text-sm font-bold">
               <Clock className="w-4 h-4" /> Buy-now rate
             </span>
@@ -185,7 +185,7 @@ export default function BaselineOffer() {
               </div>
               <div className="text-center">
                 <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-1">
-                  Today only — buy now
+                  Today only - buy now
                 </p>
                 <p
                   className="text-[#C9A84C] text-5xl font-black mb-1"
@@ -194,7 +194,7 @@ export default function BaselineOffer() {
                   {usd(buyNow)}/yr
                 </p>
                 <p className="text-[#F5F0E8] text-sm mb-1">
-                  About {usd(buyNowMonthly)}/mo — save{" "}
+                  About {usd(buyNowMonthly)}/mo - save{" "}
                   <span className="font-bold text-[#C9A84C]">{usd(savings)}</span> vs monthly
                   {belowAnnual > 0 ? <>, {usd(belowAnnual)} below our annual rate</> : null}.
                 </p>
@@ -216,7 +216,7 @@ export default function BaselineOffer() {
               >
                 {loading ? "Starting checkout…" : (
                   <>
-                    Yes — lock my annual rate ({usd(buyNow)}/yr)
+                    Yes - lock my annual rate ({usd(buyNow)}/yr)
                     <ArrowRight className="w-5 h-5" />
                   </>
                 )}
@@ -225,7 +225,7 @@ export default function BaselineOffer() {
                 onClick={() => navigate("/baseline/confirmed")}
                 className="w-full text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
               >
-                No thanks — just schedule my baseline walkthrough
+                No thanks - just schedule my baseline walkthrough
               </button>
             </div>
           </div>

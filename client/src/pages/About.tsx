@@ -1,7 +1,7 @@
-// About Page — Handy Pioneers
+// About Page - Handy Pioneers
 // Design: Craftsman / Pacific Northwest editorial. Warm cream background, forest green accents.
 // Fonts: Playfair Display (headings), Source Sans 3 (body)
-// Layout: Asymmetric — large photo left, story right on desktop; stacked on mobile
+// Layout: Asymmetric - large photo left, story right on desktop; stacked on mobile
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,7 +14,7 @@ const MARCIN_PHOTO =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
 
 const credentials = [
-  { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor — Washington State" },
+  { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor - Washington State" },
   { icon: Award, label: "Insured up to $1,000,000", detail: "Full general liability coverage" },
   { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center" },
@@ -26,17 +26,17 @@ const values = [
   {
     title: "One Relationship, Full Accountability",
     body:
-      "Every engagement runs through a single point of contact — from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
+      "Every engagement runs through a single point of contact - from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
   },
   {
     title: "Transparent From Day One",
     body:
-      "Every engagement starts with a complimentary on-site consultation — we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
+      "Every engagement starts with a complimentary on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A Partnership Built to Last",
     body:
-      "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time.",
+      "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition - updated with every project, so the relationship compounds in value over time.",
   },
 ];
 
@@ -45,8 +45,8 @@ export default function About() {
     <>
       <SEO
         path="/about"
-        title="About Handy Pioneers — Family-Owned Craftsmen in Vancouver, WA"
-        description="Marcin Micek and the Handy Pioneers team — licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center since day one."
+        title="About Handy Pioneers - Family-Owned Craftsmen in Vancouver, WA"
+        description="Marcin Micek and the Handy Pioneers team - licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center since day one."
       />
       <div
       className="min-h-screen flex flex-col"
@@ -94,7 +94,7 @@ export default function About() {
               >
                 <img
                   src={MARCIN_PHOTO}
-                  alt="Marcin Micek — Owner, Handy Pioneers"
+                  alt="Marcin Micek - Owner, Handy Pioneers"
                   className="w-full object-cover object-top"
                   style={{ maxHeight: "520px" }}
                 />
@@ -119,7 +119,7 @@ export default function About() {
                     className="text-sm font-bold"
                     style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                   >
-                    Handy Pioneers — Owner-Founded, Crew-Executed
+                    Handy Pioneers - Owner-Founded, Crew-Executed
                   </p>
                   <p
                     className="text-xs mt-1"
@@ -150,20 +150,20 @@ export default function About() {
                   className="text-3xl font-bold mb-5 leading-snug"
                   style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
                 >
-                  One Relationship. A Vetted Crew. The Same Standard — Every Time.
+                  One Relationship. A Vetted Crew. The Same Standard - Every Time.
                 </h2>
                 <div
                   className="space-y-4 text-base leading-relaxed"
                   style={{ color: "oklch(0.38 0.02 80)" }}
                 >
                   <p>
-                    Most homeowners have dealt with the rotating cast — a different face every job, no one who knows the house, no one accountable when something goes wrong. Handy Pioneers was built to be the opposite of that.
+                    Most homeowners have dealt with the rotating cast - a different face every job, no one who knows the house, no one accountable when something goes wrong. Handy Pioneers was built to be the opposite of that.
                   </p>
                   <p>
-                    Every engagement runs through a single point of contact. Every assessment follows the same protocol. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors — the relationship manages it for you.
+                    Every engagement runs through a single point of contact. Every assessment follows the same protocol. A vetted crew of skilled tradesmen and licensed specialists executes the work. You never manage vendors - the relationship manages it for you.
                   </p>
                   <p>
-                    The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time. You're not a transaction. You're a long-term client.
+                    The 360° Method creates a living record of your home's condition - updated with every project, so the relationship compounds in value over time. You're not a transaction. You're a long-term client.
                   </p>
                 </div>
               </div>
@@ -272,7 +272,7 @@ export default function About() {
             className="text-base mb-8"
             style={{ color: "oklch(0.45 0.02 80)" }}
           >
-            Every engagement starts with a complimentary on-site consultation — no pressure, no commitment. Tell us what you're dealing with and we'll show you exactly where to go next.
+            Every engagement starts with a complimentary on-site consultation - no pressure, no commitment. Tell us what you're dealing with and we'll show you exactly where to go next.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button

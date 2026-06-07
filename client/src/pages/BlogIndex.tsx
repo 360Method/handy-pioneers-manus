@@ -1,7 +1,7 @@
 /**
- * BlogIndex — /blog
+ * BlogIndex - /blog
  * Lists all published blog posts with card layout.
- * Design: Pacific Northwest Craftsman — matches main site aesthetic.
+ * Design: Pacific Northwest Craftsman - matches main site aesthetic.
  */
 
 import { useEffect } from "react";
@@ -16,9 +16,9 @@ import SEO from "@/components/SEO";
 export default function BlogIndex() {
   useEffect(() => {
     window.scrollTo(0, 0);
-    document.title = "Blog & Project Stories | Handy Pioneers — Clark County WA";
+    document.title = "Blog & Project Stories | Handy Pioneers - Clark County WA";
     return () => {
-      document.title = "Handy Pioneers — Reliable Renovations, Trusted Results";
+      document.title = "Handy Pioneers - Reliable Renovations, Trusted Results";
     };
   }, []);
 
@@ -30,7 +30,7 @@ export default function BlogIndex() {
     <>
       <SEO
         path="/blog"
-        title="Notes from the Field — The Handy Pioneers Blog | Clark County, WA"
+        title="Notes from the Field - The Handy Pioneers Blog | Clark County, WA"
         description="Project write-ups, Pacific Northwest homeowner guidance, and field notes from our craftsmen working across Vancouver WA, Camas, Washougal, and Battle Ground."
       />
       <div
@@ -65,7 +65,7 @@ export default function BlogIndex() {
             className="text-base md:text-lg leading-relaxed"
             style={{ color: "oklch(0.78 0.04 80)" }}
           >
-            Home care insights, project stories, and the 360° Method — built for Clark County homeowners, trade partners, and anyone who believes a well-maintained home is a well-lived life.
+            Home care insights, project stories, and the 360° Method - built for Clark County homeowners, trade partners, and anyone who believes a well-maintained home is a well-lived life.
           </p>
         </div>
       </section>
@@ -74,7 +74,7 @@ export default function BlogIndex() {
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-12">
         {sorted.length === 0 ? (
           <div className="text-center py-20">
-            <p style={{ color: "oklch(0.55 0.03 80)" }}>No posts yet — check back soon.</p>
+            <p style={{ color: "oklch(0.55 0.03 80)" }}>No posts yet - check back soon.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

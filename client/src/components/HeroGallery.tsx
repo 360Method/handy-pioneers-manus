@@ -1,5 +1,5 @@
 /**
- * HeroGallery — Hero-style before/after photo wall
+ * HeroGallery - Hero-style before/after photo wall
  * Design: Pacific Northwest Craftsman
  * Masonry-inspired grid layout with lightbox on click.
  *
@@ -26,7 +26,7 @@ const photos: Photo[] = [
   {
     id: 1,
     src: "/images/hero-gallery/wjLagUVyHJnefJeB.jpg",
-    caption: "Basement transformation — unfinished space to modern kitchen and living area",
+    caption: "Basement transformation - unfinished space to modern kitchen and living area",
     tag: "Remodel",
   },
   {
@@ -56,7 +56,7 @@ const photos: Photo[] = [
   {
     id: 6,
     src: "/images/hero-gallery/WrTgmbwrBOLkeuvQ.jpg",
-    caption: "Garage transformation — demolition and clean-out to organized empty space",
+    caption: "Garage transformation - demolition and clean-out to organized empty space",
     tag: "Before & After",
   },
   {
@@ -68,25 +68,25 @@ const photos: Photo[] = [
   {
     id: 8,
     src: "/images/hero-gallery/elKuhgxmpmZnBtDa.jpg",
-    caption: "Bathroom remodel — outdated yellow room transformed into a modern white space",
+    caption: "Bathroom remodel - outdated yellow room transformed into a modern white space",
     tag: "Before & After",
   },
   {
     id: 9,
     src: "/images/hero-gallery/MPYajNZmbQZgLzvS.jpg",
-    caption: "Bathroom remodel — outdated space updated with modern fixtures and finishes",
+    caption: "Bathroom remodel - outdated space updated with modern fixtures and finishes",
     tag: "Remodel",
   },
   {
     id: 10,
     src: "/images/hero-gallery/RUDYmgCyMipRnwka.jpg",
-    caption: "Kitchen remodel — bare wall transformed into a functional modern cooking space",
+    caption: "Kitchen remodel - bare wall transformed into a functional modern cooking space",
     tag: "Remodel",
   },
   {
     id: 11,
     src: "/images/hero-gallery/ifxXRKwuQfvSbApZ.jpg",
-    caption: "Room remodel — transformed into a modern kitchenette with white cabinets and new flooring",
+    caption: "Room remodel - transformed into a modern kitchenette with white cabinets and new flooring",
     tag: "Before & After",
   },
   {
@@ -116,13 +116,13 @@ const photos: Photo[] = [
   {
     id: 16,
     src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg",
-    caption: "Complete room transformation — empty yellow space to modern kitchen and laundry area",
+    caption: "Complete room transformation - empty yellow space to modern kitchen and laundry area",
     tag: "Before & After",
   },
   {
     id: 17,
     src: "/images/hero-gallery/yzuTNmsrwjoSvvTt.jpg",
-    caption: "House exterior before and after — newly installed white gutters",
+    caption: "House exterior before and after - newly installed white gutters",
     tag: "Before & After",
   },
   {
@@ -152,13 +152,13 @@ const photos: Photo[] = [
   {
     id: 22,
     src: "/images/hero-gallery/hsBQUCJsPHmAqWDF.jpg",
-    caption: "Trex railing installation with custom gate on a deck — before and after",
+    caption: "Trex railing installation with custom gate on a deck - before and after",
     tag: "Carpentry",
   },
   {
     id: 23,
     src: "/images/hero-gallery/XVCTcQFFmRquAQZe.jpg",
-    caption: "72-inch TV wall mount installation — clean and professional finish",
+    caption: "72-inch TV wall mount installation - clean and professional finish",
     tag: "Before & After",
   },
 ];

@@ -1,4 +1,4 @@
-// TODO: move to CMS (nucleus) — service area boundary should be editable
+// TODO: move to CMS (nucleus) - service area boundary should be editable
 // outside of code so Marcin can expand coverage without a deploy.
 
 export const CLARK_COUNTY_ZIPS: readonly string[] = [
@@ -32,4 +32,4 @@ export function isInServiceArea(zip: string): boolean {
 export const SERVICE_AREA_LABEL = "Clark County, Washington";
 
 export const OUT_OF_AREA_MESSAGE =
-  "We currently serve Clark County, Washington only. We'll reach out if that changes — can we keep you on our list?";
+  "We currently serve Clark County, Washington only. We'll reach out if that changes - can we keep you on our list?";

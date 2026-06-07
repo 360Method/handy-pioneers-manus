@@ -1,5 +1,5 @@
 /*
- * MembershipCheckout.tsx — /membership/checkout
+ * MembershipCheckout.tsx - /membership/checkout
  * Ported from 360-funnel CheckoutPage. Reads tier+cadence from URL params,
  * posts to pro.handypioneers.com/api/360/checkout with origin for redirect.
  * HP design system. No forbidden vocab.
@@ -98,7 +98,7 @@ export default function MembershipCheckout() {
     setError(null);
 
     // The homeowner checkout (threeSixty.checkout.createSession) accepts the raw
-    // tier ids bronze|silver|gold. Send activeTier directly — do NOT remap to the
+    // tier ids bronze|silver|gold. Send activeTier directly - do NOT remap to the
     // portfolio vocabulary, which the backend rejects with a 400.
     const apiTier = activeTier;
     const customer = {
@@ -177,7 +177,7 @@ export default function MembershipCheckout() {
             }),
           });
         } catch {
-          // Even the same-origin fallback failed — still show fallback UI so
+          // Even the same-origin fallback failed - still show fallback UI so
           // the visitor has a next step.
         }
         setFallbackCaptured(true);
@@ -215,7 +215,7 @@ export default function MembershipCheckout() {
       <>
       <SEO
         path="/membership/checkout"
-        title="Confirm Your 360° Membership | Handy Pioneers — Clark County, WA"
+        title="Confirm Your 360° Membership | Handy Pioneers - Clark County, WA"
         description="Complete your 360° Method membership enrollment. Seasonal visits, labor bank, and member rates for Vancouver WA, Camas, Washougal, Ridgefield and Battle Ground homeowners."
       />
       <div className="min-h-screen font-sans flex flex-col" style={{ background: "oklch(96% 0.015 80)" }}>
@@ -428,7 +428,7 @@ export default function MembershipCheckout() {
               }}
             >
               <span style={{ color: "oklch(45% 0.12 68)" }}>
-                💡 <strong>Receive ${tierData.laborBankDollars} in labor bank credit on day one</strong> — switch to Quarterly or Annual above.
+                💡 <strong>Receive ${tierData.laborBankDollars} in labor bank credit on day one</strong> - switch to Quarterly or Annual above.
               </span>
             </div>
           )}
@@ -639,7 +639,7 @@ export default function MembershipCheckout() {
               {loading ? (
                 <><Spinner />Redirecting to payment...</>
               ) : (
-                `Continue to Payment — $${price}/${cadenceSuffix}`
+                `Continue to Payment - $${price}/${cadenceSuffix}`
               )}
             </button>
 
@@ -661,7 +661,7 @@ export default function MembershipCheckout() {
                   className="text-xs uppercase tracking-widest font-semibold mb-1"
                   style={{ color: "oklch(65% 0.07 155)" }}
                 >
-                  360° Method — {tierData.name}
+                  360° Method - {tierData.name}
                 </p>
                 <p className="font-display text-lg font-black" style={{ color: "oklch(100% 0 0)" }}>
                   {cadenceLabel} Billing
@@ -683,8 +683,8 @@ export default function MembershipCheckout() {
                           }}
                         >
                           {activeCadence === "monthly"
-                            ? `⏳ $${tierData.laborBankDollars} labor bank — unlocks after 90 days`
-                            : `✅ $${tierData.laborBankDollars} labor bank — day one`}
+                            ? `⏳ $${tierData.laborBankDollars} labor bank - unlocks after 90 days`
+                            : `✅ $${tierData.laborBankDollars} labor bank - day one`}
                         </p>
                       )}
                     </div>
@@ -722,7 +722,7 @@ export default function MembershipCheckout() {
           <div className="rounded-lg p-4 space-y-2 bg-white" style={{ border: `1px solid ${B}` }}>
             {[
               "🔒 256-bit SSL encryption",
-              "✓ Licensed & Insured — WA Lic. HANDYP*761NH",
+              "✓ Licensed & Insured - WA Lic. HANDYP*761NH",
               "✓ Cancel anytime, no long-term contracts",
               "✓ 1-Year Labor Guarantee on all work",
             ].map((t) => (

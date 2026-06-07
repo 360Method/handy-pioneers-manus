@@ -1,8 +1,8 @@
 /**
- * RoadmapDetails.tsx — /roadmap/details (the roadmap-generator form)
+ * RoadmapDetails.tsx - /roadmap/details (the roadmap-generator form)
  *
  * Give-first order (2026-06-06 redesign): the report comes FIRST (PDF drag-drop
- * or a web-hosted report URL — pre-filled when the landing-page dropzone handed
+ * or a web-hosted report URL - pre-filled when the landing-page dropzone handed
  * a file over), then the property (personal/investment toggle, address with the
  * Clark County ZIP gate, details), and only then the ask: email + optional
  * first name. No popup before this page; no last name or phone anywhere.
@@ -76,7 +76,7 @@ export default function RoadmapDetails() {
     // Landing-page dropzone handoff (in-memory; gone after a hard refresh).
     const handed = takePendingReport();
     if (handed) setPdfFile(handed);
-    // Returning visitor in the same tab — restore quiet-capture linkage.
+    // Returning visitor in the same tab - restore quiet-capture linkage.
     try {
       const raw = sessionStorage.getItem("hp_roadmap");
       if (raw) {
@@ -103,7 +103,7 @@ export default function RoadmapDetails() {
   /**
    * Quiet capture: create the lead the moment we have a working email, so the
    * recovery drip arms for visitors who fill this in but never click Generate.
-   * Best-effort — a failure here never blocks the form.
+   * Best-effort - a failure here never blocks the form.
    */
   const quietCapture = async (): Promise<Stash> => {
     const email = form.email.toLowerCase().trim();
@@ -210,7 +210,7 @@ export default function RoadmapDetails() {
           }),
         });
       } catch {
-        /* best-effort — the quiet-capture lead already holds the contact */
+        /* best-effort - the quiet-capture lead already holds the contact */
       }
       setWaitlisted(true);
       setSubmitting(false);
@@ -245,9 +245,9 @@ export default function RoadmapDetails() {
       body.append("source", "roadmap_funnel");
       const partnerRef = sessionStorage.getItem("hp_roadmap_ref");
       if (partnerRef) body.append("partnerRef", partnerRef);
-      // Honeypot — hidden field real visitors never fill (bot filter).
+      // Honeypot - hidden field real visitors never fill (bot filter).
       body.append("website", honeypot);
-      // Funnel linkage — quiet capture created these; the backend reuses them
+      // Funnel linkage - quiet capture created these; the backend reuses them
       // so one funnel walk never makes duplicate CRM records.
       if (linked.customerId) body.append("hpCustomerId", linked.customerId);
       if (linked.leadId) body.append("hpLeadId", linked.leadId);
@@ -262,7 +262,7 @@ export default function RoadmapDetails() {
       }
       const data = await res.json();
       // Server-side service-area gate disagreed with the client list (defense
-      // in depth) — show the waitlist state instead of the offer.
+      // in depth) - show the waitlist state instead of the offer.
       if (data?.waitlisted) {
         setWaitlisted(true);
         setSubmitting(false);
@@ -284,7 +284,7 @@ export default function RoadmapDetails() {
       );
       navigate(`/roadmap/offer?tid=${encodeURIComponent(data.id ?? "")}`);
     } catch (err: any) {
-      // On staging the backend may be down — let reviewers walk the flow anyway.
+      // On staging the backend may be down - let reviewers walk the flow anyway.
       if (isStagingHost()) {
         sessionStorage.setItem(
           "hp_roadmap",
@@ -338,7 +338,7 @@ export default function RoadmapDetails() {
                 className="text-2xl font-bold mb-3"
                 style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
               >
-                Thank You — You're On Our List
+                Thank You - You're On Our List
               </h3>
               <p className="text-base mx-auto" style={{ color: "oklch(0.35 0.02 80)", maxWidth: "520px" }}>
                 We currently steward properties in Clark County, Washington only. We've kept
@@ -352,7 +352,7 @@ export default function RoadmapDetails() {
               style={{ background: "white", border: "1px solid oklch(88% 0.02 80)", boxShadow: "0 6px 24px oklch(0% 0 0 / 0.06)" }}
               noValidate
             >
-              {/* ── 1. The report (first — it's the whole point) ── */}
+              {/* ── 1. The report (first - it's the whole point) ── */}
               <div>
                 <p className={sectionTitleClass} style={sectionTitleStyle}>1 · Your inspection report</p>
                 {!useUrlInstead ? (
@@ -569,7 +569,7 @@ export default function RoadmapDetails() {
                 </label>
               </div>
 
-              {/* Honeypot — visually hidden; bots fill it, people never see it */}
+              {/* Honeypot - visually hidden; bots fill it, people never see it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
                 <label htmlFor="rd-website">Website</label>
                 <input

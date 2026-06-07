@@ -78,7 +78,7 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll 
         className="text-xs font-semibold mb-3 inline-flex items-center gap-1 px-2 py-1 rounded self-start"
         style={{ background: "oklch(22% 0.07 155 / 0.07)", color: "oklch(22% 0.07 155)" }}
       >
-        📅 {tier.visits} visit{tier.visits > 1 ? "s" : ""}/yr — {tier.visitDescription}
+        📅 {tier.visits} visit{tier.visits > 1 ? "s" : ""}/yr - {tier.visitDescription}
       </div>
       {tier.laborBankDollars > 0 && (
         <div
@@ -93,20 +93,20 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll 
           {cadence === "monthly" ? (
             <>
               <span className="font-bold" style={{ color: "oklch(50% 0.02 60)" }}>
-                ⏳ Labor bank credit — accrues after 90 days on Monthly
+                ⏳ Labor bank credit - accrues after 90 days on Monthly
               </span>
               <span style={{ color: "oklch(50% 0.02 60)" }}>
-                {" "}— ${tier.laborBankDollars} becomes available after your first 90 days. Switch
+                {" "} - ${tier.laborBankDollars} becomes available after your first 90 days. Switch
                 to Quarterly or Annual to receive the full credit on day one.
               </span>
             </>
           ) : (
             <>
               <span className="font-bold" style={{ color: "oklch(55% 0.14 68)" }}>
-                ✅ ${tier.laborBankDollars} labor bank credit — full credit, day one
+                ✅ ${tier.laborBankDollars} labor bank credit - full credit, day one
               </span>
               <span style={{ color: "oklch(35% 0.03 255)" }}>
-                {" "}— pre-paid labor for any in-between visit task (leaky faucet, stuck door,
+                {" "} - pre-paid labor for any in-between visit task (leaky faucet, stuck door,
                 fixture swap). Use-it-or-lose-it annually.
               </span>
             </>
@@ -147,7 +147,7 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll 
           ))}
         </div>
         <p className="text-xs leading-snug" style={{ color: "oklch(55% 0.02 60)" }}>
-          Larger jobs already include negotiated vetted-tradesman pricing — your total cost is
+          Larger jobs already include negotiated vetted-tradesman pricing - your total cost is
           lower either way.
         </p>
       </div>
@@ -173,7 +173,7 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll 
       </button>
       <p className="text-center text-xs mt-2" style={{ color: "oklch(60% 0.02 60)" }}>
         Your complimentary baseline walkthrough comes first. We confirm your plan and pricing
-        together — no commitment up front.
+        together - no commitment up front.
       </p>
     </div>
   );

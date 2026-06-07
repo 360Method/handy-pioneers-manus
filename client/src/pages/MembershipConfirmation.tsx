@@ -1,5 +1,5 @@
 /*
- * MembershipConfirmation.tsx — /membership/confirmation
+ * MembershipConfirmation.tsx - /membership/confirmation
  * Stripe success redirect target. Reads tier/cadence from sessionStorage,
  * session_id from URL params. Portal deep-link CTA.
  */
@@ -31,7 +31,7 @@ export default function MembershipConfirmation() {
   const isPortfolio =
     (typeof window !== "undefined" && sessionStorage.getItem("hp360_type") === "portfolio") ||
     params.get("type") === "portfolio";
-  // Arrived from the roadmap funnel's one-time offer — their free roadmap is
+  // Arrived from the roadmap funnel's one-time offer - their free roadmap is
   // still being generated in the background; say so.
   const fromRoadmap =
     typeof window !== "undefined" && sessionStorage.getItem("hp360_fromRoadmap") === "1";
@@ -65,7 +65,7 @@ export default function MembershipConfirmation() {
           {
             icon: "🗺️",
             title: "Your free roadmap is still on its way",
-            body: "The 360° Roadmap you started is being generated right now and will arrive by email within 24 hours — your membership doesn't change that.",
+            body: "The 360° Roadmap you started is being generated right now and will arrive by email within 24 hours - your membership doesn't change that.",
           },
         ]
       : []),
@@ -89,14 +89,14 @@ export default function MembershipConfirmation() {
           {
             icon: "💰",
             title: `$${tierData.laborBankDollars} labor bank is loaded`,
-            body: "Your labor bank credit is available now. Use it on any in-between visit task — call or message us and we'll apply it to your invoice.",
+            body: "Your labor bank credit is available now. Use it on any in-between visit task - call or message us and we'll apply it to your invoice.",
           },
         ]
       : hasLaborBank && tierData && cadenceParam === "monthly"
       ? [
           {
             icon: "⏳",
-            title: `$${tierData.laborBankDollars} labor bank — accruing`,
+            title: `$${tierData.laborBankDollars} labor bank - accruing`,
             body: "Your labor bank credit accrues over your first 90 days on the Monthly plan. It will be available in full after day 90.",
           },
         ]
@@ -218,7 +218,7 @@ export default function MembershipConfirmation() {
             }}
           >
             <p className="text-xs" style={{ color: M }}>
-              <strong style={{ color: G }}>Remember:</strong> Every task we perform is backed by our 1-Year Labor Guarantee. If something we touched fails within 12 months, we return and resolve it — no service call fee.
+              <strong style={{ color: G }}>Remember:</strong> Every task we perform is backed by our 1-Year Labor Guarantee. If something we touched fails within 12 months, we return and resolve it - no service call fee.
             </p>
           </div>
 

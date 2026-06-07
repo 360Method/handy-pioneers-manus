@@ -1,7 +1,7 @@
 /**
- * PrivacyPolicy — /privacy-policy
+ * PrivacyPolicy - /privacy-policy
  * Compliant with Twilio SMS requirements and general data privacy standards.
- * Design: Pacific Northwest Craftsman — matches site typography and color system.
+ * Design: Pacific Northwest Craftsman - matches site typography and color system.
  */
 
 import { useEffect } from "react";

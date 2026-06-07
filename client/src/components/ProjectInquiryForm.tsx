@@ -1,5 +1,5 @@
 /**
- * ProjectInquiryForm — Path A: Embedded mini-form for project inquiries.
+ * ProjectInquiryForm - Path A: Embedded mini-form for project inquiries.
  *
  * Posts directly to the HP Estimator app's public booking API.
  * On success, redirects to /thankyou?path=project which shows the 360 Method upsell.
@@ -35,7 +35,7 @@ const SERVICE_OPTIONS_360 = [
   "Windows & Doors",
   "Deck, Fence, or Exterior",
   "General Aging & Wear",
-  "Not Sure — Full Assessment",
+  "Not Sure - Full Assessment",
 ];
 
 interface FormState {

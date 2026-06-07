@@ -1,5 +1,5 @@
 /**
- * Method360Section — Homepage section introducing the 360° Method
+ * Method360Section - Homepage section introducing the 360° Method
  * Design: Dark forest green background, warm amber accents, Playfair Display headings
  * Positioned between Services and Gallery to intercept mid-funnel visitors
  */
@@ -11,7 +11,7 @@ const steps = [
   {
     icon: Search,
     title: "Full-Home Walk-Through",
-    desc: "Every visit starts with a structured assessment of all visible systems — not just the one you called about.",
+    desc: "Every visit starts with a structured assessment of all visible systems - not just the one you called about.",
   },
   {
     icon: ClipboardList,
@@ -26,7 +26,7 @@ const steps = [
   {
     icon: ShieldCheck,
     title: "1-Year Labor Guarantee",
-    desc: "Every repair we complete is backed by our 1-year labor guarantee. If it fails, we come back — no charge.",
+    desc: "Every repair we complete is backed by our 1-year labor guarantee. If it fails, we come back - no charge.",
   },
 ];
 
@@ -62,7 +62,7 @@ export default function Method360Section() {
           >
             Most contractors fix what you point at. We look at your whole home.
             The 360° Method is a structured walk-through that finds the problems
-            you didn't know you had — before they become expensive emergencies.
+            you didn't know you had - before they become expensive emergencies.
           </p>
         </div>
 
@@ -117,11 +117,11 @@ export default function Method360Section() {
             className="mt-3 text-sm"
             style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            — Marcin Micek, Owner · Handy Pioneers
+ - Marcin Micek, Owner · Handy Pioneers
           </p>
         </div>
 
-        {/* 360° Roadmap Generator CTA — Path B lead magnet */}
+        {/* 360° Roadmap Generator CTA - Path B lead magnet */}
         <div
           className="rounded-xl p-6 mb-8 flex flex-col md:flex-row items-start md:items-center gap-4 reveal"
           style={{

@@ -34,7 +34,7 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Home} />
-      {/* Individual project detail pages — open in new tab from gallery */}
+      {/* Individual project detail pages - open in new tab from gallery */}
       <Route path="/project/:slug" component={ProjectDetail} />
       {/* Post-inquiry thank you page */}
       <Route path="/thankyou" component={ThankYou} />
@@ -46,7 +46,7 @@ function Router() {
       <Route path="/terms-and-conditions" component={TermsAndConditions} />
       {/* 360° Method funnel pages */}
       <Route path="/360-method" component={Method360} />
-      {/* Legacy — consolidated into /roadmap-generator */}
+      {/* Legacy - consolidated into /roadmap-generator */}
       <Route path="/360-method/translation">{() => <Redirect to="/roadmap-generator" />}</Route>
       <Route path="/360-method/walkthrough" component={Method360Walkthrough} />
       <Route path="/360-method/referral" component={Method360Referral} />
@@ -60,16 +60,16 @@ function Router() {
       <Route path="/baseline/details" component={BaselineDetails} />
       <Route path="/baseline/offer" component={BaselineOffer} />
       <Route path="/baseline/confirmed" component={BaselineConfirmation} />
-      {/* Stripe success/cancel redirect targets — the backend builds /360/* URLs.
+      {/* Stripe success/cancel redirect targets - the backend builds /360/* URLs.
           Without these, the post-payment redirect falls through to the home page. */}
       <Route path="/360/confirmation" component={MembershipConfirmation} />
       <Route path="/360/checkout" component={MembershipCheckout} />
-      {/* 360° Roadmap Generator lead magnet (Path B entry) — 3-step funnel:
+      {/* 360° Roadmap Generator lead magnet (Path B entry) - 3-step funnel:
           popup (step 1) -> /roadmap/details (step 2) -> /roadmap/offer (step 3) */}
       <Route path="/roadmap-generator" component={RoadmapGenerator} />
       <Route path="/roadmap/details" component={RoadmapDetails} />
       <Route path="/roadmap/offer" component={RoadmapOffer} />
-      {/* Legacy alias — keep existing email/campaign links alive */}
+      {/* Legacy alias - keep existing email/campaign links alive */}
       <Route path="/priority-translation">{() => <Redirect to="/roadmap-generator" />}</Route>
       {/* Real pages */}
       <Route path="/about" component={About} />

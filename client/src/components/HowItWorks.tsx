@@ -8,7 +8,7 @@ const steps = [
   {
     num: "02",
     title: "We Listen and Build Your Plan",
-    desc: "We walk the property, assess the full scope, and present a written plan tailored to your home — not a generic quote.",
+    desc: "We walk the property, assess the full scope, and present a written plan tailored to your home - not a generic quote.",
   },
   {
     num: "03",

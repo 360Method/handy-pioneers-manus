@@ -16,7 +16,7 @@ const VISITS = [
   { label: "Spring",    date: "Apr 2024", score: 70, hex: "#a16207", note: "Gutters cleared, vapor barrier secured" },
   { label: "Summer",    date: "Jul 2024", score: 77, hex: "#7c6a00", note: "Caulking resealed, HVAC filter replaced" },
   { label: "Fall",      date: "Oct 2024", score: 83, hex: "#4a7c59", note: "Weatherstripping replaced, fascia restored" },
-  { label: "18 Months", date: "Jul 2025", score: 88, hex: "#15803d", note: "All systems clear — home value protected" },
+  { label: "18 Months", date: "Jul 2025", score: 88, hex: "#15803d", note: "All systems clear - home value protected" },
 ];
 
 // ── SVG arc helpers ──────────────────────────────────────────────────────────
@@ -93,13 +93,13 @@ function ScoreArc({ score, color, size = 180, sw = 16 }: {
 
 // ── Sample report modal ──────────────────────────────────────────────────────
 const REPORT_SYSTEMS = [
-  { name: "Roof & Gutters",         status: "clear",   sym: "✓", finding: "Shingles in good condition. NW gutter had debris — cleared on-site.", action: "None. Re-inspect at Spring visit." },
+  { name: "Roof & Gutters",         status: "clear",   sym: "✓", finding: "Shingles in good condition. NW gutter had debris - cleared on-site.", action: "None. Re-inspect at Spring visit." },
   { name: "Foundation & Crawl Space", status: "monitor", sym: "⚠", finding: "Vapor barrier partially displaced. Moisture reading 12% near NW pier.", action: "Resecure vapor barrier. Re-read moisture at Spring visit." },
-  { name: "Exterior & Siding",      status: "clear",   sym: "✓", finding: "Hardiplank in good condition. Minor caulk shrinkage on south face — resealed.", action: "None required." },
-  { name: "HVAC System",            status: "monitor", sym: "⚠", finding: "Filter at 70% capacity — replaced on-site. Minor duct dust accumulation.", action: "Schedule duct cleaning within 12 months." },
+  { name: "Exterior & Siding",      status: "clear",   sym: "✓", finding: "Hardiplank in good condition. Minor caulk shrinkage on south face - resealed.", action: "None required." },
+  { name: "HVAC System",            status: "monitor", sym: "⚠", finding: "Filter at 70% capacity - replaced on-site. Minor duct dust accumulation.", action: "Schedule duct cleaning within 12 months." },
   { name: "Plumbing",               status: "clear",   sym: "✓", finding: "No active leaks. Water heater (2019) in good condition.", action: "Plan for water heater replacement ~2027." },
   { name: "Electrical Panel",       status: "clear",   sym: "✓", finding: "200A panel, no double-taps. GFCI outlets functional in all wet areas.", action: "None required." },
-  { name: "Deck & Exterior Wood",   status: "action",  sym: "✗", finding: "Rear deck ledger board shows surface checking and minor rot at 2 fastener points.", action: "Address within 6 months. Scoped at $350–500. Apply labor bank." },
+  { name: "Deck & Exterior Wood",   status: "action",  sym: "✗", finding: "Rear deck ledger board shows surface checking and minor rot at 2 fastener points.", action: "Address within 6 months. Scoped at $350-500. Apply labor bank." },
 ];
 
 const STATUS_COLORS: Record<string, { bg: string; border: string; text: string }> = {
@@ -136,7 +136,7 @@ function ReportModal({ onClose, variant }: { onClose: () => void; variant: "home
                 Sample Report
               </div>
               <div style={{ color: "white", fontFamily: "Georgia, serif", fontWeight: 700, fontSize: "1.15rem", lineHeight: 1.3 }}>
-                Handy Pioneers — 360° {label} Scan Report
+                Handy Pioneers - 360° {label} Scan Report
               </div>
               <div style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.78rem", marginTop: "0.2rem" }}>
                 1847 NE Evergreen Ave, Vancouver WA 98665 · Jan 14, 2025
@@ -181,17 +181,17 @@ function ReportModal({ onClose, variant }: { onClose: () => void; variant: "home
                 </thead>
                 <tbody>
                   {[
-                    ["Baseline",      "Jan 2024", "62", "—",   "Crawl space moisture, gutter overflow"],
+                    ["Baseline",      "Jan 2024", "62", " - ",   "Crawl space moisture, gutter overflow"],
                     ["Spring Visit",  "Apr 2024", "70", "+8",  "Gutters cleared, vapor barrier secured"],
                     ["Summer Visit",  "Jul 2024", "77", "+7",  "Caulking resealed, HVAC filter replaced"],
                     ["Fall Visit",    "Oct 2024", "83", "+6",  "Weatherstripping replaced, fascia restored"],
-                    ["18-Month",      "Jul 2025", "88", "+5",  "All systems clear — home value protected"],
+                    ["18-Month",      "Jul 2025", "88", "+5",  "All systems clear - home value protected"],
                   ].map(([visit, date, score, change, finding], i) => (
                     <tr key={i} style={{ background: i % 2 === 0 ? "#f9fafb" : "white" }}>
                       <td style={{ padding: "5px 10px", fontWeight: 600 }}>{visit}</td>
                       <td style={{ padding: "5px 10px", color: "#6b7280" }}>{date}</td>
                       <td style={{ padding: "5px 10px", fontWeight: 700, color: i === 4 ? "#15803d" : "#111" }}>{score}</td>
-                      <td style={{ padding: "5px 10px", color: change === "—" ? "#9ca3af" : "#15803d", fontWeight: 600 }}>{change}</td>
+                      <td style={{ padding: "5px 10px", color: change === " - " ? "#9ca3af" : "#15803d", fontWeight: 600 }}>{change}</td>
                       <td style={{ padding: "5px 10px", color: "#374151" }}>{finding}</td>
                     </tr>
                   ))}
@@ -252,7 +252,7 @@ function ReportModal({ onClose, variant }: { onClose: () => void; variant: "home
                     "Exterior faucet winterization", "Crawl space vent covers", "Chimney & fireplace damper",
                   ],
                   completed: [
-                    "Gutters fully cleared — 2 bags debris removed", "Furnace filter replaced, heat exchanger clean",
+                    "Gutters fully cleared - 2 bags debris removed", "Furnace filter replaced, heat exchanger clean",
                     "All exterior hose bibs winterized", "Crawl space vents closed for winter",
                     "Front & back door weatherstripping replaced", "Minor fascia board re-nailed at NE corner",
                   ],
@@ -324,11 +324,11 @@ function ReportModal({ onClose, variant }: { onClose: () => void; variant: "home
                 </thead>
                 <tbody>
                   {[
-                    ["1", "Deck ledger board restoration",       "High — 6 mo",    "$350–500",   "✓"],
-                    ["2", "Crawl space vapor barrier resecure",  "Medium — Spring","$150–250",   "✓"],
-                    ["3", "Window seal replacement (3 units)",   "Low — 24 mo",    "$600–900",   "✓"],
-                    ["4", "Duct cleaning",                       "Low — 12 mo",    "$200–350",   "✓"],
-                    ["5", "Water heater (planned)",              "Plan — ~2027",   "$1,200–1,800","✓"],
+                    ["1", "Deck ledger board restoration",       "High - 6 mo",    "$350-500",   "✓"],
+                    ["2", "Crawl space vapor barrier resecure",  "Medium - Spring","$150-250",   "✓"],
+                    ["3", "Window seal replacement (3 units)",   "Low - 24 mo",    "$600-900",   "✓"],
+                    ["4", "Duct cleaning",                       "Low - 12 mo",    "$200-350",   "✓"],
+                    ["5", "Water heater (planned)",              "Plan - ~2027",   "$1,200-1,800","✓"],
                   ].map(([num, item, urgency, cost, lb], i) => (
                     <tr key={i} style={{ background: i === 0 ? "#fef2f2" : i % 2 === 0 ? "#f9fafb" : "white" }}>
                       <td style={{ padding: "5px 10px", fontWeight: 700 }}>{num}</td>
@@ -345,10 +345,10 @@ function ReportModal({ onClose, variant }: { onClose: () => void; variant: "home
 
           {/* Technician note */}
           <div style={{ background: "#f9fafb", borderRadius: "8px", padding: "0.75rem 1rem", fontSize: "0.75rem", color: "#374151", lineHeight: 1.6, marginBottom: "0.5rem" }}>
-            <strong style={{ color: HP_GREEN }}>Technician Notes:</strong> Overall this home is well-maintained for its age. Primary concern is the deck ledger board — address before next rainy season. Crawl space moisture within acceptable range but warrants monitoring. All on-site work completed during this visit is documented in the service log.
+            <strong style={{ color: HP_GREEN }}>Technician Notes:</strong> Overall this home is well-maintained for its age. Primary concern is the deck ledger board - address before next rainy season. Crawl space moisture within acceptable range but warrants monitoring. All on-site work completed during this visit is documented in the service log.
           </div>
           <div style={{ background: "#fefce8", border: "1px solid #fbbf24", borderRadius: "8px", padding: "0.65rem 0.9rem", fontSize: "0.72rem", color: "#78350f", lineHeight: 1.55, marginBottom: "0.6rem" }}>
-            <strong style={{ color: "#92400e" }}>Important:</strong> The 360° Method is a proactive maintenance service — not a licensed home inspection. We work in tandem with home inspectors: they identify issues, we complete the work and maintain the home season after season. This report documents visible, accessible conditions at the time of each visit and does not replace a licensed inspector, structural engineer, or specialist. Handy Pioneers is not liable for pre-existing conditions not visible or detectable during a visit. <a href="/terms" style={{ color: "#92400e", textDecoration: "underline" }}>Full terms apply.</a>
+            <strong style={{ color: "#92400e" }}>Important:</strong> The 360° Method is a proactive maintenance service - not a licensed home inspection. We work in tandem with home inspectors: they identify issues, we complete the work and maintain the home season after season. This report documents visible, accessible conditions at the time of each visit and does not replace a licensed inspector, structural engineer, or specialist. Handy Pioneers is not liable for pre-existing conditions not visible or detectable during a visit. <a href="/terms" style={{ color: "#92400e", textDecoration: "underline" }}>Full terms apply.</a>
           </div>
           <div style={{ fontSize: "0.7rem", color: "#9ca3af", textAlign: "center" }}>
             Sample report for illustration only · Actual reports stored securely in your member portal · © 2025 Handy Pioneers LLC
@@ -421,7 +421,7 @@ export function HomeScoreAnimation({ variant = "homeowner" }: { variant?: "homeo
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "1.25rem" }}>
           <div style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", color: HP_AMBER, marginBottom: "0.3rem" }}>
-            Before &amp; After — 18 Months
+            Before &amp; After - 18 Months
           </div>
           <h3 style={{ fontFamily: "Georgia, 'Times New Roman', serif", fontSize: "1.35rem", fontWeight: 900, margin: "0 0 0.3rem", color: "white" }}>
             Watch the {scoreLabel} climb
@@ -501,7 +501,7 @@ export function HomeScoreAnimation({ variant = "homeowner" }: { variant?: "homeo
           </div>
         </div>
 
-        {/* CTA — open modal */}
+        {/* CTA - open modal */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)", paddingTop: "1.1rem", textAlign: "center" }}>
           <p style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.5)", marginBottom: "0.65rem" }}>
             See exactly what you receive after every visit

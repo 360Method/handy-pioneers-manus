@@ -1,5 +1,5 @@
 /**
- * WhyChooseUs — Value proposition section addressing the "why hire us" question
+ * WhyChooseUs - Value proposition section addressing the "why hire us" question
  * Design: Light warm background (cream), dark green headings, amber accents
  * Positioned after Testimonials to convert visitors who have seen social proof
  */
@@ -10,7 +10,7 @@ const values = [
   {
     icon: BadgeCheck,
     title: "Licensed, Bonded & Insured",
-    desc: "WA State licensed contractor. Every job is covered — protecting your home and your investment from day one.",
+    desc: "WA State licensed contractor. Every job is covered - protecting your home and your investment from day one.",
   },
   {
     icon: Clock,
@@ -20,7 +20,7 @@ const values = [
   {
     icon: FileText,
     title: "Written Scope of Work, Every Time",
-    desc: "No vague quotes. Every engagement begins with a written, line-by-line plan tailored to your home — no surprises at invoice.",
+    desc: "No vague quotes. Every engagement begins with a written, line-by-line plan tailored to your home - no surprises at invoice.",
   },
   {
     icon: Users,
@@ -30,12 +30,12 @@ const values = [
   {
     icon: Hammer,
     title: "1-Year Labor Guarantee",
-    desc: "If our work fails within a year, we come back and make it right — no charge, no argument, no hassle.",
+    desc: "If our work fails within a year, we come back and make it right - no charge, no argument, no hassle.",
   },
   {
     icon: ThumbsUp,
     title: "We Tell You What We Find",
-    desc: "If we spot a problem you didn't call about, we tell you — even if we're not the right person to fix it. Honest information, always.",
+    desc: "If we spot a problem you didn't call about, we tell you - even if we're not the right person to fix it. Honest information, always.",
   },
 ];
 
@@ -63,7 +63,7 @@ export default function WhyChooseUs() {
             style={{ color: "oklch(0.40 0.05 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
             Hiring a contractor is a trust decision. Here's exactly what we commit to
-            on every project — from a single repair to a full remodel.
+            on every project - from a single repair to a full remodel.
           </p>
         </div>
 

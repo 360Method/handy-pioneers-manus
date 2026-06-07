@@ -1,9 +1,9 @@
 /**
- * SEO — per-page metadata component.
+ * SEO - per-page metadata component.
  *
  * React 19 natively hoists <title>, <meta>, and <link> tags rendered
  * inside any component up to <head>. We rely on that instead of a
- * third-party helmet library — fewer deps, simpler mental model.
+ * third-party helmet library - fewer deps, simpler mental model.
  *
  * Pass a unique canonical URL, title, and description on every page
  * that mounts this. og:* and twitter:* mirror the same content.

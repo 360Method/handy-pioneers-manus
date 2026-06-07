@@ -1,5 +1,5 @@
 /**
- * Method360Referral.tsx — /360-method/referral
+ * Method360Referral.tsx - /360-method/referral
  * Path 3: "I need a deep dive or am preparing to list."
  * Inspector referral + then Path 1 execution.
  */
@@ -36,7 +36,7 @@ export default function Method360Referral() {
   };
 
   const steps = [
-    { number: "01", title: "We Connect You", description: "We refer you to a vetted, licensed home inspector from our professional network — someone we trust to deliver a thorough, reliable report." },
+    { number: "01", title: "We Connect You", description: "We refer you to a vetted, licensed home inspector from our professional network - someone we trust to deliver a thorough, reliable report." },
     { number: "02", title: "Inspector Completes Assessment", description: "The licensed inspector conducts a comprehensive, legally documented assessment of your home." },
     { number: "03", title: "We Execute Path 1", description: "Once the report is complete, we translate it into your 360° Priority Roadmap and stand ready to execute every item on it." },
   ];
@@ -77,7 +77,7 @@ export default function Method360Referral() {
             className="text-lg leading-relaxed"
             style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "560px" }}
           >
-            For homeowners who want a comprehensive, legally documented assessment — or who are
+            For homeowners who want a comprehensive, legally documented assessment - or who are
             preparing to list. We connect you with a vetted licensed inspector, then execute the
             full 360° Roadmap Generator on the results.
           </p>
@@ -199,7 +199,7 @@ export default function Method360Referral() {
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Your Timeline</label>
-                  <input className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2" style={{ borderColor: "oklch(0.85 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }} placeholder="e.g. Listing in 60 days, or No rush — planning ahead" value={formData.timeline} onChange={e => setFormData({ ...formData, timeline: e.target.value })} />
+                  <input className="w-full rounded-lg border px-4 py-3 text-sm focus:outline-none focus:ring-2" style={{ borderColor: "oklch(0.85 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }} placeholder="e.g. Listing in 60 days, or No rush - planning ahead" value={formData.timeline} onChange={e => setFormData({ ...formData, timeline: e.target.value })} />
                 </div>
                 <div>
                   <label className="block text-xs font-bold uppercase tracking-wider mb-1" style={{ color: "oklch(0.40 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Additional Notes</label>

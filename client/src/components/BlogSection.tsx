@@ -1,5 +1,5 @@
 /**
- * BlogSection — embedded on the homepage at #blog-section
+ * BlogSection - embedded on the homepage at #blog-section
  * One blended feed: local project stories + knowledge/insight articles, sorted
  * newest-first. A light filter (All / Local Work / Insights) lets visitors narrow.
  * Project cards link to /project/:slug, articles to /blog/:slug.
@@ -90,7 +90,7 @@ export default function BlogSection() {
             Local Work &amp; Home Care Insights
           </h2>
           <p className="text-base max-w-2xl mx-auto leading-relaxed" style={{ color: "oklch(0.45 0.03 80)" }}>
-            Completed projects across Clark County and practical home-care knowledge — for
+            Completed projects across Clark County and practical home-care knowledge - for
             homeowners who believe a well-maintained home is a well-lived life.
           </p>
         </div>
@@ -118,7 +118,7 @@ export default function BlogSection() {
         {/* Blended grid */}
         {items.length === 0 ? (
           <div className="text-center py-16">
-            <p style={{ color: "oklch(0.55 0.03 80)" }}>New posts coming soon — check back shortly.</p>
+            <p style={{ color: "oklch(0.55 0.03 80)" }}>New posts coming soon - check back shortly.</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

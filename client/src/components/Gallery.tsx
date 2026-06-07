@@ -1,5 +1,5 @@
 /**
- * Gallery — Photo-only gallery section.
+ * Gallery - Photo-only gallery section.
  * Design: Pacific Northwest Craftsman
  * Shows a masonry grid of project photos with tag filtering and a lightbox.
  * Project Stories have moved to the Blog section (#blog).
@@ -18,28 +18,28 @@ interface Photo {
 }
 
 const photos: Photo[] = [
-  { id: 1, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/wjLagUVyHJnefJeB.jpg", caption: "Basement transformation — unfinished space to modern kitchen and living area", tag: "Remodel" },
+  { id: 1, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/wjLagUVyHJnefJeB.jpg", caption: "Basement transformation - unfinished space to modern kitchen and living area", tag: "Remodel" },
   { id: 2, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/UCqTnokKBAzttFFs.jpg", caption: "Basement room transformation with new flooring, kitchen area, and dining space", tag: "Before & After" },
   { id: 3, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/OGRouAudxeyHawdy.jpg", caption: "Bathroom remodel with white subway tiles, bathtub, and modern black fixtures", tag: "Remodel" },
   { id: 4, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/HsevCHMMnApBXAqN.jpg", caption: "Bathroom remodel featuring new vanity, sink, flooring, and fresh paint", tag: "Remodel" },
   { id: 5, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/jXBeWLauPzuNoocm.jpg", caption: "Bathroom remodel with new vanity, mirror, lighting, and flooring", tag: "Remodel" },
-  { id: 6, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/WrTgmbwrBOLkeuvQ.jpg", caption: "Garage transformation — demolition and clean-out to organized empty space", tag: "Before & After" },
+  { id: 6, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/WrTgmbwrBOLkeuvQ.jpg", caption: "Garage transformation - demolition and clean-out to organized empty space", tag: "Before & After" },
   { id: 7, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/VzlGuBOWFXHnpjig.jpg", caption: "Living room and kitchen remodel with hardwood flooring, updated lighting, and fresh paint", tag: "Remodel" },
-  { id: 8, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/elKuhgxmpmZnBtDa.jpg", caption: "Bathroom remodel — outdated yellow room transformed into a modern white space", tag: "Before & After" },
-  { id: 9, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/MPYajNZmbQZgLzvS.jpg", caption: "Bathroom remodel — outdated space updated with modern fixtures and finishes", tag: "Remodel" },
-  { id: 10, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/RUDYmgCyMipRnwka.jpg", caption: "Kitchen remodel — bare wall transformed into a functional modern cooking space", tag: "Remodel" },
-  { id: 11, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/ifxXRKwuQfvSbApZ.jpg", caption: "Room remodel — transformed into a modern kitchenette with white cabinets and new flooring", tag: "Before & After" },
+  { id: 8, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/elKuhgxmpmZnBtDa.jpg", caption: "Bathroom remodel - outdated yellow room transformed into a modern white space", tag: "Before & After" },
+  { id: 9, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/MPYajNZmbQZgLzvS.jpg", caption: "Bathroom remodel - outdated space updated with modern fixtures and finishes", tag: "Remodel" },
+  { id: 10, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/RUDYmgCyMipRnwka.jpg", caption: "Kitchen remodel - bare wall transformed into a functional modern cooking space", tag: "Remodel" },
+  { id: 11, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/ifxXRKwuQfvSbApZ.jpg", caption: "Room remodel - transformed into a modern kitchenette with white cabinets and new flooring", tag: "Before & After" },
   { id: 12, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/nRlKKIJALACEEquv.jpg", caption: "Kitchen remodel with dark countertops, updated cabinets, and modern fixtures", tag: "Remodel" },
   { id: 13, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/SJzOyycrDNaWEYHN.jpg", caption: "Exterior home remodel with new siding, windows, and updated landscaping", tag: "Remodel" },
   { id: 14, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/qMQRAbINWFvrUPEB.jpg", caption: "Bathroom remodel featuring new flooring, trim, and toilet replacement", tag: "Remodel" },
   { id: 15, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/jPOgJPckBdaPcCPr.jpg", caption: "Room transformation with new flooring, light-colored paint, and window blinds", tag: "Before & After" },
-  { id: 16, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/AwSmGNttlDLyBDuO.jpg", caption: "Complete room transformation — empty yellow space to modern kitchen and laundry area", tag: "Before & After" },
+  { id: 16, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/AwSmGNttlDLyBDuO.jpg", caption: "Complete room transformation - empty yellow space to modern kitchen and laundry area", tag: "Before & After" },
   { id: 18, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/ryLhHcoLDKcrOody.jpg", caption: "Living room transformation with hardwood flooring, recessed lighting, and updated fireplace", tag: "Remodel" },
   { id: 19, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/xwDBZkjnyzCPfPzP.jpg", caption: "Bathroom transformation with new tiles, vanity, and modern fixtures", tag: "Before & After" },
   { id: 20, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/NnOoZJHBczCXjeKB.jpg", caption: "Basement room transformation with new flooring, recessed lighting, and fresh paint", tag: "Before & After" },
   { id: 21, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/pJHcMDChEQIqznEz.jpg", caption: "Clean and organized kitchen with white cabinets and stainless steel appliances", tag: "Remodel" },
-  { id: 22, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/hsBQUCJsPHmAqWDF.jpg", caption: "Trex railing installation with custom gate on a deck — before and after", tag: "Carpentry" },
-  { id: 23, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/XVCTcQFFmRquAQZe.jpg", caption: "72-inch TV wall mount installation — clean and professional finish", tag: "Before & After" },
+  { id: 22, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/hsBQUCJsPHmAqWDF.jpg", caption: "Trex railing installation with custom gate on a deck - before and after", tag: "Carpentry" },
+  { id: 23, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/XVCTcQFFmRquAQZe.jpg", caption: "72-inch TV wall mount installation - clean and professional finish", tag: "Before & After" },
 ];
 
 const PHOTO_TAGS = ["All", ...Array.from(new Set(photos.map((p) => p.tag).filter(Boolean))) as string[]];

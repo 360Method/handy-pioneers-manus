@@ -79,7 +79,7 @@ export default function ReactiveVsMemberTimeline() {
               className="text-sm font-bold uppercase tracking-wide mb-4"
               style={{ color: "oklch(65% 0.15 72)" }}
             >
-              360° Method — Essential Tier
+              360° Method - Essential Tier
             </div>
             <div className="space-y-3">
               {MEMBER_TIMELINE.map((row, i) => (

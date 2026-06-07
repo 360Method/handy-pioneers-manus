@@ -6,7 +6,7 @@ import { openInquiry } from "@/lib/inquiry";
 
 export default function Reviews() {
   useEffect(() => {
-    document.title = "Customer Reviews | Handy Pioneers — Vancouver WA";
+    document.title = "Customer Reviews | Handy Pioneers - Vancouver WA";
     // Re-init Elfsight widget
     if ((window as any).eapps) {
       try {
@@ -20,7 +20,7 @@ export default function Reviews() {
     <>
       <SEO
         path="/reviews"
-        title="Customer Reviews — 4.9★ on Google | Handy Pioneers — Vancouver WA"
+        title="Customer Reviews - 4.9★ on Google | Handy Pioneers - Vancouver WA"
         description="Read verified reviews from Clark County homeowners. Handy Pioneers holds a 4.9 star rating across 34+ Google reviews from Vancouver WA, Camas, and Battle Ground clients."
       />
       <div
@@ -71,7 +71,7 @@ export default function Reviews() {
           className="text-lg max-w-xl mx-auto px-4"
           style={{ color: "rgba(255,255,255,0.75)", fontFamily: "'Source Sans 3', sans-serif" }}
         >
-          Real reviews from real Clark County homeowners — verified on Google.
+          Real reviews from real Clark County homeowners - verified on Google.
           Every project. Every trade. Every neighborhood.
         </p>
 

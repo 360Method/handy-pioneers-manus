@@ -1,4 +1,4 @@
-// FAQ Page — Handy Pioneers
+// FAQ Page - Handy Pioneers
 // Design: Clean, editorial. Accordion-style Q&A with category grouping.
 // Fonts: Playfair Display (headings), Source Sans 3 (body)
 
@@ -26,15 +26,15 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "Why don't you list prices on your website?",
-        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with a complimentary on-site consultation — we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
+        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with a complimentary on-site consultation - we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
       },
       {
         q: "What do most projects cost?",
-        a: "Small repairs and maintenance tasks (caulking, fixture replacement, minor drywall) typically run $150–$500. Mid-size projects (bathroom upgrades, deck repairs, flooring) generally range from $1,500–$8,000. Full remodels and additions are quoted individually. The 360° Baseline Walkthrough is a flat-fee service — ask us for current pricing when you reach out.",
+        a: "Small repairs and maintenance tasks (caulking, fixture replacement, minor drywall) typically run $150-$500. Mid-size projects (bathroom upgrades, deck repairs, flooring) generally range from $1,500-$8,000. Full remodels and additions are quoted individually. The 360° Baseline Walkthrough is a flat-fee service - ask us for current pricing when you reach out.",
       },
       {
         q: "Do you require a deposit?",
-        a: "Yes. Most projects require a 30–50% deposit before materials are ordered and work begins. The remainder is due upon completion. We never ask for full payment upfront.",
+        a: "Yes. Most projects require a 30-50% deposit before materials are ordered and work begins. The remainder is due upon completion. We never ask for full payment upfront.",
       },
       {
         q: "What affects the final cost of a project?",
@@ -47,11 +47,11 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "Do you use subcontractors?",
-        a: "For specialized trades (electrical, plumbing, HVAC), yes — we work with vetted, licensed subcontractors. Every trade partner is screened and coordinated through a single point of contact. You'll always know in advance who is coming to your home.",
+        a: "For specialized trades (electrical, plumbing, HVAC), yes - we work with vetted, licensed subcontractors. Every trade partner is screened and coordinated through a single point of contact. You'll always know in advance who is coming to your home.",
       },
       {
         q: "Who will actually be on my property?",
-        a: "Every assessment walkthrough is owner-led. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You are never handed off to someone you haven't met — the relationship is consistent from first call to final walkthrough.",
+        a: "Every assessment walkthrough is owner-led. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You are never handed off to someone you haven't met - the relationship is consistent from first call to final walkthrough.",
       },
       {
         q: "Are you licensed and insured?",
@@ -64,19 +64,19 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "What exactly is the 360° Method?",
-        a: "It's a proactive home maintenance system — not a legal inspection. We assess your home's current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we update over time.",
+        a: "It's a proactive home maintenance system - not a legal inspection. We assess your home's current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we update over time.",
       },
       {
         q: "Is the 360° Walkthrough the same as a home inspection?",
-        a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. If you need a licensed inspection for a purchase or sale, we can refer you to a vetted inspector in our network (Path 3). The 360° Method is designed to work alongside — and after — a licensed inspection.",
+        a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. If you need a licensed inspection for a purchase or sale, we can refer you to a vetted inspector in our network (Path 3). The 360° Method is designed to work alongside - and after - a licensed inspection.",
       },
       {
-        q: "\"Certified technician\" — certified by whom?",
-        a: "Marcin holds certifications in home maintenance assessment and has completed professional training in residential systems evaluation. He is not a licensed home inspector (see above). We use 'certified technician' to describe his trade credentials and training — not to imply a licensed inspection credential. We're working on making this clearer on the site.",
+        q: "\"Certified technician\" - certified by whom?",
+        a: "Marcin holds certifications in home maintenance assessment and has completed professional training in residential systems evaluation. He is not a licensed home inspector (see above). We use 'certified technician' to describe his trade credentials and training - not to imply a licensed inspection credential. We're working on making this clearer on the site.",
       },
       {
         q: "How long does a Baseline Walkthrough take?",
-        a: "Typically 2–3 hours for a standard single-family home. Larger properties or homes with complex systems may take longer. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough.",
+        a: "Typically 2-3 hours for a standard single-family home. Larger properties or homes with complex systems may take longer. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough.",
       },
     ],
   },
@@ -85,15 +85,15 @@ const faqs: FAQCategory[] = [
     items: [
       {
         q: "How quickly can you start?",
-        a: "We typically schedule your initial consultation within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline during your consultation. We don't overbook.",
+        a: "We typically schedule your initial consultation within 3-5 business days. Project start dates depend on scope and current workload - we'll give you a realistic timeline during your consultation. We don't overbook.",
       },
       {
         q: "What's your warranty on completed work?",
-        a: "We stand behind our work. Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it — no argument.",
+        a: "We stand behind our work. Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it - no argument.",
       },
       {
         q: "What areas do you serve?",
-        a: "We serve Clark County, WA — including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities. If you're just outside this area, reach out and we'll let you know if we can accommodate.",
+        a: "We serve Clark County, WA - including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities. If you're just outside this area, reach out and we'll let you know if we can accommodate.",
       },
     ],
   },
@@ -160,7 +160,7 @@ export default function FAQ() {
     <>
       <SEO
         path="/faq"
-        title="Frequently Asked Questions | Handy Pioneers — Clark County, WA"
+        title="Frequently Asked Questions | Handy Pioneers - Clark County, WA"
         description="Answers to common questions from Vancouver WA and Clark County homeowners about pricing, scheduling, service areas, licensing, and the 360° Method."
         jsonLd={FAQ_JSONLD}
       />
@@ -193,7 +193,7 @@ export default function FAQ() {
             className="mt-4 text-lg max-w-xl"
             style={{ color: "rgba(255,255,255,0.70)" }}
           >
-            The questions every skeptical homeowner asks — answered honestly.
+            The questions every skeptical homeowner asks - answered honestly.
           </p>
         </div>
       </section>
@@ -250,7 +250,7 @@ export default function FAQ() {
               className="mb-6 text-sm"
               style={{ color: "rgba(255,255,255,0.70)" }}
             >
-              Reach us directly — no gatekeepers, no callback queues.
+              Reach us directly - no gatekeepers, no callback queues.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button

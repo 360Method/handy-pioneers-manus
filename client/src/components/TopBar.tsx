@@ -16,7 +16,7 @@ export default function TopBar() {
         <span>(360) 838-6731</span>
       </a>
 
-      {/* Right: Portal Login — de-emphasized for new visitors */}
+      {/* Right: Portal Login - de-emphasized for new visitors */}
       <button
         data-token="171462604fd34b4fa38d9f4e36a1ce42"
         data-orgname="Handy-Pioneers"

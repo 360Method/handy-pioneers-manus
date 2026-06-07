@@ -87,7 +87,7 @@ export default function Services() {
             className="text-base mb-4"
             style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Not sure if we cover your project? Just ask — odds are we can help.
+            Not sure if we cover your project? Just ask - odds are we can help.
           </p>
           <button
             className="hcp-button"

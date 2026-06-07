@@ -1,5 +1,5 @@
 /**
- * BaselineConfirmation.tsx — /baseline/confirmed (Step 4, decline path)
+ * BaselineConfirmation.tsx - /baseline/confirmed (Step 4, decline path)
  * Shown when a homeowner books the baseline walkthrough without buying membership.
  */
 import { useEffect, useState } from "react";
@@ -52,9 +52,9 @@ export default function BaselineConfirmation() {
               What happens next
             </p>
             <ul className="space-y-2 text-sm" style={{ color: "oklch(40% 0.03 60)" }}>
-              <li>• We confirm a time that works for you (the walkthrough takes 2–3 hours).</li>
+              <li>• We confirm a time that works for you (the walkthrough takes 2-3 hours).</li>
               <li>• You receive a documented report with photos and a prioritized roadmap.</li>
-              <li>• If membership is a fit, we'll set it up together — no pressure.</li>
+              <li>• If membership is a fit, we'll set it up together - no pressure.</li>
             </ul>
           </div>
           <p className="text-sm" style={{ color: "oklch(50% 0.02 60)" }}>

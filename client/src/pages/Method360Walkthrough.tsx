@@ -1,5 +1,5 @@
 /**
- * Method360Walkthrough.tsx — /360-method/walkthrough
+ * Method360Walkthrough.tsx - /360-method/walkthrough
  * Consolidated into the unified /membership funnel (size quiz + pricing →
  * consult-first baseline scheduling). Kept as a redirect so old links land there.
  */

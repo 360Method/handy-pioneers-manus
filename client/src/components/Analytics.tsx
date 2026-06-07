@@ -1,13 +1,13 @@
 /**
- * Analytics — GA4 + Meta Pixel scaffolding.
+ * Analytics - GA4 + Meta Pixel scaffolding.
  *
  * Loads gtag.js / fbq only when the corresponding env var is set; renders
  * nothing at all if neither is configured.  Fires a pageview on initial
  * mount and again every time wouter's location changes.
  *
  * Env vars:
- *   VITE_GA4_MEASUREMENT_ID  — e.g. "G-XXXXXXXXXX"
- *   VITE_META_PIXEL_ID       — e.g. "1234567890"
+ *   VITE_GA4_MEASUREMENT_ID - e.g. "G-XXXXXXXXXX"
+ *   VITE_META_PIXEL_ID - e.g. "1234567890"
  *
  * Usage: mount <Analytics /> once at the top of the router tree.
  */
@@ -95,7 +95,7 @@ export default function Analytics() {
     if (!GA4_ID && !META_PIXEL_ID) return;
     initGA4();
     initMetaPixel();
-    // Fire an initial pageview on mount — location hook already gives us the
+    // Fire an initial pageview on mount - location hook already gives us the
     // current path.
     trackPageview(location);
     // eslint-disable-next-line react-hooks/exhaustive-deps

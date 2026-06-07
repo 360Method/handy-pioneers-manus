@@ -1,7 +1,7 @@
 /**
- * ConsentBanner — small, quiet, affluent-homeowner voice.
+ * ConsentBanner - small, quiet, affluent-homeowner voice.
  *
- * Renders only when at least one analytics env var is set — if we're
+ * Renders only when at least one analytics env var is set - if we're
  * not running analytics at all there's nothing to consent to.  Once
  * dismissed (via either button), sets a long-lived localStorage flag
  * and stays out of the way.
@@ -29,7 +29,7 @@ export default function ConsentBanner() {
       const acked = window.localStorage.getItem(STORAGE_KEY);
       if (!acked) setVisible(true);
     } catch {
-      // Private mode / SSR — fall through.
+      // Private mode / SSR - fall through.
       setVisible(true);
     }
   }, []);

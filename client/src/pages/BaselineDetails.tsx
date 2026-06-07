@@ -1,5 +1,5 @@
 /**
- * BaselineDetails.tsx — /baseline/details (Step 2 of the baseline funnel)
+ * BaselineDetails.tsx - /baseline/details (Step 2 of the baseline funnel)
  * Captures the home's address + a few details and enriches the Step-1 lead.
  */
 import { useEffect, useState } from "react";
@@ -47,7 +47,7 @@ export default function BaselineDetails() {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    document.title = "Your Home — Baseline Walkthrough | Handy Pioneers";
+    document.title = "Your Home - Baseline Walkthrough | Handy Pioneers";
     window.scrollTo(0, 0);
     try {
       const raw = sessionStorage.getItem("hp_baseline");
@@ -106,7 +106,7 @@ export default function BaselineDetails() {
       sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
       navigate("/baseline/offer");
     } catch (err: any) {
-      // On staging the backend may be down — let reviewers walk the flow anyway.
+      // On staging the backend may be down - let reviewers walk the flow anyway.
       if (isStagingHost()) {
         sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
         navigate("/baseline/offer");

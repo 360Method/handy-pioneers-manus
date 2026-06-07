@@ -1,6 +1,6 @@
 import { openInquiry } from "@/lib/inquiry";
 /**
- * MobileCTABar — shown only on mobile (<md).
+ * MobileCTABar - shown only on mobile (<md).
  * Sits inline between TopBar and Navbar, scrolls away with the page
  * so it doesn't conflict with the Google Reviews floater at the bottom.
  */
@@ -12,7 +12,7 @@ export default function MobileCTABar() {
 
   return (
     <div className="md:hidden flex w-full" style={{ boxShadow: "0 2px 8px rgba(0,0,0,0.12)" }}>
-      {/* Call button — left half */}
+      {/* Call button - left half */}
       <a
         href="tel:+13608386731"
         className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"
@@ -43,7 +43,7 @@ export default function MobileCTABar() {
       {/* Divider */}
       <div style={{ width: "1px", backgroundColor: "oklch(0.35 0.07 160)" }} />
 
-      {/* Schedule Consultation button — right half */}
+      {/* Schedule Consultation button - right half */}
       <button
         onClick={handleEstimate}
         className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-bold uppercase tracking-wider transition-opacity active:opacity-80"

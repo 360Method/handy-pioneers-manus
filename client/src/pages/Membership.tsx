@@ -1,5 +1,5 @@
 /*
- * Membership.tsx — /membership
+ * Membership.tsx - /membership
  * The 360° Method enrollment page, ported from 360-funnel's FunnelPage.
  * Brand voice: forest green dark sections, warm cream light sections,
  * amber CTAs, Playfair Display headings, Inter body.
@@ -24,31 +24,31 @@ import SEO from "@/components/SEO";
 const FAQS = [
   {
     q: "What happens when a visit identifies something that needs a larger scope of work?",
-    a: "Your technician documents the finding with photos and generates a prioritized written scope on the spot — linked directly to your membership record. You receive a clear scope, a member rate, and can authorize the work in one step. No separate sales call, no sourcing a contractor, no waiting for a quote.",
+    a: "Your technician documents the finding with photos and generates a prioritized written scope on the spot - linked directly to your membership record. You receive a clear scope, a member rate, and can authorize the work in one step. No separate sales call, no sourcing a contractor, no waiting for a quote.",
   },
   {
     q: "How does the labor bank work?",
-    a: "Labor bank credit is included in Quarterly and Annual memberships. Your credit is loaded at the end of your first billing period and renews annually. Apply it to any in-between visit task — a fixture swap, a door adjustment, a caulk renewal. Your technician logs time on-site and the system records the draw automatically. Credits do not carry over year-to-year, which keeps the membership priced accurately. Monthly memberships include all visits and member rates but do not include a labor bank.",
+    a: "Labor bank credit is included in Quarterly and Annual memberships. Your credit is loaded at the end of your first billing period and renews annually. Apply it to any in-between visit task - a fixture swap, a door adjustment, a caulk renewal. Your technician logs time on-site and the system records the draw automatically. Credits do not carry over year-to-year, which keeps the membership priced accurately. Monthly memberships include all visits and member rates but do not include a labor bank.",
   },
   {
     q: "What does the baseline walkthrough cover?",
-    a: "The baseline is a 2–3 hour documented whole-home assessment — roof, foundation, exterior envelope, interior systems, plumbing, electrical panels, HVAC, crawl space, and attic. You receive a written report with photos, a condition rating for each system, a prioritized findings list, and a written scope of work. This report is stored permanently in your member account and is shareable with your agent, lender, or insurer.",
+    a: "The baseline is a 2-3 hour documented whole-home assessment - roof, foundation, exterior envelope, interior systems, plumbing, electrical panels, HVAC, crawl space, and attic. You receive a written report with photos, a condition rating for each system, a prioritized findings list, and a written scope of work. This report is stored permanently in your member account and is shareable with your agent, lender, or insurer.",
   },
   {
     q: "Is there a contract or minimum commitment?",
-    a: "No contract. Monthly and quarterly memberships cancel at the end of the current billing period. Annual memberships can be cancelled with a prorated refund for unused months, net of any labor bank credits already applied. We expect to earn your renewal — not enforce it.",
+    a: "No contract. Monthly and quarterly memberships cancel at the end of the current billing period. Annual memberships can be cancelled with a prorated refund for unused months, net of any labor bank credits already applied. We expect to earn your renewal - not enforce it.",
   },
   {
     q: "Is this available outside Clark County, Washington?",
-    a: "Currently the 360° Method is delivered in Clark County, Washington — Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center, and surrounding communities. We are expanding regionally — join the waitlist for your area at the bottom of this page.",
+    a: "Currently the 360° Method is delivered in Clark County, Washington - Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center, and surrounding communities. We are expanding regionally - join the waitlist for your area at the bottom of this page.",
   },
   {
     q: "How do member rates apply to work beyond the scheduled visits?",
-    a: "Member rates apply to all out-of-scope work billed separately — scopes that go beyond what your labor bank covers. On a larger scope, your labor bank credit applies first; member rates apply to any remaining balance. You are never billed at standard retail on either category.",
+    a: "Member rates apply to all out-of-scope work billed separately - scopes that go beyond what your labor bank covers. On a larger scope, your labor bank credit applies first; member rates apply to any remaining balance. You are never billed at standard retail on either category.",
   },
   {
     q: "Is this a licensed home inspection?",
-    a: "No — and that distinction actually works in your favor. The 360° Method is a proactive maintenance service, not a licensed home inspection. Think of it as what happens after the inspection: a licensed inspector tells you what is wrong at a point in time, and we take it from there — completing the recommended work, maintaining the home season after season, and documenting every visit so your home's condition is always on record. If you have recently had a home inspection, your inspection report is the ideal starting point for your 360° baseline. We work in tandem with home inspectors, not in place of them. Our documentation does not replace a licensed inspector, structural engineer, or specialist for major assessments, and we are not liable for pre-existing conditions not visible or accessible during a visit. Full scope is in our Terms & Conditions.",
+    a: "No - and that distinction actually works in your favor. The 360° Method is a proactive maintenance service, not a licensed home inspection. Think of it as what happens after the inspection: a licensed inspector tells you what is wrong at a point in time, and we take it from there - completing the recommended work, maintaining the home season after season, and documenting every visit so your home's condition is always on record. If you have recently had a home inspection, your inspection report is the ideal starting point for your 360° baseline. We work in tandem with home inspectors, not in place of them. Our documentation does not replace a licensed inspector, structural engineer, or specialist for major assessments, and we are not liable for pre-existing conditions not visible or accessible during a visit. Full scope is in our Terms & Conditions.",
   },
 ];
 
@@ -75,7 +75,7 @@ export default function Membership() {
       <SEO
         path="/membership"
         title="360° Method Membership for Clark County Homeowners | Handy Pioneers"
-        description="A seasonal whole-home care membership for Vancouver WA and Clark County homeowners who want their home monitored, documented, and kept in top condition — not patched up when something breaks."
+        description="A seasonal whole-home care membership for Vancouver WA and Clark County homeowners who want their home monitored, documented, and kept in top condition - not patched up when something breaks."
       />
       <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
       <Navbar />
@@ -95,7 +95,7 @@ export default function Membership() {
               alt="360°"
               className="w-5 h-5 object-contain"
             />
-            <span>The 360° Method — Delivered by Handy Pioneers</span>
+            <span>The 360° Method - Delivered by Handy Pioneers</span>
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
@@ -108,7 +108,7 @@ export default function Membership() {
             style={{ color: "oklch(100% 0 0 / 0.75)" }}
           >
             Most homeowners have a financial advisor. Almost none have someone actively managing
-            the physical asset. The 360° Method is a fully managed home stewardship program —
+            the physical asset. The 360° Method is a fully managed home stewardship program - 
             quarterly visits, documented reports, and a named technician who knows your home.
             Membership from <strong className="text-white">$588/year</strong>{" "}
             <span style={{ fontSize: "0.85em", opacity: 0.7 }}>($49/mo on an Annual plan)</span>.
@@ -148,7 +148,7 @@ export default function Membership() {
                 className="text-base leading-relaxed mb-6"
                 style={{ color: "oklch(38% 0.03 60)" }}
               >
-                Your membership begins with a <strong>2–3 hour baseline walkthrough</strong> — a
+                Your membership begins with a <strong>2-3 hour baseline walkthrough</strong> - a
                 full documented assessment of every major system. We photograph every finding,
                 rate every system, and give your home its first score. You leave knowing exactly
                 where you stand.
@@ -157,14 +157,14 @@ export default function Membership() {
                 className="text-base leading-relaxed mb-8"
                 style={{ color: "oklch(38% 0.03 60)" }}
               >
-                After each seasonal visit, your score updates. You watch your home improve — visit
-                by visit, season by season — with a timestamped record that follows the asset for
+                After each seasonal visit, your score updates. You watch your home improve - visit
+                by visit, season by season - with a timestamped record that follows the asset for
                 its entire life.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                 {[
                   { icon: "📋", label: "Day One: Baseline", desc: "You see every system, every risk, every finding" },
-                  { icon: "📈", label: "Every Visit: Score Climbs", desc: "Your home improves — and you have proof" },
+                  { icon: "📈", label: "Every Visit: Score Climbs", desc: "Your home improves - and you have proof" },
                   { icon: "📁", label: "Always: On Record", desc: "Timestamped PDF after every visit, stored permanently" },
                 ].map((item) => (
                   <div
@@ -242,16 +242,16 @@ export default function Membership() {
                 className="text-base leading-relaxed mb-6"
                 style={{ color: "oklch(38% 0.03 60)" }}
               >
-                After every visit, a written report lands in your account — photos, system
+                After every visit, a written report lands in your account - photos, system
                 ratings, findings, and your updated Home Score. Over time, this becomes the most
                 complete record of your home's condition that has ever existed. Yours to share
                 with an agent, lender, or insurer whenever you need it.
               </p>
               <div className="space-y-3">
                 {[
-                  { label: "Baseline walkthrough with photos", why: "You know exactly what you own — before anything else" },
-                  { label: "Prioritized findings with written scope of work", why: "You know what to address and what it costs — no surprises" },
-                  { label: "Home Score updated each visit", why: "You watch your home improve — in a number you can track" },
+                  { label: "Baseline walkthrough with photos", why: "You know exactly what you own - before anything else" },
+                  { label: "Prioritized findings with written scope of work", why: "You know what to address and what it costs - no surprises" },
+                  { label: "Home Score updated each visit", why: "You watch your home improve - in a number you can track" },
                   { label: "Seasonal visit reports", why: "You have proof of every visit, every system, every season" },
                   { label: "Shareable PDF record", why: "You walk into any conversation with your agent or lender prepared" },
                 ].map((row) => (
@@ -304,7 +304,7 @@ export default function Membership() {
             style={{ color: "oklch(100% 0 0 / 0.75)" }}
           >
             Three phases. One continuous arc. You go from not knowing what you own, to having it
-            maintained by someone who does, to watching its condition — and its value — improve
+            maintained by someone who does, to watching its condition - and its value - improve
             over time. We are the guide. You are the one who arrives.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
@@ -319,13 +319,13 @@ export default function Membership() {
                 phase: "MAINTAIN",
                 icon: "🔧",
                 title: "We Handle It",
-                body: "Four seasonal visits address the specific demands of the Pacific Northwest climate. Your technician shows up, executes, and documents. You receive the report. Nothing falls through the cracks — because we are watching.",
+                body: "Four seasonal visits address the specific demands of the Pacific Northwest climate. Your technician shows up, executes, and documents. You receive the report. Nothing falls through the cracks - because we are watching.",
               },
               {
                 phase: "ADVANCE",
                 icon: "📈",
                 title: "Your Home Improves",
-                body: "Visit by visit, your score climbs and your record grows. The home you have in five years — documented, maintained, with a verifiable condition history — is a fundamentally different asset than the one you have today.",
+                body: "Visit by visit, your score climbs and your record grows. The home you have in five years - documented, maintained, with a verifiable condition history - is a fundamentally different asset than the one you have today.",
               },
             ].map((p) => (
               <div
@@ -392,7 +392,7 @@ export default function Membership() {
             ))}
           </div>
           <p className="text-sm max-w-xl mx-auto" style={{ color: "oklch(50% 0.02 60)" }}>
-            Based on Handy Pioneers field data from 2023–2025 across 47 Clark County member
+            Based on Handy Pioneers field data from 2023-2025 across 47 Clark County member
             homes. Figures represent median outcomes; individual results vary by home age,
             condition, and tier.
           </p>
@@ -414,10 +414,10 @@ export default function Membership() {
             style={{ color: "oklch(50% 0.02 60)" }}
           >
             Each tier is a retainer, not a subscription. Member rates apply to all work beyond the
-            scheduled visits — the higher the tier, the more comprehensive the coverage.
+            scheduled visits - the higher the tier, the more comprehensive the coverage.
           </p>
 
-          {/* Home-size personalizer — size is an internal pricing input. No size
+          {/* Home-size personalizer - size is an internal pricing input. No size
               label is ever shown to the visitor, only the price tailored to it. */}
           <div
             className="max-w-2xl mx-auto mb-8 rounded-xl p-6 sm:p-7"
@@ -441,7 +441,7 @@ export default function Membership() {
               How large is your home?
             </label>
             <p className="text-sm mb-6" style={{ color: "oklch(45% 0.02 60)" }}>
-              Drag the slider to your home's size — the prices below update instantly. A rough
+              Drag the slider to your home's size - the prices below update instantly. A rough
               figure is all we need.
             </p>
 
@@ -500,7 +500,7 @@ export default function Membership() {
                     color: "oklch(22% 0.07 155)",
                   }}
                 >
-                  <option value={1100}>1–2 bedrooms</option>
+                  <option value={1100}>1-2 bedrooms</option>
                   <option value={2300}>3 bedrooms</option>
                   <option value={3000}>4 bedrooms</option>
                   <option value={4200}>5 bedrooms</option>
@@ -563,7 +563,7 @@ export default function Membership() {
             style={{ color: "oklch(100% 0 0 / 0.7)" }}
           >
             Every task your technician performs is backed by a full one-year labor guarantee. If
-            something we completed fails due to workmanship, we return and correct it — no
+            something we completed fails due to workmanship, we return and correct it - no
             service call fee, no back-and-forth. That is what a guide owes the people they lead.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
@@ -576,7 +576,7 @@ export default function Membership() {
               {
                 icon: "📋",
                 title: "Everything on Record",
-                body: "Every visit is timestamped and documented with photos. If a question arises — from you, your insurer, or a buyer — the record is already in your account.",
+                body: "Every visit is timestamped and documented with photos. If a question arises - from you, your insurer, or a buyer - the record is already in your account.",
               },
               {
                 icon: "🔐",
@@ -619,7 +619,7 @@ export default function Membership() {
               <strong style={{ color: "oklch(75% 0.15 72)" }}>What's not covered:</strong>{" "}
               Material failures from manufacturer defects, damage caused by third parties or acts
               of nature, or tasks outside the original scope of work. If we didn't do it, we don't
-              guarantee it — but we'll tell you who should.
+              guarantee it - but we'll tell you who should.
             </p>
           </div>
         </div>
@@ -672,7 +672,7 @@ export default function Membership() {
               { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hose_bib_covering_cd7cd768.jpg", caption: "Hose Bib Winterization" },
               { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/exterior_light_fixture_replacement_ebcaac9c.jpg", caption: "Exterior Light Fixture Replacement" },
               { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/rotted_stair_repair_7a04b221.jpg", caption: "Rotted Stair Restoration" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/Before_Afters(10)_81ded948.png", caption: "Pressure Washing — Driveway" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/Before_Afters(10)_81ded948.png", caption: "Pressure Washing - Driveway" },
             ].map((photo, i) => (
               <div key={i} className="rounded-lg overflow-hidden shadow-sm">
                 <img
@@ -761,7 +761,7 @@ export default function Membership() {
           >
             Your baseline walkthrough is on the calendar within 48 hours. From that day forward,
             your technician knows your home, tracks its condition, and handles what needs
-            handling — season by season — while your score climbs and your record grows. Annual
+            handling - season by season - while your score climbs and your record grows. Annual
             membership from $588.
           </p>
           <a href="#pricing" className="btn-hp-primary text-base px-10 py-4">
@@ -771,7 +771,7 @@ export default function Membership() {
             className="mt-4 text-xs max-w-sm mx-auto"
             style={{ color: "oklch(100% 0 0 / 0.38)", lineHeight: 1.55 }}
           >
-            The 360° Method is a proactive maintenance service — not a licensed home inspection.
+            The 360° Method is a proactive maintenance service - not a licensed home inspection.
             We work in tandem with home inspectors: they identify, we maintain and document.
             Reports do not replace a licensed inspector or structural engineer.{" "}
             <a

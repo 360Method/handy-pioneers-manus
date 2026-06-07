@@ -1,5 +1,5 @@
 /**
- * Method360.tsx — /360-method
+ * Method360.tsx - /360-method
  * Design: Dark forest green + warm gold. Premium, estate-level aesthetic.
  * Sections: Hero intro, 3-phase breakdown, 3-path entry system, disclaimer, CTA.
  * Vocabulary: asset, proactive, curated, assessment, roadmap. No "handyman", no "free".
@@ -24,7 +24,7 @@ const phases = [
     steps: "Baseline · Inspect · Track",
     icon: Eye,
     description:
-      "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition — a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
+      "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition - a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     color: "oklch(0.65 0.14 65)",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-v3-c8jcSYFvmau28ZwUpGD4Vh.webp",
     imageAlt: "Handy Pioneers technician conducting a thorough home assessment with flashlight and clipboard",
@@ -37,7 +37,7 @@ const phases = [
     steps: "Seasonal Visits · Priority Roadmap · Execute",
     icon: Zap,
     description:
-      "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second — and what makes this a proactive program, not a one-time fix — is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest–specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
+      "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second - and what makes this a proactive program, not a one-time fix - is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest-specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
     color: "oklch(0.50 0.14 65)",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v4-jwU4XG6UPccwgZoBTpgciD.webp",
     imageAlt: "Skilled craftsman executing precision carpentry and repair work inside a Pacific Northwest home",
@@ -50,7 +50,7 @@ const phases = [
     steps: "Preserve · Upgrade · Scale",
     icon: TrendingUp,
     description:
-      "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate — whether your horizon is five years or twenty-five.",
+      "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate - whether your horizon is five years or twenty-five.",
     color: "oklch(0.32 0.07 160)",
     image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
     imageAlt: "Beautifully maintained Pacific Northwest craftsman home at golden hour with new deck and landscaping",
@@ -71,7 +71,7 @@ export default function Method360() {
     <>
       <SEO
         path="/360-method"
-        title="The 360° Method — How We Care for Clark County Homes | Handy Pioneers"
+        title="The 360° Method - How We Care for Clark County Homes | Handy Pioneers"
         description="Our end-to-end approach for Vancouver WA homeowners: documented baseline walkthrough, prioritized scope, and seasonal visits. Licensed restoration specialists serving all of Clark County."
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
@@ -115,7 +115,7 @@ export default function Method360() {
               className="text-base leading-relaxed mb-8"
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "500px" }}
             >
-              Most homeowners react. The ones who don't have a system — one that knows their home, maintains it with precision, and advances it with intention. Every season. Without exception.
+              Most homeowners react. The ones who don't have a system - one that knows their home, maintains it with precision, and advances it with intention. Every season. Without exception.
             </p>
 
             {/* Above-the-fold enrollment CTAs */}
@@ -152,13 +152,13 @@ export default function Method360() {
             className="text-xl md:text-2xl leading-relaxed text-white/90 italic"
             style={{ fontFamily: "'Playfair Display', serif" }}
           >
-            “The homeowners who sleep well at night aren’t the ones who got lucky. They’re the ones who decided their home deserved the same attention they give everything else that matters — and found a partner who shows up every season to make sure it does.”
+            “The homeowners who sleep well at night aren’t the ones who got lucky. They’re the ones who decided their home deserved the same attention they give everything else that matters - and found a partner who shows up every season to make sure it does.”
           </p>
           <p
             className="mt-4 text-sm font-semibold uppercase tracking-widest"
             style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            — Marcin Micek, Founder · Handy Pioneers
+ - Marcin Micek, Founder · Handy Pioneers
           </p>
         </div>
       </section>
@@ -283,7 +283,7 @@ export default function Method360() {
         <div className="relative">
           <img
             src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-before-after-home-3RbSRiUr6wXkF6L9EM95NW.webp"
-            alt="Pacific Northwest home before and after the 360° Method — neglected exterior transformed into a pristine, well-maintained property"
+            alt="Pacific Northwest home before and after the 360° Method - neglected exterior transformed into a pristine, well-maintained property"
             className="w-full object-cover"
             style={{ maxHeight: "520px", objectPosition: "center" }}
           />
@@ -334,8 +334,8 @@ export default function Method360() {
               by a trained home maintenance technician. It is <strong>not a legally binding real
               estate home inspection</strong> and does not replace the services of a licensed home
               inspector. Handy Pioneers does not assume liability for conditions not identified
-              during the walkthrough. For legal inspection purposes — including real estate
-              transactions — we recommend engaging a licensed home inspector. The 360° Method is
+              during the walkthrough. For legal inspection purposes - including real estate
+              transactions - we recommend engaging a licensed home inspector. The 360° Method is
               designed to work in partnership with licensed inspections, not as a substitute for
               them.
             </p>
@@ -353,8 +353,8 @@ export default function Method360() {
           </div>
           <div className="grid md:grid-cols-3 gap-5 mb-8">
             {[
-              { label: "Scope & Complexity", detail: "A single rot repair vs. a full deck rebuild are priced differently. We assess the full scope before quoting — no surprises." },
-              { label: "Material Selections", detail: "You choose the finish level — we price accordingly and document it in writing before work begins." },
+              { label: "Scope & Complexity", detail: "A single rot repair vs. a full deck rebuild are priced differently. We assess the full scope before quoting - no surprises." },
+              { label: "Material Selections", detail: "You choose the finish level - we price accordingly and document it in writing before work begins." },
               { label: "Trade Coordination", detail: "Projects requiring licensed electricians, plumbers, or HVAC techs include vetted subcontractor costs, always disclosed upfront." },
             ].map((item) => (
               <div key={item.label} className="rounded-xl p-6 border" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.12)" }}>
@@ -367,7 +367,7 @@ export default function Method360() {
             ))}
           </div>
           <div className="rounded-xl p-5 border flex flex-col sm:flex-row items-center justify-between gap-4" style={{ backgroundColor: "rgba(200,137,42,0.10)", borderColor: "rgba(200,137,42,0.35)" }}>
-            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a complimentary on-site consultation — we assess the full scope and present a written plan tailored to your home. Questions first? Call us: <a href="tel:+13608386731" className="font-bold underline hover:opacity-80">(360) 838-6731</a></p>
+            <p className="text-sm" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>Every engagement starts with a complimentary on-site consultation - we assess the full scope and present a written plan tailored to your home. Questions first? Call us: <a href="tel:+13608386731" className="font-bold underline hover:opacity-80">(360) 838-6731</a></p>
             <button
               onClick={() => setShowReport(true)}
               className="shrink-0 text-sm font-bold px-5 py-2.5 rounded-lg border-0 cursor-pointer transition-opacity hover:opacity-80 whitespace-nowrap"

@@ -1,20 +1,20 @@
-// SampleReportModal.tsx — Shared popup for 360° Priority Roadmap sample report
+// SampleReportModal.tsx - Shared popup for 360° Priority Roadmap sample report
 // Reusable from homepage, 360° Method page, Translation page, etc.
 //
-// The viewer scrolls pre-rendered page images instead of iframing the PDF —
+// The viewer scrolls pre-rendered page images instead of iframing the PDF - 
 // mobile browsers render an iframed PDF as a frozen first page (the "stuck on
 // the cover" bug), while images scroll everywhere. The full PDF stays one tap
 // away. Sample content is a fictionalized real roadmap (regenerate in
 // HP-Estimator-app: scripts/generate-roadmap-sample.mjs, render pages to webp,
-// copy here with NEW filenames — the CDN serves stale bytes on reused names).
+// copy here with NEW filenames - the CDN serves stale bytes on reused names).
 
 import { X, FileText } from "lucide-react";
 
-const PDF_URL = "/sample/360-roadmap-sample-alder.pdf";
+const PDF_URL = "/sample/360-roadmap-sample-alder2.pdf";
 const PAGE_COUNT = 14;
 const PAGE_URLS = Array.from(
   { length: PAGE_COUNT },
-  (_, i) => `/images/roadmap-sample/alder-page-${String(i + 1).padStart(2, "0")}.webp`,
+  (_, i) => `/images/roadmap-sample/alder2-page-${String(i + 1).padStart(2, "0")}.webp`,
 );
 
 interface SampleReportModalProps {
@@ -55,7 +55,7 @@ export default function SampleReportModal({ open, onClose }: SampleReportModalPr
               className="text-lg font-bold text-white"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              360° Priority Roadmap — Sample Report
+              360° Priority Roadmap - Sample Report
             </h3>
           </div>
           <button
@@ -68,7 +68,7 @@ export default function SampleReportModal({ open, onClose }: SampleReportModalPr
           </button>
         </div>
 
-        {/* Scrollable page images — renders on every device, unlike a PDF iframe */}
+        {/* Scrollable page images - renders on every device, unlike a PDF iframe */}
         <div
           className="flex-1 overflow-y-auto px-3 py-3 sm:px-6 sm:py-5"
           style={{ minHeight: 0, WebkitOverflowScrolling: "touch" }}

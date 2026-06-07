@@ -1,5 +1,5 @@
 /**
- * Home.tsx — Single-Page Layout
+ * Home.tsx - Single-Page Layout
  * Design: Dark forest green / warm cream. Playfair Display headings, Source Sans 3 body.
  * All content lives here. Nav scrolls to anchors. Only two CTAs: Path A + Path B.
  * Sections: hero → outcomes/services → 360-method → gallery → reviews → about → faq → footer
@@ -39,7 +39,7 @@ const PHASE_IMAGES = {
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 const credentials = [
-  { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor — Washington State" },
+  { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor - Washington State" },
   { icon: Award, label: "Insured up to $1,000,000", detail: "Full general liability coverage" },
   { icon: Clock, label: "1-Year Labor Guarantee", detail: "On every completed project" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal" },
@@ -50,15 +50,15 @@ const credentials = [
 const values = [
   {
     title: "One Relationship, Full Accountability",
-    body: "Every engagement runs through a single point of contact — from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
+    body: "Every engagement runs through a single point of contact - from the first walkthrough through final sign-off. The work is executed by a vetted crew of skilled tradesmen and licensed specialists. You never manage vendors. The relationship manages it for you.",
   },
   {
     title: "Transparent From Day One",
-    body: "Every engagement starts with a complimentary on-site consultation — we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
+    body: "Every engagement starts with a complimentary on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A System Built to Last",
-    body: "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition — updated with every project, so the relationship compounds in value over time.",
+    body: "Handy Pioneers isn't a one-and-done repair service. The 360° Method creates a living record of your home's condition - updated with every project, so the relationship compounds in value over time.",
   },
 ];
 
@@ -66,37 +66,37 @@ const outcomes = [
   {
     icon: TrendingUp,
     title: "Protected & Growing Asset Value",
-    body: "A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale — and the emergency repair premium disappears entirely.",
+    body: "A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale - and the emergency repair premium disappears entirely.",
   },
   {
     icon: HomeIcon,
     title: "A Home That Performs at Its Best",
-    body: "Every system working as designed. No mystery leaks, no seasonal surprises, no 'we'll deal with it later.' You live in the home you paid for — not a version of it that's slowly declining.",
+    body: "Every system working as designed. No mystery leaks, no seasonal surprises, no 'we'll deal with it later.' You live in the home you paid for - not a version of it that's slowly declining.",
   },
   {
     icon: ShieldCheck,
     title: "Zero Contractor Coordination Burden",
-    body: "One call, one relationship. We handle the full scope — from assessment to execution to trade coordination. You don’t manage vendors. You manage your life.",
+    body: "One call, one relationship. We handle the full scope - from assessment to execution to trade coordination. You don’t manage vendors. You manage your life.",
   },
   {
     icon: FileText,
     title: "A Documented Property Record",
-    body: "Every assessment, every project, every system update — documented in your 360° Priority Roadmap. When it's time to sell, refinance, or pass the property on, you have the receipts.",
+    body: "Every assessment, every project, every system update - documented in your 360° Priority Roadmap. When it's time to sell, refinance, or pass the property on, you have the receipts.",
   },
   {
     icon: Hammer,
     title: "Skilled Craftsmanship, Not Patch Work",
-    body: "Every repair and renovation is done to last — using quality materials, proper technique, and vetted tradesmen. The standard is the same regardless of project size.",
+    body: "Every repair and renovation is done to last - using quality materials, proper technique, and vetted tradesmen. The standard is the same regardless of project size.",
   },
   {
     icon: Zap,
     title: "Predictable, Prioritized Spending",
-    body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost — before it becomes urgent.",
+    body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost - before it becomes urgent.",
   },
   {
     icon: Clock,
     title: "Proactive Maintenance as a Core Service",
-    body: "Four times a year, we return to your home and work through a pre-defined seasonal task list built around the specific wear patterns of the Pacific Northwest. Moss treatment in spring. Deck sealing in summer. Gutter clearing before the rains. Pipe protection before the freeze. These visits are not improvised — they follow a standing protocol, and they happen regardless of what the assessment found. The program does not end when the roadmap is complete. It continues, season after season.",
+    body: "Four times a year, we return to your home and work through a pre-defined seasonal task list built around the specific wear patterns of the Pacific Northwest. Moss treatment in spring. Deck sealing in summer. Gutter clearing before the rains. Pipe protection before the freeze. These visits are not improvised - they follow a standing protocol, and they happen regardless of what the assessment found. The program does not end when the roadmap is complete. It continues, season after season.",
   },
 ];
 
@@ -122,7 +122,7 @@ const phases = [
     phase: "PHASE 1",
     title: "Aware",
     tagline: "Know your home completely.",
-    description: "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition — a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
+    description: "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition - a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     bullets: ["Full property walkthrough", "Documented baseline report", "System-by-system condition log"],
     image: PHASE_IMAGES.aware,
     color: "oklch(0.65 0.14 65)",
@@ -131,7 +131,7 @@ const phases = [
     phase: "PHASE 2",
     title: "Act",
     tagline: "Four visits a year. A standing seasonal task list. Nothing missed.",
-    description: "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second — and what makes this a proactive program, not a one-time fix — is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest–specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
+    description: "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second - and what makes this a proactive program, not a one-time fix - is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest-specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
     bullets: ["NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Trade coordination included"],
     image: PHASE_IMAGES.act,
     color: "oklch(0.55 0.18 160)",
@@ -140,7 +140,7 @@ const phases = [
     phase: "PHASE 3",
     title: "Advance",
     tagline: "Build long-term value, deliberately.",
-    description: "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate — whether your horizon is five years or twenty-five.",
+    description: "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate - whether your horizon is five years or twenty-five.",
     bullets: ["Strategic upgrade planning", "Home Score tracking over time", "Value-building project roadmap"],
     image: PHASE_IMAGES.advance,
     color: "oklch(0.60 0.14 200)",
@@ -151,33 +151,33 @@ const faqs = [
   {
     category: "Pricing & Cost",
     items: [
-      { q: "What does the initial consultation include?", a: "Every engagement starts with a complimentary on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home — not a generic quote. No ballpark numbers over the phone for complex work." },
+      { q: "What does the initial consultation include?", a: "Every engagement starts with a complimentary on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home - not a generic quote. No ballpark numbers over the phone for complex work." },
       { q: "What affects the final cost of a project?", a: "Scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding." },
-      { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30–40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
+      { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30-40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
     ],
   },
   {
     category: "Who Does the Work",
     items: [
-      { q: "Do you use subcontractors?", a: "For specialized trades (electrical, plumbing, HVAC), yes — we work with vetted, licensed subcontractors. Marcin coordinates and oversees all trade work. For general carpentry, maintenance, and renovation work, Marcin does the work himself." },
-      { q: "Will Marcin personally be on my project?", a: "Yes. Marcin personally conducts every assessment walkthrough and is present on every job. He is not a salesperson who hands you off — he is the technician. This is a deliberate choice, not a limitation." },
+      { q: "Do you use subcontractors?", a: "For specialized trades (electrical, plumbing, HVAC), yes - we work with vetted, licensed subcontractors. Marcin coordinates and oversees all trade work. For general carpentry, maintenance, and renovation work, Marcin does the work himself." },
+      { q: "Will Marcin personally be on my project?", a: "Yes. Marcin personally conducts every assessment walkthrough and is present on every job. He is not a salesperson who hands you off - he is the technician. This is a deliberate choice, not a limitation." },
       { q: "Are you licensed and insured?", a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor (HANDYP*761NH) and carries full general liability insurance up to $1,000,000. We're happy to provide proof of insurance before any work begins." },
     ],
   },
   {
     category: "The 360° Method",
     items: [
-      { q: "What exactly is the 360° Method?", a: "The 360° Method is a proactive home maintenance service — not a legal inspection. We assess your home’s current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we maintain over time." },
-      { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside — and after — a licensed inspection." },
-      { q: "How long does a Baseline Walkthrough take?", a: "Typically 2–3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
+      { q: "What exactly is the 360° Method?", a: "The 360° Method is a proactive home maintenance service - not a legal inspection. We assess your home’s current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we maintain over time." },
+      { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside - and after - a licensed inspection." },
+      { q: "How long does a Baseline Walkthrough take?", a: "Typically 2-3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
     ],
   },
   {
     category: "Scheduling & Process",
     items: [
-      { q: "How quickly can you start?", a: "We typically schedule your initial consultation within 3–5 business days. Project start dates depend on scope and current workload — we'll give you a realistic timeline during your consultation. We don't overbook." },
+      { q: "How quickly can you start?", a: "We typically schedule your initial consultation within 3-5 business days. Project start dates depend on scope and current workload - we'll give you a realistic timeline during your consultation. We don't overbook." },
       { q: "What's your warranty on completed work?", a: "Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it." },
-      { q: "What areas do you serve?", a: "We serve Clark County, WA — including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities." },
+      { q: "What areas do you serve?", a: "We serve Clark County, WA - including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities." },
     ],
   },
 ];
@@ -344,7 +344,7 @@ export default function Home() {
     <>
       <SEO
         path="/"
-        title="Handy Pioneers — Remodeling & Restoration in Vancouver, WA & Clark County"
+        title="Handy Pioneers - Remodeling & Restoration in Vancouver, WA & Clark County"
         description="Licensed craftsmen handling whole-home remodels, deck & porch restoration, kitchen and bath builds across Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center. 4.9 stars, one-year labor guarantee."
         jsonLd={HOMEPAGE_JSONLD}
       />
@@ -393,12 +393,12 @@ export default function Home() {
               {" "}You Bring to Everything Else.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Every season. Every system. Every detail — taken care of.
+              Every season. Every system. Every detail - taken care of.
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
                 src={MARCIN_PHOTO}
-                alt="Marcin Micek — Owner"
+                alt="Marcin Micek - Owner"
                 className="w-10 h-10 rounded-full object-cover border-2 shrink-0"
                 style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
               />
@@ -442,7 +442,7 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                {/* TODO: confirm portal auto-provisioning on Path A submit — nucleus architecture item. */}
+                {/* TODO: confirm portal auto-provisioning on Path A submit - nucleus architecture item. */}
                 <p
                   className="text-xs leading-relaxed mb-8 italic"
                   style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}
@@ -491,10 +491,10 @@ export default function Home() {
                   "I want my home proactively managed."
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. And four times a year — every season — we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks. The program does not end when the roadmap is complete. It continues, season after season.
+                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. And four times a year - every season - we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks. The program does not end when the roadmap is complete. It continues, season after season.
                 </p>
                 <ul className="space-y-2 mb-4">
-                  {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Single point of contact — always"].map((item) => (
+                  {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Single point of contact - always"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <span style={{ color: "oklch(0.65 0.18 160)" }}>✓</span> {item}
                     </li>
@@ -525,15 +525,15 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          OUTCOMES / SERVICES — What affluent buyers can expect
+          OUTCOMES / SERVICES - What affluent buyers can expect
       ══════════════════════════════════════════════════════════════════════ */}
       <section id="about" className="py-20 md:py-28" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
         <div className="container max-w-5xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 items-start">
-            {/* Photo column — shown second on mobile */}
+            {/* Photo column - shown second on mobile */}
             <div className="flex flex-col gap-6 order-last md:order-first">
               <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
-                <img src={MARCIN_PHOTO} alt="Marcin Micek — Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
+                <img src={MARCIN_PHOTO} alt="Marcin Micek - Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
               </div>
               {/* License badge */}
               <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>
@@ -541,13 +541,13 @@ export default function Home() {
                   <Shield size={18} color="white" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>Marcin Micek — Owner</p>
+                  <p className="text-sm font-bold" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>Marcin Micek - Owner</p>
                   <p className="text-xs mt-0.5" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>Handy Pioneers LLC · Clark County, WA</p>
                 </div>
               </div>
             </div>
 
-            {/* Story column — shown first on mobile */}
+            {/* Story column - shown first on mobile */}
             <div className="order-first md:order-last">
               <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
                 Who We Are · Clark County, WA
@@ -557,13 +557,13 @@ export default function Home() {
               </h2>
               <div className="space-y-4 mb-8">
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Handy Pioneers was built around a singular belief: your home is your most valuable asset, and it deserves a management system — not a rotating cast of contractors.
+                  Handy Pioneers was built around a singular belief: your home is your most valuable asset, and it deserves a management system - not a rotating cast of contractors.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                   The 360° Method was created after years of seeing the same pattern: homeowners reacting to problems instead of preventing them, paying the emergency premium, and never quite knowing the true condition of what they owned.
                 </p>
                 <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  Every engagement runs through a single relationship — owner-led assessments, a vetted crew of skilled tradesmen for execution, and a documented roadmap that compounds in value over time. You're not a transaction. You're a long-term client.
+                  Every engagement runs through a single relationship - owner-led assessments, a vetted crew of skilled tradesmen for execution, and a documented roadmap that compounds in value over time. You're not a transaction. You're a long-term client.
                 </p>
               </div>
               {/* Credentials grid */}
@@ -679,7 +679,7 @@ export default function Home() {
               Three Phases. One Destination.
             </h2>
             <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              A structured approach that transforms reactive homeownership into proactive stewardship — in three deliberate phases. Four visits per year. A standing seasonal task list. A home that gets better every season.
+              A structured approach that transforms reactive homeownership into proactive stewardship - in three deliberate phases. Four visits per year. A standing seasonal task list. A home that gets better every season.
             </p>
           </div>
 
@@ -724,7 +724,7 @@ export default function Home() {
           {/* Disclaimer */}
           <div className="rounded-xl p-5 mb-12" style={{ backgroundColor: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.10)" }}>
             <p className="text-xs text-center" style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              <strong style={{ color: "rgba(255,255,255,0.55)" }}>Important:</strong> The 360° Method is a proactive maintenance service, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. Handy Pioneers cannot be held liable for issues not identified during the assessment. This service is designed to complement — not replace — a licensed home inspection.
+              <strong style={{ color: "rgba(255,255,255,0.55)" }}>Important:</strong> The 360° Method is a proactive maintenance service, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. Handy Pioneers cannot be held liable for issues not identified during the assessment. This service is designed to complement - not replace - a licensed home inspection.
             </p>
           </div>
 
@@ -793,7 +793,7 @@ export default function Home() {
       </section>
 
       {/* ══════════════════════════════════════════════════════════════════════
-          BLOG — Project Stories + drip-released SEO articles (#blog)
+          BLOG - Project Stories + drip-released SEO articles (#blog)
       ══════════════════════════════════════════════════════════════════════ */}
       <BlogSection />
 
@@ -827,7 +827,7 @@ export default function Home() {
               Ready to Choose Your Path?
             </h3>
             <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Every engagement starts with a clear conversation — no pressure, no commitment. Choose the path that fits where you are today.
+              Every engagement starts with a clear conversation - no pressure, no commitment. Choose the path that fits where you are today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
