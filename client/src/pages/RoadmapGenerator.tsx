@@ -93,6 +93,14 @@ export default function RoadmapGenerator() {
       a: "Yes. Mark the property as an investment and the roadmap is framed around protecting rent-readiness.",
     },
     {
+      q: "Do you make roadmaps outside Clark County?",
+      a: "Not yet. Each roadmap is individually researched and produced at our expense, so we focus on the area we serve today: Clark County, Washington. If your home is elsewhere, leave your details anyway and we will reach out the moment your area opens.",
+    },
+    {
+      q: "How is the Home Score calculated?",
+      a: "Every home starts at 100 and each finding lowers the score by its urgency: NOW items weigh the most, SOON items less, WAIT items barely. It is a provisional baseline read from your report alone (never below 40, never a perfect 100), and it climbs as items are completed and verified at visits.",
+    },
+    {
       q: "Do I have to become a member?",
       a: "No. The roadmap is yours to keep, whatever you decide to do with it.",
     },
@@ -156,6 +164,9 @@ export default function RoadmapGenerator() {
                   <div className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.65)" }}>
                     PDF up to 100 MB, or click to browse. No sign-up to start.
                   </div>
+                  <div className="text-xs mt-2" style={{ color: "rgba(255,255,255,0.50)" }}>
+                    Currently producing roadmaps for homes in Clark County, Washington.
+                  </div>
                   <input
                     id="hero-pdf-upload"
                     type="file"
@@ -187,7 +198,7 @@ export default function RoadmapGenerator() {
                   aria-label="View the full sample roadmap"
                 >
                   <img
-                    src="/images/roadmap-sample/alder3-page-01.webp"
+                    src="/images/roadmap-sample/alder4-page-01.webp"
                     alt="Sample 360° Roadmap: findings sorted into NOW, SOON, and WAIT with cost ranges"
                     className="w-full rounded-lg shadow-2xl"
                     style={{ transform: "rotate(1.5deg)" }}
@@ -224,8 +235,8 @@ export default function RoadmapGenerator() {
             {/* The other two sample pages - more give */}
             <div className="grid grid-cols-2 gap-6 mb-12 max-w-2xl mx-auto">
               {[
-                { src: "alder3-page-03.webp", alt: "Sample roadmap summary with Home Score and NOW / SOON / WAIT totals" },
-                { src: "alder3-page-04.webp", alt: "Sample roadmap item: finding, what it means, approach, investment range, and the inspector's photo" },
+                { src: "alder4-page-03.webp", alt: "Sample roadmap summary with Home Score and NOW / SOON / WAIT totals" },
+                { src: "alder4-page-04.webp", alt: "Sample roadmap item: finding, what it means, approach, investment range, and the inspector's photo" },
               ].map((img) => (
                 <button
                   key={img.src}

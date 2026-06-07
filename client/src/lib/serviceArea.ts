@@ -32,4 +32,4 @@ export function isInServiceArea(zip: string): boolean {
 export const SERVICE_AREA_LABEL = "Clark County, Washington";
 
 export const OUT_OF_AREA_MESSAGE =
-  "We currently serve Clark County, Washington only. We'll reach out if that changes - can we keep you on our list?";
+  "We currently produce roadmaps for Clark County, Washington homes. Each one is individually researched and produced at our expense, so we limit the geography while we grow. Leave your details and we will reach out the moment your area opens.";

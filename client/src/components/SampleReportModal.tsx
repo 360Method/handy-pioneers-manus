@@ -10,11 +10,11 @@
 
 import { X, FileText } from "lucide-react";
 
-const PDF_URL = "/sample/360-roadmap-sample-alder3.pdf";
+const PDF_URL = "/sample/360-roadmap-sample-alder4.pdf";
 const PAGE_COUNT = 9;
 const PAGE_URLS = Array.from(
   { length: PAGE_COUNT },
-  (_, i) => `/images/roadmap-sample/alder3-page-${String(i + 1).padStart(2, "0")}.webp`,
+  (_, i) => `/images/roadmap-sample/alder4-page-${String(i + 1).padStart(2, "0")}.webp`,
 );
 
 interface SampleReportModalProps {

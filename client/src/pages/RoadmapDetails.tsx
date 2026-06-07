@@ -169,10 +169,17 @@ export default function RoadmapDetails() {
     return mb < 1 ? `${Math.round(pdfFile.size / 1024)} KB` : `${mb.toFixed(1)} MB`;
   }, [pdfFile]);
 
+  // Live service-area check: the visitor learns where we produce roadmaps the
+  // moment a ZIP is typed, not after filling the whole form.
+  const zipOutOfArea = form.zip.trim().length >= 5 && !isInServiceArea(form.zip);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    if (!pdfFile && !reportUrl.trim()) {
+    const outOfArea = form.zip.trim().length >= 5 && !isInServiceArea(form.zip);
+    // Waitlist needs only the address and an email; the report requirement
+    // applies to the generate path alone.
+    if (!outOfArea && !pdfFile && !reportUrl.trim()) {
       setError("Attach your report (PDF) or paste its web link so we can produce your roadmap.");
       return;
     }
@@ -181,7 +188,7 @@ export default function RoadmapDetails() {
       return;
     }
     if (!EMAIL_RE.test(form.email.trim())) {
-      setError("Add the email where your roadmap should arrive.");
+      setError(outOfArea ? "Add the email we should reach you at when your area opens." : "Add the email where your roadmap should arrive.");
       return;
     }
 
@@ -341,8 +348,10 @@ export default function RoadmapDetails() {
                 Thank You - You're On Our List
               </h3>
               <p className="text-base mx-auto" style={{ color: "oklch(0.35 0.02 80)", maxWidth: "520px" }}>
-                We currently steward properties in Clark County, Washington only. We've kept
-                your details on file and will reach out the moment we expand into your area.
+                We currently produce roadmaps for Clark County, Washington homes. Every
+                roadmap is individually researched and produced, so we limit the
+                geography while we grow. Your details are on file and we will reach out
+                the moment your area opens. Thank you for your understanding.
               </p>
             </div>
           ) : (
@@ -352,6 +361,18 @@ export default function RoadmapDetails() {
               style={{ background: "white", border: "1px solid oklch(88% 0.02 80)", boxShadow: "0 6px 24px oklch(0% 0 0 / 0.06)" }}
               noValidate
             >
+              {/* Service area, upfront. Every roadmap is produced at our expense,
+                  so the geography is stated before anyone fills a single field. */}
+              <div
+                className="rounded-xl p-4 border text-sm leading-relaxed"
+                style={{ backgroundColor: "oklch(0.97 0.02 160)", borderColor: "oklch(0.85 0.04 160)", color: "oklch(0.30 0.04 160)" }}
+              >
+                <span className="font-semibold">We currently produce roadmaps for homes in Clark County, Washington.</span>{" "}
+                Each one is individually researched and produced at our expense, so we
+                focus on the area we serve today. Outside Clark County? Leave your
+                details anyway and you are first in line when we open your area.
+              </div>
+
               {/* ── 1. The report (first - it's the whole point) ── */}
               <div>
                 <p className={sectionTitleClass} style={sectionTitleStyle}>1 · Your inspection report</p>
@@ -478,6 +499,18 @@ export default function RoadmapDetails() {
                     <input id="rd-zip" name="zip" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="98661" value={form.zip} onChange={handleChange} className={inputClass} style={inputStyle} required />
                   </div>
                 </div>
+                {zipOutOfArea && (
+                  <div
+                    className="rounded-xl p-4 border text-sm leading-relaxed"
+                    style={{ backgroundColor: "oklch(0.97 0.04 65)", borderColor: "oklch(0.85 0.10 65)", color: "oklch(0.35 0.04 65)" }}
+                  >
+                    <span className="font-semibold">That ZIP is outside our current area.</span>{" "}
+                    We produce roadmaps for Clark County, Washington homes today,
+                    because each one is individually researched and produced at our
+                    expense. Add your email below and we will reach out the moment
+                    your area opens. Thank you for your understanding.
+                  </div>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {propertyKind === "personal" ? (
                     <div>
@@ -548,7 +581,8 @@ export default function RoadmapDetails() {
                 </div>
               </div>
 
-              {/* Acknowledgment */}
+              {/* Acknowledgment - generate path only; the waitlist makes no roadmap */}
+              {!zipOutOfArea && (
               <div
                 className="rounded-xl p-4 border"
                 style={{ backgroundColor: "oklch(0.99 0.005 80)", borderColor: "oklch(0.85 0.015 80)", borderLeft: "4px solid oklch(0.65 0.14 65)" }}
@@ -568,6 +602,7 @@ export default function RoadmapDetails() {
                   </span>
                 </label>
               </div>
+              )}
 
               {/* Honeypot - visually hidden; bots fill it, people never see it */}
               <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", height: 0, overflow: "hidden" }}>
@@ -590,7 +625,9 @@ export default function RoadmapDetails() {
                 className="w-full py-4 rounded-md font-bold text-sm uppercase tracking-wide transition-all text-white disabled:opacity-60 disabled:cursor-not-allowed"
                 style={{ background: "oklch(22% 0.07 155)" }}
               >
-                {submitting ? "Uploading…" : "Generate My Roadmap →"}
+                {submitting
+                  ? (zipOutOfArea ? "Saving…" : "Uploading…")
+                  : (zipOutOfArea ? "Keep Me On The List" : "Generate My Roadmap →")}
               </button>
               <p className="text-center text-xs" style={{ color: "oklch(60% 0.02 60)" }}>
                 Your report stays private. We never resell your data.
