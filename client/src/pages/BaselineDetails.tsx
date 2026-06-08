@@ -146,13 +146,16 @@ export default function BaselineDetails() {
         const d = await res.json().catch(() => ({}));
         throw new Error(d?.error ?? "Something went wrong. Please try again.");
       }
-      // Carry the address forward for the upsell checkout.
+      // Carry the address forward for the upsell checkout. The one-time ticket
+      // makes the offer a single, in-session view (no bookmark/reload/share).
       sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
+      sessionStorage.setItem("hp_baseline_offer", "1");
       navigate("/baseline/offer");
     } catch (err: any) {
       // On staging the backend may be down - let reviewers walk the flow anyway.
       if (isStagingHost()) {
         sessionStorage.setItem("hp_baseline", JSON.stringify({ ...stash, ...form }));
+        sessionStorage.setItem("hp_baseline_offer", "1");
         navigate("/baseline/offer");
         return;
       }

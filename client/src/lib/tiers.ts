@@ -274,12 +274,18 @@ export function memberSavingsExample(tier: TierData, jobAmount: number): number 
 export function cumulativeFeatures(tierId: MemberTier): string[] {
   const order: MemberTier[] = ["bronze", "silver", "gold"];
   const upto = order.slice(0, order.indexOf(tierId) + 1);
+  // The labor bank does not stack - only the highest tier's credit applies, so
+  // show that one line and drop the superseded lower-tier labor-bank line.
+  const topLaborBankTier = [...upto]
+    .reverse()
+    .find((id) => (TIERS.find((t) => t.id === id)?.laborBankDollars ?? 0) > 0);
   const out: string[] = [];
   for (const id of upto) {
     const t = TIERS.find((x) => x.id === id);
     if (!t) continue;
     for (const f of t.features) {
       if (/^everything in/i.test(f)) continue;
+      if (/labor bank/i.test(f) && id !== topLaborBankTier) continue;
       out.push(f);
     }
   }

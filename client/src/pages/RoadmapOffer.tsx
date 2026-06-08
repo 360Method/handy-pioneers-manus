@@ -75,19 +75,26 @@ export default function RoadmapOffer() {
     window.scrollTo(0, 0);
     const urlTid = new URLSearchParams(window.location.search).get("tid");
     setTid(urlTid);
+    let parsed: Stash | null = null;
     try {
       const raw = sessionStorage.getItem("hp_roadmap");
-      if (raw) {
-        setStash(JSON.parse(raw) as Stash);
-        return;
-      }
+      if (raw) parsed = JSON.parse(raw) as Stash;
     } catch {
       /* fall through */
     }
-    // Stash lost but the report was submitted (tid present): the roadmap is
-    // still on its way - send them to the live processing page.
-    if (urlTid) {
-      window.location.href = processingUrl(null, urlTid);
+    // One-time ticket set by the details form right before it sends them here.
+    // The offer is a single, in-session view: it can't be bookmarked, reloaded,
+    // or shared. A returning visitor goes on to their roadmap, never back to the OTO.
+    const ticket = sessionStorage.getItem("hp_roadmap_offer");
+    if (parsed && ticket) {
+      sessionStorage.removeItem("hp_roadmap_offer");
+      setStash(parsed);
+      return;
+    }
+    // No stash, or the ticket was already used (reload/bookmark): the roadmap is
+    // still on its way - send them to the live processing page, not the offer.
+    if (parsed || urlTid) {
+      window.location.href = processingUrl(parsed, urlTid);
     } else {
       window.location.href = "/roadmap-generator";
     }

@@ -290,6 +290,8 @@ export default function RoadmapDetails() {
           confirmationUrl: data.confirmationUrl,
         })
       );
+      // One-time ticket: the offer is a single, in-session view (no bookmark/reload/share).
+      sessionStorage.setItem("hp_roadmap_offer", "1");
       navigate(`/roadmap/offer?tid=${encodeURIComponent(data.id ?? "")}`);
     } catch (err: any) {
       // On staging the backend may be down - let reviewers walk the flow anyway.
@@ -298,6 +300,7 @@ export default function RoadmapDetails() {
           "hp_roadmap",
           JSON.stringify({ ...stash, ...form, propertyKind, unitCount, translationId: "preview" })
         );
+        sessionStorage.setItem("hp_roadmap_offer", "1");
         navigate("/roadmap/offer?tid=preview");
         return;
       }

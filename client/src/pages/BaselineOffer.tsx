@@ -19,7 +19,7 @@ import {
   cumulativeFeatures,
   type HomeSizeBand,
 } from "@/lib/tiers";
-import { getApiBase, isStagingHost } from "@/lib/api";
+import { getApiBase } from "@/lib/api";
 
 interface Stash {
   leadId?: string;
@@ -46,21 +46,6 @@ function toInt(v: string | number | undefined): number | undefined {
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
 
-// Review-only placeholder so the page renders on direct navigation on staging.
-const PREVIEW_STASH: Stash = {
-  leadId: "preview",
-  customerId: "preview",
-  firstName: "Preview",
-  lastName: "Visitor",
-  phone: "(360) 555-0100",
-  email: "preview@example.com",
-  tier: "silver",
-  street: "123 NE Main St",
-  city: "Vancouver",
-  state: "WA",
-  zip: "98661",
-};
-
 export default function BaselineOffer() {
   const [, navigate] = useLocation();
   const [stash, setStash] = useState<Stash | null>(null);
@@ -72,14 +57,15 @@ export default function BaselineOffer() {
     window.scrollTo(0, 0);
     try {
       const raw = sessionStorage.getItem("hp_baseline");
-      if (!raw) {
-        if (isStagingHost()) {
-          setStash(PREVIEW_STASH);
-          return;
-        }
+      // One-time ticket set by Step 2 right before it sends them here. This makes
+      // the offer a single, in-session view: it can't be bookmarked, reloaded, or
+      // shared - a returning visitor has to come back through the funnel as a lead.
+      const ticket = sessionStorage.getItem("hp_baseline_offer");
+      if (!raw || !ticket) {
         navigate("/membership");
         return;
       }
+      sessionStorage.removeItem("hp_baseline_offer");
       setStash(JSON.parse(raw) as Stash);
     } catch {
       navigate("/membership");
