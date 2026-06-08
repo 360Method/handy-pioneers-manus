@@ -33,3 +33,11 @@ export const SERVICE_AREA_LABEL = "Clark County, Washington";
 
 export const OUT_OF_AREA_MESSAGE =
   "We currently produce roadmaps for Clark County, Washington homes. Each one is individually researched and produced at our expense, so we limit the geography while we grow. Leave your details and we will reach out the moment your area opens.";
+
+// Baseline walkthrough is a physical visit, so the geographic limit is about where
+// we can actually send someone, not about per-roadmap cost.
+export const BASELINE_SERVICE_AREA_BANNER =
+  "We currently perform baseline walkthroughs for homes in Clark County, Washington. Outside that area? Leave your details anyway and you are first in line when we reach you.";
+
+export const BASELINE_OUT_OF_AREA_MESSAGE =
+  "That ZIP is outside our current service area. We perform baseline walkthroughs for Clark County, Washington homes today. Add your details below and we will reach out the moment we are serving your area. Thank you for your understanding.";

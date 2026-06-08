@@ -27,6 +27,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { setPendingReport } from "@/lib/roadmapFile";
+import { openInquiry } from "@/lib/inquiry";
 import SEO from "@/components/SEO";
 
 const MAX_PDF_BYTES = 100 * 1024 * 1024; // 100 MB
@@ -79,6 +80,10 @@ export default function RoadmapGenerator() {
     {
       q: "Is this a home inspection?",
       a: "No. The roadmap translates the inspection report you already have into plain language and priorities. It does not replace a licensed inspector's findings.",
+    },
+    {
+      q: "What if I don't have an inspection report?",
+      a: "We recommend getting a professional home inspection first. It is the most thorough read of your home, and that report is what powers your roadmap. If you would rather not arrange one, Handy Pioneers can do a baseline walkthrough of your home instead. It is not a licensed inspection and not as in-depth as an inspector's work, because it is not an inspector doing it, but it is a solid starting point for your maintenance plan.",
     },
     {
       q: "What does it cost?",
@@ -268,6 +273,39 @@ export default function RoadmapGenerator() {
                   </p>
                 </div>
               ))}
+            </div>
+
+            {/* No inspection report? Recommend a real inspection first, then offer
+                the in-house baseline walkthrough as an honest fallback. */}
+            <div
+              className="max-w-2xl mx-auto mb-12 rounded-xl p-6 border"
+              style={{ backgroundColor: "oklch(0.97 0.02 160)", borderColor: "oklch(0.85 0.04 160)" }}
+            >
+              <h3
+                className="text-xl font-bold mb-3"
+                style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+              >
+                Don't have an inspection report yet?
+              </h3>
+              <p className="text-base mb-4" style={{ color: "oklch(0.35 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                A professional home inspection is the most thorough read of your home, and
+                we recommend it. Once you have the report, bring it back here and your
+                roadmap follows.
+              </p>
+              <p className="text-base mb-5" style={{ color: "oklch(0.35 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                If you would rather not arrange one, Handy Pioneers can do a baseline
+                walkthrough of your home instead. It is not a licensed inspection and not
+                as in-depth as an inspector's work, because it is not an inspector doing
+                it. It is a solid starting point for your maintenance plan when a full
+                report is not on hand.
+              </p>
+              <button
+                onClick={() => openInquiry({ mode: "baseline" })}
+                className="inline-flex items-center gap-2 px-6 py-3 rounded font-bold uppercase tracking-wide text-sm transition-all hover:opacity-90"
+                style={{ backgroundColor: "white", color: "oklch(0.22 0.07 160)", border: "1px solid oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Book a Baseline Walkthrough <ArrowRight size={16} />
+              </button>
             </div>
 
             <div className="text-center">

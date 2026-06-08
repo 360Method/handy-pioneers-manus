@@ -19,6 +19,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getApiBase, isStagingHost } from "@/lib/api";
 import { isInServiceArea } from "@/lib/serviceArea";
+import { openInquiry } from "@/lib/inquiry";
 import { takePendingReport } from "@/lib/roadmapFile";
 
 const MAX_PDF_BYTES = 100 * 1024 * 1024; // 100 MB
@@ -446,6 +447,19 @@ export default function RoadmapDetails() {
                     </button>
                   </>
                 )}
+                <p className="mt-3 text-xs leading-relaxed" style={{ color: "oklch(0.50 0.02 80)" }}>
+                  No inspection report?{" "}
+                  <button
+                    type="button"
+                    onClick={() => openInquiry({ mode: "baseline" })}
+                    className="font-semibold underline bg-transparent border-0 cursor-pointer p-0"
+                    style={{ color: "oklch(0.50 0.06 65)" }}
+                  >
+                    See your options →
+                  </button>{" "}
+                  We recommend a professional inspection; if you'd rather not, Handy
+                  Pioneers can do a baseline walkthrough (not a licensed inspection).
+                </p>
               </div>
 
               {/* ── 2. The property ── */}

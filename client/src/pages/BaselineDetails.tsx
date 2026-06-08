@@ -4,9 +4,15 @@
  */
 import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
+import { CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { getApiBase, isStagingHost } from "@/lib/api";
+import {
+  isInServiceArea,
+  BASELINE_SERVICE_AREA_BANNER,
+  BASELINE_OUT_OF_AREA_MESSAGE,
+} from "@/lib/serviceArea";
 
 // Review-only placeholder so the page renders on direct navigation on staging.
 const PREVIEW_STASH: Stash = {
@@ -45,6 +51,7 @@ export default function BaselineDetails() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [waitlisted, setWaitlisted] = useState(false);
 
   useEffect(() => {
     document.title = "Your Home - Baseline Walkthrough | Handy Pioneers";
@@ -74,6 +81,10 @@ export default function BaselineDetails() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  // Live service-area check: the visitor learns where we perform walkthroughs the
+  // moment a ZIP is typed, not after filling the whole form.
+  const zipOutOfArea = form.zip.trim().length >= 5 && !isInServiceArea(form.zip);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
@@ -81,6 +92,38 @@ export default function BaselineDetails() {
       setError("Please add your street, city, and ZIP.");
       return;
     }
+
+    // Out-of-area → waitlist branch: no walkthrough is scheduled; the funnel ends
+    // here. We capture the lead so we can reach out when we reach their area.
+    if (zipOutOfArea) {
+      setSubmitting(true);
+      try {
+        await fetch(`${getApiBase()}/api/public/inquiry/details`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            customerId: stash.customerId,
+            leadId: stash.leadId,
+            street: form.street.trim(),
+            city: form.city.trim(),
+            state: form.state.trim(),
+            zip: form.zip.trim(),
+            sqft: form.sqft.trim(),
+            yearBuilt: form.yearBuilt.trim(),
+            notes: form.notes.trim(),
+            funnel: "baseline_walkthrough",
+            outOfArea: true,
+          }),
+        });
+      } catch {
+        /* best-effort - the step-1 lead already holds the contact */
+      }
+      setWaitlisted(true);
+      setSubmitting(false);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
     setSubmitting(true);
     try {
       const res = await fetch(`${getApiBase()}/api/public/inquiry/details`, {
@@ -96,6 +139,7 @@ export default function BaselineDetails() {
           sqft: form.sqft.trim(),
           yearBuilt: form.yearBuilt.trim(),
           notes: form.notes.trim(),
+          funnel: "baseline_walkthrough",
         }),
       });
       if (!res.ok) {
@@ -145,12 +189,41 @@ export default function BaselineDetails() {
 
       <section className="py-12 px-4">
         <div className="max-w-2xl mx-auto">
+          {waitlisted ? (
+            <div
+              className="rounded-2xl p-10 border text-center"
+              style={{ backgroundColor: "oklch(0.97 0.04 65)", borderColor: "oklch(0.85 0.10 65)" }}
+            >
+              <CheckCircle size={48} className="mx-auto mb-4" style={{ color: "oklch(0.55 0.14 65)" }} />
+              <h3
+                className="text-2xl font-bold mb-3"
+                style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+              >
+                Thank You - You're On Our List
+              </h3>
+              <p className="text-base mx-auto" style={{ color: "oklch(0.35 0.02 80)", maxWidth: "520px" }}>
+                We currently perform baseline walkthroughs for homes in Clark County,
+                Washington, so we can reach every home well. Your details are on file and
+                we will reach out the moment we are serving your area. Thank you for your
+                understanding.
+              </p>
+            </div>
+          ) : (
           <form
             onSubmit={handleSubmit}
             className="rounded-xl p-6 sm:p-8 space-y-5"
             style={{ background: "white", border: "1px solid oklch(88% 0.02 80)", boxShadow: "0 6px 24px oklch(0% 0 0 / 0.06)" }}
             noValidate
           >
+            {/* Service area, upfront. The walkthrough is a physical visit, so where we
+                can send someone is stated before anyone fills the form. */}
+            <div
+              className="rounded-xl p-4 border text-sm leading-relaxed"
+              style={{ backgroundColor: "oklch(0.97 0.02 160)", borderColor: "oklch(0.85 0.04 160)", color: "oklch(0.30 0.04 160)" }}
+            >
+              {BASELINE_SERVICE_AREA_BANNER}
+            </div>
+
             <div>
               <label className={labelClass} style={labelStyle} htmlFor="bd-street">Street Address</label>
               <input id="bd-street" name="street" type="text" autoComplete="address-line1" placeholder="123 NE Main St" value={form.street} onChange={handleChange} className={inputClass} style={inputStyle} required />
@@ -169,6 +242,14 @@ export default function BaselineDetails() {
                 <input id="bd-zip" name="zip" type="text" inputMode="numeric" autoComplete="postal-code" placeholder="98661" value={form.zip} onChange={handleChange} className={inputClass} style={inputStyle} required />
               </div>
             </div>
+            {zipOutOfArea && (
+              <div
+                className="rounded-xl p-4 border text-sm leading-relaxed"
+                style={{ backgroundColor: "oklch(0.97 0.04 65)", borderColor: "oklch(0.85 0.10 65)", color: "oklch(0.35 0.04 65)" }}
+              >
+                {BASELINE_OUT_OF_AREA_MESSAGE}
+              </div>
+            )}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className={labelClass} style={labelStyle} htmlFor="bd-sqft">Approx. Square Footage</label>
@@ -192,12 +273,19 @@ export default function BaselineDetails() {
               className="w-full py-4 rounded-md font-bold text-sm uppercase tracking-wide transition-all text-white disabled:opacity-60 disabled:cursor-not-allowed"
               style={{ background: "oklch(22% 0.07 155)" }}
             >
-              {submitting ? "Saving…" : "Continue →"}
+              {submitting
+                ? "Saving…"
+                : zipOutOfArea
+                  ? "Keep Me On The List"
+                  : "Continue →"}
             </button>
             <p className="text-center text-xs" style={{ color: "oklch(60% 0.02 60)" }}>
-              Your details are saved to your record. One more step.
+              {zipOutOfArea
+                ? "We will reach out the moment we are serving your area."
+                : "Your details are saved to your record. One more step."}
             </p>
           </form>
+          )}
         </div>
       </section>
 
