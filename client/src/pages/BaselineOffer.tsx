@@ -10,10 +10,14 @@ import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle, Clock } from "lucide-react";
 import {
   TIERS,
+  GOLD_BUYNOW_ANNUAL,
+  bandForSqft,
+  getPrice,
   DEFAULT_BAND,
   valueStackFor,
   memberSavingsExample,
   cumulativeFeatures,
+  type HomeSizeBand,
 } from "@/lib/tiers";
 import { getApiBase, isStagingHost } from "@/lib/api";
 
@@ -82,22 +86,29 @@ export default function BaselineOffer() {
     }
   }, [navigate]);
 
-  const tier = TIERS.find((t) => t.id === (stash?.tier ?? "silver")) ?? TIERS[1];
-  const monthly = tier.prices.monthly;
+  // The OTO always pitches Maximum (gold), sized to the home - same as the
+  // roadmap-funnel offer. Band is resolved from the sqft captured in Step 2;
+  // the backend re-resolves it server-side at checkout (tamper-resistant).
+  const gold = TIERS.find((t) => t.id === "gold")!;
+  const band: HomeSizeBand = (() => {
+    const n = toInt(stash?.sqft);
+    return n ? bandForSqft(n) : DEFAULT_BAND;
+  })();
+  const monthly = getPrice(gold, "monthly", band);
   const annualizedMonthly = monthly * 12; // pay-monthly cost over a year
-  const standardAnnual = tier.prices.annual; // our normal annual rate
-  const buyNow = Math.round(annualizedMonthly * 0.7); // 30% off month-to-month
+  const standardAnnual = getPrice(gold, "annual", band); // our normal annual rate
+  const buyNow = GOLD_BUYNOW_ANNUAL[band]; // sized Maximum buy-now price
   const savings = annualizedMonthly - buyNow; // vs paying monthly
   const belowAnnual = standardAnnual - buyNow; // how much buy-now beats the normal annual
   const buyNowMonthly = Math.round(buyNow / 12);
 
-  // Value stack: what the plan is worth a la carte vs today's price. The baseline
-  // funnel prices at the standard band, so the value is figured at the same band.
-  const stack = valueStackFor(tier, DEFAULT_BAND);
+  // Value stack: what the plan is worth a la carte vs today's price, at the
+  // same band the price uses so the gap holds for larger homes.
+  const stack = valueStackFor(gold, band);
   const netOfLaborBank = buyNow - stack.laborBank; // out-of-pocket after the credit
   const repairExample = 4000;
-  const repairSaved = memberSavingsExample(tier, repairExample);
-  const allFeatures = cumulativeFeatures(tier.id);
+  const repairSaved = memberSavingsExample(gold, repairExample);
+  const allFeatures = cumulativeFeatures("gold");
 
   async function handleAccept() {
     if (!stash) return;
@@ -108,9 +119,9 @@ export default function BaselineOffer() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          tier: stash.tier ?? "silver",
+          tier: "gold",
           cadence: "annual",
-          offer: "buynow",
+          offer: "buynow_sized",
           customerName: `${stash.firstName ?? ""} ${stash.lastName ?? ""}`.trim(),
           customerEmail: stash.email,
           customerPhone: stash.phone,
@@ -132,7 +143,7 @@ export default function BaselineOffer() {
       const json = await res.json();
       if (!json?.url) throw new Error(json?.error ?? "Checkout could not start.");
       // Carry plan context so the post-payment confirmation page personalizes.
-      sessionStorage.setItem("hp360_tier", stash.tier ?? "silver");
+      sessionStorage.setItem("hp360_tier", "gold");
       sessionStorage.setItem("hp360_cadence", "annual");
       sessionStorage.setItem("hp360_type", "homeowner");
       window.location.href = json.url;
@@ -174,7 +185,7 @@ export default function BaselineOffer() {
 
         <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#1A3A28] overflow-hidden mb-6">
           <div className="bg-[#C9A84C] text-[#0D1F14] px-6 py-3 flex items-center justify-between">
-            <span className="font-black text-sm tracking-widest uppercase">{tier.name} - Annual</span>
+            <span className="font-black text-sm tracking-widest uppercase">{gold.name} - Annual</span>
             <span className="flex items-center gap-1 text-sm font-bold">
               <Clock className="w-4 h-4" /> Buy-now rate
             </span>
@@ -202,7 +213,7 @@ export default function BaselineOffer() {
                     Member pricing on every repair, all year
                   </span>
                   <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
-                    up to {tier.discountPct.underOneK}%
+                    up to {gold.discountPct.underOneK}%
                   </span>
                 </div>
               </div>
@@ -256,9 +267,9 @@ export default function BaselineOffer() {
               </p>
               <div className="space-y-1.5 mb-3">
                 {[
-                  { label: "Jobs under $1,000", pct: tier.discountPct.underOneK },
-                  { label: "Jobs $1,000-$5,000", pct: tier.discountPct.oneToFiveK },
-                  { label: "Jobs over $5,000", pct: tier.discountPct.overFiveK },
+                  { label: "Jobs under $1,000", pct: gold.discountPct.underOneK },
+                  { label: "Jobs $1,000-$5,000", pct: gold.discountPct.oneToFiveK },
+                  { label: "Jobs over $5,000", pct: gold.discountPct.overFiveK },
                 ].map((row, i) => (
                   <div key={i} className="flex items-center justify-between text-sm">
                     <span className="text-[#8BA898]">{row.label}</span>
