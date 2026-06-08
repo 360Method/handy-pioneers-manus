@@ -122,6 +122,7 @@ const phases = [
     phase: "PHASE 1",
     title: "Aware",
     tagline: "Know your home completely.",
+    steps: "Baseline · Inspect · Track",
     description: "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition - a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     bullets: ["Full property walkthrough", "Documented baseline report", "System-by-system condition log"],
     image: PHASE_IMAGES.aware,
@@ -131,6 +132,7 @@ const phases = [
     phase: "PHASE 2",
     title: "Act",
     tagline: "Four visits a year. A standing seasonal task list. Nothing missed.",
+    steps: "Prioritize · Schedule · Execute",
     description: "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second - and what makes this a proactive program, not a one-time fix - is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest-specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
     bullets: ["NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Trade coordination included"],
     image: PHASE_IMAGES.act,
@@ -140,6 +142,7 @@ const phases = [
     phase: "PHASE 3",
     title: "Advance",
     tagline: "Build long-term value, deliberately.",
+    steps: "Preserve · Upgrade · Scale",
     description: "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate - whether your horizon is five years or twenty-five.",
     bullets: ["Strategic upgrade planning", "Home Score tracking over time", "Value-building project roadmap"],
     image: PHASE_IMAGES.advance,
@@ -705,6 +708,9 @@ export default function Home() {
                 </div>
                 {/* Content */}
                 <div className="p-6 flex flex-col flex-1">
+                  <div className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: p.color, fontFamily: "'Source Sans 3', sans-serif" }}>
+                    {p.steps}
+                  </div>
                   <p className="text-sm leading-relaxed mb-4" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
                     {p.description}
                   </p>
