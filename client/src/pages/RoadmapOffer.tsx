@@ -12,7 +12,17 @@ import { useEffect, useState } from "react";
 import { ArrowRight, CheckCircle, Clock } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { TIERS, GOLD_BUYNOW_ANNUAL, bandForSqft, getPrice, DEFAULT_BAND, type HomeSizeBand } from "@/lib/tiers";
+import {
+  TIERS,
+  GOLD_BUYNOW_ANNUAL,
+  bandForSqft,
+  getPrice,
+  DEFAULT_BAND,
+  valueStackFor,
+  memberSavingsExample,
+  cumulativeFeatures,
+  type HomeSizeBand,
+} from "@/lib/tiers";
 import { getApiBase, isStagingHost } from "@/lib/api";
 
 interface Stash {
@@ -97,6 +107,13 @@ export default function RoadmapOffer() {
   const belowAnnual = standardAnnual - buyNow;
   const buyNowMonthly = Math.round(buyNow / 12);
   const declineHref = processingUrl(stash, tid);
+
+  // Value stack, sized to the home (same band as the price), so the gap holds.
+  const stack = valueStackFor(gold, band);
+  const netOfLaborBank = buyNow - stack.laborBank;
+  const repairExample = 4000;
+  const repairSaved = memberSavingsExample(gold, repairExample);
+  const allFeatures = cumulativeFeatures("gold");
 
   async function handleAccept() {
     if (!stash) return;
@@ -233,13 +250,15 @@ export default function RoadmapOffer() {
                   </div>
                 ) : (
                   <>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-6">
                       {[
                         "Seasonal visits across every unit - one schedule, one partner",
-                        "Documented condition record for every system",
-                        "Owner reports you can file (and show a lender or buyer)",
+                        "Documented condition record for every system, every unit",
+                        "Annual home scan and findings report you can file with a lender or buyer",
                         "Priority response when a tenant calls about a problem",
-                        "Member rates on all out-of-scope work",
+                        "Member rates on every repair - up to 12% off out-of-scope work",
+                        "A labor-bank credit applied to in-between work",
+                        "Pre-negotiated vetted-tradesman rates on major work",
                         "One number to call - no juggling trades",
                       ].map((text, i) => (
                         <div key={i} className="flex items-start gap-3">
@@ -248,6 +267,12 @@ export default function RoadmapOffer() {
                         </div>
                       ))}
                     </div>
+                    <p className="text-[#B8C8B8] text-sm leading-snug mb-6">
+                      Every item your roadmap turns up, at member rates. A {usd(repairExample)} repair
+                      saves about <span className="font-bold text-[#C9A84C]">{usd(repairSaved)}</span> on
+                      its own, across a portfolio that adds up fast. We size the plan to the property on
+                      the walkthrough.
+                    </p>
                     {error && <p className="text-center text-sm mb-4 text-[#E7B7A8]">{error}</p>}
                     <div className="flex flex-col gap-3">
                       <button
@@ -282,12 +307,13 @@ export default function RoadmapOffer() {
               style={{ fontFamily: "'Playfair Display', Georgia, serif" }}
             >
               Your roadmap is being generated.{" "}
-              <span className="text-[#C9A84C]">Want someone to handle all of it?</span>
+              <span className="text-[#C9A84C]">Want member rates on every item on it?</span>
             </h1>
             <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-              Your roadmap will tell you what your home needs. Maximum Protection puts every
-              item on a schedule we own together - and right now, before your roadmap even
-              lands, you can lock our deepest rate of the year.
+              Maximum Protection is {usd(stack.total)}+ of visits, a documented home scan, and{" "}
+              {usd(stack.laborBank)} of real work credit, plus our deepest member pricing on every
+              NOW, SOON, and WAIT item your roadmap is about to list. Lock it now, before the
+              roadmap even lands, for {usd(buyNow)} for the year.
             </p>
 
             <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#1A3A28] overflow-hidden mb-6">
@@ -299,20 +325,35 @@ export default function RoadmapOffer() {
               </div>
 
               <div className="px-6 py-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
-                  {[
-                    "4 seasonal visits - all four seasons, priority scheduling",
-                    "$600 labor bank credit - you're ahead after month 5",
-                    "Our deepest member rates on all out-of-scope work",
-                    "Annual 360° Home Scan (2-3 hr documented assessment)",
-                    "Dedicated HP account manager",
-                    "Home equity maintenance log for refinancing or sale",
-                  ].map((text, i) => (
-                    <div key={i} className="flex items-start gap-3">
-                      <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
-                      <span className="text-[#B8C8B8] text-sm leading-snug">{text}</span>
+                {/* Value stack: what the plan is worth a la carte, sized to the home. */}
+                <div className="bg-[#0D1F14] rounded-xl p-5 mb-6">
+                  <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">
+                    What you get this year
+                  </p>
+                  <div className="space-y-2 mb-3">
+                    {stack.lines.map((line, i) => (
+                      <div key={i} className="flex items-start justify-between gap-3 text-sm">
+                        <span className="flex items-start gap-2 text-[#B8C8B8] leading-snug">
+                          <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
+                          {line.label}
+                        </span>
+                        <span className="text-[#F5F0E8] font-semibold whitespace-nowrap">{usd(line.value)}</span>
+                      </div>
+                    ))}
+                    <div className="flex items-start justify-between gap-3 text-sm">
+                      <span className="flex items-start gap-2 text-[#B8C8B8] leading-snug">
+                        <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
+                        Member pricing on every roadmap item, all year
+                      </span>
+                      <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
+                        up to {gold.discountPct.underOneK}%
+                      </span>
                     </div>
-                  ))}
+                  </div>
+                  <div className="flex items-center justify-between pt-3 border-t border-[#2A4A38]">
+                    <span className="text-[#8BA898] text-sm font-semibold">Comparable value</span>
+                    <span className="text-[#B8C8B8] font-bold">~{usd(stack.total)}+</span>
+                  </div>
                 </div>
 
                 <div className="bg-[#0D1F14] rounded-xl p-5 mb-6">
@@ -339,9 +380,52 @@ export default function RoadmapOffer() {
                       <span className="font-bold text-[#C9A84C]">{usd(savings)}</span> vs monthly
                       {belowAnnual > 0 ? <>, {usd(belowAnnual)} below our annual rate</> : null}.
                     </p>
+                    <p className="text-[#F5F0E8] text-sm mb-1">
+                      {usd(stack.laborBank)} of that is labor-bank credit you spend on real work, so your
+                      net for everything else is about <span className="font-bold text-[#C9A84C]">{usd(netOfLaborBank)}</span>.
+                    </p>
                     <p className="text-[#6A8A78] text-xs">
                       30% off the month-to-month cost. Priced for your home. Only on this page.
                     </p>
+                  </div>
+                </div>
+
+                {/* Member discount on future work, tied to the roadmap they're getting. */}
+                <div className="bg-[#0D1F14] rounded-xl p-5 mb-6">
+                  <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">
+                    Member pricing on every roadmap item
+                  </p>
+                  <div className="space-y-1.5 mb-3">
+                    {[
+                      { label: "Jobs under $1,000", pct: gold.discountPct.underOneK },
+                      { label: "Jobs $1,000-$5,000", pct: gold.discountPct.oneToFiveK },
+                      { label: "Jobs over $5,000", pct: gold.discountPct.overFiveK },
+                    ].map((row, i) => (
+                      <div key={i} className="flex items-center justify-between text-sm">
+                        <span className="text-[#8BA898]">{row.label}</span>
+                        <span className="text-[#F5F0E8] font-semibold">{row.pct}% off</span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-[#B8C8B8] text-sm leading-snug">
+                    Every NOW, SOON, and WAIT item on your roadmap, at member rates. A {usd(repairExample)}{" "}
+                    repair saves you about <span className="font-bold text-[#C9A84C]">{usd(repairSaved)}</span>{" "}
+                    on its own.
+                  </p>
+                </div>
+
+                {/* The full list, not a teaser slice. */}
+                <div className="mb-6">
+                  <p className="text-[#C9A84C] text-xs uppercase tracking-widest mb-3">
+                    Everything included
+                  </p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                    {allFeatures.map((text, i) => (
+                      <div key={i} className="flex items-start gap-2">
+                        <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
+                        <span className="text-[#B8C8B8] text-sm leading-snug">{text}</span>
+                      </div>
+                    ))}
                   </div>
                 </div>
 

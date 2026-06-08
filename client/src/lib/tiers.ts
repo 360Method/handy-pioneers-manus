@@ -16,6 +16,8 @@ export interface TierData {
   visits: number;
   visitDescription: string;
   discountBrackets: { label: string; pct: string }[];
+  /** Numeric member discount by job size (percent off out-of-scope work). */
+  discountPct: { underOneK: number; oneToFiveK: number; overFiveK: number };
   features: string[];
   popular?: boolean;
 }
@@ -40,6 +42,7 @@ export const TIERS: TierData[] = [
       { label: "Jobs $1,000-$5,000", pct: "3% member rate" },
       { label: "Jobs over $5,000", pct: "1.5% member rate" },
     ],
+    discountPct: { underOneK: 5, oneToFiveK: 3, overFiveK: 1.5 },
     features: [
       "Annual 360° Home Scan (2-3 hr documented assessment)",
       "Spring visit - post-rain assessment + moss & gutter service",
@@ -69,6 +72,7 @@ export const TIERS: TierData[] = [
       { label: "Jobs $1,000-$5,000", pct: "5% member rate" },
       { label: "Jobs over $5,000", pct: "2.5% member rate" },
     ],
+    discountPct: { underOneK: 8, oneToFiveK: 5, overFiveK: 2.5 },
     features: [
       "Everything in Essential, plus:",
       "$300 labor bank credit (applied to any in-between visit task)",
@@ -97,6 +101,7 @@ export const TIERS: TierData[] = [
       { label: "Jobs $1,000-$5,000", pct: "8% member rate" },
       { label: "Jobs over $5,000", pct: "4% member rate" },
     ],
+    discountPct: { underOneK: 12, oneToFiveK: 8, overFiveK: 4 },
     features: [
       "Everything in Full Coverage, plus:",
       "$600 labor bank credit - you're ahead after month 5",
@@ -206,3 +211,77 @@ export const GOLD_BUYNOW_ANNUAL: Record<HomeSizeBand, number> = {
   estate: 2009,
   grand: 2429,
 };
+
+/* ── Value stack (offer pages) ───────────────────────────────────────────────
+ * Comparable a-la-carte worth of what a membership includes, so the one-time
+ * offer can show what the plan is worth against today's price. These are market
+ * comparables (a licensed home inspection runs $400-500; a seasonal maintenance
+ * visit with services runs $150-300), NOT internal cost. Visit + scan worth
+ * scale with the home-size band, the same way price does, so the gap holds for
+ * larger homes. Edit the two anchors here and every offer page updates.
+ */
+export const SEASONAL_VISIT_VALUE = 225;
+export const HOME_SCAN_VALUE = 299;
+
+export interface ValueLine {
+  label: string;
+  value: number;
+}
+export interface ValueStack {
+  lines: ValueLine[];
+  total: number;
+  laborBank: number;
+}
+
+export function valueStackFor(
+  tier: TierData,
+  band: HomeSizeBand = DEFAULT_BAND
+): ValueStack {
+  const m = bandMultiplier(band);
+  const visitWorth = Math.round(SEASONAL_VISIT_VALUE * m);
+  const scanWorth = Math.round(HOME_SCAN_VALUE * m);
+  const lines: ValueLine[] = [
+    {
+      label: `${tier.visits} seasonal visits (${tier.visitDescription})`,
+      value: visitWorth * tier.visits,
+    },
+    { label: "Annual 360° Home Scan (2-3 hr documented assessment)", value: scanWorth },
+  ];
+  if (tier.laborBankDollars > 0) {
+    lines.push({
+      label: `$${tier.laborBankDollars} labor bank credit (spendable on real work)`,
+      value: tier.laborBankDollars,
+    });
+  }
+  const total = lines.reduce((sum, l) => sum + l.value, 0);
+  return { lines, total, laborBank: tier.laborBankDollars };
+}
+
+/** Member savings on one out-of-scope job, using the tier's discount brackets. */
+export function memberSavingsExample(tier: TierData, jobAmount: number): number {
+  const { underOneK, oneToFiveK, overFiveK } = tier.discountPct;
+  const t1 = Math.min(jobAmount, 1000) * (underOneK / 100);
+  const t2 = Math.max(0, Math.min(jobAmount, 5000) - 1000) * (oneToFiveK / 100);
+  const t3 = Math.max(0, jobAmount - 5000) * (overFiveK / 100);
+  return Math.round(t1 + t2 + t3);
+}
+
+/**
+ * The full, concrete benefit list for a tier - bronze→…→tier flattened, with the
+ * "Everything in X, plus:" pointer lines dropped. Use this where the offer needs
+ * to show everything that comes with the plan, not a sliced teaser.
+ */
+export function cumulativeFeatures(tierId: MemberTier): string[] {
+  const order: MemberTier[] = ["bronze", "silver", "gold"];
+  const upto = order.slice(0, order.indexOf(tierId) + 1);
+  const out: string[] = [];
+  for (const id of upto) {
+    const t = TIERS.find((x) => x.id === id);
+    if (!t) continue;
+    for (const f of t.features) {
+      if (/^everything in/i.test(f)) continue;
+      out.push(f);
+    }
+  }
+  return out;
+}
