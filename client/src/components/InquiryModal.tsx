@@ -51,7 +51,7 @@ export default function InquiryModal() {
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-xl max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle
             className="text-2xl"
@@ -68,7 +68,7 @@ export default function InquiryModal() {
               ? "First, a few quick details. Takes about 20 seconds."
               : isBaseline
                 ? "First, a few quick details so we can reach out. Takes about 20 seconds."
-                : "A complimentary, owner-led walkthrough of your project. Share a few details and Marcin's team reaches out within one business day."}
+                : "A complimentary, in-person walkthrough of your project. Share a few details and we'll reach out within one business day."}
           </DialogDescription>
         </DialogHeader>
         {isRoadmap ? (
@@ -79,9 +79,9 @@ export default function InquiryModal() {
           <>
             <ul className="space-y-2 mb-1">
               {[
-                "Owner-led. Marcin personally walks your project.",
+                "A Handy Pioneers expert assesses your project in person.",
                 "A written scope and plan, tailored to your home.",
-                "An expert's eye on the rest of your home.",
+                "A read on anything else worth your attention.",
               ].map((item) => (
                 <li
                   key={item}

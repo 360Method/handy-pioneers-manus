@@ -372,7 +372,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
       </button>
 
       <p className={`text-xs text-center ${isHero ? "text-white/40" : "text-gray-400"}`}>
-        Owner-led. We'll reach out within one business day to schedule your walkthrough.
+        We'll reach out within one business day to schedule your walkthrough.
       </p>
     </form>
   );
