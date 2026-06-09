@@ -122,7 +122,10 @@ export default function ThankYou() {
                   style={{ backgroundColor: "oklch(1 0 0)", boxShadow: "0 4px 32px oklch(0 0 0 / 0.08)", border: "1px solid oklch(0.90 0.015 80)" }}
                 >
                   <iframe
-                    src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&primary_color=c8892a&text_color=1a2e1a`}
+                    src={
+                      `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&primary_color=c8892a&text_color=1a2e1a` +
+                      `&embed_type=Inline&embed_domain=${typeof window !== "undefined" ? window.location.hostname : "handypioneers.com"}`
+                    }
                     title="Schedule your Handy Pioneers consultation"
                     width="100%"
                     height="720"
