@@ -18,7 +18,7 @@ const LOGO_URL =
 // Calendly consultation booking link (on help@handypioneers.com). Set this once
 // Calendly is configured. While empty, consult leads see a "we'll reach out to
 // schedule" message instead of the embed - safe to ship before the link exists.
-const CALENDLY_URL = "https://calendly.com/help-handypioneers/30min";
+const CALENDLY_URL: string = "https://calendly.com/help-handypioneers/30min";
 
 export default function ThankYou() {
   const path =
