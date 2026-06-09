@@ -10,15 +10,10 @@
 import { useEffect, useState } from "react";
 import { CheckCircle, Star, ArrowLeft, Phone } from "lucide-react";
 import SEO from "@/components/SEO";
-import { track } from "@/lib/analytics";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
-
-// Calendly consultation booking link (on help@handypioneers.com). Set this once
-// Calendly is configured. While empty, consult leads see a "we'll reach out to
-// schedule" message instead of the embed - safe to ship before the link exists.
-const CALENDLY_URL: string = "https://calendly.com/help-handypioneers/30min";
 
 export default function ThankYou() {
   const path =
@@ -26,7 +21,6 @@ export default function ThankYou() {
       ? new URLSearchParams(window.location.search).get("path")
       : null;
   const isConsult = path === "project" || path === "360";
-  const showBooking = isConsult && CALENDLY_URL !== "";
 
   const [countdown, setCountdown] = useState(10);
 
@@ -53,20 +47,6 @@ export default function ThankYou() {
       document.title = "Handy Pioneers - Reliable Renovations, Trusted Results";
     };
   }, [isConsult]);
-
-  // Booking step: log the view and capture a completed Calendly booking as a
-  // "schedule" conversion (Calendly posts this via window.postMessage).
-  useEffect(() => {
-    if (!showBooking) return;
-    track("schedule_view");
-    const onMsg = (e: MessageEvent) => {
-      if (e?.data?.event === "calendly.event_scheduled") {
-        track("schedule", { funnel: "consultation" });
-      }
-    };
-    window.addEventListener("message", onMsg);
-    return () => window.removeEventListener("message", onMsg);
-  }, [showBooking]);
 
   return (
     <>
@@ -116,32 +96,9 @@ export default function ThankYou() {
                 Your request is in. Choose a time below and we'll walk your project in person. Prefer to talk first? Call us anytime.
               </p>
 
-              {showBooking ? (
-                <div
-                  className="rounded-2xl overflow-hidden mb-6"
-                  style={{ backgroundColor: "oklch(1 0 0)", boxShadow: "0 4px 32px oklch(0 0 0 / 0.08)", border: "1px solid oklch(0.90 0.015 80)" }}
-                >
-                  <iframe
-                    src={
-                      `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&primary_color=c8892a&text_color=1a2e1a` +
-                      `&embed_type=Inline&embed_domain=${typeof window !== "undefined" ? window.location.hostname : "handypioneers.com"}`
-                    }
-                    title="Schedule your Handy Pioneers consultation"
-                    width="100%"
-                    height="720"
-                    style={{ border: "none", display: "block" }}
-                  />
-                </div>
-              ) : (
-                <div
-                  className="rounded-2xl p-8 mb-6"
-                  style={{ backgroundColor: "oklch(1 0 0)", boxShadow: "0 4px 32px oklch(0 0 0 / 0.08)", border: "1px solid oklch(0.90 0.015 80)" }}
-                >
-                  <p className="text-base leading-relaxed" style={{ color: "oklch(0.38 0.02 80)" }}>
-                    We'll reach out within one business day to schedule your consultation at a time that works for you.
-                  </p>
-                </div>
-              )}
+              <div className="mb-6">
+                <CalendlyEmbed funnel="consultation" />
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a

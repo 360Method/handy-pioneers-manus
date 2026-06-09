@@ -5,6 +5,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 import { CheckCircle } from "lucide-react";
 
 export default function BaselineConfirmation() {
@@ -40,10 +41,12 @@ export default function BaselineConfirmation() {
             {firstName ? `You're booked, ${firstName}.` : "You're booked."}
           </h1>
           <p className="text-base leading-relaxed mb-8" style={{ color: "oklch(40% 0.03 60)" }}>
-            Your baseline walkthrough request is in. A member of our team will reach out within one
-            business day to put it on the calendar and answer any questions. Nothing else is needed
-            from you right now.
+            Your baseline walkthrough is reserved. Pick your time below to lock it in - the
+            whole-home assessment takes 2-3 hours, and we'll confirm the exact window with you.
           </p>
+          <div className="mb-10">
+            <CalendlyEmbed funnel="baseline" />
+          </div>
           <div
             className="rounded-xl px-6 py-5 text-left mb-8"
             style={{ background: "white", border: "1px solid oklch(88% 0.02 80)" }}
@@ -52,7 +55,7 @@ export default function BaselineConfirmation() {
               What happens next
             </p>
             <ul className="space-y-2 text-sm" style={{ color: "oklch(40% 0.03 60)" }}>
-              <li>• We confirm a time that works for you (the walkthrough takes 2-3 hours).</li>
+              <li>• Your time is set the moment you book above (the walkthrough takes 2-3 hours).</li>
               <li>• You receive a documented report with photos and a prioritized roadmap.</li>
               <li>• If membership is a fit, we'll set it up together - no pressure.</li>
             </ul>

@@ -9,6 +9,7 @@ import { TIERS, CADENCE_LABELS } from "@/lib/tiers";
 import type { BillingCadence } from "@/lib/tiers";
 import SEO from "@/components/SEO";
 import { track } from "@/lib/analytics";
+import CalendlyEmbed from "@/components/CalendlyEmbed";
 
 const G = "oklch(22% 0.07 155)";
 const A = "oklch(65% 0.15 72)";
@@ -95,8 +96,8 @@ export default function MembershipConfirmation() {
     },
     {
       icon: "📅",
-      title: "We'll contact you within 24 hours",
-      body: "Our team will reach out to confirm your address and schedule your Annual 360° Home Scan at a time that works for you.",
+      title: "Book your baseline assessment",
+      body: "Pick your time with the scheduler above. Whole-home assessments run 2-3 hours; we'll confirm the exact window with you when we reach out.",
     },
     {
       icon: "🔧",
@@ -184,6 +185,22 @@ export default function MembershipConfirmation() {
           </p>
         )}
       </div>
+
+      {/* Schedule the baseline assessment - the first thing a new member does */}
+      <section className="px-4 pt-12">
+        <div className="max-w-2xl mx-auto text-center">
+          <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: A }}>
+            Schedule Your Baseline Assessment
+          </p>
+          <h2 className="font-display text-2xl sm:text-3xl font-black mb-2" style={{ color: G }}>
+            Pick your time
+          </h2>
+          <p className="text-sm mb-6 max-w-lg mx-auto" style={{ color: M }}>
+            Choose a slot to get your whole-home assessment on the calendar. Assessments run 2-3 hours; we'll confirm the exact window with you.
+          </p>
+          <CalendlyEmbed funnel="baseline" />
+        </div>
+      </section>
 
       <div className="flex-1 px-4 py-12">
         <div className="max-w-xl mx-auto">
