@@ -10,8 +10,9 @@ import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
-import { TIERS, bandForSqft } from "@/lib/tiers";
+import { TIERS, bandForSqft, getPrice } from "@/lib/tiers";
 import { openInquiry } from "@/lib/inquiry";
+import { track } from "@/lib/analytics";
 import { Slider } from "@/components/ui/slider";
 import { HomeScoreAnimation } from "@/components/membership/HomeScoreAnimation";
 import TierCard from "@/components/membership/TierCard";
@@ -62,11 +63,19 @@ export default function Membership() {
   useEffect(() => {
     document.title = "360° Method Membership | Handy Pioneers";
     window.scrollTo(0, 0);
+    track("view_item", { item_category: "membership" });
   }, []);
 
   // Baseline funnel: the tier CTA opens Step 1 (basics popup), carrying the chosen
   // tier + home size so the later upsell can present the right annual offer.
   const handleEnroll = (tier: MemberTier, _c: BillingCadence) => {
+    const tierData = TIERS.find((t) => t.id === tier);
+    track("begin_checkout", {
+      tier,
+      cadence,
+      currency: "USD",
+      value: tierData ? getPrice(tierData, cadence, band) : undefined,
+    });
     openInquiry({ mode: "baseline", tier, sqft });
   };
 

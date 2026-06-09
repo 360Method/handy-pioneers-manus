@@ -8,6 +8,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { getApiBase, isStagingHost } from "@/lib/api";
+import { track } from "@/lib/analytics";
 
 interface Props {
   tier?: string;
@@ -38,6 +39,7 @@ export default function BaselineInquiryForm({ tier, sqft }: Props) {
         sqft: sqft ?? null,
       })
     );
+    track("generate_lead", { funnel: "baseline_walkthrough", lead_type: "baseline", tier: tier ?? "silver" });
     navigate("/baseline/details");
   };
 

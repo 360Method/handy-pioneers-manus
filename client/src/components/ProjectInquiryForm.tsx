@@ -13,9 +13,10 @@
  * Mounted once, via InquiryModal (funnel="project").
  */
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { getApiBase } from "@/lib/api";
+import { track } from "@/lib/analytics";
 
 type Funnel = "project" | "360_method";
 
@@ -98,12 +99,17 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const startedRef = useRef(false);
 
   const isHero = variant === "hero";
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
   ) => {
+    if (!startedRef.current) {
+      startedRef.current = true;
+      track("consult_form_start", { funnel });
+    }
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -161,6 +167,13 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         const data = await res.json().catch(() => ({}));
         throw new Error(data?.message ?? "Something went wrong. Please try again.");
       }
+
+      track("generate_lead", {
+        funnel,
+        lead_type: funnel === "360_method" ? "home_assessment" : "consultation",
+        service_type: form.serviceType || undefined,
+        city: form.city.trim() || undefined,
+      });
 
       // Redirect to thank-you page with 360 upsell
       navigate(`/thankyou?path=${funnel === "360_method" ? "360" : "project"}`);

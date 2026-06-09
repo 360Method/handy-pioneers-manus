@@ -20,6 +20,7 @@ import SampleReportModal from "@/components/SampleReportModal";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
+import { track } from "@/lib/analytics";
 
 declare global {
   interface Window {
@@ -325,6 +326,7 @@ export default function Home() {
   }, []);
 
   const handleBookOnline = () => {
+    track("select_path", { path: "project" });
     openInquiry();
   };
 
@@ -458,7 +460,7 @@ export default function Home() {
 
             {/* Path B */}
             <div
-              onClick={() => navigate("/membership")}
+              onClick={() => { track("select_path", { path: "proactive" }); navigate("/membership"); }}
               className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl cursor-pointer"
               style={{ backgroundColor: "rgba(30,55,42,0.60)", border: "1.5px solid rgba(255,255,255,0.18)", backdropFilter: "blur(12px)" }}
             >
@@ -739,7 +741,7 @@ export default function Home() {
               Start your 360° Method membership with a baseline walkthrough.
             </h3>
             <button
-              onClick={() => navigate("/membership")}
+              onClick={() => { track("select_membership_cta", { location: "method_section" }); navigate("/membership"); }}
               className="group inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
               style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
@@ -750,7 +752,7 @@ export default function Home() {
           {/* Secondary lead magnet: the standalone roadmap generator funnel */}
           <div className="text-center">
             <button
-              onClick={() => navigate("/roadmap-generator")}
+              onClick={() => { track("select_roadmap_leadmagnet", { location: "method_section" }); navigate("/roadmap-generator"); }}
               className="inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity"
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer" }}
             >

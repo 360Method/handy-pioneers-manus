@@ -10,6 +10,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { getApiBase, isStagingHost } from "@/lib/api";
+import { track } from "@/lib/analytics";
 
 export default function RoadmapInquiryForm() {
   const [, navigate] = useLocation();
@@ -35,6 +36,7 @@ export default function RoadmapInquiryForm() {
         smsConsent,
       })
     );
+    track("generate_lead", { funnel: "roadmap_generator", lead_type: "roadmap" });
     navigate("/roadmap/details");
   };
 

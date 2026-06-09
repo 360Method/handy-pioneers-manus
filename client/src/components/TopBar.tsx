@@ -1,4 +1,5 @@
 import { Phone } from "lucide-react";
+import { track } from "@/lib/analytics";
 
 export default function TopBar() {
   return (
@@ -9,6 +10,7 @@ export default function TopBar() {
       {/* Left: Phone */}
       <a
         href="tel:+13608386731"
+        onClick={() => track("contact", { method: "phone", location: "topbar" })}
         className="flex items-center gap-2 hover:opacity-80 transition-opacity font-semibold tracking-wide"
         style={{ fontFamily: "'Source Sans 3', sans-serif" }}
       >

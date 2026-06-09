@@ -4,10 +4,11 @@
  * session_id from URL params. Portal deep-link CTA.
  */
 
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { TIERS, CADENCE_LABELS } from "@/lib/tiers";
 import type { BillingCadence } from "@/lib/tiers";
 import SEO from "@/components/SEO";
+import { track } from "@/lib/analytics";
 
 const G = "oklch(22% 0.07 155)";
 const A = "oklch(65% 0.15 72)";
@@ -54,6 +55,24 @@ export default function MembershipConfirmation() {
       window.history.replaceState({}, "", window.location.pathname);
     }
   }, []);
+
+  // Fire the purchase conversion once, only on a real Stripe success (session_id
+  // present). Value is the published base price for the tier/cadence - an
+  // approximation (the true band-adjusted amount lives in Stripe), good enough
+  // for GA4 reporting and Meta ad optimization.
+  const purchaseTracked = useRef(false);
+  useEffect(() => {
+    if (!sessionId || purchaseTracked.current) return;
+    purchaseTracked.current = true;
+    track("purchase", {
+      transaction_id: sessionId,
+      currency: "USD",
+      value: tierData ? tierData.prices[cadenceParam ?? "monthly"] : undefined,
+      tier: tierParam ?? undefined,
+      cadence: cadenceParam ?? undefined,
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [sessionId]);
 
   const portalUrl = sessionId
     ? `https://client.handypioneers.com/portal/home?session_id=${sessionId}`
