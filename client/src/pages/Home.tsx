@@ -757,15 +757,15 @@ export default function Home() {
               </div>
             </button>
             <button
-              onClick={() => navigate("/360-method/walkthrough")}
+              onClick={() => navigate("/membership")}
               className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
               style={{ backgroundColor: "oklch(0.20 0.06 160)", border: "1.5px solid rgba(255,255,255,0.15)" }}
             >
               <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>Starting fresh</p>
-              <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Schedule a Baseline Walkthrough</h4>
-              <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>Marcin assesses your home from top to bottom and delivers your full 360° report.</p>
+              <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Begin With a Baseline Walkthrough</h4>
+              <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>Choose your plan and schedule the documented whole-home assessment that starts your 360° Method membership.</p>
               <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                Book a Walkthrough <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                See Plans &amp; Book <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </div>
             </button>
           </div>

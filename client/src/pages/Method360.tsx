@@ -510,7 +510,7 @@ export default function Method360() {
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded font-bold uppercase tracking-wide text-base transition-all hover:opacity-90"
               style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "white", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              Schedule a Baseline Walkthrough <ArrowRight size={16} />
+              See Plans &amp; Book Your Baseline <ArrowRight size={16} />
             </button>
           </div>
         </div>
