@@ -18,13 +18,8 @@ export default function TopBar() {
 
       {/* Right: Portal Login - de-emphasized for new visitors */}
       <button
-        data-token="171462604fd34b4fa38d9f4e36a1ce42"
-        data-orgname="Handy-Pioneers"
         onClick={() =>
-          window.open(
-            "https://client.housecallpro.com/customer_portal/request-link?token=171462604fd34b4fa38d9f4e36a1ce42",
-            "_blank"
-          )
+          window.open("https://client.handypioneers.com/portal/login", "_blank")
         }
         className="text-xs hover:opacity-80 transition-opacity"
         style={{

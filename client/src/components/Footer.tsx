@@ -169,10 +169,7 @@ export default function Footer() {
               <li>
                 <button
                   onClick={() =>
-                    window.open(
-                      "https://client.housecallpro.com/customer_portal/request-link?token=171462604fd34b4fa38d9f4e36a1ce42",
-                      "_blank"
-                    )
+                    window.open("https://client.handypioneers.com/portal/login", "_blank")
                   }
                   className="text-sm hover:opacity-80 transition-opacity text-left"
                   style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
