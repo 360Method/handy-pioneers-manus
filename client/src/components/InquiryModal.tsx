@@ -61,14 +61,14 @@ export default function InquiryModal() {
               ? "Get Your Complimentary 360° Roadmap"
               : isBaseline
                 ? "Schedule Your Baseline Walkthrough"
-                : "Request a Complimentary Estimate"}
+                : "Schedule Your Consultation"}
           </DialogTitle>
           <DialogDescription>
             {isRoadmap
               ? "First, a few quick details. Takes about 20 seconds."
               : isBaseline
                 ? "First, a few quick details so we can reach out. Takes about 20 seconds."
-                : "Tell us what you need. We'll reach out within one business day."}
+                : "A complimentary, owner-led walkthrough of your project. Share a few details and Marcin's team reaches out within one business day."}
           </DialogDescription>
         </DialogHeader>
         {isRoadmap ? (
@@ -76,7 +76,25 @@ export default function InquiryModal() {
         ) : isBaseline ? (
           <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} />
         ) : (
-          <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
+          <>
+            <ul className="space-y-2 mb-1">
+              {[
+                "Owner-led. Marcin personally walks your project.",
+                "A written scope and plan, tailored to your home.",
+                "An expert's eye on the rest of your home.",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="flex items-start gap-2 text-sm"
+                  style={{ color: "oklch(0.38 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+                >
+                  <span style={{ color: "oklch(0.65 0.14 65)", marginTop: "1px" }}>✓</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
+          </>
         )}
       </DialogContent>
     </Dialog>

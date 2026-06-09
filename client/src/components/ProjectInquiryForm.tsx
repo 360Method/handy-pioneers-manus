@@ -1,10 +1,16 @@
 /**
- * ProjectInquiryForm - Path A: Embedded mini-form for project inquiries.
+ * ProjectInquiryForm - Path A: the consultation request form.
  *
  * Posts directly to the HP Estimator app's public booking API.
  * On success, redirects to /thankyou?path=project which shows the 360 Method upsell.
  *
- * Embedded in Hero.tsx and FinalCTA.tsx.
+ * Light-qualify fields (city, zip, project scope, timeline, optional investment)
+ * filter low-intent leads and give Marcin the context to prep before the on-site
+ * walkthrough. The backend already accepts city/zip/street/description/timeline;
+ * timeline === "ASAP" routes the lead high-priority. Investment has no dedicated
+ * backend field, so it is appended to the description that lands in the lead notes.
+ *
+ * Mounted once, via InquiryModal (funnel="project").
  */
 
 import { useState } from "react";
@@ -38,12 +44,35 @@ const SERVICE_OPTIONS_360 = [
   "Not Sure - Full Assessment",
 ];
 
+// Display label → value stored on the lead. Values stay within the three the
+// backend understands so lead-routing priority (ASAP → high) keeps working.
+const TIMELINE_OPTIONS: { label: string; value: string }[] = [
+  { label: "As soon as possible", value: "ASAP" },
+  { label: "Within a few weeks", value: "Within a week" },
+  { label: "Flexible / planning ahead", value: "Flexible" },
+];
+
+// Optional, premium-framed. No backend field - appended to the description.
+const INVESTMENT_OPTIONS = [
+  "Not sure yet",
+  "Under $5,000",
+  "$5,000 - $15,000",
+  "$15,000 - $50,000",
+  "$50,000+",
+];
+
 interface FormState {
   firstName: string;
   lastName: string;
   phone: string;
   email: string;
   serviceType: string;
+  city: string;
+  zip: string;
+  street: string;
+  projectDetails: string;
+  timeline: string;
+  budget: string;
 }
 
 interface Props {
@@ -60,13 +89,21 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
     phone: "",
     email: "",
     serviceType: "",
+    city: "",
+    zip: "",
+    street: "",
+    projectDetails: "",
+    timeline: "",
+    budget: "",
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const isHero = variant === "hero";
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
@@ -78,6 +115,23 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
       setError("Please fill in your name, phone, and email.");
       return;
     }
+    if (!form.city.trim() || !form.zip.trim()) {
+      setError("Please add the property's city and ZIP code.");
+      return;
+    }
+    if (form.projectDetails.trim().length < 10) {
+      setError("Please tell us a little about your project so we can prepare.");
+      return;
+    }
+    if (!form.timeline) {
+      setError("Please choose a timeline.");
+      return;
+    }
+
+    // Investment is optional - fold it into the description so it lands in the
+    // lead notes alongside the scope.
+    const investmentLine = form.budget ? `Anticipated investment: ${form.budget}` : "";
+    const description = [form.projectDetails.trim(), investmentLine].filter(Boolean).join("\n");
 
     setSubmitting(true);
     try {
@@ -92,13 +146,12 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
           serviceType: form.serviceType || (funnel === "360_method" ? "360° Home Assessment" : "General Inquiry"),
           source,
           funnel,
-          // Minimal required fields for the booking API
-          zip: "",
-          description: "",
-          timeline: "Flexible",
+          zip: form.zip.trim(),
+          description,
+          timeline: form.timeline,
           photoUrls: [],
-          street: "",
-          city: "",
+          street: form.street.trim(),
+          city: form.city.trim(),
           state: "WA",
           smsConsent: false,
         }),
@@ -194,6 +247,54 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         />
       </div>
 
+      {/* Property location - where the walkthrough happens, and our service-area signal. */}
+      <div>
+        <label className={labelClass} htmlFor={`street-${source}`}>Property Address <span className="normal-case opacity-60">(optional)</span></label>
+        <input
+          id={`street-${source}`}
+          name="street"
+          type="text"
+          autoComplete="street-address"
+          placeholder="123 Main St"
+          value={form.street}
+          onChange={handleChange}
+          className={inputClass}
+        />
+      </div>
+
+      <div className="grid grid-cols-3 gap-3">
+        <div className="col-span-2">
+          <label className={labelClass} htmlFor={`city-${source}`}>City</label>
+          <input
+            id={`city-${source}`}
+            name="city"
+            type="text"
+            autoComplete="address-level2"
+            placeholder="Vancouver"
+            value={form.city}
+            onChange={handleChange}
+            className={inputClass}
+            required
+          />
+        </div>
+        <div>
+          <label className={labelClass} htmlFor={`zip-${source}`}>ZIP</label>
+          <input
+            id={`zip-${source}`}
+            name="zip"
+            type="text"
+            inputMode="numeric"
+            autoComplete="postal-code"
+            placeholder="98665"
+            maxLength={5}
+            value={form.zip}
+            onChange={handleChange}
+            className={inputClass}
+            required
+          />
+        </div>
+      </div>
+
       <div>
         <label className={labelClass} htmlFor={`serviceType-${source}`}>{funnel === "360_method" ? "Biggest home concern?" : "What can we help with?"}</label>
         <select
@@ -210,6 +311,54 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         </select>
       </div>
 
+      <div>
+        <label className={labelClass} htmlFor={`projectDetails-${source}`}>Tell us about your project</label>
+        <textarea
+          id={`projectDetails-${source}`}
+          name="projectDetails"
+          rows={3}
+          placeholder="e.g., Rebuild a ~200 sq ft deck and replace the railings."
+          value={form.projectDetails}
+          onChange={handleChange}
+          className={inputClass}
+          required
+        />
+      </div>
+
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className={labelClass} htmlFor={`timeline-${source}`}>Timeline</label>
+          <select
+            id={`timeline-${source}`}
+            name="timeline"
+            value={form.timeline}
+            onChange={handleChange}
+            className={inputClass}
+            required
+          >
+            <option value="">Select...</option>
+            {TIMELINE_OPTIONS.map((t) => (
+              <option key={t.value} value={t.value}>{t.label}</option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className={labelClass} htmlFor={`budget-${source}`}>Investment <span className="normal-case opacity-60">(optional)</span></label>
+          <select
+            id={`budget-${source}`}
+            name="budget"
+            value={form.budget}
+            onChange={handleChange}
+            className={inputClass}
+          >
+            <option value="">Prefer not to say</option>
+            {INVESTMENT_OPTIONS.map((b) => (
+              <option key={b} value={b}>{b}</option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       {error && (
         <p className="text-sm text-red-400 font-medium">{error}</p>
       )}
@@ -219,11 +368,11 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         disabled={submitting}
         className="hcp-button w-full text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {submitting ? "Sending your request..." : funnel === "360_method" ? "Request My Free Home Assessment" : "Request a Complimentary Estimate"}
+        {submitting ? "Sending your request..." : funnel === "360_method" ? "Request My Free Home Assessment" : "Request My Consultation"}
       </button>
 
       <p className={`text-xs text-center ${isHero ? "text-white/40" : "text-gray-400"}`}>
-        No commitment required. We'll reach out within one business day.
+        Owner-led. We'll reach out within one business day to schedule your walkthrough.
       </p>
     </form>
   );
