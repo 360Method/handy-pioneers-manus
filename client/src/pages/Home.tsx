@@ -473,10 +473,7 @@ export default function Home() {
 
             {/* Path B */}
             <div
-              onClick={() => {
-                const el = document.getElementById("method");
-                if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 72; window.scrollTo({ top, behavior: "smooth" }); }
-              }}
+              onClick={() => navigate("/membership")}
               className="group flex-1 text-left rounded-2xl p-7 md:p-8 flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-2xl cursor-pointer"
               style={{ backgroundColor: "rgba(30,55,42,0.60)", border: "1.5px solid rgba(255,255,255,0.18)", backdropFilter: "blur(12px)" }}
             >
@@ -503,17 +500,31 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <button
-                  onClick={(e) => { e.stopPropagation(); setShowReport(true); }}
-                  className="flex items-center gap-1.5 text-xs font-semibold mb-5 hover:opacity-80 transition-opacity"
-                  style={{ color: "oklch(0.75 0.14 65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
-                >
-                  <FileText size={12} />
-                  See a sample 360° Priority Roadmap
-                </button>
+                <div className="flex flex-col gap-2 mb-5">
+                  <button
+                    onClick={(e) => { e.stopPropagation(); setShowReport(true); }}
+                    className="flex items-center gap-1.5 text-xs font-semibold hover:opacity-80 transition-opacity"
+                    style={{ color: "oklch(0.75 0.14 65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                  >
+                    <FileText size={12} />
+                    See a sample 360° Priority Roadmap
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      const el = document.getElementById("method");
+                      if (el) { const top = el.getBoundingClientRect().top + window.scrollY - 72; window.scrollTo({ top, behavior: "smooth" }); }
+                    }}
+                    className="flex items-center gap-1.5 text-xs font-semibold hover:opacity-80 transition-opacity"
+                    style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer", padding: 0 }}
+                  >
+                    <ChevronDown size={12} />
+                    Learn how the 360° Method works
+                  </button>
+                </div>
               </div>
               <div className="flex items-center justify-between rounded-xl px-5 py-4 transition-all duration-200 group-hover:brightness-110" style={{ backgroundColor: "oklch(0.28 0.07 160)", border: "1px solid rgba(255,255,255,0.15)" }}>
-                <span className="font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Learn the 360° Method</span>
+                <span className="font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>See Membership Plans</span>
                 <ArrowRight size={18} color="white" className="group-hover:translate-x-1 transition-transform" />
               </div>
             </div>
