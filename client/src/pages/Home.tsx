@@ -69,11 +69,6 @@ const outcomes = [
     body: "A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale - and the emergency repair premium disappears entirely.",
   },
   {
-    icon: HomeIcon,
-    title: "A Home That Performs at Its Best",
-    body: "Every system working as designed. No mystery leaks, no seasonal surprises, no 'we'll deal with it later.' You live in the home you paid for - not a version of it that's slowly declining.",
-  },
-  {
     icon: ShieldCheck,
     title: "Zero Contractor Coordination Burden",
     body: "One call, one relationship. We handle the full scope - from assessment to execution to trade coordination. You don’t manage vendors. You manage your life.",
@@ -84,19 +79,9 @@ const outcomes = [
     body: "Every assessment, every project, every system update - documented in your 360° Priority Roadmap. When it's time to sell, refinance, or pass the property on, you have the receipts.",
   },
   {
-    icon: Hammer,
-    title: "Skilled Craftsmanship, Not Patch Work",
-    body: "Every repair and renovation is done to last - using quality materials, proper technique, and vetted tradesmen. The standard is the same regardless of project size.",
-  },
-  {
     icon: Zap,
     title: "Predictable, Prioritized Spending",
     body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost - before it becomes urgent.",
-  },
-  {
-    icon: Clock,
-    title: "Proactive Maintenance as a Core Service",
-    body: "Four times a year, we return to your home and work through a pre-defined seasonal task list built around the specific wear patterns of the Pacific Northwest. Moss treatment in spring. Deck sealing in summer. Gutter clearing before the rains. Pipe protection before the freeze. These visits are not improvised - they follow a standing protocol, and they happen regardless of what the assessment found. The program does not end when the roadmap is complete. It continues, season after season.",
   },
 ];
 
@@ -491,7 +476,7 @@ export default function Home() {
                   "I want my home proactively managed."
                 </h2>
                 <p className="text-sm md:text-base leading-relaxed mb-6" style={{ color: "rgba(255,255,255,0.70)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. And four times a year - every season - we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks. The program does not end when the roadmap is complete. It continues, season after season.
+                  We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. And four times a year - every season - we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks.
                 </p>
                 <ul className="space-y-2 mb-4">
                   {["Full baseline property assessment", "NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Single point of contact - always"].map((item) => (
