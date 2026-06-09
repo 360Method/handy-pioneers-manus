@@ -18,6 +18,7 @@ const META_STANDARD: Record<string, string> = {
   view_item: "ViewContent",
   purchase: "Purchase",
   contact: "Contact",
+  schedule: "Schedule",
 };
 
 export function track(event: string, params: Record<string, unknown> = {}): void {
