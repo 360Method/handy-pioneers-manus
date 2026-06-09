@@ -745,39 +745,33 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Two entry points */}
-          <div className="text-center mb-8">
+          {/* Primary action: begin the membership (the baseline is its first step) */}
+          <div className="text-center mb-6">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Choose Your Starting Point
+              Ready to Begin?
             </p>
-            <h3 className="text-2xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Already have an inspection report? Or starting fresh?
+            <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
+              Start your 360° Method membership with a baseline walkthrough.
             </h3>
-          </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <button
-              onClick={() => navigate("/roadmap-generator")}
-              className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-              style={{ backgroundColor: "oklch(0.65 0.14 65)" }}
-            >
-              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "oklch(0.20 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>I have a report</p>
-              <h4 className="text-xl font-bold mb-2" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Playfair Display', serif" }}>Upload Your Inspection Report</h4>
-              <p className="text-sm mb-4" style={{ color: "oklch(0.25 0.05 80)", fontFamily: "'Source Sans 3', sans-serif" }}>We translate your inspector's findings into a clear, prioritized action plan.</p>
-              <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider" style={{ color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                Get Started <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </div>
-            </button>
             <button
               onClick={() => navigate("/membership")}
-              className="group rounded-2xl p-6 text-left border-0 cursor-pointer transition-all duration-300 hover:scale-[1.02]"
-              style={{ backgroundColor: "oklch(0.20 0.06 160)", border: "1.5px solid rgba(255,255,255,0.15)" }}
+              className="group inline-flex items-center justify-center gap-2 rounded-xl px-8 py-4 font-bold text-sm uppercase tracking-wider transition-all duration-300 hover:scale-[1.02]"
+              style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "oklch(0.10 0.04 80)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>Starting fresh</p>
-              <h4 className="text-xl font-bold text-white mb-2" style={{ fontFamily: "'Playfair Display', serif" }}>Begin With a Baseline Walkthrough</h4>
-              <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>Choose your plan and schedule the documented whole-home assessment that starts your 360° Method membership.</p>
-              <div className="flex items-center gap-2 font-bold text-sm uppercase tracking-wider text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
-                See Plans &amp; Book <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </div>
+              See Membership Plans <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </button>
+          </div>
+
+          {/* Secondary lead magnet: the standalone roadmap generator funnel */}
+          <div className="text-center">
+            <button
+              onClick={() => navigate("/roadmap-generator")}
+              className="inline-flex items-center gap-1.5 text-sm font-semibold hover:opacity-80 transition-opacity"
+              style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer" }}
+            >
+              <FileText size={14} />
+              Already have an inspection report? Get your free 360° Roadmap
+              <ArrowRight size={14} />
             </button>
           </div>
         </div>
