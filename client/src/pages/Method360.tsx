@@ -470,7 +470,7 @@ export default function Method360() {
             {[
               { label: "Scope & Complexity", detail: "A single rot repair vs. a full deck rebuild are priced differently. We assess the full scope before quoting - no surprises." },
               { label: "Material Selections", detail: "You choose the finish level - we price accordingly and document it in writing before work begins." },
-              { label: "Trade Coordination", detail: "Projects requiring licensed electricians, plumbers, or HVAC techs include vetted subcontractor costs, always disclosed upfront." },
+              { label: "Trade Coordination", detail: "Projects requiring licensed electricians, plumbers, or HVAC techs include vetted specialty-trade costs, always disclosed upfront." },
             ].map((item) => (
               <div key={item.label} className="rounded-xl p-6 border" style={{ backgroundColor: "rgba(255,255,255,0.05)", borderColor: "rgba(255,255,255,0.12)" }}>
                 <div className="w-8 h-8 rounded-lg flex items-center justify-center mb-3" style={{ backgroundColor: "oklch(0.65 0.14 65)" }}>
