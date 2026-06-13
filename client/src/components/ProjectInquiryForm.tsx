@@ -381,7 +381,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         disabled={submitting}
         className="hcp-button w-full text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed"
       >
-        {submitting ? "Sending your request..." : funnel === "360_method" ? "Request My Free Home Assessment" : "Request My Consultation"}
+        {submitting ? "Sending your request..." : funnel === "360_method" ? "Request My Home Assessment" : "Request My Consultation"}
       </button>
 
       <p className={`text-xs text-center ${isHero ? "text-white/40" : "text-gray-400"}`}>

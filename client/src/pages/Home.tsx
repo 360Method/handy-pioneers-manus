@@ -55,7 +55,7 @@ const values = [
   },
   {
     title: "Transparent From Day One",
-    body: "Every engagement starts with a complimentary on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
+    body: "Every engagement starts with an on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A System Built to Last",
@@ -140,7 +140,7 @@ const faqs = [
   {
     category: "Pricing & Cost",
     items: [
-      { q: "What does the initial consultation include?", a: "Every engagement starts with a complimentary on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home - not a generic quote. No ballpark numbers over the phone for complex work." },
+      { q: "What does the initial consultation include?", a: "Every engagement starts with an on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home - not a generic quote. No ballpark numbers over the phone for complex work." },
       { q: "What affects the final cost of a project?", a: "Scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding." },
       { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30-40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
     ],
@@ -426,7 +426,7 @@ export default function Home() {
                   Deck repair. Bathroom remodel. Fence replacement. Whatever the project, we walk the property, assess the full scope, and present a clear plan with no surprises.
                 </p>
                 <ul className="space-y-2 mb-5">
-                  {["Complimentary on-site consultation", "Written scope of work and project plan", "Licensed, insured, vetted crew", "Owner-led assessment"].map((item) => (
+                  {["On-site consultation", "Written scope of work and project plan", "Licensed, insured, vetted crew", "Owner-led assessment"].map((item) => (
                     <li key={item} className="flex items-center gap-2 text-sm" style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <span style={{ color: "oklch(0.80 0.10 65)" }}>✓</span> {item}
                     </li>
@@ -757,7 +757,7 @@ export default function Home() {
               style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif", background: "none", border: "none", cursor: "pointer" }}
             >
               <FileText size={14} />
-              Already have an inspection report? Get your free 360° Roadmap
+              Already have an inspection report? Get your 360° Roadmap
               <ArrowRight size={14} />
             </button>
           </div>

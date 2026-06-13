@@ -58,7 +58,7 @@ export default function InquiryModal() {
             style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
           >
             {isRoadmap
-              ? "Get Your Complimentary 360° Roadmap"
+              ? "Get Your 360° Roadmap"
               : isBaseline
                 ? "Schedule Your Baseline Walkthrough"
                 : "Schedule Your Consultation"}
@@ -68,7 +68,7 @@ export default function InquiryModal() {
               ? "First, a few quick details. Takes about 20 seconds."
               : isBaseline
                 ? "First, a few quick details so we can reach out. Takes about 20 seconds."
-                : "A complimentary, in-person walkthrough of your project. Share a few details and we'll reach out within one business day."}
+                : "An in-person walkthrough of your project. Share a few details and we'll reach out within one business day."}
           </DialogDescription>
         </DialogHeader>
         {isRoadmap ? (

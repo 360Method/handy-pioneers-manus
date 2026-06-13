@@ -23,7 +23,7 @@ export const faqs: FAQCategory[] = [
     items: [
       {
         q: "Why don't you list prices on your website?",
-        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with a complimentary on-site consultation - we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
+        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with an on-site consultation - we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
       },
       {
         q: "What do most projects cost?",

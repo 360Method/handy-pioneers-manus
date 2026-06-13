@@ -33,7 +33,7 @@ export default function MembershipConfirmation() {
   const isPortfolio =
     (typeof window !== "undefined" && sessionStorage.getItem("hp360_type") === "portfolio") ||
     params.get("type") === "portfolio";
-  // Arrived from the roadmap funnel's one-time offer - their free roadmap is
+  // Arrived from the roadmap funnel's one-time offer - their roadmap is
   // still being generated in the background; say so.
   const fromRoadmap =
     typeof window !== "undefined" && sessionStorage.getItem("hp360_fromRoadmap") === "1";
@@ -84,7 +84,7 @@ export default function MembershipConfirmation() {
       ? [
           {
             icon: "🗺️",
-            title: "Your free roadmap is still on its way",
+            title: "Your roadmap is still on its way",
             body: "The 360° Roadmap you started is being generated right now and will arrive by email within 24 hours - your membership doesn't change that.",
           },
         ]

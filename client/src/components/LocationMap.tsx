@@ -157,7 +157,7 @@ export default function LocationMap() {
               className="hcp-button w-full mt-8"
               onClick={() => openInquiry()}
             >
-              Schedule a Complimentary Consultation
+              Schedule a Consultation
             </button>
           </div>
         </div>

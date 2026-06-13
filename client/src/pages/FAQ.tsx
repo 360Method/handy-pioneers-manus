@@ -156,7 +156,7 @@ export default function FAQ() {
                 className="hcp-button"
                 onClick={() => openInquiry()}
               >
-                Schedule a Complimentary Consultation
+                Schedule a Consultation
               </button>
               <a
                 href="tel:+13608386731"

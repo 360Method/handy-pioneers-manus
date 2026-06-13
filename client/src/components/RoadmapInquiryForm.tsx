@@ -129,7 +129,7 @@ export default function RoadmapInquiryForm() {
       <button type="submit" disabled={submitting} className="hcp-button w-full text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed">
         {submitting ? "One moment…" : "Start My Roadmap →"}
       </button>
-      <p className="text-xs text-center text-gray-400">Complimentary. Next: your home and your inspection report.</p>
+      <p className="text-xs text-center text-gray-400">Next: your home and your inspection report.</p>
     </form>
   );
 }

@@ -111,13 +111,13 @@ export default function WhyChooseUs() {
             className="text-base mb-6"
             style={{ color: "oklch(0.45 0.05 160)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            Ready to begin your engagement? Request a complimentary on-site consultation today.
+            Ready to begin your engagement? Request an on-site consultation today.
           </p>
           <button
             className="hcp-button text-base px-8 py-4"
             onClick={() => openInquiry()}
           >
-            Schedule a Complimentary Consultation
+            Schedule a Consultation
           </button>
         </div>
       </div>

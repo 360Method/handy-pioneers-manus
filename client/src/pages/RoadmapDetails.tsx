@@ -332,7 +332,7 @@ export default function RoadmapDetails() {
           </h1>
           <p className="mt-3 text-sm" style={{ color: "oklch(100% 0 0 / 0.7)" }}>
             Attach the report, tell us where the home is, and your roadmap starts
-            generating. Free, delivered within 24 hours.
+            generating. Delivered within 24 hours.
           </p>
         </div>
       </section>
@@ -615,7 +615,7 @@ export default function RoadmapDetails() {
                   <span className="text-xs leading-relaxed" style={{ color: "oklch(0.35 0.02 80)" }}>
                     I understand the 360° Roadmap summarizes the inspection report I provide. It is
                     not a legal home inspection and does not replace a licensed home inspector's
-                    findings. I'd like to receive my complimentary 360° Roadmap.
+                    findings. I'd like to receive my 360° Roadmap.
                   </span>
                 </label>
               </div>

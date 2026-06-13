@@ -134,7 +134,7 @@ export default function Method360Section() {
               className="text-xs font-bold uppercase tracking-widest mb-1"
               style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
-              Complimentary · 24-Hour Turnaround
+              24-Hour Turnaround
             </p>
             <p
               className="text-lg text-white"

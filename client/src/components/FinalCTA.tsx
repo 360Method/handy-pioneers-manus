@@ -42,7 +42,7 @@ export default function FinalCTA() {
               fontFamily: "'Source Sans 3', sans-serif",
             }}
           >
-            Begin your engagement with a complimentary on-site consultation. Licensed,
+            Begin your engagement with an on-site consultation. Licensed,
             insured, and backed by a 1-year labor guarantee.
           </p>
 
@@ -52,7 +52,7 @@ export default function FinalCTA() {
               onClick={() => openInquiry()}
               style={{ fontSize: "1.125rem", padding: "1.125rem 2.5rem" }}
             >
-              Schedule a Complimentary Consultation
+              Schedule a Consultation
             </button>
             <a
               href="tel:+13608386731"

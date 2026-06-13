@@ -93,7 +93,7 @@ export default function Services() {
             className="hcp-button"
             onClick={() => openInquiry()}
           >
-            Schedule a Complimentary Consultation
+            Schedule a Consultation
           </button>
         </div>
       </div>

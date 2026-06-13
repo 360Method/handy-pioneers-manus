@@ -31,7 +31,7 @@ const values = [
   {
     title: "Transparent From Day One",
     body:
-      "Every engagement starts with a complimentary on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
+      "Every engagement starts with an on-site consultation - we assess the full scope, listen to your priorities, and present a written plan tailored to your home. No ballpark numbers, no assumptions. You know exactly what you're getting, and why, before a single nail is driven.",
   },
   {
     title: "A Partnership Built to Last",
@@ -272,14 +272,14 @@ export default function About() {
             className="text-base mb-8"
             style={{ color: "oklch(0.45 0.02 80)" }}
           >
-            Every engagement starts with a complimentary on-site consultation - no pressure, no commitment. Tell us what you're dealing with and we'll show you exactly where to go next.
+            Every engagement starts with an on-site consultation - no pressure, no commitment. Tell us what you're dealing with and we'll show you exactly where to go next.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               className="hcp-button"
               onClick={() => openInquiry()}
             >
-              Schedule a Complimentary Consultation
+              Schedule a Consultation
             </button>
             <a
               href="tel:+13608386731"

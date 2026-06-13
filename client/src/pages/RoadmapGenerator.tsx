@@ -87,7 +87,7 @@ export default function RoadmapGenerator() {
     },
     {
       q: "What does it cost?",
-      a: "Nothing. It's complimentary. It's how we introduce homeowners to the 360° Method, the standard of care we apply to every property we maintain.",
+      a: "Nothing. It is how we introduce homeowners to the 360° Method, the standard of care we apply to every property we maintain.",
     },
     {
       q: "How are the investment ranges calculated?",
@@ -143,7 +143,7 @@ export default function RoadmapGenerator() {
                   style={{ color: "rgba(255,255,255,0.80)", fontFamily: "'Source Sans 3', sans-serif" }}
                 >
                   Every finding sorted into NOW, SOON, and WAIT, with investment
-                  ranges. Free, within 24 hours. This is what it looks like →
+                  ranges, within 24 hours. This is what it looks like →
                 </p>
 
                 {/* Dropzone - the page's primary action */}

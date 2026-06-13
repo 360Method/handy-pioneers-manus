@@ -53,7 +53,7 @@ function toInt(v: string | number | undefined): number | undefined {
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
 
-/** Where "just send my free roadmap" lands - the live processing page. */
+/** Where "just send my roadmap" lands - the live processing page. */
 function processingUrl(stash: Stash | null, tid: string | null): string {
   if (stash?.confirmationUrl) return stash.confirmationUrl;
   const base = isStagingHost()
@@ -298,7 +298,7 @@ export default function RoadmapOffer() {
                         href={declineHref}
                         className="w-full text-center text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
                       >
-                        No thanks - just send my free roadmap
+                        No thanks - just send my roadmap
                       </a>
                     </div>
                   </>
@@ -455,7 +455,7 @@ export default function RoadmapOffer() {
                     href={declineHref}
                     className="w-full text-center text-[#6A8A78] text-sm py-2 hover:text-[#8BA898] transition-colors underline underline-offset-2"
                   >
-                    No thanks - just send my free roadmap
+                    No thanks - just send my roadmap
                   </a>
                 </div>
               </div>
@@ -465,7 +465,7 @@ export default function RoadmapOffer() {
               The 360° Method is a proactive maintenance service, not a licensed home inspection
               under RCW 18.280. Membership is an annual subscription billed today; renews at the
               standard annual rate for your home. The buy-now rate applies to this first year and
-              is available only during this session. Your complimentary roadmap is yours either way.
+              is available only during this session. Your roadmap is yours either way.
             </p>
           </>
         )}
