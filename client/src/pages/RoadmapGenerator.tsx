@@ -121,7 +121,7 @@ export default function RoadmapGenerator() {
       <SEO
         path="/roadmap-generator"
         title="360° Roadmap Generator - Turn Your Inspection Report into a Plan | Handy Pioneers"
-        description="See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours. Free."
+        description="See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours."
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
         <Navbar />

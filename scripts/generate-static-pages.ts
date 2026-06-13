@@ -373,7 +373,7 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 ## The 360° Method
 - [What the 360° Method is](${SITE}/360-method): assess every major system, document it, and work a prioritized NOW / SOON / WAIT roadmap so small issues never become big losses.
 - [Baseline Walkthrough](${SITE}/360-method/walkthrough): a 2-3 hour documented assessment; written report and roadmap within 48 hours.
-- [Free Roadmap Generator](${SITE}/roadmap-generator): turn an existing inspection report into a prioritized plan.
+- [360° Roadmap Generator](${SITE}/roadmap-generator): turn an existing inspection report into a prioritized plan.
 
 ## Membership (Proactive Path)
 - [Membership tiers](${SITE}/membership): ${TIERS.map((t) => `${t.name} (from $${t.prices.monthly}/mo)`).join(", ")}. Base prices apply to homes under 2,000 sq ft; larger homes are priced by size.

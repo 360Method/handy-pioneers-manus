@@ -82,7 +82,7 @@ export const PAGE_META: PageMeta[] = [
     title:
       "360° Roadmap Generator - Turn Your Inspection Report into a Plan | Handy Pioneers",
     description:
-      "See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours. Free.",
+      "See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours.",
   },
   {
     path: "/privacy-policy",

@@ -74,6 +74,7 @@ export const blogPosts: BlogPost[] = [
     "readTime": 5,
     "seoTitle": "Summer Home Maintenance in the Pacific Northwest: A June Checklist | Handy Pioneers",
     "seoDesc": "What home maintenance should you do in summer in the Pacific Northwest? Five checks every Clark County homeowner should make in June, while the weather finally cooperates.",
+    "references": [{"label": "Oregon State University Extension Service: How to control roof moss and prevent long-term damage", "url": "https://extension.oregonstate.edu/news/how-control-roof-moss-prevent-long-term-damage"}],
     "body": [
       {
         "type": "p",
@@ -97,7 +98,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Start at the top of the water's path. After a winter here, gutters carry a season of needles, grit, and moss runoff. Clear them, then run a hose and watch where the water goes. You are looking for two things: water that overflows the front edge, which means a clog or a sag, and water that pools against the house at the bottom of a downspout, which means a drainage problem. Both send water exactly where you don't want it. Both are cheap to fix in July and expensive to fix after they have soaked a wall all winter."
+        "text": "Start at the top of the water's path. After a winter here, gutters carry a season of needles, grit, and moss runoff. Clear them, then run a hose and watch where the water goes. You are looking for two things: water that overflows the front edge, which means a clog or a sag, and water that pools against the house at the bottom of a downspout, which means a drainage problem. Both send water exactly where you don't want it. Both are a simple fix in July and a much bigger job after they have soaked a wall all winter."
       },
       {
         "type": "h2",
@@ -105,7 +106,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "You don't need to climb up. From the ground with binoculars, or from a ladder at the edge, look for green fuzz in the shaded valleys, lifted or cracked shingles, and any spot where the surface looks worn smooth. Moss is the local villain. It holds moisture against the roof, works its way under the shingles, and shortens a roof's life by years. June is the time to treat it, because it needs dry weather to die back and you want it gone before the rain feeds it again."
+        "text": "You don't need to climb up. From the ground with binoculars, or from a ladder at the edge, look for green fuzz in the shaded valleys, lifted or cracked shingles, and any spot where the surface looks worn smooth. Moss is the local villain. Oregon State University Extension explains that moss traps moisture against the roof, which invites the fungi that rot roofing and shorten its life. [1] June is the time to treat it, because it needs dry weather to die back and you want it gone before the rain feeds it again."
       },
       {
         "type": "h2",
@@ -145,8 +146,8 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "cta",
-        "text": "Want a second set of eyes before the dry weeks run out? Call us at (360) 838-6731 or book a complimentary walkthrough.",
-        "ctaLabel": "Book a Free Walkthrough",
+        "text": "Want a second set of eyes before the dry weeks run out? Call us at (360) 838-6731 or book your walkthrough.",
+        "ctaLabel": "Book a Walkthrough",
         "ctaAction": "booking"
       }
     ]
@@ -154,7 +155,7 @@ export const blogPosts: BlogPost[] = [
   {
     "slug": "deck-water-damage-signs-camas",
     "title": "The Soft Board Is Never Just the Board: Spotting Deck Water Damage in June",
-    "excerpt": "Most deck failures in Clark County start the same way: one board that flexes underfoot. Here is how to read the signs, and why June is the cheapest month to listen to them.",
+    "excerpt": "Most deck failures in Clark County start the same way: one board that flexes underfoot. Here is how to read the signs, and why June is the month to catch them.",
     "date": "June 5, 2026",
     "isoDate": "2026-06-05",
     "publishDate": "2026-06-05",
@@ -174,6 +175,7 @@ export const blogPosts: BlogPost[] = [
     "readTime": 5,
     "seoTitle": "How to Tell If Your Deck Has Water Damage | Handy Pioneers, Camas WA",
     "seoDesc": "How do you know if your deck has water damage? The signs to look for, why the soft board is rarely the whole story, and why catching it in June beats finding it in fall.",
+    "references": [{"label": "USDA Forest Products Laboratory, Wood Handbook (FPL-GTR-190), Chapter 14: Biodeterioration of Wood", "url": "https://www.fpl.fs.usda.gov/documnts/fplgtr/fplgtr190/chapter_14.pdf"}],
     "body": [
       {
         "type": "p",
@@ -189,7 +191,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "That is the thing about deck rot in the Pacific Northwest. The deck does not fail where you can see it. It fails underneath, where the wood stays wet and shaded and nobody looks."
+        "text": "That is the thing about deck rot in the Pacific Northwest. The deck does not fail where you can see it. It fails underneath, where the wood stays wet and shaded and nobody looks. The USDA Forest Products Laboratory's Wood Handbook puts a number on it: decay fungi need wood moisture above roughly 20 percent to grow, and shaded, ground-level deck wood stays wet far longer than that through our winters. Keep it drier than that and it does not rot. [1]"
       },
       {
         "type": "h2",
@@ -237,7 +239,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "h2",
-        "text": "Why June is the cheapest month to find it"
+        "text": "Why June is the month to find it"
       },
       {
         "type": "p",
@@ -290,6 +292,7 @@ export const blogPosts: BlogPost[] = [
     "readTime": 5,
     "seoTitle": "When Is the Best Time to Paint a House Exterior in Washington? | Handy Pioneers",
     "seoDesc": "The best window to paint a house exterior in Washington is narrower than most homeowners think. Here is when to paint in Clark County, and why timing decides how long it lasts.",
+    "references": [{"label": "Sherwin-Williams: Exterior Product Application FAQs (temperature and dew point guidance)", "url": "https://www.sherwin-williams.com/painting-contractors/products/resources/faqs/exterior-product-application-faqs"}],
     "body": [
       {
         "type": "p",
@@ -317,7 +320,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Most paints have a minimum application temperature, and many do their best work above 50 degrees. Paint applied when it is too cold doesn't form its film correctly. The catch in our region is the overnight drop. You can have a beautiful 75-degree afternoon and a 45-degree night, and if the paint is still curing when the temperature falls, the finish suffers. So the question is not just whether it is warm enough now, it is whether it will stay warm enough through tonight. That one fact quietly rules out a lot of spring and fall days that look fine on the calendar."
+        "text": "Most paints have a minimum application temperature. Sherwin-Williams notes that traditional latex needs temperatures above 60 degrees to cure properly, though some newer exterior products are formulated to cure as low as 35. [1] Paint applied when it is too cold doesn't form its film correctly. The catch in our region is the overnight drop. You can have a beautiful 75-degree afternoon and a 45-degree night, and if the paint is still curing when the temperature falls, the finish suffers. So the question is not just whether it is warm enough now, it is whether it will stay warm enough through tonight. That one fact quietly rules out a lot of spring and fall days that look fine on the calendar."
       },
       {
         "type": "h2",
@@ -325,7 +328,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Even in dry months, mornings here bring dew. Paint a surface late in the day and that overnight moisture can settle on a finish that hasn't fully set, leaving a cloudy haze or causing adhesion problems. This is why the time of day matters too. The reliable working hours run from mid-morning, after the dew has burned off, to late afternoon, with enough daylight left for the surface to set before the evening damp returns."
+        "text": "Even in dry months, mornings here bring dew. Paint a surface late in the day and that overnight moisture can settle on a finish that hasn't fully set, leaving a cloudy haze or causing adhesion problems. This is why the time of day matters too. The reliable working hours run from mid-morning, after the dew has burned off, to late afternoon, with enough daylight left for the surface to set before the evening damp returns. The same manufacturer guidance is to keep the surface above the dew point for at least 48 hours after you paint, not just while the brush is moving. [1]"
       },
       {
         "type": "h2",
@@ -382,6 +385,7 @@ export const blogPosts: BlogPost[] = [
     "readTime": 5,
     "seoTitle": "Does Home Maintenance Increase Home Value? | Handy Pioneers, Clark County WA",
     "seoDesc": "Does home maintenance increase your home's value? The honest answer, what effective age means on an appraisal, and why deferred maintenance quietly costs Clark County homeowners.",
+    "references": [{"label": "HUD Single Family Housing Policy Handbook 4000.1 (FHA appraisal valuation protocol)", "url": "https://www.hud.gov/sites/dfiles/OCHCO/documents/4000.1hsgh-011823.pdf"}],
     "body": [
       {
         "type": "p",
@@ -397,7 +401,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "When an appraiser evaluates a home, they don't just record how old it is. They estimate its effective age, which is how old the home behaves based on its condition. Two houses built the same year can have very different effective ages. The one with a sound roof, a dry crawlspace, maintained siding, and working systems reads younger. The one with deferred upkeep reads older, and an older effective age pulls the appraised value down."
+        "text": "When an appraiser evaluates a home, they don't just record how old it is. They estimate its effective age, which is how old the home behaves based on its condition. Federal appraisal rules build maintenance right in: HUD's appraisal handbook has the appraiser judge a home's remaining economic life assuming a reasonable level of continued upkeep, and report the deferred maintenance they find. [1] Two houses built the same year can have very different effective ages. The one with a sound roof, a dry crawlspace, maintained siding, and working systems reads younger. The one with deferred upkeep reads older, and an older effective age pulls the appraised value down."
       },
       {
         "type": "p",
@@ -409,7 +413,7 @@ export const blogPosts: BlogPost[] = [
       },
       {
         "type": "p",
-        "text": "Deferred maintenance compounds. A clogged gutter overflows and soaks a fascia board. The soft fascia lets water into the wall. The wall feeds a damp crawlspace. Now a free chore you skipped is a moisture problem an inspector flags, a buyer's repair credit, and a line on a report that makes everyone nervous about what else was ignored."
+        "text": "Deferred maintenance compounds. A clogged gutter overflows and soaks a fascia board. The soft fascia lets water into the wall. The wall feeds a damp crawlspace. Now a chore you skipped is a moisture problem an inspector flags, a buyer's repair credit, and a line on a report that makes everyone nervous about what else was ignored."
       },
       {
         "type": "p",
@@ -446,7 +450,7 @@ export const blogPosts: BlogPost[] = [
       {
         "type": "cta",
         "text": "Curious where your home stands today? Call (360) 838-6731 or book a walkthrough, and we will give you an honest read.",
-        "ctaLabel": "Book a Free Walkthrough",
+        "ctaLabel": "Book a Walkthrough",
         "ctaAction": "booking"
       }
     ]
