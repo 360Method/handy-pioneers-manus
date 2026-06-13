@@ -182,6 +182,37 @@ async function startServer() {
       ? path.resolve(__dirname, "public")
       : path.resolve(__dirname, "..", "dist", "public");
 
+  // ─── Prerendered marketing pages ─────────────────────────────────────────
+  // scripts/generate-static-pages.ts emits crawler-readable HTML for public
+  // content routes into _prerendered/. Serve those at the canonical URLs so
+  // bots that never run JS (most AI crawlers) still get the full content.
+  // Checkout/confirmation/funnel routes are never prerendered: they fall
+  // through to the SPA shell exactly as before.
+  const prerenderedPath = path.resolve(staticPath, "_prerendered");
+  const PRERENDER_EXCLUDE = [
+    /^\/membership\/checkout/,
+    /^\/membership\/confirmation/,
+    /^\/360\/checkout/,
+    /^\/360\/confirmation/,
+    /^\/360-method\/offer/,
+    /^\/360-method\/membership/,
+    /^\/baseline\//,
+    /^\/roadmap\//,
+    /^\/thankyou/,
+    /^\/admin/,
+    /^\/api\//,
+  ];
+  app.use((req, res, next) => {
+    if (req.method !== "GET") return next();
+    const p = req.path;
+    if (p.includes(".") || PRERENDER_EXCLUDE.some((rx) => rx.test(p))) return next();
+    const rel = p === "/" ? "index" : p.replace(/^\/+|\/+$/g, "");
+    const file = path.normalize(path.join(prerenderedPath, `${rel}.html`));
+    if (!file.startsWith(prerenderedPath)) return next();
+    if (fs.existsSync(file)) return res.sendFile(file);
+    next();
+  });
+
   app.use(express.static(staticPath));
 
   app.get("*", (_req, res) => {

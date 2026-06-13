@@ -22,10 +22,9 @@ const STATIC_ROUTES = [
   { path: "/reviews", changefreq: "weekly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/membership", changefreq: "monthly", priority: "0.9" },
-  { path: "/priority-translation", changefreq: "monthly", priority: "0.8" },
+  { path: "/roadmap-generator", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method/walkthrough", changefreq: "monthly", priority: "0.6" },
-  { path: "/360-method/translation", changefreq: "monthly", priority: "0.6" },
   { path: "/360-method/referral", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },
@@ -42,7 +41,8 @@ function extractSlugs(filePath) {
 
 function extractPublishedBlogSlugs(filePath) {
   const raw = readFileSync(filePath, "utf8");
-  const records = raw.split(/\n\s*\{\n/).slice(1);
+  // \r?\n keeps this working on Windows checkouts (CRLF) as well as CI (LF).
+  const records = raw.split(/\r?\n\s*\{\r?\n/).slice(1);
   const today = new Date();
   today.setHours(0, 0, 0, 0);
   const out = [];

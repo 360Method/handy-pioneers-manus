@@ -261,6 +261,22 @@ export default function BlogPost() {
         ogType="article"
         publishedTime={post.isoDate}
         author={post.author}
+        jsonLd={{
+          "@context": "https://schema.org",
+          "@type": "BlogPosting",
+          headline: post.title,
+          description: post.excerpt,
+          datePublished: post.isoDate,
+          author: { "@type": "Person", name: "Marcin Micek" },
+          publisher: {
+            "@type": "Organization",
+            name: "Handy Pioneers",
+            url: "https://handypioneers.com",
+          },
+          image: post.image,
+          mainEntityOfPage: `https://handypioneers.com/blog/${post.slug}`,
+          keywords: post.tags.join(", "),
+        }}
       />
     <div
       className="min-h-screen flex flex-col"

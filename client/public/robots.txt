@@ -1,10 +1,69 @@
 # Handy Pioneers — robots.txt
 # https://handypioneers.com/
+#
+# Policy: we WANT search engines and AI assistants to read and cite this
+# site. The explicit AI-crawler stanzas below grant access by name.
+# NOTE: Cloudflare's "block AI bots" / managed robots.txt feature must stay
+# OFF for this zone, or it prepends Disallow rules that override these.
+#
+# AI guide: https://handypioneers.com/llms.txt
+# Full content for AI assistants: https://handypioneers.com/llms-full.txt
 
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /api
+Disallow: /membership/checkout
+Disallow: /360/checkout
+Disallow: /360-method/offer
+Disallow: /baseline/offer
+Disallow: /roadmap/offer
+
+# ── AI assistants and answer engines: explicitly welcome ──
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
 
 # Sitemap
 Sitemap: https://handypioneers.com/sitemap.xml
