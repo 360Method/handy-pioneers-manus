@@ -238,6 +238,9 @@ export default function Footer() {
             style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
             © {new Date().getFullYear()} Handy Pioneers. All rights reserved. · WA Lic. HANDYP*761NH
+            <br />
+            The 360° Method™ and Proactive Path are proprietary frameworks of Handy Pioneers.
+            Unauthorized reproduction, imitation, or rebranding is prohibited.
           </p>
           <div className="flex gap-4">
             <button

@@ -133,7 +133,7 @@ export default function Method360() {
               className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
-              The 360° Method
+              The 360° Method™
             </h1>
             <p
               className="text-xl leading-relaxed mb-4"
@@ -441,6 +441,18 @@ export default function Method360() {
               transactions - we recommend engaging a licensed home inspector. The 360° Method is
               designed to work in partnership with licensed inspections, not as a substitute for
               them.
+            </p>
+            <p
+              className="text-sm leading-relaxed mt-4"
+              style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              <strong>Proprietary methodology.</strong> The 360° Method™, including its name, its
+              three-phase structure (Aware, Act, Advance), its nine-step framework, and the
+              Proactive Path membership program, is the proprietary methodology and intellectual
+              property of Handy Pioneers. "The 360° Method" and "Proactive Path" are claimed as
+              trademarks of Handy Pioneers. The framework, its written materials, and its branding
+              may not be copied, adapted, rebranded, or used to market a competing program without
+              the express written permission of Handy Pioneers.
             </p>
           </div>
         </div>

@@ -124,7 +124,10 @@ export default function TermsAndConditions() {
 
           <Section title="8. Intellectual Property">
             <p>
-              All content on handypioneers.com, including text, images, project photos, and the 360° Method framework, is the property of Handy Pioneers and may not be reproduced, distributed, or used without written permission.
+              The 360° Method™ - including its name, its three-phase structure (Aware, Act, Advance), its nine-step framework, the Proactive Path membership program, and all related written materials, checklists, scoring, and branding - is the proprietary methodology and intellectual property of Handy Pioneers. "The 360° Method" and "Proactive Path" are claimed as trademarks of Handy Pioneers under common law.
+            </p>
+            <p className="mt-3">
+              All content on handypioneers.com, including text, images, project photos, and the description of the 360° Method, is &copy; {new Date().getFullYear()} Handy Pioneers and is protected by copyright. None of it, and no part of the 360° Method framework, its materials, or its branding, may be copied, reproduced, distributed, adapted, rebranded, or used to develop or market a competing program or service without the express written permission of Handy Pioneers. We actively protect these rights, and unauthorized use may result in legal action.
             </p>
           </Section>
 
