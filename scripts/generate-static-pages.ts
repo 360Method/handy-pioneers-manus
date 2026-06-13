@@ -467,12 +467,21 @@ function feedXml(published: BlogPost[]): string {
   const items = published
     .map((p) => {
       const pubDate = new Date(p.isoDate + "T08:00:00Z").toUTCString();
+      // Social/GBP auto-posters want JPEG, not webp. Expose a .jpg sibling of
+      // the hero image so the feed carries a usable picture (enclosure +
+      // media:content, the two fields RSS-driven posters map from).
+      const jpg = p.image && p.image.endsWith(".webp") ? p.image.replace(/\.webp$/, ".jpg") : p.image;
+      const imageTags = jpg
+        ? `\n    <enclosure url="${escXml(jpg)}" type="image/jpeg" length="0"/>` +
+          `\n    <media:content url="${escXml(jpg)}" medium="image" type="image/jpeg"/>` +
+          `\n    <media:thumbnail url="${escXml(jpg)}"/>`
+        : "";
       return `  <item>
     <title>${escXml(p.title)}</title>
     <link>${SITE}/blog/${p.slug}</link>
     <guid isPermaLink="true">${SITE}/blog/${p.slug}</guid>
     <pubDate>${pubDate}</pubDate>
-    <description>${escXml(p.excerpt)}</description>
+    <description>${escXml(p.excerpt)}</description>${imageTags}
   </item>`;
     })
     .join("\n");
@@ -480,7 +489,7 @@ function feedXml(published: BlogPost[]): string {
     ? new Date(published[0].isoDate + "T08:00:00Z").toUTCString()
     : new Date().toUTCString();
   return `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>${escXml(`${SITE_NAME} Blog - Proactive Home Care in Clark County, WA`)}</title>
     <link>${SITE}</link>

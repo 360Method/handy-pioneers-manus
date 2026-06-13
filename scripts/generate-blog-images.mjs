@@ -100,7 +100,10 @@ async function generateOne(p) {
   const raw = Buffer.from(img.inlineData.data, "base64");
   const outPath = resolve(OUT_DIR, `${p.slug}.webp`);
   if (sharp) {
-    await sharp(raw).resize(1600, 900, { fit: "cover" }).webp({ quality: 80 }).toFile(outPath);
+    const base = sharp(raw).resize(1600, 900, { fit: "cover" });
+    await base.clone().webp({ quality: 80 }).toFile(outPath);
+    // JPEG sibling for social / GBP auto-posters (they reject webp).
+    await base.clone().jpeg({ quality: 82 }).toFile(resolve(OUT_DIR, `${p.slug}.jpg`));
   } else {
     const ext = (img.inlineData.mimeType || "image/png").split("/")[1] || "png";
     writeFileSync(resolve(OUT_DIR, `${p.slug}.${ext}`), raw);
