@@ -15,6 +15,7 @@
 
 import { useRef, useState } from "react";
 import { useLocation } from "wouter";
+import { Paperclip, X, Loader2 } from "lucide-react";
 import { getApiBase } from "@/lib/api";
 import { track } from "@/lib/analytics";
 import {
@@ -22,6 +23,7 @@ import {
   SERVICE_AREA_LABEL,
   CONSULTATION_OUT_OF_AREA_MESSAGE,
 } from "@/lib/serviceArea";
+import { uploadInquiryFile, type UploadedAttachment } from "@/lib/uploadAttachment";
 
 type Funnel = "project" | "360_method";
 
@@ -105,9 +107,42 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [outOfArea, setOutOfArea] = useState(false);
+  const [attachments, setAttachments] = useState<UploadedAttachment[]>([]);
+  const [uploadingCount, setUploadingCount] = useState(0);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const startedRef = useRef(false);
 
   const isHero = variant === "hero";
+
+  const handleFiles = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const files = Array.from(e.target.files ?? []);
+    // Reset the input so picking the same file again still fires onChange.
+    e.target.value = "";
+    if (files.length === 0) return;
+    if (!startedRef.current) {
+      startedRef.current = true;
+      track("consult_form_start", { funnel });
+    }
+    setError(null);
+    setUploadingCount((n) => n + files.length);
+    // Upload in parallel; surface the first failure but keep the successes.
+    await Promise.all(
+      files.map(async (file) => {
+        try {
+          const uploaded = await uploadInquiryFile(file);
+          setAttachments((prev) => [...prev, uploaded]);
+        } catch (err: any) {
+          setError(err?.message ?? `Could not upload "${file.name}".`);
+        } finally {
+          setUploadingCount((n) => Math.max(0, n - 1));
+        }
+      })
+    );
+  };
+
+  const removeAttachment = (url: string) => {
+    setAttachments((prev) => prev.filter((a) => a.url !== url));
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
@@ -123,6 +158,10 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
     e.preventDefault();
     setError(null);
 
+    if (uploadingCount > 0) {
+      setError("Please wait for your files to finish uploading.");
+      return;
+    }
     if (!form.firstName || !form.phone || !form.email) {
       setError("Please fill in your name, phone, and email.");
       return;
@@ -167,7 +206,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
           zip: form.zip.trim(),
           description,
           timeline: form.timeline,
-          photoUrls: [],
+          photoUrls: attachments.map((a) => a.url),
           street: form.street.trim(),
           city: form.city.trim(),
           state: "WA",
@@ -423,13 +462,75 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         </div>
       </div>
 
+      {/* Photos & documents — the more we can see, the better we can prepare. */}
+      <div>
+        <label className={labelClass}>
+          Photos &amp; documents <span className="normal-case opacity-60">(optional, recommended)</span>
+        </label>
+        <input
+          ref={fileInputRef}
+          type="file"
+          multiple
+          accept="image/*,application/pdf,.doc,.docx,.txt"
+          onChange={handleFiles}
+          className="hidden"
+        />
+        <button
+          type="button"
+          onClick={() => fileInputRef.current?.click()}
+          className={`flex w-full items-center justify-center gap-2 rounded-md border border-dashed px-4 py-3 text-sm transition-all ${
+            isHero
+              ? "border-white/40 text-white/80 hover:bg-white/10"
+              : "border-gray-300 text-gray-600 hover:bg-gray-50"
+          }`}
+        >
+          <Paperclip size={16} />
+          Add photos or documents
+        </button>
+        <p className={`mt-1 text-xs ${isHero ? "text-white/40" : "text-gray-400"}`}>
+          Add as many as you like — photos of the area, inspection reports, quotes, or plans. The more we can see, the better we can prepare.
+        </p>
+
+        {(attachments.length > 0 || uploadingCount > 0) && (
+          <ul className="mt-3 space-y-2">
+            {attachments.map((a) => (
+              <li
+                key={a.url}
+                className={`flex items-center justify-between gap-2 rounded-md px-3 py-2 text-sm ${
+                  isHero ? "bg-white/10 text-white/90" : "bg-gray-100 text-gray-700"
+                }`}
+              >
+                <span className="flex min-w-0 items-center gap-2">
+                  <Paperclip size={14} className="shrink-0 opacity-60" />
+                  <span className="truncate">{a.name}</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => removeAttachment(a.url)}
+                  aria-label={`Remove ${a.name}`}
+                  className="shrink-0 opacity-70 hover:opacity-100"
+                >
+                  <X size={16} />
+                </button>
+              </li>
+            ))}
+            {uploadingCount > 0 && (
+              <li className={`flex items-center gap-2 px-3 py-2 text-sm ${isHero ? "text-white/70" : "text-gray-500"}`}>
+                <Loader2 size={14} className="animate-spin" />
+                Uploading {uploadingCount} file{uploadingCount > 1 ? "s" : ""}…
+              </li>
+            )}
+          </ul>
+        )}
+      </div>
+
       {error && (
         <p className="text-sm text-red-400 font-medium">{error}</p>
       )}
 
       <button
         type="submit"
-        disabled={submitting}
+        disabled={submitting || uploadingCount > 0}
         className="hcp-button w-full text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed"
       >
         {submitting ? "Sending your request..." : funnel === "360_method" ? "Request My Home Assessment" : "Request My Consultation"}
