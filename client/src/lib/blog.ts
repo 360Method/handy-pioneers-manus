@@ -51,6 +51,407 @@ export function getPublishedPosts(): BlogPost[] {
 
 export const blogPosts: BlogPost[] = [
 
+  {
+    "slug": "dry-season-home-checklist-pnw-june",
+    "title": "The Dry Season Is When Your Home Tells the Truth: 5 Things to Check in June",
+    "excerpt": "For eight months a year, a Clark County home is wet. June is the first honest look you get. Here are the five checks that decide how your home heads into next winter.",
+    "date": "June 2, 2026",
+    "isoDate": "2026-06-02",
+    "publishDate": "2026-06-02",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Seasonal Home Care",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "summer home maintenance Vancouver WA",
+      "Pacific Northwest home maintenance",
+      "Clark County home care",
+      "June home checklist"
+    ],
+    "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+    "imageAlt": "A well-kept Pacific Northwest home exterior on a clear summer day",
+    "readTime": 5,
+    "seoTitle": "Summer Home Maintenance in the Pacific Northwest: A June Checklist | Handy Pioneers",
+    "seoDesc": "What home maintenance should you do in summer in the Pacific Northwest? Five checks every Clark County homeowner should make in June, while the weather finally cooperates.",
+    "body": [
+      {
+        "type": "p",
+        "text": "In the Pacific Northwest, summer is the season for the work the rain won't let you do the rest of the year. If you only have one weekend, spend it on these five: clear and test the gutters and downspouts, look over the roof and treat moss before it spreads, check decks and exterior wood for soft spots, wash and reseal surfaces while they can actually dry, and look at the grading around the foundation now that the ground has firmed up. Handle these in June and you head into the next wet season ahead of the damage instead of chasing it."
+      },
+      {
+        "type": "p",
+        "text": "Here is why June is the moment, and what each check actually looks like."
+      },
+      {
+        "type": "p",
+        "text": "For roughly eight months a year, a Clark County home lives under water. Rain, then more rain, then the kind of damp that never fully leaves the north side of the house. Problems hide in that wet. A slow drip looks the same as a stain. Soft wood looks like sound wood until you press on it. Then the clouds break, the ground dries, and for a few weeks your home finally tells you the truth."
+      },
+      {
+        "type": "p",
+        "text": "Most people spend that window mowing and grilling. The ones who get ahead spend a little of it looking."
+      },
+      {
+        "type": "h2",
+        "text": "1. Gutters and downspouts"
+      },
+      {
+        "type": "p",
+        "text": "Start at the top of the water's path. After a winter here, gutters carry a season of needles, grit, and moss runoff. Clear them, then run a hose and watch where the water goes. You are looking for two things: water that overflows the front edge, which means a clog or a sag, and water that pools against the house at the bottom of a downspout, which means a drainage problem. Both send water exactly where you don't want it. Both are cheap to fix in July and expensive to fix after they have soaked a wall all winter."
+      },
+      {
+        "type": "h2",
+        "text": "2. The roof and the moss"
+      },
+      {
+        "type": "p",
+        "text": "You don't need to climb up. From the ground with binoculars, or from a ladder at the edge, look for green fuzz in the shaded valleys, lifted or cracked shingles, and any spot where the surface looks worn smooth. Moss is the local villain. It holds moisture against the roof, works its way under the shingles, and shortens a roof's life by years. June is the time to treat it, because it needs dry weather to die back and you want it gone before the rain feeds it again."
+      },
+      {
+        "type": "h2",
+        "text": "3. Decks, railings, and exterior wood"
+      },
+      {
+        "type": "p",
+        "text": "Walk the deck slowly and pay attention to your feet. Any board that feels soft, springy, or gives a little is telling you it has taken on water. Press a screwdriver into the spots that worry you, especially where boards meet posts and where the deck attaches to the house. Firm wood resists. Punky wood sinks. Do the same at the bottom of exterior door trim, at fence posts, and at the base of any wood that sits near soil. Catching one soft board now is a small job. Catching it after it has spread into the framing is not."
+      },
+      {
+        "type": "h2",
+        "text": "4. Wash and reseal while it can dry"
+      },
+      {
+        "type": "p",
+        "text": "Pressure washing and sealing only work when surfaces can dry fully, which is why winter is the wrong time and June is the right one. Clean the deck, the siding, the walkways, and the patio. Then give the wood a day or two to dry before you seal it. Sealing traps moisture if you rush it, so the dry stretch matters as much as the product. A sealed deck sheds the next eight months of rain instead of drinking it."
+      },
+      {
+        "type": "h2",
+        "text": "5. Grading and the foundation"
+      },
+      {
+        "type": "p",
+        "text": "This one stays invisible until it isn't. Walk the perimeter and look at how the ground meets the house. Soil should slope away from the foundation, not toward it. Look for cracks, soil that has settled into a low spot against the wall, and downspouts that dump right at the base. Water that collects against a foundation has nowhere to go but in. Fixing the slope or extending a downspout is a weekend's effort. A wet crawlspace is a different conversation."
+      },
+      {
+        "type": "h2",
+        "text": "The pattern worth noticing"
+      },
+      {
+        "type": "p",
+        "text": "None of these five are emergencies in June. That is exactly the point. Every one of them can become an emergency in November if you skip it now. Proactive home care is not about doing more work. It is about doing the small work in the season that allows it, so the big work never arrives."
+      },
+      {
+        "type": "p",
+        "text": "That rhythm, looking in summer and fixing before the rain, is the whole idea behind the way we care for the homes we manage in Clark County. You can run it yourself with this list. If you would rather have someone walk your home, write down what they find, and handle it on a schedule so you never have to think about it, that is what we do."
+      },
+      {
+        "type": "cta",
+        "text": "Want a second set of eyes before the dry weeks run out? Call us at (360) 838-6731 or book a complimentary walkthrough.",
+        "ctaLabel": "Book a Free Walkthrough",
+        "ctaAction": "booking"
+      }
+    ]
+  },
+  {
+    "slug": "deck-water-damage-signs-camas",
+    "title": "The Soft Board Is Never Just the Board: Spotting Deck Water Damage in June",
+    "excerpt": "Most deck failures in Clark County start the same way: one board that flexes underfoot. Here is how to read the signs, and why June is the cheapest month to listen to them.",
+    "date": "June 5, 2026",
+    "isoDate": "2026-06-05",
+    "publishDate": "2026-06-05",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Decks & Exterior",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "deck water damage",
+      "deck repair Camas WA",
+      "rotting deck signs",
+      "Clark County deck maintenance"
+    ],
+    "image": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+    "imageAlt": "A weathered wood deck showing gray boards and signs of moisture",
+    "readTime": 5,
+    "seoTitle": "How to Tell If Your Deck Has Water Damage | Handy Pioneers, Camas WA",
+    "seoDesc": "How do you know if your deck has water damage? The signs to look for, why the soft board is rarely the whole story, and why catching it in June beats finding it in fall.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Here is how to tell if your deck has water damage without guessing. Look for boards that feel spongy or give underfoot, gray or black discoloration spreading from the joints, boards that are cupping or splitting, fasteners that have popped up or rusted, and any spot where a screwdriver sinks into the wood instead of meeting resistance. The checks that matter most are where the deck attaches to the house and where the boards rest on the supports underneath, because that is where water sits longest and where damage costs the most."
+      },
+      {
+        "type": "p",
+        "text": "Most deck failures we see in Clark County start the same way. One board flexes a little when you walk across it. The homeowner notices, figures it needs a new plank, and books the repair. Reasonable read. It is also, often, the visible end of something larger."
+      },
+      {
+        "type": "p",
+        "text": "Here is how that plays out. The board itself is an easy fix. But when the gray streaking runs along the seam where two boards meet, and the support beam underneath that seam is dark and damp, you are not looking at a board problem. You are looking at water that has been wicking down through the gap between the boards all winter, sitting on top of the framing that holds the whole deck up. The surface looks fine from a lawn chair. The structure can be a few soft years from a real problem."
+      },
+      {
+        "type": "p",
+        "text": "That is the thing about deck rot in the Pacific Northwest. The deck does not fail where you can see it. It fails underneath, where the wood stays wet and shaded and nobody looks."
+      },
+      {
+        "type": "h2",
+        "text": "The signs, in plain terms"
+      },
+      {
+        "type": "h3",
+        "text": "Spongy or springy boards"
+      },
+      {
+        "type": "p",
+        "text": "Sound decking feels solid. If a board flexes, gives, or bounces under your weight, it has absorbed water and started to break down inside."
+      },
+      {
+        "type": "h3",
+        "text": "Gray or black discoloration"
+      },
+      {
+        "type": "p",
+        "text": "Healthy wood weathers to a soft silver. Rot is darker, often blackish, and it tends to spread out from joints, fastener holes, and the ends of boards."
+      },
+      {
+        "type": "h3",
+        "text": "Cupping, splitting, and cracking"
+      },
+      {
+        "type": "p",
+        "text": "Boards that curl at the edges or split along the grain have been through repeated soaking and drying. Each cycle opens the wood up to more water."
+      },
+      {
+        "type": "h3",
+        "text": "Popped or rusted fasteners"
+      },
+      {
+        "type": "p",
+        "text": "When the wood around a screw or nail swells and shrinks, the fastener works loose. Rust streaks also tell you water has been sitting there."
+      },
+      {
+        "type": "h3",
+        "text": "The screwdriver test"
+      },
+      {
+        "type": "p",
+        "text": "This is the honest one. Press a screwdriver or an awl into the wood at the spots that worry you, especially near the house and at the base of the posts. Firm wood resists. If the tip sinks in with light pressure, that wood is gone."
+      },
+      {
+        "type": "h2",
+        "text": "Why June is the cheapest month to find it"
+      },
+      {
+        "type": "p",
+        "text": "Caught now, that kind of repair is contained: replace the damaged board, treat and protect the beam below, close the gap that let water through, and reseal. It takes part of a day and keeps the deck sound."
+      },
+      {
+        "type": "p",
+        "text": "The same deck, found in October, is a different job. By fall the beam has had another wet season to soften, and rot in a support member does not stay put. It spreads to the boards bolted to it. One soft beam becomes several. A part-of-a-day repair becomes a structural one, with more wood, more labor, and a deck you can't safely use until it's done. The difference between the two jobs is not the damage. It is the timing."
+      },
+      {
+        "type": "p",
+        "text": "This is why we tell people the dry season is for looking. A deck inspection in June, when the wood is dry enough to read clearly and there is still time to fix what you find, is one of the highest-value half hours a deck owner spends all year."
+      },
+      {
+        "type": "h2",
+        "text": "What to do this week"
+      },
+      {
+        "type": "p",
+        "text": "Walk your deck and run through the list above. Spend the most time where the deck meets the house and at the base of the posts. If everything is firm, seal it and enjoy your summer. If you find a soft spot, don't wait for it to get worse. It will, and it gets more expensive every month the rain is gone and you let it sit."
+      },
+      {
+        "type": "cta",
+        "text": "Want someone to check the parts you can't see? We will tell you honestly whether you have a small fix or a real one, with no upsell. Call (360) 838-6731 or schedule a deck check.",
+        "ctaLabel": "Schedule a Deck Check",
+        "ctaAction": "booking"
+      }
+    ]
+  },
+  {
+    "slug": "best-time-paint-house-exterior-clark-county",
+    "title": "Exterior Paint in Clark County: Why the Window Is Shorter Than You Think",
+    "excerpt": "Most homeowners think they have all summer to paint. In our climate, the real window is narrower, and missing it is how good paint jobs fail early.",
+    "date": "June 9, 2026",
+    "isoDate": "2026-06-09",
+    "publishDate": "2026-06-09",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Painting & Exterior",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "best time to paint house exterior",
+      "exterior painting Vancouver WA",
+      "house painting Washington",
+      "Clark County painting"
+    ],
+    "image": "https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80",
+    "imageAlt": "A painter applying fresh exterior paint to a home on a clear day",
+    "readTime": 5,
+    "seoTitle": "When Is the Best Time to Paint a House Exterior in Washington? | Handy Pioneers",
+    "seoDesc": "The best window to paint a house exterior in Washington is narrower than most homeowners think. Here is when to paint in Clark County, and why timing decides how long it lasts.",
+    "body": [
+      {
+        "type": "p",
+        "text": "The best time to paint a house exterior in Washington is roughly late June through mid-September: a stretch of several dry days in a row, daytime temperatures between about 50 and 90 degrees, a surface that is fully dry, and overnight lows that stay warm enough for the paint to keep curing (often around 50 for the best result). That is a shorter, fussier window than most homeowners picture when they say they will paint this summer. The gap between hitting it and missing it is the gap between a paint job that lasts a decade and one that starts peeling in a couple of years."
+      },
+      {
+        "type": "p",
+        "text": "Here is what is really going on, and why our climate makes the timing matter more than it would somewhere dry."
+      },
+      {
+        "type": "p",
+        "text": "The thing people underestimate is not the rain on painting day. Everyone knows not to paint in the rain. The thing they miss is what the wall and the air are doing before and after the brush touches the siding."
+      },
+      {
+        "type": "h2",
+        "text": "Paint needs the wall to be dry, not just the sky"
+      },
+      {
+        "type": "p",
+        "text": "Latex and acrylic exterior paints cure by releasing water and forming a film. If the siding is still holding moisture from last week's rain, the paint can't bond properly, and it will lift, blister, or peel down the line even though it looked perfect when it went on. In the Pacific Northwest, siding that feels dry to the touch can still be damp underneath, especially on the north and east faces that never get much sun. That is why a single sunny day after a wet week is not enough. The wall needs time to dry all the way through, which is why a run of dry days matters more than one nice afternoon."
+      },
+      {
+        "type": "h2",
+        "text": "Temperature works on both ends of the day"
+      },
+      {
+        "type": "p",
+        "text": "Most paints have a minimum application temperature, and many do their best work above 50 degrees. Paint applied when it is too cold doesn't form its film correctly. The catch in our region is the overnight drop. You can have a beautiful 75-degree afternoon and a 45-degree night, and if the paint is still curing when the temperature falls, the finish suffers. So the question is not just whether it is warm enough now, it is whether it will stay warm enough through tonight. That one fact quietly rules out a lot of spring and fall days that look fine on the calendar."
+      },
+      {
+        "type": "h2",
+        "text": "Dew is the part nobody plans for"
+      },
+      {
+        "type": "p",
+        "text": "Even in dry months, mornings here bring dew. Paint a surface late in the day and that overnight moisture can settle on a finish that hasn't fully set, leaving a cloudy haze or causing adhesion problems. This is why the time of day matters too. The reliable working hours run from mid-morning, after the dew has burned off, to late afternoon, with enough daylight left for the surface to set before the evening damp returns."
+      },
+      {
+        "type": "h2",
+        "text": "So when does that leave you?"
+      },
+      {
+        "type": "p",
+        "text": "Stack those three requirements together (a dry surface, the right temperature day and night, and time to set before dew) and the dependable exterior painting window in Clark County runs from about late June into September. June itself is often a tease, with warm afternoons and wet stretches that haven't fully cleared. By July the odds are with you. By late September they start slipping away again."
+      },
+      {
+        "type": "p",
+        "text": "That is also why exterior painting books up fast here. Everyone is chasing the same dozen or so good weeks. If a repaint is on your list this year, the homeowners who get it done well are the ones who planned for the window instead of waiting until they felt like it."
+      },
+      {
+        "type": "h2",
+        "text": "The honest version"
+      },
+      {
+        "type": "p",
+        "text": "You can paint outside that window and have it look great for a season. The problem is what you can't see. Paint applied to damp wood, or left to finish as the temperature drops, fails early. It fails in ways that cost more to fix than doing it right the first time, because the old coat has to come off before the new one can go on."
+      },
+      {
+        "type": "p",
+        "text": "Good exterior paint in this climate is less about the product in the can and more about the conditions the day it goes up. Get the timing right and a quality job protects your siding and your home's look for years. Get it wrong and you are repainting far sooner than you should be."
+      },
+      {
+        "type": "cta",
+        "text": "Weighing an exterior repaint this summer? We will look at your home, talk through the condition of the siding, and tell you honestly what the right window looks like for your walls. Call (360) 838-6731 or request an estimate.",
+        "ctaLabel": "Request an Estimate",
+        "ctaAction": "booking"
+      }
+    ]
+  },
+  {
+    "slug": "does-home-maintenance-increase-home-value",
+    "title": "What a Maintained Home Is Worth: The Appraisal Line Nobody Reads",
+    "excerpt": "Maintenance doesn't add value the way a kitchen remodel does. It does something quieter and, over the years you own a home, usually worth more: it keeps the value you already have from leaking out.",
+    "date": "June 12, 2026",
+    "isoDate": "2026-06-12",
+    "publishDate": "2026-06-12",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Home Value",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "does home maintenance increase home value",
+      "deferred maintenance home value",
+      "home equity protection",
+      "Clark County home value"
+    ],
+    "image": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    "imageAlt": "A well-maintained home with clean siding and tidy landscaping",
+    "readTime": 5,
+    "seoTitle": "Does Home Maintenance Increase Home Value? | Handy Pioneers, Clark County WA",
+    "seoDesc": "Does home maintenance increase your home's value? The honest answer, what effective age means on an appraisal, and why deferred maintenance quietly costs Clark County homeowners.",
+    "body": [
+      {
+        "type": "p",
+        "text": "Here is the honest answer: routine maintenance does not increase your home's value the way a kitchen remodel or an addition does. What it does is prevent the loss of value, which over the years you own a home is usually worth more. Deferred maintenance shows up in appraisals and inspection reports as repair credits, price adjustments, and something called effective age. A well-kept home holds its number. A neglected one gets quietly discounted, often by far more than the upkeep would have cost."
+      },
+      {
+        "type": "p",
+        "text": "That distinction, adding value versus protecting it, is the one most homeowners never get told. So let me walk through how it actually plays out."
+      },
+      {
+        "type": "h2",
+        "text": "The line on the appraisal nobody reads"
+      },
+      {
+        "type": "p",
+        "text": "When an appraiser evaluates a home, they don't just record how old it is. They estimate its effective age, which is how old the home behaves based on its condition. Two houses built the same year can have very different effective ages. The one with a sound roof, a dry crawlspace, maintained siding, and working systems reads younger. The one with deferred upkeep reads older, and an older effective age pulls the appraised value down."
+      },
+      {
+        "type": "p",
+        "text": "You will never see a line item that says lost value to neglect. The loss is baked into the comparison, into the condition adjustments, into the effective age. It is real money, and it is invisible, which is exactly why it is so easy to let happen."
+      },
+      {
+        "type": "h2",
+        "text": "How small neglect becomes a big discount"
+      },
+      {
+        "type": "p",
+        "text": "Deferred maintenance compounds. A clogged gutter overflows and soaks a fascia board. The soft fascia lets water into the wall. The wall feeds a damp crawlspace. Now a free chore you skipped is a moisture problem an inspector flags, a buyer's repair credit, and a line on a report that makes everyone nervous about what else was ignored."
+      },
+      {
+        "type": "p",
+        "text": "That last part is the hidden cost. Buyers and their inspectors are pattern-matchers. Visible neglect makes them assume hidden neglect, and they price in a cushion for the unknown. A home that shows obvious deferred maintenance doesn't just lose the cost of those specific repairs. It loses the buyer's confidence, and confidence is worth real dollars at the negotiating table."
+      },
+      {
+        "type": "h2",
+        "text": "The flip side, and why it pays"
+      },
+      {
+        "type": "p",
+        "text": "A documented, maintained home does the opposite. When you can show that the roof was treated, the deck was sealed, the systems were serviced, and someone has been paying attention, you remove the buyer's fear. The home reads as cared-for, the inspection comes back clean, and the value holds. In a place like Clark County, where the median home is a serious asset, holding your number through the years you own it is not a small thing. It is most of the game."
+      },
+      {
+        "type": "p",
+        "text": "Here is the part that surprises people: the return on maintenance is highest precisely when you are not planning to sell. Every year you keep water out of the structure and catch small failures early is a year you are not paying for the large failure that neglect produces. The roof you maintain lasts its full life instead of half. The deck you seal doesn't become a rebuild. The home that gets looked after ages slowly."
+      },
+      {
+        "type": "h2",
+        "text": "Maintenance as equity protection"
+      },
+      {
+        "type": "p",
+        "text": "It helps to think about your home the way you think about the rest of your money. Most people would not leave a major investment completely unmanaged for twenty years and assume it would be fine. A home is usually the largest asset a family owns, and yet the physical upkeep that protects it is the thing that slides first when life gets busy."
+      },
+      {
+        "type": "p",
+        "text": "You do not need a service to do this well. You need a rhythm: look at the home on a schedule, fix small things before they grow, and keep a record of what was done. Run that for years and your home holds its value because you never let it leak."
+      },
+      {
+        "type": "p",
+        "text": "If keeping that rhythm yourself is realistic, our blog is full of seasonal checklists to help you do it. If you would rather hand the whole thing to someone, having your home assessed, documented, and maintained on a schedule so the value takes care of itself, that is what our 360° Method membership is built to do. Either way, the homes that hold their worth are the ones somebody is actually watching."
+      },
+      {
+        "type": "cta",
+        "text": "Curious where your home stands today? Call (360) 838-6731 or book a walkthrough, and we will give you an honest read.",
+        "ctaLabel": "Book a Free Walkthrough",
+        "ctaAction": "booking"
+      }
+    ]
+  },
+
   // ─── Post 1 - March 10 (Tue) ─────────────────────────────────────────────
   {
     slug: "3-things-vancouver-homeowners-forget-to-check-every-spring",

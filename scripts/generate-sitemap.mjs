@@ -30,9 +30,10 @@ const STATIC_ROUTES = [
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },
 ];
 
+// `"?key"?` tolerates both TS-style (slug:) and JSON-style ("slug":) entries.
 function extractSlugs(filePath) {
   const raw = readFileSync(filePath, "utf8");
-  const rx = /slug:\s*"([^"]+)"/g;
+  const rx = /"?slug"?:\s*"([^"]+)"/g;
   const slugs = [];
   let m;
   while ((m = rx.exec(raw)) !== null) slugs.push(m[1]);
@@ -47,9 +48,9 @@ function extractPublishedBlogSlugs(filePath) {
   today.setHours(0, 0, 0, 0);
   const out = [];
   for (const block of records) {
-    const slugMatch = block.match(/slug:\s*"([^"]+)"/);
-    const pubMatch = block.match(/publishDate:\s*"(\d{4}-\d{2}-\d{2})"/);
-    const isoMatch = block.match(/isoDate:\s*"([^"]+)"/);
+    const slugMatch = block.match(/"?slug"?:\s*"([^"]+)"/);
+    const pubMatch = block.match(/"?publishDate"?:\s*"(\d{4}-\d{2}-\d{2})"/);
+    const isoMatch = block.match(/"?isoDate"?:\s*"([^"]+)"/);
     if (!slugMatch) continue;
     if (pubMatch) {
       const d = new Date(pubMatch[1] + "T00:00:00Z");
