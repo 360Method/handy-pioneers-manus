@@ -72,7 +72,7 @@ const manifest = JSON.parse(readFileSync(resolve(__dirname, "blog-image-prompts.
 const posts = manifest.posts.filter((p) => (only ? only.includes(p.slug) : true));
 mkdirSync(OUT_DIR, { recursive: true });
 
-const ENDPOINT = `https://generativelanguage.googleapis.com/v1/models/${MODEL}:generateContent`;
+const ENDPOINT = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function generateOne(p) {
