@@ -24,9 +24,9 @@ export const PAGE_META: PageMeta[] = [
   {
     path: "/",
     title:
-      "Handy Pioneers - Remodeling & Restoration in Vancouver, WA & Clark County",
+      "Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA",
     description:
-      "Licensed craftsmen handling whole-home remodels, deck & porch restoration, kitchen and bath builds across Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center. 4.9 stars, one-year labor guarantee.",
+      "Your home's value, protected year-round. Handy Pioneers keeps Clark County homes maintained, documented, and ahead of problems - restoration, repairs, and the 360° Method membership. Licensed and insured, 4.9 stars, one-year labor guarantee.",
   },
   {
     path: "/about",
@@ -56,14 +56,14 @@ export const PAGE_META: PageMeta[] = [
     path: "/membership",
     title: "360° Method Membership for Clark County Homeowners | Handy Pioneers",
     description:
-      "A seasonal whole-home care membership for Vancouver WA and Clark County homeowners who want their home monitored, documented, and kept in top condition - not patched up when something breaks.",
+      "Your home, managed like the asset it is. The 360° Method membership keeps Vancouver WA and Clark County homes maintained, documented, and ahead of problems - so nothing slips and value holds. Plans from $59/mo.",
     ogType: "product",
   },
   {
     path: "/360-method",
-    title: "The 360° Method - How We Care for Clark County Homes | Handy Pioneers",
+    title: "The 360° Method - Proactive Home Care for Clark County Homes | Handy Pioneers",
     description:
-      "Our end-to-end approach for Vancouver WA homeowners: documented baseline walkthrough, prioritized scope, and seasonal visits. Licensed restoration specialists serving all of Clark County.",
+      "A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County.",
   },
   {
     path: "/360-method/walkthrough",

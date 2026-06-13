@@ -101,8 +101,8 @@ export default function Method360() {
     <>
       <SEO
         path="/360-method"
-        title="The 360° Method - How We Care for Clark County Homes | Handy Pioneers"
-        description="Our end-to-end approach for Vancouver WA homeowners: documented baseline walkthrough, prioritized scope, and seasonal visits. Licensed restoration specialists serving all of Clark County."
+        title="The 360° Method - Proactive Home Care for Clark County Homes | Handy Pioneers"
+        description="A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County."
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />

@@ -334,8 +334,8 @@ export default function Home() {
     <>
       <SEO
         path="/"
-        title="Handy Pioneers - Remodeling & Restoration in Vancouver, WA & Clark County"
-        description="Licensed craftsmen handling whole-home remodels, deck & porch restoration, kitchen and bath builds across Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center. 4.9 stars, one-year labor guarantee."
+        title="Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA"
+        description="Your home's value, protected year-round. Handy Pioneers keeps Clark County homes maintained, documented, and ahead of problems - restoration, repairs, and the 360° Method membership. Licensed and insured, 4.9 stars, one-year labor guarantee."
         jsonLd={HOMEPAGE_JSONLD}
       />
       <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
@@ -680,7 +680,7 @@ export default function Home() {
               Three Phases. One Destination.
             </h2>
             <p className="text-base max-w-2xl mx-auto" style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              A structured approach that transforms reactive homeownership into proactive stewardship - in three deliberate phases. Four visits per year. A standing seasonal task list. A home that gets better every season.
+              The destination: a home where nothing slips, value holds, and you never carry the mental load. The route: three deliberate phases, four visits a year, and a standing seasonal task list working for you in the background.
             </p>
           </div>
 
@@ -738,7 +738,7 @@ export default function Home() {
               Ready to Begin?
             </p>
             <h3 className="text-2xl font-bold text-white mb-6" style={{ fontFamily: "'Playfair Display', serif" }}>
-              Start your 360° Method membership with a baseline walkthrough.
+              Stop wondering what your home needs. Your membership starts with a baseline walkthrough.
             </h3>
             <button
               onClick={() => { track("select_membership_cta", { location: "method_section" }); navigate("/membership"); }}

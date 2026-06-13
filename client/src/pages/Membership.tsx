@@ -84,7 +84,7 @@ export default function Membership() {
       <SEO
         path="/membership"
         title="360° Method Membership for Clark County Homeowners | Handy Pioneers"
-        description="A seasonal whole-home care membership for Vancouver WA and Clark County homeowners who want their home monitored, documented, and kept in top condition - not patched up when something breaks."
+        description="Your home, managed like the asset it is. The 360° Method membership keeps Vancouver WA and Clark County homes maintained, documented, and ahead of problems - so nothing slips and value holds. Plans from $59/mo."
       />
       <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
       <Navbar />
