@@ -41,3 +41,9 @@ export const BASELINE_SERVICE_AREA_BANNER =
 
 export const BASELINE_OUT_OF_AREA_MESSAGE =
   "That ZIP is outside our current service area. We perform baseline walkthroughs for Clark County, Washington homes today. Add your details below and we will reach out the moment we are serving your area. Thank you for your understanding.";
+
+// Consultation is an on-site visit, so the limit is about where we can send
+// someone. Out-of-area homeowners are captured on the list and invited to call
+// in case we can still help just over the county line.
+export const CONSULTATION_OUT_OF_AREA_MESSAGE =
+  "That ZIP is outside our current service area. We schedule on-site consultations for Clark County, Washington homes today. We have saved your details and will reach out the moment we expand to your area.";

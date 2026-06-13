@@ -17,6 +17,11 @@ import { useRef, useState } from "react";
 import { useLocation } from "wouter";
 import { getApiBase } from "@/lib/api";
 import { track } from "@/lib/analytics";
+import {
+  isInServiceArea,
+  SERVICE_AREA_LABEL,
+  CONSULTATION_OUT_OF_AREA_MESSAGE,
+} from "@/lib/serviceArea";
 
 type Funnel = "project" | "360_method";
 
@@ -99,6 +104,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
   });
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [outOfArea, setOutOfArea] = useState(false);
   const startedRef = useRef(false);
 
   const isHero = variant === "hero";
@@ -134,6 +140,11 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
       return;
     }
 
+    // Service-area gate. On-site consultations are limited to Clark County, WA.
+    // Out-of-area homeowners are still captured, but onto the waitlist rather
+    // than the booking pipeline, and we show them the call-in option.
+    const inArea = isInServiceArea(form.zip);
+
     // Investment is optional - fold it into the description so it lands in the
     // lead notes alongside the scope.
     const investmentLine = form.budget ? `Anticipated investment: ${form.budget}` : "";
@@ -150,8 +161,9 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
           phone: form.phone.trim(),
           email: form.email.trim().toLowerCase(),
           serviceType: form.serviceType || (funnel === "360_method" ? "360° Home Assessment" : "General Inquiry"),
-          source,
+          source: inArea ? source : `${source}_waitlist_out_of_area`,
           funnel,
+          inServiceArea: inArea,
           zip: form.zip.trim(),
           description,
           timeline: form.timeline,
@@ -173,7 +185,14 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         lead_type: funnel === "360_method" ? "home_assessment" : "consultation",
         service_type: form.serviceType || undefined,
         city: form.city.trim() || undefined,
+        in_service_area: inArea,
       });
+
+      if (!inArea) {
+        // Captured on the waitlist - show the out-of-area state in place of the form.
+        setOutOfArea(true);
+        return;
+      }
 
       // Redirect to thank-you page with 360 upsell
       navigate(`/thankyou?path=${funnel === "360_method" ? "360" : "project"}`);
@@ -193,6 +212,38 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
   const labelClass = `block text-xs font-semibold uppercase tracking-wide mb-1 ${
     isHero ? "text-white/70" : "text-gray-600"
   }`;
+
+  if (outOfArea) {
+    return (
+      <div
+        className={`w-full max-w-lg rounded-xl border p-6 text-center ${
+          isHero
+            ? "bg-white/10 border-white/30 text-white"
+            : "bg-amber-50 border-amber-200 text-gray-800"
+        }`}
+      >
+        <h3
+          className="text-xl font-bold mb-3"
+          style={{ fontFamily: "'Playfair Display', serif" }}
+        >
+          You're on our list
+        </h3>
+        <p className={`text-sm mb-4 ${isHero ? "text-white/80" : "text-gray-700"}`}>
+          {CONSULTATION_OUT_OF_AREA_MESSAGE}
+        </p>
+        <p className={`text-sm ${isHero ? "text-white/80" : "text-gray-700"}`}>
+          Just outside {SERVICE_AREA_LABEL}? Give us a call at{" "}
+          <a
+            href="tel:+13608386731"
+            className="font-semibold underline whitespace-nowrap"
+          >
+            (360) 838-6731
+          </a>{" "}
+          and we'll see if we can help.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <form
