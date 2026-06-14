@@ -35,6 +35,12 @@ export const PAGE_META: PageMeta[] = [
       "Marcin Micek and the Handy Pioneers team - licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center since day one.",
   },
   {
+    path: "/services",
+    title: "Home Services in Clark County, WA | Handy Pioneers",
+    description:
+      "Remodeling, deck and rot repair, painting, flooring, gutters, carpentry, and proactive maintenance for Vancouver WA and all of Clark County. One accountable team.",
+  },
+  {
     path: "/faq",
     title: "Frequently Asked Questions | Handy Pioneers - Clark County, WA",
     description:

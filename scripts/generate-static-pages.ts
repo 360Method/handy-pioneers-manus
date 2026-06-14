@@ -38,6 +38,7 @@ import { PAGE_META, type PageMeta } from "../client/src/lib/pageMeta";
 import { TIERS } from "../client/src/lib/tiers";
 import { projects } from "../client/src/lib/projects";
 import { SERVICE_AREA_CITIES, SERVICE_AREA_LABEL } from "../client/src/lib/serviceArea";
+import { SERVICES, type ServiceDef } from "../client/src/lib/services";
 
 const ROOT = resolve(process.cwd());
 const SITE = "https://handypioneers.com";
@@ -230,6 +231,72 @@ function postJsonLd(post: BlogPost): object[] {
   ];
 }
 
+// ─── service pages ────────────────────────────────────────────────────────────
+
+function serviceBodyHtml(svc: ServiceDef): string {
+  const parts = [
+    `<article>`,
+    `<nav><a href="${SITE}/services">Services</a> &middot; Clark County, WA</nav>`,
+    `<h1>${esc(svc.h1)}</h1>`,
+    ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
+    `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    `<h2>Common questions</h2>`,
+    ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
+    `<p>${esc(svc.membershipTieIn)} <a href="${SITE}/membership">Explore the 360° Method membership</a>.</p>`,
+  ];
+  if (svc.relatedServiceSlugs.length) {
+    parts.push(
+      `<h2>Related services</h2><ul>` +
+        svc.relatedServiceSlugs
+          .map((rs) => {
+            const r = SERVICES.find((x) => x.slug === rs);
+            return r ? `<li><a href="${SITE}/services/${rs}">${esc(r.name)}</a></li>` : "";
+          })
+          .join("") +
+        `</ul>`
+    );
+  }
+  parts.push(
+    `<p>Serving all of Clark County, WA. Call (360) 838-6731 or <a href="${SITE}/#contact">schedule a consultation</a>.</p>`,
+    `</article>`
+  );
+  return parts.join("\n");
+}
+
+function serviceJsonLd(svc: ServiceDef): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: svc.name,
+      serviceType: svc.serviceType,
+      description: svc.seoDesc,
+      provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
+      areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+      url: `${SITE}/services/${svc.slug}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE}/services` },
+        { "@type": "ListItem", position: 3, name: svc.name, item: `${SITE}/services/${svc.slug}` },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: svc.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+}
+
 // ─── main ───────────────────────────────────────────────────────────────────
 
 function main() {
@@ -291,9 +358,32 @@ function main() {
     count++;
   }
 
+  // Tier 1: service pages (full content + Service/Breadcrumb/FAQPage JSON-LD)
+  for (const svc of SERVICES) {
+    writeOut(`services/${svc.slug}.html`, tier1Page(shell, {
+      path: `/services/${svc.slug}`,
+      title: svc.seoTitle,
+      description: svc.seoDesc,
+      image: svc.image,
+      jsonLd: serviceJsonLd(svc),
+    }, serviceBodyHtml(svc)));
+    count++;
+  }
+
+  // Tier 1: services hub
+  {
+    const meta = PAGE_META.find((m) => m.path === "/services")!;
+    const cards = SERVICES.map(
+      (s) => `<li><a href="${SITE}/services/${s.slug}">${esc(s.name)}</a> - ${esc(s.intro[0])}</li>`
+    ).join("\n");
+    const body = `<h1>Home Services in Clark County, WA</h1>\n<p>From a single repair to a full remodel to year-round care, one team accountable for the result. Serving Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and all of Clark County.</p>\n<ul>${cards}</ul>`;
+    writeOut(`services.html`, tier1Page(shell, { ...meta, jsonLd: [] }, body));
+    count++;
+  }
+
   // Tier 2: marketing routes (head only)
   const tier2Meta: PageMeta[] = PAGE_META.filter(
-    (m) => !["/blog", "/faq"].includes(m.path)
+    (m) => !["/blog", "/faq", "/services"].includes(m.path)
   );
   for (const meta of tier2Meta) {
     const jsonLd: object[] = [];

@@ -30,6 +30,8 @@ import RoadmapDetails from "./pages/RoadmapDetails";
 import RoadmapOffer from "./pages/RoadmapOffer";
 import About from "./pages/About";
 import FAQ from "./pages/FAQ";
+import ServicePage from "./pages/ServicePage";
+import ServicesIndex from "./pages/ServicesIndex";
 function Router() {
   return (
     <Switch>
@@ -74,8 +76,8 @@ function Router() {
       {/* Real pages */}
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />
-      <Route path="/services" component={Home} />
-      <Route path="/services/:slug" component={Home} />
+      <Route path="/services" component={ServicesIndex} />
+      <Route path="/services/:slug" component={ServicePage} />
       <Route path="/gallery" component={Home} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/customer-reviews" component={Reviews} />

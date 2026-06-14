@@ -22,6 +22,7 @@ const STATIC_ROUTES = [
   { path: "/reviews", changefreq: "weekly", priority: "0.8" },
   { path: "/blog", changefreq: "weekly", priority: "0.8" },
   { path: "/membership", changefreq: "monthly", priority: "0.9" },
+  { path: "/services", changefreq: "monthly", priority: "0.8" },
   { path: "/roadmap-generator", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method/walkthrough", changefreq: "monthly", priority: "0.6" },
@@ -88,6 +89,16 @@ for (const r of STATIC_ROUTES) {
 
 const blogPath = resolve(ROOT, "client/src/lib/blog.ts");
 const projectPath = resolve(ROOT, "client/src/lib/projects.ts");
+const servicesPath = resolve(ROOT, "client/src/lib/services.ts");
+
+for (const slug of extractSlugs(servicesPath)) {
+  entries.push({
+    loc: `${SITE}/services/${slug}`,
+    lastmod: today,
+    changefreq: "monthly",
+    priority: "0.8",
+  });
+}
 
 for (const b of extractPublishedBlogSlugs(blogPath)) {
   entries.push({
