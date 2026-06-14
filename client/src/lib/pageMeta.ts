@@ -41,6 +41,12 @@ export const PAGE_META: PageMeta[] = [
       "Remodeling, deck and rot repair, painting, flooring, gutters, carpentry, and proactive maintenance for Vancouver WA and all of Clark County. One accountable team.",
   },
   {
+    path: "/service-areas",
+    title: "Service Areas - Clark County, WA | Handy Pioneers",
+    description:
+      "Handy Pioneers serves all of Clark County, WA: Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and more. Expanding soon to the greater Portland metro.",
+  },
+  {
     path: "/faq",
     title: "Frequently Asked Questions | Handy Pioneers - Clark County, WA",
     description:

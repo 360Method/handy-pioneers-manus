@@ -230,6 +230,7 @@ const HOMEPAGE_JSONLD = [
     sameAs: [
       "https://www.facebook.com/handypioneers",
       "https://www.instagram.com/handypioneers",
+      "https://share.google/OJgEhJ3AIQZ7AZP",
     ],
   },
   {
