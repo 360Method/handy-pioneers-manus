@@ -109,6 +109,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
   const [outOfArea, setOutOfArea] = useState(false);
   const [attachments, setAttachments] = useState<UploadedAttachment[]>([]);
   const [uploadingCount, setUploadingCount] = useState(0);
+  const [smsConsent, setSmsConsent] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const startedRef = useRef(false);
 
@@ -210,7 +211,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
           street: form.street.trim(),
           city: form.city.trim(),
           state: "WA",
-          smsConsent: false,
+          smsConsent,
         }),
       });
 
@@ -527,6 +528,22 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
       {error && (
         <p className="text-sm text-red-400 font-medium">{error}</p>
       )}
+
+      <label className={`flex items-start gap-2 text-xs leading-snug ${isHero ? "text-white/60" : "text-gray-500"}`}>
+        <input
+          type="checkbox"
+          checked={smsConsent}
+          onChange={(e) => setSmsConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 flex-shrink-0"
+        />
+        <span>
+          Text me about my request. I agree to receive text messages from Handy Pioneers
+          (confirmations, scheduling, and follow-ups) at the number provided. Msg &amp; data
+          rates may apply; message frequency varies. Reply STOP to opt out, HELP for help. See our{" "}
+          <a href="/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline">Privacy Policy</a> and{" "}
+          <a href="/terms-and-conditions" target="_blank" rel="noopener noreferrer" className="underline">Terms</a>.
+        </span>
+      </label>
 
       <button
         type="submit"
