@@ -147,8 +147,8 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll 
           ))}
         </div>
         <p className="text-xs leading-snug" style={{ color: "oklch(55% 0.02 60)" }}>
-          Larger jobs already include negotiated vetted-tradesman pricing - your total cost is
-          lower either way.
+          The bigger the project, the deeper your member rate. We reward bundling work together,
+          so the savings grow with the job.
         </p>
       </div>
 

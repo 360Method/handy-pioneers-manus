@@ -38,11 +38,11 @@ export const TIERS: TierData[] = [
     visits: 2,
     visitDescription: "Spring + Fall",
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "5% member rate" },
+      { label: "Jobs under $1,000", pct: "1.5% member rate" },
       { label: "Jobs $1,000-$5,000", pct: "3% member rate" },
-      { label: "Jobs over $5,000", pct: "1.5% member rate" },
+      { label: "Jobs over $5,000", pct: "5% member rate" },
     ],
-    discountPct: { underOneK: 5, oneToFiveK: 3, overFiveK: 1.5 },
+    discountPct: { underOneK: 1.5, oneToFiveK: 3, overFiveK: 5 },
     features: [
       "Annual 360° Home Scan (2-3 hr documented assessment)",
       "Spring visit - post-rain assessment + moss & gutter service",
@@ -68,11 +68,11 @@ export const TIERS: TierData[] = [
     visitDescription: "All 4 Seasons",
     popular: true,
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "8% member rate" },
+      { label: "Jobs under $1,000", pct: "2.5% member rate" },
       { label: "Jobs $1,000-$5,000", pct: "5% member rate" },
-      { label: "Jobs over $5,000", pct: "2.5% member rate" },
+      { label: "Jobs over $5,000", pct: "8% member rate" },
     ],
-    discountPct: { underOneK: 8, oneToFiveK: 5, overFiveK: 2.5 },
+    discountPct: { underOneK: 2.5, oneToFiveK: 5, overFiveK: 8 },
     features: [
       "Everything in Essential, plus:",
       "$300 labor bank credit (applied to any in-between visit task)",
@@ -97,11 +97,11 @@ export const TIERS: TierData[] = [
     visits: 4,
     visitDescription: "All 4 Seasons + Priority",
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "12% member rate" },
+      { label: "Jobs under $1,000", pct: "4% member rate" },
       { label: "Jobs $1,000-$5,000", pct: "8% member rate" },
-      { label: "Jobs over $5,000", pct: "4% member rate" },
+      { label: "Jobs over $5,000", pct: "12% member rate" },
     ],
-    discountPct: { underOneK: 12, oneToFiveK: 8, overFiveK: 4 },
+    discountPct: { underOneK: 4, oneToFiveK: 8, overFiveK: 12 },
     features: [
       "Everything in Full Coverage, plus:",
       "$600 labor bank credit - you're ahead after month 5",

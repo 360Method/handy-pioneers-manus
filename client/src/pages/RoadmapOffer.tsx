@@ -353,7 +353,7 @@ export default function RoadmapOffer() {
                         Member pricing on every roadmap item, all year
                       </span>
                       <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
-                        up to {gold.discountPct.underOneK}%
+                        up to {gold.discountPct.overFiveK}%
                       </span>
                     </div>
                   </div>
