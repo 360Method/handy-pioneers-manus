@@ -4,8 +4,10 @@ import { Redirect, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Analytics from "./components/Analytics";
 import ConsentBanner from "./components/ConsentBanner";
+import PromoBanner from "./components/PromoBanner";
 import InquiryModal from "./components/InquiryModal";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { PromoProvider } from "./contexts/PromoContext";
 import Home from "./pages/Home";
 import ProjectDetail from "./pages/ProjectDetail";
 import ThankYou from "./pages/ThankYou";
@@ -97,13 +99,16 @@ export default function App() {
   return (
     <ErrorBoundary>
       <ThemeProvider defaultTheme="light">
-        <TooltipProvider>
-          <Toaster />
-          <Analytics />
-          <Router />
-          <InquiryModal />
-          <ConsentBanner />
-        </TooltipProvider>
+        <PromoProvider>
+          <TooltipProvider>
+            <Toaster />
+            <Analytics />
+            <PromoBanner />
+            <Router />
+            <InquiryModal />
+            <ConsentBanner />
+          </TooltipProvider>
+        </PromoProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );
