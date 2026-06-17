@@ -571,7 +571,8 @@ export default function Membership() {
             className="text-center text-base mb-10 max-w-2xl mx-auto"
             style={{ color: "oklch(100% 0 0 / 0.7)" }}
           >
-            Every task your technician performs is backed by our one-year labor guarantee. If
+            Every task your technician performs is backed by our one-year labor guarantee, and
+            full-restoration projects we rebuild to sound structure carry a three-year guarantee. If
             something we completed fails due to workmanship, we return and correct it - no
             service call fee, no back-and-forth. That is what a guide owes the people they lead.
           </p>
@@ -590,7 +591,7 @@ export default function Membership() {
               {
                 icon: "🔐",
                 title: "Straightforward Terms",
-                body: "If we built it on a sound foundation, it is covered for a year. When we open something up and find a hidden problem, we tell you and put the choice in writing. The only work we can't guarantee is something we install over a problem you've asked us to cover instead of fix - and we say so up front.",
+                body: "If we built it on a sound foundation, it is covered for a year - and full structural rebuilds we take down to sound framing carry a three-year guarantee. When we open something up and find a hidden problem, we tell you and put the choice in writing. The only work we can't guarantee is something we install over a problem you've asked us to cover instead of fix - and we say so up front.",
               },
             ].map((item, i) => (
               <div

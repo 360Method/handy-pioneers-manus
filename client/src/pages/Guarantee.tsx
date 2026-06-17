@@ -58,6 +58,9 @@ export default function Guarantee() {
               <p>
                 Every job we complete is backed by a 1-year labor guarantee. If something we did fails because of how we did it, we come back and make it right - no service call fee, no trip charge, no back-and-forth. That is the simple version, and we mean it.
               </p>
+              <p>
+                When we do a full restoration - taking the work down to sound framing or structure and rebuilding it (a full-frame window replacement, structural framing or decking, a rebuilt subfloor or deck) - that work carries a <strong>3-year</strong> labor guarantee. The deeper we go and the more we control, the longer we can stand behind it.
+              </p>
             </Section>
 
             <Section title="We guarantee what we build on a sound foundation">
@@ -68,7 +71,7 @@ export default function Guarantee() {
                 When that happens, we stop, show you photos, and give you a clear choice in writing:
               </p>
               <ul className="list-disc pl-6 space-y-1">
-                <li><strong>Rebuild it right</strong> - we fix the underlying problem and restore the area to a sound base, then do the work on top of it. That work is fully guaranteed.</li>
+                <li><strong>Rebuild it right</strong> - we fix the underlying problem and restore the area to a sound base, then do the work on top of it. That work is fully guaranteed, and a full structural rebuild carries our 3-year guarantee.</li>
                 <li><strong>Go over it</strong> - at your direction, we install over the existing condition to keep the cost down. We can't guarantee work that sits on a base we weren't able to make sound, so that specific part falls outside the guarantee. We put that in writing too, and everything else on the job stays covered.</li>
               </ul>
               <p>
