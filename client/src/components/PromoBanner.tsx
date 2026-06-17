@@ -88,10 +88,12 @@ export default function PromoBanner() {
         left: 0,
         right: 0,
         zIndex: 60,
-        backgroundColor: "oklch(0.22 0.07 160)",
-        color: "oklch(0.97 0.015 80)",
+        // Warm amber (theme accent) so the bar pops against the white nav + off-white
+        // page, with deep-forest-green text/controls for contrast and brand cohesion.
+        backgroundColor: "oklch(0.72 0.15 72)",
+        color: "oklch(0.24 0.07 160)",
         fontFamily: "'Source Sans 3', sans-serif",
-        borderBottom: "2px solid oklch(0.65 0.14 65)",
+        borderBottom: "2px solid oklch(0.22 0.07 160)",
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -107,7 +109,7 @@ export default function PromoBanner() {
           fontWeight: 800,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color: "oklch(0.8 0.12 70)",
+          color: "oklch(0.32 0.08 160)",
         }}
       >
         Limited time
@@ -120,8 +122,8 @@ export default function PromoBanner() {
           title="Copy code"
           style={{
             backgroundColor: "transparent",
-            color: "oklch(0.9 0.04 80)",
-            border: "1px dashed oklch(0.65 0.14 65)",
+            color: "oklch(0.24 0.07 160)",
+            border: "1px dashed oklch(0.32 0.08 160)",
             borderRadius: "0.4rem",
             padding: "0.25rem 0.7rem",
             fontSize: "0.8rem",
@@ -139,8 +141,8 @@ export default function PromoBanner() {
         type="button"
         onClick={() => openInquiry({ promoCode: promo.code ?? undefined })}
         style={{
-          backgroundColor: "oklch(0.65 0.14 65)",
-          color: "oklch(0.18 0.05 160)",
+          backgroundColor: "oklch(0.24 0.07 160)",
+          color: "oklch(0.97 0.015 80)",
           border: "none",
           borderRadius: "0.45rem",
           padding: "0.4rem 1.1rem",
@@ -163,7 +165,7 @@ export default function PromoBanner() {
           transform: "translateY(-50%)",
           background: "transparent",
           border: "none",
-          color: "oklch(0.82 0.04 80)",
+          color: "oklch(0.34 0.06 160)",
           fontSize: "1.2rem",
           lineHeight: 1,
           cursor: "pointer",
