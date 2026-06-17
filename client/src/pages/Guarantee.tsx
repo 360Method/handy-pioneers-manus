@@ -99,7 +99,7 @@ export default function Guarantee() {
                 <strong>Handy Pioneers</strong><br />
                 Vancouver, WA (Clark County)<br />
                 Phone: <a href="tel:+13608386731" style={{ color: "oklch(0.32 0.07 160)" }}>(360) 838-6731</a><br />
-                Email: <a href="mailto:info@handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>info@handypioneers.com</a>
+                Email: <a href="mailto:help@handypioneers.com" style={{ color: "oklch(0.32 0.07 160)" }}>help@handypioneers.com</a>
               </address>
               <p className="mt-4 text-sm" style={{ color: "oklch(0.55 0.03 80)" }}>
                 The full warranty language is in our{" "}
