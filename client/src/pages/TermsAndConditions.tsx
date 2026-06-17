@@ -112,7 +112,7 @@ export default function TermsAndConditions() {
 
           <Section title="6. Warranty">
             <p>
-              Handy Pioneers provides a 1-year labor warranty on all completed work. This warranty covers defects in workmanship but does not cover damage caused by misuse, normal wear and tear, or conditions outside our control (including but not limited to flooding, acts of nature, or pre-existing structural issues). Manufacturer warranties on materials and products are separate and governed by the respective manufacturer's terms.
+              Handy Pioneers provides a 1-year labor warranty on completed work, covering defects in workmanship performed on a sound foundation. The warranty does not cover damage caused by misuse, normal wear and tear, or conditions outside our control (including but not limited to flooding, acts of nature, or pre-existing structural issues). It also does not cover work installed over a concealed or structural condition that we recommended addressing and the customer directed us to proceed without addressing (for example, covering over a condition we flagged, or installing an insert in place of a full rebuild); in that case we document the choice in a signed change order and acknowledgment before proceeding, and only that scope is excluded. Manufacturer warranties on materials and products are separate and governed by the respective manufacturer's terms.
             </p>
           </Section>
 

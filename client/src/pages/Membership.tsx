@@ -571,7 +571,7 @@ export default function Membership() {
             className="text-center text-base mb-10 max-w-2xl mx-auto"
             style={{ color: "oklch(100% 0 0 / 0.7)" }}
           >
-            Every task your technician performs is backed by a full one-year labor guarantee. If
+            Every task your technician performs is backed by our one-year labor guarantee. If
             something we completed fails due to workmanship, we return and correct it - no
             service call fee, no back-and-forth. That is what a guide owes the people they lead.
           </p>
@@ -590,7 +590,7 @@ export default function Membership() {
               {
                 icon: "🔐",
                 title: "Straightforward Terms",
-                body: "If we completed it, it is covered for a year. We do not carve out exceptions for tasks we just performed. That is the complete policy.",
+                body: "If we built it on a sound foundation, it is covered for a year. When we open something up and find a hidden problem, we tell you and put the choice in writing. The only work we can't guarantee is something we install over a problem you've asked us to cover instead of fix - and we say so up front.",
               },
             ].map((item, i) => (
               <div
@@ -627,8 +627,9 @@ export default function Membership() {
             <p className="text-sm" style={{ color: "oklch(100% 0 0 / 0.8)" }}>
               <strong style={{ color: "oklch(75% 0.15 72)" }}>What's not covered:</strong>{" "}
               Material failures from manufacturer defects, damage caused by third parties or acts
-              of nature, or tasks outside the original scope of work. If we didn't do it, we don't
-              guarantee it - but we'll tell you who should.
+              of nature, tasks outside the original scope, and work we install over a condition you
+              asked us to cover instead of repair. If we didn't do it, or you asked us to go over a
+              problem we flagged, we'll tell you straight and put it in writing.
             </p>
           </div>
         </div>
