@@ -14,6 +14,7 @@ import BlogPost from "./pages/BlogPost";
 import Reviews from "./pages/Reviews";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsAndConditions from "./pages/TermsAndConditions";
+import Guarantee from "./pages/Guarantee";
 import Method360 from "./pages/Method360";
 import Method360Walkthrough from "./pages/Method360Walkthrough";
 import Method360Referral from "./pages/Method360Referral";
@@ -44,6 +45,7 @@ function Router() {
       {/* Legal pages */}
       <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route path="/terms-and-conditions" component={TermsAndConditions} />
+      <Route path="/guarantee" component={Guarantee} />
       {/* 360° Method funnel pages */}
       <Route path="/360-method" component={Method360} />
       {/* Legacy - consolidated into /roadmap-generator */}

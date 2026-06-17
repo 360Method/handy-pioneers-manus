@@ -96,6 +96,12 @@ export const PAGE_META: PageMeta[] = [
     description:
       "Handy Pioneers' terms of service, SMS/communications policy, and site usage terms.",
   },
+  {
+    path: "/guarantee",
+    title: "Our Labor Guarantee | Handy Pioneers - Vancouver, WA",
+    description:
+      "What the Handy Pioneers 1-year labor guarantee covers, and how we handle the hidden problems we sometimes find once a project is open - honest, in writing, no surprises.",
+  },
 ];
 
 export function metaForPath(path: string): PageMeta | undefined {

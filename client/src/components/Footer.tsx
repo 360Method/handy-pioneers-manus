@@ -243,6 +243,13 @@ export default function Footer() {
             Unauthorized reproduction, imitation, or rebranding is prohibited.
           </p>
           <div className="flex gap-4">
+            <a
+              href="/guarantee"
+              className="text-xs hover:opacity-80 transition-opacity text-left no-underline"
+              style={{ color: "rgba(255,255,255,0.40)", fontFamily: "'Source Sans 3', sans-serif" }}
+            >
+              Our Guarantee
+            </a>
             <button
               onClick={() => window.open("/privacy-policy", "_blank", "width=900,height=700,scrollbars=yes")}
               className="text-xs hover:opacity-80 transition-opacity text-left"

@@ -28,6 +28,7 @@ const STATIC_ROUTES = [
   { path: "/360-method/referral", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },
+  { path: "/guarantee", changefreq: "monthly", priority: "0.6" },
 ];
 
 // `"?key"?` tolerates both TS-style (slug:) and JSON-style ("slug":) entries.
