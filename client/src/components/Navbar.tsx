@@ -94,10 +94,12 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky top-0 z-50 w-full transition-all duration-300 ${
+      className={`sticky z-50 w-full transition-all duration-300 ${
         scrolled ? "shadow-lg" : "shadow-sm"
       }`}
       style={{
+        // Pin just below the seasonal-offer bar (0 when there's no bar).
+        top: "var(--hp-promo-h, 0px)",
         backgroundColor: scrolled ? "oklch(0.97 0.015 80)" : "oklch(1 0 0)",
         borderBottom: "1px solid oklch(0.85 0.015 80)",
       }}

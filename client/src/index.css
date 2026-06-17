@@ -320,3 +320,10 @@
     box-shadow: 0 2px 8px oklch(0% 0 0 / 0.28);
   }
 }
+
+/* Seasonal-offer bar: PromoBanner is fixed at the top and publishes its height
+   as --hp-promo-h. Offset the page so nothing hides under it (the navbar reads
+   the same var for its sticky top). 0 when there's no active offer. */
+body {
+  padding-top: var(--hp-promo-h, 0px);
+}

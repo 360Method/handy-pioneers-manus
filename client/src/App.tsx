@@ -5,6 +5,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import Analytics from "./components/Analytics";
 import ConsentBanner from "./components/ConsentBanner";
 import PromoBanner from "./components/PromoBanner";
+import PromoModal from "./components/PromoModal";
 import InquiryModal from "./components/InquiryModal";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import { PromoProvider } from "./contexts/PromoContext";
@@ -106,6 +107,7 @@ export default function App() {
             <PromoBanner />
             <Router />
             <InquiryModal />
+            <PromoModal />
             <ConsentBanner />
           </TooltipProvider>
         </PromoProvider>
