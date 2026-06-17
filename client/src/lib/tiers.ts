@@ -38,11 +38,12 @@ export const TIERS: TierData[] = [
     visits: 2,
     visitDescription: "Spring + Fall",
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "1.5% member rate" },
-      { label: "Jobs $1,000-$5,000", pct: "3% member rate" },
-      { label: "Jobs over $5,000", pct: "5% member rate" },
+      { label: "Jobs under $5,000", pct: "2.5% member rate" },
+      { label: "Jobs $5,000-$20,000", pct: "5% member rate" },
+      { label: "Jobs over $20,000", pct: "7% member rate" },
     ],
-    discountPct: { underOneK: 1.5, oneToFiveK: 3, overFiveK: 5 },
+    // Keys are historical band labels; values are now under-$5k / $5k-$20k / over-$20k.
+    discountPct: { underOneK: 2.5, oneToFiveK: 5, overFiveK: 7 },
     features: [
       "Annual 360° Home Scan (2-3 hr documented assessment)",
       "Spring visit - post-rain assessment + moss & gutter service",
@@ -68,11 +69,11 @@ export const TIERS: TierData[] = [
     visitDescription: "All 4 Seasons",
     popular: true,
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "2.5% member rate" },
-      { label: "Jobs $1,000-$5,000", pct: "5% member rate" },
-      { label: "Jobs over $5,000", pct: "8% member rate" },
+      { label: "Jobs under $5,000", pct: "4.5% member rate" },
+      { label: "Jobs $5,000-$20,000", pct: "8% member rate" },
+      { label: "Jobs over $20,000", pct: "11% member rate" },
     ],
-    discountPct: { underOneK: 2.5, oneToFiveK: 5, overFiveK: 8 },
+    discountPct: { underOneK: 4.5, oneToFiveK: 8, overFiveK: 11 },
     features: [
       "Everything in Essential, plus:",
       "$300 labor bank credit (applied to any in-between visit task)",
@@ -97,11 +98,11 @@ export const TIERS: TierData[] = [
     visits: 4,
     visitDescription: "All 4 Seasons + Priority",
     discountBrackets: [
-      { label: "Jobs under $1,000", pct: "4% member rate" },
-      { label: "Jobs $1,000-$5,000", pct: "8% member rate" },
-      { label: "Jobs over $5,000", pct: "12% member rate" },
+      { label: "Jobs under $5,000", pct: "7% member rate" },
+      { label: "Jobs $5,000-$20,000", pct: "12% member rate" },
+      { label: "Jobs over $20,000", pct: "15% member rate" },
     ],
-    discountPct: { underOneK: 4, oneToFiveK: 8, overFiveK: 12 },
+    discountPct: { underOneK: 7, oneToFiveK: 12, overFiveK: 15 },
     features: [
       "Everything in Full Coverage, plus:",
       "$600 labor bank credit - you're ahead after month 5",
@@ -260,9 +261,10 @@ export function valueStackFor(
 /** Member savings on one out-of-scope job, using the tier's discount brackets. */
 export function memberSavingsExample(tier: TierData, jobAmount: number): number {
   const { underOneK, oneToFiveK, overFiveK } = tier.discountPct;
-  const t1 = Math.min(jobAmount, 1000) * (underOneK / 100);
-  const t2 = Math.max(0, Math.min(jobAmount, 5000) - 1000) * (oneToFiveK / 100);
-  const t3 = Math.max(0, jobAmount - 5000) * (overFiveK / 100);
+  // Progressive bands: under $5k / $5k-$20k / over $20k.
+  const t1 = Math.min(jobAmount, 5000) * (underOneK / 100);
+  const t2 = Math.max(0, Math.min(jobAmount, 20000) - 5000) * (oneToFiveK / 100);
+  const t3 = Math.max(0, jobAmount - 20000) * (overFiveK / 100);
   return Math.round(t1 + t2 + t3);
 }
 

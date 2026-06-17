@@ -20,9 +20,9 @@ const HO_PROPERTY_TYPE_OPTIONS = [
 ];
 
 const HO_TIER_OPTIONS: { value: MemberTier; label: string; desc: string }[] = [
-  { value: "bronze", label: "Essential", desc: "2 visits/yr · 5% member rate" },
-  { value: "silver", label: "Full Coverage", desc: "4 visits/yr · 8% member rate · $300 labor bank" },
-  { value: "gold", label: "Maximum Protection", desc: "4 visits/yr · 12% member rate · $600 labor bank" },
+  { value: "bronze", label: "Essential", desc: "2 visits/yr · 7% member rate" },
+  { value: "silver", label: "Full Coverage", desc: "4 visits/yr · 11% member rate · $300 labor bank" },
+  { value: "gold", label: "Maximum Protection", desc: "4 visits/yr · 15% member rate · $600 labor bank" },
 ];
 
 const PRO_API = getApiBase();

@@ -49,7 +49,7 @@ const FAQS = [
   },
   {
     q: "Does the member rate change with the size of the job?",
-    a: "Yes, and it works in your favor. The bigger the project, the deeper your member rate - we reward bundling work together rather than spreading it out. Essential members save 1.5% on jobs under $1,000, 3% from $1,000 to $5,000, and 5% above $5,000. Full Coverage saves 2.5% / 5% / 8%. Maximum saves 4% / 8% / 12%. Your rate applies automatically and stacks with any labor bank credit.",
+    a: "Yes, and it works in your favor. The bigger the project, the deeper your member rate - we reward bundling work together rather than spreading it out. Essential members save 2.5% on jobs under $5,000, 5% from $5,000 to $20,000, and 7% above $20,000. Full Coverage saves 4.5% / 8% / 11%. Maximum saves 7% / 12% / 15%. Your rate applies automatically and stacks with any labor bank credit.",
   },
   {
     q: "Is this a licensed home inspection?",
