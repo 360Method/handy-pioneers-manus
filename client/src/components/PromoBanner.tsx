@@ -4,54 +4,27 @@
  * its height as the `--hp-promo-h` CSS var, which the navbar (top offset) and the
  * page (body padding-top, in index.css) use so nothing is hidden under it.
  *
- * Renders nothing when there's no active promo (PromoContext is null-safe) or once
- * dismissed (remembered per-offer, so next month's promo shows again). The "Book"
- * CTA opens the real consultation form via openInquiry(). Voice: limited-time
- * seasonal offer, never "cheap/bargain".
+ * Shown the whole time an offer is active (no dismiss - the point is that people
+ * see it). Renders nothing when there's no active promo (PromoContext is null-safe).
+ * CTAs: book the consultation form (openInquiry) or call us. No promo code - the
+ * discount is applied by the consultant, so there's nothing for the customer to
+ * enter. Voice: limited-time seasonal offer, never "cheap/bargain".
  */
-import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { usePromo } from "@/contexts/PromoContext";
 import { openInquiry } from "@/lib/inquiry";
 
-function dismissKey(headline: string): string {
-  return "hp_promo_bar_dismissed_" + headline.toLowerCase().replace(/[^a-z0-9]+/g, "-").slice(0, 64);
-}
+const HP_PHONE = "(360) 838-6731";
+const HP_PHONE_TEL = "+13608386731";
 
 export default function PromoBanner() {
   const { promo } = usePromo();
-  const [dismissed, setDismissed] = useState(true);
-  const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-
-  const copyCode = () => {
-    if (!promo?.code) return;
-    try {
-      navigator.clipboard?.writeText(promo.code);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      // non-fatal
-    }
-  };
-
-  useEffect(() => {
-    if (!promo) {
-      setDismissed(true);
-      return;
-    }
-    try {
-      setDismissed(Boolean(window.localStorage.getItem(dismissKey(promo.headline))));
-    } catch {
-      setDismissed(false);
-    }
-  }, [promo]);
-
-  const visible = Boolean(promo) && !dismissed;
 
   // Keep the layout offset (navbar top + body padding) in sync with the bar height.
   useLayoutEffect(() => {
     const root = document.documentElement;
-    if (!visible || !ref.current) {
+    if (!promo || !ref.current) {
       root.style.setProperty("--hp-promo-h", "0px");
       return;
     }
@@ -64,18 +37,9 @@ export default function PromoBanner() {
       ro.disconnect();
       root.style.setProperty("--hp-promo-h", "0px");
     };
-  }, [visible, promo]);
+  }, [promo]);
 
-  if (!visible || !promo) return null;
-
-  const dismiss = () => {
-    try {
-      window.localStorage.setItem(dismissKey(promo.headline), new Date().toISOString());
-    } catch {
-      // non-fatal
-    }
-    setDismissed(true);
-  };
+  if (!promo) return null;
 
   return (
     <div
@@ -98,7 +62,7 @@ export default function PromoBanner() {
         alignItems: "center",
         justifyContent: "center",
         gap: "0.75rem",
-        padding: "0.6rem 2.5rem 0.6rem 1rem",
+        padding: "0.6rem 1rem",
         flexWrap: "wrap",
         textAlign: "center",
       }}
@@ -115,31 +79,9 @@ export default function PromoBanner() {
         Limited time
       </span>
       <span style={{ fontSize: "0.97rem", fontWeight: 700 }}>{promo.headline}</span>
-      {promo.code && (
-        <button
-          type="button"
-          onClick={copyCode}
-          title="Copy code"
-          style={{
-            backgroundColor: "transparent",
-            color: "oklch(0.24 0.07 160)",
-            border: "1px dashed oklch(0.32 0.08 160)",
-            borderRadius: "0.4rem",
-            padding: "0.25rem 0.7rem",
-            fontSize: "0.8rem",
-            fontWeight: 800,
-            letterSpacing: "0.04em",
-            cursor: "pointer",
-            whiteSpace: "nowrap",
-            fontFamily: "'Source Sans 3', sans-serif",
-          }}
-        >
-          {copied ? "Copied ✓" : `Code: ${promo.code} ⧉`}
-        </button>
-      )}
       <button
         type="button"
-        onClick={() => openInquiry({ promoCode: promo.code ?? undefined })}
+        onClick={() => openInquiry()}
         style={{
           backgroundColor: "oklch(0.24 0.07 160)",
           color: "oklch(0.97 0.015 80)",
@@ -154,26 +96,18 @@ export default function PromoBanner() {
       >
         Book now
       </button>
-      <button
-        type="button"
-        onClick={dismiss}
-        aria-label="Dismiss offer"
+      <a
+        href={`tel:${HP_PHONE_TEL}`}
         style={{
-          position: "absolute",
-          right: "0.6rem",
-          top: "50%",
-          transform: "translateY(-50%)",
-          background: "transparent",
-          border: "none",
-          color: "oklch(0.34 0.06 160)",
-          fontSize: "1.2rem",
-          lineHeight: 1,
-          cursor: "pointer",
-          padding: "0 0.25rem",
+          color: "oklch(0.22 0.07 160)",
+          fontSize: "0.84rem",
+          fontWeight: 700,
+          textDecoration: "underline",
+          whiteSpace: "nowrap",
         }}
       >
-        ×
-      </button>
+        or call {HP_PHONE}
+      </a>
     </div>
   );
 }
