@@ -11,6 +11,8 @@ export interface InquiryContext {
   mode?: "project" | "baseline" | "roadmap";
   tier?: string;
   sqft?: number;
+  /** Seasonal-offer code the lead came in on (folded into the lead source). */
+  promoCode?: string;
 }
 
 type Listener = (ctx: InquiryContext) => void;

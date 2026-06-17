@@ -20,7 +20,19 @@ function dismissKey(headline: string): string {
 export default function PromoBanner() {
   const { promo } = usePromo();
   const [dismissed, setDismissed] = useState(true);
+  const [copied, setCopied] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
+
+  const copyCode = () => {
+    if (!promo?.code) return;
+    try {
+      navigator.clipboard?.writeText(promo.code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // non-fatal
+    }
+  };
 
   useEffect(() => {
     if (!promo) {
@@ -101,9 +113,31 @@ export default function PromoBanner() {
         Limited time
       </span>
       <span style={{ fontSize: "0.97rem", fontWeight: 700 }}>{promo.headline}</span>
+      {promo.code && (
+        <button
+          type="button"
+          onClick={copyCode}
+          title="Copy code"
+          style={{
+            backgroundColor: "transparent",
+            color: "oklch(0.9 0.04 80)",
+            border: "1px dashed oklch(0.65 0.14 65)",
+            borderRadius: "0.4rem",
+            padding: "0.25rem 0.7rem",
+            fontSize: "0.8rem",
+            fontWeight: 800,
+            letterSpacing: "0.04em",
+            cursor: "pointer",
+            whiteSpace: "nowrap",
+            fontFamily: "'Source Sans 3', sans-serif",
+          }}
+        >
+          {copied ? "Copied ✓" : `Code: ${promo.code} ⧉`}
+        </button>
+      )}
       <button
         type="button"
-        onClick={() => openInquiry()}
+        onClick={() => openInquiry({ promoCode: promo.code ?? undefined })}
         style={{
           backgroundColor: "oklch(0.65 0.14 65)",
           color: "oklch(0.18 0.05 160)",

@@ -15,6 +15,8 @@ export interface ActivePromo {
   headline: string;
   /** Short label, e.g. "10% off" / "Free gutter check" / "$50 off $500+". */
   valueLabel: string;
+  /** Code customers copy/mention when booking, or null. */
+  code: string | null;
   endsAt: string | null;
 }
 

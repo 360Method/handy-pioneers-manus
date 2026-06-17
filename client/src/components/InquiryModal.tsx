@@ -93,7 +93,11 @@ export default function InquiryModal() {
                 </li>
               ))}
             </ul>
-            <ProjectInquiryForm source="inquiry-modal" variant="cta" funnel="project" />
+            <ProjectInquiryForm
+              source={ctx.promoCode ? `inquiry-modal_promo-${ctx.promoCode}` : "inquiry-modal"}
+              variant="cta"
+              funnel="project"
+            />
           </>
         )}
       </DialogContent>

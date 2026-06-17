@@ -22,6 +22,18 @@ function seenKey(headline: string): string {
 export default function PromoModal() {
   const { promo } = usePromo();
   const [open, setOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const copyCode = () => {
+    if (!promo?.code) return;
+    try {
+      navigator.clipboard?.writeText(promo.code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1800);
+    } catch {
+      // non-fatal
+    }
+  };
 
   useEffect(() => {
     if (!promo) return;
@@ -39,7 +51,7 @@ export default function PromoModal() {
       } catch {
         // non-fatal
       }
-    }, 1800);
+    }, 12000);
     return () => clearTimeout(t);
   }, [promo]);
 
@@ -47,7 +59,7 @@ export default function PromoModal() {
 
   const book = () => {
     setOpen(false);
-    openInquiry();
+    openInquiry({ promoCode: promo.code ?? undefined });
   };
 
   return (
@@ -78,6 +90,58 @@ export default function PromoModal() {
             you'll get a clear written plan either way.
           </DialogDescription>
         </DialogHeader>
+        {promo.code && (
+          <div
+            className="flex items-center justify-between gap-3 rounded-lg px-4 py-3"
+            style={{ backgroundColor: "oklch(0.95 0.02 80)", border: "1px dashed oklch(0.65 0.14 65)" }}
+          >
+            <div>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "0.68rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.08em",
+                  textTransform: "uppercase",
+                  color: "oklch(0.45 0.02 80)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                Your code
+              </p>
+              <p
+                style={{
+                  margin: 0,
+                  fontSize: "1.15rem",
+                  fontWeight: 800,
+                  letterSpacing: "0.05em",
+                  color: "oklch(0.22 0.07 160)",
+                  fontFamily: "'Source Sans 3', sans-serif",
+                }}
+              >
+                {promo.code}
+              </p>
+            </div>
+            <button
+              type="button"
+              onClick={copyCode}
+              style={{
+                backgroundColor: copied ? "oklch(0.45 0.1 150)" : "oklch(0.22 0.07 160)",
+                color: "oklch(0.97 0.015 80)",
+                border: "none",
+                borderRadius: "0.45rem",
+                padding: "0.45rem 0.9rem",
+                fontSize: "0.82rem",
+                fontWeight: 700,
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+                fontFamily: "'Source Sans 3', sans-serif",
+              }}
+            >
+              {copied ? "Copied" : "Copy"}
+            </button>
+          </div>
+        )}
         <div className="flex flex-col gap-2 pt-1 sm:flex-row">
           <button
             type="button"
