@@ -1,20 +1,9 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Link } from "wouter";
+import { SERVICES } from "@/lib/services";
+import { ACTIVE_CITIES } from "@/lib/cities";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
-
-const servicesList = [
-  "Cabinets", "Carpentry", "Decking", "Doors", "Fencing",
-  "Flooring", "General Contracting", "Gutter Cleaning",
-  "Home Repair", "Painting", "Pressure Washing",
-  "Punch List Repairs", "Remodeling", "Rot Repair",
-  "Trim Carpentry", "TV Mounting", "Windows",
-];
-
-const areas = [
-  "Vancouver, WA", "Camas, WA", "Washougal, WA",
-  "Battle Ground, WA", "La Center, WA", "Ridgefield, WA",
-  "Clark County, WA",
-];
 
 export default function Footer() {
   return (
@@ -101,15 +90,15 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-2">
-              {servicesList.map((s) => (
-                <li key={s}>
-                  <a
-                    href="#services"
+              {SERVICES.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/services/${s.slug}`}
                     className="text-sm hover:opacity-80 transition-opacity"
                     style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
                   >
-                    {s}
-                  </a>
+                    {s.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -123,9 +112,20 @@ export default function Footer() {
             >
               Service Areas
             </h4>
-            <p className="text-xs mb-3" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>
-              Vancouver · Camas · Washougal · Battle Ground · La Center · Ridgefield · Clark County, WA
-            </p>
+            <ul className="flex flex-wrap gap-x-3 gap-y-1 text-xs mb-3" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              {ACTIVE_CITIES.map((c) => (
+                <li key={c.slug}>
+                  <Link href={`/service-areas/${c.slug}`} className="hover:opacity-80 transition-opacity" style={{ color: "rgba(255,255,255,0.55)" }}>
+                    {c.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link href="/service-areas" className="hover:opacity-80 transition-opacity" style={{ color: "oklch(0.80 0.10 65)", fontWeight: 600 }}>
+                  All areas →
+                </Link>
+              </li>
+            </ul>
             <div className="rounded-xl overflow-hidden" style={{ height: "180px", border: "1px solid rgba(255,255,255,0.10)" }}>
               <iframe
                 title="Handy Pioneers Service Area - Clark County, WA"

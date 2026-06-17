@@ -38,6 +38,8 @@ import { PAGE_META, type PageMeta } from "../client/src/lib/pageMeta";
 import { TIERS } from "../client/src/lib/tiers";
 import { projects } from "../client/src/lib/projects";
 import { SERVICE_AREA_CITIES, SERVICE_AREA_LABEL } from "../client/src/lib/serviceArea";
+import { SERVICES, type ServiceDef } from "../client/src/lib/services";
+import { CITIES, ACTIVE_CITIES, WAITLIST_CITIES, type CityDef } from "../client/src/lib/cities";
 
 const ROOT = resolve(process.cwd());
 const SITE = "https://handypioneers.com";
@@ -230,6 +232,143 @@ function postJsonLd(post: BlogPost): object[] {
   ];
 }
 
+// ─── service pages ────────────────────────────────────────────────────────────
+
+function serviceBodyHtml(svc: ServiceDef): string {
+  const parts = [
+    `<article>`,
+    `<nav><a href="${SITE}/services">Services</a> &middot; Clark County, WA</nav>`,
+    `<h1>${esc(svc.h1)}</h1>`,
+    ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
+    `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    `<h2>Common questions</h2>`,
+    ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
+    `<p>${esc(svc.membershipTieIn)} <a href="${SITE}/membership">Explore the 360° Method membership</a>.</p>`,
+  ];
+  if (svc.relatedServiceSlugs.length) {
+    parts.push(
+      `<h2>Related services</h2><ul>` +
+        svc.relatedServiceSlugs
+          .map((rs) => {
+            const r = SERVICES.find((x) => x.slug === rs);
+            return r ? `<li><a href="${SITE}/services/${rs}">${esc(r.name)}</a></li>` : "";
+          })
+          .join("") +
+        `</ul>`
+    );
+  }
+  parts.push(
+    `<p>Serving all of Clark County, WA. Call (360) 838-6731 or <a href="${SITE}/#contact">schedule a consultation</a>.</p>`,
+    `</article>`
+  );
+  return parts.join("\n");
+}
+
+function serviceJsonLd(svc: ServiceDef): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: svc.name,
+      serviceType: svc.serviceType,
+      description: svc.seoDesc,
+      provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
+      areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+      url: `${SITE}/services/${svc.slug}`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${SITE}/services` },
+        { "@type": "ListItem", position: 3, name: svc.name, item: `${SITE}/services/${svc.slug}` },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: svc.faq.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+}
+
+// ─── city / service-area pages ────────────────────────────────────────────────
+
+function cityBodyHtml(c: CityDef): string {
+  const waitlist = c.status === "waitlist";
+  const parts = [
+    `<article>`,
+    `<nav><a href="${SITE}/service-areas">Service Areas</a> &middot; ${esc(c.name)}, ${c.state}</nav>`,
+    `<h1>${waitlist ? `Coming Soon to ${esc(c.name)}, ${c.state}` : `Home Care & Restoration in ${esc(c.name)}, WA`}</h1>`,
+    ...c.intro.map((p) => `<p>${esc(p)}</p>`),
+  ];
+  if (waitlist) {
+    parts.push(
+      `<p><strong>We're not serving Oregon yet.</strong> Handy Pioneers is licensed and operating in Washington and is planning our expansion into the greater Portland metro. Join the waitlist to be first to know when we can serve ${esc(c.name)}.</p>`,
+      `<p>In the meantime, the <a href="${SITE}/360-method">360° Method</a> is our proactive approach to whole-home care, and it applies anywhere in the Pacific Northwest.</p>`
+    );
+  } else {
+    parts.push(`<h2>What we do in ${esc(c.name)}</h2><ul>`);
+    for (const slug of c.servicesOffered) {
+      const s = SERVICES.find((x) => x.slug === slug);
+      if (s) parts.push(`<li><a href="${SITE}/services/${slug}">${esc(s.name)}</a></li>`);
+    }
+    parts.push(`</ul>`);
+    parts.push(`<p>Want your ${esc(c.name)} home looked after on a schedule instead of patched up when something breaks? Explore the <a href="${SITE}/membership">360° Method membership</a>.</p>`);
+  }
+  if (c.neighborhoods.length) {
+    parts.push(`<p>${waitlist ? "Including" : "Serving"} ${esc(c.neighborhoods.join(", "))}, and the surrounding ${esc(c.name)} area.</p>`);
+  }
+  parts.push(`</article>`);
+  return parts.join("\n");
+}
+
+function cityJsonLd(c: CityDef): object[] {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+      { "@type": "ListItem", position: 2, name: "Service Areas", item: `${SITE}/service-areas` },
+      { "@type": "ListItem", position: 3, name: c.name, item: `${SITE}/service-areas/${c.slug}` },
+    ],
+  };
+  if (c.status === "waitlist") {
+    return [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: `Handy Pioneers is expanding to ${c.name}, ${c.state}`,
+        description: c.seoDesc,
+        url: `${SITE}/service-areas/${c.slug}`,
+      },
+      breadcrumb,
+    ];
+  }
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: `Home Care & Restoration in ${c.name}, ${c.state}`,
+      provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
+      areaServed: {
+        "@type": "City",
+        name: c.name,
+        address: { "@type": "PostalAddress", addressLocality: c.name, addressRegion: c.state },
+        geo: { "@type": "GeoCoordinates", latitude: c.geo.lat, longitude: c.geo.lng },
+      },
+      url: `${SITE}/service-areas/${c.slug}`,
+    },
+    breadcrumb,
+  ];
+}
+
 // ─── main ───────────────────────────────────────────────────────────────────
 
 function main() {
@@ -291,9 +430,54 @@ function main() {
     count++;
   }
 
+  // Tier 1: service pages (full content + Service/Breadcrumb/FAQPage JSON-LD)
+  for (const svc of SERVICES) {
+    writeOut(`services/${svc.slug}.html`, tier1Page(shell, {
+      path: `/services/${svc.slug}`,
+      title: svc.seoTitle,
+      description: svc.seoDesc,
+      image: svc.image,
+      jsonLd: serviceJsonLd(svc),
+    }, serviceBodyHtml(svc)));
+    count++;
+  }
+
+  // Tier 1: services hub
+  {
+    const meta = PAGE_META.find((m) => m.path === "/services")!;
+    const cards = SERVICES.map(
+      (s) => `<li><a href="${SITE}/services/${s.slug}">${esc(s.name)}</a> - ${esc(s.intro[0])}</li>`
+    ).join("\n");
+    const body = `<h1>Home Services in Clark County, WA</h1>\n<p>From a single repair to a full remodel to year-round care, one team accountable for the result. Serving Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and all of Clark County.</p>\n<ul>${cards}</ul>`;
+    writeOut(`services.html`, tier1Page(shell, { ...meta, jsonLd: [] }, body));
+    count++;
+  }
+
+  // Tier 1: city / service-area pages (active = full + Service/geo; waitlist = honest, no Service schema)
+  for (const c of CITIES) {
+    writeOut(`service-areas/${c.slug}.html`, tier1Page(shell, {
+      path: `/service-areas/${c.slug}`,
+      title: c.seoTitle,
+      description: c.seoDesc,
+      image: c.image,
+      jsonLd: cityJsonLd(c),
+    }, cityBodyHtml(c)));
+    count++;
+  }
+
+  // Tier 1: service-areas hub
+  {
+    const meta = PAGE_META.find((m) => m.path === "/service-areas")!;
+    const active = ACTIVE_CITIES.map((c) => `<li><a href="${SITE}/service-areas/${c.slug}">${esc(c.name)}, WA</a></li>`).join("");
+    const wait = WAITLIST_CITIES.map((c) => `<li><a href="${SITE}/service-areas/${c.slug}">${esc(c.name)}, OR (expanding soon)</a></li>`).join("");
+    const body = `<h1>Service Areas</h1>\n<p>Handy Pioneers serves all of Clark County, Washington, and is expanding into the greater Portland metro.</p>\n<h2>Clark County, WA</h2><ul>${active}</ul>\n<h2>Expanding soon: greater Portland metro (not yet serving Oregon)</h2><ul>${wait}</ul>`;
+    writeOut(`service-areas.html`, tier1Page(shell, { ...meta, jsonLd: [] }, body));
+    count++;
+  }
+
   // Tier 2: marketing routes (head only)
   const tier2Meta: PageMeta[] = PAGE_META.filter(
-    (m) => !["/blog", "/faq"].includes(m.path)
+    (m) => !["/blog", "/faq", "/services", "/service-areas"].includes(m.path)
   );
   for (const meta of tier2Meta) {
     const jsonLd: object[] = [];

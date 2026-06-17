@@ -48,6 +48,10 @@ const FAQS = [
     a: "Member rates apply to all out-of-scope work billed separately - scopes that go beyond what your labor bank covers. On a larger scope, your labor bank credit applies first; member rates apply to any remaining balance. You are never billed at standard retail on either category.",
   },
   {
+    q: "Does the member rate change with the size of the job?",
+    a: "Yes, and it works in your favor. The bigger the project, the deeper your member rate - we reward bundling work together rather than spreading it out. Essential members save 2.5% on jobs under $5,000, 5% from $5,000 to $20,000, and 7% above $20,000. Full Coverage saves 4.5% / 8% / 11%. Maximum saves 7% / 12% / 15%. Your rate applies automatically and stacks with any labor bank credit.",
+  },
+  {
     q: "Is this a licensed home inspection?",
     a: "No - and that distinction actually works in your favor. The 360° Method is a proactive maintenance service, not a licensed home inspection. Think of it as what happens after the inspection: a licensed inspector tells you what is wrong at a point in time, and we take it from there - completing the recommended work, maintaining the home season after season, and documenting every visit so your home's condition is always on record. If you have recently had a home inspection, your inspection report is the ideal starting point for your 360° baseline. We work in tandem with home inspectors, not in place of them. Our documentation does not replace a licensed inspector, structural engineer, or specialist for major assessments, and we are not liable for pre-existing conditions not visible or accessible during a visit. Full scope is in our Terms & Conditions.",
   },

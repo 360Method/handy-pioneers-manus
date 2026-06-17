@@ -118,7 +118,7 @@ export default function RoadmapOffer() {
   // Value stack, sized to the home (same band as the price), so the gap holds.
   const stack = valueStackFor(gold, band);
   const netOfLaborBank = buyNow - stack.laborBank;
-  const repairExample = 4000;
+  const repairExample = 15000;
   const repairSaved = memberSavingsExample(gold, repairExample);
   const allFeatures = cumulativeFeatures("gold");
 
@@ -263,7 +263,7 @@ export default function RoadmapOffer() {
                         "Documented condition record for every system, every unit",
                         "Annual home scan and findings report you can file with a lender or buyer",
                         "Priority response when a tenant calls about a problem",
-                        "Member rates on every repair - up to 12% off out-of-scope work",
+                        "Member rates on every repair - up to 15% off out-of-scope work",
                         "A labor-bank credit applied to in-between work",
                         "Pre-negotiated vetted-tradesman rates on major work",
                         "One number to call - no juggling trades",
@@ -353,7 +353,7 @@ export default function RoadmapOffer() {
                         Member pricing on every roadmap item, all year
                       </span>
                       <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
-                        up to {gold.discountPct.underOneK}%
+                        up to {gold.discountPct.overFiveK}%
                       </span>
                     </div>
                   </div>
@@ -404,9 +404,9 @@ export default function RoadmapOffer() {
                   </p>
                   <div className="space-y-1.5 mb-3">
                     {[
-                      { label: "Jobs under $1,000", pct: gold.discountPct.underOneK },
-                      { label: "Jobs $1,000-$5,000", pct: gold.discountPct.oneToFiveK },
-                      { label: "Jobs over $5,000", pct: gold.discountPct.overFiveK },
+                      { label: "Jobs under $5,000", pct: gold.discountPct.underOneK },
+                      { label: "Jobs $5,000-$20,000", pct: gold.discountPct.oneToFiveK },
+                      { label: "Jobs over $20,000", pct: gold.discountPct.overFiveK },
                     ].map((row, i) => (
                       <div key={i} className="flex items-center justify-between text-sm">
                         <span className="text-[#8BA898]">{row.label}</span>

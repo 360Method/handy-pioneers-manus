@@ -92,7 +92,7 @@ export default function BaselineOffer() {
   // same band the price uses so the gap holds for larger homes.
   const stack = valueStackFor(gold, band);
   const netOfLaborBank = buyNow - stack.laborBank; // out-of-pocket after the credit
-  const repairExample = 4000;
+  const repairExample = 15000;
   const repairSaved = memberSavingsExample(gold, repairExample);
   const allFeatures = cumulativeFeatures("gold");
 
@@ -199,7 +199,7 @@ export default function BaselineOffer() {
                     Member pricing on every repair, all year
                   </span>
                   <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
-                    up to {gold.discountPct.underOneK}%
+                    up to {gold.discountPct.overFiveK}%
                   </span>
                 </div>
               </div>
@@ -253,9 +253,9 @@ export default function BaselineOffer() {
               </p>
               <div className="space-y-1.5 mb-3">
                 {[
-                  { label: "Jobs under $1,000", pct: gold.discountPct.underOneK },
-                  { label: "Jobs $1,000-$5,000", pct: gold.discountPct.oneToFiveK },
-                  { label: "Jobs over $5,000", pct: gold.discountPct.overFiveK },
+                  { label: "Jobs under $5,000", pct: gold.discountPct.underOneK },
+                  { label: "Jobs $5,000-$20,000", pct: gold.discountPct.oneToFiveK },
+                  { label: "Jobs over $20,000", pct: gold.discountPct.overFiveK },
                 ].map((row, i) => (
                   <div key={i} className="flex items-center justify-between text-sm">
                     <span className="text-[#8BA898]">{row.label}</span>
