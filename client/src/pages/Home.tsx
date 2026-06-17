@@ -148,15 +148,15 @@ const faqs = [
   {
     category: "Who Does the Work",
     items: [
-      { q: "Do you use subcontractors?", a: "For specialized trades (electrical, plumbing, HVAC), yes - we work with vetted, licensed subcontractors. Marcin coordinates and oversees all trade work. For general carpentry, maintenance, and renovation work, Marcin does the work himself." },
-      { q: "Will Marcin personally be on my project?", a: "Yes. Marcin personally conducts every assessment walkthrough and is present on every job. He is not a salesperson who hands you off - he is the technician. This is a deliberate choice, not a limitation." },
+      { q: "Who actually does the work on my home?", a: "The Handy Pioneers team. A vetted crew of skilled tradesmen handles carpentry, repair, painting, and renovation, and separately licensed specialists handle electrical, plumbing, and HVAC where Washington law requires it. Every job runs through a single point of contact, so you always know in advance who is coming to your home, and the work is held to Handy Pioneers standards." },
+      { q: "Will I work with the same people from start to finish?", a: "Yes. Your assessment is owner-led, and Marcin stays your single point of contact from the first call through the final walkthrough. You are never handed off to a stranger, and the relationship stays consistent across every project." },
       { q: "Are you licensed and insured?", a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor (HANDYP*761NH) and carries full general liability insurance up to $1,000,000. We're happy to provide proof of insurance before any work begins." },
     ],
   },
   {
     category: "The 360° Method",
     items: [
-      { q: "What exactly is the 360° Method?", a: "The 360° Method is a proactive home maintenance service - not a legal inspection. We assess your home’s current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we maintain over time." },
+      { q: "What exactly is the 360° Method?", a: "The 360° Method is our complete system for caring for a home, not just maintenance and not a legal inspection. It works in three parts: understand the home (we assess its condition across every major system and put it in writing), fix what matters (a prioritized NOW / SOON / WAIT roadmap so nothing urgent slips), and advance the home over time (a living record we keep so the property keeps getting better). Maintenance is one piece of a bigger picture: a health record for your home that grows with you." },
       { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside - and after - a licensed inspection." },
       { q: "How long does a Baseline Walkthrough take?", a: "Typically 2-3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
     ],

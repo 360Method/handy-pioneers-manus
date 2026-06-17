@@ -43,8 +43,8 @@ export const faqs: FAQCategory[] = [
     category: "Who Does the Work",
     items: [
       {
-        q: "Do you use subcontractors?",
-        a: "For specialized trades (electrical, plumbing, HVAC), yes - we work with vetted, licensed subcontractors. Every trade partner is screened and coordinated through a single point of contact. You'll always know in advance who is coming to your home.",
+        q: "Who actually does the work on my home?",
+        a: "The Handy Pioneers team. A vetted crew of skilled tradesmen handles carpentry, repair, painting, and renovation, and separately licensed specialists handle electrical, plumbing, and HVAC where Washington law requires it. Everyone is screened and coordinated through a single point of contact, so you'll always know in advance who is coming to your home, and the work is held to Handy Pioneers standards.",
       },
       {
         q: "Who will actually be on my property?",
@@ -61,7 +61,7 @@ export const faqs: FAQCategory[] = [
     items: [
       {
         q: "What exactly is the 360° Method?",
-        a: "It's a proactive home maintenance system - not a legal inspection. We assess your home's current condition across all major systems, document everything in a written report, and give you a prioritized NOW / SOON / WAIT roadmap. Think of it as a health record for your home that we update over time.",
+        a: "It's our complete system for caring for a home, not just maintenance and not a legal inspection. It works in three parts: understand the home (we assess its condition across every major system and put it in writing), fix what matters (a prioritized NOW / SOON / WAIT roadmap so nothing urgent slips), and advance the home over time (a living record we keep so the property keeps getting better). Maintenance is one piece of a bigger picture: a health record for your home that grows with you.",
       },
       {
         q: "Is the 360° Walkthrough the same as a home inspection?",
