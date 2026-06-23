@@ -1,15 +1,18 @@
 /**
  * BlogSection - embedded on the homepage at #blog-section
- * One blended feed: local project stories + knowledge/insight articles, sorted
- * newest-first. A light filter (All / Local Work / Insights) lets visitors narrow.
+ * A teaser: the latest 3 items from the blended feed (local project stories +
+ * knowledge/insight articles), sorted newest-first. The full archive lives at
+ * /blog, reached via the "Read the blog" button below the cards.
  * Project cards link to /project/:slug, articles to /blog/:slug.
  * Design: Pacific Northwest Craftsman
  */
 
-import { useState } from "react";
 import { getPublishedPosts } from "@/lib/blog";
 import { projects } from "@/lib/projects";
 import { Clock, Tag, ArrowRight, BookOpen, MapPin, ExternalLink } from "lucide-react";
+
+// Homepage shows only the newest few; the rest live on the /blog archive.
+const HOME_FEED_LIMIT = 3;
 
 type FeedKind = "project" | "article";
 
@@ -43,15 +46,7 @@ const projectItems: FeedItem[] = projects.map((p) => ({
   meta: p.location,
 }));
 
-const FILTERS: { id: "all" | FeedKind; label: string }[] = [
-  { id: "all", label: "All" },
-  { id: "article", label: "Insights" },
-  { id: "project", label: "Local Work" },
-];
-
 export default function BlogSection() {
-  const [filter, setFilter] = useState<"all" | FeedKind>("all");
-
   // Drip-released articles + project stories, blended newest-first.
   const articleItems: FeedItem[] = getPublishedPosts().map((post) => ({
     key: `post-${post.slug}`,
@@ -69,7 +64,7 @@ export default function BlogSection() {
   }));
 
   const allItems = [...projectItems, ...articleItems].sort((a, b) => b.sortTime - a.sortTime);
-  const items = filter === "all" ? allItems : allItems.filter((i) => i.kind === filter);
+  const items = allItems.slice(0, HOME_FEED_LIMIT);
 
   return (
     <section id="blog-section" className="py-20 px-4" style={{ backgroundColor: "oklch(0.97 0.015 80)" }}>
@@ -95,27 +90,7 @@ export default function BlogSection() {
           </p>
         </div>
 
-        {/* Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-10">
-          {FILTERS.map((f) => (
-            <button
-              key={f.id}
-              onClick={() => setFilter(f.id)}
-              className="px-4 py-1.5 rounded-full text-sm font-semibold transition-all duration-200"
-              style={{
-                fontFamily: "'Source Sans 3', sans-serif",
-                backgroundColor: filter === f.id ? "oklch(0.32 0.07 160)" : "oklch(0.90 0.015 80)",
-                color: filter === f.id ? "oklch(1 0 0)" : "oklch(0.35 0.04 80)",
-                border: "none",
-                letterSpacing: "0.03em",
-              }}
-            >
-              {f.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Blended grid */}
+        {/* Latest cards (newest 3), blended newest-first */}
         {items.length === 0 ? (
           <div className="text-center py-16">
             <p style={{ color: "oklch(0.55 0.03 80)" }}>New posts coming soon - check back shortly.</p>
@@ -221,6 +196,26 @@ export default function BlogSection() {
             })}
           </div>
         )}
+
+        {/* Archive CTA - the full feed lives at /blog */}
+        <div className="text-center mt-12">
+          <a
+            href="/blog"
+            className="inline-flex items-center gap-2 px-7 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5"
+            style={{
+              backgroundColor: "oklch(0.32 0.07 160)",
+              color: "oklch(1 0 0)",
+              fontFamily: "'Source Sans 3', sans-serif",
+              letterSpacing: "0.05em",
+              textDecoration: "none",
+              boxShadow: "0 2px 12px oklch(0.32 0.07 160 / 0.25)",
+            }}
+            aria-label="Read more on the Handy Pioneers blog"
+          >
+            Read the blog
+            <ArrowRight size={15} />
+          </a>
+        </div>
       </div>
     </section>
   );
