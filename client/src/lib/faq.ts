@@ -30,6 +30,10 @@ export const faqs: FAQCategory[] = [
         a: "Small repairs and maintenance tasks (caulking, fixture replacement, minor drywall) typically run $150-$500. Mid-size projects (bathroom upgrades, deck repairs, flooring) generally range from $1,500-$8,000. Full remodels and additions are quoted individually. The 360° Baseline Walkthrough is a flat-fee service - ask us for current pricing when you reach out.",
       },
       {
+        q: "What does the initial consultation include?",
+        a: "Every engagement starts with an on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home, not a generic quote. No ballpark numbers over the phone for complex work. You know exactly what you're getting, and why, before any work begins.",
+      },
+      {
         q: "Do you require a deposit?",
         a: "Yes. Most projects require a 30-50% deposit before materials are ordered and work begins. The remainder is due upon completion. We never ask for full payment upfront.",
       },
@@ -56,7 +60,7 @@ export const faqs: FAQCategory[] = [
       },
       {
         q: "Are you licensed and insured?",
-        a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor and carries full general liability insurance. We're happy to provide proof of insurance before any work begins.",
+        a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor (HANDYP*761NH) and carries full general liability insurance up to $1,000,000. We're happy to provide proof of insurance before any work begins.",
       },
     ],
   },

@@ -21,6 +21,7 @@ import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
+import { faqs } from "@/lib/faq";
 
 declare global {
   interface Window {
@@ -136,41 +137,9 @@ const phases = [
   },
 ];
 
-const faqs = [
-  {
-    category: "Pricing & Cost",
-    items: [
-      { q: "What does the initial consultation include?", a: "Every engagement starts with an on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home - not a generic quote. No ballpark numbers over the phone for complex work." },
-      { q: "What affects the final cost of a project?", a: "Scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. If anything changes the agreed scope, we handle it through a written change order you approve before that work begins, so there are no surprises (see \"What is a change order?\" below)." },
-      { q: "Do you require a deposit?", a: "For larger projects, we typically ask for a materials deposit (usually 30-40%) before ordering. The balance is due upon completion. We never ask for full payment upfront." },
-      { q: "What is a change order, and what happens if I want to add or change something?", a: "A change order is a short written agreement for any work that wasn't in your original plan. That can be something you decide to add or change, or something we find during the job that needs attention. We write up exactly what the work is and what it costs, and we walk through it with you before any of it starts. Nothing changes without your okay. Here is the part we like to be upfront about: a change order is paid in full before that new piece of work begins. The reason is simple. The deposit you already paid is committed to the materials and tradespeople for your original project, so any new work needs its own funding before we can order materials and put it on the schedule. This keeps your project moving and keeps everyone on the same page. The rest of your project continues on its original terms, and you always see the price in writing first." },
-    ],
-  },
-  {
-    category: "Who Does the Work",
-    items: [
-      { q: "Who actually does the work on my home?", a: "The Handy Pioneers team. A vetted crew of skilled tradesmen handles carpentry, repair, painting, and renovation, and separately licensed specialists handle electrical, plumbing, and HVAC where Washington law requires it. Every job runs through a single point of contact, so you always know in advance who is coming to your home, and the work is held to Handy Pioneers standards." },
-      { q: "Will I work with the same people from start to finish?", a: "Yes. Your assessment is owner-led, and Marcin stays your single point of contact from the first call through the final walkthrough. You are never handed off to a stranger, and the relationship stays consistent across every project." },
-      { q: "Are you licensed and insured?", a: "Yes. Handy Pioneers LLC is a Washington State licensed contractor (HANDYP*761NH) and carries full general liability insurance up to $1,000,000. We're happy to provide proof of insurance before any work begins." },
-    ],
-  },
-  {
-    category: "The 360° Method",
-    items: [
-      { q: "What exactly is the 360° Method?", a: "The 360° Method is our complete system for caring for a home, not just maintenance and not a legal inspection. It works in three parts: understand the home (we assess its condition across every major system and put it in writing), fix what matters (a prioritized NOW / SOON / WAIT roadmap so nothing urgent slips), and advance the home over time (a living record we keep so the property keeps getting better). Maintenance is one piece of a bigger picture: a health record for your home that grows with you." },
-      { q: "Is the 360° Walkthrough the same as a home inspection?", a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. The 360° Method is designed to work alongside - and after - a licensed inspection." },
-      { q: "How long does a Baseline Walkthrough take?", a: "Typically 2-3 hours for a standard single-family home. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough." },
-    ],
-  },
-  {
-    category: "Scheduling & Process",
-    items: [
-      { q: "How quickly can you start?", a: "We typically schedule your initial consultation within 3-5 business days. Project start dates depend on scope and current workload - we'll give you a realistic timeline during your consultation. We don't overbook." },
-      { q: "What's your warranty on completed work?", a: "Labor is warranted for 1 year from completion. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it." },
-      { q: "What areas do you serve?", a: "We serve Clark County, WA - including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities." },
-    ],
-  },
-];
+// FAQ content is the single source of truth in @/lib/faq (also rendered on /faq
+// and emitted as static HTML + FAQPage JSON-LD by the static-page generator).
+// The homepage renders the same array so the two never drift.
 
 // ── JSON-LD structured data (homepage) ──────────────────────────────────────
 const HOMEPAGE_JSONLD = [
