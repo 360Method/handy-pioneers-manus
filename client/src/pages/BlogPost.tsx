@@ -529,6 +529,23 @@ export default function BlogPost() {
             Project Gallery
           </a>
         </p>
+        {/* BBB Accredited Business seal */}
+        <a
+          href="https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951/#sealclick"
+          target="_blank"
+          rel="nofollow noopener noreferrer"
+          className="inline-block mt-4 hover:opacity-90 transition-opacity"
+          aria-label="Handy Pioneers is a BBB Accredited Business"
+        >
+          <img
+            src="https://seal-alaskaoregonwesternwashington.bbb.org/seals/blue-seal-120-61-bbb-1000197951.png"
+            width={120}
+            height={61}
+            loading="lazy"
+            style={{ border: 0 }}
+            alt="Handy Pioneers BBB Business Review"
+          />
+        </a>
       </footer>
     </div>
     </>
