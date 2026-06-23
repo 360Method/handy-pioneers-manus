@@ -38,6 +38,7 @@ import ServicePage from "./pages/ServicePage";
 import ServicesIndex from "./pages/ServicesIndex";
 import CityPage from "./pages/CityPage";
 import ServiceAreasIndex from "./pages/ServiceAreasIndex";
+import Contact from "./pages/Contact";
 function Router() {
   return (
     <Switch>
@@ -88,7 +89,7 @@ function Router() {
       <Route path="/gallery" component={Home} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/customer-reviews" component={Reviews} />
-      <Route path="/contact" component={Home} />
+      <Route path="/contact" component={Contact} />
       <Route path="/service-areas" component={ServiceAreasIndex} />
       <Route path="/service-areas/:slug" component={CityPage} />
       <Route component={Home} />

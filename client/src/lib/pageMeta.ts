@@ -114,6 +114,12 @@ export const PAGE_META: PageMeta[] = [
     description:
       "What the Handy Pioneers 1-year labor guarantee covers, and how we handle the hidden problems we sometimes find once a project is open - honest, in writing, no surprises.",
   },
+  {
+    path: "/contact",
+    title: "Contact Us - Request a Consultation | Handy Pioneers - Vancouver, WA",
+    description:
+      "Request a consultation with Handy Pioneers. Share a few details about your project and we'll reach out within one business day. Serving Vancouver WA and all of Clark County.",
+  },
 ];
 
 export function metaForPath(path: string): PageMeta | undefined {
