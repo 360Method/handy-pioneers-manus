@@ -50,7 +50,7 @@ export default function TermsAndConditions() {
           Terms &amp; Conditions
         </h1>
         <p className="text-sm mb-10" style={{ color: "oklch(0.55 0.03 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-          Last updated: April 7, 2026
+          Last updated: June 23, 2026
         </p>
 
         <div className="prose max-w-none" style={{ fontFamily: "'Source Sans 3', sans-serif", color: "oklch(0.30 0.03 80)", lineHeight: "1.8" }}>
@@ -110,19 +110,28 @@ export default function TermsAndConditions() {
             </p>
           </Section>
 
-          <Section title="6. Warranty">
+          <Section title="6. Change Orders">
+            <p>
+              Sometimes a project changes after work begins. You may decide to add to or adjust the agreed scope, or we may find a condition that needs work beyond the original plan. When that happens, we put the change in writing as a change order that describes the work and its price, and we review it with you before any of that work starts. No change proceeds without your approval.
+            </p>
+            <p>
+              Because added or changed work means ordering additional materials and scheduling additional trades, a change order is invoiced in full and paid before that scope is scheduled and begins. The deposit on your original project is already committed to that project's materials and labor, so new work is funded separately. The rest of your project continues under its original terms.
+            </p>
+          </Section>
+
+          <Section title="7. Warranty">
             <p>
               Handy Pioneers provides a 1-year labor warranty on completed work, covering defects in workmanship performed on a sound foundation. Structural full-restoration work that we rebuild to sound framing or substrate (for example, a full-frame window replacement, or structural framing, decking, or subfloor rebuilt to sound structure) carries a 3-year labor warranty. The warranty does not cover damage caused by misuse, normal wear and tear, or conditions outside our control (including but not limited to flooding, acts of nature, or pre-existing structural issues). It also does not cover work installed over a concealed or structural condition that we recommended addressing and the customer directed us to proceed without addressing (for example, covering over a condition we flagged, or installing an insert in place of a full rebuild); in that case we document the choice in a signed change order and acknowledgment before proceeding, and only that scope is excluded. Manufacturer warranties on materials and products are separate and governed by the respective manufacturer's terms.
             </p>
           </Section>
 
-          <Section title="7. Limitation of Liability">
+          <Section title="8. Limitation of Liability">
             <p>
               To the maximum extent permitted by applicable law, Handy Pioneers' total liability for any claim arising from our services shall not exceed the amount paid for the specific service giving rise to the claim. We are not liable for indirect, incidental, consequential, or punitive damages.
             </p>
           </Section>
 
-          <Section title="8. Intellectual Property">
+          <Section title="9. Intellectual Property">
             <p>
               The 360° Method™ - including its name, its three-phase structure (Aware, Act, Advance), its nine-step framework, the Proactive Path membership program, and all related written materials, checklists, scoring, and branding - is the proprietary methodology and intellectual property of Handy Pioneers. "The 360° Method" and "Proactive Path" are claimed as trademarks of Handy Pioneers under common law.
             </p>
@@ -131,19 +140,19 @@ export default function TermsAndConditions() {
             </p>
           </Section>
 
-          <Section title="9. Governing Law">
+          <Section title="10. Governing Law">
             <p>
               These Terms are governed by the laws of the State of Washington. Any disputes arising from these Terms or our services shall be resolved in Clark County, Washington.
             </p>
           </Section>
 
-          <Section title="10. Changes to These Terms">
+          <Section title="11. Changes to These Terms">
             <p>
               We may update these Terms from time to time. Changes will be posted on this page with an updated "Last updated" date. Continued use of our services after changes are posted constitutes acceptance of the updated Terms.
             </p>
           </Section>
 
-          <Section title="11. Contact Us">
+          <Section title="12. Contact Us">
             <p>
               If you have questions about these Terms, please contact us:
             </p>

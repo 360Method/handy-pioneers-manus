@@ -35,7 +35,11 @@ export const faqs: FAQCategory[] = [
       },
       {
         q: "What affects the final cost of a project?",
-        a: "The main factors are: scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. We document any scope changes in writing before proceeding.",
+        a: "The main factors are: scope and complexity, material selections, access and site conditions, and whether hidden issues are discovered once work begins. If anything changes the agreed scope, we handle it through a written change order you approve before that work begins, so there are no surprises (see \"What is a change order?\" below).",
+      },
+      {
+        q: "What is a change order, and what happens if I want to add or change something?",
+        a: "A change order is a short written agreement for any work that wasn't in your original plan. That can be something you decide to add or change, or something we find during the job that needs attention. We write up exactly what the work is and what it costs, and we walk through it with you before any of it starts. Nothing changes without your okay. Here is the part we like to be upfront about: a change order is paid in full before that new piece of work begins. The reason is simple. The deposit you already paid is committed to the materials and tradespeople for your original project, so any new work needs its own funding before we can order materials and put it on the schedule. This keeps your project moving and keeps everyone on the same page. The rest of your project continues on its original terms, and you always see the price in writing first.",
       },
     ],
   },
