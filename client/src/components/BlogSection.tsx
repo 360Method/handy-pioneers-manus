@@ -210,9 +210,9 @@ export default function BlogSection() {
               textDecoration: "none",
               boxShadow: "0 2px 12px oklch(0.32 0.07 160 / 0.25)",
             }}
-            aria-label="Read more on the Handy Pioneers blog"
+            aria-label="See all posts on the Handy Pioneers blog"
           >
-            Read the blog
+            See all posts
             <ArrowRight size={15} />
           </a>
         </div>
