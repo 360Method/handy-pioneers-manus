@@ -239,6 +239,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     `<article>`,
     `<nav><a href="${SITE}/services">Services</a> &middot; Clark County, WA</nav>`,
     `<h1>${esc(svc.h1)}</h1>`,
+    svc.image ? `<img src="${esc(svc.image)}" alt="${esc(svc.imageAlt)}" width="1600" height="900" />` : "",
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,

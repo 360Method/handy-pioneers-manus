@@ -42,8 +42,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Remodeling in Vancouver WA | Kitchen, Bath & Whole-Home | Handy Pioneers",
     seoDesc:
       "Remodeling for Clark County homeowners: kitchens, bathrooms, and whole-home projects run by one accountable team with a written plan. Serving Vancouver, Camas, and all of Clark County, WA.",
-    image: "https://handypioneers.com/images/blog/does-home-maintenance-increase-home-value.webp",
-    imageAlt: "A well-finished remodeled home interior",
+    image: "https://handypioneers.com/images/blog/service-remodeling.webp",
+    imageAlt: "A bright, freshly remodeled open living space in a Clark County home",
     intro: [
       "A remodel is one of the largest investments you make in your home, and the difference between a good one and a regret is almost never the cabinets or the tile. It is the planning, the sequencing, and whether one team stands behind the whole result.",
       "Handy Pioneers runs remodels for Clark County homeowners as a single accountable engagement: we assess the space, document a written scope before anything is torn out, and coordinate every trade so the finish lines up the way it should. Whether you are reworking one room or the whole house, you have one point of contact from the first walkthrough to the final detail.",
@@ -91,8 +91,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Kitchen Remodeling in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Kitchen remodeling for Clark County homeowners: a written plan before demolition, one team coordinating every trade, and finish work that holds up. Serving Vancouver, Camas, and all of Clark County, WA.",
-    image: "https://handypioneers.com/images/blog/kitchen-island-appliance-installation-vancouver-what-we-learned.webp",
-    imageAlt: "A clean, well-finished remodeled kitchen in a Clark County home",
+    image: "https://handypioneers.com/images/blog/service-kitchen-remodel.webp",
+    imageAlt: "A remodeled kitchen with white shaker cabinets, a quartz island, and pendant lights",
     intro: [
       "The kitchen is the room a remodel is most often judged by, and the one where a rushed job shows the fastest: cabinet doors that do not line up, a counter seam in the wrong place, an island you have to squeeze around. A good kitchen remodel is decided long before the first cabinet goes in, in the layout and the sequence.",
       "Handy Pioneers remodels kitchens for Vancouver and Clark County homeowners as one accountable project. We assess the space, put a written scope and a clear order of work on paper before anything is torn out, and coordinate the cabinetry, counters, plumbing, electrical, and finish work so it all lands the way it should.",
@@ -140,8 +140,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Bathroom Remodeling in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Bathroom remodeling built for the wet Pacific Northwest: proper waterproofing, a written plan, and one team coordinating every trade. Serving Vancouver, Camas, and all of Clark County, WA.",
-    image: "https://handypioneers.com/images/blog/kitchen-water-damage-vancouver-how-we-stopped-a-small-leak.webp",
-    imageAlt: "A clean, well-finished remodeled bathroom in a Clark County home",
+    image: "https://handypioneers.com/images/blog/service-bathroom-remodel.webp",
+    imageAlt: "A serene remodeled bathroom with a tiled walk-in shower and floating vanity",
     intro: [
       "A bathroom is the most water-exposed room in the house, and in our climate that is exactly why the parts you cannot see matter most. The difference between a bathroom remodel that lasts and one that fails early is the waterproofing behind the tile and the way the plumbing is detailed, not the fixtures on the showroom floor.",
       "Handy Pioneers remodels bathrooms for Vancouver and Clark County homeowners with a written plan and one accountable team. We assess the space, document the scope before demolition, and coordinate the waterproofing, plumbing, tile, and finish work so the room looks right and stays dry behind the walls.",

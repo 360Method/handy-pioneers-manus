@@ -103,7 +103,22 @@ export default function ServicePage() {
           </div>
         </section>
 
-        <section className="py-14 md:py-16">
+        {/* Hero image */}
+        {svc.image && (
+          <div className="container max-w-3xl mx-auto px-6 -mt-10 md:-mt-12 relative z-10">
+            <img
+              src={svc.image}
+              alt={svc.imageAlt}
+              width={1600}
+              height={900}
+              loading="eager"
+              className="w-full rounded-2xl shadow-xl"
+              style={{ aspectRatio: "16 / 9", objectFit: "cover", border: "1px solid oklch(0.88 0.015 80)" }}
+            />
+          </div>
+        )}
+
+        <section className="pt-12 pb-14 md:pt-14 md:pb-16">
           <div className="container max-w-3xl mx-auto px-6">
             {/* What's included */}
             <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>What's included</h2>
