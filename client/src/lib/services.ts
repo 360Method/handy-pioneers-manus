@@ -37,16 +37,16 @@ export const SERVICES: ServiceDef[] = [
   {
     slug: "remodeling",
     name: "Remodeling",
-    serviceType: "Kitchen and Bathroom Remodeling",
-    h1: "Kitchen & Bathroom Remodeling in Clark County, WA",
-    seoTitle: "Kitchen & Bathroom Remodeling in Vancouver WA | Handy Pioneers",
+    serviceType: "Home Remodeling",
+    h1: "Remodeling in Clark County, WA",
+    seoTitle: "Remodeling in Vancouver WA | Kitchen, Bath & Whole-Home | Handy Pioneers",
     seoDesc:
-      "Thoughtful kitchen and bath remodels for Clark County homeowners. One accountable team, a written plan, and finish work that holds up. Serving Vancouver, Camas, and all of Clark County, WA.",
-    image: "https://handypioneers.com/images/blog/kitchen-island-appliance-installation-vancouver-what-we-learned.webp",
-    imageAlt: "A clean, well-finished remodeled kitchen",
+      "Remodeling for Clark County homeowners: kitchens, bathrooms, and whole-home projects run by one accountable team with a written plan. Serving Vancouver, Camas, and all of Clark County, WA.",
+    image: "https://handypioneers.com/images/blog/does-home-maintenance-increase-home-value.webp",
+    imageAlt: "A well-finished remodeled home interior",
     intro: [
-      "A remodel is one of the largest investments you make in your home, and the difference between a good one and a regret is almost never the cabinets. It is the planning, the sequencing, and whether one team stands behind the whole result.",
-      "Handy Pioneers handles kitchen and bathroom remodels for Clark County homeowners as a single accountable engagement: we assess the space, document a written scope before anything is torn out, and coordinate every trade so the finish lines up the way it should.",
+      "A remodel is one of the largest investments you make in your home, and the difference between a good one and a regret is almost never the cabinets or the tile. It is the planning, the sequencing, and whether one team stands behind the whole result.",
+      "Handy Pioneers runs remodels for Clark County homeowners as a single accountable engagement: we assess the space, document a written scope before anything is torn out, and coordinate every trade so the finish lines up the way it should. Whether you are reworking one room or the whole house, you have one point of contact from the first walkthrough to the final detail.",
     ],
     whatsIncluded: [
       "An on-site walkthrough and a written scope of work before demolition",
@@ -56,12 +56,16 @@ export const SERVICES: ServiceDef[] = [
       "A documented project record you keep for resale and warranty",
     ],
     signsYouNeedThis: [
-      "A kitchen or bath layout that fights how you actually live",
+      "A layout that fights how you actually live in the space",
       "Dated finishes dragging down the feel and value of the whole home",
-      "Water damage or soft spots discovered behind a vanity or under a sink",
+      "Water damage or soft spots discovered behind a vanity, under a sink, or in a wall",
       "You want one team accountable for the result, not a string of separate trades",
     ],
     faq: [
+      {
+        q: "What kinds of remodels do you handle?",
+        a: "Kitchens, bathrooms, and whole-home projects, along with the flooring, trim, and finish work that ties a remodel together. For a single space, start with our kitchen remodeling or bathroom remodeling pages; for a larger project, we plan and sequence the whole thing as one engagement.",
+      },
       {
         q: "Do you provide a written plan before work starts?",
         a: "Yes. Every remodel starts with an on-site consultation and a written scope of work so you know exactly what is being done, and why, before a single thing is torn out.",
@@ -77,7 +81,105 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["flooring", "interior-painting", "carpentry-trim"],
+    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "interior-painting"],
+  },
+  {
+    slug: "kitchen-remodel",
+    name: "Kitchen Remodeling",
+    serviceType: "Kitchen Remodeling",
+    h1: "Kitchen Remodeling in Vancouver, WA & Clark County",
+    seoTitle: "Kitchen Remodeling in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Kitchen remodeling for Clark County homeowners: a written plan before demolition, one team coordinating every trade, and finish work that holds up. Serving Vancouver, Camas, and all of Clark County, WA.",
+    image: "https://handypioneers.com/images/blog/kitchen-island-appliance-installation-vancouver-what-we-learned.webp",
+    imageAlt: "A clean, well-finished remodeled kitchen in a Clark County home",
+    intro: [
+      "The kitchen is the room a remodel is most often judged by, and the one where a rushed job shows the fastest: cabinet doors that do not line up, a counter seam in the wrong place, an island you have to squeeze around. A good kitchen remodel is decided long before the first cabinet goes in, in the layout and the sequence.",
+      "Handy Pioneers remodels kitchens for Vancouver and Clark County homeowners as one accountable project. We assess the space, put a written scope and a clear order of work on paper before anything is torn out, and coordinate the cabinetry, counters, plumbing, electrical, and finish work so it all lands the way it should.",
+    ],
+    whatsIncluded: [
+      "An on-site walkthrough and a written scope of work before demolition",
+      "Layout and workflow planning, so the finished kitchen fits how you cook and live",
+      "Cabinetry, countertops, backsplash, and fixture coordination through one point of contact",
+      "Plumbing and electrical updates handled by the licensed trades each phase requires",
+      "Careful finish carpentry and tile, and a documented record you keep for resale",
+    ],
+    signsYouNeedThis: [
+      "A layout that wastes steps or leaves you short on counter and storage",
+      "Dated cabinets and finishes pulling down the feel and value of the whole home",
+      "Water damage or soft spots found under the sink or behind the cabinets",
+      "You want one team accountable for the result, not a string of separate trades",
+    ],
+    faq: [
+      {
+        q: "How long does a kitchen remodel take?",
+        a: "Most kitchen remodels run several weeks from demolition to final finish, depending on the scope and how much the layout and systems change. We give you a realistic timeline in the written scope before work starts, and one point of contact to keep it on track.",
+      },
+      {
+        q: "What should I budget for a kitchen remodel?",
+        a: "Kitchen budgets vary widely with the size of the room, the materials you choose, and whether the layout, plumbing, or electrical change. Rather than quote a number sight unseen, we walk the space and put a written scope and price on paper so you can decide with the full picture in front of you.",
+      },
+      {
+        q: "Do you provide a written plan before work starts?",
+        a: "Yes. Every kitchen remodel starts with an on-site consultation and a written scope of work, so you know exactly what is being done, and in what order, before a single cabinet comes out.",
+      },
+      {
+        q: "What areas do you remodel kitchens in?",
+        a: "All of Clark County, WA, including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center.",
+      },
+    ],
+    membershipTieIn:
+      "After a kitchen remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
+    relatedServiceSlugs: ["bathroom-remodel", "remodeling", "flooring", "carpentry-trim"],
+  },
+  {
+    slug: "bathroom-remodel",
+    name: "Bathroom Remodeling",
+    serviceType: "Bathroom Remodeling",
+    h1: "Bathroom Remodeling in Vancouver, WA & Clark County",
+    seoTitle: "Bathroom Remodeling in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Bathroom remodeling built for the wet Pacific Northwest: proper waterproofing, a written plan, and one team coordinating every trade. Serving Vancouver, Camas, and all of Clark County, WA.",
+    image: "https://handypioneers.com/images/blog/kitchen-water-damage-vancouver-how-we-stopped-a-small-leak.webp",
+    imageAlt: "A clean, well-finished remodeled bathroom in a Clark County home",
+    intro: [
+      "A bathroom is the most water-exposed room in the house, and in our climate that is exactly why the parts you cannot see matter most. The difference between a bathroom remodel that lasts and one that fails early is the waterproofing behind the tile and the way the plumbing is detailed, not the fixtures on the showroom floor.",
+      "Handy Pioneers remodels bathrooms for Vancouver and Clark County homeowners with a written plan and one accountable team. We assess the space, document the scope before demolition, and coordinate the waterproofing, plumbing, tile, and finish work so the room looks right and stays dry behind the walls.",
+    ],
+    whatsIncluded: [
+      "An on-site walkthrough and a written scope of work before demolition",
+      "Proper waterproofing and substrate prep behind tile and in the shower",
+      "Plumbing and fixture updates handled by the licensed trades each phase requires",
+      "Tile, vanity, lighting, and ventilation coordinated through one point of contact",
+      "A documented project record you keep for resale and warranty",
+    ],
+    signsYouNeedThis: [
+      "A dated or cramped layout that no longer fits the household",
+      "Soft flooring, loose tile, or staining that points to water getting where it should not",
+      "A shower or tub surround that leaks, cracks, or never feels clean",
+      "Poor ventilation leaving the room damp and prone to mold",
+    ],
+    faq: [
+      {
+        q: "What makes a bathroom remodel last in the Pacific Northwest?",
+        a: "Waterproofing and ventilation. In a wet climate, the membrane behind the tile, the way the shower is sloped and sealed, and a fan that actually clears the moisture are what keep a beautiful bathroom from quietly rotting behind the walls. We treat those as the foundation of the job, not an afterthought.",
+      },
+      {
+        q: "How long does a bathroom remodel take?",
+        a: "Most bathroom remodels run a few weeks depending on scope, with extra time when the layout or plumbing moves. We give you a realistic timeline in the written scope before work begins.",
+      },
+      {
+        q: "What should I budget for a bathroom remodel?",
+        a: "It depends on the size of the room, the materials, and whether the plumbing or layout changes. Rather than guess, we walk the space and put a written scope and price on paper so you can decide with the full picture in front of you.",
+      },
+      {
+        q: "What areas do you remodel bathrooms in?",
+        a: "All of Clark County, WA, including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center.",
+      },
+    ],
+    membershipTieIn:
+      "After a bathroom remodel, the Proactive Path membership keeps an eye on the seals, caulk, and ventilation so the new work stays sound.",
+    relatedServiceSlugs: ["kitchen-remodel", "remodeling", "flooring", "rot-repair"],
   },
   {
     slug: "deck-restoration",
