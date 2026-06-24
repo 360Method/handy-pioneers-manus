@@ -349,8 +349,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Flooring installation and replacement for Clark County homes: hard surface, tile, and more, installed level and lasting. Serving Vancouver WA, Camas, and surrounding areas.",
-    image: "https://handypioneers.com/images/blog/kitchen-water-damage-vancouver-how-we-stopped-a-small-leak.webp",
-    imageAlt: "Newly installed hard-surface flooring in a home",
+    image: "https://handypioneers.com/images/flooring-install-vancouver-2026-06.webp",
+    imageAlt: "Newly installed hard-surface flooring across an open living room with a brick fireplace in a Clark County home",
     intro: [
       "Flooring is the surface you live on every day, and a poor install shows itself fast: gaps, squeaks, lippage, and edges that lift. The substrate prep matters as much as the material.",
       "We install and replace flooring with the prep and care that make it sit flat, transition cleanly, and last.",
