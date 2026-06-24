@@ -35,7 +35,7 @@ const SEASONS: SeasonData[] = [
       {
         title: "Gutters & drainage",
         tasks: [
-          "Clear gutters and flush downspouts (where gutters are present)",
+          "Clear gutters and flush downspouts we can reach from a ladder or walkable roof (where gutters are present)",
           "Confirm water exits well away from the foundation; clear splash blocks",
           "Re-seat loose gutter hangers and tighten fasteners",
           "Clear accessible perimeter and window-well drains",
@@ -112,7 +112,7 @@ const SEASONS: SeasonData[] = [
       {
         title: "Rain-season roof & gutter prep",
         tasks: [
-          "Clear gutters and downspouts before the wet season (where present)",
+          "Clear gutters and downspouts before the wet season, from a ladder or walkable roof (where present)",
           "High-flow test downspouts for underground clogs",
           "Re-treat walkable roof areas with moss inhibitor",
           "Confirm downspout extensions carry water well away from the foundation",
@@ -157,7 +157,7 @@ const SEASONS: SeasonData[] = [
         tasks: [
           "Re-check and re-secure pipe insulation in the crawlspace and exterior walls",
           "Confirm faucet covers and exterior shut-offs are holding",
-          "Clear gutters of winter debris between storms",
+          "Clear reachable gutters of winter debris between storms",
           "Note recurring crawlspace moisture for a drainage scope",
         ],
       },
@@ -328,8 +328,10 @@ export default function SeasonalVisitsGrid() {
           style={{ color: "oklch(60% 0.02 60)" }}
         >
           <em>
-            Roof work is limited to walkable, low-slope surfaces. Steep-pitch and third-story work
-            is referred to a licensed roofer.
+            We clear gutters and work on the roof only where we can safely reach, from a ladder or a
+            walkable, low-slope roof. Gutters or roof areas that need steep-pitch access or a second
+            or third-story dormer are referred to a licensed roofer; we do what we can from below and
+            hand off the rest.
           </em>
         </p>
       </div>
