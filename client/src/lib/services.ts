@@ -47,6 +47,7 @@ export const SERVICES: ServiceDef[] = [
     intro: [
       "A remodel is one of the largest investments you make in your home, and the difference between a good one and a regret is almost never the cabinets or the tile. It is the planning, the sequencing, and whether one team stands behind the whole result.",
       "Handy Pioneers runs remodels for Clark County homeowners as a single accountable engagement: we assess the space, document a written scope before anything is torn out, and coordinate every trade so the finish lines up the way it should. Whether you are reworking one room or the whole house, you have one point of contact from the first walkthrough to the final detail.",
+      "We also do not see a remodel as a one-and-done job. The real value is a home looked after over time, not a single project, so most homeowners we work with stay with us afterward through the 360 Method: proactive, year-round care that protects what you just invested in. A remodel is often where that partnership starts.",
     ],
     whatsIncluded: [
       "An on-site walkthrough and a written scope of work before demolition",
@@ -96,6 +97,7 @@ export const SERVICES: ServiceDef[] = [
     intro: [
       "The kitchen is the room a remodel is most often judged by, and the one where a rushed job shows the fastest: cabinet doors that do not line up, a counter seam in the wrong place, an island you have to squeeze around. A good kitchen remodel is decided long before the first cabinet goes in, in the layout and the sequence.",
       "Handy Pioneers remodels kitchens for Vancouver and Clark County homeowners as one accountable project. We assess the space, put a written scope and a clear order of work on paper before anything is torn out, and coordinate the cabinetry, counters, plumbing, electrical, and finish work so it all lands the way it should.",
+      "And we are not a one-and-done crew. A new kitchen is an investment worth protecting, so most homeowners we remodel for stay with us afterward through the 360 Method: proactive, year-round care that keeps the new work, and the rest of the home, holding its value. The remodel is where the partnership starts.",
     ],
     whatsIncluded: [
       "An on-site walkthrough and a written scope of work before demolition",
@@ -145,6 +147,7 @@ export const SERVICES: ServiceDef[] = [
     intro: [
       "A bathroom is the most water-exposed room in the house, and in our climate that is exactly why the parts you cannot see matter most. The difference between a bathroom remodel that lasts and one that fails early is the waterproofing behind the tile and the way the plumbing is detailed, not the fixtures on the showroom floor.",
       "Handy Pioneers remodels bathrooms for Vancouver and Clark County homeowners with a written plan and one accountable team. We assess the space, document the scope before demolition, and coordinate the waterproofing, plumbing, tile, and finish work so the room looks right and stays dry behind the walls.",
+      "We are also not a one-and-done crew. In a wet climate especially, a new bathroom is worth protecting, so most homeowners we remodel for stay with us through the 360 Method: proactive, year-round care that keeps the seals, the finish, and the rest of the home sound. The remodel is where the partnership starts.",
     ],
     whatsIncluded: [
       "An on-site walkthrough and a written scope of work before demolition",
