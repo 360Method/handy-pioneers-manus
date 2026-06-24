@@ -7,7 +7,7 @@
  */
 
 import { useEffect } from "react";
-import { blogPosts } from "@/lib/blog";
+import { getPublishedPosts } from "@/lib/blog";
 import { projects } from "@/lib/projects";
 import { Clock, Tag, ArrowRight, ArrowLeft, MapPin, ExternalLink } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -41,7 +41,7 @@ export default function BlogIndex() {
     };
   }, []);
 
-  const articleItems: FeedItem[] = blogPosts.map((post) => ({
+  const articleItems: FeedItem[] = getPublishedPosts().map((post) => ({
     key: `post-${post.slug}`,
     href: `/blog/${post.slug}`,
     image: post.image,

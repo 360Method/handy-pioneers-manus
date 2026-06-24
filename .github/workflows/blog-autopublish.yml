@@ -1,0 +1,41 @@
+name: Blog auto-publish (drip redeploy)
+
+# Posts in client/src/lib/blog.ts carry a future publishDate. The site shows
+# each one to visitors automatically on its date (client-side filter), but the
+# crawler-facing prerendered HTML + sitemap only regenerate on a deploy. This
+# job runs every morning and, ONLY on days a post is actually due, pushes an
+# empty commit to main so Railway rebuilds and the new post becomes crawlable.
+# No effect on any other day. Manual run available via "Run workflow".
+
+on:
+  schedule:
+    - cron: "20 15 * * *" # 15:20 UTC ~ 7:20/8:20am Pacific, daily check
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-autopublish
+  cancel-in-progress: false
+
+jobs:
+  redeploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - id: check
+        run: node scripts/check-due-today.mjs
+      - name: Redeploy if a post is due today
+        if: steps.check.outputs.due == 'true'
+        run: |
+          git config user.name "hp-blog-bot"
+          git config user.email "help@handypioneers.com"
+          git commit --allow-empty -m "chore(blog): scheduled redeploy to publish due post(s)"
+          git push origin HEAD:main
