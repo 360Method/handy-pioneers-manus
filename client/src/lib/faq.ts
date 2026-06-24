@@ -83,6 +83,10 @@ export const faqs: FAQCategory[] = [
         q: "How long does a Baseline Walkthrough take?",
         a: "Typically 2-3 hours for a standard single-family home. Larger properties or homes with complex systems may take longer. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough.",
       },
+      {
+        q: "What does a seasonal visit actually include?",
+        a: "Each seasonal visit is a focused maintenance window matched to your home. At your baseline we note what your home has (deck, gutters, irrigation, crawlspace, and so on), and each visit we work the tasks your home actually needs, so you're never charged time for things you don't have. The window is sized to your home, and your technician works the highest-priority maintenance first. Anything larger or skilled-trade (a full repaint, roof flashing, drainage excavation) isn't squeezed into the visit; we document it and give you a written scope to approve separately, at your member rate.",
+      },
     ],
   },
   {

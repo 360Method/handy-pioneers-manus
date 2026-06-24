@@ -46,8 +46,9 @@ export const TIERS: TierData[] = [
     discountPct: { underOneK: 2.5, oneToFiveK: 5, overFiveK: 7 },
     features: [
       "Annual 360° Home Scan (2-3 hr documented assessment)",
-      "Spring visit - post-rain assessment + moss & gutter service",
+      "Spring visit - post-rain assessment + focused seasonal care",
       "Fall visit - rain-season prep + weatherization",
+      "Each visit matched to your home - we do what it needs, not a fixed checklist",
       "Prioritized findings report with written scope of work",
       "Member rates on all out-of-scope work",
       "HP direct line - no hold queues",

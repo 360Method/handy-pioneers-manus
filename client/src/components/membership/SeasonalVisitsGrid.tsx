@@ -2,60 +2,55 @@ interface SeasonData {
   season: string;
   emoji: string;
   timing: string;
-  tasks: string[];
+  focus: string[];
 }
 
+// Focus areas per season: categories, not a fixed checklist. The exact tasks are
+// matched to each home at the baseline walkthrough, so a home without a deck or
+// irrigation never gets that work; the focused visit goes to what the home needs.
 const SEASONS: SeasonData[] = [
   {
     season: "Spring",
     emoji: "🌱",
     timing: "March-April",
-    tasks: [
-      "Scrub and treat moss colonies on walkable roof surfaces; flag lifted shingles and failed flashing for written scope",
-      "Flush gutters and downspouts; clear Douglas Fir needle and moss buildup at all outlets",
-      "Probe fascia and soffit for rot; mark moisture-wicking sections for replacement scope",
-      "Clear foundation drains; regrade soil away from structure where clay saturation is found",
-      "Tighten loose deck boards and fence fasteners; flag rot and structural damage for written scope",
-      "Cut out failed caulk at windows, doors, and exterior penetrations; apply new weatherproof bead",
+    focus: [
+      "Moss & roof care on walkable surfaces",
+      "Gutter & downspout clearing",
+      "Exterior weatherproofing & caulking",
+      "Foundation drainage & moisture check",
     ],
   },
   {
     season: "Summer",
     emoji: "☀️",
     timing: "June-July",
-    tasks: [
-      "Swap HVAC filters; test heat pump output and flag any efficiency drop for service",
-      "Document paint and stain condition; apply touch-up coat or scope full repaint",
-      "Start irrigation system; test backflow preventer and adjust coverage zones",
-      "Inspect crawl space vapor barrier; resecure lifted sections and flag standing moisture",
-      "Clear blocked attic vents; measure temperature differential and flag insulation gaps",
-      "Clean deck surface and apply sealant during optimal dry-season application window",
+    focus: [
+      "Dry-season exterior care",
+      "HVAC performance & filter service",
+      "Crawlspace & attic moisture check",
+      "Seasonal surface care, where present",
     ],
   },
   {
     season: "Fall",
     emoji: "🍂",
     timing: "September-October",
-    tasks: [
-      "Clear gutters and downspouts before PNW rain season; flush to confirm full drainage",
-      "Replace worn weatherstripping at all exterior doors and windows; test for drafts",
-      "Apply zinc-sulfate moss inhibitor to walkable roof surfaces before wet season",
-      "Replace worn door sweeps and thresholds; seal gaps at all exterior door bottoms",
-      "Shut off and drain all exterior hose bibs; install foam insulating covers",
-      "Inspect and reapply caulk at all exterior penetrations before first rains",
+    focus: [
+      "Rain-season roof & gutter prep",
+      "Weatherization & draft sealing",
+      "Freeze protection for exterior plumbing",
+      "Heating-season systems check",
     ],
   },
   {
     season: "Winter",
     emoji: "❄️",
     timing: "December-January",
-    tasks: [
-      "Wrap exposed pipes in crawl space and exterior walls; flag uninsulated runs for written scope",
-      "Check vapor barrier condition in crawl space; remove standing water and resecure barrier",
-      "Test sump pump operation; clear intake screen and confirm discharge line is unobstructed",
-      "Swap HVAC filter at mid-season; log replacement date in member record",
-      "Check mold-prone bathrooms and laundry areas; treat surface mold and flag moisture source",
-      "Audit exterior lighting; replace failed bulbs and test motion sensors for winter safety",
+    focus: [
+      "Freeze & moisture protection",
+      "Crawlspace & sump check, where present",
+      "Interior safety & systems check",
+      "Storm-season readiness",
     ],
   },
 ];
@@ -69,15 +64,16 @@ export default function SeasonalVisitsGrid() {
           className="font-display text-3xl sm:text-4xl font-black text-center mb-4"
           style={{ color: "oklch(22% 0.07 155)" }}
         >
-          Four times a year,<br />your home gets better.
+          Season by season,<br />your home gets better.
         </h2>
         <p
           className="text-center max-w-xl mx-auto mb-10"
           style={{ color: "oklch(50% 0.02 60)" }}
         >
-          Right now, your home is accumulating the specific wear patterns of the Pacific Northwest
- - moss on the roof, debris in the gutters, freeze-thaw stress on the foundation. Your
-          technician knows exactly what to address each season. You receive the report.
+          Your home accumulates the specific wear patterns of the Pacific Northwest: moss on the
+          roof, debris in the gutters, freeze-thaw stress on the foundation. Each seasonal visit is
+          a focused window matched to your home at the baseline, so your technician works on what
+          your home actually needs. You receive the report.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {SEASONS.map((s, i) => (
@@ -100,7 +96,7 @@ export default function SeasonalVisitsGrid() {
                 </div>
               </div>
               <ul className="space-y-2.5 text-left">
-                {s.tasks.map((task, j) => (
+                {s.focus.map((item, j) => (
                   <li
                     key={j}
                     className="flex items-start gap-2 text-xs leading-snug"
@@ -111,7 +107,7 @@ export default function SeasonalVisitsGrid() {
                     >
                       ✓
                     </span>
-                    <span>{task}</span>
+                    <span>{item}</span>
                   </li>
                 ))}
               </ul>
@@ -119,7 +115,15 @@ export default function SeasonalVisitsGrid() {
           ))}
         </div>
         <p
-          className="text-center text-xs mt-4"
+          className="text-center text-xs mt-6 max-w-xl mx-auto"
+          style={{ color: "oklch(50% 0.02 60)" }}
+        >
+          Each visit is a focused window matched to your home. We do the work your home actually
+          needs, so a home without a deck or irrigation isn't charged that time. Larger items become
+          a written scope you approve separately.
+        </p>
+        <p
+          className="text-center text-xs mt-3"
           style={{ color: "oklch(60% 0.02 60)" }}
         >
           Essential includes Spring + Fall. Full Coverage and Maximum Protection include all four

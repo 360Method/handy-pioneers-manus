@@ -121,8 +121,8 @@ export default function Membership() {
             style={{ color: "oklch(100% 0 0 / 0.75)" }}
           >
             Most homeowners have a financial advisor. Almost none have someone actively managing
-            the physical asset. The 360° Method is a fully managed home stewardship program - 
-            quarterly visits, documented reports, and a named technician who knows your home.
+            the physical asset. The 360° Method is a fully managed home stewardship program -
+            seasonal visits matched to your home, documented reports, and a named technician who knows your home.
             Membership from <strong className="text-white">$588/year</strong>{" "}
             <span style={{ fontSize: "0.85em", opacity: 0.7 }}>($49/mo on an Annual plan)</span>.
           </p>
@@ -332,7 +332,7 @@ export default function Membership() {
                 phase: "ACT",
                 icon: "🔧",
                 title: "We Handle It",
-                body: "Four seasonal visits address the specific demands of the Pacific Northwest climate. Your technician shows up, executes, and documents. You receive the report. Nothing falls through the cracks - because we are watching.",
+                body: "Seasonal visits address the specific demands of the Pacific Northwest climate, each one a focused window matched to your home. Your technician shows up, does what your home needs, and documents it. You receive the report. Nothing falls through the cracks - because we are watching.",
               },
               {
                 phase: "ADVANCE",
