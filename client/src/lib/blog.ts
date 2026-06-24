@@ -52,6 +52,1689 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    "slug": "what-does-a-kitchen-remodel-cost-vancouver-wa",
+    "title": "What Does a Kitchen Remodel Cost in Vancouver, WA?",
+    "excerpt": "A kitchen remodel in Clark County can land anywhere from a finish refresh to a full gut. Here is an honest look at what drives the number, what national data shows, and why a written scope beats a guess.",
+    "date": "June 24, 2026",
+    "isoDate": "2026-06-24",
+    "publishDate": "2026-06-24",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "kitchen remodel cost Vancouver WA",
+      "kitchen remodel Clark County",
+      "kitchen renovation budget"
+    ],
+    "image": "https://handypioneers.com/images/blog/what-does-a-kitchen-remodel-cost-vancouver-wa.webp",
+    "imageAlt": "A remodeled Clark County kitchen with new cabinets, quartz countertops, and a center island",
+    "readTime": 6,
+    "seoTitle": "Kitchen Remodel Cost in Vancouver, WA | Handy Pioneers",
+    "seoDesc": "How much does a kitchen remodel cost in Vancouver, WA? What drives the price, what national data shows, and why a written scope beats a number sight unseen.",
+    "references": [
+      {
+        "label": "NerdWallet: Kitchen Remodel Cost (citing the 2025 Cost vs. Value Report)",
+        "url": "https://www.nerdwallet.com/home-ownership/home-improvement/learn/kitchen-remodel-cost"
+      },
+      {
+        "label": "JLC / Zonda: 2025 Cost vs. Value Report, Pacific region",
+        "url": "https://www.jlconline.com/cost-vs-value/2025/pacific/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "There is no single price, and anyone who gives you one over the phone is guessing. A kitchen remodel in Vancouver, WA can range from a finish refresh (new counters, paint, hardware) to a full gut that moves walls, plumbing, and electrical. National data from the 2025 Cost vs. Value Report puts a minor kitchen remodel near $28,000 and a major midrange remodel near $83,000, with upscale major remodels above $160,000 [1]. The Pacific region (Washington, Oregon, California, Alaska) tends to run at the high end of those figures because of labor and material costs here [2]. Your number depends on size, finish level, and how much you change behind the walls. The honest way to find it is a walk-through and a written scope."
+      },
+      {
+        "type": "h2",
+        "text": "The three honest tiers most kitchens fall into"
+      },
+      {
+        "type": "p",
+        "text": "Kitchen projects sort into three rough buckets. Knowing which one you are in gets you most of the way to a realistic budget before anyone measures."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Refresh: keep the layout, replace surfaces. New countertops, backsplash, paint, hardware, maybe a sink and faucet. Cabinets stay or get refaced. The lowest-cost path because nothing moves behind the walls.",
+          "Mid-range remodel: new semi-custom cabinets, new countertops, updated appliances, new lighting and flooring. Layout mostly stays the same. This is where most Clark County homeowners land.",
+          "Full remodel: the layout changes. Walls, plumbing, gas, and electrical move. Custom cabinetry, an added island, premium counters. This is the top of the range and where surprises live."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The jump from refresh to full remodel is not small. The same kitchen footprint can swing widely depending on which tier you choose, which is why a number means nothing until the scope is on paper."
+      },
+      {
+        "type": "h2",
+        "text": "What actually drives the cost"
+      },
+      {
+        "type": "p",
+        "text": "A few decisions move the price far more than the rest. Understanding them helps you spend where it matters and hold back where it does not."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Cabinets. Almost always the single biggest line. Stock, semi-custom, and full-custom cabinetry are different worlds in both price and lead time.",
+          "Countertops. Material (laminate, butcher block, quartz, natural stone) and square footage set this number. Quartz is the common mid-range choice here.",
+          "Layout changes. The moment a wall, sink, or stove moves, you add plumbing, electrical, and sometimes structural work. This is the biggest hidden cost driver.",
+          "Appliances. A standard package and a pro-grade package can differ by many thousands of dollars on their own.",
+          "Finish level. Tile, fixtures, hardware, and lighting add up quietly. Ten small upgrade decisions can move the total as much as one big one."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "What the national data says (and how to read it)"
+      },
+      {
+        "type": "p",
+        "text": "The 2025 Cost vs. Value Report is one of the most cited sources for remodeling costs. It puts a minor (refresh-style) kitchen remodel near $28,000, a major midrange remodel near $83,000, and a major upscale remodel near $164,000 nationally [1]. Read these as general market data, not a quote. They describe defined project scopes on a typical home, and your kitchen is not the report's average kitchen."
+      },
+      {
+        "type": "p",
+        "text": "The same report ranks the Pacific region first in the country for remodeling return on cost, with a minor kitchen remodel recovering well over its cost at resale [2]. Useful context if you are weighing whether the work holds its value here in the Northwest."
+      },
+      {
+        "type": "h2",
+        "text": "Why Clark County kitchens have their own quirks"
+      },
+      {
+        "type": "p",
+        "text": "Homes in Vancouver, Camas, Washougal, and the surrounding area span a wide range of ages and build styles. Older homes hide more behind the walls: outdated wiring, plumbing that was never meant to move, framing that is not square. None of that shows up in a phone estimate. It shows up the day a cabinet comes off the wall."
+      },
+      {
+        "type": "p",
+        "text": "Permits matter too. A remodel that moves plumbing, gas, or electrical in Clark County needs the right permits and licensed trades for those phases. Handy Pioneers is licensed in Washington and brings in the licensed trades each phase requires, so the work passes inspection and the warranty means something. We work Clark County only and do not serve Oregon."
+      },
+      {
+        "type": "h2",
+        "text": "Why a written scope beats a number sight unseen"
+      },
+      {
+        "type": "p",
+        "text": "A real price comes from a real scope: measured dimensions, the cabinets and counters you actually chose, what moves and what stays, and the condition of what is behind the walls. A number given before any of that exists is a guess that almost always changes once work starts. That is how budgets blow up."
+      },
+      {
+        "type": "p",
+        "text": "When we walk a kitchen, we look at the bones, not just the surfaces. Then you get a written scope and a price tied to it, with the assumptions spelled out. If something does change once we open a wall, you see it in writing before any added work proceeds. No surprise bills."
+      },
+      {
+        "type": "blockquote",
+        "text": "The cheapest kitchen remodel is the one priced honestly the first time, because you are not paying twice to fix the parts a phone quote skipped."
+      },
+      {
+        "type": "cta",
+        "text": "Want a real number for your kitchen instead of a guess? We will walk your space and give you a written scope and price you can actually budget against.",
+        "ctaLabel": "See Kitchen Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/kitchen-remodel"
+      }
+    ]
+  },
+  {
+    "slug": "how-long-does-a-kitchen-remodel-take-clark-county",
+    "title": "How Long Does a Kitchen Remodel Take? A Clark County Timeline",
+    "excerpt": "A realistic phase-by-phase kitchen remodel timeline for Clark County homes, plus the things that stretch it and how planning before demo keeps you on track.",
+    "date": "June 30, 2026",
+    "isoDate": "2026-06-30",
+    "publishDate": "2026-06-30",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "kitchen remodel timeline",
+      "kitchen remodel Vancouver WA",
+      "kitchen renovation"
+    ],
+    "image": "https://handypioneers.com/images/blog/how-long-does-a-kitchen-remodel-take-clark-county.webp",
+    "imageAlt": "A kitchen remodel in progress in a Clark County home, with cabinets removed and rough-in work underway",
+    "readTime": 6,
+    "seoTitle": "How Long Does a Kitchen Remodel Take? Clark County Timeline | Handy Pioneers",
+    "seoDesc": "A realistic kitchen remodel timeline for Vancouver WA and Clark County: phase by phase, what stretches it, and why planning before demo keeps it on track.",
+    "references": [
+      {
+        "label": "KraftMaid: Kitchen and Bath Remodel Project Timeline",
+        "url": "https://www.kraftmaid.com/getting-ready/planning-your-project/project-timeline/"
+      },
+      {
+        "label": "National Kitchen and Bath Association (NKBA)",
+        "url": "https://nkba.org/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Most kitchen remodels in Clark County run about 4 to 6 months from your first planning conversation to the final walkthrough. The part where your kitchen is actually torn apart and unusable is shorter, usually 6 to 10 weeks. The long stretch up front is planning, selections, and waiting on materials, especially cabinets, which can take 8 weeks or more to build and ship [1]. The single biggest thing you control is how much you decide before demo starts. A kitchen with a finalized layout, ordered cabinets, and chosen counters moves fast. One that is still picking tile after the walls are open will stall."
+      },
+      {
+        "type": "h2",
+        "text": "The short answer and the honest one"
+      },
+      {
+        "type": "p",
+        "text": "If someone tells you a full kitchen remodel will be done in two weeks, they are either talking about a cosmetic refresh or they are not counting the planning and lead times. The active construction can be quick. Getting to the point where construction can start is what takes time. We would rather give you a realistic kitchen remodel timeline than a hopeful one that slips."
+      },
+      {
+        "type": "h2",
+        "text": "Phase 1: Planning and selections (2 to 8 weeks)"
+      },
+      {
+        "type": "p",
+        "text": "This is where the project is won or lost. We measure the space, talk through how you actually use the kitchen, and lock the layout. Then come selections: cabinets, countertop material, sink and faucet, appliances, flooring, lighting, and the backsplash. Every one of these has to be decided before the right phase, and some have to be decided early so they can be ordered."
+      },
+      {
+        "type": "p",
+        "text": "Cabinets drive the whole schedule. Industry planning guidance recommends finalizing your cabinet specs well before install day, because that is the part you wait on. Get selections done here and the rest of the project has a clear runway."
+      },
+      {
+        "type": "h2",
+        "text": "Phase 2: Permitting, if the work needs it"
+      },
+      {
+        "type": "p",
+        "text": "Not every kitchen remodel needs a permit, but many do. Moving plumbing, adding or relocating electrical circuits, or taking out a wall usually triggers one with the local jurisdiction (the City of Vancouver, Camas, Washougal, or Clark County, depending on where you live). A like-for-like swap that keeps everything in place often does not. We handle the permit process where it applies and build the review time into the schedule so it does not surprise you mid-project."
+      },
+      {
+        "type": "h2",
+        "text": "Phase 3: Ordering and lead times (the wait that overlaps planning)"
+      },
+      {
+        "type": "p",
+        "text": "Once selections are final, cabinets and counters get ordered. This is the long pole. Stock cabinets can arrive in a few weeks. Semi-custom and custom cabinets commonly run 8 to 12 weeks or more to manufacture [1]. We schedule demo to land near cabinet delivery so your kitchen is not torn out and sitting empty for a month waiting on boxes. Ordering early, during planning, is how you keep the timeline tight."
+      },
+      {
+        "type": "h2",
+        "text": "Phase 4: Demo through finish (the 6 to 10 weeks of construction)"
+      },
+      {
+        "type": "p",
+        "text": "This is the part most people picture when they think remodel. Here is roughly how it sequences once the work starts:"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Demolition: 1 to 3 days. Old cabinets, counters, and flooring come out.",
+          "Rough-in: plumbing and electrical get moved or added while the walls are open, then inspected if a permit applies.",
+          "Drywall, paint, and flooring: the room gets put back to a finished shell ready for cabinets.",
+          "Cabinet installation: a few days to a week, depending on the size of the kitchen.",
+          "Countertop template and install: counters are measured (templated) only after cabinets are set, then fabricated and installed, which adds about 1 to 2 weeks of wait between template and install.",
+          "Tile and backsplash: goes in after counters.",
+          "Finish and punch list: faucet, appliances, hardware, trim, and a final walkthrough to catch anything that needs touching up."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The countertop gap catches people off guard. Counters cannot be templated until the cabinets are physically in place, so there is a built-in pause while they are fabricated. We plan around it instead of pretending it does not exist."
+      },
+      {
+        "type": "h2",
+        "text": "What stretches a kitchen remodel timeline"
+      },
+      {
+        "type": "p",
+        "text": "A few things reliably add weeks. Knowing them ahead of time is how you avoid them."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Custom cabinet lead times. The fancier and more bespoke the cabinets, the longer the build. Order early.",
+          "Layout changes after demo. Deciding to move the sink once the walls are open means new plumbing, new electrical, sometimes a new permit, and a reset clock.",
+          "Surprises behind the walls. Older Clark County homes can hide outdated wiring, hidden water damage, or plumbing that is not where the drawings expect. We open things up, show you, and price the fix before moving on.",
+          "Slow selections. The backsplash you keep going back and forth on can hold up the whole finish phase.",
+          "Appliance and fixture backorders. A specialty range with a long lead time can become the new bottleneck if it is ordered late."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why planning before demo keeps it on track"
+      },
+      {
+        "type": "p",
+        "text": "The pattern is simple. The projects that finish close to schedule are the ones where the decisions were made on paper before anyone swung a hammer [1]. When the layout is set, the cabinets are ordered, and the counters and tile are chosen, the construction phase becomes a sequence the team can run cleanly. When decisions are still open after demo, every pending choice becomes a place the project can sit and wait."
+      },
+      {
+        "type": "p",
+        "text": "That is why we put real work into the front end. A written scope, a confirmed layout, and ordered materials before demo are what let us give you a date and keep it. The National Kitchen and Bath Association points to the same thing: time spent planning is time saved on the back end [2]."
+      },
+      {
+        "type": "cta",
+        "text": "Want a realistic timeline for your kitchen instead of a guess? We will walk the space, talk through what you want, and put a clear written scope and schedule in your hands. Call us at (360) 838-6731 or start here.",
+        "ctaLabel": "See Kitchen Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/kitchen-remodel"
+      }
+    ]
+  },
+  {
+    "slug": "bathroom-remodel-pnw-wet-climate",
+    "title": "Bathroom Remodeling in the Pacific Northwest: What the Wet Climate Changes",
+    "excerpt": "In a wet climate, the parts of a bathroom remodel you cannot see matter more than the tile you can. Here is what protects the work behind the walls.",
+    "date": "June 24, 2026",
+    "isoDate": "2026-06-24",
+    "publishDate": "2026-06-24",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "bathroom remodel Vancouver WA",
+      "bathroom remodel Pacific Northwest",
+      "bathroom renovation Clark County",
+      "shower waterproofing",
+      "bathroom ventilation",
+      "mold prevention"
+    ],
+    "image": "https://handypioneers.com/images/blog/bathroom-remodel-pnw-wet-climate.webp",
+    "imageAlt": "Clean remodeled bathroom in a Clark County home with tiled shower and proper ventilation",
+    "readTime": 6,
+    "seoTitle": "Bathroom Remodel in the Pacific Northwest: What the Wet Climate Changes | Handy Pioneers",
+    "seoDesc": "Before you remodel a bathroom in Vancouver WA, know what the wet PNW climate changes: waterproofing, ventilation, and moisture-smart materials.",
+    "references": [
+      {
+        "label": "U.S. EPA: A Brief Guide to Mold, Moisture and Your Home",
+        "url": "https://www.epa.gov/mold/brief-guide-mold-moisture-and-your-home"
+      },
+      {
+        "label": "Home Ventilating Institute (HVI): Bathroom Exhaust Fans",
+        "url": "https://www.hvi.org/resources/publications/bathroom-exhaust-fans/"
+      },
+      {
+        "label": "Schluter Systems: Tiled Shower Waterproofing Systems",
+        "url": "https://www.schluter.com/schluter-us/en_US/article-tiled-shower-waterproofing"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Before you remodel a bathroom in the Pacific Northwest, plan around moisture first and looks second. Our wet climate keeps indoor humidity high for months, so the parts you never see (the shower waterproofing, the exhaust fan, the way the plumbing is detailed) decide whether the room lasts or rots. The EPA puts it plainly: the key to mold control is moisture control [1]. Get the hidden work right and a bathroom remodel in Vancouver WA can stay dry behind the walls for decades. Get it wrong and the prettiest tile in the world sits on top of a problem."
+      },
+      {
+        "type": "h2",
+        "text": "Why the wet climate changes the priorities"
+      },
+      {
+        "type": "p",
+        "text": "In a drier region, a bathroom dries out fast between uses. Here it often does not. Long stretches of damp, cool weather mean a Clark County bathroom can hold humidity for hours after a shower. The EPA recommends keeping indoor humidity below 60 percent, ideally between 30 and 50 percent, because anything higher invites condensation and mold [1]. That single fact reorders the whole project. Fixtures and finishes are the easy part. The waterproofing, ventilation, materials, and plumbing detailing are what a bathroom remodel in the Pacific Northwest has to get right."
+      },
+      {
+        "type": "h2",
+        "text": "Waterproofing: the shower is a system, not a surface"
+      },
+      {
+        "type": "p",
+        "text": "Tile and grout are not waterproof. Water passes through grout lines and sits behind the tile, so the real barrier is the membrane underneath. As Schluter explains, tile has to be installed with a waterproofing system that manages the moisture that gets past it [3]. Two pieces matter most:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "A bonded or sheet membrane behind the walls and under the floor that actually stops water, sealed tight at the drain and every corner.",
+          "A shower base sloped to the drain so water leaves instead of pooling. Industry standard slope is about a quarter inch per foot; skip it and water saturates the bed and breeds mold [3]."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Curbs, niches, benches, and the drain connection are the spots that fail when they are rushed. Done right, the membrane and the sloped base work together so water that gets through the tile still drains away instead of soaking the framing."
+      },
+      {
+        "type": "h2",
+        "text": "Ventilation: the fan is not optional here"
+      },
+      {
+        "type": "p",
+        "text": "An exhaust fan is the cheapest insurance in the room, and in our climate it earns its keep. It has to be sized to the space and vented all the way outside, never into the attic. The Home Ventilating Institute recommends at least 1 CFM per square foot of floor for a bathroom up to 100 square feet, with a 50 CFM minimum [2]. A few rules we hold to:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Size the fan to the room, then duct it straight to the exterior of the house [2].",
+          "Place the fan over or very near the shower or tub where the moist air starts [2].",
+          "Add a timer or humidity switch so it keeps running after the shower and pulls the room back under that 60 percent humidity line [1]."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A fan that is too small, or one that dumps warm wet air into the attic, is a slow leak you cannot see until the damage shows."
+      },
+      {
+        "type": "h2",
+        "text": "Materials that handle moisture"
+      },
+      {
+        "type": "p",
+        "text": "What goes on the walls and floor should expect to get wet. Standard paper-faced drywall in a wet zone is a mistake. We use moisture-resistant or cement backer board behind tile, sealed properly, plus paint and finishes rated for high humidity outside the wet zone. None of this costs much more up front, and all of it buys years on the back end. The goal is a room where damp surfaces dry within a day or two, the window the EPA gives before mold takes hold [1]."
+      },
+      {
+        "type": "h2",
+        "text": "Plumbing detailing that prevents slow leaks"
+      },
+      {
+        "type": "p",
+        "text": "The leaks that do the most damage are the quiet ones. A drip behind a wall or under a vanity can run for months before a stain appears. Good plumbing detailing during a remodel means proper connections, clean seals at the valve and drain, and access where a fixture might need service later. We pressure-test and check the work before anything gets closed up, because once tile is on, a hidden leak is expensive to chase. Sealing around the tub, the base of the toilet, and every penetration keeps water on the right side of the wall."
+      },
+      {
+        "type": "h2",
+        "text": "Signs of past water damage to check first"
+      },
+      {
+        "type": "p",
+        "text": "Before you spend on a new look, find out what the old bathroom was hiding. Walk the room and look for:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Soft or spongy spots in the floor near the toilet, tub, or shower.",
+          "Cracked, missing, or discolored grout and caulk, especially in shower corners.",
+          "Peeling paint, bubbling, or staining on walls and ceilings.",
+          "A musty smell that does not clear after the fan runs.",
+          "Loose tiles or a floor that flexes underfoot.",
+          "Water stains on the ceiling of the room below the bathroom."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Any of these can mean moisture has already been at work. Opening the wall during a planned remodel is the right time to find and fix the source, not patch over it [1]."
+      },
+      {
+        "type": "h2",
+        "text": "Why the hidden work protects your investment"
+      },
+      {
+        "type": "p",
+        "text": "A bathroom is one of the higher-value rooms in a home, and in a wet climate it is also one of the most exposed. The waterproofing, ventilation, materials, and plumbing are what keep that value intact. Skimp on the membrane and the fan and you are buying a problem with a nice finish on top. Spend where it counts and a bathroom renovation in Clark County stays sound and dry for decades. That is the difference between a remodel that looks good on day one and one that still protects the house on year fifteen. Our team handles the full scope and brings in the licensed trades each phase requires. Reach Handy Pioneers at (360) 838-6731."
+      },
+      {
+        "type": "cta",
+        "text": "Want a bathroom that stays dry behind the walls, not just one that looks good on day one? We will walk your space and give you a clear written scope that covers the waterproofing, ventilation, and plumbing detailing, not just the finishes.",
+        "ctaLabel": "See Bathroom Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/bathroom-remodel"
+      }
+    ]
+  },
+  {
+    "slug": "walk-in-shower-vs-tub-clark-county-home-value",
+    "title": "Walk-In Shower vs Tub: What Adds Value in a Clark County Home",
+    "excerpt": "Whether to swap a tub for a walk-in shower depends on which bathroom you mean. Here is how to weigh resale, families, and aging in place in Clark County, WA.",
+    "date": "July 3, 2026",
+    "isoDate": "2026-07-03",
+    "publishDate": "2026-07-03",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "walk-in shower vs tub",
+      "bathroom remodel Clark County",
+      "home value",
+      "aging in place",
+      "curbless shower"
+    ],
+    "image": "https://handypioneers.com/images/blog/walk-in-shower-vs-tub-clark-county-home-value.webp",
+    "imageAlt": "Remodeled bathroom with a glass-enclosed walk-in shower and tile floor",
+    "readTime": 6,
+    "seoTitle": "Walk-In Shower vs Tub: What Adds Value | Handy Pioneers",
+    "seoDesc": "Walk-in shower vs tub for a Clark County home: resale, families, and aging-in-place trade-offs, plus when to keep at least one tub.",
+    "references": [
+      {
+        "label": "Glass Doctor: Walk-in Shower vs. Bathtub Resale Value",
+        "url": "https://glassdoctor.com/blog/walk-in-shower-vs-bathtub-resale-value"
+      },
+      {
+        "label": "AARP: Bathroom Upgrades as You Age",
+        "url": "https://www.aarp.org/home-living/bathroom-upgrades-as-you-age/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Should you replace your tub with a walk-in shower? It depends on which bathroom you mean. In the primary bath, a clean walk-in shower usually adds appeal and works better day to day, especially if you plan to stay in the home for years. The catch is the resale rule of thumb: keep at least one bathtub somewhere in the house. Real estate guidance points to a one-tub rule, since families with young kids and many buyers still expect a tub [1]. So the honest answer for most Clark County homes is to upgrade the primary bath to a shower and leave one tub in a hall or guest bath. Below is how to make that call for your home."
+      },
+      {
+        "type": "h2",
+        "text": "Start with the question: which bathroom?"
+      },
+      {
+        "type": "p",
+        "text": "This is the part most advice skips. A house is not one decision. The primary bathroom, the hall bath, and a guest bath each play a different role. The smart move is rarely to rip out every tub or keep every tub. It is to match each room to how it gets used and who might buy the home later."
+      },
+      {
+        "type": "p",
+        "text": "If your primary bath is where you start and end your day, a walk-in shower tends to win on comfort and looks. If the only tub in the house sits in that same primary bath, slow down before you pull it."
+      },
+      {
+        "type": "h2",
+        "text": "What buyers in this market tend to want"
+      },
+      {
+        "type": "p",
+        "text": "Two things are true at once. Updated walk-in showers, especially in the primary bath, read as modern and are a strong draw for buyers. And homes that keep at least one tub appeal to a wider pool, because families with small children often want one [1]. Removing your only tub can shrink that pool."
+      },
+      {
+        "type": "p",
+        "text": "The balanced setup performs best across the most buyers: one upgraded shower for daily use and modern appeal, plus one tub kept for flexibility [1]. If your home has two or more full baths, you usually get to have both."
+      },
+      {
+        "type": "h2",
+        "text": "The case for a walk-in shower"
+      },
+      {
+        "type": "p",
+        "text": "A walk-in shower is easier to clean, easier to step into, and usually feels larger and more open than a tub-shower combo. For a primary bath you use every day, that adds up. A curbless version removes the step over the threshold entirely, which helps anyone with balance issues, fatigue, or a temporary injury [2]."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Easier daily entry and exit, no high tub wall to climb over",
+          "More open, modern feel that photographs well for resale",
+          "Simpler to clean than a tub surround",
+          "Room for a built-in bench and grab-bar backing if you plan ahead"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Accessibility and aging in place"
+      },
+      {
+        "type": "p",
+        "text": "If you intend to stay in your home as you get older, this matters more than resale. AARP notes that most adults over 50 plan to stay in their homes as they age, and the bathroom is one of the highest-risk rooms for falls [2]. A curbless walk-in shower is a core aging-in-place feature: less to trip on, room for a seat, and space for a walker or wheelchair if it is ever needed."
+      },
+      {
+        "type": "p",
+        "text": "Even if you are nowhere near needing it, a few low-cost moves now make later changes simple. The most useful is wall blocking behind the tile so grab bars can be added wherever you want them, without opening the wall again [2]. We can install that during the remodel so the room is ready for the future without looking clinical today."
+      },
+      {
+        "type": "h2",
+        "text": "Waterproofing a curbless conversion"
+      },
+      {
+        "type": "p",
+        "text": "A curbless shower is the most demanding part to get right. With no curb to hold water back, the waterproofing and the floor slope do all the work. Done well, it is reliable for decades. Done poorly, water finds the subfloor and you are paying twice."
+      },
+      {
+        "type": "ol",
+        "items": [
+          "The shower floor is sloped to the drain so water never reaches the bathroom floor.",
+          "A linear drain at the entry or far wall is common in curbless designs and makes the slope easier to hide.",
+          "A continuous waterproof membrane runs across the floor and up the walls before any tile goes on.",
+          "The bathroom floor outside the shower may need to drop slightly, or the framing gets adjusted, so the transition stays flush.",
+          "Everything is tested and verified before tile, because fixing it after is the expensive path."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This is the kind of work where the licensed trades each phase requires earn their keep. Our team plans the slope, drain, and membrane up front so the finished room looks simple and stays dry."
+      },
+      {
+        "type": "h2",
+        "text": "How to decide for your home"
+      },
+      {
+        "type": "p",
+        "text": "Walk it through with these questions. They settle most cases quickly."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "How many full baths do you have? With two or more, keep one tub and convert the others if you like.",
+          "Is your only tub in the primary bath? If so, consider moving the tub to a secondary bath rather than losing it.",
+          "Do you have or expect young kids, or do buyers in your area? Keep a tub.",
+          "Are you planning to stay long term? Lean toward a curbless walk-in shower with grab-bar backing.",
+          "Selling within a year or two? A clean, updated shower plus one retained tub is the safe play."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "There is no single right answer, and anyone who gives you one without asking about your house is guessing. The goal is a bathroom that fits how you live now and does not box you in later."
+      },
+      {
+        "type": "blockquote",
+        "text": "The strongest setup for most homes is one upgraded walk-in shower and at least one tub kept somewhere in the house. You get the modern primary bath and the broad buyer appeal at the same time."
+      },
+      {
+        "type": "cta",
+        "text": "Not sure which bathroom to change or what fits your budget? We will walk your home, talk through the trade-offs honestly, and help you pick the option that fits your plans, not push one answer. Call us at (360) 838-6731 to start the conversation.",
+        "ctaLabel": "See Bathroom Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/bathroom-remodel"
+      }
+    ]
+  },
+  {
+    "slug": "deck-repair-vs-replace-clark-county",
+    "title": "Repair or Replace? How to Know If Your Deck Needs Restoration or a Rebuild",
+    "excerpt": "A plain decision framework for Clark County homeowners: when deck restoration is enough, when a rebuild is the honest call, and what to inspect before you spend a dollar.",
+    "date": "June 24, 2026",
+    "isoDate": "2026-06-24",
+    "publishDate": "2026-06-24",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Decks & Exterior",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "deck repair vs replace",
+      "deck restoration Vancouver WA",
+      "deck safety Clark County",
+      "deck inspection",
+      "wood rot"
+    ],
+    "image": "https://handypioneers.com/images/blog/deck-repair-vs-replace-clark-county.webp",
+    "imageAlt": "A weathered cedar deck in the Pacific Northwest being inspected for soft boards, rot, and ledger damage before a repair or replace decision",
+    "readTime": 6,
+    "seoTitle": "Deck Repair vs Replace: How to Decide | Handy Pioneers",
+    "seoDesc": "Should you repair or replace your deck? A Clark County WA guide to when restoration is enough and when a rebuild is the honest, safe call.",
+    "references": [
+      {
+        "label": "NADRA: How Ledger Boards Impact Deck Safety",
+        "url": "https://www.nadra.org/blog/how-ledger-boards-impact-deck-safety"
+      },
+      {
+        "label": "NADRA: Build Safer Decks in 2025",
+        "url": "https://www.nadra.org/blog/build-safer-decks-in-2025"
+      },
+      {
+        "label": "USDA Forest Products Laboratory: Limiting Conditions for Decay in Wood Systems",
+        "url": "https://www.fpl.fs.usda.gov/documnts/pdf2002/morri02a.pdf"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Repair your deck when the framing is sound and the problems are on the surface: gray or splintered boards, a wobbly railing, loose fasteners, or a few soft planks. In that case restoration (new boards, new railing, refinishing) brings it back safely. Replace the deck when the structure itself is failing: rotted or undersized joists, posts that were never properly footed, or a ledger board pulling away from the house. Those are safety problems, not cosmetic ones, and patching over them is not honest work. The only way to know which camp your deck is in is a real assessment of the structure, not a glance at the surface."
+      },
+      {
+        "type": "h2",
+        "text": "Start with the question that actually matters: is the structure sound?"
+      },
+      {
+        "type": "p",
+        "text": "A deck is two different things stacked together. There is the part you see and touch (boards, railings, stairs, finish) and the part holding it all up (the ledger, posts, footings, joists, and fasteners). Almost every repair-or-replace decision comes down to which part is in trouble. If the bones are good and only the skin is worn, you are looking at restoration. If the bones are compromised, you are looking at a rebuild, and no amount of fresh decking changes that."
+      },
+      {
+        "type": "h2",
+        "text": "When restoration is enough"
+      },
+      {
+        "type": "p",
+        "text": "Restoration is the right call when the framing, posts, and ledger attachment are still solid and the issues are on the surface. Common examples we see on Clark County decks:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Weathered, gray, or splintering deck boards that are otherwise dry and firm underfoot",
+          "A loose or wobbly railing that needs re-anchoring or replacement",
+          "Popped nails or a handful of corroded screws that can be swapped for proper fasteners",
+          "A few soft boards over framing that is still sound",
+          "A tired finish that needs cleaning, sanding, and re-sealing"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "In these cases you keep the good structure and renew what wears out. It is the cheaper, faster, and completely honest path when the deck earns it."
+      },
+      {
+        "type": "h2",
+        "text": "When a rebuild is the honest call"
+      },
+      {
+        "type": "p",
+        "text": "Some problems cannot be fixed with new boards, and pretending otherwise puts people on an unsafe deck. A rebuild is the honest answer when we find:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Rotted, cracked, or undersized joists and beams that can no longer carry the load",
+          "A ledger board that is rotting, separating from the house, or attached with nails alone",
+          "Posts that are decayed at the base or were never set on proper footings",
+          "Widespread decay across the framing, not one isolated board",
+          "Guards, stairs, or connections that do not meet current safety code"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The ledger connection deserves special attention. Industry data points to ledger connection failures as the cause behind an estimated 90 percent of deck collapses, and a rotting or nailed-only ledger almost never gets patched. It gets replaced and re-attached properly, and at that point you are usually into a full rebuild anyway. [1][2]"
+      },
+      {
+        "type": "blockquote",
+        "text": "If the part holding the deck to your house is failing, the safe answer is rebuild, not patch. Cosmetics can wait. Structure cannot."
+      },
+      {
+        "type": "h2",
+        "text": "What we actually inspect"
+      },
+      {
+        "type": "p",
+        "text": "A proper assessment looks past the deck boards at the parts that keep people safe:"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Ledger board: Is it firmly attached with bolts and proper flashing, or nailed on and pulling away? Is the wood spongy or rotting where it meets the house? [1]",
+          "Posts and footings: Are posts solid at the base, or soft and crumbling? Are they sitting on real footings or just resting on soil or pavers?",
+          "Joists and beams: Are they sized right, dry, and firm, or sagging and decayed?",
+          "Fasteners and connectors: Are they the correct galvanized or stainless hardware, or rusted and working loose? [2]",
+          "Guards and stairs: Do railings hold firm, and are stair stringers and treads sound?"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Why our wet climate pushes the decision faster"
+      },
+      {
+        "type": "p",
+        "text": "Wood decay fungi need wet wood to grow. Research from the USDA Forest Products Laboratory shows decay gets going once wood moisture content climbs past roughly 20 to 25 percent and stays there. [3] In Clark County, with our long damp season across Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center, decks rarely get the chance to fully dry out. Trapped moisture behind a poorly flashed ledger, at a post base sitting in wet soil, or in shaded framing that never sees sun is exactly the condition rot loves. That is why a PNW deck that looks fine on top can be quietly failing underneath, and why guessing from the surface is risky here in particular."
+      },
+      {
+        "type": "h2",
+        "text": "Why an assessment beats guessing"
+      },
+      {
+        "type": "p",
+        "text": "From the top, a restorable deck and a deck that needs replacing can look almost identical. The difference is in the ledger, the footings, and the framing, and that is where a careful, hands-on check earns its keep. A proper assessment ends with a clear written scope: what is sound, what needs work, and whether the right call is restoration or a rebuild, in plain language with no guesswork. This post is about that repair-or-replace boundary. If the decision lands on a brand-new deck, that is a separate scope we will walk through on its own."
+      },
+      {
+        "type": "p",
+        "text": "NADRA also recommends an annual deck inspection regardless of age, which is the simplest way to catch a small problem before it becomes a structural one. [2]"
+      },
+      {
+        "type": "cta",
+        "text": "Not sure which side of the line your deck is on? Have Handy Pioneers assess it and give you a clear written scope, so you know whether restoration is enough or a rebuild is the honest call. Reach us at (360) 838-6731.",
+        "ctaLabel": "See Deck Restoration",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+      }
+    ]
+  },
+  {
+    "slug": "deck-building-cost-pacific-northwest",
+    "title": "What It Costs to Build a Deck in the Pacific Northwest (and What Lasts Here)",
+    "excerpt": "A plain look at what drives deck building cost, what the general market data shows, and why material and structure matter more in a wet climate than the per-square-foot guess you got over the phone.",
+    "date": "July 7, 2026",
+    "isoDate": "2026-07-07",
+    "publishDate": "2026-07-07",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Decks & Exterior",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "deck building cost",
+      "build a deck Vancouver WA",
+      "deck materials PNW",
+      "composite decking",
+      "deck footings",
+      "outdoor living"
+    ],
+    "image": "https://handypioneers.com/images/blog/deck-building-cost-pacific-northwest.webp",
+    "imageAlt": "Newly built deck with composite boards and metal railing on a Pacific Northwest home surrounded by evergreens",
+    "readTime": 6,
+    "seoTitle": "What It Costs to Build a Deck in the Pacific Northwest | Handy Pioneers",
+    "seoDesc": "What drives deck building cost, general market ranges, and why material and footings matter most in a wet Clark County climate.",
+    "references": [
+      {
+        "label": "HomeAdvisor: Cost to Build a Deck (2025)",
+        "url": "https://www.homeadvisor.com/cost/outdoor-living/build-a-deck/"
+      },
+      {
+        "label": "Trex: How Long Does a Deck Last?",
+        "url": "https://www.trex.com/deck-ideas/how-long-does-a-deck-last/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Most homeowners want one number, so here is the honest version. National market data from HomeAdvisor puts the average deck around $8,300, with most projects landing between roughly $4,300 and $12,600, and cost per square foot driven mostly by material and labor [1]. That is general market data, not a Handy Pioneers quote. Your real number depends on size, material, how high the deck sits, how many footings the ground demands, railings, and permits. In Clark County, the wet climate adds one more factor that matters more than price: what will actually last out here. Below is what moves the cost and where your money is best spent."
+      },
+      {
+        "type": "h2",
+        "text": "What actually drives deck building cost"
+      },
+      {
+        "type": "p",
+        "text": "A deck price is not one decision. It is a stack of them. Each one moves the total up or down, and a good scope shows you which lever you are pulling."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Size and square footage. More deck means more material, more framing, and more labor. This is the single biggest driver.",
+          "Material. Pressure-treated, cedar, and composite sit at very different price points, and that gap follows you for the life of the deck.",
+          "Height and elevation. A deck a step off the ground is simple. A raised deck over a slope needs taller posts, more bracing, and often stairs, which adds real cost.",
+          "Footings and structure. The part you never see. Proper footings sized for our soil are not the place to save money.",
+          "Railings. Code-required on raised decks, and the style you pick (wood, metal, cable, glass) swings the price.",
+          "Permits and inspection. Most decks in Clark County need a building permit, and that time and fee belong in an honest estimate."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "What the general market data says"
+      },
+      {
+        "type": "p",
+        "text": "Treat these as ranges to orient you, not a bid. HomeAdvisor reports labor commonly running about $15 to $35 per square foot, with materials anywhere from roughly $2 to $45 per square foot depending on what you choose [1]. That material spread is the whole story. Pressure-treated lumber sits at the low end. Composite sits at the high end on day one. The cheaper board is not always the cheaper deck once you count the years."
+      },
+      {
+        "type": "h2",
+        "text": "Why material choice matters more in a wet climate"
+      },
+      {
+        "type": "p",
+        "text": "In the Pacific Northwest, moisture is the deciding factor. The number one threat to any deck is water and the rot it causes, and decks fail first at the connection points between boards and the frame [2]. A board that drinks water in our long wet season is a board on a clock."
+      },
+      {
+        "type": "p",
+        "text": "The longevity gap is real. Industry data shows a wood deck commonly lasts about 10 to 15 years with steady upkeep, while composite lines are built to last roughly 25 to 50 years depending on the product [2]. Pressure-treated wood is the budget choice and works, but it wants annual cleaning, sealing, and staining to hold up here. Cedar looks beautiful and resists rot better than untreated wood, with similar maintenance. Composite costs more up front and asks for far less care: a periodic clean and you are done."
+      },
+      {
+        "type": "blockquote",
+        "text": "The cheapest board can become the most expensive deck once you add a decade of sealing, staining, and the early rebuild a wet climate forces."
+      },
+      {
+        "type": "h2",
+        "text": "Spend your money below the surface"
+      },
+      {
+        "type": "p",
+        "text": "If there is one place not to cut, it is the structure. Footings, posts, the ledger where the deck attaches to your house, beams, and joists are what hold everything up and what fail first when they are done cheap. A poorly flashed ledger or undersized footing is where rot and movement start, and it is the most expensive thing to fix later because the finished deck has to come apart to reach it."
+      },
+      {
+        "type": "p",
+        "text": "Good footings sized for the soil, correct ledger flashing, proper joist spacing, and the right fasteners cost more on day one and save you the whole deck on day 3,000. Pretty boards on a weak frame is money spent backward. The licensed trades each phase requires should be building to code and to our climate, not to the lowest line item."
+      },
+      {
+        "type": "h2",
+        "text": "Why a written scope beats a per-square-foot guess"
+      },
+      {
+        "type": "p",
+        "text": "A price per square foot over the phone hides everything that actually decides your cost. It does not know your slope, your soil, how high the deck sits, whether the ledger can attach cleanly to your framing, or which railing meets code. Two decks of the same size can differ by thousands for reasons you cannot see from a number."
+      },
+      {
+        "type": "p",
+        "text": "A written scope changes that. It lists the material, the footing and framing plan, the railing, the permit, and what is and is not included, so you are comparing real plans instead of guesses. It also protects you: when it is written down, nobody gets surprised mid-build, and you know exactly what you are paying for and why."
+      },
+      {
+        "type": "h2",
+        "text": "Building a deck in Vancouver WA"
+      },
+      {
+        "type": "p",
+        "text": "Handy Pioneers is a licensed residential maintenance and remodeling contractor serving Clark County, Washington. When we look at a deck, we start with the structure and the climate, not the cheapest board, because that is what decides whether your deck is solid in fifteen years. We will walk your site, talk through material trade-offs in plain terms, and put it in writing. Call us at (360) 838-6731."
+      },
+      {
+        "type": "cta",
+        "text": "Ready to build a deck that holds up in our climate? Let us walk your site and give you a written scope and price, with the material and structure trade-offs explained in plain language so you know exactly what you are paying for.",
+        "ctaLabel": "See Deck Restoration",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+      }
+    ]
+  },
+  {
+    "slug": "composite-vs-wood-decking-wet-climate",
+    "title": "Composite vs Wood Decking in a Wet Climate: An Honest Comparison",
+    "excerpt": "A straight head-to-head on composite vs wood decking for the rainy Pacific Northwest: real cost, maintenance, moss and mildew, longevity, and how to pick the right one for your Clark County deck.",
+    "date": "July 10, 2026",
+    "isoDate": "2026-07-10",
+    "publishDate": "2026-07-10",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Decks & Exterior",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "composite vs wood decking",
+      "decking Pacific Northwest",
+      "deck materials Vancouver WA",
+      "deck restoration",
+      "moss and mildew"
+    ],
+    "image": "https://handypioneers.com/images/blog/composite-vs-wood-decking-wet-climate.webp",
+    "imageAlt": "Side by side comparison of weathered wood deck boards and clean composite deck boards in a wet Pacific Northwest yard",
+    "readTime": 6,
+    "seoTitle": "Composite vs Wood Decking in a Wet Climate | Handy Pioneers",
+    "seoDesc": "Composite or wood decking in the rainy Pacific Northwest? An honest comparison of cost, upkeep, moss, and longevity for Clark County WA homeowners.",
+    "references": [
+      {
+        "label": "Trex: Composite Deck Boards vs. Wood",
+        "url": "https://www.trex.com/why-trex/deck-material-competitor-comparison/trex-vs-wood/"
+      },
+      {
+        "label": "TimberTech: How Long Does Decking Last",
+        "url": "https://www.timbertech.com/ideas/how-long-does-decking-last/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "In the wet Pacific Northwest, neither composite nor wood is automatically better. It comes down to how you want to spend your time and money. Wood costs less upfront but needs regular cleaning, sealing, and staining to survive our rain, and it still weathers faster here. Composite costs more to install but skips the sealing and staining entirely. You just keep it clean to fight moss and mildew. Both will grow green film in shade. The honest answer for most Clark County homeowners: wood if budget is tight and you do not mind the upkeep, composite if you want to stop maintaining and just use your deck. Below is the full head-to-head."
+      },
+      {
+        "type": "h2",
+        "text": "First, the part both materials share"
+      },
+      {
+        "type": "p",
+        "text": "Whatever you walk on, the frame underneath is almost always pressure-treated lumber. The posts, beams, and joists that hold the deck up are wood treated to resist rot and insects. That structure is where the real longevity of a deck comes from. A beautiful composite surface on a failing frame is still a failing deck."
+      },
+      {
+        "type": "p",
+        "text": "So when we talk composite vs wood decking, we are really only talking about the boards you see and touch. The bones are the same either way, and in our climate keeping water moving off that frame matters more than the surface you pick."
+      },
+      {
+        "type": "h2",
+        "text": "Upfront cost"
+      },
+      {
+        "type": "p",
+        "text": "Wood wins on day one. Pressure-treated and cedar decking boards cost less than composite, sometimes a good bit less, so a wood deck is the cheaper project to build. If the goal is the lowest number to get a usable deck this season, wood is the honest answer."
+      },
+      {
+        "type": "p",
+        "text": "Composite costs more to buy and install. The trade is that you are paying upfront to avoid years of sealing and staining later. Whether that math works for you depends on how long you plan to stay in the home and how you feel about annual upkeep."
+      },
+      {
+        "type": "h2",
+        "text": "Maintenance in our rain"
+      },
+      {
+        "type": "p",
+        "text": "This is where the wet PNW changes the conversation. A wood deck here needs real, repeating care. Plan on cleaning it and reapplying sealer or stain on a regular cycle to keep water out of the boards. Skip it for a couple of seasons and our rain finds its way in, which leads to graying, splintering, and soft spots [1]."
+      },
+      {
+        "type": "p",
+        "text": "Composite does not need sealing, staining, or painting at any point [1]. The upkeep is cleaning. Soap, water, and a gentle wash a couple of times a year keep it looking right [1]. You are not eliminating maintenance, you are trading a weekend of sanding and staining for an occasional wash down."
+      },
+      {
+        "type": "blockquote",
+        "text": "The real question is not which deck needs zero work. It is which kind of work you are willing to keep doing every year in the rain."
+      },
+      {
+        "type": "h2",
+        "text": "Moss and mildew, honestly"
+      },
+      {
+        "type": "p",
+        "text": "Every horizontal surface in the shade here grows moss and mildew. Composite is not immune. Sit it under fir trees on the north side of the house and you will get a green film just like you would on wood. The difference is how it behaves."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "On wood, moss and mildew hold moisture against a porous, organic surface. Left alone, that trapped damp is what eventually rots the board.",
+          "On composite, the same growth sits on top of a material that does not absorb water the way wood does, so it cleans off without feeding decay underneath.",
+          "Both benefit from sun, airflow, and keeping leaves and debris swept off through our long wet months."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Longevity"
+      },
+      {
+        "type": "p",
+        "text": "A well-built wood deck can last a couple of decades here if you stay on top of the sealing and stay ahead of moisture. Let the upkeep slip and our climate shortens that fast. Composite is built to resist moisture, mold, and insects, and quality lines carry warranties in the 25 to 50 year range [2]. That resistance is the main reason composite outlasts wood in a place like ours [2]."
+      },
+      {
+        "type": "p",
+        "text": "Remember the shared part. Both numbers assume the pressure-treated frame underneath is sound and draining well. The surface can outlive the structure if the bones were never built or maintained right."
+      },
+      {
+        "type": "h2",
+        "text": "Appearance and feel"
+      },
+      {
+        "type": "p",
+        "text": "Wood looks and feels like wood because it is, with real grain and the option to change the color when you restain. Many homeowners simply prefer it. The catch is that the look only stays good with the upkeep behind it."
+      },
+      {
+        "type": "p",
+        "text": "Composite gives you a consistent color and texture that holds up without refinishing. Newer boards mimic wood grain well, though up close some people can still tell. It will not give you the option to restain a different shade later, so pick a color you will be happy with for years."
+      },
+      {
+        "type": "h2",
+        "text": "So which should you choose"
+      },
+      {
+        "type": "p",
+        "text": "Here is the balanced read for a Clark County deck:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Choose wood if budget upfront is the priority, you genuinely do not mind a yearly clean-and-seal routine, or you want the real-wood look and the freedom to change the color down the road.",
+          "Choose composite if you would rather stop maintaining the surface and just use the deck, you plan to stay in the home long enough to earn back the higher upfront cost, or your deck sits in heavy shade where wood struggles most."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "There is no wrong answer. It is a trade between money now and time later, judged against your own deck, your shade, and how you actually live outside. Either way, the work starts with a sound, well-draining frame, because that is what carries the deck through our winters."
+      },
+      {
+        "type": "cta",
+        "text": "Not sure which way to go for your deck and budget? We will walk your deck, look at the frame and the drainage, and talk through composite or wood honestly for your spot in Clark County. Call (360) 838-6731 or reach out and we will help you pick the right material, not the most expensive one.",
+        "ctaLabel": "See Deck Restoration",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+      }
+    ]
+  },
+  {
+    "slug": "planning-a-whole-home-remodel-sequence",
+    "title": "Planning a Whole-Home Remodel: The Sequence That Saves Money",
+    "excerpt": "A whole-home remodel costs less and goes smoother when you build in the right order. Here is the sequence we follow on Clark County homes, and why it protects your budget.",
+    "date": "July 14, 2026",
+    "isoDate": "2026-07-14",
+    "publishDate": "2026-07-14",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "whole home remodel Vancouver WA",
+      "whole house renovation Clark County",
+      "remodel planning"
+    ],
+    "image": "https://handypioneers.com/images/blog/planning-a-whole-home-remodel-sequence.webp",
+    "imageAlt": "Whole-home remodel underway in a Clark County, Washington house with open framing and new finishes going in",
+    "readTime": 6,
+    "seoTitle": "Whole-Home Remodel Sequence That Saves Money | Handy Pioneers",
+    "seoDesc": "How to plan a whole-home remodel in Vancouver WA. The right order, from structure to finishes, that protects your budget. Call (360) 838-6731.",
+    "references": [
+      {
+        "label": "ServiceTitan: rough-in sequencing (HVAC, plumbing, then electrical)",
+        "url": "https://www.servicetitan.com/blog/plumbing-rough-in"
+      },
+      {
+        "label": "Punchlist: what rough-in is and where it falls in the build",
+        "url": "https://punchlist.com/article/rough-in-construction/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "To plan a whole-home remodel, start with a written master scope and one accountable team, then build in order from the structure out: roof and envelope first, then the mechanical, electrical, and plumbing rough-in while walls are open, and surfaces and finishes last. The reason is money. Every time you finish a room and then reopen it to fix wiring, a pipe, or a roof leak, you pay twice. Sequence the messy work before the pretty work, group the permitted trades, and budget in phases. Done in the right order, the same project costs less and disrupts your home for fewer weeks."
+      },
+      {
+        "type": "h2",
+        "text": "Why the order matters more than the finishes"
+      },
+      {
+        "type": "p",
+        "text": "Most homeowners start a remodel by picking tile, paint, and cabinets. That is the fun part, and it is also the last part. The biggest cost overruns we see in Vancouver and Camas homes come from doing finishes before the bones are right. You install new flooring, then discover the old galvanized plumbing needs replacing, so the floor comes back up. The order is not a preference. It is how you avoid paying for the same work twice."
+      },
+      {
+        "type": "p",
+        "text": "The principle is simple: work from structural to cosmetic, and do the dusty, destructive work before anything beautiful goes in. Big and messy first, fine finishes last."
+      },
+      {
+        "type": "h2",
+        "text": "Step 1: Structure and envelope first"
+      },
+      {
+        "type": "p",
+        "text": "Before anything inside changes, the house has to be sound and dry. That means the roof, foundation, framing, windows, and exterior envelope. A leak you cannot see will ruin new drywall and flooring months after the crew leaves. If the roof or envelope needs work, it happens before a single interior finish is touched."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Roof, flashing, and gutters",
+          "Foundation and any structural framing changes",
+          "Windows, doors, and exterior weatherproofing",
+          "Anything that keeps water and air where they belong"
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Step 2: Rough-in the systems while walls are open"
+      },
+      {
+        "type": "p",
+        "text": "Once the structure is set and walls are open, the systems go in. This is the rough-in phase, and it happens after framing and before drywall, while pipes, wires, and ductwork are still easy to reach [2]. Doing it now, with the walls open, is far cheaper than cutting back into finished walls later."
+      },
+      {
+        "type": "p",
+        "text": "There is an order within the order. Ductwork goes first because it is the largest and least flexible. Plumbing follows, since pipes are rigid and need clear runs. Electrical comes last, because wiring is small and flexes around what is already there [1]. Get this sequence wrong and the trades fight each other for space, which costs time and money."
+      },
+      {
+        "type": "p",
+        "text": "In Clark County, the rough-in work is inspected before walls close up. Insulation and drywall only go in after the systems pass. We plan around those inspection points so the project does not stall waiting on a sign-off."
+      },
+      {
+        "type": "h2",
+        "text": "Step 3: Surfaces and finishes last"
+      },
+      {
+        "type": "p",
+        "text": "Only after the structure is sound, the systems are in, and inspections pass do finishes go in. Insulation, drywall, then paint, flooring, cabinets, fixtures, and trim. By saving these for the end, nothing you just installed gets opened back up. The room you finish stays finished."
+      },
+      {
+        "type": "h2",
+        "text": "One team and one written scope beats piecemeal"
+      },
+      {
+        "type": "p",
+        "text": "The other money-saver is structural, not literal. When you hire one electrician, then a separate plumber, then a flooring company, nobody owns the sequence. Each shows up on their own schedule, no one coordinates the inspections, and the gaps between trades become your problem and your delay."
+      },
+      {
+        "type": "p",
+        "text": "Handy Pioneers runs the whole project as one engagement with a written master scope. Our team coordinates the licensed trades each phase requires, in the right order, so the work flows from one stage to the next without you playing project manager. One accountable point of contact, one schedule, one scope you signed off on. That is what keeps a whole-house renovation in Clark County from turning into a string of disconnected jobs."
+      },
+      {
+        "type": "h2",
+        "text": "Budgeting in phases and living through the work"
+      },
+      {
+        "type": "p",
+        "text": "A whole-home remodel does not have to happen in one continuous push. We can phase it so the structural and systems work, the parts that are expensive to redo, get done first and right, while cosmetic phases follow as budget allows. What you should not do is finish a space you know you will reopen later for a system you skipped."
+      },
+      {
+        "type": "p",
+        "text": "Plan for living arrangements too. A kitchen or whole-floor remodel may mean a temporary kitchen setup, a sealed-off work zone, or staying elsewhere during the dustiest weeks. We map that into the schedule up front so there are no surprises about which rooms are usable and when."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Fund structure and systems first; they are the costly do-overs",
+          "Group permitted trades so inspections do not stall the job",
+          "Set a realistic contingency for what opening up old walls reveals",
+          "Plan which rooms stay usable during each phase"
+        ]
+      },
+      {
+        "type": "blockquote",
+        "text": "The cheapest remodel is the one you only build once. Right order, one team, one written scope."
+      },
+      {
+        "type": "cta",
+        "text": "Thinking about a whole-home remodel in Clark County? Let us plan the whole project as one engagement, with a written scope and the right sequence from structure to finish, so you build it once. Call (360) 838-6731 or see how we work.",
+        "ctaLabel": "See Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/remodeling"
+      }
+    ]
+  },
+  {
+    "slug": "general-contractor-vs-managing-trades-yourself",
+    "title": "One Contractor or Several? Who Should Manage a Big Remodel",
+    "excerpt": "Hiring a general contractor versus running the trades yourself comes down to who carries the schedule, the permits, the liability, and the warranty. Here is an honest look at both for Clark County homeowners.",
+    "date": "July 17, 2026",
+    "isoDate": "2026-07-17",
+    "publishDate": "2026-07-17",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "general contractor vs managing trades",
+      "hiring a contractor Clark County",
+      "remodel project management",
+      "general contractor",
+      "home remodel",
+      "Clark County WA"
+    ],
+    "image": "https://handypioneers.com/images/blog/general-contractor-vs-managing-trades-yourself.webp",
+    "imageAlt": "A contractor reviewing remodel plans and coordinating trades inside a Clark County, Washington home",
+    "readTime": 6,
+    "seoTitle": "General Contractor vs Managing Trades Yourself | Handy Pioneers",
+    "seoDesc": "Should you hire a general contractor or manage the trades yourself? An honest Clark County WA guide to cost, liability, permits, and warranty.",
+    "references": [
+      {
+        "label": "Washington State L&I: Register as a Contractor",
+        "url": "https://lni.wa.gov/licensing-permits/contractors/register-as-a-contractor/"
+      },
+      {
+        "label": "Washington State L&I: Verify a Contractor, Tradesperson or Business",
+        "url": "https://www.lni.wa.gov/licensing-permits/contractors/hiring-a-contractor/verify-contractor-tradesperson-business"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Hire a general contractor when your remodel involves more than one trade, permits, and a schedule that has to stay in order. One contractor carries the plan, sequences the work, pulls the permits, and stays accountable for the result and the warranty. Managing the trades yourself can make sense for a small, single-trade job where you only coordinate one crew. The trouble shows up on bigger projects: you become the scheduler, the inspector's contact, and the person liable when two trades disagree. For most multi-trade remodels in Clark County, one accountable team saves more than it costs."
+      },
+      {
+        "type": "h2",
+        "text": "What managing the trades yourself actually means"
+      },
+      {
+        "type": "p",
+        "text": "Acting as your own general contractor sounds like a way to save money. On paper you cut the coordination fee. In practice you take on a real job. You are sourcing each trade, checking that each one is licensed and bonded, booking them in the right order, and being on site when they arrive. You are the one the building inspector calls. You are the one who decides whether the framing is ready for the electrician."
+      },
+      {
+        "type": "p",
+        "text": "None of that is impossible. People do it. But it is unpaid work, and it competes with your day job and your family. The hours add up fast on anything bigger than a single room."
+      },
+      {
+        "type": "h2",
+        "text": "The real costs of self-managing"
+      },
+      {
+        "type": "p",
+        "text": "The price of running it yourself is rarely a line item. It hides in four places."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Time. Calls, site visits, change decisions, and waiting on crews. A multi-trade remodel can eat evenings and weekends for months.",
+          "Sequencing mistakes. Trades have to go in order. Plumbing and electrical rough-in before drywall. Drywall before paint. Get the order wrong and you pay to tear out and redo finished work.",
+          "Gaps between trades. When one crew finishes early or shows up late, the next one is not booked yet. The job stalls, and a stalled remodel in a lived-in home is its own kind of expensive.",
+          "Liability and warranty. If something fails later, you are chasing separate crews who each point at the other. There is no single party who owns the outcome."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "Who is liable when you are the manager"
+      },
+      {
+        "type": "p",
+        "text": "This is the part homeowners underestimate. When you coordinate the trades, you are effectively the general contractor for your own project. Permits often get pulled in your name as the owner. If a crew damages something, or work fails inspection, or a finished surface has to come out, the responsibility tends to land on you rather than on a single contractor who took the job."
+      },
+      {
+        "type": "p",
+        "text": "Warranty splinters the same way. Five trades means up to five separate warranties, each with its own terms and its own phone number. A year later, when a problem could be plumbing or could be the tile work, you are the one mediating between them."
+      },
+      {
+        "type": "h2",
+        "text": "Licensing and bonding matter in Washington"
+      },
+      {
+        "type": "p",
+        "text": "Washington requires construction contractors to register with the Department of Labor & Industries, and state law requires them to be bonded and insured to protect the public [1]. As of July 2024, a general contractor must post a $30,000 bond and carry liability insurance [1]. Before anyone touches your home, you can confirm a contractor's registration, bond, and workers' comp status, and check for past complaints, using L&I's free verification tool [2]."
+      },
+      {
+        "type": "p",
+        "text": "If you manage the trades yourself, that verification is on you for every crew you bring in. Hire one general contractor, and you are vetting one registration instead of five, and one bond stands behind the whole project."
+      },
+      {
+        "type": "blockquote",
+        "text": "The question is not just what a remodel costs. It is who is responsible when something goes wrong six months later."
+      },
+      {
+        "type": "h2",
+        "text": "When self-managing can make sense"
+      },
+      {
+        "type": "p",
+        "text": "Running it yourself is reasonable when the job is small and single-trade. Swapping a water heater, repainting a couple of rooms, replacing one light fixture, having a fence built. One crew, one scope, one warranty. There is little to sequence and little to coordinate, so the coordination value of a general contractor is low."
+      },
+      {
+        "type": "p",
+        "text": "Even then, verify the crew's L&I registration and insurance before they start. A small job done by an unregistered handyman can still leave you exposed if they are hurt on your property."
+      },
+      {
+        "type": "h2",
+        "text": "When one general contractor pays off"
+      },
+      {
+        "type": "p",
+        "text": "The more trades and permits a project touches, the more a single accountable contractor is worth. A kitchen, a bathroom, an addition, anything structural. These need plumbing, electrical, framing, drywall, finish carpentry, and sometimes HVAC, all in the right order and all standing behind one finished result."
+      },
+      {
+        "type": "p",
+        "text": "With one general contractor, you make decisions once and the contractor carries them through. The schedule is theirs to hold. The permits and inspections are theirs to manage. The licensed trades each phase requires are booked and sequenced by the team, not by you. And when the project is done, one party stands behind the whole thing rather than handing you a stack of separate warranties."
+      },
+      {
+        "type": "p",
+        "text": "At Handy Pioneers, that is the trade-off we built around. You get one point of contact, one schedule, and one team accountable for the result, instead of a binder of phone numbers and a remodel you are running on the side."
+      },
+      {
+        "type": "cta",
+        "text": "If you would rather have one accountable team run your whole remodel, from permits to the final walkthrough, we are happy to talk it through. Call us at (360) 838-6731 or see how our remodeling work runs.",
+        "ctaLabel": "See Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/remodeling"
+      }
+    ]
+  },
+  {
+    "slug": "remodel-permits-clark-county-wa",
+    "title": "Do You Need Permits to Remodel in Clark County, WA?",
+    "excerpt": "A plain-English guide to which Clark County, WA remodels need a building permit, which usually do not, and why permits protect your home, your resale, and your insurance.",
+    "date": "June 24, 2026",
+    "isoDate": "2026-06-24",
+    "publishDate": "2026-06-24",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "remodel permit Clark County WA",
+      "building permit Vancouver WA",
+      "home remodel permits",
+      "Clark County remodeling",
+      "Vancouver WA remodel"
+    ],
+    "image": "https://handypioneers.com/images/blog/remodel-permits-clark-county-wa.webp",
+    "imageAlt": "Permitted home remodel in progress on a Clark County, WA house with framing and inspection underway",
+    "readTime": 6,
+    "seoTitle": "Do You Need Permits to Remodel in Clark County, WA? | Handy Pioneers",
+    "seoDesc": "Which Clark County, WA remodels need a building permit, which usually do not, and why permits protect your home, resale, and insurance.",
+    "references": [
+      {
+        "label": "Clark County Residential Permits",
+        "url": "https://clark.wa.gov/community-development/residential-permits"
+      },
+      {
+        "label": "Clark County Permit Center",
+        "url": "https://clark.wa.gov/community-development/permit-center"
+      },
+      {
+        "label": "City of Vancouver Residential Building Permits",
+        "url": "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/"
+      },
+      {
+        "label": "Washington State Building Code Council",
+        "url": "https://sbcc.wa.gov/state-codes-regulations-guidelines/state-building-code"
+      },
+      {
+        "label": "WAC 51-16-080 (permit exemptions)",
+        "url": "https://app.leg.wa.gov/wac/default.aspx?cite=51-16-080"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Often, yes. In Clark County, WA, most remodels that change structure or touch systems need a building permit. That includes additions, converting a garage or basement to living space, removing or adding walls, and any plumbing, gas, electrical, or HVAC work [1][3]. Cosmetic updates like paint, flooring, carpet, countertop swaps, and like-for-like fixture replacement usually do not [3][5]. The catch is that rules depend on where your home sits. Clark County and the cities inside it (Vancouver, Camas, Washougal, Battle Ground, Ridgefield, La Center) each run their own permit counter [2][3]. Before you start, confirm the specifics with the jurisdiction that covers your address."
+      },
+      {
+        "type": "h2",
+        "text": "What usually needs a permit"
+      },
+      {
+        "type": "p",
+        "text": "The line is mostly about safety and structure. If a project changes how your house stands up, how it is wired, or how water and gas move through it, a permit is generally required. In Clark County, additions and remodels to existing structures fall under permit review, and converting a space like a garage or basement to living area does too [1]."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Structural changes: moving or removing load-bearing walls, altering beams, posts, or the foundation [3]",
+          "Additions that expand the footprint or add livable space [1]",
+          "New or relocated plumbing fixtures, or new gas lines [3]",
+          "Electrical work: new circuits, new wiring, or modifying existing systems [3]",
+          "HVAC and mechanical changes [3]",
+          "Window and egress changes, especially adding or resizing openings in bedrooms and basements [1][3]",
+          "Decks and platforms above the height your jurisdiction sets (commonly more than 30 inches above grade) [5]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Clark County uses different permit types for different work. Larger jobs like additions and conversions fall under one track, while minor repairs that keep the same use and add no plumbing or mechanical work fall under a lighter one [1]. A permit technician can tell you which applies to your project [2]."
+      },
+      {
+        "type": "h2",
+        "text": "What usually does not need a permit"
+      },
+      {
+        "type": "p",
+        "text": "Finish and cosmetic work generally does not require a permit. Washington's exemption rules cover painting, wallpaper, tile, carpet, and countertop replacement, and Clark County and Vancouver follow the same pattern for cosmetic updates [3][5]."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Interior and exterior painting",
+          "Flooring and carpet",
+          "Cabinet swaps that do not move plumbing or wiring",
+          "Like-for-like fixture replacement (same spot, same connections)",
+          "Minor repairs that keep the existing use and add no plumbing or mechanical work [1]"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "One important note from the state: even exempt work still has to meet the building code [5]. Exempt does not mean the rules stop applying. It means you do not have to file paperwork for that specific task."
+      },
+      {
+        "type": "h2",
+        "text": "Why a permit protects you, not just the city"
+      },
+      {
+        "type": "p",
+        "text": "A permit puts a licensed inspector on your project at the right stages. That is worth real money to a homeowner."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Safety: wiring, gas, and structural work get checked by someone whose job is to catch the mistake before it becomes a fire or a failure.",
+          "Resale: unpermitted work can stall a sale. Buyers and their lenders ask, and an appraiser or inspector can flag a finished basement or addition that has no permit on record.",
+          "Insurance: a claim tied to unpermitted work can be denied. If a remodel was never inspected, your insurer may argue it was never built to code."
+        ]
+      },
+      {
+        "type": "blockquote",
+        "text": "The cheapest permit problem to fix is the one you pulled the permit for. The expensive one shows up years later, at closing or after a claim."
+      },
+      {
+        "type": "h2",
+        "text": "Every jurisdiction in the county has its own counter"
+      },
+      {
+        "type": "p",
+        "text": "This trips people up. Clark County's building division handles unincorporated areas, but the City of Vancouver, Camas, Washougal, Battle Ground, Ridgefield, and La Center each run their own permitting [2][3]. The general categories are similar across them, but submittal steps, fees, and some local thresholds differ. Clark County applications go through the county's online portal [1][2], and City of Vancouver residential permits are submitted electronically through its ePlans system [3]. If you are not sure which office covers you, your address decides it. Confirm before you assume."
+      },
+      {
+        "type": "h2",
+        "text": "Why working with a licensed contractor matters"
+      },
+      {
+        "type": "p",
+        "text": "Knowing a permit is needed is one thing. Knowing which permit, filing it correctly, and scheduling inspections at the right points is another. At Handy Pioneers we pull the right permits and bring in the licensed trades each phase requires (electrical, plumbing, mechanical), so the work is inspected and on record. That protects your resale and your insurance, and it keeps the project moving instead of getting red-tagged mid-stream. A licensed, bonded contractor also gives you recourse the cash-under-the-table route never will."
+      },
+      {
+        "type": "h2",
+        "text": "Bottom line"
+      },
+      {
+        "type": "p",
+        "text": "If your Clark County remodel changes structure, moves a wall, or touches plumbing, gas, electrical, or HVAC, plan on a permit [1][3]. If it is paint, flooring, cabinets, or a like-for-like fixture, you usually do not need one [5]. Because each city and the county set their own details, confirm with your jurisdiction before you start [2][3]. The official Clark County and City of Vancouver sites in the references below are the place to verify your specific project. When in doubt, a quick call to the permit counter, or to us, saves a lot of trouble later."
+      },
+      {
+        "type": "cta",
+        "text": "Planning a remodel in Clark County? We pull the right permits and coordinate inspections as part of the project wherever they apply, so the work is done right and on record. Call (360) 838-6731 to talk it through.",
+        "ctaLabel": "See Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/remodeling"
+      }
+    ]
+  },
+  {
+    "slug": "home-addition-vs-remodel-which-fits",
+    "title": "Home Addition vs Remodel: Which Actually Fits Your House",
+    "excerpt": "Deciding between a home addition and a remodel in Vancouver WA comes down to whether you need more square footage or just a better layout. Here is the honest framework.",
+    "date": "July 21, 2026",
+    "isoDate": "2026-07-21",
+    "publishDate": "2026-07-21",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "home addition Vancouver WA",
+      "addition vs remodel",
+      "home addition Clark County",
+      "remodeling",
+      "resale value"
+    ],
+    "image": "https://handypioneers.com/images/blog/home-addition-vs-remodel-which-fits.webp",
+    "imageAlt": "Framed home addition under construction on a Clark County, WA house with new foundation and roof tie-in",
+    "readTime": 6,
+    "seoTitle": "Home Addition vs Remodel: Which Fits Your House | Handy Pioneers",
+    "seoDesc": "Should you build a home addition or remodel in Vancouver WA? A clear framework on cost, permits, setbacks, disruption, and resale to help you decide.",
+    "references": [
+      {
+        "label": "Clark County Community Development: Residential Permits (ADS permits, setbacks)",
+        "url": "https://clark.wa.gov/community-development/residential-permits"
+      },
+      {
+        "label": "Zonda: 2025 Cost vs. Value Report",
+        "url": "https://zondahome.com/2025-cost-vs-value-report/"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Remodel your existing space if you mostly need a better layout, more light, or updated rooms, because reworking what you already have is usually cheaper, faster, and less disruptive. Build an addition only when you genuinely need more square footage that no rearranging can create, like an extra bedroom, a primary suite, or a larger kitchen footprint. The deciding question is simple: do you need more room, or just better room? Additions add a foundation, a roof tie-in, more permits, and zoning and setback limits, so they cost and complicate more [1]. A remodel works inside walls that already stand. Start with what you actually need, then match the project to it."
+      },
+      {
+        "type": "h2",
+        "text": "Start with the need, not the project"
+      },
+      {
+        "type": "p",
+        "text": "People often decide addition or remodel before they have named the real problem. Flip the order. Write down what is not working: too few bedrooms, a cramped kitchen, a home office squeezed into a closet, no main-floor bathroom. Then ask whether the square footage you have could solve it if it were arranged differently."
+      },
+      {
+        "type": "p",
+        "text": "A surprising number of we need an addition conversations end as a remodel. Removing a non-load-bearing wall, finishing a basement, converting a garage, or opening a galley kitchen can deliver the function you wanted without pouring new foundation. When the existing footprint truly cannot hold the use, that is when an addition earns its cost."
+      },
+      {
+        "type": "h2",
+        "text": "When a remodel is the smarter call"
+      },
+      {
+        "type": "p",
+        "text": "Reworking existing space tends to win when the bones are sound and the issue is layout or condition. Signs a remodel fits:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "You have the square footage but it is chopped into rooms that fight how you live.",
+          "Underused space exists: an unfinished basement, an attached garage, a bonus room.",
+          "The kitchen or bathroom is dated but sized fine.",
+          "You want to stay in the home long term and care more about daily comfort than resale.",
+          "Your lot is tight and there is little room to expand outward."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Remodels keep the existing roof, foundation, and exterior shell, so you avoid the most expensive structural work. They also move faster and disrupt less, since the building envelope stays closed to the weather."
+      },
+      {
+        "type": "h2",
+        "text": "When you genuinely need an addition"
+      },
+      {
+        "type": "p",
+        "text": "Sometimes the math only works with more square footage. An addition makes sense when:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "You need a room that simply does not exist anywhere in the current footprint, like a true primary suite or an extra bedroom.",
+          "Every interior space is already in full use, so there is nothing to reclaim.",
+          "You want to expand the kitchen or living area beyond the current exterior walls.",
+          "The household has grown and rearranging will not create the rooms you need."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "An addition is a bigger build. It needs a new foundation, framing that ties into the existing structure, a roofline that connects cleanly to the old roof, and new mechanical, electrical, and plumbing runs. It also opens your home to the elements during construction, which is part of why it costs and disrupts more than working inside existing walls."
+      },
+      {
+        "type": "h2",
+        "text": "Cost, permits, and complexity"
+      },
+      {
+        "type": "p",
+        "text": "The honest gap between the two is structural. A remodel mostly touches finishes and interior framing. An addition adds foundation work, a roof tie-in, exterior siding, and more inspections. In Clark County, additions and conversions fall under an Additional Dwelling or Structure (ADS) permit, and the work has to meet local rules including setbacks and height limits [1]."
+      },
+      {
+        "type": "p",
+        "text": "Setbacks are the buffers a structure must keep from your property lines, and they vary by zone and jurisdiction. Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and unincorporated Clark County do not all read the same. Confirm your specific lot before you fall in love with a footprint. Clark County's Maps Online and the Community Development team can tell you what your parcel allows [1]. A lot that looks roomy can still cap how far you can build out once setbacks are applied."
+      },
+      {
+        "type": "h2",
+        "text": "Disruption and how long you live in it"
+      },
+      {
+        "type": "p",
+        "text": "Think about life during the project, not just the finished photo. A remodel can often be staged so part of the home stays usable. An addition tends to be longer and messier, with framing, weather exposure, and more trades on site over more weeks."
+      },
+      {
+        "type": "blockquote",
+        "text": "The right project is the one that solves your real need at the least cost and disruption. More square footage is not always more value."
+      },
+      {
+        "type": "p",
+        "text": "Handy Pioneers manages the licensed trades each phase requires, sequences the work, and keeps the parts of your home you still need running as long as the build allows. Knowing the disruption up front helps you choose with eyes open."
+      },
+      {
+        "type": "h2",
+        "text": "Resale: build for living first"
+      },
+      {
+        "type": "p",
+        "text": "Resale matters, but it should rarely be the only driver. National data shows interior projects pay back better when you plan to stay a while, while exterior replacements tend to return the most at sale [2]. Additions can add real value when they correct a true shortage, like a home with only one bathroom or too few bedrooms for its neighborhood. They return less when they push a house far above what nearby homes support."
+      },
+      {
+        "type": "p",
+        "text": "A good rule: if you are staying five-plus years, weight daily function. If you are selling soon, be careful not to over-improve past the block. Either way, build for how you will actually live, then let resale follow."
+      },
+      {
+        "type": "h2",
+        "text": "How to decide in three steps"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Name the need in one sentence: more rooms, or better rooms?",
+          "Test whether the existing footprint can solve it before assuming you must expand.",
+          "Confirm your lot's zoning and setbacks locally, then price the realistic options side by side [1]."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Most homeowners land on the right answer once they separate the need from the project. If you are still unsure, a walkthrough usually settles it fast."
+      },
+      {
+        "type": "cta",
+        "text": "Not sure whether an addition or a remodel fits your house and your lot? Handy Pioneers will walk your space, talk through what you actually need, and lay out honest options for Clark County homes. Call (360) 838-6731 or start here.",
+        "ctaLabel": "See Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/remodeling"
+      }
+    ]
+  },
+  {
+    "slug": "kitchen-bath-or-curb-appeal-best-roi-clark-county",
+    "title": "What Adds the Most Value: Kitchen, Bath, or Curb Appeal?",
+    "excerpt": "Curb appeal and smaller exterior projects often beat big interior remodels on percentage return, especially in the Pacific region. Here is what the ROI data shows for Clark County homeowners.",
+    "date": "July 24, 2026",
+    "isoDate": "2026-07-24",
+    "publishDate": "2026-07-24",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Home Value",
+    "audience": [
+      "Homeowners"
+    ],
+    "tags": [
+      "best ROI home improvement",
+      "home improvements that add value Clark County",
+      "remodel ROI",
+      "curb appeal",
+      "kitchen remodel"
+    ],
+    "image": "https://handypioneers.com/images/blog/kitchen-bath-or-curb-appeal-best-roi-clark-county.webp",
+    "imageAlt": "Refreshed front entry and exterior of a Clark County home, the kind of curb-appeal upgrade that adds resale value",
+    "readTime": 6,
+    "seoTitle": "Best ROI Home Improvement: Kitchen, Bath, or Curb Appeal? | Handy Pioneers",
+    "seoDesc": "What adds the most home value in Clark County WA? The ROI data shows curb appeal and exterior projects often beat big interior remodels.",
+    "references": [
+      {
+        "label": "Zonda: 2024 Cost vs. Value Report",
+        "url": "https://zondahome.com/the-2024-cost-vs-value-report-proves-curb-appeal-still-drives-highest-value-for-home-improvement-projects/"
+      },
+      {
+        "label": "National Association of Realtors: Remodeling Impact Report",
+        "url": "https://www.nar.realtor/magazine/real-estate-news/sales-marketing/why-remodeling-homeowners-need-a-real-estate-agents-guidance"
+      }
+    ],
+    "body": [
+      {
+        "type": "p",
+        "text": "Curb appeal and smaller exterior projects usually add the most value per dollar spent. In the 2024 Cost vs. Value Report, a garage door replacement returned about 194 percent of its cost at resale, and a steel entry door returned about 188 percent. A minor kitchen remodel returned about 96 percent, and bathroom work tends to land lower [1]. So the honest answer depends on your goal. If you are selling soon, exterior and condition projects win on percentage return. If you plan to stay, the project that protects your home from damage usually pays back the most over time."
+      },
+      {
+        "type": "h2",
+        "text": "What the ROI data actually shows"
+      },
+      {
+        "type": "p",
+        "text": "Every year Zonda surveys real estate professionals and contractors to compare what projects cost against what they add to resale value. The 2024 report is clear: nine of the top ten projects by return were exterior improvements. Garage door replacement led the list at about 194 percent, followed by a steel entry door at about 188 percent and manufactured stone veneer at about 153 percent [1]."
+      },
+      {
+        "type": "p",
+        "text": "The pattern is simple. Smaller exterior projects cost less, but they shape the first impression a buyer and an appraiser form before they ever walk inside. That first impression carries weight in how the whole house gets valued."
+      },
+      {
+        "type": "h2",
+        "text": "Why the Pacific region tends to lead the country"
+      },
+      {
+        "type": "p",
+        "text": "Homeowners in the Pacific region have been seeing some of the highest returns in the country. National reporting on the 2024 report noted exterior projects in the Pacific running well above national averages, with garage door and stone veneer work returning more here than in most other regions [1]. For Clark County homeowners in Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center, that means the curb-appeal projects already topping the national list tend to perform even better locally."
+      },
+      {
+        "type": "h2",
+        "text": "Kitchen and bath: still worth it, just read the numbers"
+      },
+      {
+        "type": "p",
+        "text": "Kitchens and bathrooms are the rooms buyers judge hardest, so they are not off the table. They just rarely return more than a dollar for a dollar. The 2024 report put a minor kitchen remodel, meaning new surfaces and hardware rather than a gut job, at about 96 percent return [1]. A full kitchen renovation recovers less, closer to 75 percent in the NAR Remodeling Impact Report, with bathroom renovations near 71 percent [2]."
+      },
+      {
+        "type": "p",
+        "text": "The takeaway is not to skip these rooms. It is to match the scope to your reason. A modest refresh of a dated kitchen returns far more per dollar than a tear-out, and it still moves a buyer."
+      },
+      {
+        "type": "h3",
+        "text": "When a kitchen or bath remodel makes sense"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "You plan to live there for years and want to enjoy the space, not just resell it.",
+          "The room is genuinely dated or not working, not just out of fashion.",
+          "You keep the scope tight: surfaces, fixtures, and layout fixes over moving walls and plumbing.",
+          "You are not pushing the finish level past the rest of the neighborhood."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "The highest return is often protecting what you already have"
+      },
+      {
+        "type": "p",
+        "text": "Here is the part the glamour projects miss. The NAR Remodeling Impact Report found that refinishing existing hardwood floors recovered about 147 percent of its cost, and new wood flooring about 118 percent [2]. These are not flashy upgrades. They restore and protect something already in the home at a low cost, which is exactly why the percentage is so high."
+      },
+      {
+        "type": "p",
+        "text": "The same logic runs through condition itself. A sound roof, dry crawl space, working gutters, and sealed exterior return value in two ways. They keep a buyer from negotiating you down over deferred repairs, and they prevent the slow water and rot damage that quietly erases value between now and the day you sell. In our wet Clark County climate, that protective work is some of the best money a homeowner can spend."
+      },
+      {
+        "type": "blockquote",
+        "text": "The best ROI is rarely the prettiest project. It is the one that keeps a small problem from becoming a large one."
+      },
+      {
+        "type": "h2",
+        "text": "A practical order for Clark County homeowners"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "Fix condition first. Roof, drainage, exterior envelope, anything letting water in. This protects the value you already have.",
+          "Improve curb appeal. Garage door, front entry, siding accents, and clean landscaping carry the strongest resale returns.",
+          "Refresh, do not rebuild, the kitchen and bath. Surfaces and fixtures beat full gut jobs on return.",
+          "Save the big interior remodel for the home you intend to keep, where you value living in it more than the resale math."
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "How we think about it at Handy Pioneers"
+      },
+      {
+        "type": "p",
+        "text": "We are a licensed residential maintenance and remodeling contractor serving Clark County, Washington. When a homeowner asks what to do first, our team starts with your goal and your home's condition, not a sales sheet. We bring in the licensed trades each phase requires and we are honest when the smart move is a smaller project, or just protecting what you have, rather than a big remodel that will not pay you back. Real market data should guide the plan, and your reason for doing the work should set the scope."
+      },
+      {
+        "type": "cta",
+        "text": "Want a plan that protects your home's value and grows it where it counts? Call Handy Pioneers at (360) 838-6731 and we will walk your home, weigh your goals against what the numbers actually support, and lay out the projects worth doing in the right order.",
+        "ctaLabel": "See Remodeling",
+        "ctaAction": "link",
+        "ctaHref": "https://handypioneers.com/services/remodeling"
+      }
+    ]
+  },
+
+  {
     "slug": "dry-season-home-checklist-pnw-june",
     "title": "The Dry Season Is When Your Home Tells the Truth: 5 Things to Check in June",
     "excerpt": "For eight months a year, a Clark County home is wet. June is the first honest look you get. Here are the five checks that decide how your home heads into next winter.",
