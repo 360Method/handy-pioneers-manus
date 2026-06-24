@@ -43,7 +43,7 @@ const PHASE_IMAGES = {
 const credentials = [
   { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor - Washington State" },
   { icon: Award, label: "Insured up to $1,000,000", detail: "Full general liability coverage" },
-  { icon: Clock, label: "1 & 3-Year Labor Guarantee", detail: "1 year on every project; 3 years on structural restorations" },
+  { icon: Clock, label: "1 & 2-Year Labor Guarantee", detail: "1 year on every project; 2 years on structural restorations" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal" },
   { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
   { icon: Wrench, label: "Owner on Every Assessment", detail: "Marcin personally leads every walkthrough; skilled tradesmen execute the work" },
@@ -306,7 +306,7 @@ export default function Home() {
       <SEO
         path="/"
         title="Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA"
-        description="Your home's value, protected year-round. Handy Pioneers keeps Clark County homes maintained, documented, and ahead of problems - restoration, repairs, and the 360° Method membership. Licensed and insured, 4.9 stars, 1-year labor guarantee (3-year on structural restorations)."
+        description="Your home's value, protected year-round. Handy Pioneers keeps Clark County homes maintained, documented, and ahead of problems - restoration, repairs, and the 360° Method membership. Licensed and insured, 4.9 stars, 1-year labor guarantee (2-year on structural restorations)."
         jsonLd={HOMEPAGE_JSONLD}
       />
       <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>

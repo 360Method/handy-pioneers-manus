@@ -94,7 +94,7 @@ export const faqs: FAQCategory[] = [
       },
       {
         q: "What's your warranty on completed work?",
-        a: "We stand behind our work. Labor is warranted for 1 year from completion when it's built on a sound foundation, and full-restoration work we rebuild to sound structure (like a full-frame window replacement or rebuilt framing, decking, or subfloor) carries a 3-year guarantee. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it - no argument. The one thing we can't guarantee is work we install over a hidden problem you've asked us to cover instead of repair - when we find one, we show you, give you the choice in writing, and only the covered-over part falls outside the guarantee.",
+        a: "We stand behind our work. Labor is warranted for 1 year from completion when it's built on a sound foundation, and full-restoration work we rebuild to sound structure (like a full-frame window replacement or rebuilt framing, decking, or subfloor) carries a 2-year guarantee. Material warranties vary by manufacturer and will be documented in your project paperwork. If something we did isn't right, we come back and fix it - no argument. The one thing we can't guarantee is work we install over a hidden problem you've asked us to cover instead of repair - when we find one, we show you, give you the choice in writing, and only the covered-over part falls outside the guarantee.",
       },
       {
         q: "What areas do you serve?",

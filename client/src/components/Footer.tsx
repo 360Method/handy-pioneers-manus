@@ -26,7 +26,7 @@ export default function Footer() {
               style={{ color: "rgba(255,255,255,0.60)", fontFamily: "'Source Sans 3', sans-serif" }}
             >
               Licensed and insured home care and remodeling contractor serving Clark County, WA. (WA Lic. HANDYP★761NH)
-              Quality craftsmanship backed by a 1-year labor guarantee, and 3 years on structural restorations.
+              Quality craftsmanship backed by a 1-year labor guarantee, and 2 years on structural restorations.
             </p>
 
             {/* Contact info */}

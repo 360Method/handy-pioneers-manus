@@ -16,7 +16,7 @@ const MARCIN_PHOTO =
 const credentials = [
   { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor - Washington State" },
   { icon: Award, label: "Insured up to $1,000,000", detail: "Full general liability coverage" },
-  { icon: Clock, label: "1 & 3-Year Labor Guarantee", detail: "1 year on every project; 3 years on structural restorations" },
+  { icon: Clock, label: "1 & 2-Year Labor Guarantee", detail: "1 year on every project; 2 years on structural restorations" },
   { icon: MapPin, label: "Clark County, WA", detail: "Vancouver, Camas, Battle Ground, Ridgefield, Washougal, La Center" },
   { icon: Users, label: "4.9★ · 34 Reviews", detail: "Verified Google reviews" },
   { icon: Wrench, label: "Consistent Assessment Protocol", detail: "Same standard on every walkthrough · Vetted crew on every project" },
