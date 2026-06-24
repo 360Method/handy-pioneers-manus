@@ -3,6 +3,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Redirect, Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import Analytics from "./components/Analytics";
+import ScrollToTop from "./components/ScrollToTop";
 import ConsentBanner from "./components/ConsentBanner";
 import PromoBanner from "./components/PromoBanner";
 import PromoModal from "./components/PromoModal";
@@ -105,6 +106,7 @@ export default function App() {
           <TooltipProvider>
             <Toaster />
             <Analytics />
+            <ScrollToTop />
             <PromoBanner />
             <Router />
             <InquiryModal />

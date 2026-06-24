@@ -1,5 +1,4 @@
 // Services hub - /services. Internal-link hub to every service page.
-import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
@@ -30,13 +29,13 @@ export default function ServicesIndex() {
           <div className="container max-w-4xl mx-auto px-6">
             <div className="grid sm:grid-cols-2 gap-4">
               {SERVICES.map((s) => (
-                <Link key={s.slug} href={`/services/${s.slug}`} className="group rounded-2xl border p-6 transition-shadow hover:shadow-md" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                <a key={s.slug} href={`/services/${s.slug}`} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border p-6 transition-shadow hover:shadow-md" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
                   <h2 className="text-lg font-bold flex items-center justify-between" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>
                     {s.name}
                     <ArrowRight size={16} className="opacity-50 group-hover:translate-x-1 transition-transform" style={{ color: "oklch(0.65 0.14 65)" }} />
                   </h2>
                   <p className="mt-2 text-sm leading-relaxed" style={{ color: "oklch(0.42 0.02 80)" }}>{s.intro[0]}</p>
-                </Link>
+                </a>
               ))}
             </div>
           </div>

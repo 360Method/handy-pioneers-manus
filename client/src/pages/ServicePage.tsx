@@ -167,7 +167,7 @@ export default function ServicePage() {
                     const r = getService(rs);
                     if (!r) return null;
                     return (
-                      <Link key={rs} href={`/services/${rs}`} className="px-4 py-2 rounded-lg border text-sm font-semibold hover:opacity-80" style={{ borderColor: "oklch(0.85 0.015 80)", color: "oklch(0.30 0.05 160)", backgroundColor: "oklch(1 0 0)" }}>{r.name}</Link>
+                      <a key={rs} href={`/services/${rs}`} target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg border text-sm font-semibold hover:opacity-80" style={{ borderColor: "oklch(0.85 0.015 80)", color: "oklch(0.30 0.05 160)", backgroundColor: "oklch(1 0 0)" }}>{r.name}</a>
                     );
                   })}
                 </div>

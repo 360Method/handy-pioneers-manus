@@ -11,7 +11,7 @@ import {
   ChevronDown, CheckCircle, Star, Home as HomeIcon, TrendingUp,
   Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck
 } from "lucide-react";
-import { useLocation, Link } from "wouter";
+import { useLocation } from "wouter";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
@@ -627,10 +627,10 @@ export default function Home() {
               {services.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <Link key={s.label} href={s.href} className="flex items-center gap-3 rounded-xl px-4 py-3 transition-transform duration-200 hover:-translate-y-0.5" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
+                  <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 rounded-xl px-4 py-3 transition-transform duration-200 hover:-translate-y-0.5" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
                     <Icon size={15} color="oklch(0.65 0.14 65)" className="shrink-0" />
                     <span className="text-sm font-medium text-white leading-snug" style={{ fontFamily: "'Source Sans 3', sans-serif", wordBreak: "break-word", overflowWrap: "break-word", minWidth: 0 }}>{s.label}</span>
-                  </Link>
+                  </a>
                 );
               })}
             </div>
