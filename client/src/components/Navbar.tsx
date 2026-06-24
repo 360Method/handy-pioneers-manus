@@ -92,6 +92,28 @@ export default function Navbar() {
     openInquiry();
   };
 
+  // Enroll CTA: send the visitor to the membership pricing section. If we are
+  // already on /membership, smooth-scroll to it; otherwise navigate there first,
+  // then scroll once the section renders (retry while the page mounts).
+  const goToPricing = () => {
+    setMobileOpen(false);
+    const scrollToPricing = (attempts = 0) => {
+      const el = document.getElementById("pricing");
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - NAVBAR_HEIGHT;
+        window.scrollTo({ top, behavior: "smooth" });
+      } else if (attempts < 10) {
+        setTimeout(() => scrollToPricing(attempts + 1), 100);
+      }
+    };
+    if (location === "/membership" || location.startsWith("/membership/")) {
+      scrollToPricing();
+    } else {
+      navigate("/membership");
+      setTimeout(() => scrollToPricing(), 100);
+    }
+  };
+
   return (
     <nav
       className={`sticky z-50 w-full transition-all duration-300 ${
@@ -162,13 +184,7 @@ export default function Navbar() {
             (360) 838-6731
           </a>
           {isMethodOrMembership ? (
-            <button
-              className="hcp-button"
-              onClick={() => {
-                setMobileOpen(false);
-                navigate("/membership");
-              }}
-            >
+            <button className="hcp-button" onClick={goToPricing}>
               Enroll in 360° Method →
             </button>
           ) : (
@@ -221,13 +237,7 @@ export default function Navbar() {
             Call: (360) 838-6731
           </a>
           {isMethodOrMembership ? (
-            <button
-              className="hcp-button w-full mt-2"
-              onClick={() => {
-                setMobileOpen(false);
-                navigate("/membership");
-              }}
-            >
+            <button className="hcp-button w-full mt-2" onClick={goToPricing}>
               Enroll in 360° Method →
             </button>
           ) : (
