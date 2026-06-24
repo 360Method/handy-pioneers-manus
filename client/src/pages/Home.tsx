@@ -11,7 +11,7 @@ import {
   ChevronDown, CheckCircle, Star, Home as HomeIcon, TrendingUp,
   Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck
 } from "lucide-react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
@@ -88,20 +88,20 @@ const outcomes = [
 ];
 
 const services = [
-  { icon: Hammer, label: "Kitchen & Bathroom Remodels" },
-  { icon: Paintbrush, label: "Interior Painting & Finishing" },
-  { icon: TreePine, label: "Deck & Fence Construction" },
-  { icon: Wrench, label: "Plumbing & Fixture Upgrades" },
-  { icon: Zap, label: "Electrical & Lighting" },
-  { icon: HomeIcon, label: "Flooring Installation" },
-  { icon: Shield, label: "Exterior Repairs & Siding" },
-  { icon: TrendingUp, label: "ADU & Garage Conversions" },
-  { icon: TreePine, label: "Pressure Washing & Moss Removal" },
-  { icon: Hammer, label: "Carpentry & Custom Millwork" },
-  { icon: Paintbrush, label: "Drywall & Texture" },
-  { icon: Shield, label: "Gutter Cleaning & Repair" },
-  { icon: Clock, label: "Proactive Maintenance Programs" },
-  { icon: TrendingUp, label: "Seasonal Home Walkthroughs" },
+  { icon: Hammer, label: "Kitchen & Bathroom Remodels", href: "/services/remodeling" },
+  { icon: Paintbrush, label: "Interior Painting & Finishing", href: "/services/interior-painting" },
+  { icon: TreePine, label: "Deck & Fence Construction", href: "/services/deck-restoration" },
+  { icon: Wrench, label: "Plumbing & Fixture Upgrades", href: "/services" },
+  { icon: Zap, label: "Electrical & Lighting", href: "/services" },
+  { icon: HomeIcon, label: "Flooring Installation", href: "/services/flooring" },
+  { icon: Shield, label: "Exterior Repairs & Siding", href: "/services/rot-repair" },
+  { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/remodeling" },
+  { icon: TreePine, label: "Pressure Washing & Moss Removal", href: "/services/pressure-washing" },
+  { icon: Hammer, label: "Carpentry & Custom Millwork", href: "/services/carpentry-trim" },
+  { icon: Paintbrush, label: "Drywall & Texture", href: "/services" },
+  { icon: Shield, label: "Gutter Cleaning & Repair", href: "/services/gutter-services" },
+  { icon: Clock, label: "Proactive Maintenance Programs", href: "/services/property-maintenance" },
+  { icon: TrendingUp, label: "Seasonal Home Walkthroughs", href: "/membership" },
 ];
 
 const phases = [
@@ -627,10 +627,10 @@ export default function Home() {
               {services.map((s) => {
                 const Icon = s.icon;
                 return (
-                  <div key={s.label} className="flex items-center gap-3 rounded-xl px-4 py-3" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
+                  <Link key={s.label} href={s.href} className="flex items-center gap-3 rounded-xl px-4 py-3 transition-transform duration-200 hover:-translate-y-0.5" style={{ backgroundColor: "rgba(255,255,255,0.07)" }}>
                     <Icon size={15} color="oklch(0.65 0.14 65)" className="shrink-0" />
                     <span className="text-sm font-medium text-white leading-snug" style={{ fontFamily: "'Source Sans 3', sans-serif", wordBreak: "break-word", overflowWrap: "break-word", minWidth: 0 }}>{s.label}</span>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
