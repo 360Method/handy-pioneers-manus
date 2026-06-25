@@ -200,6 +200,36 @@ export const CADENCE_LABELS: Record<BillingCadence, string> = {
   annual: "Annual",
 };
 
+/* -- Landlord (multi-family) pricing: building base + per-unit ---------------
+ * The Proactive Path for Landlords (HP-DOC-024): one price for the building =
+ * the size-banded building base + a per-unit fee on every unit. A single-family
+ * rental (1 unit) folds its unit into the base. Mirrors the estimator engine
+ * (HP-Estimator-app shared/threeSixtyTiers.ts getLandlordPrice). Display-only and
+ * monthly here; the funnel is consult-first, so this is illustrative "from"
+ * pricing, never the contract. Size is an internal input: the visitor sees only
+ * the final building price, never a band.
+ */
+export const LANDLORD_PER_UNIT_MONTHLY: Record<MemberTier, number> = {
+  bronze: 25,
+  silver: 39,
+  gold: 55,
+};
+
+/** Units that carry the per-unit fee (SFR folds its one unit into the base). */
+export function billableUnits(unitCount: number): number {
+  return unitCount <= 1 ? 0 : unitCount;
+}
+
+/** Blended monthly landlord price: building base (by sqft) + per-unit × units. */
+export function getLandlordMonthly(
+  tier: TierData,
+  unitCount: number,
+  sqft: number,
+): number {
+  const band = bandForSqft(sqft > 0 ? sqft : 1);
+  return getPrice(tier, "monthly", band) + LANDLORD_PER_UNIT_MONTHLY[tier.id] * billableUnits(unitCount);
+}
+
 /* ── Roadmap-funnel OTO: Maximum (gold) annual buy-now, sized by band ─────────
  * Derived from MONTHLY_GRID.gold × 12 × 0.70, rounded to the $9 convention.
  * MUST match the Stripe prices behind STRIPE_PRICE_MAX_ANNUAL_BUYNOW_{BAND}

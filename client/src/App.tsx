@@ -25,6 +25,7 @@ import Method360Referral from "./pages/Method360Referral";
 import Method360Membership from "./pages/Method360Membership";
 import Method360Offer from "./pages/Method360Offer";
 import Membership from "./pages/Membership";
+import Multifamily from "./pages/Multifamily";
 import MembershipCheckout from "./pages/MembershipCheckout";
 import MembershipConfirmation from "./pages/MembershipConfirmation";
 import BaselineDetails from "./pages/BaselineDetails";
@@ -65,6 +66,8 @@ function Router() {
       <Route path="/360-method/offer" component={Method360Offer} />
       {/* Canonical membership enrollment flow */}
       <Route path="/membership" component={Membership} />
+      {/* Proactive Path for Landlords (multi-family / rental owners) */}
+      <Route path="/multifamily" component={Multifamily} />
       <Route path="/membership/checkout" component={MembershipCheckout} />
       <Route path="/membership/confirmation" component={MembershipConfirmation} />
       {/* Baseline-walkthrough funnel: Step 1 popup -> details -> upsell -> confirm */}
