@@ -76,10 +76,6 @@ export const faqs: FAQCategory[] = [
         a: "No. The 360° Baseline Walkthrough is a proactive maintenance assessment, not a licensed home inspection. It is not a legal document and cannot be used for real estate transactions. If you need a licensed inspection for a purchase or sale, we can refer you to a vetted inspector in our network (Path 3). The 360° Method is designed to work alongside - and after - a licensed inspection.",
       },
       {
-        q: "\"Certified technician\" - certified by whom?",
-        a: "Marcin holds certifications in home maintenance assessment and has completed professional training in residential systems evaluation. He is not a licensed home inspector (see above). We use 'certified technician' to describe his trade credentials and training - not to imply a licensed inspection credential. We're working on making this clearer on the site.",
-      },
-      {
         q: "How long does a Baseline Walkthrough take?",
         a: "Typically 2-3 hours for a standard single-family home. Larger properties or homes with complex systems may take longer. You'll receive your written report and prioritized roadmap within 48 hours of the walkthrough.",
       },
