@@ -164,9 +164,10 @@ export default function BaselineOffer() {
           <span className="text-[#C9A84C]">Here's what membership adds.</span>
         </h1>
         <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
-          {usd(stack.total)} of visits, a documented home scan, and {usd(stack.laborBank)} of
-          real work credit, plus member pricing on every repair your walkthrough turns up.
-          Homeowners who join right now, before the visit, lock it for {usd(buyNow)} for the year.
+          About {usd(stack.total)} of comparable value: a full year of seasonal visits, a documented
+          home scan, {usd(stack.laborBank)} of real-work credit, and member pricing on every repair
+          your walkthrough turns up. Homeowners who join right now, before the visit, lock it for{" "}
+          {usd(buyNow)} for the year.
         </p>
 
         <div className="rounded-2xl border-2 border-[#C9A84C] bg-[#1A3A28] overflow-hidden mb-6">
@@ -193,15 +194,6 @@ export default function BaselineOffer() {
                     <span className="text-[#F5F0E8] font-semibold whitespace-nowrap">{usd(line.value)}</span>
                   </div>
                 ))}
-                <div className="flex items-start justify-between gap-3 text-sm">
-                  <span className="flex items-start gap-2 text-[#B8C8B8] leading-snug">
-                    <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
-                    Member pricing on every repair, all year
-                  </span>
-                  <span className="text-[#C9A84C] font-semibold whitespace-nowrap">
-                    up to {gold.discountPct.overFiveK}%
-                  </span>
-                </div>
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-[#2A4A38]">
                 <span className="text-[#8BA898] text-sm font-semibold">Comparable value</span>

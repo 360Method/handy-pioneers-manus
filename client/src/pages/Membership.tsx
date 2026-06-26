@@ -134,6 +134,22 @@ export default function Membership() {
             No contracts · Cancel anytime · Currently serving Clark County, Washington
           </p>
 
+          {/* Cross-link to the landlord plan (the /multifamily page is not in the
+              main nav, so this is how rental owners find it). */}
+          <div className="mt-6">
+            <a
+              href="/multifamily"
+              className="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors"
+              style={{
+                background: "oklch(100% 0 0 / 0.1)",
+                color: "oklch(78% 0.13 78)",
+                border: "1px solid oklch(78% 0.13 78 / 0.4)",
+              }}
+            >
+              Own rentals or a multi-unit building? See the landlord plan →
+            </a>
+          </div>
+
           <div className="flex flex-wrap justify-center gap-6 mt-12 text-sm" style={{ color: "oklch(100% 0 0 / 0.6)" }}>
             {["5-Star Rated", "Licensed & Insured", "1-Year Labor Guarantee", "Dedicated Technician"].map((b) => (
               <span key={b} className="flex items-center gap-1.5">
@@ -553,6 +569,23 @@ export default function Membership() {
           <p className="text-center text-xs mt-6" style={{ color: "oklch(60% 0.02 60)" }}>
             All plans include the Annual 360° Home Scan. No long-term contracts. Cancel anytime.
           </p>
+
+          {/* Landlord cross-link, right where homeowners book. */}
+          <div
+            className="text-center mt-8 rounded-xl p-5 max-w-2xl mx-auto"
+            style={{ background: "oklch(97% 0.01 80)", border: "1px solid oklch(88% 0.02 80)" }}
+          >
+            <p className="text-sm mb-3" style={{ color: "oklch(40% 0.03 60)" }}>
+              Questions, or own rentals and multiple units? The landlord plan is built for you.
+            </p>
+            <a
+              href="/multifamily"
+              className="inline-flex items-center gap-2 rounded-md px-6 py-3 text-sm font-bold text-white"
+              style={{ background: "oklch(22% 0.07 155)" }}
+            >
+              See the Landlord Plan →
+            </a>
+          </div>
         </div>
       </section>
 
@@ -782,6 +815,15 @@ export default function Membership() {
           <a href="#pricing" className="btn-hp-primary text-base px-10 py-4">
             Start My Home's Transformation →
           </a>
+          <div className="mt-5">
+            <a
+              href="/multifamily"
+              className="text-sm font-semibold underline-offset-4 hover:underline"
+              style={{ color: "oklch(78% 0.13 78)" }}
+            >
+              Own rentals or a multi-unit building? See the landlord plan →
+            </a>
+          </div>
           <p
             className="mt-4 text-xs max-w-sm mx-auto"
             style={{ color: "oklch(100% 0 0 / 0.38)", lineHeight: 1.55 }}

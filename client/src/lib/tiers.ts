@@ -283,13 +283,20 @@ export const GOLD_BUYNOW_ANNUAL: Record<HomeSizeBand, number> = {
 /* ── Value stack (offer pages) ───────────────────────────────────────────────
  * Comparable a-la-carte worth of what a membership includes, so the one-time
  * offer can show what the plan is worth against today's price. These are market
- * comparables (a licensed home inspection runs $400-500; a seasonal maintenance
- * visit with services runs $150-300), NOT internal cost. Visit + scan worth
- * scale with the home-size band, the same way price does, so the gap holds for
- * larger homes. Edit the two anchors here and every offer page updates.
+ * comparables, NOT internal cost. A seasonal visit is not an inspection, it is a
+ * half-day of services performed (gutters cleared, roof moss treated, exterior
+ * weatherproofing, safety + systems), which at retail runs $400-800 a la carte;
+ * a documented 2-3 hr scan is comparable to a licensed inspection ($400-500). The
+ * single biggest member value is member pricing on the project work the
+ * walkthrough surfaces, so the stack quantifies that on a conservative typical
+ * year. Visit + scan worth scale with the home-size band, the same way price does,
+ * so the gap holds for larger homes. Edit the anchors here and every offer page
+ * updates.
  */
-export const SEASONAL_VISIT_VALUE = 225;
-export const HOME_SCAN_VALUE = 299;
+export const SEASONAL_VISIT_VALUE = 500;
+export const HOME_SCAN_VALUE = 500;
+/** Conservative typical year of project work used to quantify member savings. */
+export const TYPICAL_PROJECT_YEAR = 15000;
 
 export interface ValueLine {
   label: string;
@@ -319,6 +326,15 @@ export function valueStackFor(
     lines.push({
       label: `$${tier.laborBankDollars} labor bank credit (spendable on real work)`,
       value: tier.laborBankDollars,
+    });
+  }
+  // The largest real value: member pricing on the project work the walkthrough
+  // surfaces, quantified on a conservative typical year (clearly an example).
+  const projectSavings = memberSavingsExample(tier, TYPICAL_PROJECT_YEAR);
+  if (projectSavings > 0) {
+    lines.push({
+      label: `Member pricing on a typical $${TYPICAL_PROJECT_YEAR.toLocaleString()} year of project work`,
+      value: projectSavings,
     });
   }
   const total = lines.reduce((sum, l) => sum + l.value, 0);
