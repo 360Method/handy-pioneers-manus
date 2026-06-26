@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 
-interface SeasonCategory {
+export interface SeasonCategory {
   title: string;
   tasks: string[];
 }
-interface SeasonData {
+export interface SeasonData {
   season: string;
   emoji: string;
   timing: string;
@@ -192,7 +192,61 @@ const SEASONS: SeasonData[] = [
   },
 ];
 
-export default function SeasonalVisitsGrid() {
+// The homeowner copy is the default. The landlord page (/multifamily) passes its
+// own building + common-area seasons and footnotes through these props, reusing
+// the exact same UI so the two pages look identical and only the wording differs.
+interface Props {
+  seasons?: SeasonData[];
+  overline?: string;
+  heading?: ReactNode;
+  intro?: ReactNode;
+  tapHint?: string;
+  footnotes?: ReactNode[];
+}
+
+const HOMEOWNER_FOOTNOTES: ReactNode[] = [
+  <>
+    These are examples. Each visit is a focused window matched to your home, so a home without a
+    deck or irrigation isn't charged that time. We do what your home actually needs, highest
+    priority first.
+  </>,
+  <>
+    Maintenance is included. If something needs repair or replacement (rotted decking or fascia, a
+    leaking roof, a broken fixture, or any heating, cooling, plumbing, or electrical system
+    repair), that is separate work. We document it and give you a written scope to approve at your
+    member rate, never absorbed into the visit.
+  </>,
+  <>
+    Essential includes Spring + Fall. Full Coverage and Maximum Protection include all four
+    seasons.
+  </>,
+  <em>
+    We clear gutters and work on the roof only where we can safely reach, from a ladder or a
+    walkable, low-slope roof. Gutters or roof areas that need steep-pitch access or a second or
+    third-story dormer are referred to a licensed roofer; we do what we can from below and hand off
+    the rest.
+  </em>,
+];
+
+export default function SeasonalVisitsGrid({
+  seasons = SEASONS,
+  overline = "Your Year, Managed",
+  heading = (
+    <>
+      Season by season,<br />your home gets better.
+    </>
+  ),
+  intro = (
+    <>
+      Your home accumulates the specific wear patterns of the Pacific Northwest: moss on the
+      roof, debris in the gutters, freeze-thaw stress on the foundation. Each seasonal visit is
+      a focused window matched to your home at the baseline, so your technician works on what
+      your home actually needs. You receive the report.
+    </>
+  ),
+  tapHint = "Tap any category to see example tasks.",
+  footnotes = HOMEOWNER_FOOTNOTES,
+}: Props = {}) {
   const [open, setOpen] = useState<Set<string>>(new Set());
   const toggle = (id: string) =>
     setOpen((prev) => {
@@ -205,30 +259,27 @@ export default function SeasonalVisitsGrid() {
   return (
     <section className="py-16 px-4 section-white">
       <div className="max-w-5xl mx-auto">
-        <div className="hp-overline">Your Year, Managed</div>
+        <div className="hp-overline">{overline}</div>
         <h2
           className="font-display text-3xl sm:text-4xl font-black text-center mb-4"
           style={{ color: "oklch(22% 0.07 155)" }}
         >
-          Season by season,<br />your home gets better.
+          {heading}
         </h2>
         <p
           className="text-center max-w-xl mx-auto mb-3"
           style={{ color: "oklch(50% 0.02 60)" }}
         >
-          Your home accumulates the specific wear patterns of the Pacific Northwest: moss on the
-          roof, debris in the gutters, freeze-thaw stress on the foundation. Each seasonal visit is
-          a focused window matched to your home at the baseline, so your technician works on what
-          your home actually needs. You receive the report.
+          {intro}
         </p>
         <p
           className="text-center max-w-xl mx-auto mb-10 text-sm"
           style={{ color: "oklch(60% 0.02 60)" }}
         >
-          Tap any category to see example tasks.
+          {tapHint}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-start">
-          {SEASONS.map((s, i) => (
+          {seasons.map((s, i) => (
             <div key={i} className="hp-card self-start">
               <div
                 className="flex items-center justify-center gap-3 mb-3 pb-3"
@@ -299,41 +350,15 @@ export default function SeasonalVisitsGrid() {
             </div>
           ))}
         </div>
-        <p
-          className="text-center text-xs mt-6 max-w-2xl mx-auto"
-          style={{ color: "oklch(50% 0.02 60)" }}
-        >
-          These are examples. Each visit is a focused window matched to your home, so a home without
-          a deck or irrigation isn't charged that time. We do what your home actually needs, highest
-          priority first.
-        </p>
-        <p
-          className="text-center text-xs mt-3 max-w-2xl mx-auto"
-          style={{ color: "oklch(50% 0.02 60)" }}
-        >
-          Maintenance is included. If something needs repair or replacement (rotted decking or
-          fascia, a leaking roof, a broken fixture, or any heating, cooling, plumbing, or electrical
-          system repair), that is separate work. We document it and give you a written scope to
-          approve at your member rate, never absorbed into the visit.
-        </p>
-        <p
-          className="text-center text-xs mt-3"
-          style={{ color: "oklch(60% 0.02 60)" }}
-        >
-          Essential includes Spring + Fall. Full Coverage and Maximum Protection include all four
-          seasons.
-        </p>
-        <p
-          className="text-center text-xs mt-2"
-          style={{ color: "oklch(60% 0.02 60)" }}
-        >
-          <em>
-            We clear gutters and work on the roof only where we can safely reach, from a ladder or a
-            walkable, low-slope roof. Gutters or roof areas that need steep-pitch access or a second
-            or third-story dormer are referred to a licensed roofer; we do what we can from below and
-            hand off the rest.
-          </em>
-        </p>
+        {footnotes.map((note, i) => (
+          <p
+            key={i}
+            className={`text-center text-xs max-w-2xl mx-auto ${i === 0 ? "mt-6" : "mt-3"}`}
+            style={{ color: "oklch(55% 0.02 60)" }}
+          >
+            {note}
+          </p>
+        ))}
       </div>
     </section>
   );

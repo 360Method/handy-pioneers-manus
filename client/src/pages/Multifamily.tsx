@@ -22,6 +22,7 @@ import StatBubbles from "@/components/membership/StatBubbles";
 import SeasonalVisitsGrid from "@/components/membership/SeasonalVisitsGrid";
 import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTimeline";
 import SEO from "@/components/SEO";
+import { LANDLORD_SEASONS, TURNOVER_SCOPE, TURNOVER_FROM } from "@/lib/landlordContent";
 
 const UNIT_OPTIONS = [
   { units: 1, label: "Single-family" },
@@ -37,8 +38,12 @@ const FAQS = [
     a: "Your technician documents the finding with photos and generates a prioritized written scope on the spot - linked directly to your account. You receive a clear scope, your member rate, and can authorize the work in one step. No separate sales call, no sourcing a contractor, no waiting for a quote, and no tenant phone call you have to chase down.",
   },
   {
+    q: "How often do you go inside the units?",
+    a: "The seasonal visits are building and common-area work, so they don't need tenant access. Inside the unit, we plan one coordinated visit a year, scheduled with proper tenant notice alongside the annual scan, covering the per-unit safety and systems checklist (detectors, filters, plumbing and water heater check, GFCIs, weatherstripping). The other natural time we're inside is a turnover, when the unit is vacant. If you want more in-unit visits on a property, we can add them at your member rate.",
+  },
+  {
     q: "How are turnovers handled?",
-    a: "When a tenant moves out, we run a standardized make-ready - inspect, clean, paint touch-up, repairs, safety and habitability check - so the unit is ready to re-list. Turnovers are scoped per event at your member rate, not folded into the membership, because every turnover is different. Members get priority scheduling, and Maximum members go to the front of the line so a vacant unit turns faster.",
+    a: "When a tenant moves out, we run a standardized make-ready - inspect, clean, paint touch-up, repairs, safety and habitability check, make-ready - so the unit is ready to re-list. Turnovers are scoped per event at your member rate, not folded into the membership, because every turnover is different. Members get priority scheduling, and Maximum members go to the front of the line so a vacant unit turns faster.",
   },
   {
     q: "How does the labor bank work?",
@@ -132,9 +137,10 @@ export default function Multifamily() {
           >
             You have a full-time life and a few units. Almost no small landlord has someone
             actively managing the physical asset. The 360° Method is a fully managed program
-            for your building - seasonal visits across the structure and every unit, documented
-            reports, member-rate turnovers, and a named technician who knows the property.
-            We partner with you on the building instead of waiting for the 9pm call.
+            for your building - seasonal visits across the structure and common areas, an annual
+            in-unit visit, documented reports, member-rate turnovers, and a named technician who
+            knows the property. We partner with you on the building instead of waiting for the
+            9pm call.
           </p>
 
           <a href="#pricing" className="btn-hp-primary text-base px-10 py-4 shadow-lg">
@@ -342,7 +348,7 @@ export default function Multifamily() {
                 phase: "ACT",
                 icon: "🔧",
                 title: "We Handle It",
-                body: "Seasonal visits address the structure, the common areas, and every unit against the demands of the Pacific Northwest climate. Your technician shows up, executes, and documents. Nothing falls through the cracks - because we are watching, not the tenant.",
+                body: "Seasonal visits address the structure, the common areas, and the grounds against the demands of the Pacific Northwest climate, plus a coordinated annual visit inside each unit. Your technician shows up, executes, and documents. Nothing falls through the cracks - because we are watching, not the tenant.",
               },
               {
                 phase: "ADVANCE",
@@ -376,8 +382,152 @@ export default function Multifamily() {
         </div>
       </section>
 
-      {/* ── SEASONAL VISITS ── */}
-      <SeasonalVisitsGrid />
+      {/* ── SEASONAL VISITS (building + common areas) ── */}
+      <SeasonalVisitsGrid
+        seasons={LANDLORD_SEASONS}
+        overline="Your Year, Managed"
+        heading={
+          <>
+            Season by season,<br />your building gets better.
+          </>
+        }
+        intro={
+          <>
+            Your building accumulates the specific wear patterns of the Pacific Northwest: moss on
+            the roof, debris in the gutters, freeze stress on exposed lines, wear in the shared
+            spaces. Each seasonal visit is the building and common-area work matched to the
+            property at the baseline, so your technician works on what the building actually needs.
+            You receive the report.
+          </>
+        }
+        tapHint="Tap any category to see example tasks."
+        footnotes={[
+          <>
+            These are examples. Each visit is matched to the building at the baseline, so a
+            property without a deck, sump, or shared laundry isn't charged that time. We do what the
+            building actually needs, highest priority first.
+          </>,
+          <>
+            <strong>In-unit work is separate.</strong> The seasonal visits above are building and
+            common-area work and don't need tenant access. Inside the unit, we plan one coordinated
+            visit a year with proper tenant notice (detectors, filters, plumbing and water-heater
+            check, GFCIs). The other time we're inside is a turnover, when the unit is vacant.
+          </>,
+          <>
+            Maintenance is included. If something needs repair or replacement (rotted decking or
+            fascia, a leaking roof, a broken fixture, or any heating, cooling, plumbing, or
+            electrical system repair), that is separate work. We document it and give you a written
+            scope to approve at your member rate, never absorbed into the visit.
+          </>,
+          <>
+            Essential includes Spring + Fall building visits. Full Coverage and Maximum include all
+            four seasons. Every tier includes the annual scan and one annual in-unit visit per unit.
+          </>,
+          <em>
+            We clear gutters and work on the roof only where we can safely reach, from a ladder or a
+            walkable, low-slope roof. Areas that need steep-pitch access or upper-story dormers are
+            referred to a licensed roofer; we do what we can from below and hand off the rest.
+          </em>,
+        ]}
+      />
+
+      {/* ── TURNOVERS (member-rate, per event) ── */}
+      <section className="py-20 px-4 section-cream">
+        <div className="max-w-5xl mx-auto">
+          <div className="hp-overline">Between Tenants</div>
+          <h2
+            className="font-display text-3xl sm:text-4xl font-black text-center mb-4"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            Turn a vacant unit fast,<br />without the scramble.
+          </h2>
+          <p
+            className="text-center max-w-2xl mx-auto mb-10"
+            style={{ color: "oklch(50% 0.02 60)" }}
+          >
+            Every move-out runs the same standardized make-ready, so the unit is clean, safe, and
+            ready to re-list, and you have a documented record start to finish. Turnovers are scoped
+            per event at your member rate, with priority scheduling by tier. Members go ahead of the
+            queue so the unit doesn't sit empty.
+          </p>
+
+          {/* Standardized scope */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+            {TURNOVER_SCOPE.map((phase, i) => (
+              <div key={i} className="hp-card">
+                <div
+                  className="flex items-center gap-2 mb-3 pb-3"
+                  style={{ borderBottom: "1px solid oklch(88% 0.02 80)" }}
+                >
+                  <span
+                    className="inline-flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold text-white shrink-0"
+                    style={{ background: "oklch(65% 0.15 72)" }}
+                  >
+                    {i + 1}
+                  </span>
+                  <span className="font-bold text-sm" style={{ color: "oklch(22% 0.07 155)" }}>
+                    {phase.title}
+                  </span>
+                </div>
+                <ul className="space-y-1.5">
+                  {phase.items.map((item, ii) => (
+                    <li
+                      key={ii}
+                      className="flex items-start gap-2 text-xs leading-snug"
+                      style={{ color: "oklch(40% 0.02 255)" }}
+                    >
+                      <span style={{ color: "oklch(65% 0.15 72)", flexShrink: 0, marginTop: "1px" }}>
+                        ✓
+                      </span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          {/* Indicative pricing by unit type */}
+          <div
+            className="rounded-xl p-6 sm:p-8"
+            style={{ background: "oklch(100% 0 0)", border: "1px solid oklch(88% 0.02 80)" }}
+          >
+            <h3
+              className="font-display text-xl font-black text-center mb-1"
+              style={{ color: "oklch(22% 0.07 155)" }}
+            >
+              Standard make-ready, by unit type
+            </h3>
+            <p className="text-center text-sm mb-6" style={{ color: "oklch(50% 0.02 60)" }}>
+              Starting ranges confirmed on the move-out walkthrough. Your member rate applies on top.
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
+              {TURNOVER_FROM.map((row) => (
+                <div
+                  key={row.unit}
+                  className="rounded-lg px-4 py-4 text-center"
+                  style={{ background: "oklch(97% 0.01 80)", border: "1px solid oklch(90% 0.02 80)" }}
+                >
+                  <div className="text-xs font-semibold mb-1" style={{ color: "oklch(45% 0.02 60)" }}>
+                    {row.unit}
+                  </div>
+                  <div
+                    className="font-display text-xl font-black"
+                    style={{ color: "oklch(22% 0.07 155)" }}
+                  >
+                    from ${row.from.toLocaleString()}
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-center text-xs mt-6 max-w-2xl mx-auto" style={{ color: "oklch(55% 0.02 60)" }}>
+              Depth varies by condition (a light refresh to a full make-ready), so we firm the scope
+              and price on the walkthrough. Heavy turnovers with flooring or larger repairs are
+              quoted as their own scope at your member rate.
+            </p>
+          </div>
+        </div>
+      </section>
 
       {/* ── SAVINGS STATS ── */}
       <section className="py-16 px-4 section-cream">
@@ -769,9 +919,9 @@ export default function Multifamily() {
             style={{ color: "oklch(100% 0 0 / 0.7)" }}
           >
             Your baseline walkthrough is on the calendar within 48 hours. From that day forward,
-            your technician knows the building, tracks its condition, handles the upkeep across
-            the structure and units, and turns vacant units fast - season by season - while your
-            score climbs and your record grows.
+            your technician knows the building, tracks its condition, handles the seasonal upkeep
+            on the structure and common areas, and turns vacant units fast - season by season -
+            while your score climbs and your record grows.
           </p>
           <a href="#pricing" className="btn-hp-primary text-base px-10 py-4">
             Start My Building's Transformation →
