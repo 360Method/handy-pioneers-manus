@@ -74,7 +74,7 @@ export default function InquiryModal() {
         {isRoadmap ? (
           <RoadmapInquiryForm />
         ) : isBaseline ? (
-          <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} />
+          <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} source={ctx.source} serviceType={ctx.serviceType} />
         ) : (
           <>
             <ul className="space-y-2 mb-1">

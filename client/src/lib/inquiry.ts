@@ -13,6 +13,10 @@ export interface InquiryContext {
   sqft?: number;
   /** Seasonal-offer code the lead came in on (folded into the lead source). */
   promoCode?: string;
+  /** Override the lead source tag (e.g. landlord 5+ units / portfolio). */
+  source?: string;
+  /** Override the lead service-type label (what the team sees on the lead). */
+  serviceType?: string;
 }
 
 type Listener = (ctx: InquiryContext) => void;

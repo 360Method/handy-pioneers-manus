@@ -24,13 +24,26 @@ import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTi
 import SEO from "@/components/SEO";
 import { LANDLORD_SEASONS, TURNOVER_SCOPE, TURNOVER_FROM } from "@/lib/landlordContent";
 
+// 1-4 units price cleanly off the building base + per-unit fee. 5+ units need a
+// per-unit custom quote, so picking it switches the pricing block to a capture.
 const UNIT_OPTIONS = [
   { units: 1, label: "Single-family" },
   { units: 2, label: "Duplex" },
   { units: 3, label: "Triplex" },
   { units: 4, label: "Fourplex" },
-  { units: 6, label: "5+ units" },
+  { units: 5, label: "5+ units" },
 ];
+
+// More than one property is a portfolio plan, built across the properties on a
+// call, so it also routes to a custom quote rather than a single tier price.
+const PROPERTY_OPTIONS = [
+  { value: 1, label: "1" },
+  { value: 2, label: "2" },
+  { value: 3, label: "3" },
+  { value: 4, label: "4+" },
+];
+
+const MAX_PRICEABLE_UNITS = 4;
 
 const FAQS = [
   {
@@ -76,7 +89,12 @@ export default function Multifamily() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sqft, setSqft] = useState<number>(4000);
   const [units, setUnits] = useState<number>(4);
+  const [properties, setProperties] = useState<number>(1);
   const band = bandForSqft(sqft);
+
+  // 5+ units or more than one property = a custom/portfolio plan, priced on a
+  // call. We capture the lead instead of showing a single tier price.
+  const needsCustom = units > MAX_PRICEABLE_UNITS || properties > 1;
 
   useEffect(() => {
     document.title = "360° Method for Landlords | Handy Pioneers";
@@ -85,7 +103,8 @@ export default function Multifamily() {
   }, []);
 
   // Consult-first: the tier CTA opens the baseline walkthrough Step 1, carrying
-  // the chosen tier + building size so we can scope the building together.
+  // the chosen tier + building size so we can scope the building together. The
+  // lead is tagged as a landlord lead so the team sees it for what it is.
   const handleEnroll = (tier: MemberTier, _c: BillingCadence) => {
     const tierData = TIERS.find((t) => t.id === tier);
     track("begin_checkout", {
@@ -95,7 +114,32 @@ export default function Multifamily() {
       units,
       value: tierData ? getLandlordPrice(tierData, cadence, units, band) : undefined,
     });
-    openInquiry({ mode: "baseline", tier, sqft });
+    openInquiry({
+      mode: "baseline",
+      tier,
+      sqft,
+      source: `multifamily-tier-${tier}-${units}u`,
+      serviceType: "360° Landlord Plan",
+    });
+  };
+
+  // 5+ units / multiple properties: capture the lead for a custom quote.
+  const handleCustomQuote = () => {
+    const portfolio = properties > 1;
+    track("generate_lead", {
+      funnel: "baseline_walkthrough",
+      lead_type: "landlord_custom",
+      units,
+      properties,
+    });
+    openInquiry({
+      mode: "baseline",
+      sqft,
+      source: `multifamily-custom-${units}u-${properties}prop`,
+      serviceType: portfolio
+        ? `360° Landlord Portfolio Plan (${properties}${properties >= 4 ? "+" : ""} properties)`
+        : "360° Landlord Plan (5+ units)",
+    });
   };
 
   return (
@@ -615,7 +659,7 @@ export default function Multifamily() {
               Tell us about the building
             </label>
             <p className="text-sm mb-6" style={{ color: "oklch(45% 0.02 60)" }}>
-              Pick how many units and drag the slider to the total size - the prices below update
+              Pick how many units, how many properties, and the total size - the prices below update
               instantly. A rough figure is all we need.
             </p>
 
@@ -625,7 +669,7 @@ export default function Multifamily() {
                 className="block text-xs uppercase tracking-wide mb-2"
                 style={{ color: "oklch(60% 0.02 60)" }}
               >
-                Units
+                Units in this building
               </span>
               <div className="flex flex-wrap gap-2">
                 {UNIT_OPTIONS.map((o) => (
@@ -644,6 +688,36 @@ export default function Multifamily() {
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Properties (portfolio) */}
+            <div className="mb-6">
+              <span
+                className="block text-xs uppercase tracking-wide mb-2"
+                style={{ color: "oklch(60% 0.02 60)" }}
+              >
+                Properties you own
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {PROPERTY_OPTIONS.map((o) => (
+                  <button
+                    key={o.value}
+                    type="button"
+                    onClick={() => setProperties(o.value)}
+                    className="rounded-full px-4 py-2 text-sm font-semibold transition-colors min-w-[3rem]"
+                    style={
+                      properties === o.value
+                        ? { background: "oklch(22% 0.07 155)", color: "white", border: "1px solid oklch(22% 0.07 155)" }
+                        : { background: "white", color: "oklch(30% 0.04 155)", border: "1px solid oklch(85% 0.02 80)" }
+                    }
+                  >
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+              <p className="text-xs mt-2" style={{ color: "oklch(55% 0.02 60)" }}>
+                More than one property is priced as one portfolio plan, built with you on a call.
+              </p>
             </div>
 
             {/* Total building size */}
@@ -677,28 +751,83 @@ export default function Multifamily() {
               className="text-sm font-semibold mt-5"
               style={{ color: "oklch(55% 0.14 68)" }}
             >
-              ↓ Prices below are tailored to your building
+              {needsCustom
+                ? "↓ Your plan is custom-built - here's how it works"
+                : "↓ Prices below are tailored to your building"}
             </p>
           </div>
 
-          <CadenceToggle value={cadence} onChange={setCadence} />
+          {needsCustom ? (
+            /* 5+ units or multiple properties: capture for a custom/portfolio quote. */
+            <div
+              className="max-w-2xl mx-auto rounded-2xl p-8 sm:p-10 text-center"
+              style={{ background: "oklch(22% 0.07 155)", color: "white" }}
+            >
+              <div
+                className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+                style={{ background: "oklch(65% 0.15 72)", color: "white" }}
+              >
+                {properties > 1 ? "Portfolio plan" : "Custom plan"}
+              </div>
+              <h3 className="font-display text-2xl sm:text-3xl font-black mb-4">
+                {properties > 1
+                  ? "Let's price your whole portfolio as one plan."
+                  : "Buildings with 5+ units are priced per unit."}
+              </h3>
+              <p
+                className="text-base leading-relaxed mb-6 max-w-lg mx-auto"
+                style={{ color: "oklch(100% 0 0 / 0.78)" }}
+              >
+                {properties > 1
+                  ? "Most landlords own more than one property, and they're rarely identical. We build a single plan across all of them, one relationship, one record, one invoice, with your member rate on everything. Tell us about them and we'll put together your portfolio plan."
+                  : "Once a building passes four units, a flat price stops being fair to you. We price it per unit after a quick look at the building, so you only pay for the coverage it actually needs. Leave your details and we'll build your quote."}
+              </p>
+              <ul className="text-sm text-left max-w-md mx-auto mb-8 space-y-2">
+                {[
+                  "The full 360° Method: seasonal building visits, annual scan, documented record",
+                  "Member rates on all out-of-scope work and turnovers",
+                  properties > 1
+                    ? "One portfolio plan across every property, priced together"
+                    : "Per-unit pricing matched to the building, not a flat guess",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-2" style={{ color: "oklch(100% 0 0 / 0.8)" }}>
+                    <span style={{ color: "oklch(75% 0.15 72)", flexShrink: 0, marginTop: "2px" }}>✓</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={handleCustomQuote}
+                className="btn-hp-primary text-base px-10 py-4"
+              >
+                {properties > 1 ? "Build My Portfolio Plan →" : "Get My Custom Quote →"}
+              </button>
+              <p className="mt-4 text-xs" style={{ color: "oklch(100% 0 0 / 0.45)" }}>
+                We'll reach out within one business day. No commitment, no obligation.
+              </p>
+            </div>
+          ) : (
+            <>
+              <CadenceToggle value={cadence} onChange={setCadence} />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TIERS.map((tier) => (
-              <TierCard
-                key={tier.id}
-                tier={tier}
-                cadence={cadence}
-                band={band}
-                landlordUnits={units}
-                onEnroll={handleEnroll}
-              />
-            ))}
-          </div>
-          <p className="text-center text-xs mt-6" style={{ color: "oklch(60% 0.02 60)" }}>
-            All plans include the Annual 360° Building Scan. Turnovers are scoped per event at your
-            member rate. No long-term contracts. Cancel anytime.
-          </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {TIERS.map((tier) => (
+                  <TierCard
+                    key={tier.id}
+                    tier={tier}
+                    cadence={cadence}
+                    band={band}
+                    landlordUnits={units}
+                    onEnroll={handleEnroll}
+                  />
+                ))}
+              </div>
+              <p className="text-center text-xs mt-6" style={{ color: "oklch(60% 0.02 60)" }}>
+                All plans include the Annual 360° Building Scan. Turnovers are scoped per event at
+                your member rate. No long-term contracts. Cancel anytime.
+              </p>
+            </>
+          )}
         </div>
       </section>
 

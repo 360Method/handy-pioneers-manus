@@ -13,9 +13,13 @@ import { track } from "@/lib/analytics";
 interface Props {
   tier?: string;
   sqft?: number;
+  /** Lead source tag override (landlord 5+ / portfolio leads). */
+  source?: string;
+  /** Lead service-type label override (what the team sees). */
+  serviceType?: string;
 }
 
-export default function BaselineInquiryForm({ tier, sqft }: Props) {
+export default function BaselineInquiryForm({ tier, sqft, source, serviceType }: Props) {
   const [, navigate] = useLocation();
   const [form, setForm] = useState({ firstName: "", lastName: "", phone: "", email: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -60,8 +64,8 @@ export default function BaselineInquiryForm({ tier, sqft }: Props) {
           lastName: form.lastName.trim(),
           phone: form.phone.trim(),
           email: form.email.trim().toLowerCase(),
-          serviceType: "360° Baseline Walkthrough",
-          source: "baseline-funnel-step1",
+          serviceType: serviceType ?? "360° Baseline Walkthrough",
+          source: source ?? "baseline-funnel-step1",
           funnel: "baseline_walkthrough",
           state: "WA",
           timeline: "Flexible",
