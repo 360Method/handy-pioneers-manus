@@ -8,7 +8,7 @@
  * carries the chosen tier + home size into the funnel.
  */
 export interface InquiryContext {
-  mode?: "project" | "baseline" | "roadmap";
+  mode?: "project" | "baseline" | "roadmap" | "landlord";
   tier?: string;
   sqft?: number;
   /** Seasonal-offer code the lead came in on (folded into the lead source). */
@@ -17,6 +17,11 @@ export interface InquiryContext {
   source?: string;
   /** Override the lead service-type label (what the team sees on the lead). */
   serviceType?: string;
+  /** Landlord custom-quote flavor: portfolio (multi-property) or a single 5+ building. */
+  kind?: "portfolio" | "building5plus";
+  /** Landlord context carried into the quote funnel. */
+  units?: number;
+  properties?: number;
 }
 
 type Listener = (ctx: InquiryContext) => void;

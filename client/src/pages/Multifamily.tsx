@@ -123,17 +123,22 @@ export default function Multifamily() {
     });
   };
 
-  // 5+ units / multiple properties: capture the lead for a custom quote.
+  // 5+ units / multiple properties: open the tailored landlord quote funnel
+  // (Step 1 contact in the modal, then /multifamily/quote for the details that
+  // fit their situation). Portfolio when they own more than one property.
   const handleCustomQuote = () => {
     const portfolio = properties > 1;
-    track("generate_lead", {
-      funnel: "baseline_walkthrough",
-      lead_type: "landlord_custom",
+    track("begin_checkout", {
+      funnel: "landlord_quote",
+      lead_type: portfolio ? "portfolio" : "building5plus",
       units,
       properties,
     });
     openInquiry({
-      mode: "baseline",
+      mode: "landlord",
+      kind: portfolio ? "portfolio" : "building5plus",
+      units,
+      properties,
       sqft,
       source: `multifamily-custom-${units}u-${properties}prop`,
       serviceType: portfolio

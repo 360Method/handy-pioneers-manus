@@ -18,6 +18,7 @@ import {
 import ProjectInquiryForm from "@/components/ProjectInquiryForm";
 import BaselineInquiryForm from "@/components/BaselineInquiryForm";
 import RoadmapInquiryForm from "@/components/RoadmapInquiryForm";
+import LandlordQuoteForm from "@/components/LandlordQuoteForm";
 import { registerInquiry, type InquiryContext } from "@/lib/inquiry";
 
 export default function InquiryModal() {
@@ -48,6 +49,8 @@ export default function InquiryModal() {
 
   const isBaseline = ctx.mode === "baseline";
   const isRoadmap = ctx.mode === "roadmap";
+  const isLandlord = ctx.mode === "landlord";
+  const isPortfolio = ctx.kind === "portfolio";
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -59,20 +62,35 @@ export default function InquiryModal() {
           >
             {isRoadmap
               ? "Get Your 360° Roadmap"
-              : isBaseline
-                ? "Schedule Your Baseline Walkthrough"
-                : "Schedule Your Consultation"}
+              : isLandlord
+                ? isPortfolio
+                  ? "Build Your Portfolio Plan"
+                  : "Get Your Custom Quote"
+                : isBaseline
+                  ? "Schedule Your Baseline Walkthrough"
+                  : "Schedule Your Consultation"}
           </DialogTitle>
           <DialogDescription>
             {isRoadmap
               ? "First, a few quick details. Takes about 20 seconds."
-              : isBaseline
-                ? "First, a few quick details so we can reach out. Takes about 20 seconds."
-                : "An in-person walkthrough of your project. Share a few details and we'll reach out within one business day."}
+              : isLandlord
+                ? "First, your name and email. Next, a few quick details about your properties."
+                : isBaseline
+                  ? "First, a few quick details so we can reach out. Takes about 20 seconds."
+                  : "An in-person walkthrough of your project. Share a few details and we'll reach out within one business day."}
           </DialogDescription>
         </DialogHeader>
         {isRoadmap ? (
           <RoadmapInquiryForm />
+        ) : isLandlord ? (
+          <LandlordQuoteForm
+            kind={ctx.kind}
+            units={ctx.units}
+            properties={ctx.properties}
+            sqft={ctx.sqft}
+            source={ctx.source}
+            serviceType={ctx.serviceType}
+          />
         ) : isBaseline ? (
           <BaselineInquiryForm tier={ctx.tier} sqft={ctx.sqft} source={ctx.source} serviceType={ctx.serviceType} />
         ) : (
