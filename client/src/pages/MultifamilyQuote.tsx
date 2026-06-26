@@ -63,6 +63,7 @@ export default function MultifamilyQuote() {
   const [error, setError] = useState<string | null>(null);
 
   const [form, setForm] = useState({
+    phone: "",
     propertyCount: "",
     types: [] as string[],
     totalUnits: "",
@@ -73,6 +74,7 @@ export default function MultifamilyQuote() {
     zip: "",
     notes: "",
   });
+  const [consent, setConsent] = useState(false);
 
   const isPortfolio = stash.kind === "portfolio";
 
@@ -119,10 +121,18 @@ export default function MultifamilyQuote() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
+    if (!form.phone.trim()) {
+      setError("Please add a phone number so we can reach you.");
+      return;
+    }
+    if (!consent) {
+      setError("Please check the box so we can reach out about your request.");
+      return;
+    }
 
-    // Phone + consent were captured in Step 1; we carry them onto the lead notes
-    // here. Tailored answers are packed into a single notes string (backend-safe;
-    // the details endpoint already stores notes). The team reads it on the lead.
+    // Pack the tailored answers, phone, and consent into a single notes string
+    // (backend-safe; the details endpoint already stores notes). The team reads
+    // it on the lead.
     const noteLines = isPortfolio
       ? [
           `LANDLORD PORTFOLIO QUOTE`,
@@ -130,8 +140,8 @@ export default function MultifamilyQuote() {
           `Property types: ${form.types.length ? form.types.join(", ") : "not specified"}`,
           `Approx. total units: ${form.totalUnits || "?"}`,
           `Primary area/city: ${form.city || "?"}`,
-          `Phone: ${stash.phone || "?"}`,
-          `Consent to contact: ${stash.consent ? "yes" : "no"}`,
+          `Phone: ${form.phone}`,
+          `Consent to contact: ${consent ? "yes" : "no"}`,
           form.notes ? `Notes: ${form.notes}` : "",
         ]
       : [
@@ -139,8 +149,8 @@ export default function MultifamilyQuote() {
           `Units: ${form.unitCount || stash.units || "?"}`,
           `Occupied units: ${form.occupiedUnits || "?"}`,
           `Address: ${[form.street, form.city, form.zip].filter(Boolean).join(", ") || "?"}`,
-          `Phone: ${stash.phone || "?"}`,
-          `Consent to contact: ${stash.consent ? "yes" : "no"}`,
+          `Phone: ${form.phone}`,
+          `Consent to contact: ${consent ? "yes" : "no"}`,
           form.notes ? `Notes: ${form.notes}` : "",
         ];
     const notes = noteLines.filter(Boolean).join("\n");
@@ -305,9 +315,29 @@ export default function MultifamilyQuote() {
               )}
 
               <div>
+                <label className={labelClass} style={labelStyle} htmlFor="mq-phone">Best phone to reach you</label>
+                <input id="mq-phone" name="phone" type="tel" autoComplete="tel" placeholder="(360) 555-0100" value={form.phone} onChange={handleChange} className={inputClass} style={inputStyle} required />
+              </div>
+              <div>
                 <label className={labelClass} style={labelStyle} htmlFor="mq-notes">Anything we should know? (optional)</label>
                 <textarea id="mq-notes" name="notes" rows={3} placeholder={isPortfolio ? "Goals for the portfolio, turnover volume, best times to reach you…" : "Shared systems, recent issues, best times to reach you…"} value={form.notes} onChange={handleChange} className={inputClass} style={inputStyle} />
               </div>
+
+              <label htmlFor="mq-consent" className="flex items-start gap-2 text-xs leading-snug cursor-pointer" style={{ color: "oklch(50% 0.02 60)" }}>
+                <input
+                  id="mq-consent"
+                  name="consent"
+                  type="checkbox"
+                  checked={consent}
+                  onChange={(e) => setConsent(e.target.checked)}
+                  className="mt-0.5 h-4 w-4 shrink-0 accent-amber-600"
+                  required
+                />
+                <span>
+                  I agree to be contacted by Handy Pioneers by phone, text, and email about my
+                  request. Message and data rates may apply. Consent is not a condition of purchase.
+                </span>
+              </label>
 
               {error && <p className="text-sm font-medium" style={{ color: "oklch(55% 0.18 25)" }}>{error}</p>}
 
