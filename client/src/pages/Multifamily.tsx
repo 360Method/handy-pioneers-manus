@@ -1,70 +1,77 @@
 /*
  * Multifamily.tsx - /multifamily
- * The Proactive Path for Landlords (HP-DOC-024): the 360° Method shaped for an
- * owner who does not live in the property and has tenants. One price for the
- * building = building base (by size) + per-unit coverage. Consult-first.
- * Voice: lead with the 360° Method + partnership (offload the rentals, keep them
- * protected and re-rentable). No cost math, no "sub", no em/en dashes, no
- * cheap/free positioning. Forbidden vocab scrubbed (handyman/estimate/repair/fix).
+ * The Proactive Path for Landlords (HP-DOC-024). A near-clone of the homeowner
+ * membership page (same look, components, images, booking) with the wording
+ * tailored to the small affluent landlord: the building and its units, common
+ * areas, and member-rate turnovers. Same brand voice and forbidden-vocab scrub.
+ * Pricing is the building base (by total size) + per-unit coverage.
  */
+
 import { useEffect, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import type { MemberTier } from "@/lib/tiers";
-import { TIERS, getLandlordMonthly } from "@/lib/tiers";
+import type { MemberTier, BillingCadence } from "@/lib/tiers";
+import { TIERS, bandForSqft, getLandlordPrice } from "@/lib/tiers";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
+import { Slider } from "@/components/ui/slider";
+import { HomeScoreAnimation } from "@/components/membership/HomeScoreAnimation";
+import TierCard from "@/components/membership/TierCard";
+import CadenceToggle from "@/components/membership/CadenceToggle";
+import StatBubbles from "@/components/membership/StatBubbles";
+import SeasonalVisitsGrid from "@/components/membership/SeasonalVisitsGrid";
+import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTimeline";
 import SEO from "@/components/SEO";
 
-const UNIT_PRESETS = [
-  { units: 1, label: "Single-family rental" },
+const UNIT_OPTIONS = [
+  { units: 1, label: "Single-family" },
   { units: 2, label: "Duplex" },
   { units: 3, label: "Triplex" },
   { units: 4, label: "Fourplex" },
   { units: 6, label: "5+ units" },
 ];
 
-const COVERAGE = [
-  {
-    title: "The building",
-    body:
-      "Roof and gutters, exterior envelope, shared mechanicals, drainage and grading, walkways, shared entries, halls, laundry, and exterior lighting. Seasonal visits sized to the building.",
-  },
-  {
-    title: "Every unit",
-    body:
-      "An in-unit pass per unit: detectors, HVAC filter, plumbing check, weatherstripping, GFCI, exhaust fan, water heater, and a habitability check. A photo record for each unit.",
-  },
-  {
-    title: "Turnovers, on call",
-    body:
-      "When a tenant moves out, we run a standardized make-ready (inspect, clean, paint touch-up, repairs, safety check) at your member rate, with priority scheduling so the unit re-rents faster.",
-  },
-];
-
 const FAQS = [
   {
-    q: "How is a rental building priced?",
-    a: "One price for the property. It is built from the size of the building plus coverage for each unit, so a single-family rental and a fourplex are each priced fairly. You see one number, billed monthly, quarterly, or annually. No long-term contract.",
+    q: "What happens when a visit identifies something that needs a larger scope of work?",
+    a: "Your technician documents the finding with photos and generates a prioritized written scope on the spot - linked directly to your account. You receive a clear scope, your member rate, and can authorize the work in one step. No separate sales call, no sourcing a contractor, no waiting for a quote, and no tenant phone call you have to chase down.",
   },
   {
-    q: "What about turnovers between tenants?",
-    a: "Turnovers are handled as their own scoped service at your member rate, not folded into the membership, because every turnover is different. Members get a standardized make-ready and priority scheduling. Maximum members go to the front of the line so vacant units turn faster.",
+    q: "How are turnovers handled?",
+    a: "When a tenant moves out, we run a standardized make-ready - inspect, clean, paint touch-up, repairs, safety and habitability check - so the unit is ready to re-list. Turnovers are scoped per event at your member rate, not folded into the membership, because every turnover is different. Members get priority scheduling, and Maximum members go to the front of the line so a vacant unit turns faster.",
   },
   {
-    q: "I have a full-time job and a few units. Is this for me?",
-    a: "Yes. This is built for owners who do not want to chase the upkeep themselves. We watch the building and the units on a season rhythm, you get documented reports, and you have one number to call. We partner with you on the property rather than waiting for the emergency.",
+    q: "How does the labor bank work?",
+    a: "Labor bank credit is included in Quarterly and Annual memberships. Your credit is loaded at the end of your first billing period and renews annually. Apply it to any in-between task across the building - a fixture swap at one unit, a common-area light, a door adjustment. Your technician logs time on-site and the system records the draw automatically. Credits do not carry over year-to-year, which keeps the membership priced accurately. Monthly memberships include all visits and member rates but do not include a labor bank.",
   },
   {
-    q: "Is this available outside Clark County, Washington?",
-    a: "Today the 360° Method is delivered in Clark County, Washington and the surrounding communities. We are expanding regionally. Ask us about your area when we talk.",
+    q: "What does the baseline walkthrough cover?",
+    a: "The baseline is a documented assessment of the building and every unit - roof, foundation, exterior envelope, common areas, plumbing, electrical panels, HVAC, crawl space, and attic, plus an in-unit pass for each unit. You receive a written report with photos, a condition rating for each system, a prioritized findings list, and a written scope of work. The report is stored permanently in your account and is shareable with your lender, insurer, or a buyer.",
+  },
+  {
+    q: "Is there a contract or minimum commitment?",
+    a: "No contract. Monthly and quarterly memberships cancel at the end of the current billing period. Annual memberships can be cancelled with a prorated refund for unused months, net of any labor bank credits already applied. We expect to earn your renewal, not enforce it.",
+  },
+  {
+    q: "How is a building priced?",
+    a: "One price for the property. It is built from the size of the building plus coverage for each unit, so a single-family rental and a fourplex are each priced fairly. You see one number, billed monthly, quarterly, or annually. We confirm the building and units on the baseline walkthrough before anything begins.",
+  },
+  {
+    q: "Does the member rate change with the size of the job?",
+    a: "Yes, and it works in your favor. The bigger the project, the deeper your member rate - we reward bundling work together rather than spreading it out. Essential members save 2.5% on jobs under $5,000, 5% from $5,000 to $20,000, and 7% above $20,000. Full Coverage saves 4.5% / 8% / 11%. Maximum saves 7% / 12% / 15%. Your rate applies automatically and stacks with any labor bank credit.",
+  },
+  {
+    q: "Is this a licensed home inspection?",
+    a: "No - and that distinction works in your favor. The 360° Method is a proactive maintenance service, not a licensed inspection. A licensed inspector tells you what is wrong at a point in time, and we take it from there - completing the work, maintaining the building season after season, and documenting every visit so the property's condition is always on record. We work in tandem with inspectors, not in place of them. Our documentation does not replace a licensed inspector, structural engineer, or specialist for major assessments, and we are not liable for pre-existing conditions not visible or accessible during a visit. Full scope is in our Terms & Conditions.",
   },
 ];
 
 export default function Multifamily() {
-  const [units, setUnits] = useState<number>(4);
-  const [sqft, setSqft] = useState<number>(4000);
+  const [cadence, setCadence] = useState<BillingCadence>("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const [sqft, setSqft] = useState<number>(4000);
+  const [units, setUnits] = useState<number>(4);
+  const band = bandForSqft(sqft);
 
   useEffect(() => {
     document.title = "360° Method for Landlords | Handy Pioneers";
@@ -72,9 +79,17 @@ export default function Multifamily() {
     track("view_item", { item_category: "membership_landlord" });
   }, []);
 
-  const handleConsult = (tier: MemberTier) => {
-    track("begin_checkout", { tier, item_category: "membership_landlord", units });
-    // Consult-first: open the baseline walkthrough so we can scope the building.
+  // Consult-first: the tier CTA opens the baseline walkthrough Step 1, carrying
+  // the chosen tier + building size so we can scope the building together.
+  const handleEnroll = (tier: MemberTier, _c: BillingCadence) => {
+    const tierData = TIERS.find((t) => t.id === tier);
+    track("begin_checkout", {
+      tier,
+      cadence,
+      currency: "USD",
+      units,
+      value: tierData ? getLandlordPrice(tierData, cadence, units, band) : undefined,
+    });
     openInquiry({ mode: "baseline", tier, sqft });
   };
 
@@ -82,213 +97,715 @@ export default function Multifamily() {
     <>
       <SEO
         path="/multifamily"
-        title="360° Method for Landlords | Handy Pioneers"
-        description="Own rentals in Clark County WA? Hand off the upkeep. The 360° Method for landlords keeps your building and units maintained, documented, and re-rentable, with member-rate turnovers. One price per building, no long-term contract."
+        title="360° Method for Landlords in Clark County | Handy Pioneers"
+        description="Own rentals in Vancouver WA and Clark County? Hand off the upkeep. The 360° Method keeps your building and units maintained, documented, and re-rentable, with member-rate turnovers. One price per building, no long-term contract."
       />
       <div className="min-h-screen font-sans" style={{ background: "oklch(96% 0.015 80)" }}>
-        <Navbar />
+      <Navbar />
 
-        {/* ── HERO ── */}
-        <section className="text-white pt-20 pb-24 px-4" style={{ background: "oklch(22% 0.07 155)" }}>
-          <div className="max-w-4xl mx-auto text-center">
-            <div
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium mb-6"
-              style={{ background: "oklch(100% 0 0 / 0.1)", color: "oklch(78% 0.13 78)" }}
-            >
-              <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hp-360-logo_69b6cf24.png"
-                alt="360°"
-                className="w-5 h-5 object-contain"
-              />
-              <span>The 360° Method for Landlords, Delivered by Handy Pioneers</span>
-            </div>
-
-            <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
-              You own the rentals.<br />
-              <span style={{ color: "oklch(65% 0.15 72)" }}>We carry the upkeep.</span>
-            </h1>
-
-            <p className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed" style={{ color: "oklch(100% 0 0 / 0.75)" }}>
-              For owners with a full-time job and a few units. The 360° Method keeps your
-              building and every unit maintained on a season rhythm, documented, and ready
-              to re-rent, with turnovers handled on call. We partner with you on the
-              property instead of waiting for the 9pm phone call.
-            </p>
-
-            <a href="#pricing" className="btn-hp-primary text-base px-10 py-4 shadow-lg">
-              See coverage for your building
-            </a>
+      {/* ── HERO ── */}
+      <section
+        className="text-white pt-20 pb-28 px-4"
+        style={{ background: "oklch(22% 0.07 155)" }}
+      >
+        <div className="max-w-4xl mx-auto text-center">
+          <div
+            className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium mb-6"
+            style={{ background: "oklch(100% 0 0 / 0.1)", color: "oklch(78% 0.13 78)" }}
+          >
+            <img
+              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hp-360-logo_69b6cf24.png"
+              alt="360°"
+              className="w-5 h-5 object-contain"
+            />
+            <span>The 360° Method - Delivered by Handy Pioneers</span>
           </div>
-        </section>
 
-        {/* ── WHAT'S COVERED ── */}
-        <section className="px-4 py-16 max-w-5xl mx-auto">
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-3" style={{ color: "oklch(22% 0.07 155)" }}>
-            One partner for the whole property
-          </h2>
-          <p className="text-center text-lg mb-10 max-w-2xl mx-auto" style={{ color: "oklch(40% 0.02 155)" }}>
-            The building, the units, and the turnovers between tenants.
+          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
+            Most rentals are maintained reactively.<br />
+            <span style={{ color: "oklch(65% 0.15 72)" }}>Yours don't have to be.</span>
+          </h1>
+
+          <p
+            className="text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            style={{ color: "oklch(100% 0 0 / 0.75)" }}
+          >
+            You have a full-time life and a few units. Almost no small landlord has someone
+            actively managing the physical asset. The 360° Method is a fully managed program
+            for your building - seasonal visits across the structure and every unit, documented
+            reports, member-rate turnovers, and a named technician who knows the property.
+            We partner with you on the building instead of waiting for the 9pm call.
           </p>
-          <div className="grid sm:grid-cols-3 gap-6">
-            {COVERAGE.map((c) => (
-              <div key={c.title} className="rounded-2xl bg-white p-6 shadow-sm border" style={{ borderColor: "oklch(88% 0.02 155)" }}>
-                <h3 className="font-display text-xl font-bold mb-2" style={{ color: "oklch(22% 0.07 155)" }}>{c.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: "oklch(40% 0.02 155)" }}>{c.body}</p>
+
+          <a href="#pricing" className="btn-hp-primary text-base px-10 py-4 shadow-lg">
+            See Plans & Pricing →
+          </a>
+          <p className="mt-4 text-sm" style={{ color: "oklch(100% 0 0 / 0.45)" }}>
+            No contracts · Cancel anytime · Currently serving Clark County, Washington
+          </p>
+
+          <div className="flex flex-wrap justify-center gap-6 mt-12 text-sm" style={{ color: "oklch(100% 0 0 / 0.6)" }}>
+            {["5-Star Rated", "Licensed & Insured", "1-Year Labor Guarantee", "Member-Rate Turnovers"].map((b) => (
+              <span key={b} className="flex items-center gap-1.5">
+                <span style={{ color: "oklch(65% 0.15 72)" }}>✓</span> {b}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── BUILDING SCORE ── */}
+      <section className="py-20 px-4" style={{ background: "oklch(97% 0.01 80)" }}>
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="hp-overline">Your Transformation Starts Here</div>
+              <h2
+                className="font-display text-3xl sm:text-4xl font-black mb-5"
+                style={{ color: "oklch(22% 0.07 155)" }}
+              >
+                Visit 1: you see where your building stands.<br />
+                <span style={{ color: "oklch(55% 0.13 72)" }}>Every visit after: it gets better.</span>
+              </h2>
+              <p
+                className="text-base leading-relaxed mb-6"
+                style={{ color: "oklch(38% 0.03 60)" }}
+              >
+                Your membership begins with a <strong>documented baseline walkthrough</strong> - a
+                full assessment of the building and every unit. We photograph every finding,
+                rate every system, and give the property its first score. You leave knowing exactly
+                where the building stands, without setting foot on the roof yourself.
+              </p>
+              <p
+                className="text-base leading-relaxed mb-8"
+                style={{ color: "oklch(38% 0.03 60)" }}
+              >
+                After each seasonal visit, the score updates. You watch the property improve - visit
+                by visit, season by season - with a timestamped record that follows the asset for
+                its entire life.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                {[
+                  { icon: "📋", label: "Day One: Baseline", desc: "Every system, every unit, every risk on record" },
+                  { icon: "📈", label: "Every Visit: Score Climbs", desc: "The building improves - and you have proof" },
+                  { icon: "📁", label: "Always: On Record", desc: "Timestamped PDF after every visit, stored permanently" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-lg p-4"
+                    style={{
+                      background: "oklch(100% 0 0)",
+                      border: "1px solid oklch(88% 0.02 80)",
+                      boxShadow: "0 1px 4px oklch(0% 0 0 / 0.06)",
+                    }}
+                  >
+                    <div className="text-2xl mb-2">{item.icon}</div>
+                    <div
+                      className="font-bold text-sm mb-1"
+                      style={{ color: "oklch(22% 0.07 155)" }}
+                    >
+                      {item.label}
+                    </div>
+                    <div className="text-xs" style={{ color: "oklch(50% 0.02 60)" }}>
+                      {item.desc}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div
+                className="rounded-lg px-5 py-4"
+                style={{
+                  background: "oklch(55% 0.13 72 / 0.1)",
+                  border: "1px solid oklch(55% 0.13 72 / 0.3)",
+                }}
+              >
+                <p
+                  className="text-sm font-semibold mb-1"
+                  style={{ color: "oklch(38% 0.08 72)" }}
+                >
+                  Your transformation starts within 48 hours of enrollment
+                </p>
+                <p className="text-sm" style={{ color: "oklch(38% 0.03 60)" }}>
+                  The day you enroll, your baseline walkthrough goes on the calendar. Every month
+                  before that is a month of deferred upkeep you can never recover. Owners who start
+                  today have their first visit scheduled before the week is out.
+                </p>
+              </div>
+            </div>
+            <div className="flex justify-center lg:justify-end" style={{ width: "100%" }}>
+              <div style={{ width: "100%", maxWidth: "400px" }}>
+                <HomeScoreAnimation variant="homeowner" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHAT'S IN YOUR REPORT ── */}
+      <section className="py-20 px-4 section-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/report-card-mockup-4AdTXSJrKZ4HDyTzWNLbPz.webp"
+                alt="360° Scan Report showing a building score with photo documentation"
+                className="rounded-2xl shadow-xl"
+                style={{ maxWidth: "320px", width: "100%" }}
+              />
+            </div>
+            <div>
+              <div className="hp-overline">What You Walk Away With</div>
+              <h2
+                className="font-display text-3xl sm:text-4xl font-black mb-5"
+                style={{ color: "oklch(22% 0.07 155)" }}
+              >
+                A record that grows<br />with your building.
+              </h2>
+              <p
+                className="text-base leading-relaxed mb-6"
+                style={{ color: "oklch(38% 0.03 60)" }}
+              >
+                After every visit, a written report lands in your account - photos, system
+                ratings, findings, and your updated score. Over time, this becomes the most
+                complete record of the property's condition that has ever existed. Yours to share
+                with a lender, insurer, or buyer whenever you need it.
+              </p>
+              <div className="space-y-3">
+                {[
+                  { label: "Baseline walkthrough with photos", why: "You know exactly what you own - before anything else" },
+                  { label: "Prioritized findings with written scope of work", why: "You know what to address and what it costs - no surprises" },
+                  { label: "Score updated each visit", why: "You watch the building improve - in a number you can track" },
+                  { label: "Per-unit visit reports", why: "Proof of every visit, every system, every unit" },
+                  { label: "Shareable PDF record", why: "Walk into any lender or insurer conversation prepared" },
+                ].map((row) => (
+                  <div
+                    key={row.label}
+                    className="flex gap-3 rounded-lg px-4 py-3"
+                    style={{
+                      background: "oklch(97% 0.01 80)",
+                      border: "1px solid oklch(88% 0.02 80)",
+                    }}
+                  >
+                    <span
+                      style={{ color: "oklch(45% 0.12 155)", flexShrink: 0, marginTop: "2px" }}
+                    >
+                      ✓
+                    </span>
+                    <div>
+                      <div
+                        className="text-sm font-semibold"
+                        style={{ color: "oklch(22% 0.07 155)" }}
+                      >
+                        {row.label}
+                      </div>
+                      <div className="text-xs mt-0.5" style={{ color: "oklch(50% 0.02 60)" }}>
+                        {row.why}
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STAT BUBBLES ── */}
+      <StatBubbles />
+
+      {/* ── FRAMEWORK ── */}
+      <section className="py-16 px-4 section-green">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="hp-overline" style={{ color: "oklch(65% 0.15 72)" }}>
+            The Framework
+          </div>
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-white mb-6">
+            AWARE → ACT → ADVANCE
+          </h2>
+          <p
+            className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
+            style={{ color: "oklch(100% 0 0 / 0.75)" }}
+          >
+            Three phases. One continuous arc. You go from not knowing the true state of your
+            building, to having it maintained by someone who does, to watching its condition - and
+            its value - improve over time. We are the guide. You are the one who arrives.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
+            {[
+              {
+                phase: "AWARE",
+                icon: "🔍",
+                title: "You See Everything",
+                body: "Before the 360° Method, most owners are guessing between tenant complaints. After your baseline walkthrough, you are not. Every system is rated, every unit is photographed, and the building has a score. You know exactly what you own.",
+              },
+              {
+                phase: "ACT",
+                icon: "🔧",
+                title: "We Handle It",
+                body: "Seasonal visits address the structure, the common areas, and every unit against the demands of the Pacific Northwest climate. Your technician shows up, executes, and documents. Nothing falls through the cracks - because we are watching, not the tenant.",
+              },
+              {
+                phase: "ADVANCE",
+                icon: "📈",
+                title: "Your Asset Improves",
+                body: "Visit by visit, the score climbs and the record grows. The building you own in five years - documented, maintained, with a verifiable condition history - is a fundamentally different asset than the one you own today.",
+              },
+            ].map((p) => (
+              <div
+                key={p.phase}
+                className="rounded-lg p-6"
+                style={{ background: "oklch(100% 0 0 / 0.08)" }}
+              >
+                <div className="text-3xl mb-3">{p.icon}</div>
+                <div
+                  className="text-xs font-bold uppercase tracking-widest mb-1"
+                  style={{ color: "oklch(65% 0.15 72)" }}
+                >
+                  {p.phase}
+                </div>
+                <div className="font-bold text-white text-lg mb-2">{p.title}</div>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "oklch(100% 0 0 / 0.7)" }}
+                >
+                  {p.body}
+                </p>
               </div>
             ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* ── PRICING ── */}
-        <section id="pricing" className="px-4 py-16" style={{ background: "oklch(99% 0.005 80)" }}>
-          <div className="max-w-5xl mx-auto">
-            <h2 className="font-display text-3xl sm:text-4xl font-black text-center mb-3" style={{ color: "oklch(22% 0.07 155)" }}>
-              One price for your building
-            </h2>
-            <p className="text-center text-lg mb-8 max-w-2xl mx-auto" style={{ color: "oklch(40% 0.02 155)" }}>
-              Tell us about the building and see where coverage starts. We confirm the
-              details on a walkthrough before anything begins.
-            </p>
+      {/* ── SEASONAL VISITS ── */}
+      <SeasonalVisitsGrid />
 
-            {/* Building inputs */}
-            <div className="rounded-2xl bg-white p-6 shadow-sm border max-w-2xl mx-auto mb-10" style={{ borderColor: "oklch(88% 0.02 155)" }}>
-              <div className="mb-5">
-                <label className="block text-sm font-semibold mb-2" style={{ color: "oklch(30% 0.04 155)" }}>How many units?</label>
-                <div className="flex flex-wrap gap-2">
-                  {UNIT_PRESETS.map((p) => (
-                    <button
-                      key={p.units}
-                      type="button"
-                      onClick={() => setUnits(p.units)}
-                      className="rounded-full px-4 py-2 text-sm font-medium border transition-colors"
-                      style={
-                        units === p.units
-                          ? { background: "oklch(22% 0.07 155)", color: "white", borderColor: "oklch(22% 0.07 155)" }
-                          : { background: "white", color: "oklch(30% 0.04 155)", borderColor: "oklch(85% 0.02 155)" }
-                      }
-                    >
-                      {p.label}
-                    </button>
-                  ))}
+      {/* ── SAVINGS STATS ── */}
+      <section className="py-16 px-4 section-cream">
+        <div className="max-w-3xl mx-auto text-center">
+          <div className="hp-overline">The Difference It Makes</div>
+          <h2
+            className="font-display text-3xl sm:text-4xl font-black mb-6"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            What changes when your building is managed
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+            {[
+              { label: "Median value of issues resolved before escalation", value: "$3,200", sub: "per incident" },
+              { label: "Faster turnover means less vacancy", value: "days", sub: "not weeks" },
+              { label: "Median annual return on membership", value: "7.7×", sub: "vs. annual fee" },
+            ].map((stat, i) => (
+              <div key={i} className="hp-card text-center">
+                <div
+                  className="text-3xl font-black font-display"
+                  style={{ color: "oklch(65% 0.15 72)" }}
+                >
+                  {stat.value}
+                </div>
+                <div className="text-xs mt-1" style={{ color: "oklch(60% 0.02 60)" }}>
+                  {stat.sub}
+                </div>
+                <div
+                  className="text-sm mt-2 leading-snug"
+                  style={{ color: "oklch(35% 0.03 255)" }}
+                >
+                  {stat.label}
                 </div>
               </div>
-              <div>
-                <label htmlFor="mf-sqft" className="block text-sm font-semibold mb-2" style={{ color: "oklch(30% 0.04 155)" }}>
-                  About how many total square feet? <span className="font-normal opacity-70">(the whole building)</span>
-                </label>
-                <input
-                  id="mf-sqft"
-                  type="number"
-                  min={500}
-                  step={100}
-                  value={sqft || ""}
-                  onChange={(e) => setSqft(Math.max(0, parseInt(e.target.value) || 0))}
-                  className="w-full rounded-lg border px-4 py-3 text-base"
-                  style={{ borderColor: "oklch(85% 0.02 155)" }}
-                  placeholder="e.g. 4000"
-                />
+            ))}
+          </div>
+          <p className="text-sm max-w-xl mx-auto" style={{ color: "oklch(50% 0.02 60)" }}>
+            Based on Handy Pioneers field data from 2023-2025 across Clark County properties.
+            Figures represent median outcomes; individual results vary by building age, condition,
+            and tier.
+          </p>
+        </div>
+      </section>
+
+      {/* ── PRICING ── */}
+      <section id="pricing" className="py-20 px-4 section-white">
+        <div className="max-w-5xl mx-auto">
+          <div className="hp-overline">Membership Tiers</div>
+          <h2
+            className="font-display text-3xl sm:text-4xl font-black text-center mb-3"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            Select Your Level of Coverage
+          </h2>
+          <p
+            className="text-center max-w-xl mx-auto mb-8"
+            style={{ color: "oklch(50% 0.02 60)" }}
+          >
+            Each tier is a retainer, not a subscription. Member rates apply to all work beyond the
+            scheduled visits, including turnovers - the higher the tier, the more comprehensive the
+            coverage and the faster your priority.
+          </p>
+
+          {/* Building personalizer - units + total size are the pricing inputs. No
+              size band is ever shown, only the price tailored to the building. */}
+          <div
+            className="max-w-2xl mx-auto mb-8 rounded-xl p-6 sm:p-7"
+            style={{
+              background: "oklch(65% 0.15 72 / 0.08)",
+              border: "2px solid oklch(65% 0.15 72 / 0.55)",
+              borderLeft: "6px solid oklch(65% 0.15 72)",
+              boxShadow: "0 6px 24px oklch(65% 0.15 72 / 0.12)",
+            }}
+          >
+            <div
+              className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3"
+              style={{ background: "oklch(65% 0.15 72)", color: "white" }}
+            >
+              Step 1 · Your building
+            </div>
+            <label
+              className="block font-display text-xl sm:text-2xl font-black mb-1"
+              style={{ color: "oklch(22% 0.07 155)" }}
+            >
+              Tell us about the building
+            </label>
+            <p className="text-sm mb-6" style={{ color: "oklch(45% 0.02 60)" }}>
+              Pick how many units and drag the slider to the total size - the prices below update
+              instantly. A rough figure is all we need.
+            </p>
+
+            {/* Units */}
+            <div className="mb-6">
+              <span
+                className="block text-xs uppercase tracking-wide mb-2"
+                style={{ color: "oklch(60% 0.02 60)" }}
+              >
+                Units
+              </span>
+              <div className="flex flex-wrap gap-2">
+                {UNIT_OPTIONS.map((o) => (
+                  <button
+                    key={o.units}
+                    type="button"
+                    onClick={() => setUnits(o.units)}
+                    className="rounded-full px-4 py-2 text-sm font-semibold transition-colors"
+                    style={
+                      units === o.units
+                        ? { background: "oklch(22% 0.07 155)", color: "white", border: "1px solid oklch(22% 0.07 155)" }
+                        : { background: "white", color: "oklch(30% 0.04 155)", border: "1px solid oklch(85% 0.02 80)" }
+                    }
+                  >
+                    {o.label}
+                  </button>
+                ))}
               </div>
             </div>
 
-            {/* Tier cards */}
-            <div className="grid md:grid-cols-3 gap-6">
-              {TIERS.map((t) => {
-                const monthly = getLandlordMonthly(t, units, sqft);
-                return (
-                  <div
-                    key={t.id}
-                    className="rounded-2xl bg-white p-6 shadow-sm border flex flex-col"
-                    style={{ borderColor: t.popular ? "oklch(65% 0.15 72)" : "oklch(88% 0.02 155)" }}
-                  >
-                    {t.popular && (
-                      <span className="self-start rounded-full px-3 py-1 text-xs font-bold mb-3" style={{ background: "oklch(94% 0.05 80)", color: "oklch(45% 0.13 72)" }}>
-                        Most chosen
-                      </span>
-                    )}
-                    <h3 className="font-display text-2xl font-black mb-1" style={{ color: "oklch(22% 0.07 155)" }}>{t.name}</h3>
-                    <p className="text-sm mb-4" style={{ color: "oklch(45% 0.02 155)" }}>{t.tagline}</p>
-                    <div className="mb-4">
-                      <span className="text-4xl font-black" style={{ color: "oklch(22% 0.07 155)" }}>${monthly}</span>
-                      <span className="text-base font-normal" style={{ color: "oklch(50% 0.02 155)" }}>/mo</span>
-                      <p className="text-xs mt-1" style={{ color: "oklch(55% 0.02 155)" }}>
-                        for a {units === 1 ? "single-family rental" : `${units}-unit building`}, billed monthly
-                      </p>
-                    </div>
-                    <ul className="space-y-2 mb-6 flex-1">
-                      <li className="text-sm" style={{ color: "oklch(35% 0.02 155)" }}>
-                        {t.visits} building visits a year ({t.visitDescription})
-                      </li>
-                      <li className="text-sm" style={{ color: "oklch(35% 0.02 155)" }}>
-                        In-unit coverage for every unit
-                      </li>
-                      <li className="text-sm" style={{ color: "oklch(35% 0.02 155)" }}>
-                        Annual 360° building scan + documented reports
-                      </li>
-                      {t.laborBankDollars > 0 && (
-                        <li className="text-sm" style={{ color: "oklch(35% 0.02 155)" }}>
-                          ${t.laborBankDollars} labor bank credit
-                        </li>
-                      )}
-                      <li className="text-sm" style={{ color: "oklch(35% 0.02 155)" }}>
-                        Member rates + {t.id === "gold" ? "priority" : t.id === "silver" ? "expedited" : "standard"} turnover scheduling
-                      </li>
-                    </ul>
-                    <button onClick={() => handleConsult(t.id)} className="btn-hp-primary w-full py-3 text-base">
-                      Book a building walkthrough
-                    </button>
-                  </div>
-                );
-              })}
+            {/* Total building size */}
+            <div className="flex items-baseline justify-between mb-3">
+              <span
+                className="text-xs uppercase tracking-wide"
+                style={{ color: "oklch(60% 0.02 60)" }}
+              >
+                Total building size
+              </span>
+              <span
+                className="font-display text-2xl font-black"
+                style={{ color: "oklch(22% 0.07 155)" }}
+              >
+                {sqft.toLocaleString()}{" "}
+                <span className="text-sm font-sans" style={{ color: "oklch(50% 0.02 60)" }}>
+                  sq ft
+                </span>
+              </span>
             </div>
-            <p className="text-center text-xs mt-6 max-w-2xl mx-auto" style={{ color: "oklch(55% 0.02 155)" }}>
-              Pricing shown is where coverage starts for a building this size. We confirm the
-              building and units on a walkthrough, then put one clear number in writing. No
-              long-term contract.
+            <div className="hp-size-slider">
+              <Slider
+                min={800}
+                max={12000}
+                step={100}
+                value={[sqft]}
+                onValueChange={(v) => setSqft(v[0])}
+              />
+            </div>
+            <p
+              className="text-sm font-semibold mt-5"
+              style={{ color: "oklch(55% 0.14 68)" }}
+            >
+              ↓ Prices below are tailored to your building
             </p>
           </div>
-        </section>
 
-        {/* ── FAQ ── */}
-        <section className="px-4 py-16 max-w-3xl mx-auto">
-          <h2 className="font-display text-3xl font-black text-center mb-8" style={{ color: "oklch(22% 0.07 155)" }}>
-            Questions landlords ask
+          <CadenceToggle value={cadence} onChange={setCadence} />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {TIERS.map((tier) => (
+              <TierCard
+                key={tier.id}
+                tier={tier}
+                cadence={cadence}
+                band={band}
+                landlordUnits={units}
+                onEnroll={handleEnroll}
+              />
+            ))}
+          </div>
+          <p className="text-center text-xs mt-6" style={{ color: "oklch(60% 0.02 60)" }}>
+            All plans include the Annual 360° Building Scan. Turnovers are scoped per event at your
+            member rate. No long-term contracts. Cancel anytime.
+          </p>
+        </div>
+      </section>
+
+      {/* ── 1-YEAR LABOR GUARANTEE ── */}
+      <section className="py-16 px-4" style={{ background: "oklch(22% 0.07 155)" }}>
+        <div className="max-w-4xl mx-auto">
+          <div
+            className="hp-overline text-center mb-3"
+            style={{ color: "oklch(65% 0.15 72)" }}
+          >
+            Our Commitment to You
+          </div>
+          <h2
+            className="font-display text-3xl sm:text-4xl font-black text-center mb-4"
+            style={{ color: "oklch(100% 0 0)" }}
+          >
+            Your building is in good hands. We guarantee it.
           </h2>
-          <div className="space-y-3">
-            {FAQS.map((f, i) => (
-              <div key={i} className="rounded-xl bg-white border overflow-hidden" style={{ borderColor: "oklch(88% 0.02 155)" }}>
-                <button
-                  className="w-full text-left px-5 py-4 font-semibold flex justify-between items-center"
-                  style={{ color: "oklch(25% 0.05 155)" }}
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+          <p
+            className="text-center text-base mb-10 max-w-2xl mx-auto"
+            style={{ color: "oklch(100% 0 0 / 0.7)" }}
+          >
+            Every task your technician performs is backed by a full one-year labor guarantee. If
+            something we completed fails due to workmanship, we return and correct it - no
+            service call fee, no back-and-forth. That is what a guide owes the people they lead.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
+            {[
+              {
+                icon: "🔧",
+                title: "Workmanship Covered",
+                body: "If any task we performed fails within 12 months due to workmanship, we return and correct it. No service call fee, no back-and-forth.",
+              },
+              {
+                icon: "📋",
+                title: "Everything on Record",
+                body: "Every visit is timestamped and documented with photos. If a question arises - from you, your insurer, or a buyer - the record is already in your account.",
+              },
+              {
+                icon: "🔐",
+                title: "Straightforward Terms",
+                body: "If we completed it, it is covered for a year. We do not carve out exceptions for tasks we just performed. That is the complete policy.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="rounded-xl p-6 flex flex-col items-center text-center"
+                style={{
+                  background: "oklch(100% 0 0 / 0.06)",
+                  border: "1px solid oklch(100% 0 0 / 0.12)",
+                }}
+              >
+                <div className="text-3xl mb-3">{item.icon}</div>
+                <h3
+                  className="font-bold text-base mb-2"
+                  style={{ color: "oklch(100% 0 0)" }}
                 >
-                  <span>{f.q}</span>
-                  <span className="ml-3 shrink-0">{openFaq === i ? "−" : "+"}</span>
-                </button>
-                {openFaq === i && (
-                  <p className="px-5 pb-4 text-sm leading-relaxed" style={{ color: "oklch(40% 0.02 155)" }}>{f.a}</p>
-                )}
+                  {item.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "oklch(100% 0 0 / 0.65)" }}
+                >
+                  {item.body}
+                </p>
               </div>
             ))}
           </div>
-        </section>
-
-        {/* ── CLOSING CTA ── */}
-        <section className="text-white px-4 py-16 text-center" style={{ background: "oklch(22% 0.07 155)" }}>
-          <div className="max-w-2xl mx-auto">
-            <h2 className="font-display text-3xl sm:text-4xl font-black mb-4">Hand off the upkeep</h2>
-            <p className="text-lg mb-8" style={{ color: "oklch(100% 0 0 / 0.75)" }}>
-              Book a walkthrough of your building. We will scope it, put one clear number in
-              writing, and take it from there.
-            </p>
-            <a href="#pricing" className="btn-hp-primary text-base px-10 py-4">Book a building walkthrough</a>
-            <p className="mt-6 text-sm" style={{ color: "oklch(100% 0 0 / 0.6)" }}>
-              Or call us at <a href="tel:+13608386731" className="underline">(360) 838-6731</a>
+          <div
+            className="rounded-xl px-6 py-5 max-w-2xl mx-auto text-center"
+            style={{
+              background: "oklch(65% 0.15 72 / 0.12)",
+              border: "1px solid oklch(65% 0.15 72 / 0.3)",
+            }}
+          >
+            <p className="text-sm" style={{ color: "oklch(100% 0 0 / 0.8)" }}>
+              <strong style={{ color: "oklch(75% 0.15 72)" }}>What's not covered:</strong>{" "}
+              Material failures from manufacturer defects, damage caused by third parties or acts
+              of nature, or tasks outside the original scope of work. If we didn't do it, we don't
+              guarantee it - but we'll tell you who should.
             </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Footer />
-      </div>
+      {/* ── MEMBER REVIEWS ── */}
+      <section className="py-14 px-4 section-white">
+        <div className="max-w-4xl mx-auto">
+          <div
+            className="hp-overline text-center"
+            style={{ color: "oklch(65% 0.15 72)" }}
+          >
+            From Members
+          </div>
+          <h2
+            className="font-display text-3xl font-black text-center mb-8"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            People who made the same decision you're considering
+          </h2>
+          <div
+            className="elfsight-app-3439582a-5f81-4ddb-ab1a-54f99c9da7af"
+            data-elfsight-app-lazy
+          ></div>
+        </div>
+      </section>
+
+      {/* ── TIMELINE COMPARISON ── */}
+      <ReactiveVsMemberTimeline />
+
+      {/* ── WORK PHOTOS ── */}
+      <section className="py-14 px-4 section-cream">
+        <div className="max-w-5xl mx-auto">
+          <div
+            className="hp-overline text-center"
+            style={{ color: "oklch(65% 0.15 72)" }}
+          >
+            The Work We Do
+          </div>
+          <h2
+            className="font-display text-3xl font-black text-center mb-8"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            This is what your property looks like after a visit.
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/roof_moss_cleaning_8ec59cf6.jpg", caption: "Roof Moss Cleaning" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/gutter_cleaning_ea6257be.jpg", caption: "Gutter Cleaning" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hose_bib_covering_cd7cd768.jpg", caption: "Hose Bib Winterization" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/exterior_light_fixture_replacement_ebcaac9c.jpg", caption: "Exterior Light Fixture Replacement" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/rotted_stair_repair_7a04b221.jpg", caption: "Rotted Stair Restoration" },
+              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/Before_Afters(10)_81ded948.png", caption: "Pressure Washing - Driveway" },
+            ].map((photo, i) => (
+              <div key={i} className="rounded-lg overflow-hidden shadow-sm">
+                <img
+                  src={photo.src}
+                  alt={photo.caption}
+                  className="w-full h-52 object-cover"
+                  loading="lazy"
+                />
+                <div className="px-3 py-2 bg-white">
+                  <p
+                    className="text-xs font-medium"
+                    style={{ color: "oklch(45% 0.02 60)" }}
+                  >
+                    {photo.caption}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FAQ ── */}
+      <section className="py-16 px-4 section-cream">
+        <div className="max-w-2xl mx-auto">
+          <div className="hp-overline">Before You Enroll</div>
+          <h2
+            className="font-display text-3xl font-black text-center mb-10"
+            style={{ color: "oklch(22% 0.07 155)" }}
+          >
+            Questions from owners exactly where you are now
+          </h2>
+          <div className="space-y-3">
+            {FAQS.map((faq, i) => (
+              <button
+                key={i}
+                onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                className="w-full text-left p-5 rounded-lg bg-white transition-all hover:shadow-md"
+                style={{
+                  border: `1px solid ${openFaq === i ? "oklch(65% 0.15 72)" : "oklch(85% 0.02 80)"}`,
+                }}
+              >
+                <div className="flex justify-between items-start gap-3">
+                  <span
+                    className="font-semibold text-sm leading-snug"
+                    style={{ color: "oklch(22% 0.07 155)" }}
+                  >
+                    {faq.q}
+                  </span>
+                  <span
+                    className="font-bold flex-shrink-0"
+                    style={{ color: "oklch(65% 0.15 72)" }}
+                  >
+                    {openFaq === i ? "−" : "+"}
+                  </span>
+                </div>
+                {openFaq === i && (
+                  <p
+                    className="mt-3 text-sm leading-relaxed pt-3"
+                    style={{
+                      borderTop: "1px solid oklch(85% 0.02 80)",
+                      color: "oklch(35% 0.03 255)",
+                    }}
+                  >
+                    {faq.a}
+                  </p>
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── FINAL CTA ── */}
+      <section className="py-20 px-4 section-green">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-white mb-4">
+            Right now, your building has no guide.<br />
+            <span style={{ color: "oklch(65% 0.15 72)" }}>
+              That changes the day you enroll.
+            </span>
+          </h2>
+          <p
+            className="mb-8 leading-relaxed"
+            style={{ color: "oklch(100% 0 0 / 0.7)" }}
+          >
+            Your baseline walkthrough is on the calendar within 48 hours. From that day forward,
+            your technician knows the building, tracks its condition, handles the upkeep across
+            the structure and units, and turns vacant units fast - season by season - while your
+            score climbs and your record grows.
+          </p>
+          <a href="#pricing" className="btn-hp-primary text-base px-10 py-4">
+            Start My Building's Transformation →
+          </a>
+          <p
+            className="mt-4 text-xs max-w-sm mx-auto"
+            style={{ color: "oklch(100% 0 0 / 0.38)", lineHeight: 1.55 }}
+          >
+            The 360° Method is a proactive maintenance service - not a licensed inspection.
+            We work in tandem with inspectors: they identify, we maintain and document.
+            Reports do not replace a licensed inspector or structural engineer.{" "}
+            <a
+              href="/terms-and-conditions"
+              className="underline hover:text-white transition-colors"
+              style={{ color: "oklch(100% 0 0 / 0.45)" }}
+            >
+              Full terms apply.
+            </a>
+          </p>
+          <p className="mt-4 text-sm" style={{ color: "oklch(100% 0 0 / 0.5)" }}>
+            Questions? Call us at{" "}
+            <a
+              href="tel:+13608386731"
+              className="hover:underline"
+              style={{ color: "oklch(65% 0.15 72)" }}
+            >
+              (360) 838-6731
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
     </>
   );
 }

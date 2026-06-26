@@ -220,14 +220,50 @@ export function billableUnits(unitCount: number): number {
   return unitCount <= 1 ? 0 : unitCount;
 }
 
-/** Blended monthly landlord price: building base (by sqft) + per-unit × units. */
-export function getLandlordMonthly(
+/** Per-unit fee for a cadence (linear: monthly × 3 quarterly, × 12 annual). */
+function landlordPerUnit(tier: TierData, cadence: BillingCadence): number {
+  const m = LANDLORD_PER_UNIT_MONTHLY[tier.id];
+  if (cadence === "monthly") return m;
+  if (cadence === "quarterly") return m * 3;
+  return m * 12;
+}
+
+/** Blended landlord price for a cadence: building base (by band) + per-unit × units. */
+export function getLandlordPrice(
   tier: TierData,
-  unitCount: number,
-  sqft: number,
+  cadence: BillingCadence,
+  units: number,
+  band: HomeSizeBand = DEFAULT_BAND,
 ): number {
-  const band = bandForSqft(sqft > 0 ? sqft : 1);
-  return getPrice(tier, "monthly", band) + LANDLORD_PER_UNIT_MONTHLY[tier.id] * billableUnits(unitCount);
+  return getPrice(tier, cadence, band) + landlordPerUnit(tier, cadence) * billableUnits(units);
+}
+
+/** Monthly-equivalent blended landlord price (what a card shows as "/mo"). */
+export function getLandlordMonthlyEquivalent(
+  tier: TierData,
+  cadence: BillingCadence,
+  units: number,
+  band: HomeSizeBand = DEFAULT_BAND,
+): number {
+  if (cadence === "monthly") return getLandlordPrice(tier, "monthly", units, band);
+  if (cadence === "quarterly") return Math.round((getLandlordPrice(tier, "quarterly", units, band) * 4) / 12);
+  return Math.round(getLandlordPrice(tier, "annual", units, band) / 12);
+}
+
+/** Landlord savings vs monthly billing, in dollars. */
+export function getLandlordSavingsVsMonthly(
+  tier: TierData,
+  cadence: BillingCadence,
+  units: number,
+  band: HomeSizeBand = DEFAULT_BAND,
+): number {
+  if (cadence === "monthly") return 0;
+  const monthlyTotal = getLandlordPrice(tier, "monthly", units, band) * 12;
+  const cadenceTotal =
+    cadence === "quarterly"
+      ? getLandlordPrice(tier, "quarterly", units, band) * 4
+      : getLandlordPrice(tier, "annual", units, band);
+  return monthlyTotal - cadenceTotal;
 }
 
 /* ── Roadmap-funnel OTO: Maximum (gold) annual buy-now, sized by band ─────────

@@ -1,17 +1,35 @@
 import type { TierData, BillingCadence, MemberTier, HomeSizeBand } from "@/lib/tiers";
-import { getPrice, getSavingsVsMonthly, getMonthlyEquivalent, DEFAULT_BAND } from "@/lib/tiers";
+import {
+  getPrice,
+  getSavingsVsMonthly,
+  getMonthlyEquivalent,
+  getLandlordPrice,
+  getLandlordMonthlyEquivalent,
+  getLandlordSavingsVsMonthly,
+  DEFAULT_BAND,
+} from "@/lib/tiers";
 
 interface Props {
   tier: TierData;
   cadence: BillingCadence;
   band?: HomeSizeBand;
+  /** Landlord mode: number of units in the building. When set, the card prices
+   *  the building (base + per-unit × units) instead of a single home. */
+  landlordUnits?: number;
   onEnroll: (tier: MemberTier, cadence: BillingCadence) => void;
 }
 
-export default function TierCard({ tier, cadence, band = DEFAULT_BAND, onEnroll }: Props) {
-  const price = getPrice(tier, cadence, band);
-  const monthlyEq = getMonthlyEquivalent(tier, cadence, band);
-  const savings = getSavingsVsMonthly(tier, cadence, band);
+export default function TierCard({ tier, cadence, band = DEFAULT_BAND, landlordUnits, onEnroll }: Props) {
+  const isLandlord = landlordUnits != null;
+  const price = isLandlord
+    ? getLandlordPrice(tier, cadence, landlordUnits, band)
+    : getPrice(tier, cadence, band);
+  const monthlyEq = isLandlord
+    ? getLandlordMonthlyEquivalent(tier, cadence, landlordUnits, band)
+    : getMonthlyEquivalent(tier, cadence, band);
+  const savings = isLandlord
+    ? getLandlordSavingsVsMonthly(tier, cadence, landlordUnits, band)
+    : getSavingsVsMonthly(tier, cadence, band);
 
   return (
     <div
