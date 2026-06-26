@@ -23,6 +23,8 @@ interface Stash {
   firstName?: string;
   lastName?: string;
   email?: string;
+  phone?: string;
+  consent?: boolean;
   kind?: "portfolio" | "building5plus";
   units?: number | null;
   properties?: number | null;
@@ -36,6 +38,8 @@ const PREVIEW_STASH: Stash = {
   firstName: "Preview",
   lastName: "Visitor",
   email: "preview@example.com",
+  phone: "(360) 555-0100",
+  consent: true,
   kind: "portfolio",
   units: 6,
   properties: 3,
@@ -59,7 +63,6 @@ export default function MultifamilyQuote() {
   const [error, setError] = useState<string | null>(null);
 
   const [form, setForm] = useState({
-    phone: "",
     propertyCount: "",
     types: [] as string[],
     totalUnits: "",
@@ -116,13 +119,10 @@ export default function MultifamilyQuote() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    if (!form.phone.trim()) {
-      setError("Please add a phone number so we can reach you.");
-      return;
-    }
 
-    // Pack the tailored answers into a single notes string (backend-safe; the
-    // details endpoint already stores notes). The team reads it on the lead.
+    // Phone + consent were captured in Step 1; we carry them onto the lead notes
+    // here. Tailored answers are packed into a single notes string (backend-safe;
+    // the details endpoint already stores notes). The team reads it on the lead.
     const noteLines = isPortfolio
       ? [
           `LANDLORD PORTFOLIO QUOTE`,
@@ -130,7 +130,8 @@ export default function MultifamilyQuote() {
           `Property types: ${form.types.length ? form.types.join(", ") : "not specified"}`,
           `Approx. total units: ${form.totalUnits || "?"}`,
           `Primary area/city: ${form.city || "?"}`,
-          `Phone: ${form.phone}`,
+          `Phone: ${stash.phone || "?"}`,
+          `Consent to contact: ${stash.consent ? "yes" : "no"}`,
           form.notes ? `Notes: ${form.notes}` : "",
         ]
       : [
@@ -138,7 +139,8 @@ export default function MultifamilyQuote() {
           `Units: ${form.unitCount || stash.units || "?"}`,
           `Occupied units: ${form.occupiedUnits || "?"}`,
           `Address: ${[form.street, form.city, form.zip].filter(Boolean).join(", ") || "?"}`,
-          `Phone: ${form.phone}`,
+          `Phone: ${stash.phone || "?"}`,
+          `Consent to contact: ${stash.consent ? "yes" : "no"}`,
           form.notes ? `Notes: ${form.notes}` : "",
         ];
     const notes = noteLines.filter(Boolean).join("\n");
@@ -302,10 +304,6 @@ export default function MultifamilyQuote() {
                 </>
               )}
 
-              <div>
-                <label className={labelClass} style={labelStyle} htmlFor="mq-phone">Best phone to reach you</label>
-                <input id="mq-phone" name="phone" type="tel" autoComplete="tel" placeholder="(360) 555-0100" value={form.phone} onChange={handleChange} className={inputClass} style={inputStyle} required />
-              </div>
               <div>
                 <label className={labelClass} style={labelStyle} htmlFor="mq-notes">Anything we should know? (optional)</label>
                 <textarea id="mq-notes" name="notes" rows={3} placeholder={isPortfolio ? "Goals for the portfolio, turnover volume, best times to reach you…" : "Shared systems, recent issues, best times to reach you…"} value={form.notes} onChange={handleChange} className={inputClass} style={inputStyle} />

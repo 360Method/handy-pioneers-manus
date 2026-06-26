@@ -30,7 +30,8 @@ export default function LandlordQuoteForm({
   serviceType,
 }: Props) {
   const [, navigate] = useLocation();
-  const [form, setForm] = useState({ firstName: "", lastName: "", email: "" });
+  const [form, setForm] = useState({ firstName: "", lastName: "", email: "", phone: "" });
+  const [consent, setConsent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -47,6 +48,8 @@ export default function LandlordQuoteForm({
         firstName: form.firstName.trim(),
         lastName: form.lastName.trim(),
         email: form.email.trim().toLowerCase(),
+        phone: form.phone.trim(),
+        consent: true,
         kind,
         units: units ?? null,
         properties: properties ?? null,
@@ -61,8 +64,12 @@ export default function LandlordQuoteForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(null);
-    if (!form.firstName || !form.email) {
-      setError("Please add your first name and email.");
+    if (!form.firstName || !form.email || !form.phone) {
+      setError("Please add your first name, email, and phone.");
+      return;
+    }
+    if (!consent) {
+      setError("Please check the box so we can reach out about your request.");
       return;
     }
     setSubmitting(true);
@@ -74,6 +81,7 @@ export default function LandlordQuoteForm({
           firstName: form.firstName.trim(),
           lastName: form.lastName.trim(),
           email: form.email.trim().toLowerCase(),
+          phone: form.phone.trim(),
           serviceType: serviceType ?? "360° Landlord Plan",
           source: source ?? "multifamily-quote-step1",
           funnel: "landlord_quote",
@@ -119,6 +127,25 @@ export default function LandlordQuoteForm({
         <label className={labelClass} htmlFor="lq-email">Email</label>
         <input id="lq-email" name="email" type="email" autoComplete="email" placeholder="jane@example.com" value={form.email} onChange={handleChange} className={inputClass} required />
       </div>
+      <div>
+        <label className={labelClass} htmlFor="lq-phone">Phone</label>
+        <input id="lq-phone" name="phone" type="tel" autoComplete="tel" placeholder="(360) 555-0100" value={form.phone} onChange={handleChange} className={inputClass} required />
+      </div>
+      <label htmlFor="lq-consent" className="flex items-start gap-2 text-xs text-gray-500 leading-snug cursor-pointer">
+        <input
+          id="lq-consent"
+          name="consent"
+          type="checkbox"
+          checked={consent}
+          onChange={(e) => setConsent(e.target.checked)}
+          className="mt-0.5 h-4 w-4 shrink-0 accent-amber-600"
+          required
+        />
+        <span>
+          I agree to be contacted by Handy Pioneers by phone, text, and email about my request.
+          Message and data rates may apply. Consent is not a condition of purchase.
+        </span>
+      </label>
       {error && <p className="text-sm text-red-500 font-medium">{error}</p>}
       <button type="submit" disabled={submitting} className="hcp-button w-full text-base py-4 disabled:opacity-60 disabled:cursor-not-allowed">
         {submitting ? "One moment…" : "Continue →"}
