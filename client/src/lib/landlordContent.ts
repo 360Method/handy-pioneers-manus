@@ -247,18 +247,20 @@ export const TURNOVER_SCOPE: TurnoverScopePhase[] = [
   },
 ];
 
-// Indicative "from" pricing by unit type (standard make-ready). Starting ranges,
-// confirmed on the move-out walkthrough; the member rate applies on top. Mirrors
-// the estimator's standard-level low bounds.
+// Indicative "from" starting prices by unit type, for a VACANT, UNFURNISHED unit
+// (a full make-ready, where most of the work is the deep clean). These are a floor,
+// not a quote: the real number is set on the move-out walkthrough and the member
+// rate applies on top. Priced a touch high on purpose, since the member discount
+// brings it down. Furnished units are a different, usually lighter scope.
 export interface TurnoverFromRow {
   unit: string;
   from: number;
 }
 
 export const TURNOVER_FROM: TurnoverFromRow[] = [
-  { unit: "Studio", from: 550 },
-  { unit: "1 Bed", from: 700 },
-  { unit: "2 Bed", from: 900 },
-  { unit: "3 Bed", from: 1300 },
-  { unit: "4 Bed +", from: 1700 },
+  { unit: "Studio", from: 650 },
+  { unit: "1 Bed", from: 850 },
+  { unit: "2 Bed", from: 1100 },
+  { unit: "3 Bed", from: 1500 },
+  { unit: "4 Bed +", from: 2000 },
 ];

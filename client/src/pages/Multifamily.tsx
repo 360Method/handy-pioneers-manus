@@ -545,10 +545,14 @@ export default function Multifamily() {
               className="font-display text-xl font-black text-center mb-1"
               style={{ color: "oklch(22% 0.07 155)" }}
             >
-              Standard make-ready, by unit type
+              Vacant unit make-ready, by unit type
             </h3>
+            <p className="text-center text-sm mb-1" style={{ color: "oklch(50% 0.02 60)" }}>
+              Starting prices for a <strong>vacant, unfurnished unit</strong> (a full make-ready,
+              where most of the work is the deep clean).
+            </p>
             <p className="text-center text-sm mb-6" style={{ color: "oklch(50% 0.02 60)" }}>
-              Starting ranges confirmed on the move-out walkthrough. Your member rate applies on top.
+              We confirm the scope on the move-out walkthrough, and your member rate comes off the top.
             </p>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
               {TURNOVER_FROM.map((row) => (
@@ -574,6 +578,20 @@ export default function Multifamily() {
               and price on the walkthrough. Heavy turnovers with flooring or larger repairs are
               quoted as their own scope at your member rate.
             </p>
+            <div
+              className="mt-5 rounded-lg px-5 py-4 max-w-2xl mx-auto"
+              style={{ background: "oklch(97% 0.01 80)", border: "1px solid oklch(90% 0.02 80)" }}
+            >
+              <p className="text-sm font-semibold mb-1" style={{ color: "oklch(22% 0.07 155)" }}>
+                Furnished or short-term rental?
+              </p>
+              <p className="text-xs leading-snug" style={{ color: "oklch(45% 0.02 60)" }}>
+                Furnished units are a different, usually lighter scope. If you already have a cleaner,
+                we come in just for the maintenance side: systems and safety, plus a look at the
+                furniture and anything that needs attention. Ask about a furnished-unit rate on your
+                walkthrough.
+              </p>
+            </div>
           </div>
         </div>
       </section>
