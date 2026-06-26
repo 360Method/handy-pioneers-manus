@@ -8,7 +8,7 @@
  * availability and slot length live in Calendly, not here - changing them needs no
  * redeploy.
  */
-export const CALENDLY_URL = "https://calendly.com/help-handypioneers/30min";
+export const CALENDLY_URL = "https://calendly.com/handypioneers/30min";
 
 /**
  * Calendly inline-embed src. `embed_domain` is required for Calendly to post the
