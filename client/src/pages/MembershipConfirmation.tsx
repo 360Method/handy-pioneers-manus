@@ -96,8 +96,10 @@ export default function MembershipConfirmation() {
     },
     {
       icon: "📅",
-      title: "Book your baseline assessment",
-      body: "Pick your time with the scheduler above. Whole-home assessments run 2-3 hours; we'll confirm the exact window with you when we reach out.",
+      title: isPortfolio ? "Book your building's baseline scan" : "Book your baseline assessment",
+      body: isPortfolio
+        ? "Pick your time with the scheduler above. Building scans run 2-3 hours; we'll confirm the exact window with you when we reach out."
+        : "Pick your time with the scheduler above. Whole-home assessments run 2-3 hours; we'll confirm the exact window with you when we reach out.",
     },
     {
       icon: "🔧",
@@ -196,7 +198,9 @@ export default function MembershipConfirmation() {
             Pick your time
           </h2>
           <p className="text-sm mb-6 max-w-lg mx-auto" style={{ color: M }}>
-            Choose a slot to get your whole-home assessment on the calendar. Assessments run 2-3 hours; we'll confirm the exact window with you.
+            {isPortfolio
+              ? "Choose a slot to get your building's baseline scan on the calendar. Scans run 2-3 hours; we'll confirm the exact window with you."
+              : "Choose a slot to get your whole-home assessment on the calendar. Assessments run 2-3 hours; we'll confirm the exact window with you."}
           </p>
           <CalendlyEmbed funnel="baseline" />
         </div>

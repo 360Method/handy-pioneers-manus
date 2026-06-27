@@ -17,9 +17,12 @@ interface Props {
    *  the building (base + per-unit × units) instead of a single home. */
   landlordUnits?: number;
   onEnroll: (tier: MemberTier, cadence: BillingCadence) => void;
+  /** Optional secondary "enroll now and pay by card" action, shown as a small
+   *  text link under the primary walkthrough button when provided. */
+  onEnrollNow?: (tier: MemberTier, cadence: BillingCadence) => void;
 }
 
-export default function TierCard({ tier, cadence, band = DEFAULT_BAND, landlordUnits, onEnroll }: Props) {
+export default function TierCard({ tier, cadence, band = DEFAULT_BAND, landlordUnits, onEnroll, onEnrollNow }: Props) {
   const isLandlord = landlordUnits != null;
   const price = isLandlord
     ? getLandlordPrice(tier, cadence, landlordUnits, band)
@@ -190,9 +193,18 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, landlordU
         Schedule My Baseline Walkthrough →
       </button>
       <p className="text-center text-xs mt-2" style={{ color: "oklch(60% 0.02 60)" }}>
-        Your complimentary baseline walkthrough comes first. We confirm your plan and pricing
+        Your baseline walkthrough comes first. We confirm your plan and pricing
         together - no commitment up front.
       </p>
+      {onEnrollNow && (
+        <button
+          onClick={() => onEnrollNow(tier.id, cadence)}
+          className="block w-full text-center text-xs mt-3 underline underline-offset-2 transition-opacity hover:opacity-70"
+          style={{ color: "oklch(45% 0.05 155)" }}
+        >
+          or enroll now and pay by card (we confirm your price at the first visit)
+        </button>
+      )}
     </div>
   );
 }

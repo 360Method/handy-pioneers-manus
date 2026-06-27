@@ -8,12 +8,14 @@
  */
 
 import { useEffect, useState } from "react";
+import { useLocation } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import type { MemberTier, BillingCadence } from "@/lib/tiers";
 import { TIERS, bandForSqft, getLandlordPrice } from "@/lib/tiers";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
+import { isStagingHost } from "@/lib/api";
 import { Slider } from "@/components/ui/slider";
 import { HomeScoreAnimation } from "@/components/membership/HomeScoreAnimation";
 import TierCard from "@/components/membership/TierCard";
@@ -85,6 +87,7 @@ const FAQS = [
 ];
 
 export default function Multifamily() {
+  const [, navigate] = useLocation();
   const [cadence, setCadence] = useState<BillingCadence>("monthly");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [sqft, setSqft] = useState<number>(4000);
@@ -122,6 +125,35 @@ export default function Multifamily() {
       serviceType: "360° Landlord Plan",
     });
   };
+
+  // Secondary self-checkout: pay by card now (consult-first stays the primary
+  // button). Carries the chosen tier, cadence, building size, and unit count to
+  // the checkout page, which re-prices server-side so the charge matches what
+  // was shown here. Only offered for 1-4 unit, single-property buildings (the
+  // priceable path); 5+ units and portfolios stay consult/portfolio. Staging-
+  // gated until prod is approved.
+  const handleEnrollNow = (tier: MemberTier, c: BillingCadence) => {
+    const tierData = TIERS.find((t) => t.id === tier);
+    track("begin_checkout", {
+      funnel: "landlord_selfcheckout",
+      tier,
+      cadence: c,
+      currency: "USD",
+      units,
+      value: tierData ? getLandlordPrice(tierData, c, units, band) : undefined,
+    });
+    const qs = new URLSearchParams({
+      tier,
+      cadence: c,
+      sqft: String(sqft),
+      units: String(units),
+    }).toString();
+    navigate(`/multifamily/checkout?${qs}`);
+  };
+
+  // Staging-only secondary CTA. The tier grid only renders when !needsCustom, so
+  // this is already limited to 1-4 unit, single-property buildings.
+  const showSelfCheckout = isStagingHost();
 
   // 5+ units / multiple properties: open the tailored landlord quote funnel
   // (Step 1 contact in the modal, then /multifamily/quote for the details that
@@ -842,6 +874,7 @@ export default function Multifamily() {
                     band={band}
                     landlordUnits={units}
                     onEnroll={handleEnroll}
+                    onEnrollNow={showSelfCheckout ? handleEnrollNow : undefined}
                   />
                 ))}
               </div>
