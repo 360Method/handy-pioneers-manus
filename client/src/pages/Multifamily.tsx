@@ -15,7 +15,6 @@ import type { MemberTier, BillingCadence } from "@/lib/tiers";
 import { TIERS, bandForSqft, getLandlordPrice } from "@/lib/tiers";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
-import { isStagingHost } from "@/lib/api";
 import { Slider } from "@/components/ui/slider";
 import { HomeScoreAnimation } from "@/components/membership/HomeScoreAnimation";
 import TierCard from "@/components/membership/TierCard";
@@ -151,9 +150,10 @@ export default function Multifamily() {
     navigate(`/multifamily/checkout?${qs}`);
   };
 
-  // Staging-only secondary CTA. The tier grid only renders when !needsCustom, so
-  // this is already limited to 1-4 unit, single-property buildings.
-  const showSelfCheckout = isStagingHost();
+  // Secondary "enroll now and pay by card" CTA, live on prod (approved
+  // 2026-06-27). The tier grid only renders when !needsCustom, so this is
+  // already limited to 1-4 unit, single-property buildings.
+  const showSelfCheckout = true;
 
   // 5+ units / multiple properties: open the tailored landlord quote funnel
   // (Step 1 contact in the modal, then /multifamily/quote for the details that
