@@ -13,6 +13,7 @@ import {
   GOLD_BUYNOW_ANNUAL,
   bandForSqft,
   getPrice,
+  getLandlordPrice,
   DEFAULT_BAND,
   valueStackFor,
   memberSavingsExample,
@@ -35,10 +36,12 @@ interface Stash {
   zip?: string;
   sqft?: string | number;
   yearBuilt?: string | number;
+  /** Landlord building unit count (set when the lead came from /multifamily). */
+  units?: string | number | null;
 }
 
 /** Strip commas/spaces and coerce to a positive integer, or undefined. */
-function toInt(v: string | number | undefined): number | undefined {
+function toInt(v: string | number | null | undefined): number | undefined {
   if (v === undefined || v === null) return undefined;
   const n = parseInt(String(v).replace(/[^0-9]/g, ""), 10);
   return Number.isFinite(n) && n > 0 ? n : undefined;
@@ -72,18 +75,31 @@ export default function BaselineOffer() {
     }
   }, [navigate]);
 
-  // The OTO always pitches Maximum (gold), sized to the home - same as the
-  // roadmap-funnel offer. Band is resolved from the sqft captured in Step 2;
-  // the backend re-resolves it server-side at checkout (tamper-resistant).
+  // The OTO pitches Maximum (gold), sized to the property. Band is resolved from
+  // the sqft captured in Step 2; the backend re-resolves it server-side at
+  // checkout (tamper-resistant). For a LANDLORD building (units > 1, carried from
+  // /multifamily) the price is the full building (base + per-unit), not a single
+  // home - otherwise a fourplex gets offered a single-home price.
   const gold = TIERS.find((t) => t.id === "gold")!;
   const band: HomeSizeBand = (() => {
     const n = toInt(stash?.sqft);
     return n ? bandForSqft(n) : DEFAULT_BAND;
   })();
-  const monthly = getPrice(gold, "monthly", band);
+  const units = toInt(stash?.units);
+  const isLandlord = (units ?? 1) > 1;
+  const monthly = isLandlord
+    ? getLandlordPrice(gold, "monthly", units!, band)
+    : getPrice(gold, "monthly", band);
   const annualizedMonthly = monthly * 12; // pay-monthly cost over a year
-  const standardAnnual = getPrice(gold, "annual", band); // our normal annual rate
-  const buyNow = GOLD_BUYNOW_ANNUAL[band]; // sized Maximum buy-now price
+  const standardAnnual = isLandlord
+    ? getLandlordPrice(gold, "annual", units!, band)
+    : getPrice(gold, "annual", band); // our normal annual rate
+  // Buy-now: 30% off the month-to-month cost (mirrors GOLD_BUYNOW_ANNUAL). For a
+  // building this is computed off the blended monthly so it scales with units;
+  // the backend recomputes the identical figure at checkout (offer="buynow").
+  const buyNow = isLandlord
+    ? Math.round(monthly * 12 * 0.7)
+    : GOLD_BUYNOW_ANNUAL[band];
   const savings = annualizedMonthly - buyNow; // vs paying monthly
   const belowAnnual = standardAnnual - buyNow; // how much buy-now beats the normal annual
   const buyNowMonthly = Math.round(buyNow / 12);
@@ -101,26 +117,32 @@ export default function BaselineOffer() {
     setLoading(true);
     setError(null);
     try {
-      const res = await fetch(`${getApiBase()}/api/360/checkout`, {
+      const common = {
+        tier: "gold",
+        cadence: "annual",
+        offer: "buynow",
+        customerName: `${stash.firstName ?? ""} ${stash.lastName ?? ""}`.trim(),
+        customerEmail: stash.email,
+        customerPhone: stash.phone,
+        serviceAddress: stash.street,
+        serviceCity: stash.city,
+        serviceState: stash.state,
+        serviceZip: stash.zip,
+        sqft: toInt(stash.sqft),
+        // Link the membership back to the CRM lead created in Step 1 (explicit, not email-only).
+        hpCustomerId: stash.customerId,
+        origin: window.location.origin,
+      };
+      // Landlord building: price + bill the full building (base + per-unit) at the
+      // buy-now rate via the landlord checkout. Homeowner: the size-banded OTO.
+      const endpoint = isLandlord ? "/api/360/landlord-checkout" : "/api/360/checkout";
+      const body = isLandlord
+        ? { ...common, unitCount: units, successPath: "/membership/confirmation" }
+        : { ...common, offer: "buynow_sized", yearBuilt: toInt(stash.yearBuilt) };
+      const res = await fetch(`${getApiBase()}${endpoint}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tier: "gold",
-          cadence: "annual",
-          offer: "buynow_sized",
-          customerName: `${stash.firstName ?? ""} ${stash.lastName ?? ""}`.trim(),
-          customerEmail: stash.email,
-          customerPhone: stash.phone,
-          serviceAddress: stash.street,
-          serviceCity: stash.city,
-          serviceState: stash.state,
-          serviceZip: stash.zip,
-          sqft: toInt(stash.sqft),
-          yearBuilt: toInt(stash.yearBuilt),
-          // Link the membership back to the CRM lead created in Step 1 (explicit, not email-only).
-          hpCustomerId: stash.customerId,
-          origin: window.location.origin,
-        }),
+        body: JSON.stringify(body),
       });
       if (!res.ok) {
         const t = await res.text();
@@ -131,7 +153,7 @@ export default function BaselineOffer() {
       // Carry plan context so the post-payment confirmation page personalizes.
       sessionStorage.setItem("hp360_tier", "gold");
       sessionStorage.setItem("hp360_cadence", "annual");
-      sessionStorage.setItem("hp360_type", "homeowner");
+      sessionStorage.setItem("hp360_type", isLandlord ? "portfolio" : "homeowner");
       window.location.href = json.url;
     } catch (err: any) {
       setError(
@@ -165,8 +187,8 @@ export default function BaselineOffer() {
         </h1>
         <p className="text-[#B8C8B8] text-center text-lg mb-10 max-w-xl mx-auto leading-relaxed">
           About {usd(stack.total)} of comparable value: a full year of seasonal visits, a documented
-          home scan, {usd(stack.laborBank)} of real-work credit, and member pricing on every repair
-          your walkthrough turns up. Homeowners who join right now, before the visit, lock it for{" "}
+          {isLandlord ? " building" : " home"} scan, {usd(stack.laborBank)} of real-work credit, and member pricing on every repair
+          your walkthrough turns up. {isLandlord ? "Owners" : "Homeowners"} who join right now, before the visit, lock it for{" "}
           {usd(buyNow)} for the year.
         </p>
 

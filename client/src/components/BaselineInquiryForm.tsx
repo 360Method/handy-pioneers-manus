@@ -13,13 +13,16 @@ import { track } from "@/lib/analytics";
 interface Props {
   tier?: string;
   sqft?: number;
+  /** Landlord building: number of units. Carried into the OTO so the one-time
+   *  offer prices the building (base + per-unit), not a single home. */
+  units?: number;
   /** Lead source tag override (landlord 5+ / portfolio leads). */
   source?: string;
   /** Lead service-type label override (what the team sees). */
   serviceType?: string;
 }
 
-export default function BaselineInquiryForm({ tier, sqft, source, serviceType }: Props) {
+export default function BaselineInquiryForm({ tier, sqft, units, source, serviceType }: Props) {
   const [, navigate] = useLocation();
   const [form, setForm] = useState({ firstName: "", lastName: "", phone: "", email: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -41,6 +44,7 @@ export default function BaselineInquiryForm({ tier, sqft, source, serviceType }:
         email: form.email.trim().toLowerCase(),
         tier: tier ?? "silver",
         sqft: sqft ?? null,
+        units: units ?? null,
       })
     );
     track("generate_lead", { funnel: "baseline_walkthrough", lead_type: "baseline", tier: tier ?? "silver" });

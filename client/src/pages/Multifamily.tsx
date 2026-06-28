@@ -120,6 +120,7 @@ export default function Multifamily() {
       mode: "baseline",
       tier,
       sqft,
+      units,
       source: `multifamily-tier-${tier}-${units}u`,
       serviceType: "360° Landlord Plan",
     });

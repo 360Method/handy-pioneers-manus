@@ -35,6 +35,8 @@ interface Stash {
   email?: string;
   tier?: string;
   sqft?: number | null;
+  /** Landlord building unit count, carried from /multifamily into the OTO. */
+  units?: number | null;
 }
 
 export default function BaselineDetails() {
