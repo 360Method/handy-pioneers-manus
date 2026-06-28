@@ -37,7 +37,7 @@ export default function CalendlyEmbed({ funnel, height = 720 }: Props) {
       }}
     >
       <iframe
-        src={calendlyEmbedSrc()}
+        src={calendlyEmbedSrc(funnel === "baseline" ? "baseline" : "consultation")}
         title="Schedule with Handy Pioneers"
         width="100%"
         height={height}

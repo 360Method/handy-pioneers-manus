@@ -93,7 +93,7 @@ export default function ThankYou() {
                 You're in. Pick your consultation time.
               </h1>
               <p className="text-base leading-relaxed mb-8 max-w-xl mx-auto" style={{ color: "oklch(0.38 0.02 80)" }}>
-                Your request is in. Choose a time below and we'll walk your project in person. Prefer to talk first? Call us anytime.
+                Your request is in. Choose a time below and we'll walk your project in person (about an hour). Prefer to talk first? Call us anytime.
               </p>
 
               <div className="mb-6">

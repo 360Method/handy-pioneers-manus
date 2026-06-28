@@ -1,24 +1,34 @@
 /**
- * Calendly booking - single source of truth for the scheduler link, reused on the
- * consultation thank-you page and the member / walkthrough confirmation pages.
+ * Calendly booking links - single source of truth, one event per assessment type.
  *
- * On Calendly's free plan there's one event type, so the same link covers both the
- * project consultation and the baseline assessment; Marcin confirms the real
- * duration (a whole-home baseline runs 2-3 hours) with the customer. All
- * availability and slot length live in Calendly, not here - changing them needs no
- * redeploy.
+ * On the paid plan we run two distinct events:
+ *  - consultation: the on-site project assessment / walkthrough (~1 hour)
+ *  - baseline:     the whole-home baseline assessment (~2 hours)
+ *
+ * Durations and availability live in Calendly, not here - changing them needs no
+ * redeploy. This is a temporary layer; it will be replaced by our own internal
+ * booking system later.
  */
-export const CALENDLY_URL = "https://calendly.com/handypioneers/30min";
+export const CALENDLY_URLS = {
+  // On-site project assessment / consultation (~1 hour)
+  consultation: "https://calendly.com/handypioneers/30min",
+  // Whole-home baseline assessment (~2 hours)
+  baseline: "https://calendly.com/handypioneers/baseline-assessment",
+} as const;
+
+export type BookingFunnel = keyof typeof CALENDLY_URLS;
 
 /**
- * Calendly inline-embed src. `embed_domain` is required for Calendly to post the
- * `calendly.event_scheduled` message we listen for to fire the booking conversion.
+ * Calendly inline-embed src for a given funnel. `embed_domain` is required for
+ * Calendly to post the `calendly.event_scheduled` message we listen for to fire
+ * the booking conversion.
  */
-export function calendlyEmbedSrc(): string {
+export function calendlyEmbedSrc(funnel: BookingFunnel = "consultation"): string {
+  const base = CALENDLY_URLS[funnel] ?? CALENDLY_URLS.consultation;
   const domain =
     typeof window !== "undefined" ? window.location.hostname : "handypioneers.com";
   return (
-    `${CALENDLY_URL}?hide_gdpr_banner=1&background_color=ffffff&primary_color=c8892a&text_color=1a2e1a` +
+    `${base}?hide_gdpr_banner=1&background_color=ffffff&primary_color=c8892a&text_color=1a2e1a` +
     `&embed_type=Inline&embed_domain=${domain}`
   );
 }

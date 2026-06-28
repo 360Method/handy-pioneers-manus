@@ -42,7 +42,7 @@ export default function BaselineConfirmation() {
           </h1>
           <p className="text-base leading-relaxed mb-8" style={{ color: "oklch(40% 0.03 60)" }}>
             Your baseline walkthrough is reserved. Pick your time below to lock it in - the
-            whole-home assessment takes 2-3 hours, and we'll confirm the exact window with you.
+            whole-home assessment takes about 2 hours, and we'll confirm the exact window with you.
           </p>
           <div className="mb-10">
             <CalendlyEmbed funnel="baseline" />
@@ -55,7 +55,7 @@ export default function BaselineConfirmation() {
               What happens next
             </p>
             <ul className="space-y-2 text-sm" style={{ color: "oklch(40% 0.03 60)" }}>
-              <li>• Your time is set the moment you book above (the walkthrough takes 2-3 hours).</li>
+              <li>• Your time is set the moment you book above (the walkthrough takes about 2 hours).</li>
               <li>• You receive a documented report with photos and a prioritized roadmap.</li>
               <li>• If membership is a fit, we'll set it up together - no pressure.</li>
             </ul>
