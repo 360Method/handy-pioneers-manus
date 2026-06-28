@@ -59,7 +59,8 @@ function landlordize(text: string): string {
   return text
     .replace(/Home Scan/g, "Building Scan")
     .replace(/\byour home\b/gi, "your building")
-    .replace(/\bhome equity\b/gi, "property equity");
+    // Preserve leading case so a bullet that starts "Home equity..." stays capitalized.
+    .replace(/\bhome equity\b/gi, (m) => (m[0] === "H" ? "Property equity" : "property equity"));
 }
 
 export default function BaselineOffer() {
