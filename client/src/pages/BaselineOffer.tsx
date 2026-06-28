@@ -49,6 +49,19 @@ function toInt(v: string | number | null | undefined): number | undefined {
 
 const usd = (n: number) => `$${n.toLocaleString()}`;
 
+/**
+ * Swap homeowner wording for building/owner wording on the landlord OTO. The
+ * tier feature + value-stack strings are written for homeowners (shared source);
+ * for a multi-unit building we rephrase at render time so a landlord doesn't read
+ * "your home" on a fourplex offer. Source strings stay untouched.
+ */
+function landlordize(text: string): string {
+  return text
+    .replace(/Home Scan/g, "Building Scan")
+    .replace(/\byour home\b/gi, "your building")
+    .replace(/\bhome equity\b/gi, "property equity");
+}
+
 export default function BaselineOffer() {
   const [, navigate] = useLocation();
   const [stash, setStash] = useState<Stash | null>(null);
@@ -111,6 +124,12 @@ export default function BaselineOffer() {
   const repairExample = 15000;
   const repairSaved = memberSavingsExample(gold, repairExample);
   const allFeatures = cumulativeFeatures("gold");
+  // Landlord building: rephrase the homeowner wording in the value-stack lines and
+  // feature list (e.g. "Home Scan" -> "Building Scan", "your home" -> "your building").
+  const stackLines = isLandlord
+    ? stack.lines.map((l) => ({ ...l, label: landlordize(l.label) }))
+    : stack.lines;
+  const featureList = isLandlord ? allFeatures.map(landlordize) : allFeatures;
 
   async function handleAccept() {
     if (!stash) return;
@@ -207,7 +226,7 @@ export default function BaselineOffer() {
                 What you get this year
               </p>
               <div className="space-y-2 mb-3">
-                {stack.lines.map((line, i) => (
+                {stackLines.map((line, i) => (
                   <div key={i} className="flex items-start justify-between gap-3 text-sm">
                     <span className="flex items-start gap-2 text-[#B8C8B8] leading-snug">
                       <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
@@ -290,7 +309,7 @@ export default function BaselineOffer() {
                 Everything included
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
-                {allFeatures.map((text, i) => (
+                {featureList.map((text, i) => (
                   <div key={i} className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-[#C9A84C] mt-0.5 shrink-0" />
                     <span className="text-[#B8C8B8] text-sm leading-snug">{text}</span>
