@@ -13,13 +13,15 @@ import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
 import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
-import { PRESETS, highLevelBand, formatBand } from "@/lib/remodelCost";
+import { getPreset, presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
+
+const ADU_HUB = "/services/accessory-dwelling-units";
 import NotFound from "./NotFound";
 
 const SITE = "https://handypioneers.com";
 
 export function serviceJsonLd(svc: ServiceDef): Record<string, unknown>[] {
-  const preset = svc.costKey ? PRESETS.find((p) => p.key === svc.costKey) : undefined;
+  const preset = svc.costKey ? getPreset(svc.costKey) : undefined;
   const offers = preset
     ? (() => {
         const band = highLevelBand(preset);
@@ -90,6 +92,7 @@ export default function ServicePage() {
   const params = useParams<{ slug: string }>();
   const svc = getService(params.slug);
   if (!svc) return <NotFound />;
+  const costPreset = svc.costKey ? getPreset(svc.costKey) : undefined;
 
   return (
     <>
@@ -150,14 +153,14 @@ export default function ServicePage() {
                       shows how scope moves the number.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                      {PRESETS.map((p) => (
+                      {presetsByCategory(svc.costHub).map((p) => (
                         <div key={p.key} className="rounded-xl p-4" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)" }}>
                           <p className="text-sm font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{p.label}</p>
                           <p className="text-xl font-bold mt-0.5" style={{ color: "oklch(0.22 0.07 160)" }}>{formatBand(highLevelBand(p), true)}</p>
                         </div>
                       ))}
                     </div>
-                    <RemodelCostCalculator />
+                    <RemodelCostCalculator category={svc.costHub} />
                   </>
                 ) : (
                   <>
@@ -169,9 +172,26 @@ export default function ServicePage() {
                     <RemodelCostCalculator defaultPresetKey={svc.costKey} lockProject />
                   </>
                 )}
-                <Link href="/remodel-cost" className="inline-flex items-center gap-1 mt-4 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
-                  See all project ranges and the full estimator <ArrowRight size={15} />
-                </Link>
+                {/* 360 Method partnership thread */}
+                <p className="text-sm leading-relaxed mt-5" style={{ color: "oklch(0.42 0.02 80)" }}>
+                  A project is one step, not the whole plan. In the 360 Method this is the Upgrade stage,
+                  and we stay your partner through the next one, Scale ROI, making sure the money you put
+                  in actually grows your home's value and gets you where you want to be.
+                </p>
+                <div className="flex flex-wrap gap-4 mt-3">
+                  <Link href="/360-method" className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                    How the 360 Method works <ArrowRight size={15} />
+                  </Link>
+                  {costPreset?.category === "adu" ? (
+                    <Link href={ADU_HUB} className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                      Compare all ADU options <ArrowRight size={15} />
+                    </Link>
+                  ) : (
+                    <Link href="/remodel-cost" className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                      See all project ranges and the full estimator <ArrowRight size={15} />
+                    </Link>
+                  )}
+                </div>
               </div>
             )}
 

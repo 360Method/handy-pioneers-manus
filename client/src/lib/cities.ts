@@ -51,7 +51,7 @@ export const CITIES: CityDef[] = [
       "Vancouver spans a wide range of homes, from the older cedar-sided houses near the downtown and Uptown core to the newer builds out in Fisher's Landing and Felida. The older stock tends to need rot and siding attention; the newer homes are usually about staying ahead of decks, paint, and drainage before our wet season finds the weak point.",
       "Whatever corner of Vancouver you're in, the constant is the rain. We help homeowners across the city keep water where it belongs, with repairs, restoration, and proactive care built for this climate.",
     ],
-    servicesOffered: ["rot-repair", "gutter-services", "deck-restoration", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance"],
+    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance"],
     seoTitle: "Home Repair & Maintenance in Vancouver, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Vancouver, WA with rot repair, deck restoration, painting, gutters, remodeling, and proactive home care built for our wet climate. From Felida to Fisher's Landing.",
@@ -71,7 +71,7 @@ export const CITIES: CityDef[] = [
       "Camas is a tale of two housing stocks: the established homes around downtown and Lacamas Lake, and the larger newer builds up on Prune Hill and Grass Valley. The hillside homes catch wind-driven rain off the Gorge, which finds decks, window flashing, and exterior trim first.",
       "We help Camas homeowners protect homes that are often a significant investment, with careful remodeling, deck and rot work, and proactive maintenance that keeps the wet season from doing quiet damage.",
     ],
-    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "deck-restoration", "rot-repair", "exterior-painting", "property-maintenance"],
+    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
     seoTitle: "Home Repair & Remodeling in Camas, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Camas, WA: remodeling, deck and rot repair, painting, and proactive home care for Prune Hill, Grass Valley, and downtown homes. Built for the Gorge's weather.",
@@ -91,7 +91,7 @@ export const CITIES: CityDef[] = [
       "Sitting right at the mouth of the Columbia River Gorge, Washougal gets more of the wind-driven rain than almost anywhere else in the county. That weather is hard on exterior wood, decks, and anything the flashing doesn't fully protect.",
       "We help Washougal homeowners stay ahead of that exposure with deck restoration, rot repair, exterior painting in the right window, and seasonal care that accounts for the Gorge winds.",
     ],
-    servicesOffered: ["deck-restoration", "rot-repair", "exterior-painting", "gutter-services", "doors-windows", "property-maintenance"],
+    servicesOffered: ["deck-repair", "rot-repair", "exterior-painting", "gutter-services", "doors-windows", "property-maintenance"],
     seoTitle: "Deck, Rot & Home Repair in Washougal, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Washougal, WA, where Gorge winds drive rain into exterior wood. Deck restoration, rot repair, painting, and proactive care for homes near the river.",
@@ -111,7 +111,7 @@ export const CITIES: CityDef[] = [
       "Ridgefield is one of the fastest-growing parts of the county, with a lot of newer construction near the wildlife refuge and wetlands. Newer homes are less about rot and more about staying ahead of the things that fail early when nobody is watching: decks, paint, drainage, and the seals around doors and windows.",
       "We help Ridgefield homeowners protect newer homes before small issues become expensive, with proactive maintenance, deck and paint care, and the occasional repair done right.",
     ],
-    servicesOffered: ["property-maintenance", "deck-restoration", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel"],
+    servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel"],
     seoTitle: "Home Maintenance & Repair in Ridgefield, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Ridgefield, WA: proactive maintenance, deck and paint care, gutters, and repairs that keep newer homes near the refuge holding their value.",
@@ -131,7 +131,7 @@ export const CITIES: CityDef[] = [
       "Battle Ground mixes established neighborhoods with newer development and a fair number of homes on larger lots. The wetter, tree-heavy setting means gutters, moss, and drainage do a lot of the quiet damage here if they're left alone through the winter.",
       "We help Battle Ground homeowners keep ahead of that, clearing and repairing gutters, treating moss, handling rot and deck work, and maintaining homes on a schedule instead of in emergencies.",
     ],
-    servicesOffered: ["gutter-services", "pressure-washing", "rot-repair", "deck-restoration", "property-maintenance", "fencing"],
+    servicesOffered: ["gutter-services", "pressure-washing", "rot-repair", "deck-repair", "property-maintenance", "fencing"],
     seoTitle: "Gutter, Rot & Home Repair in Battle Ground, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Battle Ground, WA: gutter cleaning and repair, moss and pressure washing, rot and deck work, and proactive home care for a wet, tree-heavy setting.",
@@ -151,7 +151,7 @@ export const CITIES: CityDef[] = [
       "La Center is a smaller, more rural community in the north of the county, with homes often on acreage near the East Fork Lewis River. Rural and riverside homes tend to need more attention to decks, fences, outbuildings, and drainage than their in-town counterparts.",
       "We help La Center homeowners maintain homes and the structures around them, from deck and fence work to rot repair and proactive seasonal care.",
     ],
-    servicesOffered: ["deck-restoration", "fencing", "rot-repair", "gutter-services", "property-maintenance", "exterior-painting"],
+    servicesOffered: ["deck-repair", "fencing", "rot-repair", "gutter-services", "property-maintenance", "exterior-painting"],
     seoTitle: "Deck, Fence & Home Repair in La Center, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves La Center, WA: deck and fence work, rot repair, gutters, and proactive maintenance for rural and riverside homes in north Clark County.",
@@ -171,7 +171,7 @@ export const CITIES: CityDef[] = [
       "Brush Prairie and the Hockinson area are semi-rural, heavily treed, and full of homes on larger lots. All that tree cover means gutters fill fast and moss takes hold quickly, and decks and outbuildings see a lot of shade and damp.",
       "We help Brush Prairie homeowners stay ahead of the tree-and-moisture combination with gutter work, moss treatment and pressure washing, deck and rot repair, and proactive seasonal maintenance.",
     ],
-    servicesOffered: ["gutter-services", "pressure-washing", "deck-restoration", "rot-repair", "fencing", "property-maintenance"],
+    servicesOffered: ["gutter-services", "pressure-washing", "deck-repair", "rot-repair", "fencing", "property-maintenance"],
     seoTitle: "Gutter, Moss & Home Care in Brush Prairie, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Brush Prairie and Hockinson, WA: gutter cleaning, moss treatment and pressure washing, deck and rot repair, and proactive care for heavily treed lots.",
@@ -191,7 +191,7 @@ export const CITIES: CityDef[] = [
       "Amboy is rural north county, near the foothills, where homes sit on acreage and weather runs harder and colder than down in the valley. Freeze risk is real here, and decks, outbuildings, and exposed wood take a beating.",
       "We help Amboy homeowners maintain rural properties through that exposure, with deck and rot repair, fencing, freeze-aware seasonal care, and the kind of upkeep acreage homes need.",
     ],
-    servicesOffered: ["deck-restoration", "rot-repair", "fencing", "gutter-services", "property-maintenance", "carpentry-trim"],
+    servicesOffered: ["deck-repair", "rot-repair", "fencing", "gutter-services", "property-maintenance", "carpentry-trim"],
     seoTitle: "Rural Home Repair & Maintenance in Amboy, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Amboy, WA: deck and rot repair, fencing, and proactive maintenance for rural foothill properties that face harder weather and freeze risk.",
@@ -211,7 +211,7 @@ export const CITIES: CityDef[] = [
       "Yacolt sits up in the northeast corner of the county near the foothills, rural and treed, with the same colder, wetter exposure as its Amboy neighbors. Homes here are often older or on acreage, and the weather is hard on wood.",
       "We help Yacolt homeowners keep ahead of that with rot and deck repair, fencing, gutter and moss work, and proactive seasonal care suited to rural foothill homes.",
     ],
-    servicesOffered: ["rot-repair", "deck-restoration", "gutter-services", "fencing", "property-maintenance", "pressure-washing"],
+    servicesOffered: ["rot-repair", "deck-repair", "gutter-services", "fencing", "property-maintenance", "pressure-washing"],
     seoTitle: "Home Repair & Maintenance in Yacolt, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Yacolt, WA: rot and deck repair, fencing, gutters, and proactive care for rural foothill homes facing colder, wetter weather.",

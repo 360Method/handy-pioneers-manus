@@ -37,9 +37,13 @@ interface LevelRate {
   desc: string;
 }
 
+export type CostCategory = "remodel" | "adu";
+
 export interface CostPreset {
   /** Stable key used by costKey on a service + the calculator URL. */
   key: string;
+  /** Groups presets so the remodel calculator and the ADU calculator stay separate. */
+  category: CostCategory;
   /** Customer-facing project name. */
   label: string;
   /** One-line plain description of the project scope. */
@@ -66,6 +70,7 @@ export interface CostPreset {
 export const PRESETS: CostPreset[] = [
   {
     key: "kitchen",
+    category: "remodel",
     label: "Full kitchen remodel",
     scope: "Cabinets, counters, surfaces, lighting, and finish.",
     rates: {
@@ -83,6 +88,7 @@ export const PRESETS: CostPreset[] = [
   },
   {
     key: "bath",
+    category: "remodel",
     label: "Full bathroom remodel",
     scope: "Tear-out to turnkey: demo, surfaces, fixtures, finish.",
     rates: {
@@ -100,6 +106,7 @@ export const PRESETS: CostPreset[] = [
   },
   {
     key: "flooring",
+    category: "remodel",
     label: "Flooring replacement",
     scope: "Tear-out, prep, and new flooring across the measured area.",
     rates: {
@@ -117,6 +124,7 @@ export const PRESETS: CostPreset[] = [
   },
   {
     key: "basement",
+    category: "remodel",
     label: "Basement finish",
     scope: "Framing, insulation, drywall, flooring, lighting, and finish.",
     rates: {
@@ -134,6 +142,7 @@ export const PRESETS: CostPreset[] = [
   },
   {
     key: "interior-paint",
+    category: "remodel",
     label: "Interior repaint",
     scope: "Walls, trim, and ceilings across the measured floor area.",
     rates: {
@@ -149,10 +158,86 @@ export const PRESETS: CostPreset[] = [
     maxSqft: 4000,
     sizeHelp: "Use the floor area of the space you want painted; a whole interior is often 1,500 to 2,500 square feet.",
   },
+  {
+    key: "deck-rebuild",
+    category: "remodel",
+    label: "Deck rebuild",
+    scope: "Full tear-out and rebuild: framing, decking, railing, and stairs.",
+    rates: {
+      good: { low: 35, high: 50, desc: "Pressure-treated framing and decking, standard railing. Solid and budget-friendly." },
+      better: { low: 50, high: 70, desc: "Cedar or entry composite decking with an upgraded railing." },
+      best: { low: 70, high: 95, desc: "Premium composite decking with metal or cable railing and clean detailing." },
+      premium: { low: 95, high: 130, desc: "Premium composite, multi-level or elevated builds, custom railing and integrated lighting." },
+    },
+    baseFeeLow: 4000,
+    baseFeeHigh: 6000,
+    avgSqft: 300,
+    minSqft: 80,
+    maxSqft: 900,
+    sizeHelp: "An average deck is about 250 to 400 square feet. Rot, ledger, and structural repairs are scoped on inspection.",
+  },
+  {
+    key: "adu-garage-conversion",
+    category: "adu",
+    label: "Garage or basement ADU conversion",
+    scope: "Convert existing space into a permitted living unit: framing, systems, kitchen, bath, and finish.",
+    rates: {
+      good: { low: 90, high: 120, desc: "Functional, code-ready unit: efficient kitchen, full bath, durable finishes." },
+      better: { low: 120, high: 160, desc: "Upgraded kitchen and bath, better flooring, more natural light." },
+      best: { low: 160, high: 210, desc: "High finish throughout, reworked layout, quality fixtures and cabinetry." },
+      premium: { low: 210, high: 270, desc: "Premium finishes, custom cabinetry, and design-led details throughout." },
+    },
+    baseFeeLow: 35000,
+    baseFeeHigh: 45000,
+    avgSqft: 500,
+    minSqft: 250,
+    maxSqft: 1000,
+    sizeHelp: "Vancouver caps an ADU at 1,000 sq ft; a two-car garage is about 400 to 500 sq ft.",
+  },
+  {
+    key: "adu-attached",
+    category: "adu",
+    label: "Attached ADU / mother-in-law suite",
+    scope: "A living suite attached to the home: addition, kitchen or kitchenette, bath, and a private entry.",
+    rates: {
+      good: { low: 160, high: 200, desc: "A clean, functional attached suite with an efficient kitchen and full bath." },
+      better: { low: 200, high: 250, desc: "Upgraded finishes, better windows and lighting, a more open layout." },
+      best: { low: 250, high: 310, desc: "High finish, custom cabinetry, and quality fixtures throughout." },
+      premium: { low: 310, high: 380, desc: "Premium, design-led suite with custom details and top-tier finishes." },
+    },
+    baseFeeLow: 55000,
+    baseFeeHigh: 70000,
+    avgSqft: 500,
+    minSqft: 300,
+    maxSqft: 1000,
+    sizeHelp: "An attached suite is often 400 to 700 sq ft; Vancouver caps an ADU at 1,000 sq ft.",
+  },
+  {
+    key: "adu-detached",
+    category: "adu",
+    label: "Detached ADU",
+    scope: "A standalone unit on your lot, built ground-up: foundation, framing, full kitchen and bath, utilities.",
+    rates: {
+      good: { low: 240, high: 300, desc: "A complete standalone unit with an efficient kitchen, full bath, and durable finishes." },
+      better: { low: 300, high: 370, desc: "Upgraded finishes, better windows and roofline, a more open plan." },
+      best: { low: 370, high: 450, desc: "High finish throughout, custom cabinetry, quality fixtures, designed exterior." },
+      premium: { low: 450, high: 560, desc: "Premium, architect-detailed unit with top-tier finishes inside and out." },
+    },
+    baseFeeLow: 90000,
+    baseFeeHigh: 110000,
+    avgSqft: 600,
+    minSqft: 300,
+    maxSqft: 1000,
+    sizeHelp: "Detached units commonly run 500 to 800 sq ft; Vancouver caps an ADU at 1,000 sq ft.",
+  },
 ];
 
 export function getPreset(key: string): CostPreset | undefined {
   return PRESETS.find((p) => p.key === key);
+}
+
+export function presetsByCategory(category: CostCategory): CostPreset[] {
+  return PRESETS.filter((p) => p.category === category);
 }
 
 export interface CostBand {

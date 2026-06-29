@@ -32,13 +32,15 @@ export interface ServiceDef {
   membershipTieIn: string;
   relatedServiceSlugs: string[];
   /**
-   * Optional pricing. costKey maps to a preset in client/src/lib/remodelCost.ts
-   * and shows a "what it typically costs" band + the embedded estimator (locked
-   * to this project). costHub shows the bands for every project (used on the
-   * remodeling overview page). Leave both unset on pages we do not price.
+   * Optional pricing. costKey maps to a single preset in
+   * client/src/lib/remodelCost.ts and shows a "what it typically costs" band +
+   * the embedded estimator (locked to this project). costHub names a pricing
+   * category ("remodel" or "adu") and shows the bands + estimator for every
+   * project in that category (used on the remodeling and ADU overview pages).
+   * Leave both unset on pages we do not price.
    */
   costKey?: string;
-  costHub?: boolean;
+  costHub?: "remodel" | "adu";
 }
 
 export const SERVICES: ServiceDef[] = [
@@ -91,7 +93,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
     relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "interior-painting"],
-    costHub: true,
+    costHub: "remodel",
   },
   {
     slug: "kitchen-remodel",
@@ -196,45 +198,51 @@ export const SERVICES: ServiceDef[] = [
     costKey: "bath",
   },
   {
-    slug: "deck-restoration",
-    name: "Deck Restoration",
-    serviceType: "Deck and Porch Restoration",
-    h1: "Deck & Porch Restoration in Clark County, WA",
-    seoTitle: "Deck Repair & Restoration in Vancouver WA | Handy Pioneers",
+    slug: "deck-repair",
+    name: "Deck Repair & Rebuild",
+    serviceType: "Deck Repair and Rebuilding",
+    h1: "Deck Repair & Rebuild in Clark County, WA",
+    seoTitle: "Deck Repair & Rebuild in Vancouver WA | Rot, Structural, Ledger | Handy Pioneers",
     seoDesc:
-      "Deck and porch restoration for Pacific Northwest homes: rot repair, resurfacing, railings, and sealing that actually sheds our rain. Serving Vancouver WA and all of Clark County.",
+      "Deck repair and rebuilding for Pacific Northwest homes: rotted boards and framing, structural fixes, ledger board repair, and full rebuilds that hold up to our rain. Serving Vancouver WA and all of Clark County.",
     image: "https://handypioneers.com/images/blog/deck-water-damage-signs-camas.webp",
-    imageAlt: "A restored wood deck in good condition",
+    imageAlt: "A deck being repaired, with framing and ledger connection exposed",
     intro: [
-      "In the Pacific Northwest a deck spends eight months a year wet. The damage almost never starts where you can see it. It starts underneath, at the joints and the posts and the ledger where the deck meets the house, where the wood stays shaded and damp.",
-      "We restore decks and porches before that hidden rot becomes a structural problem: sound boards reset and resealed, failing members replaced, railings made safe, and the whole surface protected for the seasons ahead.",
+      "In the Pacific Northwest a deck spends eight months a year wet, and the damage almost never starts where you can see it. It starts underneath, at the joists, the posts, and the ledger board where the deck bolts to the house. By the time a board feels soft, the structure beneath it is often the real problem.",
+      "We repair and rebuild decks with the structure first: failing joists, posts, and footings, and the ledger connection that is the single most common cause of deck collapses. When a deck is too far gone to patch safely, we rebuild it right, sized and flashed for this climate, so you are not paying to chase the same rot every few years.",
+      "A deck is also part of how your home lives and what it is worth. We would rather build you one that lasts and then keep an eye on it than sell you a quick fix that fails. That is the 360 Method: a partner in the home, not a one-time repair.",
     ],
     whatsIncluded: [
-      "A full inspection of boards, framing, posts, and the house connection",
-      "Replacement of rotted or unsafe boards and structural members",
-      "Railing repair and safety correction",
-      "Cleaning, prep, and a protective seal applied when the wood can dry",
-      "A clear written scope of what is sound and what needs attention",
+      "A structural inspection: joists, beams, posts, footings, and the ledger-to-house connection",
+      "Ledger board repair or replacement with proper flashing, the most safety-critical part of a deck",
+      "Replacement of rotted or unsafe framing and decking",
+      "Railings, stairs, and fasteners corrected to a safe, solid standard",
+      "Full tear-out and rebuild when a deck is past repair, with a written scope before any work",
     ],
     signsYouNeedThis: [
-      "A board that flexes, gives, or feels spongy underfoot",
-      "Gray or black discoloration spreading from the seams",
-      "Loose, wobbly, or rusted railings and fasteners",
-      "A deck heading into another wet winter without being sealed",
+      "A board, stair, or section that flexes, gives, or feels spongy underfoot",
+      "The deck pulling away from the house, or a ledger board with rust streaks or movement",
+      "Posts or stair stringers soft at the base, or footings that have shifted or heaved",
+      "Wobbly railings, popped fasteners, or gray and black rot spreading from the joints",
     ],
     faq: [
       {
-        q: "How do I know if my deck has water damage?",
-        a: "Look for boards that feel spongy, gray or black staining from the joints, cupping or splitting, and popped fasteners. The most important spots are where the deck meets the house and the base of the posts. A screwdriver that sinks into the wood with light pressure is a clear sign.",
+        q: "Do you repair decks or rebuild them?",
+        a: "Both, and the inspection decides which. If the structure is sound, we replace the failed parts and make it safe. If the framing, posts, or ledger are too far gone, repairing it just buys a year, so we rebuild it properly. We put a written scope and a range in front of you before any work starts.",
       },
       {
-        q: "When is the best time to restore a deck in the PNW?",
-        a: "The dry season, roughly late June through September, when the wood can dry fully before it is sealed. Catching damage in summer is far simpler than finding it after another wet winter.",
+        q: "What is a ledger board and why does it matter so much?",
+        a: "The ledger is the board that attaches the deck to your house. A bad or rotted ledger connection is the leading cause of deck collapses. We inspect it on every deck, and repair or replace it with proper flashing so water cannot get behind it again.",
+      },
+      {
+        q: "How much does a deck rebuild cost?",
+        a: "A full rebuild runs roughly $10,000 to $30,000 and up depending on size, material, and height, and you can estimate yours with the calculator on this page. Rot and structural repairs vary too much to price sight unseen, so we scope those on a walkthrough.",
       },
     ],
     membershipTieIn:
-      "Proactive Path members get their deck checked and resealed on schedule, so it never quietly rots out from underneath.",
-    relatedServiceSlugs: ["rot-repair", "pressure-washing", "exterior-painting"],
+      "Proactive Path members get the deck structure and ledger checked on schedule, so a small repair never becomes a rebuild or a safety problem.",
+    relatedServiceSlugs: ["rot-repair", "carpentry-trim", "exterior-painting"],
+    costKey: "deck-rebuild",
   },
   {
     slug: "rot-repair",
@@ -274,7 +282,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Catching rot early is exactly what the Proactive Path seasonal checks are built to do, before it spreads into the structure.",
-    relatedServiceSlugs: ["deck-restoration", "exterior-painting", "gutter-services"],
+    relatedServiceSlugs: ["deck-repair", "exterior-painting", "gutter-services"],
   },
   {
     slug: "exterior-painting",
@@ -423,7 +431,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Seasonal cleaning is part of the Proactive Path, so moss and grime never get the months they need to do damage.",
-    relatedServiceSlugs: ["deck-restoration", "gutter-services", "exterior-painting"],
+    relatedServiceSlugs: ["deck-repair", "gutter-services", "exterior-painting"],
   },
   {
     slug: "gutter-services",
@@ -607,7 +615,187 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "This is the Proactive Path membership: the 360° Method, delivered for you.",
-    relatedServiceSlugs: ["gutter-services", "deck-restoration", "rot-repair"],
+    relatedServiceSlugs: ["gutter-services", "deck-repair", "rot-repair"],
+  },
+  {
+    slug: "accessory-dwelling-units",
+    name: "Accessory Dwelling Units (ADUs)",
+    serviceType: "Accessory Dwelling Unit Construction",
+    h1: "ADUs in Clark County, WA: Conversions, In-Law Suites & Detached Units",
+    seoTitle: "ADU Builder in Vancouver WA | Garage Conversion, In-Law Suite, Detached ADU | Handy Pioneers",
+    seoDesc:
+      "Build an ADU in Clark County, WA: garage and basement conversions, attached mother-in-law suites, and detached units. Washington now allows up to two ADUs per lot with no owner-occupancy rule. Honest cost ranges and one accountable team.",
+    image: "https://handypioneers.com/images/blog/service-adu.webp",
+    imageAlt: "A detached accessory dwelling unit in the backyard of a Clark County home",
+    intro: [
+      "An accessory dwelling unit is a second, smaller home on your property: a converted garage or basement, a suite attached to the house, or a standalone unit in the backyard. Homeowners build them for aging parents, adult kids, a private home office, or rental income, and Washington just made them far easier to add.",
+      "Under state law (HB 1337), most Clark County lots that allow a single-family home can now have up to two ADUs, with no requirement that you live on the property, and cities cannot cap an ADU below 1,000 square feet. That turns an ADU from a special-case project into one of the strongest moves a homeowner can make on their property's value and income.",
+      "We handle the whole thing as one accountable engagement: feasibility and zoning, design, permitting, and the build. And we think past the project. In the 360 Method an ADU is an Upgrade that should pay you back, so we help you weigh which type actually fits your lot, your budget, and the return you are after, then keep the home looked after once it is built.",
+    ],
+    whatsIncluded: [
+      "A feasibility and zoning check for your specific lot and goals",
+      "Design and layout matched to your budget, your lot, and how the unit will be used",
+      "Permitting handled through Clark County or the City of Vancouver",
+      "The full build: foundation or conversion, framing, kitchen, bath, and utilities",
+      "One point of contact from the first walkthrough to the final inspection",
+    ],
+    signsYouNeedThis: [
+      "Aging parents or adult children who need their own space close by",
+      "A goal of rental income or more long-term value from your property",
+      "A home office, studio, or guest space that the main house cannot give up",
+      "A large garage, basement, or backyard that is not pulling its weight",
+    ],
+    faq: [
+      {
+        q: "Are ADUs allowed in Clark County and Vancouver?",
+        a: "Yes. Washington's HB 1337 requires cities and counties to allow ADUs on most lots that permit single-family homes, generally up to two per lot within urban growth areas. Rules vary by exact location, so the first step is a feasibility check for your specific address, which we handle.",
+      },
+      {
+        q: "Do I have to live on the property to have an ADU?",
+        a: "Not under the current Washington law. Owner-occupancy is no longer required for the main home or the ADU, which is what makes ADUs work as rental income, not just family housing.",
+      },
+      {
+        q: "Which type of ADU should I build?",
+        a: "It depends on your lot, budget, and goal. A garage or basement conversion is usually the most affordable because the shell already exists. An attached suite adds space to the house. A detached unit gives the most privacy and rental appeal but is a ground-up build. We help you compare all three on this page, then on a walkthrough.",
+      },
+      {
+        q: "What does an ADU cost?",
+        a: "Roughly: a conversion from about $45,000, an attached suite from about $80,000, and a detached unit from about $140,000, scaling with size and finish. Use the estimator on this page for a range on each, then we firm it up with a written scope.",
+      },
+    ],
+    membershipTieIn:
+      "Once your ADU is built, the Proactive Path keeps it and the main home maintained and documented on a schedule, so a rental-ready unit stays rental-ready.",
+    relatedServiceSlugs: ["adu-garage-conversion", "mother-in-law-suite", "detached-adu", "remodeling"],
+    costHub: "adu",
+  },
+  {
+    slug: "adu-garage-conversion",
+    name: "Garage & Basement ADU Conversion",
+    serviceType: "Garage Conversion ADU",
+    h1: "Garage & Basement ADU Conversions in Clark County, WA",
+    seoTitle: "Garage Conversion ADU in Vancouver WA | Basement Apartment | Handy Pioneers",
+    seoDesc:
+      "Convert a garage or basement into a permitted ADU in Clark County, WA. The most affordable way to add a living unit because the shell already exists. Honest cost ranges and one accountable team.",
+    image: "https://handypioneers.com/images/blog/service-adu-garage-conversion.webp",
+    imageAlt: "A garage converted into a bright, finished accessory dwelling unit",
+    intro: [
+      "Converting a garage or basement is usually the most affordable way to add an ADU, because the walls, roof, and foundation are already there. You are paying to finish and outfit the space, not to build a structure from the ground up.",
+      "We turn that existing shell into a real, permitted home: framing and insulation, a full kitchen and bath, heating and electrical, egress and light, and finishes you would actually want to live in. The result is a unit that works for family or rents on its own.",
+      "It is also one of the highest-return upgrades on a property, which is exactly how we think about it. An ADU should pay you back, so we help you scope it to hit the return you are after, not just to fill the space.",
+    ],
+    whatsIncluded: [
+      "A feasibility and zoning check for converting your specific garage or basement",
+      "Framing, insulation, and the systems an existing shell is missing",
+      "A full kitchen and bathroom, heating, and electrical brought to code",
+      "Egress, windows, and light to meet living-space requirements",
+      "Permitting and one accountable team through final inspection",
+    ],
+    signsYouNeedThis: [
+      "A garage or basement that stores clutter more than it earns its space",
+      "A goal of rental income without building a separate structure",
+      "Family who needs a private, self-contained unit on the property",
+      "The most budget-friendly path to a legal ADU",
+    ],
+    faq: [
+      {
+        q: "Is a garage conversion cheaper than a detached ADU?",
+        a: "Usually, yes. The foundation, walls, and roof already exist, so you are finishing and outfitting rather than building from scratch. That is why conversions typically start around $45,000 versus roughly $140,000 for a detached unit.",
+      },
+      {
+        q: "Can a converted garage be a legal rental?",
+        a: "Yes, when it is permitted as an ADU and meets code for egress, light, ceiling height, and systems. We handle the permitting and bring the space up to those standards as part of the conversion.",
+      },
+    ],
+    membershipTieIn:
+      "After the conversion, the Proactive Path keeps the new unit and the main home maintained on a schedule, so it holds its value and stays rentable.",
+    relatedServiceSlugs: ["accessory-dwelling-units", "mother-in-law-suite", "detached-adu"],
+    costKey: "adu-garage-conversion",
+  },
+  {
+    slug: "mother-in-law-suite",
+    name: "Attached ADU & Mother-in-Law Suites",
+    serviceType: "Attached ADU and In-Law Suite",
+    h1: "Attached ADUs & Mother-in-Law Suites in Clark County, WA",
+    seoTitle: "Mother-in-Law Suite & Attached ADU in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Add an attached ADU or mother-in-law suite in Clark County, WA: a private living space connected to your home, with its own kitchen, bath, and entry. Honest cost ranges and one accountable team.",
+    image: "https://handypioneers.com/images/blog/service-mother-in-law-suite.webp",
+    imageAlt: "An attached mother-in-law suite addition with a private entrance",
+    intro: [
+      "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
+      "It is the middle path between converting existing space and building a detached unit. You get more square footage than a conversion and more independence than a spare bedroom, tied into the home's structure and systems.",
+      "Because it adds real, livable square footage, an attached suite is also a strong move on your home's value and flexibility. We scope it to fit how your family actually lives now and how the space can serve you later, whether that is aging parents today and rental or resale value down the road.",
+    ],
+    whatsIncluded: [
+      "Design that ties the suite into your home's structure, roofline, and systems",
+      "A private entrance, plus a kitchen or kitchenette and a full bathroom",
+      "Heating, electrical, and insulation built for year-round comfort",
+      "Permitting through Clark County or the City of Vancouver",
+      "One accountable team from design through final inspection",
+    ],
+    signsYouNeedThis: [
+      "Aging parents who want independence but need to be close",
+      "Adult children who need their own space without leaving home",
+      "A desire for more usable square footage tied into the main house",
+      "Flexibility for family now and rental or resale value later",
+    ],
+    faq: [
+      {
+        q: "What is the difference between a mother-in-law suite and a detached ADU?",
+        a: "A mother-in-law suite is attached to your home, sharing a wall and the home's structure, while a detached ADU is a standalone building. Attached suites are usually less expensive than detached units and keep family under one roofline; detached units offer the most privacy and rental appeal.",
+      },
+      {
+        q: "Does a mother-in-law suite need its own kitchen?",
+        a: "To count as an ADU it generally needs its own kitchen or kitchenette and bathroom. We can build a full kitchen or a compact kitchenette depending on how the space will be used and the rules for your lot.",
+      },
+    ],
+    membershipTieIn:
+      "Once the suite is built, the Proactive Path keeps it and the main home maintained and documented on a schedule.",
+    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu"],
+    costKey: "adu-attached",
+  },
+  {
+    slug: "detached-adu",
+    name: "Detached ADUs",
+    serviceType: "Detached ADU Construction",
+    h1: "Detached ADUs in Clark County, WA",
+    seoTitle: "Detached ADU Builder in Vancouver WA | Backyard Cottage | Handy Pioneers",
+    seoDesc:
+      "Build a detached ADU in Clark County, WA: a standalone backyard unit with its own foundation, kitchen, and bath. The most private, most rentable ADU. Honest cost ranges and one accountable team.",
+    image: "https://handypioneers.com/images/blog/service-detached-adu.webp",
+    imageAlt: "A detached backyard ADU cottage on a Clark County property",
+    intro: [
+      "A detached ADU is a standalone home on your lot, built from the ground up with its own foundation, walls, roof, kitchen, bath, and utilities. It is the most private and the most rentable type of ADU, and the one that adds the most independent value to a property.",
+      "It is also a real construction project, and we treat it like one. We design and build the unit as one accountable engagement: site work and foundation, framing and roof, full mechanical, kitchen and bath, and the exterior that ties it to your home and neighborhood. You have a single point of contact from feasibility to final inspection.",
+      "Of the ADU options this is the biggest investment, so the return matters most. We help you size and spec it to the income or use you are after, then keep it maintained once it is built, because a detached unit you can rent for years is an asset, not just a project.",
+    ],
+    whatsIncluded: [
+      "Feasibility, site planning, and zoning for a standalone unit on your lot",
+      "Foundation, framing, roofing, and a weather-tight exterior built for the PNW",
+      "A full kitchen and bathroom, heating, electrical, and independent utilities",
+      "Permitting through Clark County or the City of Vancouver",
+      "One accountable team managing the whole ground-up build",
+    ],
+    signsYouNeedThis: [
+      "You want the most private, most rentable type of ADU",
+      "Rental income or long-term property value is the main goal",
+      "You have backyard space and want a true second home on the lot",
+      "Family who needs a fully independent, standalone living unit",
+    ],
+    faq: [
+      {
+        q: "How much does a detached ADU cost in Clark County?",
+        a: "A detached, ground-up ADU typically runs from about $140,000 and scales with size and finish, because you are building a complete small home including foundation and utilities. Use the estimator on this page for a range, then we firm it up with a written scope.",
+      },
+      {
+        q: "How big can a detached ADU be?",
+        a: "Washington law prevents cities from capping an ADU below 1,000 square feet, and Vancouver caps an ADU at 1,000 square feet. Most detached units land between about 500 and 800 square feet. We size yours to your lot, budget, and goal.",
+      },
+    ],
+    membershipTieIn:
+      "A detached unit you rent for years is an asset. The Proactive Path keeps it and the main home maintained and documented so it stays one.",
+    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "mother-in-law-suite"],
+    costKey: "adu-detached",
   },
 ];
 

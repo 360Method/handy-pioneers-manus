@@ -43,6 +43,7 @@ import { CITIES, ACTIVE_CITIES, WAITLIST_CITIES, type CityDef } from "../client/
 import {
   PRESETS,
   getPreset,
+  presetsByCategory,
   highLevelBand,
   formatBand,
   formatUSD,
@@ -50,6 +51,8 @@ import {
   FINISH_LEVELS,
   type CostPreset,
 } from "../client/src/lib/remodelCost";
+
+const REMODEL_PRESETS = presetsByCategory("remodel");
 
 const ROOT = resolve(process.cwd());
 const SITE = "https://handypioneers.com";
@@ -265,14 +268,18 @@ function costReferenceHtml(preset: CostPreset): string {
 
 function serviceCostHtml(svc: ServiceDef): string {
   if (svc.costHub) {
-    const cards = PRESETS.map(
-      (p) => `<li><strong>${esc(p.label)}</strong>: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`
-    ).join("");
+    const cards = presetsByCategory(svc.costHub)
+      .map((p) => `<li><strong>${esc(p.label)}</strong>: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`)
+      .join("");
+    const estimatorLink =
+      svc.costHub === "remodel"
+        ? `<p>See every range and the interactive estimator at <a href="${SITE}/remodel-cost">${SITE}/remodel-cost</a>.</p>`
+        : `<p>Use the interactive estimator on this page to see a range for each option. The real number comes from a walkthrough and a written scope.</p>`;
     return (
       `<h2>What this typically costs</h2>` +
       `<p>We publish our pricing instead of hiding it. Honest, realistic ranges for an average-size project; premium finishes and larger spaces go higher.</p>` +
       `<ul>${cards}</ul>` +
-      `<p>See every range and the interactive estimator at <a href="${SITE}/remodel-cost">${SITE}/remodel-cost</a>.</p>`
+      estimatorLink
     );
   }
   const preset = svc.costKey ? getPreset(svc.costKey) : undefined;
@@ -286,7 +293,7 @@ function remodelCostBodyHtml(): string {
     `<h1>What a Remodel Actually Costs in Clark County, WA</h1>`,
     `<p>Most contractors will not put a number anywhere near their website. We will. Below are honest, realistic investment ranges for the projects Clark County homeowners ask about most. These are complete prices, not teaser numbers that balloon once the work starts. The real number always comes from a walkthrough and a written scope.</p>`,
   ];
-  for (const p of PRESETS) {
+  for (const p of REMODEL_PRESETS) {
     parts.push(`<h2>${esc(p.label)}</h2>`);
     parts.push(costReferenceHtml(p));
   }
@@ -307,7 +314,7 @@ function remodelCostJsonLd(): object[] {
         "Honest retail investment ranges for kitchen, bathroom, flooring, basement, and interior painting projects in Clark County, plus an interactive estimator.",
       url: `${SITE}/remodel-cost`,
     },
-    ...PRESETS.map((p) => {
+    ...REMODEL_PRESETS.map((p) => {
       const band = highLevelBand(p);
       return {
         "@context": "https://schema.org",
@@ -693,7 +700,8 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 - [Membership tiers](${SITE}/membership): ${TIERS.map((t) => `${t.name} (from $${t.prices.monthly}/mo)`).join(", ")}. Base prices apply to homes under 2,000 sq ft; larger homes are priced by size.
 
 ## Remodel cost
-- [What a remodel costs](${SITE}/remodel-cost): honest retail investment ranges + an interactive estimator. ${PRESETS.map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
+- [What a remodel costs](${SITE}/remodel-cost): honest retail investment ranges + an interactive estimator. ${REMODEL_PRESETS.map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
+- [ADUs in Clark County](${SITE}/services/accessory-dwelling-units): garage and basement conversions, attached mother-in-law suites, and detached units. ${presetsByCategory("adu").map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
 
 ## Answers
 - [FAQ](${SITE}/faq): pricing, scheduling, licensing, who does the work, what the 360° Method is and is not.
@@ -774,7 +782,22 @@ planning starting point; some items (cabinet, vanity, or trim runs) are quoted
 separately on site and the real number comes from a walkthrough. Interactive
 estimator: ${SITE}/remodel-cost.
 
-${PRESETS.map((p) => {
+${REMODEL_PRESETS.map((p) => {
+    const band = highLevelBand(p);
+    const tiers = FINISH_LEVELS.map(
+      (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`
+    ).join("\n");
+    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}`;
+  }).join("\n\n")}
+
+## ADU cost ranges (retail, Clark County, WA)
+
+Washington's HB 1337 lets most Clark County lots add up to two accessory dwelling
+units, with no owner-occupancy requirement and no city cap below 1,000 sq ft. An
+ADU is one of the strongest moves a homeowner can make on property value and
+income. More: ${SITE}/services/accessory-dwelling-units.
+
+${presetsByCategory("adu").map((p) => {
     const band = highLevelBand(p);
     const tiers = FINISH_LEVELS.map(
       (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`

@@ -90,7 +90,7 @@ const outcomes = [
 const services = [
   { icon: Hammer, label: "Kitchen & Bathroom Remodels", href: "/services/remodeling" },
   { icon: Paintbrush, label: "Interior Painting & Finishing", href: "/services/interior-painting" },
-  { icon: TreePine, label: "Deck & Fence Construction", href: "/services/deck-restoration" },
+  { icon: TreePine, label: "Deck Repair & Rebuild", href: "/services/deck-repair" },
   { icon: Wrench, label: "Plumbing & Fixture Upgrades", href: "/services" },
   { icon: Zap, label: "Electrical & Lighting", href: "/services" },
   { icon: HomeIcon, label: "Flooring Installation", href: "/services/flooring" },

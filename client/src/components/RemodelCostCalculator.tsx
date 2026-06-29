@@ -15,12 +15,14 @@ import { useMemo, useState } from "react";
 import {
   PRESETS,
   getPreset,
+  presetsByCategory,
   estimate,
   highLevelBand,
   formatBand,
   FINISH_LEVELS,
   LEVEL_LABELS,
   type FinishLevel,
+  type CostCategory,
 } from "@/lib/remodelCost";
 import { openInquiry } from "@/lib/inquiry";
 
@@ -34,11 +36,15 @@ const MUTED = "oklch(0.50 0.02 80)";
 export default function RemodelCostCalculator({
   defaultPresetKey,
   lockProject = false,
+  category,
 }: {
   defaultPresetKey?: string;
   lockProject?: boolean;
+  /** When set (and not locked), the project picker only shows this category. */
+  category?: CostCategory;
 }) {
-  const initial = (defaultPresetKey && getPreset(defaultPresetKey)) || PRESETS[0];
+  const available = category ? presetsByCategory(category) : PRESETS;
+  const initial = (defaultPresetKey && getPreset(defaultPresetKey)) || available[0] || PRESETS[0];
   const [presetKey, setPresetKey] = useState(initial.key);
   const preset = getPreset(presetKey) || PRESETS[0];
   const [sqft, setSqft] = useState(initial.avgSqft);
@@ -80,7 +86,7 @@ export default function RemodelCostCalculator({
               What are you planning?
             </label>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-              {PRESETS.map((p) => {
+              {available.map((p) => {
                 const on = p.key === presetKey;
                 return (
                   <button
@@ -177,8 +183,8 @@ export default function RemodelCostCalculator({
           <p className="text-sm leading-relaxed mb-4" style={{ color: INK }}>
             Your real number comes from a walkthrough, not a slider. We measure the space, look at what
             is behind the walls, and put a written scope in front of you before anything is torn out.
-            That is part of the 360 Method: we would rather partner with you on the home over time than
-            win a job with a number we cannot stand behind.
+            This is the Upgrade stage of the 360 Method: we are not here to move one project off the
+            list, we are your partner in growing the home's value and getting you where you want to be.
           </p>
           <div className="flex flex-col sm:flex-row gap-3">
             <button

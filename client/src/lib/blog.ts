@@ -52,6 +52,63 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    "slug": "adu-cost-rules-clark-county-2026",
+    "title": "ADUs in Clark County: What They Cost and What's Now Allowed (2026)",
+    "excerpt": "Washington just made it far easier to add an accessory dwelling unit, and most Clark County lots can now have up to two with no owner-occupancy rule. Here is what a garage conversion, in-law suite, or detached ADU actually costs, and how to decide which one fits.",
+    "date": "June 29, 2026",
+    "isoDate": "2026-06-29",
+    "publishDate": "2026-06-29",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "ADUs & Additions",
+    "audience": ["Homeowners"],
+    "tags": [
+      "ADU Clark County",
+      "ADU cost Vancouver WA",
+      "garage conversion ADU",
+      "mother in law suite",
+      "detached ADU Washington",
+      "HB 1337"
+    ],
+    "image": "https://handypioneers.com/images/blog/service-detached-adu.webp",
+    "imageAlt": "A detached backyard ADU cottage on a Clark County property",
+    "readTime": 8,
+    "seoTitle": "ADU Cost & Rules in Clark County, WA (2026): Conversions, Suites, Detached | Handy Pioneers",
+    "seoDesc": "What does an ADU cost in Clark County, WA, and what does Washington's new law allow? Garage conversions, mother-in-law suites, and detached ADUs, with honest 2026 ranges.",
+    "references": [
+      { "label": "City of Vancouver, WA: Accessory Dwelling Units", "url": "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/accessory-dwelling-units/" },
+      { "label": "Clark County: ADUs and Cottage Housing", "url": "https://clark.wa.gov/community-planning/adus-and-cottage-housing" }
+    ],
+    "body": [
+      { "type": "p", "text": "An accessory dwelling unit, or ADU, is a second smaller home on your property. It might be a converted garage or basement, a suite attached to your house, or a standalone cottage in the backyard. People build them for aging parents, adult kids, a home office, or rental income, and Washington just made them much easier to add." },
+      { "type": "p", "text": "If you have looked into an ADU before and walked away, the rules you ran into have likely changed. Here is what an ADU costs in Clark County in 2026, what the state now allows, and how to figure out which type actually fits your lot and your goal." },
+      { "type": "h2", "text": "What changed: Washington's ADU law" },
+      { "type": "p", "text": "Washington passed House Bill 1337, which requires cities and counties to allow ADUs on most lots that already permit a single-family home. The headline points for homeowners:" },
+      { "type": "ul", "items": [
+        "**Up to two ADUs** are allowed on most single-family lots inside urban growth areas.",
+        "**No owner-occupancy requirement.** You no longer have to live on the property to have an ADU, which is what makes them work as rental income, not just family housing.",
+        "**No tiny size caps.** Cities cannot limit an ADU to less than 1,000 square feet. Vancouver caps an ADU at 1,000 square feet."
+      ] },
+      { "type": "p", "text": "The exact rules still depend on your specific address and jurisdiction, and they continue to phase in, so the real first step on any ADU is a feasibility check for your lot. But the direction is clear: ADUs went from a special-case project to one of the most homeowner-friendly moves on the board." },
+      { "type": "h2", "text": "The three types, and what they cost" },
+      { "type": "p", "text": "ADUs come in three shapes, and the cost gap between them is large because the amount you are building is so different. These are honest, realistic ranges for an average-size unit; finish level and size move them." },
+      { "type": "h3", "text": "Garage or basement conversion: from about $45,000" },
+      { "type": "p", "text": "The most affordable path, because the walls, roof, and foundation already exist. You are finishing and outfitting the space: framing, insulation, a full kitchen and bath, heating, electrical, and the egress and light a living space needs. A typical conversion runs roughly $45,000 to $105,000 and up." },
+      { "type": "h3", "text": "Attached ADU / mother-in-law suite: from about $80,000" },
+      { "type": "p", "text": "The middle path. An addition or reworked wing with its own kitchen or kitchenette, full bath, and private entrance, tied into the home's structure and systems. More square footage than a conversion, more independence than a spare room. A typical attached suite runs roughly $80,000 to $155,000 and up." },
+      { "type": "h3", "text": "Detached ADU: from about $140,000" },
+      { "type": "p", "text": "A standalone home in the backyard, built from the ground up: its own foundation, framing, roof, kitchen, bath, and utilities. The most private and most rentable type, and the biggest investment. A typical detached unit runs roughly $140,000 to $270,000 and up." },
+      { "type": "blockquote", "text": "These are planning ranges. The real number comes from a walkthrough and a feasibility check for your specific lot, where utilities, slope, access, and your finish choices set the actual cost." },
+      { "type": "h2", "text": "Is an ADU worth it? The ROI question" },
+      { "type": "p", "text": "An ADU is one of the few home projects that can pay you back two ways: rental income while you own the home, and added value when you sell. With owner-occupancy no longer required, a unit can be rented long-term or used for family today and income later. That flexibility is the point." },
+      { "type": "p", "text": "It is also where we think a contractor should earn their keep. The right move is not always the biggest unit. It is the one whose cost, rent, and resale math actually works for your lot and your goal. We would rather help you size that correctly than sell you the largest build." },
+      { "type": "h2", "text": "How we approach an ADU" },
+      { "type": "p", "text": "We handle an ADU as one accountable engagement: a feasibility and zoning check for your address, design matched to your budget and goal, permitting through Clark County or the City of Vancouver, and the build itself, with one point of contact start to finish." },
+      { "type": "p", "text": "And we think past the project. In the 360 Method, an ADU is an Upgrade that should grow your home's value, and the stage after it is keeping that investment maintained and documented so it holds. We are not here to drop a unit in your yard and leave. We are your partner in where the property is going." },
+      { "type": "cta", "text": "See the three ADU types side by side and estimate yours.", "ctaLabel": "Explore ADUs & estimate cost", "ctaAction": "link", "ctaHref": "/services/accessory-dwelling-units" }
+    ]
+  },
+
+  {
     "slug": "what-a-remodel-costs-clark-county-2026",
     "title": "What a Remodel Actually Costs in Clark County (Real 2026 Ranges)",
     "excerpt": "Most contractors will not put a number anywhere near their website. We will. Here are honest, realistic investment ranges for kitchens, baths, flooring, basements, and painting in Clark County, plus a calculator that shows where your project lands.",
@@ -795,7 +852,7 @@ export const blogPosts: BlogPost[] = [
         "text": "Not sure which side of the line your deck is on? Have Handy Pioneers assess it and give you a clear written scope, so you know whether restoration is enough or a rebuild is the honest call. Reach us at (360) 838-6731.",
         "ctaLabel": "See Deck Restoration",
         "ctaAction": "link",
-        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+        "ctaHref": "https://handypioneers.com/services/deck-repair"
       }
     ]
   },
@@ -919,7 +976,7 @@ export const blogPosts: BlogPost[] = [
         "text": "Ready to build a deck that holds up in our climate? Let us walk your site and give you a written scope and price, with the material and structure trade-offs explained in plain language so you know exactly what you are paying for.",
         "ctaLabel": "See Deck Restoration",
         "ctaAction": "link",
-        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+        "ctaHref": "https://handypioneers.com/services/deck-repair"
       }
     ]
   },
@@ -1066,7 +1123,7 @@ export const blogPosts: BlogPost[] = [
         "text": "Not sure which way to go for your deck and budget? We will walk your deck, look at the frame and the drainage, and talk through composite or wood honestly for your spot in Clark County. Call (360) 838-6731 or reach out and we will help you pick the right material, not the most expensive one.",
         "ctaLabel": "See Deck Restoration",
         "ctaAction": "link",
-        "ctaHref": "https://handypioneers.com/services/deck-restoration"
+        "ctaHref": "https://handypioneers.com/services/deck-repair"
       }
     ]
   },

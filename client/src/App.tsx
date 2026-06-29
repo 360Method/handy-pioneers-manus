@@ -95,6 +95,8 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/faq" component={FAQ} />
       <Route path="/services" component={ServicesIndex} />
+      {/* Old deck slug -> repositioned repair/rebuild page */}
+      <Route path="/services/deck-restoration">{() => <Redirect to="/services/deck-repair" />}</Route>
       <Route path="/services/:slug" component={ServicePage} />
       {/* Public remodel cost calculator + honest investment ranges */}
       <Route path="/remodel-cost" component={RemodelCostPage} />
