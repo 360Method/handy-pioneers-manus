@@ -31,6 +31,14 @@ export interface ServiceDef {
   faq: ServiceFAQ[];
   membershipTieIn: string;
   relatedServiceSlugs: string[];
+  /**
+   * Optional pricing. costKey maps to a preset in client/src/lib/remodelCost.ts
+   * and shows a "what it typically costs" band + the embedded estimator (locked
+   * to this project). costHub shows the bands for every project (used on the
+   * remodeling overview page). Leave both unset on pages we do not price.
+   */
+  costKey?: string;
+  costHub?: boolean;
 }
 
 export const SERVICES: ServiceDef[] = [
@@ -83,6 +91,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
     relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "interior-painting"],
+    costHub: true,
   },
   {
     slug: "kitchen-remodel",
@@ -133,6 +142,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "After a kitchen remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
     relatedServiceSlugs: ["bathroom-remodel", "remodeling", "flooring", "carpentry-trim"],
+    costKey: "kitchen",
   },
   {
     slug: "bathroom-remodel",
@@ -183,6 +193,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "After a bathroom remodel, the Proactive Path membership keeps an eye on the seals, caulk, and ventilation so the new work stays sound.",
     relatedServiceSlugs: ["kitchen-remodel", "remodeling", "flooring", "rot-repair"],
+    costKey: "bath",
   },
   {
     slug: "deck-restoration",
@@ -340,6 +351,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "Touch-ups and high-wear areas are easy to keep ahead of as part of an ongoing Proactive Path relationship.",
     relatedServiceSlugs: ["remodeling", "carpentry-trim", "exterior-painting"],
+    costKey: "interior-paint",
   },
   {
     slug: "flooring",
@@ -375,6 +387,7 @@ export const SERVICES: ServiceDef[] = [
     membershipTieIn:
       "Spotting a slow leak or moisture under flooring early is part of what the Proactive Path is built to catch.",
     relatedServiceSlugs: ["remodeling", "carpentry-trim", "rot-repair"],
+    costKey: "flooring",
   },
   {
     slug: "pressure-washing",

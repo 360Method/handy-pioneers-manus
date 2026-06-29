@@ -40,6 +40,16 @@ import { projects } from "../client/src/lib/projects";
 import { SERVICE_AREA_CITIES, SERVICE_AREA_LABEL } from "../client/src/lib/serviceArea";
 import { SERVICES, type ServiceDef } from "../client/src/lib/services";
 import { CITIES, ACTIVE_CITIES, WAITLIST_CITIES, type CityDef } from "../client/src/lib/cities";
+import {
+  PRESETS,
+  getPreset,
+  highLevelBand,
+  formatBand,
+  formatUSD,
+  LEVEL_LABELS,
+  FINISH_LEVELS,
+  type CostPreset,
+} from "../client/src/lib/remodelCost";
 
 const ROOT = resolve(process.cwd());
 const SITE = "https://handypioneers.com";
@@ -232,6 +242,92 @@ function postJsonLd(post: BlogPost): object[] {
   ];
 }
 
+// ─── remodel cost (RETAIL) ────────────────────────────────────────────────────
+
+/**
+ * Per-tier per-sqft reference for one preset. The live page shows an interactive
+ * calculator that crawlers cannot run, so we emit the underlying retail rates as
+ * plain text here for AI answer engines. All RETAIL, no cost/margin.
+ */
+function costReferenceHtml(preset: CostPreset): string {
+  const rows = FINISH_LEVELS.map((lv) => {
+    const r = preset.rates[lv];
+    return `<li><strong>${esc(LEVEL_LABELS[lv])}</strong>: $${r.low}-$${r.high} per square foot. ${esc(r.desc)}</li>`;
+  }).join("");
+  const band = highLevelBand(preset);
+  return (
+    `<p>An average ${esc(preset.label.toLowerCase())} in Clark County runs roughly <strong>${esc(formatBand(band, true))}</strong>, depending on size and finish. ` +
+    `A complete planning range with nothing hidden to add later, though some items (such as cabinet, vanity, or trim runs) are quoted separately on site. The real number comes from a walkthrough.</p>` +
+    `<ul>${rows}</ul>` +
+    `<p>Estimate any size: total = the per-square-foot rate above times the square footage, with a project minimum of $${preset.baseFeeLow.toLocaleString("en-US")} to $${preset.baseFeeHigh.toLocaleString("en-US")}. Try the <a href="${SITE}/remodel-cost">interactive estimator</a>.</p>`
+  );
+}
+
+function serviceCostHtml(svc: ServiceDef): string {
+  if (svc.costHub) {
+    const cards = PRESETS.map(
+      (p) => `<li><strong>${esc(p.label)}</strong>: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`
+    ).join("");
+    return (
+      `<h2>What this typically costs</h2>` +
+      `<p>We publish our pricing instead of hiding it. Honest, realistic ranges for an average-size project; premium finishes and larger spaces go higher.</p>` +
+      `<ul>${cards}</ul>` +
+      `<p>See every range and the interactive estimator at <a href="${SITE}/remodel-cost">${SITE}/remodel-cost</a>.</p>`
+    );
+  }
+  const preset = svc.costKey ? getPreset(svc.costKey) : undefined;
+  if (!preset) return "";
+  return `<h2>What this typically costs</h2>` + costReferenceHtml(preset);
+}
+
+function remodelCostBodyHtml(): string {
+  const parts = [
+    `<article>`,
+    `<h1>What a Remodel Actually Costs in Clark County, WA</h1>`,
+    `<p>Most contractors will not put a number anywhere near their website. We will. Below are honest, realistic investment ranges for the projects Clark County homeowners ask about most. These are complete prices, not teaser numbers that balloon once the work starts. The real number always comes from a walkthrough and a written scope.</p>`,
+  ];
+  for (const p of PRESETS) {
+    parts.push(`<h2>${esc(p.label)}</h2>`);
+    parts.push(costReferenceHtml(p));
+  }
+  parts.push(
+    `<p>Why we publish this: a remodel is one of the largest investments you make in your home, and you deserve to walk into it with eyes open. That is the same thinking behind the 360 Method, our proactive whole-home care approach. Call (360) 838-6731 or <a href="${SITE}/#contact">schedule a consultation</a>.</p>`,
+    `</article>`
+  );
+  return parts.join("\n");
+}
+
+function remodelCostJsonLd(): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "What a Remodel Costs in Clark County, WA",
+      description:
+        "Honest retail investment ranges for kitchen, bathroom, flooring, basement, and interior painting projects in Clark County, plus an interactive estimator.",
+      url: `${SITE}/remodel-cost`,
+    },
+    ...PRESETS.map((p) => {
+      const band = highLevelBand(p);
+      return {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        name: p.label,
+        serviceType: p.label,
+        provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
+        areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "USD",
+          lowPrice: band.low,
+          highPrice: band.high,
+          description: `Typical retail investment range for a ${p.label.toLowerCase()} in Clark County, WA.`,
+        },
+      };
+    }),
+  ];
+}
+
 // ─── service pages ────────────────────────────────────────────────────────────
 
 function serviceBodyHtml(svc: ServiceDef): string {
@@ -241,6 +337,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     `<h1>${esc(svc.h1)}</h1>`,
     svc.image ? `<img src="${esc(svc.image)}" alt="${esc(svc.imageAlt)}" width="1600" height="900" />` : "",
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
+    serviceCostHtml(svc),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,
@@ -267,6 +364,18 @@ function serviceBodyHtml(svc: ServiceDef): string {
 }
 
 function serviceJsonLd(svc: ServiceDef): object[] {
+  const preset = svc.costKey ? getPreset(svc.costKey) : undefined;
+  const offers = preset
+    ? {
+        offers: {
+          "@type": "AggregateOffer",
+          priceCurrency: "USD",
+          lowPrice: highLevelBand(preset).low,
+          highPrice: highLevelBand(preset).high,
+          description: `Typical retail investment range for a ${preset.label.toLowerCase()} in Clark County, WA.`,
+        },
+      }
+    : {};
   return [
     {
       "@context": "https://schema.org",
@@ -277,6 +386,7 @@ function serviceJsonLd(svc: ServiceDef): object[] {
       provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
       areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
       url: `${SITE}/services/${svc.slug}`,
+      ...offers,
     },
     {
       "@context": "https://schema.org",
@@ -443,6 +553,25 @@ function main() {
     count++;
   }
 
+  // Tier 1: remodel cost calculator page (full bands + per-tier reference for AEO)
+  {
+    writeOut(
+      `remodel-cost.html`,
+      tier1Page(
+        shell,
+        {
+          path: "/remodel-cost",
+          title: "What a Remodel Costs in Clark County, WA | Handy Pioneers",
+          description:
+            "Honest, realistic investment ranges for kitchen, bathroom, flooring, basement, and painting projects in Clark County, WA, plus an interactive estimator.",
+          jsonLd: remodelCostJsonLd(),
+        },
+        remodelCostBodyHtml()
+      )
+    );
+    count++;
+  }
+
   // Tier 1: services hub
   {
     const meta = PAGE_META.find((m) => m.path === "/services")!;
@@ -563,6 +692,9 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 ## Membership (Proactive Path)
 - [Membership tiers](${SITE}/membership): ${TIERS.map((t) => `${t.name} (from $${t.prices.monthly}/mo)`).join(", ")}. Base prices apply to homes under 2,000 sq ft; larger homes are priced by size.
 
+## Remodel cost
+- [What a remodel costs](${SITE}/remodel-cost): honest retail investment ranges + an interactive estimator. ${PRESETS.map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
+
 ## Answers
 - [FAQ](${SITE}/faq): pricing, scheduling, licensing, who does the work, what the 360° Method is and is not.
 - [Customer reviews](${SITE}/reviews)
@@ -633,6 +765,22 @@ Every tier includes scheduled visits, a documented home record, and member
 rates on work beyond the membership scope.
 
 ${tierSection}
+
+## Remodel cost ranges (retail, Clark County, WA)
+
+We publish honest investment ranges instead of hiding them. Every figure below is
+the full customer price, with nothing hidden to add on later. The range is a
+planning starting point; some items (cabinet, vanity, or trim runs) are quoted
+separately on site and the real number comes from a walkthrough. Interactive
+estimator: ${SITE}/remodel-cost.
+
+${PRESETS.map((p) => {
+    const band = highLevelBand(p);
+    const tiers = FINISH_LEVELS.map(
+      (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`
+    ).join("\n");
+    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}`;
+  }).join("\n\n")}
 
 ## Frequently asked questions
 

@@ -12,11 +12,28 @@ import SEO from "@/components/SEO";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
+import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
+import { PRESETS, highLevelBand, formatBand } from "@/lib/remodelCost";
 import NotFound from "./NotFound";
 
 const SITE = "https://handypioneers.com";
 
 export function serviceJsonLd(svc: ServiceDef): Record<string, unknown>[] {
+  const preset = svc.costKey ? PRESETS.find((p) => p.key === svc.costKey) : undefined;
+  const offers = preset
+    ? (() => {
+        const band = highLevelBand(preset);
+        return {
+          offers: {
+            "@type": "AggregateOffer",
+            priceCurrency: "USD",
+            lowPrice: band.low,
+            highPrice: band.high,
+            description: `Typical retail investment range for a ${preset.label.toLowerCase()} in Clark County, WA.`,
+          },
+        };
+      })()
+    : {};
   return [
     {
       "@context": "https://schema.org",
@@ -27,6 +44,7 @@ export function serviceJsonLd(svc: ServiceDef): Record<string, unknown>[] {
       provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: "Handy Pioneers", telephone: "(360) 838-6731", url: SITE },
       areaServed: { "@type": "AdministrativeArea", name: "Clark County, Washington" },
       url: `${SITE}/services/${svc.slug}`,
+      ...offers,
     },
     {
       "@context": "https://schema.org",
@@ -120,6 +138,43 @@ export default function ServicePage() {
 
         <section className="pt-12 pb-14 md:pt-14 md:pb-16">
           <div className="container max-w-3xl mx-auto px-6">
+            {/* What it typically costs (only on priced services) */}
+            {(svc.costKey || svc.costHub) && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>What this typically costs</h2>
+                {svc.costHub ? (
+                  <>
+                    <p className="text-base mb-5" style={{ color: "oklch(0.34 0.02 80)" }}>
+                      We publish our pricing instead of hiding it. Here are honest, realistic ranges for
+                      an average-size project. Premium finishes and larger spaces go higher; the estimator
+                      shows how scope moves the number.
+                    </p>
+                    <div className="grid sm:grid-cols-2 gap-4 mb-6">
+                      {PRESETS.map((p) => (
+                        <div key={p.key} className="rounded-xl p-4" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)" }}>
+                          <p className="text-sm font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{p.label}</p>
+                          <p className="text-xl font-bold mt-0.5" style={{ color: "oklch(0.22 0.07 160)" }}>{formatBand(highLevelBand(p), true)}</p>
+                        </div>
+                      ))}
+                    </div>
+                    <RemodelCostCalculator />
+                  </>
+                ) : (
+                  <>
+                    <p className="text-base mb-5" style={{ color: "oklch(0.34 0.02 80)" }}>
+                      <CostBandLine presetKey={svc.costKey!} /> We publish this on purpose: you deserve a
+                      realistic number before anyone is standing in your home. Slide the size and finish
+                      below to see roughly where your project lands.
+                    </p>
+                    <RemodelCostCalculator defaultPresetKey={svc.costKey} lockProject />
+                  </>
+                )}
+                <Link href="/remodel-cost" className="inline-flex items-center gap-1 mt-4 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                  See all project ranges and the full estimator <ArrowRight size={15} />
+                </Link>
+              </div>
+            )}
+
             {/* What's included */}
             <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>What's included</h2>
             <ul className="space-y-3 mb-12">

@@ -177,13 +177,23 @@ function RenderBlock({ block }: { block: BlogBlock }) {
             {block.text}
           </p>
           <div className="flex flex-wrap justify-center gap-3">
-            <button
-              className="hcp-button"
-              onClick={() => openInquiry()}
-              style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem" }}
-            >
-              {block.ctaLabel || "Schedule a Consultation"}
-            </button>
+            {block.ctaAction === "link" && block.ctaHref ? (
+              <a
+                href={block.ctaHref}
+                className="hcp-button"
+                style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem", textDecoration: "none" }}
+              >
+                {block.ctaLabel || "Learn more"}
+              </a>
+            ) : (
+              <button
+                className="hcp-button"
+                onClick={() => openInquiry()}
+                style={{ fontSize: "0.95rem", padding: "0.75rem 1.75rem" }}
+              >
+                {block.ctaLabel || "Schedule a Consultation"}
+              </button>
+            )}
             <a
               href="tel:+13608386731"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-semibold text-sm border"

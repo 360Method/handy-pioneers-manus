@@ -52,6 +52,52 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    "slug": "what-a-remodel-costs-clark-county-2026",
+    "title": "What a Remodel Actually Costs in Clark County (Real 2026 Ranges)",
+    "excerpt": "Most contractors will not put a number anywhere near their website. We will. Here are honest, realistic investment ranges for kitchens, baths, flooring, basements, and painting in Clark County, plus a calculator that shows where your project lands.",
+    "date": "June 29, 2026",
+    "isoDate": "2026-06-29",
+    "publishDate": "2026-06-29",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling & Cost",
+    "audience": ["Homeowners"],
+    "tags": [
+      "remodel cost Clark County",
+      "kitchen remodel cost Vancouver WA",
+      "bathroom remodel cost Vancouver WA",
+      "home remodel pricing transparency"
+    ],
+    "image": "https://handypioneers.com/images/blog/what-a-remodel-costs-clark-county-2026.webp",
+    "imageAlt": "A bright, finished Clark County remodel with new cabinets, counters, and flooring",
+    "readTime": 7,
+    "seoTitle": "What a Remodel Costs in Clark County, WA (Real 2026 Ranges) | Handy Pioneers",
+    "seoDesc": "Honest, realistic remodel investment ranges for Clark County, WA: kitchens, baths, flooring, basements, and painting, plus a calculator to estimate your project.",
+    "body": [
+      { "type": "p", "text": "Ask most contractors what a remodel costs and you get the same answer: \"it depends.\" It is true, but it is also a dodge. You are trying to figure out whether a project is a $15,000 conversation or a $90,000 one, and \"it depends\" sends you to call three more companies and sit through three more pitches before anyone gives you a number." },
+      { "type": "p", "text": "So we are going to do the thing almost nobody in this trade does: publish our pricing. Below are honest, realistic investment ranges for the projects Clark County homeowners ask about most. These are complete ranges with everything included, not a teaser number that balloons once the work starts. Read them, see if the project fits your plans, and then decide whether it is worth a real conversation." },
+      { "type": "h2", "text": "Why we put our numbers on the internet" },
+      { "type": "p", "text": "A remodel is one of the largest investments you make in your home. You deserve to walk into it with your eyes open, not to have a price held back until a salesperson is standing in your kitchen. We would rather you see a realistic range now and trust us because we were straight with you from the first click." },
+      { "type": "p", "text": "It also fits how we work. We are not chasing one-and-done jobs. Through the 360 Method, we partner with homeowners on the whole home over time: assess it, document it, and keep it maintained so the money you put in holds its value. A relationship like that does not start with a number we cannot stand behind." },
+      { "type": "h2", "text": "How to read these ranges" },
+      { "type": "p", "text": "Each range below is for an average-size project at a Good-to-Best level of finish. Smaller jobs land lower; premium finishes and larger spaces go higher. The ranges assume one accountable team doing the whole scope the right way, including the planning and the parts you do not see. Your real number comes from a walkthrough, where we measure the space, look at what is behind the walls, and put a written scope in front of you before anything is torn out." },
+      { "type": "h2", "text": "Kitchen remodel: roughly $30,000 to $90,000+" },
+      { "type": "p", "text": "Kitchens cover the widest range because they hold the most moving parts: cabinets, countertops, appliances, lighting, plumbing, and the layout itself. A refreshed kitchen with quality stock cabinets and durable surfaces sits near the bottom. Semi-custom cabinets, quartz, and a tile backsplash move you into the middle. Custom cabinetry, premium stone, and a reworked layout push toward the top, and a full chef-grade kitchen goes beyond it." },
+      { "type": "h2", "text": "Bathroom remodel: roughly $12,000 to $35,000+" },
+      { "type": "p", "text": "A full bathroom remodel runs from tear-out to turnkey: demo, surfaces, fixtures, and finish. A clean, solid bathroom with quality stock fixtures anchors the low end. Upgraded tile, name-brand fixtures, and better lighting step it up. Custom tile work, frameless glass, and a spa-level finish carry it higher, especially in a larger primary bath." },
+      { "type": "h2", "text": "Flooring replacement: roughly $5,000 to $17,000+" },
+      { "type": "p", "text": "Flooring is priced by the area you are replacing. Quality luxury vinyl plank or carpet is durable and family-proof at the low end. Premium LVP, engineered hardwood, or tile lands in the middle. Solid hardwood and large-format tile with upgraded prep and transitions reach the top. The bigger the area, the more the material choice drives the total." },
+      { "type": "h2", "text": "Basement finish: roughly $30,000 to $95,000+" },
+      { "type": "p", "text": "Finishing a basement turns raw space into real living space: framing, insulation, drywall, flooring, lighting, and finish. A clean finished room anchors the low end. A finished ceiling system, upgraded flooring, and built-in lighting move it up. A full living suite with a wet-bar rough-in, premium finishes, and custom built-ins carries it higher. Square footage is the biggest lever here." },
+      { "type": "h2", "text": "Interior repaint: roughly $6,000 to $18,000+" },
+      { "type": "p", "text": "A whole-interior repaint is priced by the floor area you are covering. Walls in a quality washable paint with standard prep is the baseline. Adding trim, doors, and upgraded prep steps it up. Walls, trim, doors, and ceilings with premium paint and full surface repair reach the top. Prep is where the quality difference actually lives, and it is where cheap quotes cut corners." },
+      { "type": "blockquote", "text": "A web page can get you close. Only a walkthrough gets you exact. We measure, we look behind the walls, and we write the scope down before anyone swings a hammer." },
+      { "type": "h2", "text": "See where your project lands" },
+      { "type": "p", "text": "We built a quick estimator so you do not have to do the math. Pick your project, slide the size, choose a level of finish, and it shows a realistic range in seconds. It is the same retail pricing our team works from, published for you to use before you ever call." },
+      { "type": "cta", "text": "Want to see where your specific project lands?", "ctaLabel": "Try the cost estimator", "ctaAction": "link", "ctaHref": "/remodel-cost" }
+    ]
+  },
+
+  {
     "slug": "what-does-a-kitchen-remodel-cost-vancouver-wa",
     "title": "What Does a Kitchen Remodel Cost in Vancouver, WA?",
     "excerpt": "A kitchen remodel in Clark County can land anywhere from a finish refresh to a full gut. Here is an honest look at what drives the number, what national data shows, and why a written scope beats a guess.",

@@ -40,6 +40,7 @@ import About from "./pages/About";
 import FAQ from "./pages/FAQ";
 import ServicePage from "./pages/ServicePage";
 import ServicesIndex from "./pages/ServicesIndex";
+import RemodelCostPage from "./pages/RemodelCostPage";
 import CityPage from "./pages/CityPage";
 import ServiceAreasIndex from "./pages/ServiceAreasIndex";
 import Contact from "./pages/Contact";
@@ -95,6 +96,8 @@ function Router() {
       <Route path="/faq" component={FAQ} />
       <Route path="/services" component={ServicesIndex} />
       <Route path="/services/:slug" component={ServicePage} />
+      {/* Public remodel cost calculator + honest investment ranges */}
+      <Route path="/remodel-cost" component={RemodelCostPage} />
       <Route path="/gallery" component={Home} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/customer-reviews" component={Reviews} />
