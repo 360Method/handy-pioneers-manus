@@ -53,6 +53,7 @@ import {
 } from "../client/src/lib/remodelCost";
 import {
   FUNDING_OPTIONS,
+  OTHER_OPTIONS,
   EQUITY_VS_CASH,
   HELOC_VS_LOAN,
   FINANCING_FAQ,
@@ -365,6 +366,14 @@ function financingBodyHtml(): string {
       `<h3>${esc(o.title)}</h3>`,
       `<p>${esc(o.plainDefinition)} ${esc(o.howItWorks)}</p>`,
       `<p><strong>Good fit:</strong> ${esc(o.goodFit)} <strong>Watch outs:</strong> ${esc(o.watchOuts)}</p>`
+    );
+  }
+  parts.push(`<h2>Other ways people pay</h2>`, `<p>These come up too. For a big project, the home equity options above usually win on cost, but each of these fits a certain situation.</p>`);
+  for (const o of OTHER_OPTIONS) {
+    parts.push(
+      `<h3>${esc(o.title)}</h3>`,
+      `<p>${esc(o.what)}</p>`,
+      `<p><strong>Good fit:</strong> ${esc(o.fit)} <strong>Watch outs:</strong> ${esc(o.watch)}</p>`
     );
   }
   parts.push(`<h2>Equity or cash: how to decide</h2>`, `<ul>`);

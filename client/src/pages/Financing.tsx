@@ -15,6 +15,7 @@ import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
 import {
   FUNDING_OPTIONS,
+  OTHER_OPTIONS,
   EQUITY_VS_CASH,
   HELOC_VS_LOAN,
   FINANCING_FAQ,
@@ -100,6 +101,18 @@ export default function Financing() {
           </div>
         </section>
 
+        {/* Partnership image */}
+        <div className="container max-w-3xl mx-auto px-6 -mt-8 md:-mt-10 relative z-10">
+          <img
+            src="/images/financing-partnership.webp"
+            alt="A Handy Pioneers team member shaking hands with a homeowner in front of their home"
+            width={1600}
+            height={900}
+            className="w-full rounded-2xl shadow-lg"
+            style={{ border: `1px solid ${BORDER}`, aspectRatio: "16 / 9", objectFit: "cover" }}
+          />
+        </div>
+
         <section className="pt-12 pb-14 md:pt-14 md:pb-16">
           <div className="container max-w-3xl mx-auto px-6">
 
@@ -154,6 +167,29 @@ export default function Financing() {
                       Read more <ArrowRight size={14} />
                     </Link>
                   )}
+                </div>
+              ))}
+            </div>
+
+            {/* Other ways people pay */}
+            <h2 className="text-2xl font-bold mt-14 mb-2" style={{ fontFamily: "'Playfair Display', serif", color: GREEN }}>
+              Other ways people pay
+            </h2>
+            <p className="text-base mb-6" style={{ color: "oklch(0.42 0.02 80)" }}>
+              These come up too. For a big project, the home equity options above usually win on cost,
+              but each of these fits a certain situation.
+            </p>
+            <div className="grid sm:grid-cols-2 gap-4">
+              {OTHER_OPTIONS.map((o) => (
+                <div key={o.title} className="rounded-2xl p-5 flex flex-col" style={{ backgroundColor: CARD_BG, border: `1px solid ${BORDER}` }}>
+                  <p className="text-base font-bold" style={{ fontFamily: "'Playfair Display', serif", color: GREEN }}>
+                    {o.title}
+                  </p>
+                  <p className="text-sm mt-2 leading-relaxed" style={{ color: INK }}>{o.what}</p>
+                  <div className="mt-3 text-sm leading-relaxed">
+                    <p style={{ color: "oklch(0.40 0.10 160)" }}><strong>Good fit:</strong> {o.fit}</p>
+                    <p className="mt-1" style={{ color: "oklch(0.50 0.10 50)" }}><strong>Watch outs:</strong> {o.watch}</p>
+                  </div>
                 </div>
               ))}
             </div>

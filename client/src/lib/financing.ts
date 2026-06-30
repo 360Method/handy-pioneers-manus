@@ -34,6 +34,13 @@ export interface CompareRow {
   homeEquityLoan: string;
 }
 
+export interface OtherOption {
+  title: string;
+  what: string;
+  fit: string;
+  watch: string;
+}
+
 export interface FinancingFaq {
   q: string;
   a: string;
@@ -165,6 +172,44 @@ export const HELOC_VS_LOAN: CompareRow[] = [
     feature: "Predictability",
     heloc: "Less predictable as the rate and balance move.",
     homeEquityLoan: "Highly predictable.",
+  },
+];
+
+/**
+ * Other ways people fund projects, beyond the four primary options above. Framed
+ * honestly so the higher-cost choices are not over-elevated: for big jobs, the
+ * equity options usually win on cost; these fit smaller or specific situations.
+ */
+export const OTHER_OPTIONS: OtherOption[] = [
+  {
+    title: "Cash-out refinance",
+    what: "Replace your existing mortgage with a larger one and take the difference as cash.",
+    fit: "Large projects when you have significant equity and current rates make refinancing worthwhile anyway.",
+    watch: "It resets your whole mortgage and carries closing costs, so it only makes sense in the right rate environment. Run the numbers with a lender.",
+  },
+  {
+    title: "Personal loan",
+    what: "An unsecured lump-sum loan from a bank or lender, repaid over a fixed term, with no claim on your home.",
+    fit: "Mid-size projects when you have little equity, or would rather not borrow against the house.",
+    watch: "Rates usually run higher than home-secured options and terms are shorter, so the monthly payment can be steeper.",
+  },
+  {
+    title: "Personal line of credit",
+    what: "An unsecured revolving line you draw from as needed, like a HELOC but not tied to your home.",
+    fit: "Smaller, ongoing, or uncertain costs when you want flexibility without using your equity.",
+    watch: "Variable rates that run higher than home-secured credit, and usually smaller limits.",
+  },
+  {
+    title: "Credit cards",
+    what: "Fast and convenient, and a new card sometimes carries a 0% introductory rate for a set window.",
+    fit: "Small jobs, or a short-term bridge you can pay off quickly. A 0% promo can genuinely help if you clear it before it ends.",
+    watch: "Interest is high once any promotional period ends. Not the place to carry a large balance for long.",
+  },
+  {
+    title: "Contractor financing (point of sale)",
+    what: "Financing offered right through the contractor by a lending partner, so you can apply for a project without going to the bank yourself.",
+    fit: "Convenience, and getting an answer at the project instead of shopping lenders one by one.",
+    watch: "Terms vary by program, so it is worth comparing against your own bank. We are working on adding this so we can help you set it up directly.",
   },
 ];
 
