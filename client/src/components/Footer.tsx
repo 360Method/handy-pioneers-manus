@@ -232,6 +232,24 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
+                    href="/remodel-cost"
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    What a remodel costs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/financing"
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    Ways to pay for your project
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/roadmap-generator"
                     className="text-sm hover:opacity-80 transition-opacity"
                     style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif", fontWeight: 600 }}

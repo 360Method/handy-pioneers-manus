@@ -12,6 +12,7 @@ const navLinks = [
   { label: "Services", section: "services", route: null },
   { label: "360° Method", section: "method", route: null },
   { label: "Roadmap Generator", section: null, route: "/roadmap-generator" },
+  { label: "Financing", section: null, route: "/financing" },
   { label: "Gallery", section: "gallery", route: null },
   { label: "Reviews", section: "reviews", route: null },
   { label: "Blog", section: "blog-section", route: null },

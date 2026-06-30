@@ -24,6 +24,7 @@ const STATIC_ROUTES = [
   { path: "/membership", changefreq: "monthly", priority: "0.9" },
   { path: "/services", changefreq: "monthly", priority: "0.8" },
   { path: "/remodel-cost", changefreq: "monthly", priority: "0.8" },
+  { path: "/financing", changefreq: "monthly", priority: "0.7" },
   { path: "/service-areas", changefreq: "monthly", priority: "0.7" },
   { path: "/roadmap-generator", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method", changefreq: "monthly", priority: "0.8" },

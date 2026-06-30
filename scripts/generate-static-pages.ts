@@ -51,6 +51,13 @@ import {
   FINISH_LEVELS,
   type CostPreset,
 } from "../client/src/lib/remodelCost";
+import {
+  FUNDING_OPTIONS,
+  EQUITY_VS_CASH,
+  HELOC_VS_LOAN,
+  FINANCING_FAQ,
+  SOURCES,
+} from "../client/src/lib/financing";
 
 const REMODEL_PRESETS = presetsByCategory("remodel");
 
@@ -342,6 +349,86 @@ function remodelCostJsonLd(): object[] {
   ];
 }
 
+// ─── financing (education, not advice) ────────────────────────────────────────
+
+function financingBodyHtml(): string {
+  const parts = [
+    `<article>`,
+    `<h1>How to Pay for a Home Project: Equity, HELOCs, and Cash</h1>`,
+    `<p>Most larger home projects are funded, not paid for out of pocket all at once, the same way most cars are. The right way to pay depends on your situation, and you deserve to understand the options before anyone talks price. This is a plain guide to home equity, HELOCs, home equity loans, and paying cash. Handy Pioneers is a contractor, not a lender or a financial advisor, and nothing here is financial advice.</p>`,
+    `<h2>Your home is your biggest asset</h2>`,
+    `<p>For most families, the home is the largest thing they own. In the 360 Method, the final stage is Scale: reading your home's value and equity over time and making decisions like the asset it is. Part of that is knowing how to fund the work that protects or grows that value, in a way that fits your money.</p>`,
+    `<h2>The main ways people fund a project</h2>`,
+  ];
+  for (const o of FUNDING_OPTIONS) {
+    parts.push(
+      `<h3>${esc(o.title)}</h3>`,
+      `<p>${esc(o.plainDefinition)} ${esc(o.howItWorks)}</p>`,
+      `<p><strong>Good fit:</strong> ${esc(o.goodFit)} <strong>Watch outs:</strong> ${esc(o.watchOuts)}</p>`
+    );
+  }
+  parts.push(`<h2>Equity or cash: how to decide</h2>`, `<ul>`);
+  for (const r of EQUITY_VS_CASH) {
+    parts.push(
+      `<li><strong>${esc(r.consideration)}.</strong> Lean toward equity when ${esc(r.leanEquity.replace(/\.$/, "").toLowerCase())}. Lean toward cash when ${esc(r.leanCash.replace(/\.$/, "").toLowerCase())}.</li>`
+    );
+  }
+  parts.push(`</ul>`, `<h2>HELOC vs home equity loan</h2>`, `<ul>`);
+  for (const r of HELOC_VS_LOAN) {
+    parts.push(
+      `<li><strong>${esc(r.feature)}.</strong> HELOC: ${esc(r.heloc)} Home equity loan: ${esc(r.homeEquityLoan)}</li>`
+    );
+  }
+  parts.push(
+    `</ul>`,
+    `<p>Both a HELOC and a home equity loan are secured by your home. That is what makes the rates lower than unsecured credit, and it is also the risk: if you cannot keep up with payments, the home is on the line.</p>`,
+    `<h2>One thing worth knowing about taxes</h2>`,
+    `<p>The IRS allows the interest on a home equity loan or HELOC to be deducted only when the money is used to buy, build, or substantially improve the home that secures the loan, and other limits apply. Renovating that same home is often exactly that case. Confirm it with a tax professional before you count on it.</p>`,
+    `<h2>We are your guide, not your lender</h2>`,
+    `<p>Handy Pioneers is a home care and remodeling contractor, not a bank, a lender, or a financial or tax advisor, and nothing here is financial advice. The figures and rules here are general and can change over time and vary by lender and by your situation. Talk to a lender and a tax professional about your own numbers before you decide. What we will do is help you scope the right project, show you honest pricing up front, and stay your partner long after the work is done. See <a href="${SITE}/remodel-cost">what projects cost</a> or call (360) 838-6731.</p>`,
+    `<h2>Common questions</h2>`
+  );
+  for (const f of FINANCING_FAQ) {
+    parts.push(`<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`);
+  }
+  parts.push(`<h2>Where this comes from</h2><ul>`);
+  for (const s of SOURCES) {
+    parts.push(`<li><a href="${esc(s.url)}" rel="noopener">${esc(s.label)}</a></li>`);
+  }
+  parts.push(`</ul>`, `</article>`);
+  return parts.join("\n");
+}
+
+function financingJsonLd(): object[] {
+  return [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      name: "How to Pay for a Home Project: Equity, HELOCs, and Cash",
+      description:
+        "A plain-English guide to funding a home project in Clark County, WA: home equity, HELOCs, home equity loans, and paying cash, and how to decide. Educational, not financial advice.",
+      url: `${SITE}/financing`,
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: SITE },
+        { "@type": "ListItem", position: 2, name: "Financing", item: `${SITE}/financing` },
+      ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: FINANCING_FAQ.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ];
+}
+
 // ─── service pages ────────────────────────────────────────────────────────────
 
 function serviceBodyHtml(svc: ServiceDef): string {
@@ -595,6 +682,16 @@ function main() {
     count++;
   }
 
+  // Tier 1: financing-education resource (full content + WebPage/Breadcrumb/FAQPage JSON-LD)
+  {
+    const meta = PAGE_META.find((m) => m.path === "/financing")!;
+    writeOut(
+      `financing.html`,
+      tier1Page(shell, { ...meta, jsonLd: financingJsonLd() }, financingBodyHtml())
+    );
+    count++;
+  }
+
   // Tier 1: services hub
   {
     const meta = PAGE_META.find((m) => m.path === "/services")!;
@@ -630,7 +727,7 @@ function main() {
 
   // Tier 2: marketing routes (head only)
   const tier2Meta: PageMeta[] = PAGE_META.filter(
-    (m) => !["/blog", "/faq", "/services", "/service-areas"].includes(m.path)
+    (m) => !["/blog", "/faq", "/services", "/service-areas", "/financing"].includes(m.path)
   );
   for (const meta of tier2Meta) {
     const jsonLd: object[] = [];
@@ -718,6 +815,7 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 ## Remodel cost
 - [What a remodel costs](${SITE}/remodel-cost): honest retail investment ranges + an interactive estimator. ${REMODEL_PRESETS.map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
 - [ADUs in Clark County](${SITE}/services/accessory-dwelling-units): garage and basement conversions, attached mother-in-law suites, and detached units. ${presetsByCategory("adu").map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
+- [How to pay for a project](${SITE}/financing): plain-English guide to home equity, HELOCs, home equity loans, and cash, and how to decide. Educational only; Handy Pioneers is not a lender or financial advisor.
 
 ## Answers
 - [FAQ](${SITE}/faq): pricing, scheduling, licensing, who does the work, what the 360° Method is and is not.

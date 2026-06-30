@@ -97,6 +97,12 @@ export const PAGE_META: PageMeta[] = [
       "See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours.",
   },
   {
+    path: "/financing",
+    title: "How to Pay for a Home Project: Equity, HELOCs & Cash | Handy Pioneers",
+    description:
+      "A plain-English guide to funding a home project in Clark County, WA: home equity, HELOCs, home equity loans, and cash, and how to decide. We are your guide, not your lender.",
+  },
+  {
     path: "/privacy-policy",
     title: "Privacy Policy | Handy Pioneers",
     description:

@@ -41,6 +41,7 @@ import FAQ from "./pages/FAQ";
 import ServicePage from "./pages/ServicePage";
 import ServicesIndex from "./pages/ServicesIndex";
 import RemodelCostPage from "./pages/RemodelCostPage";
+import Financing from "./pages/Financing";
 import CityPage from "./pages/CityPage";
 import ServiceAreasIndex from "./pages/ServiceAreasIndex";
 import Contact from "./pages/Contact";
@@ -100,6 +101,8 @@ function Router() {
       <Route path="/services/:slug" component={ServicePage} />
       {/* Public remodel cost calculator + honest investment ranges */}
       <Route path="/remodel-cost" component={RemodelCostPage} />
+      {/* Financing-education resource (home equity / HELOC / cash, 360 Method Step 9) */}
+      <Route path="/financing" component={Financing} />
       <Route path="/gallery" component={Home} />
       <Route path="/reviews" component={Reviews} />
       <Route path="/customer-reviews" component={Reviews} />
