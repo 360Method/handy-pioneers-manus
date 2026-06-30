@@ -14,6 +14,7 @@ import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
 import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
 import { getPreset, presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
+import { localImage } from "@/lib/img";
 
 const ADU_HUB = "/services/accessory-dwelling-units";
 import NotFound from "./NotFound";
@@ -128,7 +129,7 @@ export default function ServicePage() {
         {svc.image && (
           <div className="container max-w-3xl mx-auto px-6 -mt-10 md:-mt-12 relative z-10">
             <img
-              src={svc.image}
+              src={localImage(svc.image)}
               alt={svc.imageAlt}
               width={1600}
               height={900}

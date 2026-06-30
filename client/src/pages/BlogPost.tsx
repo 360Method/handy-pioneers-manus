@@ -22,6 +22,7 @@ import {
 import { toast } from "sonner";
 import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
+import { localImage } from "@/lib/img";
 
 const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
@@ -332,7 +333,7 @@ export default function BlogPost() {
       <div className="max-w-4xl mx-auto w-full px-4 pt-8">
         <div className="overflow-hidden rounded-xl" style={{ maxHeight: "460px" }}>
           <img
-            src={post.image}
+            src={localImage(post.image)}
             alt={post.imageAlt}
             className="w-full object-cover"
             style={{ maxHeight: "460px", objectPosition: "center" }}
