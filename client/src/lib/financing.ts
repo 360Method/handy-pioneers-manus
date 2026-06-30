@@ -171,7 +171,7 @@ export const HELOC_VS_LOAN: CompareRow[] = [
 export const FINANCING_FAQ: FinancingFaq[] = [
   {
     q: "Does Handy Pioneers offer financing or loans?",
-    a: "No. We are not a lender and we do not arrange loans. We help you understand your options so you can talk to your bank or a lender from an informed place. Our job is the work itself and the plan behind it.",
+    a: "Not yet, and we will always be straight about that. We do not lend money ourselves, but we are actively working on adding a financing option through a lending partner so we can help you set it up directly. Until that is in place, we help you understand your options and walk into a conversation with your bank or a lender informed. The choice and the lender always stay yours.",
   },
   {
     q: "Is a HELOC or a home equity loan better?",

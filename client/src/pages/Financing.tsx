@@ -20,6 +20,12 @@ import {
   FINANCING_FAQ,
   SOURCES,
 } from "@/lib/financing";
+import { getPublishedPosts } from "@/lib/blog";
+
+// Only link a funding card to its deep-dive post once that post is live.
+// The cluster drips through July, so this keeps every "Read more" pointing at a
+// published page instead of a not-yet-published URL.
+const PUBLISHED_SLUGS = new Set(getPublishedPosts().map((p) => p.slug));
 
 const SITE = "https://handypioneers.com";
 const GREEN = "oklch(0.22 0.07 160)";
@@ -143,7 +149,7 @@ export default function Financing() {
                     <p style={{ color: "oklch(0.40 0.10 160)" }}><strong>Good fit:</strong> {o.goodFit}</p>
                     <p className="mt-1" style={{ color: "oklch(0.50 0.10 50)" }}><strong>Watch outs:</strong> {o.watchOuts}</p>
                   </div>
-                  {o.blogSlug && (
+                  {o.blogSlug && PUBLISHED_SLUGS.has(o.blogSlug) && (
                     <Link href={`/blog/${o.blogSlug}`} className="inline-flex items-center gap-1 mt-3 text-sm font-semibold hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
                       Read more <ArrowRight size={14} />
                     </Link>

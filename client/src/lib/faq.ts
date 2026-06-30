@@ -22,16 +22,16 @@ export const faqs: FAQCategory[] = [
     category: "Pricing & Cost",
     items: [
       {
-        q: "Why don't you list prices on your website?",
-        a: "Every home is different. A deck repair in a 1,200 sq ft rancher is a different project than the same repair on a 3,500 sq ft craftsman with rot underneath. We start every engagement with an on-site consultation - we walk the property, assess the full scope, and present a written plan tailored to your home. No ballpark numbers, no assumptions. We're happy to talk through your situation on a call before scheduling.",
+        q: "Can I see real pricing before I reach out?",
+        a: "Yes, and that is on purpose. Most contractors keep pricing a secret. We do the opposite. Use the Investment Estimator on our remodeling and service pages, or go straight to handypioneers.com/remodel-cost: pick the project, set the size, choose a finish level, and you get an honest range in seconds. It covers kitchens, bathrooms, flooring, basement finishes, deck rebuilds, windows and doors, and ADUs, and the numbers come from the same pricing we use internally. The range is a planning number, not a final quote. Your exact price comes from a walkthrough, where we measure the space and look at what is behind the walls. We would rather you start informed than guess.",
       },
       {
         q: "What do most projects cost?",
-        a: "Small repairs and maintenance tasks (caulking, fixture replacement, minor drywall) typically run $150-$500. Mid-size projects (bathroom upgrades, deck repairs, flooring) generally range from $1,500-$8,000. Full remodels and additions are quoted individually. The 360° Baseline Walkthrough is a flat-fee service - ask us for current pricing when you reach out.",
+        a: "It depends on the project, so here are honest ballparks. Small repairs and maintenance (caulking, a fixture swap, minor drywall) typically run $150 to $500. Mid-size work like flooring, a deck rebuild, or a bathroom refresh generally lands between $1,500 and $10,000. Kitchens, basement finishes, additions, and ADUs are larger and vary widely with size and finish. For a range tailored to your home, use the estimator at handypioneers.com/remodel-cost, then we confirm the exact number on a walkthrough. The 360° Baseline Walkthrough is a separate flat-fee service; ask for current pricing when you reach out.",
       },
       {
         q: "What does the initial consultation include?",
-        a: "Every engagement starts with an on-site consultation. We walk the property, assess the full scope, listen to your priorities, and present a written plan tailored to your home, not a generic quote. No ballpark numbers over the phone for complex work. You know exactly what you're getting, and why, before any work begins.",
+        a: "The online estimator gives you a real ballpark up front; the consultation is where we turn that into an exact, written number. We walk the property, assess the full scope, listen to your priorities, and present a plan tailored to your home, not a generic quote. You know exactly what you are getting, and why, before any work begins.",
       },
       {
         q: "Do you require a deposit?",
