@@ -157,16 +157,16 @@ export default function Navbar() {
         </button>
 
         {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden md:flex items-center gap-x-4 lg:gap-x-5">
           {navLinks.map((link) => (
             <button
               key={link.label}
               onClick={() => handleNavClick(link)}
-              className="text-sm font-semibold uppercase tracking-wider transition-colors hover:opacity-70 bg-transparent border-0 cursor-pointer"
+              className="text-sm font-semibold uppercase whitespace-nowrap transition-colors hover:opacity-70 bg-transparent border-0 cursor-pointer"
               style={{
                 color: "oklch(0.32 0.07 160)",
                 fontFamily: "'Source Sans 3', sans-serif",
-                letterSpacing: "0.1em",
+                letterSpacing: "0.03em",
               }}
             >
               {link.label}
