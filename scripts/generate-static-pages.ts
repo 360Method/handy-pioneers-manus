@@ -356,6 +356,15 @@ function serviceBodyHtml(svc: ServiceDef): string {
     ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
     `<p>${esc(svc.membershipTieIn)} <a href="${SITE}/membership">Explore the 360° Method membership</a>.</p>`,
   ];
+  if (svc.resources?.length) {
+    parts.push(
+      `<h2>Rules &amp; resources</h2>`,
+      `<p>We build to code and to the rules where you live. ADU regulations are set by the state, the county, and your city, and they keep changing. These are the official sources; the first step on any ADU is confirming exactly what applies to your address, which we handle.</p>`,
+      `<ul>` +
+        svc.resources.map((r) => `<li><a href="${esc(r.url)}" rel="noopener">${esc(r.label)}</a></li>`).join("") +
+        `</ul>`
+    );
+  }
   if (svc.relatedServiceSlugs.length) {
     parts.push(
       `<h2>Related services</h2><ul>` +

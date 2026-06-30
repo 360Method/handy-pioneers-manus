@@ -242,6 +242,29 @@ export default function ServicePage() {
               </div>
             </div>
 
+            {/* Rules & resources (official sources, e.g. ADU regulations) */}
+            {svc.resources && svc.resources.length > 0 && (
+              <div className="rounded-2xl p-7 mb-12" style={{ backgroundColor: "oklch(0.96 0.012 80)", border: "1px solid oklch(0.88 0.015 80)" }}>
+                <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>Rules &amp; resources</h2>
+                <p className="text-base mb-4" style={{ color: "oklch(0.34 0.02 80)" }}>
+                  We build to code and to the rules where you live, and we want you informed. ADU
+                  regulations are set by the state, the county, and your city, and they keep changing.
+                  These are the official sources. The first step on any ADU is confirming exactly what
+                  applies to your address, which we handle before any design or permit work.
+                </p>
+                <ul className="space-y-2">
+                  {svc.resources.map((r) => (
+                    <li key={r.url} className="flex items-start gap-2 text-base" style={{ color: "oklch(0.34 0.02 80)" }}>
+                      <ArrowRight size={15} className="shrink-0 mt-1.5" style={{ color: "oklch(0.65 0.14 65)" }} />
+                      <a href={r.url} target="_blank" rel="noopener noreferrer" className="underline underline-offset-2 hover:opacity-70" style={{ color: "oklch(0.32 0.07 160)" }}>
+                        {r.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
             {/* Membership tie-in */}
             <div className="rounded-2xl p-7 mb-12" style={{ backgroundColor: "oklch(0.95 0.02 160)", border: "1px solid oklch(0.85 0.03 160)" }}>
               <p className="text-base" style={{ color: "oklch(0.30 0.05 160)" }}>{svc.membershipTieIn}</p>

@@ -75,8 +75,14 @@ export const blogPosts: BlogPost[] = [
     "seoTitle": "ADU Cost & Rules in Clark County, WA (2026): Conversions, Suites, Detached | Handy Pioneers",
     "seoDesc": "What does an ADU cost in Clark County, WA, and what does Washington's new law allow? Garage conversions, mother-in-law suites, and detached ADUs, with honest 2026 ranges.",
     "references": [
-      { "label": "City of Vancouver, WA: Accessory Dwelling Units", "url": "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/accessory-dwelling-units/" },
-      { "label": "Clark County: ADUs and Cottage Housing", "url": "https://clark.wa.gov/community-planning/adus-and-cottage-housing" }
+      { "label": "Washington State: ADU law (RCW 36.70A.681, from HB 1337)", "url": "https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681" },
+      { "label": "Washington State Dept. of Commerce: Accessory Dwelling Units", "url": "https://www.commerce.wa.gov/growth-management/housing-planning/adus/" },
+      { "label": "Clark County (unincorporated): ADUs and Cottage Housing", "url": "https://clark.wa.gov/community-planning/adus-and-cottage-housing" },
+      { "label": "City of Vancouver: Accessory Dwelling Units", "url": "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/accessory-dwelling-units/" },
+      { "label": "City of Camas", "url": "https://www.cityofcamas.us/" },
+      { "label": "City of Washougal", "url": "https://www.cityofwashougal.us/" },
+      { "label": "City of Ridgefield", "url": "https://www.ridgefieldwa.us/" },
+      { "label": "City of Battle Ground", "url": "https://www.cityofbg.org/" }
     ],
     "body": [
       { "type": "p", "text": "An accessory dwelling unit, or ADU, is a second smaller home on your property. It might be a converted garage or basement, a suite attached to your house, or a standalone cottage in the backyard. People build them for aging parents, adult kids, a home office, or rental income, and Washington just made them much easier to add." },
@@ -88,7 +94,8 @@ export const blogPosts: BlogPost[] = [
         "**No owner-occupancy requirement.** You no longer have to live on the property to have an ADU, which is what makes them work as rental income, not just family housing.",
         "**No tiny size caps.** Cities cannot limit an ADU to less than 1,000 square feet. Vancouver caps an ADU at 1,000 square feet."
       ] },
-      { "type": "p", "text": "The exact rules still depend on your specific address and jurisdiction, and they continue to phase in, so the real first step on any ADU is a feasibility check for your lot. But the direction is clear: ADUs went from a special-case project to one of the most homeowner-friendly moves on the board." },
+      { "type": "p", "text": "The exact rules still depend on your specific address and jurisdiction, and they continue to phase in. The state sets the floor through HB 1337, Clark County governs unincorporated areas, and each city (Vancouver, Camas, Washougal, Ridgefield, and Battle Ground) sets its own details on size, setbacks, parking, and design. We have linked the official sources for the state, the county, and the cities at the bottom of this post so you can read the rules yourself, and confirming exactly what applies to your lot is the real first step on any ADU." },
+      { "type": "p", "text": "The direction, though, is clear: ADUs went from a special-case project to one of the most homeowner-friendly moves on the board." },
       { "type": "h2", "text": "The three types, and what they cost" },
       { "type": "p", "text": "ADUs come in three shapes, and the cost gap between them is large because the amount you are building is so different. These are honest, realistic ranges for an average-size unit; finish level and size move them." },
       { "type": "h3", "text": "Garage or basement conversion: from about $45,000" },

@@ -41,7 +41,26 @@ export interface ServiceDef {
    */
   costKey?: string;
   costHub?: "remodel" | "adu";
+  /** Official rules/permitting links shown in a "Rules & resources" section. */
+  resources?: { label: string; url: string }[];
 }
+
+/**
+ * Official ADU rules and permitting sources (state, county, local cities), shared
+ * across the ADU pages. We link these so homeowners can verify the rules for
+ * their own address; ADU regulations vary by jurisdiction and keep changing.
+ * All URLs verified live 2026-06-29.
+ */
+export const ADU_RESOURCES: { label: string; url: string }[] = [
+  { label: "Washington State: ADU law (RCW 36.70A.681, from HB 1337)", url: "https://app.leg.wa.gov/RCW/default.aspx?cite=36.70A.681" },
+  { label: "Washington State Dept. of Commerce: Accessory Dwelling Units", url: "https://www.commerce.wa.gov/growth-management/housing-planning/adus/" },
+  { label: "Clark County (unincorporated): ADUs and Cottage Housing", url: "https://clark.wa.gov/community-planning/adus-and-cottage-housing" },
+  { label: "City of Vancouver: Accessory Dwelling Units", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/accessory-dwelling-units/" },
+  { label: "City of Camas", url: "https://www.cityofcamas.us/" },
+  { label: "City of Washougal", url: "https://www.cityofwashougal.us/" },
+  { label: "City of Ridgefield", url: "https://www.ridgefieldwa.us/" },
+  { label: "City of Battle Ground", url: "https://www.cityofbg.org/" },
+];
 
 export const SERVICES: ServiceDef[] = [
   {
@@ -667,6 +686,7 @@ export const SERVICES: ServiceDef[] = [
       "Once your ADU is built, the Proactive Path keeps it and the main home maintained and documented on a schedule, so a rental-ready unit stays rental-ready.",
     relatedServiceSlugs: ["adu-garage-conversion", "mother-in-law-suite", "detached-adu", "remodeling"],
     costHub: "adu",
+    resources: ADU_RESOURCES,
   },
   {
     slug: "adu-garage-conversion",
@@ -710,6 +730,7 @@ export const SERVICES: ServiceDef[] = [
       "After the conversion, the Proactive Path keeps the new unit and the main home maintained on a schedule, so it holds its value and stays rentable.",
     relatedServiceSlugs: ["accessory-dwelling-units", "mother-in-law-suite", "detached-adu"],
     costKey: "adu-garage-conversion",
+    resources: ADU_RESOURCES,
   },
   {
     slug: "mother-in-law-suite",
@@ -753,6 +774,7 @@ export const SERVICES: ServiceDef[] = [
       "Once the suite is built, the Proactive Path keeps it and the main home maintained and documented on a schedule.",
     relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu"],
     costKey: "adu-attached",
+    resources: ADU_RESOURCES,
   },
   {
     slug: "detached-adu",
@@ -796,6 +818,7 @@ export const SERVICES: ServiceDef[] = [
       "A detached unit you rent for years is an asset. The Proactive Path keeps it and the main home maintained and documented so it stays one.",
     relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "mother-in-law-suite"],
     costKey: "adu-detached",
+    resources: ADU_RESOURCES,
   },
 ];
 
