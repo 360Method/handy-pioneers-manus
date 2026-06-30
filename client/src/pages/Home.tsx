@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
 import {
   ArrowRight, Shield, Award, MapPin, Clock, Users, Wrench,
   ChevronDown, CheckCircle, Star, Home as HomeIcon, TrendingUp,
-  Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck
+  Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck, DoorOpen
 } from "lucide-react";
 import { useLocation } from "wouter";
 import TopBar from "@/components/TopBar";
@@ -94,6 +94,7 @@ const services = [
   { icon: Wrench, label: "Plumbing & Fixture Upgrades", href: "/services" },
   { icon: Zap, label: "Electrical & Lighting", href: "/services" },
   { icon: HomeIcon, label: "Flooring Installation", href: "/services/flooring" },
+  { icon: DoorOpen, label: "Windows & Doors", href: "/services/doors-windows" },
   { icon: Shield, label: "Exterior Repairs & Siding", href: "/services/rot-repair" },
   { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/accessory-dwelling-units" },
   { icon: TreePine, label: "Pressure Washing & Moss Removal", href: "/services/pressure-washing" },

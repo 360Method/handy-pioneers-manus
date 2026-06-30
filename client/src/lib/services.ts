@@ -351,7 +351,7 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Interior House Painting in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Interior painting with careful prep, clean lines, and a tidy job site. Walls, trim, ceilings, and cabinets for Vancouver WA and Clark County homeowners.",
-    image: "https://handypioneers.com/images/blog/what-its-really-like-to-work-with-handy-pioneers.webp",
+    image: "https://handypioneers.com/images/blog/service-interior-painting.webp",
     imageAlt: "A freshly painted interior room",
     intro: [
       "Interior painting is the fastest way to make a home feel cared for, and the easiest place to tell a careful crew from a rushed one. The difference is in the prep, the cut lines, and how the space is left at the end of the day.",
@@ -388,8 +388,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Flooring installation and replacement for Clark County homes: hard surface, tile, and more, installed level and lasting. Serving Vancouver WA, Camas, and surrounding areas.",
-    image: "https://handypioneers.com/images/flooring-install-vancouver-2026-06.webp",
-    imageAlt: "Newly installed hard-surface flooring across an open living room with a brick fireplace in a Clark County home",
+    image: "https://handypioneers.com/images/blog/service-flooring.webp",
+    imageAlt: "Newly installed hard-surface flooring across an open living room in a Clark County home",
     intro: [
       "Flooring is the surface you live on every day, and a poor install shows itself fast: gaps, squeaks, lippage, and edges that lift. The substrate prep matters as much as the material.",
       "We install and replace flooring with the prep and care that make it sit flat, transition cleanly, and last.",
@@ -460,7 +460,7 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Gutter Cleaning & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Gutter cleaning and repair for Pacific Northwest homes, where drainage is everything. Clear, sealed, and routed away from your foundation. Serving Vancouver WA and Clark County.",
-    image: "https://handypioneers.com/images/blog/3-things-vancouver-homeowners-forget-to-check-every-spring.webp",
+    image: "https://handypioneers.com/images/blog/service-gutter-services.webp",
     imageAlt: "Clean gutters along a home roofline",
     intro: [
       "In a climate this wet, gutters are not a small thing. They are the system that keeps a season of rain off your siding, away from your foundation, and out of your crawlspace. When they clog or sag, water goes exactly where it does the most expensive damage.",
@@ -496,7 +496,7 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Finish Carpentry & Trim in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Finish carpentry and trim for Clark County homes: doors, baseboards, crown, built-ins, and the detail work that reads as quality. Serving Vancouver WA and surrounding areas.",
-    image: "https://handypioneers.com/images/blog/what-a-1-year-labor-guarantee-actually-covers.webp",
+    image: "https://handypioneers.com/images/blog/service-carpentry-trim.webp",
     imageAlt: "Finished interior trim and millwork",
     intro: [
       "Trim and finish carpentry is where a home either reads as well-built or not. The joints, the reveals, the way a casing meets a baseboard, those details are what the eye picks up even when no one can name why.",
@@ -532,7 +532,7 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Door & Window Installation & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Door and window installation, repair, and weatherproofing for Clark County homes, sealed against our wind-driven rain. Serving Vancouver WA and surrounding areas.",
-    image: "https://handypioneers.com/images/blog/window-cleaning-camas-what-we-found-behind-3-years-of-grime.webp",
+    image: "https://handypioneers.com/images/blog/service-doors-windows.webp",
     imageAlt: "A well-installed exterior door and window",
     intro: [
       "Doors and windows are where a home meets the weather, and in a climate with this much wind-driven rain, how they are sealed and flashed matters as much as the unit itself. A poorly set window is a slow leak waiting to find the framing.",
@@ -555,10 +555,19 @@ export const SERVICES: ServiceDef[] = [
         q: "Why does flashing matter on a window install?",
         a: "Because in our climate the water finds any gap. Proper flashing and sealing are what keep wind-driven rain out of the wall behind the window, which is where the expensive damage happens.",
       },
+      {
+        q: "How much do replacement windows and exterior doors cost?",
+        a: "As a planning range, figure roughly $700 to $2,300 and up per opening (each window or exterior door), depending on the unit and finish, with a small-project minimum. Use the estimator on this page to price your project by the number of openings, then we confirm it on a walkthrough.",
+      },
+      {
+        q: "Can you just replace a few windows, or do I need to do the whole house?",
+        a: "Either. We do single-window and single-door replacements as well as whole-home projects. Replacing the worst-performing openings first is a common, budget-friendly way to start.",
+      },
     ],
     membershipTieIn:
       "Weather seals and the wood around doors and windows are on the list of things the Proactive Path checks each year.",
-    relatedServiceSlugs: ["rot-repair", "carpentry-trim", "exterior-painting"],
+    relatedServiceSlugs: ["remodeling", "rot-repair", "carpentry-trim", "exterior-painting"],
+    costKey: "windows-doors",
   },
   {
     slug: "fencing",
@@ -568,7 +577,7 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Fence Installation & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Fence installation and repair for Clark County homes: set to last in soft, wet PNW ground, with posts that do not lean after the first winter. Serving Vancouver WA and surrounding areas.",
-    image: "https://handypioneers.com/images/blog/deck-season-is-here-what-vancouver-homeowners-should-know.webp",
+    image: "https://handypioneers.com/images/blog/service-fencing.webp",
     imageAlt: "A well-built wood fence",
     intro: [
       "A fence is only as good as its posts, and in soft, wet Pacific Northwest ground, posts that are not set properly lean and heave after a winter or two. The part you do not see is what determines how long the part you do see stays straight.",

@@ -50,7 +50,8 @@ export default function RemodelCostCalculator({
   const [sqft, setSqft] = useState(initial.avgSqft);
   const [level, setLevel] = useState<FinishLevel>("better");
 
-  const step = preset.maxSqft > 1200 ? 50 : preset.maxSqft > 500 ? 25 : 5;
+  const step = preset.sizeStep ?? (preset.maxSqft > 1200 ? 50 : preset.maxSqft > 500 ? 25 : 5);
+  const unit = preset.unitLabel ?? "sq ft";
   const band = useMemo(() => estimate(preset, sqft, level), [preset, sqft, level]);
 
   function switchProject(key: string) {
@@ -112,10 +113,10 @@ export default function RemodelCostCalculator({
         <div>
           <div className="flex items-baseline justify-between mb-2">
             <label htmlFor="size-slider" className="text-sm font-semibold" style={{ color: GREEN }}>
-              How big is the space?
+              {preset.sizeQuestion ?? "How big is the space?"}
             </label>
             <span className="text-sm font-bold" style={{ color: GREEN }}>
-              {sqft.toLocaleString("en-US")} sq ft
+              {sqft.toLocaleString("en-US")} {unit}
             </span>
           </div>
           <input
@@ -173,8 +174,9 @@ export default function RemodelCostCalculator({
             {formatBand(band)}
           </p>
           <p className="mt-2 text-xs leading-relaxed" style={{ color: GREEN_SOFT }}>
-            A planning range for a {preset.label.toLowerCase()} at {sqft.toLocaleString("en-US")} sq ft.
-            Cabinet, vanity, and trim runs are quoted on site, so a detailed estimate can land higher.
+            A planning range for a {preset.label.toLowerCase()} at {sqft.toLocaleString("en-US")} {unit}.
+            Final materials, any structural work, and site conditions are set on a walkthrough, so a
+            detailed estimate can land higher.
           </p>
         </div>
 

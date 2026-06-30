@@ -54,13 +54,23 @@ export interface CostPreset {
   /** Fixed retail floor so a small project never prices unrealistically low. */
   baseFeeLow: number;
   baseFeeHigh: number;
-  /** Typical project size used for the high-level "average" band + slider default. */
+  /**
+   * Typical project size + slider bounds. Usually square feet, but for unit-priced
+   * presets (e.g. windows & doors) these hold a COUNT and unitLabel/unitSingular
+   * change the wording. The estimate() math is the same either way.
+   */
   avgSqft: number;
-  /** Slider bounds. */
   minSqft: number;
   maxSqft: number;
   /** Helper line shown under the size slider. */
   sizeHelp: string;
+  /** Unit wording. Defaults to square feet. e.g. "openings" / "opening". */
+  unitLabel?: string;
+  unitSingular?: string;
+  /** Question above the slider. Defaults to "How big is the space?". */
+  sizeQuestion?: string;
+  /** Slider step. Defaults to a value derived from the range. */
+  sizeStep?: number;
 }
 
 /**
@@ -182,6 +192,29 @@ export const PRESETS: CostPreset[] = [
     minSqft: 80,
     maxSqft: 900,
     sizeHelp: "An average deck is about 250 to 400 square feet. Rot, ledger, and structural repairs are scoped on inspection.",
+  },
+  {
+    key: "windows-doors",
+    category: "remodel",
+    serviceSlug: "doors-windows",
+    label: "Windows & doors",
+    scope: "Replacement windows and exterior doors, installed, flashed, and sealed.",
+    rates: {
+      good: { low: 700, high: 1100, desc: "Standard energy-efficient vinyl windows and solid builder-grade exterior doors." },
+      better: { low: 1100, high: 1600, desc: "Upgraded windows and a nicer exterior door with better hardware." },
+      best: { low: 1600, high: 2300, desc: "Premium windows and a quality fiberglass or solid-wood door." },
+      premium: { low: 2300, high: 3200, desc: "Top-tier windows and custom or designer doors with custom sizing." },
+    },
+    baseFeeLow: 1500,
+    baseFeeHigh: 2000,
+    avgSqft: 10,
+    minSqft: 1,
+    maxSqft: 30,
+    sizeHelp: "Count each window and exterior door you want replaced. Most projects are 5 to 15 openings.",
+    unitLabel: "openings",
+    unitSingular: "opening (window or exterior door)",
+    sizeQuestion: "How many windows and exterior doors?",
+    sizeStep: 1,
   },
   {
     key: "adu-garage-conversion",

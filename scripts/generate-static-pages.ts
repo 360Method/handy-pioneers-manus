@@ -253,16 +253,18 @@ function postJsonLd(post: BlogPost): object[] {
  * plain text here for AI answer engines. All RETAIL, no cost/margin.
  */
 function costReferenceHtml(preset: CostPreset): string {
+  const perUnit = `per ${preset.unitSingular ?? "square foot"}`;
+  const sizeNoun = preset.unitLabel ? `number of ${preset.unitLabel}` : "square footage";
   const rows = FINISH_LEVELS.map((lv) => {
     const r = preset.rates[lv];
-    return `<li><strong>${esc(LEVEL_LABELS[lv])}</strong>: $${r.low}-$${r.high} per square foot. ${esc(r.desc)}</li>`;
+    return `<li><strong>${esc(LEVEL_LABELS[lv])}</strong>: $${r.low}-$${r.high} ${esc(perUnit)}. ${esc(r.desc)}</li>`;
   }).join("");
   const band = highLevelBand(preset);
   return (
     `<p>An average ${esc(preset.label.toLowerCase())} in Clark County runs roughly <strong>${esc(formatBand(band, true))}</strong>, depending on size and finish. ` +
-    `A complete planning range with nothing hidden to add later, though some items (such as cabinet, vanity, or trim runs) are quoted separately on site. The real number comes from a walkthrough.</p>` +
+    `A complete planning range with nothing hidden to add later. Final materials, any structural work, and site conditions are set on a walkthrough, so a detailed estimate can land higher. The real number comes from that walkthrough.</p>` +
     `<ul>${rows}</ul>` +
-    `<p>Estimate any size: total = the per-square-foot rate above times the square footage, with a project minimum of $${preset.baseFeeLow.toLocaleString("en-US")} to $${preset.baseFeeHigh.toLocaleString("en-US")}. Try the <a href="${SITE}/remodel-cost">interactive estimator</a>.</p>`
+    `<p>Estimate any size: total = the ${esc(perUnit)} rate above times the ${esc(sizeNoun)}, with a project minimum of $${preset.baseFeeLow.toLocaleString("en-US")} to $${preset.baseFeeHigh.toLocaleString("en-US")}. Try the <a href="${SITE}/remodel-cost">interactive estimator</a>.</p>`
   );
 }
 
@@ -792,16 +794,17 @@ ${tierSection}
 
 We publish honest investment ranges instead of hiding them. Every figure below is
 the full customer price, with nothing hidden to add on later. The range is a
-planning starting point; some items (cabinet, vanity, or trim runs) are quoted
-separately on site and the real number comes from a walkthrough. Interactive
-estimator: ${SITE}/remodel-cost.
+planning starting point; final materials, any structural work, and site
+conditions are set on a walkthrough, so a detailed estimate can land higher.
+Interactive estimator: ${SITE}/remodel-cost.
 
 ${REMODEL_PRESETS.map((p) => {
     const band = highLevelBand(p);
+    const per = p.unitSingular ?? "square foot";
     const tiers = FINISH_LEVELS.map(
-      (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`
+      (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per ${per}. ${p.rates[lv].desc}`
     ).join("\n");
-    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}`;
+    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per ${per} by finish level:\n${tiers}`;
   }).join("\n\n")}
 
 ## ADU cost ranges (retail, Clark County, WA)
