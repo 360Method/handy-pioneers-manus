@@ -327,3 +327,46 @@
 body {
   padding-top: var(--hp-promo-h, 0px);
 }
+
+/* Promo banner sizing. Kept in CSS (not inline) so it can shrink on mobile,
+   where the bar otherwise wraps to several lines and eats the top of the
+   viewport. Desktop values match the original design; the mobile query tightens
+   padding/fonts and drops the decorative "Limited time" tag to keep it compact. */
+.hp-promo-banner {
+  gap: 0.75rem;
+  padding: 0.6rem 1rem;
+}
+.hp-promo-banner__tag {
+  font-size: 0.7rem;
+}
+.hp-promo-banner__headline {
+  font-size: 0.97rem;
+}
+.hp-promo-banner__cta {
+  font-size: 0.84rem;
+  padding: 0.4rem 1.1rem;
+}
+.hp-promo-banner__call {
+  font-size: 0.84rem;
+}
+
+@media (max-width: 640px) {
+  .hp-promo-banner {
+    gap: 0.3rem 0.55rem;
+    padding: 0.4rem 0.7rem;
+  }
+  .hp-promo-banner__tag {
+    display: none;
+  }
+  .hp-promo-banner__headline {
+    font-size: 0.8rem;
+    line-height: 1.2;
+  }
+  .hp-promo-banner__cta {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.85rem;
+  }
+  .hp-promo-banner__call {
+    font-size: 0.75rem;
+  }
+}

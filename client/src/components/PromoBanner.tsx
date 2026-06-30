@@ -46,6 +46,7 @@ export default function PromoBanner() {
       ref={ref}
       role="region"
       aria-label="Current offer"
+      className="hp-promo-banner"
       style={{
         position: "fixed",
         top: 0,
@@ -61,15 +62,13 @@ export default function PromoBanner() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: "0.75rem",
-        padding: "0.6rem 1rem",
         flexWrap: "wrap",
         textAlign: "center",
       }}
     >
       <span
+        className="hp-promo-banner__tag"
         style={{
-          fontSize: "0.7rem",
           fontWeight: 800,
           letterSpacing: "0.08em",
           textTransform: "uppercase",
@@ -78,17 +77,18 @@ export default function PromoBanner() {
       >
         Limited time
       </span>
-      <span style={{ fontSize: "0.97rem", fontWeight: 700 }}>{promo.headline}</span>
+      <span className="hp-promo-banner__headline" style={{ fontWeight: 700 }}>
+        {promo.headline}
+      </span>
       <button
         type="button"
         onClick={() => openInquiry()}
+        className="hp-promo-banner__cta"
         style={{
           backgroundColor: "oklch(0.24 0.07 160)",
           color: "oklch(0.97 0.015 80)",
           border: "none",
           borderRadius: "0.45rem",
-          padding: "0.4rem 1.1rem",
-          fontSize: "0.84rem",
           fontWeight: 800,
           cursor: "pointer",
           whiteSpace: "nowrap",
@@ -98,9 +98,9 @@ export default function PromoBanner() {
       </button>
       <a
         href={`tel:${HP_PHONE_TEL}`}
+        className="hp-promo-banner__call"
         style={{
           color: "oklch(0.22 0.07 160)",
-          fontSize: "0.84rem",
           fontWeight: 700,
           textDecoration: "underline",
           whiteSpace: "nowrap",
