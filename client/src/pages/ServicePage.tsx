@@ -153,12 +153,28 @@ export default function ServicePage() {
                       shows how scope moves the number.
                     </p>
                     <div className="grid sm:grid-cols-2 gap-4 mb-6">
-                      {presetsByCategory(svc.costHub).map((p) => (
-                        <div key={p.key} className="rounded-xl p-4" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)" }}>
-                          <p className="text-sm font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{p.label}</p>
-                          <p className="text-xl font-bold mt-0.5" style={{ color: "oklch(0.22 0.07 160)" }}>{formatBand(highLevelBand(p), true)}</p>
-                        </div>
-                      ))}
+                      {presetsByCategory(svc.costHub).map((p) => {
+                        const inner = (
+                          <>
+                            <p className="text-sm font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{p.label}</p>
+                            <p className="text-xl font-bold mt-0.5" style={{ color: "oklch(0.22 0.07 160)" }}>{formatBand(highLevelBand(p), true)}</p>
+                            {p.serviceSlug && (
+                              <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold" style={{ color: "oklch(0.45 0.12 160)" }}>
+                                Learn more <ArrowRight size={14} />
+                              </span>
+                            )}
+                          </>
+                        );
+                        return p.serviceSlug ? (
+                          <Link key={p.key} href={`/services/${p.serviceSlug}`} className="block rounded-xl p-4 transition-shadow hover:shadow-md" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)" }}>
+                            {inner}
+                          </Link>
+                        ) : (
+                          <div key={p.key} className="rounded-xl p-4" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)" }}>
+                            {inner}
+                          </div>
+                        );
+                      })}
                     </div>
                     <RemodelCostCalculator category={svc.costHub} />
                   </>

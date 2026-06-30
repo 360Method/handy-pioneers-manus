@@ -44,6 +44,8 @@ export interface CostPreset {
   key: string;
   /** Groups presets so the remodel calculator and the ADU calculator stay separate. */
   category: CostCategory;
+  /** The /services/<slug> page for this project, when one exists (makes cards clickable). */
+  serviceSlug?: string;
   /** Customer-facing project name. */
   label: string;
   /** One-line plain description of the project scope. */
@@ -71,6 +73,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "kitchen",
     category: "remodel",
+    serviceSlug: "kitchen-remodel",
     label: "Full kitchen remodel",
     scope: "Cabinets, counters, surfaces, lighting, and finish.",
     rates: {
@@ -89,6 +92,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "bath",
     category: "remodel",
+    serviceSlug: "bathroom-remodel",
     label: "Full bathroom remodel",
     scope: "Tear-out to turnkey: demo, surfaces, fixtures, finish.",
     rates: {
@@ -107,6 +111,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "flooring",
     category: "remodel",
+    serviceSlug: "flooring",
     label: "Flooring replacement",
     scope: "Tear-out, prep, and new flooring across the measured area.",
     rates: {
@@ -143,6 +148,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "interior-paint",
     category: "remodel",
+    serviceSlug: "interior-painting",
     label: "Interior repaint",
     scope: "Walls, trim, and ceilings across the measured floor area.",
     rates: {
@@ -161,6 +167,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "deck-rebuild",
     category: "remodel",
+    serviceSlug: "deck-repair",
     label: "Deck rebuild",
     scope: "Full tear-out and rebuild: framing, decking, railing, and stairs.",
     rates: {
@@ -179,6 +186,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "adu-garage-conversion",
     category: "adu",
+    serviceSlug: "adu-garage-conversion",
     label: "Garage or basement ADU conversion",
     scope: "Convert existing space into a permitted living unit: framing, systems, kitchen, bath, and finish.",
     rates: {
@@ -197,6 +205,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "adu-attached",
     category: "adu",
+    serviceSlug: "mother-in-law-suite",
     label: "Attached ADU / mother-in-law suite",
     scope: "A living suite attached to the home: addition, kitchen or kitchenette, bath, and a private entry.",
     rates: {
@@ -215,6 +224,7 @@ export const PRESETS: CostPreset[] = [
   {
     key: "adu-detached",
     category: "adu",
+    serviceSlug: "detached-adu",
     label: "Detached ADU",
     scope: "A standalone unit on your lot, built ground-up: foundation, framing, full kitchen and bath, utilities.",
     rates: {

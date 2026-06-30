@@ -106,17 +106,33 @@ export default function RemodelCostPage() {
               the estimator above shows how scope moves the number.
             </p>
             <div className="grid sm:grid-cols-2 gap-4">
-              {REMODEL_PRESETS.map((p) => (
-                <div key={p.key} className="rounded-2xl p-5" style={{ backgroundColor: "oklch(1 0 0)", border: `1px solid ${BORDER}` }}>
-                  <p className="text-base font-bold" style={{ fontFamily: "'Playfair Display', serif", color: GREEN }}>
-                    {p.label}
-                  </p>
-                  <p className="text-2xl font-bold mt-1" style={{ color: GREEN }}>
-                    {formatBand(highLevelBand(p), true)}
-                  </p>
-                  <p className="text-sm mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{p.scope}</p>
-                </div>
-              ))}
+              {REMODEL_PRESETS.map((p) => {
+                const inner = (
+                  <>
+                    <p className="text-base font-bold" style={{ fontFamily: "'Playfair Display', serif", color: GREEN }}>
+                      {p.label}
+                    </p>
+                    <p className="text-2xl font-bold mt-1" style={{ color: GREEN }}>
+                      {formatBand(highLevelBand(p), true)}
+                    </p>
+                    <p className="text-sm mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{p.scope}</p>
+                    {p.serviceSlug && (
+                      <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold" style={{ color: "oklch(0.45 0.12 160)" }}>
+                        Learn more <ArrowRight size={14} />
+                      </span>
+                    )}
+                  </>
+                );
+                return p.serviceSlug ? (
+                  <Link key={p.key} href={`/services/${p.serviceSlug}`} className="block rounded-2xl p-5 transition-shadow hover:shadow-md" style={{ backgroundColor: "oklch(1 0 0)", border: `1px solid ${BORDER}` }}>
+                    {inner}
+                  </Link>
+                ) : (
+                  <div key={p.key} className="rounded-2xl p-5" style={{ backgroundColor: "oklch(1 0 0)", border: `1px solid ${BORDER}` }}>
+                    {inner}
+                  </div>
+                );
+              })}
             </div>
 
             {/* Why we publish */}

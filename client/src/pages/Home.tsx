@@ -95,7 +95,7 @@ const services = [
   { icon: Zap, label: "Electrical & Lighting", href: "/services" },
   { icon: HomeIcon, label: "Flooring Installation", href: "/services/flooring" },
   { icon: Shield, label: "Exterior Repairs & Siding", href: "/services/rot-repair" },
-  { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/remodeling" },
+  { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/accessory-dwelling-units" },
   { icon: TreePine, label: "Pressure Washing & Moss Removal", href: "/services/pressure-washing" },
   { icon: Hammer, label: "Carpentry & Custom Millwork", href: "/services/carpentry-trim" },
   { icon: Paintbrush, label: "Drywall & Texture", href: "/services" },

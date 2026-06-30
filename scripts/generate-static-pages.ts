@@ -269,7 +269,12 @@ function costReferenceHtml(preset: CostPreset): string {
 function serviceCostHtml(svc: ServiceDef): string {
   if (svc.costHub) {
     const cards = presetsByCategory(svc.costHub)
-      .map((p) => `<li><strong>${esc(p.label)}</strong>: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`)
+      .map((p) => {
+        const label = p.serviceSlug
+          ? `<a href="${SITE}/services/${p.serviceSlug}">${esc(p.label)}</a>`
+          : `<strong>${esc(p.label)}</strong>`;
+        return `<li>${label}: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`;
+      })
       .join("");
     const estimatorLink =
       svc.costHub === "remodel"
