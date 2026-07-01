@@ -845,6 +845,11 @@ function main() {
             address: { "@type": "PostalAddress", addressLocality: "Vancouver", addressRegion: "WA", postalCode: "98665", addressCountry: "US" },
             areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
             aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "34" },
+            sameAs: [
+              "https://www.facebook.com/handypioneers",
+              "https://www.instagram.com/handypioneers",
+              "https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951",
+            ],
           },
         ],
       }, homeBodyHtml())
@@ -962,7 +967,7 @@ function llmsTxt(published: BlogPost[]): string {
   const recent = published.slice(0, 10);
   return `# ${SITE_NAME}
 
-> Residential maintenance and restoration contractor in Clark County, Washington (Vancouver, ${SERVICE_AREA_CITIES.filter((c) => c !== "Vancouver").join(", ")}). We help homeowners protect their home's value with the 360° Method: a proactive, documented home-care system delivered through the Proactive Path membership. Licensed and insured (Handy Pioneers LLC, WA). 4.9-star Google rating. Phone ${PHONE}. Email ${EMAIL}.
+> Residential maintenance and restoration contractor in Clark County, Washington (Vancouver, ${SERVICE_AREA_CITIES.filter((c) => c !== "Vancouver").join(", ")}). We help homeowners protect their home's value with the 360° Method: a proactive, documented home-care system delivered through the Proactive Path membership. Licensed and insured (Handy Pioneers LLC, WA). 4.9-star Google rating. BBB Accredited, A rating (https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951). Phone ${PHONE}. Email ${EMAIL}.
 
 A homeowner does not need to hire us to benefit: the 360° Method is a framework
 anyone can use to stay ahead of home maintenance instead of reacting to failures.
@@ -1015,6 +1020,8 @@ function llmsFullTxt(published: BlogPost[]): string {
 
 ${SITE_NAME} is a licensed, insured residential maintenance and restoration
 contractor serving ${SERVICE_AREA_LABEL}: ${SERVICE_AREA_CITIES.join(", ")}.
+BBB Accredited with an A rating
+(https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951).
 Phone ${PHONE}. Email ${EMAIL}. Website ${SITE}.
 
 ## Why homeowners work with us

@@ -202,6 +202,7 @@ const HOMEPAGE_JSONLD = [
       "https://www.facebook.com/handypioneers",
       "https://www.instagram.com/handypioneers",
       "https://share.google/OJgEhJ3AIQZ7AZP",
+      "https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951",
     ],
   },
   {
