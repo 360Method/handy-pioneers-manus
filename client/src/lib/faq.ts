@@ -45,6 +45,10 @@ export const faqs: FAQCategory[] = [
         q: "What is a change order, and what happens if I want to add or change something?",
         a: "A change order is a short written agreement for any work that wasn't in your original plan. That can be something you decide to add or change, or something we find during the job that needs attention. We write up exactly what the work is and what it costs, and we walk through it with you before any of it starts. Nothing changes without your okay. Here is the part we like to be upfront about: a change order is paid in full before that new piece of work begins. The reason is simple. The deposit you already paid is committed to the materials and tradespeople for your original project, so any new work needs its own funding before we can order materials and put it on the schedule. This keeps your project moving and keeps everyone on the same page. The rest of your project continues on its original terms, and you always see the price in writing first.",
       },
+      {
+        q: "What is the seasonal offer I see on the site, and what does \"included\" mean?",
+        a: "We run one seasonal offer each month, matched to what Pacific Northwest homes actually need that time of year. Some months it is a modest saving on your project. Most months it is an included visit: a real, defined service, usually 30 to 60 minutes, where we check the season's trouble spots (things like gutters and drainage in winter, roof moss in spring, shutoffs and locks before summer travel, weatherstripping in fall) and leave you a short written summary of what we found, sorted by what needs attention now, soon, or can wait. Every included visit follows a written checklist, so you know exactly what you are getting. It comes with any job booked that month, it applies automatically, and there are no strings. The current offer is always shown in the banner at the top of the site. If you would rather have that kind of visit every season instead of once, that is what the 360° Method membership is.",
+      },
     ],
   },
   {
