@@ -27,7 +27,35 @@ const __dirname = path.dirname(__filename);
 const UPLOAD_DIR = path.resolve(process.env.UPLOAD_DIR || "/tmp/roadmap-generator");
 const INTAKE_RECIPIENT = process.env.INTAKE_RECIPIENT || "help@handypioneers.com";
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const MAX_UPLOAD_BYTES = 100 * 1024 * 1024;
+// A homeowner's report PDF is a few MB at most. The previous 100 MB ceiling let
+// an unauthenticated caller exhaust memory (multer.memoryStorage) and flood the
+// help@ inbox via Resend. 8 MB covers real uploads with a wide margin.
+const MAX_UPLOAD_BYTES = 8 * 1024 * 1024;
+
+// Origins allowed to POST to the intake endpoints (was Access-Control-Allow-Origin:*).
+const ALLOWED_ORIGINS = new Set([
+  "https://handypioneers.com",
+  "https://www.handypioneers.com",
+  "https://www-staging-production.up.railway.app",
+]);
+
+// Dependency-free per-IP rate limiter for the unauthenticated write endpoints.
+function makeRateLimiter(maxHits: number, windowMs: number) {
+  const hits = new Map<string, number[]>();
+  return (req: Request, res: Response, next: () => void) => {
+    const ip = (req.headers["x-forwarded-for"]?.toString() ?? "").split(",")[0].trim() || req.ip || "unknown";
+    const now = Date.now();
+    const recent = (hits.get(ip) ?? []).filter((t) => now - t < windowMs);
+    recent.push(now);
+    hits.set(ip, recent);
+    if (recent.length > maxHits) {
+      res.status(429).json({ error: "Too many requests. Please try again later." });
+      return;
+    }
+    next();
+  };
+}
+const intakeLimiter = makeRateLimiter(10, 15 * 60 * 1000); // 10 / 15 min / IP
 
 function ensureUploadDir() {
   try {
@@ -105,10 +133,23 @@ async function startServer() {
   const app = express();
   const server = createServer(app);
 
-  // ─── JSON + CORS for cross-origin intake (future backend will own this) ──
+  // ─── Baseline security headers (dependency-free; no CSP to avoid breaking the SPA) ──
+  app.disable("x-powered-by");
+  app.use((_req, res, next) => {
+    res.setHeader("X-Content-Type-Options", "nosniff");
+    res.setHeader("X-Frame-Options", "SAMEORIGIN");
+    res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+    next();
+  });
+
+  // ─── JSON + CORS for intake (allowlisted origins, not "*") ───────────────
   app.use(express.json({ limit: "1mb" }));
   app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+    const origin = req.headers.origin;
+    if (origin && ALLOWED_ORIGINS.has(origin)) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Vary", "Origin");
+    }
     res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     if (req.method === "OPTIONS") {
@@ -152,8 +193,8 @@ async function startServer() {
       }
   };
 
-  app.post("/api/roadmap-generator/submit", uploader.single("report_pdf"), roadmapIntake);
-  app.post("/api/priority-translation/submit", uploader.single("report_pdf"), roadmapIntake);
+  app.post("/api/roadmap-generator/submit", intakeLimiter, uploader.single("report_pdf"), roadmapIntake);
+  app.post("/api/priority-translation/submit", intakeLimiter, uploader.single("report_pdf"), roadmapIntake);
 
   // ─── Legacy page redirects → /roadmap-generator ──────────────────────────
   // Emails and external links pointed at the old URLs continue to land correctly.
@@ -199,7 +240,7 @@ async function startServer() {
   // when the cross-origin POST to pro.handypioneers.com is blocked (CORS/network).
   // Logs a structured line so leads are retrievable from Railway logs during
   // the outage window. Temporary bridge until HP Pro API CORS ships.
-  app.post("/api/fallback-lead", (req, res) => {
+  app.post("/api/fallback-lead", intakeLimiter, (req, res) => {
     const payload = req.body ?? {};
     console.log(
       `[FALLBACK_LEAD] ${new Date().toISOString()} ${JSON.stringify(payload)}`
