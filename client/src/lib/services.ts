@@ -607,17 +607,18 @@ export const SERVICES: ServiceDef[] = [
   },
   {
     slug: "property-maintenance",
-    name: "Property Maintenance",
-    serviceType: "Home Maintenance",
-    h1: "Proactive Property Maintenance in Clark County, WA",
-    seoTitle: "Home & Property Maintenance in Vancouver WA | Handy Pioneers",
+    name: "Home Maintenance Plan",
+    serviceType: "Home Maintenance Plan",
+    h1: "A Home Maintenance Plan for Vancouver, WA and Clark County",
+    seoTitle: "Home Maintenance Plan in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Ongoing property maintenance for Clark County homeowners who would rather their home was looked after than reacted to. The 360° Method, delivered season after season. Serving Vancouver WA and Clark County.",
+      "A whole-home maintenance plan for Clark County homeowners: scheduled seasonal visits, a documented baseline, and one team that knows your home. The 360° Method, season after season. Plans from $59/mo.",
     image: "https://handypioneers.com/images/blog/does-home-maintenance-increase-home-value.webp",
     imageAlt: "A well-maintained Pacific Northwest home exterior",
     intro: [
       "Most home repair losses start small and invisible: a clogged gutter, a slow leak, moss working under shingles. The difference between catching them early and reacting after failure is rarely small.",
-      "Property maintenance with Handy Pioneers means your home is looked after on a schedule rather than patched up when something breaks. It is the 360° Method delivered season after season, so nothing slips and the home holds its value.",
+      "A home maintenance plan with Handy Pioneers means your home is looked after on a schedule rather than patched up when something breaks. It is the 360° Method delivered season after season, so nothing slips and the home holds its value.",
+      "Unlike an HVAC tune-up club or a single-trade service agreement, this plan covers the whole home: roof, gutters, exterior envelope, plumbing, electrical, HVAC, interior, and drainage, with one team accountable for all of it.",
     ],
     whatsIncluded: [
       "A documented baseline of your home's condition across every major system",
@@ -633,12 +634,20 @@ export const SERVICES: ServiceDef[] = [
     ],
     faq: [
       {
+        q: "What does a home maintenance plan cost in Vancouver, WA?",
+        a: "Proactive Path plans start at $59/month for homes under 2,000 sq ft; larger homes are priced by size. Every plan includes scheduled seasonal visits, a documented home record, and member rates on any work beyond the plan's scope. Full pricing is published on the membership page.",
+      },
+      {
         q: "What is the 360° Method?",
         a: "A proactive home-care framework: assess and document every major system, work a prioritized plan, and keep it current with seasonal visits, so small issues never become large ones. Handy Pioneers delivers it through the Proactive Path membership.",
       },
       {
         q: "Is this a membership?",
-        a: "The done-for-you version is. The Proactive Path membership delivers ongoing property maintenance on a schedule, with a documented record of your home over time.",
+        a: "The done-for-you version is. The Proactive Path membership delivers your home maintenance plan on a schedule, with a documented record of your home over time.",
+      },
+      {
+        q: "How is this different from a home warranty?",
+        a: "A warranty is contingent coverage: you pay, and it may or may not pay out when something breaks. A maintenance plan is visible service: scheduled visits happen every season, findings are documented, and small issues are handled before they become claims. You see the value every visit instead of hoping about it at claim time.",
       },
     ],
     membershipTieIn:

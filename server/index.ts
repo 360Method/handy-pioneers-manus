@@ -163,6 +163,37 @@ async function startServer() {
   app.get("/360-method/translation", (_req, res) => {
     res.redirect(301, "/roadmap-generator");
   });
+  // The walkthrough page was consolidated into the /membership funnel; the SPA
+  // client-redirects, this makes it a real 301 for crawlers too.
+  app.get("/360-method/walkthrough", (_req, res) => {
+    res.redirect(301, "/membership");
+  });
+
+  // ─── Legacy OLD-SITE URL redirects ────────────────────────────────────────
+  // Google's index still holds URLs from the pre-2026 site structure. Without
+  // these they fall through to the SPA shell with a 200 (a soft 404), which
+  // strands whatever equity those URLs have and keeps dead pages in the index.
+  const LEGACY_REDIRECTS: Record<string, string> = {
+    "/pressure-washing-service-in-vancouver": "/services/pressure-washing",
+    "/graffiti-removal-service-in-vancouver": "/services/pressure-washing",
+    "/gutter-cleaning-service-in-vancouver": "/services/gutter-services",
+    "/shower-re-caulking-service-in-camas": "/services",
+    "/furniture-assembly-in-vancouver-wa": "/services",
+    "/remodeling-services": "/services/remodeling",
+    "/estimate": "/contact",
+  };
+  app.use((req, res, next) => {
+    if (req.method !== "GET") return next();
+    const p = req.path.replace(/\/+$/, "") || "/";
+    const target = LEGACY_REDIRECTS[p];
+    if (target) return res.redirect(301, target);
+    // Generic old-site URL shapes ("<service>-service-in-<city>",
+    // "<service>-in-vancouver-wa") all land on the services hub.
+    if (/^\/[a-z0-9-]+-(service-)?in-[a-z-]+$/.test(p)) {
+      return res.redirect(301, "/services");
+    }
+    next();
+  });
 
   // Same-origin lead-capture fallback used by the /membership checkout UI
   // when the cross-origin POST to pro.handypioneers.com is blocked (CORS/network).
@@ -215,8 +246,42 @@ async function startServer() {
 
   app.use(express.static(staticPath));
 
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(staticPath, "index.html"));
+  // ─── SPA catch-all with real 404s ────────────────────────────────────────
+  // Known client routes get the shell with 200; anything else gets the shell
+  // with a 404 status so crawlers drop dead URLs instead of indexing an empty
+  // page (the SPA renders its NotFound view either way). Keep in sync with the
+  // route table in client/src/App.tsx.
+  const VALID_ROUTES: RegExp[] = [
+    /^\/$/,
+    /^\/project\/[^/]+$/,
+    /^\/thankyou$/,
+    /^\/blog(\/[^/]+)?$/,
+    /^\/privacy-policy$/,
+    /^\/terms-and-conditions$/,
+    /^\/guarantee$/,
+    /^\/360-method(\/(translation|walkthrough|referral|membership|offer))?$/,
+    /^\/membership(\/(checkout|confirmation))?$/,
+    /^\/multifamily(\/(quote|checkout))?$/,
+    /^\/baseline\/(details|offer|confirmed)$/,
+    /^\/360\/(checkout|confirmation)$/,
+    /^\/roadmap-generator$/,
+    /^\/roadmap\/(details|offer)$/,
+    /^\/priority-translation$/,
+    /^\/about$/,
+    /^\/faq$/,
+    /^\/services(\/[^/]+)?$/,
+    /^\/remodel-cost$/,
+    /^\/financing$/,
+    /^\/gallery$/,
+    /^\/reviews$/,
+    /^\/customer-reviews$/,
+    /^\/contact$/,
+    /^\/service-areas(\/[^/]+)?$/,
+  ];
+  app.get("*", (req, res) => {
+    const p = req.path.replace(/\/+$/, "") || "/";
+    const known = VALID_ROUTES.some((rx) => rx.test(p));
+    res.status(known ? 200 : 404).sendFile(path.join(staticPath, "index.html"));
   });
 
   const port = process.env.PORT || 3000;

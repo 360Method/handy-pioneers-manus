@@ -77,12 +77,8 @@ export const PAGE_META: PageMeta[] = [
     description:
       "A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County.",
   },
-  {
-    path: "/360-method/walkthrough",
-    title: "The 360° Baseline Walkthrough | Handy Pioneers - Clark County, WA",
-    description:
-      "A 2-3 hour documented assessment of your home's major systems, delivered as a written report with a prioritized NOW / SOON / WAIT roadmap within 48 hours.",
-  },
+  // /360-method/walkthrough is a permanent redirect to /membership (see
+  // server/index.ts) and is deliberately absent here.
   {
     path: "/360-method/referral",
     title: "360° Inspector Referral | Handy Pioneers",

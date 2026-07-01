@@ -28,7 +28,7 @@ const STATIC_ROUTES = [
   { path: "/service-areas", changefreq: "monthly", priority: "0.7" },
   { path: "/roadmap-generator", changefreq: "monthly", priority: "0.8" },
   { path: "/360-method", changefreq: "monthly", priority: "0.8" },
-  { path: "/360-method/walkthrough", changefreq: "monthly", priority: "0.6" },
+  // /360-method/walkthrough 301s to /membership (consolidated funnel) - not listed.
   { path: "/360-method/referral", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
   { path: "/terms-and-conditions", changefreq: "yearly", priority: "0.3" },

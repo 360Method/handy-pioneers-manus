@@ -157,7 +157,7 @@ const HOMEPAGE_JSONLD = [
     logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg",
     priceRange: "$$",
     description:
-      "Licensed, insured remodeling and home restoration company serving Vancouver WA and the rest of Clark County. Family-owned craftsmen led by Marcin Micek.",
+      "Licensed, insured home care and restoration company serving Vancouver WA and the rest of Clark County. One accountable team for repairs, remodels, and proactive year-round maintenance, led by owner Marcin Micek.",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Vancouver",
@@ -349,13 +349,13 @@ export default function Home() {
               For homeowners who hold their asset to a higher standard.
             </p>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.08] text-white mb-4" style={{ fontFamily: "'Playfair Display', serif", maxWidth: "720px" }}>
-              Your Home Deserves the Same{" "}
-              <span style={{ color: "oklch(0.80 0.10 65)" }}>Standard of Care</span>
+              One Team That{" "}
+              <span style={{ color: "oklch(0.80 0.10 65)" }}>Knows Your Home</span>
               <br className="hidden sm:block" />
-              {" "}You Bring to Everything Else.
+              {" "}and Keeps You Ahead of It.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Every season. Every system. Every detail - taken care of.
+              Repairs, projects, and seasonal upkeep - off your plate, on the record. Every season. Every system. Every detail.
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img

@@ -59,6 +59,7 @@ import {
   FINANCING_FAQ,
   SOURCES,
 } from "../client/src/lib/financing";
+import { MEMBERSHIP_FAQS } from "../client/src/lib/membershipFaq";
 
 const REMODEL_PRESETS = presetsByCategory("remodel");
 
@@ -599,6 +600,93 @@ function cityJsonLd(c: CityDef): object[] {
   ];
 }
 
+// ─── money pages: home, membership, 360-method ───────────────────────────────
+// These three carry the differentiator story (proactive care, the membership)
+// and used to ship as head-only Tier 2 shells, so crawlers and AI assistants
+// never saw it. The narrative below mirrors Home.tsx / Membership.tsx /
+// Method360.tsx; when the live copy changes, keep these in sync (same
+// convention as llmsFullTxt below).
+
+function homeBodyHtml(): string {
+  return [
+    `<article>`,
+    `<h1>One Team That Knows Your Home and Keeps You Ahead of It</h1>`,
+    `<p>Handy Pioneers is a licensed, insured home care and restoration company serving Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and all of Clark County, WA. Repairs, remodels, and seasonal upkeep, handled by one accountable team, documented in one record, so nothing on your list is left to chase.</p>`,
+    `<h2>Two ways to work with us</h2>`,
+    `<h3>The Project Path: "I have a specific project in mind."</h3>`,
+    `<p>Deck repair. Bathroom remodel. Fence replacement. Whatever the project, we walk the property, assess the full scope, and present a clear written plan with no surprises. On-site consultation, written scope of work, licensed and vetted crew, owner-led assessment. <a href="${SITE}/contact">Schedule a consultation</a> or browse <a href="${SITE}/services">every service we offer</a>.</p>`,
+    `<h3>The Proactive Path: "I want my home proactively managed."</h3>`,
+    `<p>We assess your home, build your priority roadmap, and execute every item on it with our vetted crew. Four times a year, every season, we return on a standing schedule to work through a pre-defined list of Pacific Northwest maintenance tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. Full baseline assessment, NOW / SOON / WAIT roadmap, four seasonal visits per year, a single point of contact, always. <a href="${SITE}/membership">See membership plans</a>.</p>`,
+    `<h2>What homeowners get</h2>`,
+    `<ul>`,
+    `<li><strong>Protected and growing asset value.</strong> A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale, and the emergency repair premium disappears.</li>`,
+    `<li><strong>Zero contractor coordination burden.</strong> One call, one relationship. We handle the full scope, from assessment to execution to trade coordination. You do not manage vendors.</li>`,
+    `<li><strong>A documented property record.</strong> Every assessment, every project, every system update, documented in your 360° Priority Roadmap. When it is time to sell, refinance, or pass the property on, you have the receipts.</li>`,
+    `<li><strong>Predictable, prioritized spending.</strong> The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what is coming and when, before it becomes urgent.</li>`,
+    `</ul>`,
+    `<h2>Services</h2>`,
+    `<p>Kitchen and bathroom remodels, interior painting, deck repair and rebuild, plumbing and fixture upgrades, electrical and lighting, flooring, windows and doors, exterior repairs and siding, ADU and garage conversions, pressure washing and moss removal, carpentry and custom millwork, drywall, gutter cleaning and repair, and proactive maintenance programs. Full list: <a href="${SITE}/services">${SITE}/services</a>.</p>`,
+    `<h2>The 360° Method</h2>`,
+    `<p>Our proactive home-care framework works in three phases. <strong>Aware</strong>: a documented baseline of every major system, your home's permanent health record. <strong>Act</strong>: a prioritized NOW / SOON / WAIT roadmap plus standing seasonal visits, so the home is never left unattended between projects. <strong>Advance</strong>: strategic upgrades that build long-term value, with a Home Score tracked over time. <a href="${SITE}/360-method">How the 360° Method works</a>.</p>`,
+    `<h2>Credentials</h2>`,
+    `<ul>`,
+    `<li>WA License HANDYP*761NH, licensed contractor, Washington State</li>`,
+    `<li>Insured up to $1,000,000 general liability</li>`,
+    `<li>1-year labor guarantee on every project; 2 years on structural restorations</li>`,
+    `<li>4.9 stars on Google, 34 reviews</li>`,
+    `<li>Owner Marcin Micek personally leads every assessment; skilled tradesmen execute the work</li>`,
+    `</ul>`,
+    `<p>Call ${PHONE} or email ${EMAIL}. <a href="${SITE}/contact">Request a consultation</a>.</p>`,
+    `</article>`,
+  ].join("\n");
+}
+
+function membershipBodyHtml(): string {
+  const tierBlocks = TIERS.map((t) => {
+    const feats = t.features.map((f) => `<li>${esc(f)}</li>`).join("");
+    return (
+      `<h3>${esc(t.name)} - from $${t.prices.monthly}/month</h3>` +
+      `<p>${esc(t.tagline)} ${t.visits} scheduled visits per year (${esc(t.visitDescription)}).</p>` +
+      `<ul>${feats}</ul>`
+    );
+  }).join("\n");
+  const faqBlocks = MEMBERSHIP_FAQS.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`).join("\n");
+  return [
+    `<article>`,
+    `<h1>The 360° Method Membership: a Home Maintenance Plan for Clark County, WA</h1>`,
+    `<p>Most homes are maintained reactively. Yours doesn't have to be. Most homeowners have a financial advisor; almost none have someone actively managing the physical asset. The Proactive Path membership is a fully managed home care program: seasonal visits matched to your home, documented reports, and a named technician who knows your home. One number to call, and the to-do list stops being yours to carry.</p>`,
+    `<p>No contracts. Cancel anytime. Currently serving Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and all of Clark County, Washington.</p>`,
+    `<h2>How it starts</h2>`,
+    `<p>Your membership begins with a 2-3 hour baseline walkthrough: a full documented assessment of every major system. We photograph every finding, rate every system, and give your home its first score. After each seasonal visit your score updates, and a timestamped report is stored permanently, a record that follows the asset for its entire life and supports resale, refinancing, and insurance.</p>`,
+    `<h2>Plans</h2>`,
+    `<p>Base prices apply to homes under 2,000 sq ft; larger homes are priced by size. Every tier includes scheduled visits, a documented home record, and member rates on work beyond the membership scope.</p>`,
+    tierBlocks,
+    `<p>Own rentals or a multi-unit building? See the <a href="${SITE}/multifamily">landlord plan</a>.</p>`,
+    `<h2>Common questions</h2>`,
+    faqBlocks,
+    `<p>Call ${PHONE} or <a href="${SITE}/membership">choose a plan online</a>.</p>`,
+    `</article>`,
+  ].join("\n");
+}
+
+function method360BodyHtml(): string {
+  return [
+    `<article>`,
+    `<h1>The 360° Method: Proactive Home Care for Clark County, WA</h1>`,
+    `<p>Most home-repair losses start as small, invisible problems: a slow leak, a clogged gutter, moss working under shingles. The 360° Method is our proactive home-care framework, built so small issues never become big losses and the home holds its value. It is not a licensed home inspection; it is what happens after one, season after season.</p>`,
+    `<h2>Phase 1 - Aware: know your home completely</h2>`,
+    `<p>You cannot protect what you do not fully understand. Phase 1 establishes the complete picture of your home's current condition: a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability, assessed, recorded, and tracked. Full property walkthrough, documented baseline report, system-by-system condition log.</p>`,
+    `<h2>Phase 2 - Act: four visits a year, nothing missed</h2>`,
+    `<p>Phase 2 runs on two parallel tracks. First, your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. Second, and what makes this a proactive program rather than a one-time fix, is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter we return and work through a standing list of Pacific Northwest tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects. Trade coordination is included.</p>`,
+    `<h2>Phase 3 - Advance: build long-term value deliberately</h2>`,
+    `<p>With the home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position the property to appreciate, whether your horizon is five years or twenty-five. Strategic upgrade planning, Home Score tracking over time, a value-building project roadmap.</p>`,
+    `<h2>Use it yourself, or have it delivered</h2>`,
+    `<p>Any homeowner can run this framework: walk the home twice a year, write down what you see, sort findings into NOW / SOON / WAIT, and do the NOW items before the rainy season. Handy Pioneers delivers it done-for-you through the <a href="${SITE}/membership">Proactive Path membership</a>, with plans from $${TIERS[0].prices.monthly}/month. You can also <a href="${SITE}/roadmap-generator">turn an existing inspection report into a prioritized roadmap</a>.</p>`,
+    `<p>Serving all of Clark County, WA. Call ${PHONE} or <a href="${SITE}/contact">schedule a consultation</a>.</p>`,
+    `</article>`,
+  ].join("\n");
+}
+
 // ─── main ───────────────────────────────────────────────────────────────────
 
 function main() {
@@ -734,47 +822,113 @@ function main() {
     count++;
   }
 
-  // Tier 2: marketing routes (head only)
+  // Tier 1: homepage (full content + LocalBusiness/WebSite JSON-LD)
+  {
+    const meta = PAGE_META.find((m) => m.path === "/")!;
+    writeOut(
+      `index.html`,
+      tier1Page(shell, {
+        ...meta,
+        jsonLd: [
+          { "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, url: SITE },
+          {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": `${SITE}/#business`,
+            name: SITE_NAME,
+            url: `${SITE}/`,
+            telephone: "+1-360-838-6731",
+            email: EMAIL,
+            priceRange: "$$",
+            description:
+              "Licensed, insured home care and restoration company serving Vancouver WA and all of Clark County. One accountable team for repairs, remodels, and proactive year-round home maintenance.",
+            address: { "@type": "PostalAddress", addressLocality: "Vancouver", addressRegion: "WA", postalCode: "98665", addressCountry: "US" },
+            areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+            aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "34" },
+          },
+        ],
+      }, homeBodyHtml())
+    );
+    count++;
+  }
+
+  // Tier 1: membership (full content + Service/OfferCatalog/FAQPage JSON-LD)
+  {
+    const meta = PAGE_META.find((m) => m.path === "/membership")!;
+    writeOut(
+      `membership.html`,
+      tier1Page(shell, {
+        ...meta,
+        jsonLd: [
+          {
+            "@context": "https://schema.org",
+            "@type": "Service",
+            name: "360° Method Membership",
+            serviceType: "Proactive home maintenance membership",
+            provider: { "@type": "LocalBusiness", "@id": `${SITE}/#business`, name: SITE_NAME, telephone: PHONE, url: SITE },
+            areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+            hasOfferCatalog: {
+              "@type": "OfferCatalog",
+              name: "Membership tiers",
+              itemListElement: TIERS.map((t) => ({
+                "@type": "Offer",
+                name: t.name,
+                description: t.tagline,
+                priceSpecification: {
+                  "@type": "UnitPriceSpecification",
+                  price: t.prices.monthly,
+                  priceCurrency: "USD",
+                  unitText: "month, base price for homes under 2,000 sq ft",
+                },
+              })),
+            },
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: MEMBERSHIP_FAQS.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          },
+        ],
+      }, membershipBodyHtml())
+    );
+    count++;
+  }
+
+  // Tier 1: 360-method (full content)
+  {
+    const meta = PAGE_META.find((m) => m.path === "/360-method")!;
+    writeOut(
+      `360-method.html`,
+      tier1Page(shell, {
+        ...meta,
+        jsonLd: [
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "The 360° Method - Proactive Home Care for Clark County Homes",
+            description: meta.description,
+            url: `${SITE}/360-method`,
+          },
+        ],
+      }, method360BodyHtml())
+    );
+    count++;
+  }
+
+  // Tier 2: remaining marketing routes (head only)
   const tier2Meta: PageMeta[] = PAGE_META.filter(
-    (m) => !["/blog", "/faq", "/services", "/service-areas", "/financing"].includes(m.path)
+    (m) =>
+      !["/", "/membership", "/360-method", "/blog", "/faq", "/services", "/service-areas", "/financing"].includes(
+        m.path
+      )
   );
   for (const meta of tier2Meta) {
-    const jsonLd: object[] = [];
-    if (meta.path === "/") {
-      jsonLd.push({
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        name: SITE_NAME,
-        url: SITE,
-      });
-    }
-    if (meta.path === "/membership") {
-      jsonLd.push({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "360° Method Membership",
-        serviceType: "Proactive home maintenance membership",
-        provider: { "@type": "LocalBusiness", name: SITE_NAME, telephone: PHONE, url: SITE },
-        areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
-        hasOfferCatalog: {
-          "@type": "OfferCatalog",
-          name: "Membership tiers",
-          itemListElement: TIERS.map((t) => ({
-            "@type": "Offer",
-            name: t.name,
-            description: t.tagline,
-            priceSpecification: {
-              "@type": "UnitPriceSpecification",
-              price: t.prices.monthly,
-              priceCurrency: "USD",
-              unitText: "month, base price for homes under 2,000 sq ft",
-            },
-          })),
-        },
-      });
-    }
-    const file = meta.path === "/" ? "index.html" : `${meta.path.replace(/^\//, "")}.html`;
-    writeOut(file, tier2Page(shell, { ...meta, jsonLd }));
+    const file = `${meta.path.replace(/^\//, "")}.html`;
+    writeOut(file, tier2Page(shell, { ...meta, jsonLd: [] }));
     count++;
   }
 
@@ -815,7 +969,7 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 
 ## The 360° Method
 - [What the 360° Method is](${SITE}/360-method): assess every major system, document it, and work a prioritized NOW / SOON / WAIT roadmap so small issues never become big losses.
-- [Baseline Walkthrough](${SITE}/360-method/walkthrough): a 2-3 hour documented assessment; written report and roadmap within 48 hours.
+- [Baseline Walkthrough](${SITE}/membership): every membership begins with a 2-3 hour documented assessment; written report and roadmap within 48 hours.
 - [360° Roadmap Generator](${SITE}/roadmap-generator): turn an existing inspection report into a prioritized plan.
 
 ## Membership (Proactive Path)

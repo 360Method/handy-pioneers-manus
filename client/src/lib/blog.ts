@@ -53,7 +53,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     "slug": "adu-cost-rules-clark-county-2026",
-    "title": "ADUs in Clark County: What They Cost and What's Now Allowed (2026)",
+    "title": "ADUs in Clark County, WA: What They Cost and What's Now Allowed (2026)",
     "excerpt": "Washington just made it far easier to add an accessory dwelling unit, and most Clark County lots can now have up to two with no owner-occupancy rule. Here is what a garage conversion, in-law suite, or detached ADU actually costs, and how to decide which one fits.",
     "date": "June 29, 2026",
     "isoDate": "2026-06-29",
@@ -117,7 +117,7 @@ export const blogPosts: BlogPost[] = [
 
   {
     "slug": "what-a-remodel-costs-clark-county-2026",
-    "title": "What a Remodel Actually Costs in Clark County (Real 2026 Ranges)",
+    "title": "What a Remodel Actually Costs in Clark County, WA (Real 2026 Ranges)",
     "excerpt": "Most contractors will not put a number anywhere near their website. We will. Here are honest, realistic investment ranges for kitchens, baths, flooring, basements, and painting in Clark County, plus a calculator that shows where your project lands.",
     "date": "June 29, 2026",
     "isoDate": "2026-06-29",
@@ -287,7 +287,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "how-long-does-a-kitchen-remodel-take-clark-county",
-    "title": "How Long Does a Kitchen Remodel Take? A Clark County Timeline",
+    "title": "How Long Does a Kitchen Remodel Take? A Clark County, WA Timeline",
     "excerpt": "A realistic phase-by-phase kitchen remodel timeline for Clark County homes, plus the things that stretch it and how planning before demo keeps you on track.",
     "date": "June 30, 2026",
     "isoDate": "2026-06-30",
@@ -305,7 +305,7 @@ export const blogPosts: BlogPost[] = [
     "image": "https://handypioneers.com/images/blog/how-long-does-a-kitchen-remodel-take-clark-county.webp",
     "imageAlt": "A kitchen remodel in progress in a Clark County home, with cabinets removed and rough-in work underway",
     "readTime": 6,
-    "seoTitle": "How Long Does a Kitchen Remodel Take? Clark County Timeline | Handy Pioneers",
+    "seoTitle": "How Long Does a Kitchen Remodel Take? Clark County, WA Timeline | Handy Pioneers",
     "seoDesc": "A realistic kitchen remodel timeline for Vancouver WA and Clark County: phase by phase, what stretches it, and why planning before demo keeps it on track.",
     "references": [
       {
@@ -570,7 +570,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "walk-in-shower-vs-tub-clark-county-home-value",
-    "title": "Walk-In Shower vs Tub: What Adds Value in a Clark County Home",
+    "title": "Walk-In Shower vs Tub: What Adds Value in a Clark County, WA Home",
     "excerpt": "Whether to swap a tub for a walk-in shower depends on which bathroom you mean. Here is how to weigh resale, families, and aging in place in Clark County, WA.",
     "date": "July 3, 2026",
     "isoDate": "2026-07-03",
@@ -590,7 +590,7 @@ export const blogPosts: BlogPost[] = [
     "image": "https://handypioneers.com/images/blog/walk-in-shower-vs-tub-clark-county-home-value.webp",
     "imageAlt": "Remodeled bathroom with a glass-enclosed walk-in shower and tile floor",
     "readTime": 6,
-    "seoTitle": "Walk-In Shower vs Tub: What Adds Value | Handy Pioneers",
+    "seoTitle": "Walk-In Shower vs Tub: What Adds Value in Clark County, WA | Handy Pioneers",
     "seoDesc": "Walk-in shower vs tub for a Clark County home: resale, families, and aging-in-place trade-offs, plus when to keep at least one tub.",
     "references": [
       {
@@ -2064,7 +2064,7 @@ export const blogPosts: BlogPost[] = [
   },
   {
     "slug": "best-time-paint-house-exterior-clark-county",
-    "title": "Exterior Paint in Clark County: Why the Window Is Shorter Than You Think",
+    "title": "Exterior Paint in Clark County, WA: Why the Window Is Shorter Than You Think",
     "excerpt": "Most homeowners think they have all summer to paint. In our climate, the real window is narrower, and missing it is how good paint jobs fail early.",
     "date": "June 9, 2026",
     "isoDate": "2026-06-09",

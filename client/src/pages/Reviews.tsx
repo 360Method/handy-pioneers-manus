@@ -131,7 +131,7 @@ export default function Reviews() {
             className="hcp-button text-base px-8 py-4"
             onClick={() => openInquiry()}
           >
-            Schedule a Complimentary Consultation
+            Schedule a Consultation
           </button>
           <a
             href="tel:+13608386731"
