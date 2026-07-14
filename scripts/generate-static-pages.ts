@@ -625,7 +625,7 @@ function homeBodyHtml(): string {
     `<li><strong>Predictable, prioritized spending.</strong> The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what is coming and when, before it becomes urgent.</li>`,
     `</ul>`,
     `<h2>Services</h2>`,
-    `<p>Kitchen and bathroom remodels, interior painting, deck repair and rebuild, plumbing and fixture upgrades, electrical and lighting, flooring, windows and doors, exterior repairs and siding, ADU and garage conversions, pressure washing and moss removal, carpentry and custom millwork, drywall, gutter cleaning and repair, and proactive maintenance programs. Full list: <a href="${SITE}/services">${SITE}/services</a>.</p>`,
+    `<p>Kitchen and bathroom remodels, interior painting, deck repair and rebuild, plumbing and fixture upgrades, electrical and lighting, flooring, windows and doors, exterior repairs and siding, ADU and garage conversions, pressure washing and moss removal, carpentry and custom millwork, drywall, gutter cleaning and repair, and proactive maintenance programs. For property managers, landlords, and small commercial spaces: work orders, tenant turnovers, and storefront repairs (<a href="${SITE}/services/commercial-handyman">commercial services</a>). Full list: <a href="${SITE}/services">${SITE}/services</a>.</p>`,
     `<h2>The 360° Method</h2>`,
     `<p>Our proactive home-care framework works in three phases. <strong>Aware</strong>: a documented baseline of every major system, your home's permanent health record. <strong>Act</strong>: a prioritized NOW / SOON / WAIT roadmap plus standing seasonal visits, so the home is never left unattended between projects. <strong>Advance</strong>: strategic upgrades that build long-term value, with a Home Score tracked over time. <a href="${SITE}/360-method">How the 360° Method works</a>.</p>`,
     `<h2>Credentials</h2>`,
@@ -984,6 +984,10 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 - [What a remodel costs](${SITE}/remodel-cost): honest retail investment ranges + an interactive estimator. ${REMODEL_PRESETS.map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
 - [ADUs in Clark County](${SITE}/services/accessory-dwelling-units): garage and basement conversions, attached mother-in-law suites, and detached units. ${presetsByCategory("adu").map((p) => `${p.label} ${formatBand(highLevelBand(p), true)}`).join("; ")}.
 - [How to pay for a project](${SITE}/financing): plain-English guide to home equity, HELOCs, home equity loans, and cash, and how to decide. Educational only; Handy Pioneers is not a lender or financial advisor.
+
+## Services
+- [All services](${SITE}/services): remodeling, deck repair and rebuild, wood and dry rot repair, interior and exterior painting, flooring, gutter cleaning and repair, pressure and house washing, carpentry, doors and windows, fencing, and proactive whole-home maintenance.
+- [Commercial & property manager services](${SITE}/services/commercial-handyman): work orders, tenant turnovers, and small-commercial repairs (storefronts, offices, rentals) across Clark County, with written scopes and photo close-out. Rental portfolios: multifamily membership at ${SITE}/multifamily.
 
 ## Answers
 - [FAQ](${SITE}/faq): pricing, scheduling, licensing, who does the work, what the 360° Method is and is not.
