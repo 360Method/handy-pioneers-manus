@@ -104,6 +104,35 @@ export const faqs: FAQCategory[] = [
         q: "What areas do you serve?",
         a: "We serve Clark County, WA - including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and surrounding communities. If you're just outside this area, reach out and we'll let you know if we can accommodate.",
       },
+      {
+        q: "Is any job too small?",
+        a: "No. A door that will not latch, a cabinet hinge, a squeaky floor, a wobbly railing, an attic ladder, a stuck window: these are exactly the jobs most contractors will not return a call for, and exactly the ones we planned for. Bring us a list; small repairs bundle well into a single visit, which is also how Proactive Path members get theirs handled every season without thinking about it.",
+      },
+      {
+        q: "Do you work with property managers or commercial buildings?",
+        a: "Yes. We handle work orders, tenant turnovers, and small-commercial repairs (storefronts, offices, rentals) across Clark County, with written scopes before work and photos at close-out so you can update owners without a site visit. For rental portfolios there is a multifamily membership that puts every door on scheduled care. See our commercial services page or handypioneers.com/multifamily.",
+      },
+    ],
+  },
+  {
+    category: "Common Home Problems (Pacific Northwest)",
+    items: [
+      {
+        q: "How do I know if my wood is rotten?",
+        a: "Press a screwdriver into the suspect spot with light pressure. Sound wood resists; rotted wood gives, crumbles, or feels spongy. Other signs: paint that bubbles or peels in the same place every year, dark staining near joints, and a musty smell around window or door frames. In our climate rot spreads while wood stays damp, which is most of the year, so a soft spot in trim is worth checking now rather than after it reaches the framing behind it.",
+      },
+      {
+        q: "How often do gutters need cleaning in Clark County?",
+        a: "Twice a year for most homes: late fall after the leaves finish dropping, and once in spring. Homes under firs and cedars (common in Battle Ground, Brush Prairie, and Camas) often need a third pass, because needles keep coming all winter. A clogged gutter here does not just overflow; it soaks fascia boards and siding for months, which is where much of the rot we repair begins.",
+      },
+      {
+        q: "What is the difference between pressure washing and soft washing?",
+        a: "Pressure washing uses high-pressure water and is right for concrete: driveways, walkways, some pavers. Soft washing uses low pressure with a cleaning solution and is what siding, roofs, and most painted or wood surfaces need; high pressure on those can force water behind siding, strip paint, and gouge wood. If a house wash quote only mentions a pressure washer, ask what pressure they plan to use on the siding.",
+      },
+      {
+        q: "Why does moss keep coming back on my roof and walkways?",
+        a: "Because the conditions that grow it (shade, moisture, organic debris) are still there. Killing the visible moss is the easy half. Keeping it away means clearing the debris that feeds it, improving drainage and sun exposure where possible, and re-treating on a schedule, which is exactly the kind of recurring task a seasonal maintenance plan exists to carry for you.",
+      },
     ],
   },
 ];

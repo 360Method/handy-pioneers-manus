@@ -36,9 +36,9 @@ export const PAGE_META: PageMeta[] = [
   },
   {
     path: "/services",
-    title: "Home Services in Clark County, WA | Handy Pioneers",
+    title: "Handyman & Home Improvement Services in Vancouver, WA | Handy Pioneers",
     description:
-      "Remodeling, deck and rot repair, painting, flooring, gutters, carpentry, and proactive maintenance for Vancouver WA and all of Clark County. One accountable team.",
+      "Home improvement and handyman services for Vancouver WA and all of Clark County: remodeling, deck and rot repair, painting, flooring, gutters, carpentry, and proactive maintenance. One accountable team.",
   },
   {
     path: "/service-areas",

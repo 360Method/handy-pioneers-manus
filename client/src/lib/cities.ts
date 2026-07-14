@@ -51,7 +51,7 @@ export const CITIES: CityDef[] = [
       "Vancouver spans a wide range of homes, from the older cedar-sided houses near the downtown and Uptown core to the newer builds out in Fisher's Landing and Felida. The older stock tends to need rot and siding attention; the newer homes are usually about staying ahead of decks, paint, and drainage before our wet season finds the weak point.",
       "Whatever corner of Vancouver you're in, the constant is the rain. We help homeowners across the city keep water where it belongs, with repairs, restoration, and proactive care built for this climate.",
     ],
-    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance"],
+    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance", "commercial-handyman"],
     seoTitle: "Home Repair & Maintenance in Vancouver, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Vancouver, WA with rot repair, deck restoration, painting, gutters, remodeling, and proactive home care built for our wet climate. From Felida to Fisher's Landing.",

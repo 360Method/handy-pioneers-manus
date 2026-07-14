@@ -652,7 +652,57 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "This is the Proactive Path membership: the 360° Method, delivered for you.",
-    relatedServiceSlugs: ["gutter-services", "deck-repair", "rot-repair"],
+    relatedServiceSlugs: ["gutter-services", "deck-repair", "rot-repair", "commercial-handyman"],
+  },
+  {
+    slug: "commercial-handyman",
+    name: "Commercial & Property Manager Services",
+    serviceType: "Commercial Handyman Services",
+    h1: "Commercial Handyman Services in Vancouver, WA",
+    seoTitle: "Commercial Handyman in Vancouver WA | Property Managers, Rentals, Storefronts | Handy Pioneers",
+    seoDesc:
+      "Commercial handyman services for Vancouver WA and Clark County: property managers, landlords, small storefronts, and offices. One accountable team, documented work, and repairs handled before tenants or customers notice.",
+    image: "https://handypioneers.com/images/blog/how-real-estate-agents-clark-county-can-use-a-handyman-to-close-more-deals.webp",
+    imageAlt: "A commercial property in Clark County maintained by Handy Pioneers",
+    intro: [
+      "A property manager with a work-order backlog, a landlord with a turnover deadline, a storefront with a door that will not latch: commercial repair needs are rarely big, but they are always urgent to somebody. What they need is a team that shows up when scheduled, fixes it right, and documents what was done.",
+      "Handy Pioneers handles ongoing repair and maintenance work for property managers, landlords, and small commercial spaces across Clark County: tenant turnovers, punch lists, door and lock hardware, drywall and paint, fixtures, caulking and water intrusion, decks, railings, and exterior upkeep.",
+      "You get one accountable point of contact, written scopes before work begins, and photos and documentation after it is done, so you can close the work order without driving out to look. It is the same 360 Method discipline we bring to homes, applied to the properties you manage.",
+    ],
+    whatsIncluded: [
+      "Tenant turnover repairs: patch, paint, hardware, fixtures, and the punch list that gets a unit rent-ready",
+      "Recurring work-order service for property managers, with documentation you can forward to owners",
+      "Storefront and office repairs: doors, locks, restrooms, fixtures, drywall, trim, and paint",
+      "Exterior upkeep: gutters, pressure washing, rot repair, railings, and walkway safety items",
+      "Written scope and photos on every job, so approval and close-out happen without a site visit",
+    ],
+    signsYouNeedThis: [
+      "A work-order list that keeps growing because small jobs are hard to staff",
+      "Turnovers that drag past the vacancy date you promised the owner",
+      "A storefront repair that is costing you customers while you wait for callbacks",
+      "You manage properties in Clark County and want one number that answers",
+    ],
+    faq: [
+      {
+        q: "Do you work with property managers on ongoing repairs?",
+        a: "Yes. Property managers are some of our steadiest working relationships. We take work orders as they come or on a standing cadence, put a written scope on anything non-trivial, and send photos and documentation at close-out so you can update owners without driving to the property.",
+      },
+      {
+        q: "I own rentals. Is there a program for that?",
+        a: "Yes. For landlords and rental portfolios we offer a multifamily membership with scheduled proactive visits per door, so units get looked after between tenants instead of only at turnover. See handypioneers.com/multifamily, or reach out and we will walk you through it.",
+      },
+      {
+        q: "What size commercial work do you take?",
+        a: "The repair and maintenance layer: turnovers, punch lists, doors and hardware, drywall, paint, fixtures, water damage repair, decks and railings, and exterior upkeep for small storefronts, offices, and residential rentals. We are not a commercial general contractor for ground-up or large tenant-improvement construction, and we will say so honestly if a request is outside our lane.",
+      },
+      {
+        q: "Are you licensed and insured for commercial property work?",
+        a: "Yes. Handy Pioneers is a licensed, bonded, and insured Washington contractor, and we can provide certificates of insurance for your records or your owner's files on request.",
+      },
+    ],
+    membershipTieIn:
+      "For rental portfolios, the multifamily Proactive Path puts every door on scheduled seasonal care, so turnovers get cheaper and emergencies get rarer. One team, every property, documented.",
+    relatedServiceSlugs: ["property-maintenance", "doors-windows", "interior-painting", "pressure-washing"],
   },
   {
     slug: "accessory-dwelling-units",
