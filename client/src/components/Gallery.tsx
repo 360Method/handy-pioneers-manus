@@ -18,6 +18,7 @@ interface Photo {
 }
 
 const photos: Photo[] = [
+  { id: 24, src: "/images/kitchen-remodel-before-after-2026-07.webp", caption: "Kitchen remodel - new flooring, white shaker cabinets, quartz countertops, and fresh paint", tag: "Before & After" },
   { id: 1, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/wjLagUVyHJnefJeB.jpg", caption: "Basement transformation - unfinished space to modern kitchen and living area", tag: "Remodel" },
   { id: 2, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/UCqTnokKBAzttFFs.jpg", caption: "Basement room transformation with new flooring, kitchen area, and dining space", tag: "Before & After" },
   { id: 3, src: "https://files.manuscdn.com/user_upload_by_module/session_file/310519663386531688/OGRouAudxeyHawdy.jpg", caption: "Bathroom remodel with white subway tiles, bathtub, and modern black fixtures", tag: "Remodel" },

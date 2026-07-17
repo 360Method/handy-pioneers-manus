@@ -22,6 +22,18 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: 13,
+    slug: "full-kitchen-remodel-in-clark-county",
+    title: "Full Kitchen Remodel in Clark County",
+    category: "Kitchen Remodel",
+    date: "July 16, 2026",
+    excerpt: "New flooring, white shaker cabinets, quartz countertops, and fresh paint turned a dated galley kitchen into a bright, modern workspace.",
+    description: "This galley kitchen had served its home well for decades, but the worn cabinets, dated countertops, and tired flooring were ready for retirement. We replaced all four in one coordinated project: durable wood-look flooring that runs clean through the space, white shaker cabinets with matte black hardware, light quartz-style countertops, and a fresh coat of paint from ceiling to trim. Because one team handled the whole scope, the layers went in the right order and the finishes match everywhere you look. The result is a kitchen that feels twice as bright and works better every single day.",
+    image: "/images/kitchen-remodel-before-after-2026-07.webp",
+    tags: ["kitchen remodel", "flooring installation", "cabinet replacement", "countertop installation", "interior painting", "Clark County"],
+    location: "Clark County, WA",
+  },
+  {
     id: 1,
     slug: "porch-step-repair-in-battle-ground",
     title: "Porch Step Repair in Battle Ground",

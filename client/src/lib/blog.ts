@@ -52,6 +52,53 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    "slug": "kitchen-remodel-before-after-clark-county",
+    "title": "Kitchen Remodel Before and After: What Flooring, Cabinets, Countertops, and Paint Change Together",
+    "excerpt": "A real Clark County galley kitchen, before and after. We replaced the flooring, cabinets, countertops, and paint in one coordinated project. Here is what each upgrade did, why doing all four together beats piecemeal, and what a remodel like this runs in 2026.",
+    "date": "July 16, 2026",
+    "isoDate": "2026-07-16",
+    "publishDate": "2026-07-16",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Remodeling",
+    "audience": ["Homeowners"],
+    "tags": [
+      "kitchen remodel before and after",
+      "kitchen remodel Vancouver WA",
+      "galley kitchen remodel",
+      "kitchen remodel Clark County",
+      "white shaker cabinets",
+      "kitchen flooring replacement"
+    ],
+    "image": "https://handypioneers.com/images/blog/kitchen-remodel-before-after-clark-county.webp",
+    "imageAlt": "Before and after of a Clark County galley kitchen remodel with new flooring, white shaker cabinets, quartz countertops, and fresh paint",
+    "readTime": 5,
+    "seoTitle": "Kitchen Remodel Before & After in Clark County, WA: Flooring, Cabinets, Countertops, Paint | Handy Pioneers",
+    "seoDesc": "A real Clark County kitchen remodel, before and after. What new flooring, cabinets, countertops, and paint change together, and what a remodel like this costs in 2026.",
+    "body": [
+      { "type": "p", "text": "Some kitchens need to be gutted. Most do not. The kitchen in the photo above is a good example: the layout worked, the bones were solid, and the room still felt decades old. The cabinets were worn, the countertops were dated laminate, the vinyl floor had lost its fight, and the walls carried a yellow tint that made the whole space feel dim." },
+      { "type": "p", "text": "We remodeled it with four moves, done as one project: new flooring, new cabinets, new countertops, and fresh paint. No walls moved. Here is what each piece contributed, and why doing them together is the difference between a remodel and a patch job." },
+      { "type": "h2", "text": "What this kitchen remodel included" },
+      { "type": "ul", "items": [
+        "**Flooring:** the old sheet vinyl came out and durable wood-look plank flooring went in, running clean through the kitchen and into the hall so there is no awkward seam at the doorway.",
+        "**Cabinets:** worn flat-panel cabinets were replaced with white shaker cabinets and matte black hardware, with under-cabinet task lighting over the counter run.",
+        "**Countertops:** dated laminate gave way to light quartz-style surfaces with an undermount sink, so the counter wipes clean straight into the basin.",
+        "**Paint:** walls, ceiling, and trim went from aged yellow to a clean bright white, which is half the reason the after photo looks like a different room."
+      ] },
+      { "type": "h2", "text": "Why these four upgrades work as a package" },
+      { "type": "p", "text": "Each of these projects is worth doing on its own. Together they multiply. New counters on worn cabinets look like a compromise. New cabinets over a failing floor mean the floor gets done later, with the new cabinets worked around instead of under. And paint applied last, over finished surfaces, ties the whole room into one intentional design instead of four separate decisions made in four different years." },
+      { "type": "p", "text": "There is a practical reason too: sequence. Done as one project, the layers go in the right order, the trades are coordinated, and you tear your kitchen apart once instead of four times. That is the quiet advantage of one accountable team running the whole scope." },
+      { "type": "h2", "text": "What a remodel like this costs in Clark County" },
+      { "type": "p", "text": "We publish our numbers. A kitchen remodel in Clark County runs roughly $30,000 to $90,000 and up, and where you land in that range depends on the size of the kitchen, the cabinet line, the counter material, and whether the layout changes. A refresh like this one, where the layout stays put and the finishes do the work, sits toward the lower half of the range. Move walls, go custom, or upgrade every appliance and you climb." },
+      { "type": "blockquote", "text": "These are planning ranges, not a quote. The real number comes from a walkthrough, where we measure your kitchen and put a written scope in front of you before anything is torn out." },
+      { "type": "h2", "text": "Do you need a full gut remodel?" },
+      { "type": "p", "text": "Honest answer: usually not. If your layout works and the room is just tired, a finish-level remodel like this one delivers most of the visual and daily-use payoff at a fraction of a full gut. If the layout fights you every day, or there is damage hiding under the surfaces, that is a different conversation. We will tell you which one you are in, because talking you into the bigger project when the smaller one solves it is not how we want to work." },
+      { "type": "h2", "text": "A remodel is a step, not the finish line" },
+      { "type": "p", "text": "Through the 360 Method, we treat a remodel as an Upgrade in your home's larger story: assess what the home needs, fix what is broken, then upgrade what earns it, and maintain the investment so it holds its value. A kitchen like this one is documented in the home's record when we finish, so the materials, colors, and details are on file the next time something needs a match. That is what partnering with a homeowner over time looks like, and it is the part most contractors skip." },
+      { "type": "cta", "text": "Curious where your kitchen would land in the range?", "ctaLabel": "Estimate your remodel cost", "ctaAction": "link", "ctaHref": "/remodel-cost" }
+    ]
+  },
+
+  {
     "slug": "adu-cost-rules-clark-county-2026",
     "title": "ADUs in Clark County, WA: What They Cost and What's Now Allowed (2026)",
     "excerpt": "Washington just made it far easier to add an accessory dwelling unit, and most Clark County lots can now have up to two with no owner-occupancy rule. Here is what a garage conversion, in-law suite, or detached ADU actually costs, and how to decide which one fits.",
