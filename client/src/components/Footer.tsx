@@ -2,6 +2,8 @@ import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Link } from "wouter";
 import { SERVICES } from "@/lib/services";
 import { ACTIVE_CITIES } from "@/lib/cities";
+import HearthBanner from "@/components/hearth/HearthBanner";
+import { HEARTH_ENABLED } from "@/lib/hearth";
 
 const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
 
@@ -262,6 +264,25 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Financing band - secondary, sits between the columns and the legal bar */}
+      {HEARTH_ENABLED && (
+        <div className="border-t py-8" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
+          <div className="container flex flex-col items-center text-center gap-3">
+            <p className="text-xs font-bold uppercase tracking-widest" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Financing available
+            </p>
+            <HearthBanner size="700x110" location="footer" />
+            <p className="text-xs leading-relaxed max-w-2xl" style={{ color: "rgba(255,255,255,0.45)", fontFamily: "'Source Sans 3', sans-serif" }}>
+              Monthly payment options are offered through our lending partner, Hearth (NMLS #1628533), on approved credit. Handy Pioneers is not a lender.{" "}
+              <Link href="/financing" className="underline underline-offset-2 hover:opacity-80" style={{ color: "rgba(255,255,255,0.65)" }}>
+                See financing options
+              </Link>
+              .
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Bottom bar */}
       <div
