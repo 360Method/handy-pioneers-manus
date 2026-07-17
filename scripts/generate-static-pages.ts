@@ -59,6 +59,7 @@ import {
   FINANCING_FAQ,
   SOURCES,
 } from "../client/src/lib/financing";
+import { HEARTH_ENABLED, HEARTH_APPLY_URL, HEARTH_BULLETS, HEARTH_DISCLAIMER } from "../client/src/lib/hearth";
 import { MEMBERSHIP_FAQS } from "../client/src/lib/membershipFaq";
 
 const REMODEL_PRESETS = presetsByCategory("remodel");
@@ -358,10 +359,20 @@ function financingBodyHtml(): string {
     `<article>`,
     `<h1>How to Pay for a Home Project: Equity, HELOCs, and Cash</h1>`,
     `<p>Most larger home projects are funded, not paid for out of pocket all at once, the same way most cars are. The right way to pay depends on your situation, and you deserve to understand the options before anyone talks price. This is a plain guide to home equity, HELOCs, home equity loans, and paying cash. Handy Pioneers is a contractor, not a lender or a financial advisor, and nothing here is financial advice.</p>`,
+  ];
+  if (HEARTH_ENABLED) {
+    parts.push(
+      `<h2>See your monthly payment options in minutes</h2>`,
+      `<p>Prefer to spread a project over affordable monthly payments? Through our lending partner, Hearth, you can see personalized options in minutes, with no impact to your credit score. <a href="${esc(HEARTH_APPLY_URL)}" rel="noopener" target="_blank">See your payment options</a>.</p>`,
+      `<ul>${HEARTH_BULLETS.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>`,
+      `<p><small>${esc(HEARTH_DISCLAIMER)}</small></p>`
+    );
+  }
+  parts.push(
     `<h2>Your home is your biggest asset</h2>`,
     `<p>For most families, the home is the largest thing they own. In the 360 Method, the final stage is Scale: reading your home's value and equity over time and making decisions like the asset it is. Part of that is knowing how to fund the work that protects or grows that value, in a way that fits your money.</p>`,
-    `<h2>The main ways people fund a project</h2>`,
-  ];
+    `<h2>The main ways people fund a project</h2>`
+  );
   for (const o of FUNDING_OPTIONS) {
     parts.push(
       `<h3>${esc(o.title)}</h3>`,

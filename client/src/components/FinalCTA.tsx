@@ -1,4 +1,7 @@
+import { Link } from "wouter";
 import { openInquiry } from "@/lib/inquiry";
+import { track } from "@/lib/analytics";
+import { HEARTH_ENABLED } from "@/lib/hearth";
 const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-cta-bg-aoXSQumAFkkVoFJ3HQ2vPV.webp";
 
 export default function FinalCTA() {
@@ -63,8 +66,21 @@ export default function FinalCTA() {
             </a>
           </div>
 
+          {HEARTH_ENABLED && (
+            <p className="mt-6 text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+              <Link
+                href="/financing"
+                onClick={() => track("financing_strip_click", { location: "final_cta" })}
+                className="font-semibold hover:opacity-90 transition-opacity"
+                style={{ color: "oklch(0.80 0.10 65)" }}
+              >
+                Ask about monthly payment options →
+              </Link>
+            </p>
+          )}
+
           <p
-            className="mt-8 text-sm"
+            className="mt-6 text-sm"
             style={{ color: "rgba(255,255,255,0.50)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
             Serving Vancouver · Camas · Battle Ground · Ridgefield · Washougal · La Center

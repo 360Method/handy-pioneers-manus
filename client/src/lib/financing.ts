@@ -207,16 +207,16 @@ export const OTHER_OPTIONS: OtherOption[] = [
   },
   {
     title: "Contractor financing (point of sale)",
-    what: "Financing offered right through the contractor by a lending partner, so you can apply for a project without going to the bank yourself.",
-    fit: "Convenience, and getting an answer at the project instead of shopping lenders one by one.",
-    watch: "Terms vary by program, so it is worth comparing against your own bank. We are working on adding this so we can help you set it up directly.",
+    what: "Financing offered right through the contractor by a lending partner, so you can apply for a project without going to the bank yourself. We offer this through our lending partner, Hearth: see personalized monthly payment options in minutes, with no impact to your credit score.",
+    fit: "Convenience, and getting an answer at the project instead of shopping lenders one by one. Loan amounts up to $250,000, funding in as little as 1-3 days, no prepayment penalty, and no home equity required.",
+    watch: "Terms vary by lender and are set on approved credit, so it is still worth comparing against your own bank. Handy Pioneers is not a lender; the choice and the terms stay yours.",
   },
 ];
 
 export const FINANCING_FAQ: FinancingFaq[] = [
   {
     q: "Does Handy Pioneers offer financing or loans?",
-    a: "Not yet, and we will always be straight about that. We do not lend money ourselves, but we are actively working on adding a financing option through a lending partner so we can help you set it up directly. Until that is in place, we help you understand your options and walk into a conversation with your bank or a lender informed. The choice and the lender always stay yours.",
+    a: "We do not lend money ourselves, and we will always be straight about that. We do offer financing through our lending partner, Hearth, so you can see personalized monthly payment options in minutes with no impact to your credit score, with loan amounts up to $250,000 and funding in as little as 1-3 days. Rates and terms are set by the lender on approved credit, and the choice always stays yours. We also help you understand every other option so you can walk into any conversation informed.",
   },
   {
     q: "Is a HELOC or a home equity loan better?",

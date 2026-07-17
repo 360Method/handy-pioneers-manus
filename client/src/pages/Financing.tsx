@@ -13,6 +13,10 @@ import TopBar from "@/components/TopBar";
 import FinalCTA from "@/components/FinalCTA";
 import SEO from "@/components/SEO";
 import { ArrowRight } from "lucide-react";
+import HearthCalculator from "@/components/hearth/HearthCalculator";
+import HearthCTA from "@/components/hearth/HearthCTA";
+import HearthDisclaimer from "@/components/hearth/HearthDisclaimer";
+import { HEARTH_ENABLED, HEARTH_BULLETS } from "@/lib/hearth";
 import {
   FUNDING_OPTIONS,
   OTHER_OPTIONS,
@@ -115,6 +119,50 @@ export default function Financing() {
 
         <section className="pt-12 pb-14 md:pt-14 md:pb-16">
           <div className="container max-w-3xl mx-auto px-6">
+
+            {/* ── Hearth financing (primary action) ── */}
+            {HEARTH_ENABLED && (
+              <div className="rounded-2xl p-7 md:p-8 mb-14" style={{ backgroundColor: CARD_BG, border: `1px solid ${BORDER}`, boxShadow: "0 8px 30px rgba(20,35,28,0.08)" }}>
+                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: GOLD, letterSpacing: "0.08em" }}>
+                  Financing through our partner, Hearth
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: GREEN }}>
+                  See your monthly payment options in minutes
+                </h2>
+                <p className="text-base leading-relaxed mb-5" style={{ color: INK }}>
+                  Prefer to spread a project over affordable monthly payments? You can
+                  see personalized options in minutes, with no impact to your credit
+                  score. Handy Pioneers is not a lender; financing is offered through
+                  our lending partner, Hearth.
+                </p>
+                <ul className="grid sm:grid-cols-2 gap-x-6 gap-y-2 mb-6">
+                  {HEARTH_BULLETS.map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm leading-relaxed" style={{ color: "oklch(0.32 0.03 160)" }}>
+                      <span style={{ color: GOLD }}>✓</span> {b}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Inline payment calculator */}
+                <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: "oklch(0.97 0.015 160)", border: `1px solid ${BORDER}` }}>
+                  <p className="text-sm font-semibold mb-3" style={{ color: GREEN }}>
+                    Estimate a monthly payment
+                  </p>
+                  <HearthCalculator location="financing_page" />
+                </div>
+
+                <div className="flex flex-wrap items-center gap-4">
+                  <HearthCTA variant="apply" location="financing_page">
+                    See my payment options
+                  </HearthCTA>
+                  <span className="text-sm" style={{ color: "oklch(0.50 0.02 80)" }}>
+                    Soft check, no score impact
+                  </span>
+                </div>
+
+                <HearthDisclaimer className="mt-5" />
+              </div>
+            )}
 
             {/* Step 9 / biggest asset */}
             <div className="rounded-2xl p-7" style={{ backgroundColor: "oklch(0.95 0.02 160)", border: "1px solid oklch(0.85 0.03 160)" }}>

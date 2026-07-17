@@ -11,7 +11,7 @@ import {
   ChevronDown, CheckCircle, Star, Home as HomeIcon, TrendingUp,
   Hammer, Paintbrush, TreePine, Zap, FileText, ShieldCheck, DoorOpen
 } from "lucide-react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import TopBar from "@/components/TopBar";
 import Navbar from "@/components/Navbar";
 import Gallery from "@/components/Gallery";
@@ -19,6 +19,10 @@ import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
 import BlogSection from "@/components/BlogSection";
 import SEO from "@/components/SEO";
+import HearthCalculator from "@/components/hearth/HearthCalculator";
+import HearthCTA from "@/components/hearth/HearthCTA";
+import HearthDisclaimer from "@/components/hearth/HearthDisclaimer";
+import { HEARTH_ENABLED, HEARTH_BULLETS } from "@/lib/hearth";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { faqs } from "@/lib/faq";
@@ -490,6 +494,21 @@ export default function Home() {
             </div>
           </div>
 
+          {/* Financing reassurance - bold but secondary to the two paths above. */}
+          {HEARTH_ENABLED && (
+            <div className="px-4 pb-8 -mt-2">
+              <Link
+                href="/financing"
+                onClick={() => track("financing_strip_click", { location: "home_hero" })}
+                className="flex items-center justify-center gap-2 text-center text-sm md:text-base font-semibold hover:opacity-90 transition-opacity"
+                style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}
+              >
+                Worried about cost? See monthly payment options - no impact to your credit
+                <ArrowRight size={16} />
+              </Link>
+            </div>
+          )}
+
           {/* Scroll nudge */}
           <div className="flex flex-col items-center pb-6 gap-1 opacity-40">
             <span className="text-xs text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Scroll to learn more</span>
@@ -497,6 +516,60 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ══════════════════════════════════════════════════════════════════════
+          FINANCING - monthly payment options through Hearth (lead, secondary)
+      ══════════════════════════════════════════════════════════════════════ */}
+      {HEARTH_ENABLED && (
+        <section id="financing" className="py-20 md:py-24" style={{ backgroundColor: "oklch(0.96 0.012 80)" }}>
+          <div className="container max-w-5xl mx-auto px-6">
+            <div className="grid md:grid-cols-2 gap-10 items-center">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: "oklch(0.65 0.14 65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Financing available through Hearth
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-4 leading-tight" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>
+                  Big project? Make it a monthly payment.
+                </h2>
+                <p className="text-base md:text-lg leading-relaxed mb-5" style={{ color: "oklch(0.34 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Cost should not be the reason a home you love waits. Through our
+                  lending partner Hearth, you can see personalized monthly payment
+                  options in minutes, with no impact to your credit score. Handy
+                  Pioneers is not a lender.
+                </p>
+                <ul className="space-y-2 mb-6">
+                  {HEARTH_BULLETS.slice(0, 5).map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm md:text-base" style={{ color: "oklch(0.30 0.05 160)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                      <CheckCircle size={18} style={{ color: "oklch(0.55 0.13 160)" }} className="shrink-0 mt-0.5" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+                <div className="flex flex-wrap items-center gap-4">
+                  <HearthCTA variant="apply" location="home_section">
+                    See my payment options
+                  </HearthCTA>
+                  <Link
+                    href="/financing"
+                    className="inline-flex items-center gap-1 text-sm font-semibold hover:opacity-80 transition-opacity"
+                    style={{ color: "oklch(0.45 0.12 160)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    Compare all ways to pay <ArrowRight size={15} />
+                  </Link>
+                </div>
+              </div>
+
+              <div className="rounded-2xl p-5 md:p-6" style={{ backgroundColor: "oklch(1 0 0)", border: "1px solid oklch(0.88 0.015 80)", boxShadow: "0 8px 30px rgba(20,35,28,0.08)" }}>
+                <p className="text-sm font-semibold mb-3" style={{ color: "oklch(0.22 0.07 160)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  Estimate your monthly payment
+                </p>
+                <HearthCalculator location="home_section" />
+                <HearthDisclaimer className="mt-4" />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ══════════════════════════════════════════════════════════════════════
           OUTCOMES / SERVICES - What affluent buyers can expect

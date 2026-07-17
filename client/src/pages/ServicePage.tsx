@@ -13,6 +13,7 @@ import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
 import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
+import HearthCallout from "@/components/hearth/HearthCallout";
 import { getPreset, presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
 import { localImage } from "@/lib/img";
 
@@ -209,6 +210,8 @@ export default function ServicePage() {
                     </Link>
                   )}
                 </div>
+                {/* Financing - right where the number lands */}
+                <HearthCallout location="service_page" className="mt-8" />
               </div>
             )}
 

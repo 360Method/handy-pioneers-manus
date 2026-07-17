@@ -10,6 +10,7 @@ import TopBar from "@/components/TopBar";
 import FinalCTA from "@/components/FinalCTA";
 import SEO from "@/components/SEO";
 import RemodelCostCalculator from "@/components/RemodelCostCalculator";
+import HearthCallout from "@/components/hearth/HearthCallout";
 import { ArrowRight } from "lucide-react";
 import { presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
 
@@ -134,6 +135,9 @@ export default function RemodelCostPage() {
                 );
               })}
             </div>
+
+            {/* Financing - right where the number lands */}
+            <HearthCallout location="remodel_cost" className="mt-8" />
 
             {/* Why we publish */}
             <div className="rounded-2xl p-7 mt-12" style={{ backgroundColor: "oklch(0.95 0.02 160)", border: "1px solid oklch(0.85 0.03 160)" }}>
