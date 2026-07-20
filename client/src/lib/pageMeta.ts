@@ -26,7 +26,7 @@ export const PAGE_META: PageMeta[] = [
     title:
       "Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA",
     description:
-      "Your home's value, protected year-round. Handy Pioneers keeps Clark County homes maintained, documented, and ahead of problems - restoration, repairs, and the 360° Method membership. Licensed and insured, 4.9 stars, one-year labor guarantee.",
+      "Vancouver WA handyman done right: Handy Pioneers keeps Clark County homes maintained and ahead of problems with the 360° Method. Licensed, insured.",
   },
   {
     path: "/about",
