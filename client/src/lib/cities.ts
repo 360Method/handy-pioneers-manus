@@ -54,7 +54,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance", "commercial-handyman"],
     seoTitle: "Home Repair & Maintenance in Vancouver, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Vancouver, WA with rot repair, deck restoration, painting, gutters, remodeling, and proactive home care built for our wet climate. From Felida to Fisher's Landing.",
+      "Handy Pioneers serves Vancouver, WA: rot repair, deck restoration, painting, gutters, and proactive home care from Felida to Fisher's Landing.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-maintained Vancouver WA home",
   },
@@ -74,7 +74,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
     seoTitle: "Home Repair & Remodeling in Camas, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Camas, WA: remodeling, deck and rot repair, painting, and proactive home care for Prune Hill, Grass Valley, and downtown homes. Built for the Gorge's weather.",
+      "Handy Pioneers serves Camas, WA: remodeling, deck and rot repair, painting, and proactive care for Prune Hill, Grass Valley, and downtown homes.",
     image: IMG("kitchen-island-appliance-installation-vancouver-what-we-learned"),
     imageAlt: "A Camas WA home in good repair",
   },
@@ -94,7 +94,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["deck-repair", "rot-repair", "exterior-painting", "gutter-services", "doors-windows", "property-maintenance"],
     seoTitle: "Deck, Rot & Home Repair in Washougal, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Washougal, WA, where Gorge winds drive rain into exterior wood. Deck restoration, rot repair, painting, and proactive care for homes near the river.",
+      "Handy Pioneers serves Washougal, WA, where Gorge winds drive rain into exterior wood. Deck restoration, rot repair, and painting near the river.",
     image: IMG("deck-water-damage-signs-camas"),
     imageAlt: "A Washougal WA home exterior",
   },
@@ -114,7 +114,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel"],
     seoTitle: "Home Maintenance & Repair in Ridgefield, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Ridgefield, WA: proactive maintenance, deck and paint care, gutters, and repairs that keep newer homes near the refuge holding their value.",
+      "Handy Pioneers serves Ridgefield, WA: proactive maintenance, deck and paint care, gutters, and repairs that keep newer homes near the refuge sound.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A Ridgefield WA home",
   },
@@ -134,7 +134,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["gutter-services", "pressure-washing", "rot-repair", "deck-repair", "property-maintenance", "fencing"],
     seoTitle: "Gutter, Rot & Home Repair in Battle Ground, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Battle Ground, WA: gutter cleaning and repair, moss and pressure washing, rot and deck work, and proactive home care for a wet, tree-heavy setting.",
+      "Handy Pioneers serves Battle Ground, WA: gutter cleaning, moss and pressure washing, and rot and deck work for a wet, tree-heavy setting.",
     image: IMG("3-things-vancouver-homeowners-forget-to-check-every-spring"),
     imageAlt: "A Battle Ground WA home with clean gutters",
   },
@@ -154,7 +154,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["deck-repair", "fencing", "rot-repair", "gutter-services", "property-maintenance", "exterior-painting"],
     seoTitle: "Deck, Fence & Home Repair in La Center, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves La Center, WA: deck and fence work, rot repair, gutters, and proactive maintenance for rural and riverside homes in north Clark County.",
+      "Handy Pioneers serves La Center, WA: deck and fence work, rot repair, gutters, and proactive care for rural and riverside north Clark County homes.",
     image: IMG("deck-season-is-here-what-vancouver-homeowners-should-know"),
     imageAlt: "A La Center WA home on acreage",
   },
@@ -174,7 +174,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["gutter-services", "pressure-washing", "deck-repair", "rot-repair", "fencing", "property-maintenance"],
     seoTitle: "Gutter, Moss & Home Care in Brush Prairie, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Brush Prairie and Hockinson, WA: gutter cleaning, moss treatment and pressure washing, deck and rot repair, and proactive care for heavily treed lots.",
+      "Handy Pioneers serves Brush Prairie and Hockinson, WA: gutter cleaning, moss treatment, pressure washing, and deck and rot repair for treed lots.",
     image: IMG("moss-mold-moisture-pnw-homeowners-guide-roof-siding"),
     imageAlt: "A tree-shaded Brush Prairie WA home",
   },
@@ -194,7 +194,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: ["deck-repair", "rot-repair", "fencing", "gutter-services", "property-maintenance", "carpentry-trim"],
     seoTitle: "Rural Home Repair & Maintenance in Amboy, WA | Handy Pioneers",
     seoDesc:
-      "Handy Pioneers serves Amboy, WA: deck and rot repair, fencing, and proactive maintenance for rural foothill properties that face harder weather and freeze risk.",
+      "Handy Pioneers serves Amboy, WA: deck and rot repair, fencing, and proactive care for rural foothill homes that face harder weather and freeze risk.",
     image: IMG("deck-season-is-here-what-vancouver-homeowners-should-know"),
     imageAlt: "A rural Amboy WA property",
   },
@@ -236,7 +236,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to Lake Oswego, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care, the 360° Method, for Lake Oswego, OR. Not yet serving Oregon - join the waitlist to be first.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care and the 360° Method for Lake Oswego, OR. Join the Oregon waitlist.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-kept Pacific Northwest home",
   },
@@ -256,7 +256,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to West Linn, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for West Linn, OR. Not yet serving Oregon - join the waitlist to be first to know.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for West Linn, OR. Not yet serving Oregon; join the waitlist.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-kept Pacific Northwest home",
   },
@@ -276,7 +276,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to Portland, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive whole-home care, the 360° Method, for Portland, OR. Not yet serving Oregon - join the waitlist.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive whole-home care and the 360° Method for Portland, OR. Join the Oregon waitlist.",
     image: IMG("moss-mold-moisture-pnw-homeowners-guide-roof-siding"),
     imageAlt: "A Pacific Northwest character home",
   },
@@ -296,7 +296,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to Beaverton, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Beaverton, OR. Not yet serving Oregon - join the waitlist to be first to know.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Beaverton, OR. Not yet serving Oregon; join the waitlist.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-kept Pacific Northwest home",
   },
@@ -316,7 +316,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to Tigard, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Tigard, OR. Not yet serving Oregon - join the waitlist to be first to know.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Tigard, OR. Not yet serving Oregon; join the waitlist.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-kept Pacific Northwest home",
   },
@@ -336,7 +336,7 @@ export const CITIES: CityDef[] = [
     servicesOffered: [],
     seoTitle: "Coming Soon to Happy Valley, OR | Handy Pioneers 360° Method",
     seoDesc:
-      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Happy Valley, OR. Not yet serving Oregon - join the waitlist to be first to know.",
+      "Handy Pioneers is expanding to the greater Portland metro. Proactive home care for Happy Valley, OR. Not yet serving Oregon; join the waitlist.",
     image: IMG("does-home-maintenance-increase-home-value"),
     imageAlt: "A well-kept Pacific Northwest home",
   },
