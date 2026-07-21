@@ -32,19 +32,19 @@ export const PAGE_META: PageMeta[] = [
     path: "/about",
     title: "About Handy Pioneers - Family-Owned Craftsmen in Vancouver, WA",
     description:
-      "Marcin Micek and the Handy Pioneers team - licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, Battle Ground and La Center since day one.",
+      "Marcin Micek and the Handy Pioneers team: licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, and Battle Ground.",
   },
   {
     path: "/services",
     title: "Handyman & Home Improvement Services in Vancouver, WA | Handy Pioneers",
     description:
-      "Home improvement and handyman services for Vancouver WA and all of Clark County: remodeling, deck and rot repair, painting, flooring, gutters, carpentry, and proactive maintenance. One accountable team.",
+      "Handyman and home improvement for Vancouver WA and Clark County: remodeling, deck and rot repair, painting, flooring, gutters, and proactive maintenance.",
   },
   {
     path: "/service-areas",
     title: "Service Areas - Clark County, WA | Handy Pioneers",
     description:
-      "Handy Pioneers serves all of Clark County, WA: Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and more. Expanding soon to the greater Portland metro.",
+      "Handy Pioneers serves all of Clark County, WA: Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and more. Portland metro coming soon.",
   },
   {
     path: "/faq",
@@ -56,26 +56,26 @@ export const PAGE_META: PageMeta[] = [
     path: "/reviews",
     title: "Customer Reviews - 4.9★ on Google | Handy Pioneers - Vancouver WA",
     description:
-      "Read verified reviews from Clark County homeowners. Handy Pioneers holds a 4.9 star rating across 34+ Google reviews from Vancouver WA, Camas, and Battle Ground clients.",
+      "Verified reviews from Clark County homeowners: Handy Pioneers holds a 4.9 star rating on 34+ Google reviews from Vancouver WA, Camas, and Battle Ground.",
   },
   {
     path: "/blog",
     title: "Notes from the Field - The Handy Pioneers Blog | Clark County, WA",
     description:
-      "Project write-ups, Pacific Northwest homeowner guidance, and field notes from our craftsmen working across Vancouver WA, Camas, Washougal, and Battle Ground.",
+      "Project write-ups, Pacific Northwest homeowner guidance, and field notes from our craftsmen across Vancouver WA, Camas, and Battle Ground.",
   },
   {
     path: "/membership",
     title: "360° Method Membership for Clark County Homeowners | Handy Pioneers",
     description:
-      "Your home, managed like the asset it is. The 360° Method membership keeps Vancouver WA and Clark County homes maintained, documented, and ahead of problems - so nothing slips and value holds. Plans from $59/mo.",
+      "The 360° Method membership keeps Vancouver WA and Clark County homes maintained, documented, and ahead of problems, so nothing slips. Plans from $59/mo.",
     ogType: "product",
   },
   {
     path: "/360-method",
     title: "The 360° Method - Proactive Home Care for Clark County Homes | Handy Pioneers",
     description:
-      "A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County.",
+      "The 360° Method keeps Vancouver WA homes documented, maintained, and holding value: a baseline record, a prioritized plan, and seasonal care.",
   },
   // /360-method/walkthrough is a permanent redirect to /membership (see
   // server/index.ts) and is deliberately absent here.
@@ -90,13 +90,13 @@ export const PAGE_META: PageMeta[] = [
     title:
       "360° Roadmap Generator - Turn Your Inspection Report into a Plan | Handy Pioneers",
     description:
-      "See a real sample, then upload your Clark County WA inspection report. You get a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours.",
+      "Upload your Clark County WA inspection report for a prioritized NOW / SOON / WAIT roadmap with investment ranges within 24 hours. See a real sample first.",
   },
   {
     path: "/financing",
     title: "How to Pay for a Home Project: Equity, HELOCs & Cash | Handy Pioneers",
     description:
-      "A plain-English guide to funding a home project in Clark County, WA: home equity, HELOCs, home equity loans, and cash, and how to decide. We are your guide, not your lender.",
+      "A plain-English guide to funding a Clark County, WA home project: home equity, HELOCs, loans, and cash, and how to decide. Your guide, not your lender.",
   },
   {
     path: "/privacy-policy",
@@ -114,13 +114,13 @@ export const PAGE_META: PageMeta[] = [
     path: "/guarantee",
     title: "Our Labor Guarantee | Handy Pioneers - Vancouver, WA",
     description:
-      "What the Handy Pioneers 1-year labor guarantee covers, and how we handle the hidden problems we sometimes find once a project is open - honest, in writing, no surprises.",
+      "What the Handy Pioneers 1-year labor guarantee covers, and how we handle hidden problems found once a project is open. Honest, in writing, no surprises.",
   },
   {
     path: "/contact",
     title: "Contact Us - Request a Consultation | Handy Pioneers - Vancouver, WA",
     description:
-      "Request a consultation with Handy Pioneers. Share a few details about your project and we'll reach out within one business day. Serving Vancouver WA and all of Clark County.",
+      "Request a consultation with Handy Pioneers. Share a few details and we'll reach out within one business day. Serving Vancouver WA and Clark County.",
   },
 ];
 

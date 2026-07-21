@@ -70,7 +70,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Remodeling in Clark County, WA",
     seoTitle: "Remodeling in Vancouver WA | Kitchen, Bath & Whole-Home | Handy Pioneers",
     seoDesc:
-      "Remodeling for Clark County homeowners: kitchens, bathrooms, and whole-home projects run by one accountable team with a written plan. Serving Vancouver, Camas, and all of Clark County, WA.",
+      "Remodeling for Clark County, WA: kitchens, baths, and whole-home projects, one accountable team, one written plan before work starts. Serving Vancouver WA.",
     image: "https://handypioneers.com/images/blog/service-remodeling.webp",
     imageAlt: "A bright, freshly remodeled open living space in a Clark County home",
     intro: [
@@ -121,7 +121,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Kitchen Remodeling in Vancouver, WA & Clark County",
     seoTitle: "Kitchen Remodeling in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Kitchen remodeling for Clark County homeowners: a written plan before demolition, one team coordinating every trade, and finish work that holds up. Serving Vancouver, Camas, and all of Clark County, WA.",
+      "Kitchen remodeling for Clark County, WA: a written plan before demolition, one team coordinating every trade, and finish work that holds up.",
     image: "https://handypioneers.com/images/blog/service-kitchen-remodel.webp",
     imageAlt: "A remodeled kitchen with white shaker cabinets, a quartz island, and pendant lights",
     intro: [
@@ -172,7 +172,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Bathroom Remodeling in Vancouver, WA & Clark County",
     seoTitle: "Bathroom Remodeling in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Bathroom remodeling built for the wet Pacific Northwest: proper waterproofing, a written plan, and one team coordinating every trade. Serving Vancouver, Camas, and all of Clark County, WA.",
+      "Bathroom remodeling built for the wet Pacific Northwest: proper waterproofing, a written plan, and one team coordinating every trade. Clark County, WA.",
     image: "https://handypioneers.com/images/blog/service-bathroom-remodel.webp",
     imageAlt: "A serene remodeled bathroom with a tiled walk-in shower and floating vanity",
     intro: [
@@ -223,7 +223,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Deck Repair & Rebuild in Clark County, WA",
     seoTitle: "Deck Repair & Rebuild in Vancouver WA | Rot, Structural, Ledger | Handy Pioneers",
     seoDesc:
-      "Deck repair and rebuilding for Pacific Northwest homes: rotted boards and framing, structural fixes, ledger board repair, and full rebuilds that hold up to our rain. Serving Vancouver WA and all of Clark County.",
+      "Deck repair and rebuilds for PNW homes: rotted boards and framing, structural fixes, ledger repair, and full rebuilds. Vancouver WA and Clark County.",
     image: "https://handypioneers.com/images/blog/deck-water-damage-signs-camas.webp",
     imageAlt: "A deck being repaired, with framing and ledger connection exposed",
     intro: [
@@ -270,7 +270,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Wood Rot Repair in Clark County, WA",
     seoTitle: "Dry Rot & Wood Rot Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Wood rot repair for Pacific Northwest homes: trim, siding, decks, door frames, and the framing behind them. We fix the cause, not just the symptom. Serving Vancouver WA and Clark County.",
+      "Wood rot repair for Pacific Northwest homes: trim, siding, decks, door frames, and the framing behind them. We fix the cause, not the symptom.",
     image: "https://handypioneers.com/images/blog/moss-mold-moisture-pnw-homeowners-guide-roof-siding.webp",
     imageAlt: "Exterior wood trim on a home being repaired",
     intro: [
@@ -310,7 +310,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Exterior Painting in Clark County, WA",
     seoTitle: "Exterior House Painting in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Exterior painting done right for the Pacific Northwest climate: proper prep, the right weather window, and a finish that protects your siding for years. Serving Vancouver WA and Clark County.",
+      "Exterior painting done right for the PNW climate: proper prep, the right weather window, and a finish that protects your siding for years. Clark County.",
     image: "https://handypioneers.com/images/blog/best-time-paint-house-exterior-clark-county.webp",
     imageAlt: "Freshly painted home exterior siding",
     intro: [
@@ -387,7 +387,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Flooring Installation in Clark County, WA",
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Flooring installation and replacement for Clark County homes: hard surface, tile, and more, installed level and lasting. Serving Vancouver WA, Camas, and surrounding areas.",
+      "Flooring installation and replacement for Clark County, WA: hard surface, tile, and more, installed level and built to last. Serving Vancouver WA.",
     image: "https://handypioneers.com/images/blog/service-flooring.webp",
     imageAlt: "Newly installed hard-surface flooring across an open living room in a Clark County home",
     intro: [
@@ -423,7 +423,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Pressure Washing in Clark County, WA",
     seoTitle: "Pressure Washing in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Pressure washing for Pacific Northwest homes: driveways, decks, siding, and walkways cleared of the moss and grime our climate grows. Serving Vancouver WA and Clark County.",
+      "Pressure washing for PNW homes: driveways, decks, siding, and walkways cleared of the moss and grime our climate grows. Vancouver WA and Clark County.",
     image: "https://handypioneers.com/images/blog/pressure-washing-3-driveways-in-one-week-vancouver.webp",
     imageAlt: "A driveway being pressure washed clean",
     intro: [
@@ -459,7 +459,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Gutter Cleaning & Repair in Clark County, WA",
     seoTitle: "Gutter Cleaning & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Gutter cleaning and repair for Pacific Northwest homes, where drainage is everything. Clear, sealed, and routed away from your foundation. Serving Vancouver WA and Clark County.",
+      "Gutter cleaning and repair for PNW homes, where drainage is everything: clear, sealed, and routed away from your foundation. Vancouver WA and Clark County.",
     image: "https://handypioneers.com/images/blog/service-gutter-services.webp",
     imageAlt: "Clean gutters along a home roofline",
     intro: [
@@ -495,7 +495,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Carpentry & Trim Work in Clark County, WA",
     seoTitle: "Finish Carpentry & Trim in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Finish carpentry and trim for Clark County homes: doors, baseboards, crown, built-ins, and the detail work that reads as quality. Serving Vancouver WA and surrounding areas.",
+      "Finish carpentry and trim for Clark County, WA: doors, baseboards, crown, built-ins, and the detail work that reads as quality. Serving Vancouver WA.",
     image: "https://handypioneers.com/images/blog/service-carpentry-trim.webp",
     imageAlt: "Finished interior trim and millwork",
     intro: [
@@ -531,7 +531,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Door & Window Work in Clark County, WA",
     seoTitle: "Door & Window Installation & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Door and window installation, repair, and weatherproofing for Clark County homes, sealed against our wind-driven rain. Serving Vancouver WA and surrounding areas.",
+      "Door and window installation, repair, and weatherproofing for Clark County, WA homes, sealed against our wind-driven rain. Serving Vancouver WA.",
     image: "https://handypioneers.com/images/blog/service-doors-windows.webp",
     imageAlt: "A well-installed exterior door and window",
     intro: [
@@ -576,7 +576,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Fence Installation & Repair in Clark County, WA",
     seoTitle: "Fence Installation & Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Fence installation and repair for Clark County homes: set to last in soft, wet PNW ground, with posts that do not lean after the first winter. Serving Vancouver WA and surrounding areas.",
+      "Fence installation and repair for Clark County, WA: set to last in soft, wet PNW ground, with posts that do not lean after the first winter.",
     image: "https://handypioneers.com/images/blog/service-fencing.webp",
     imageAlt: "A well-built wood fence",
     intro: [
@@ -612,7 +612,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "A Home Maintenance Plan for Vancouver, WA and Clark County",
     seoTitle: "Home Maintenance Plan in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "A whole-home maintenance plan for Clark County homeowners: scheduled seasonal visits, a documented baseline, and one team that knows your home. The 360° Method, season after season. Plans from $59/mo.",
+      "A whole-home plan for Clark County, WA: seasonal visits, a documented baseline, and one team that knows your home. The 360° Method, from $59/mo.",
     image: "https://handypioneers.com/images/blog/does-home-maintenance-increase-home-value.webp",
     imageAlt: "A well-maintained Pacific Northwest home exterior",
     intro: [
@@ -661,7 +661,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Commercial Handyman Services in Vancouver, WA",
     seoTitle: "Commercial Handyman in Vancouver WA | Property Managers, Rentals, Storefronts | Handy Pioneers",
     seoDesc:
-      "Commercial handyman services for Vancouver WA and Clark County: property managers, landlords, small storefronts, and offices. One accountable team, documented work, and repairs handled before tenants or customers notice.",
+      "Commercial handyman for Vancouver WA and Clark County: property managers, landlords, storefronts, and offices. One accountable team, documented work.",
     image: "https://handypioneers.com/images/blog/how-real-estate-agents-clark-county-can-use-a-handyman-to-close-more-deals.webp",
     imageAlt: "A commercial property in Clark County maintained by Handy Pioneers",
     intro: [
@@ -711,7 +711,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "ADUs in Clark County, WA: Conversions, In-Law Suites & Detached Units",
     seoTitle: "ADU Builder in Vancouver WA | Garage Conversion, In-Law Suite, Detached ADU | Handy Pioneers",
     seoDesc:
-      "Build an ADU in Clark County, WA: garage and basement conversions, attached mother-in-law suites, and detached units. Washington now allows up to two ADUs per lot with no owner-occupancy rule. Honest cost ranges and one accountable team.",
+      "Build an ADU in Clark County, WA: garage and basement conversions, attached suites, and detached units. Washington now allows up to two ADUs per lot.",
     image: "https://handypioneers.com/images/blog/service-adu.webp",
     imageAlt: "A detached accessory dwelling unit in the backyard of a Clark County home",
     intro: [
@@ -763,7 +763,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Garage & Basement ADU Conversions in Clark County, WA",
     seoTitle: "Garage Conversion ADU in Vancouver WA | Basement Apartment | Handy Pioneers",
     seoDesc:
-      "Convert a garage or basement into a permitted ADU in Clark County, WA. The most affordable way to add a living unit because the shell already exists. Honest cost ranges and one accountable team.",
+      "Convert a garage or basement into a permitted ADU in Clark County, WA, the most affordable way to add a unit since the shell already exists.",
     image: "https://handypioneers.com/images/blog/service-adu-garage-conversion.webp",
     imageAlt: "A garage converted into a bright, finished accessory dwelling unit",
     intro: [
@@ -807,7 +807,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Attached ADUs & Mother-in-Law Suites in Clark County, WA",
     seoTitle: "Mother-in-Law Suite & Attached ADU in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Add an attached ADU or mother-in-law suite in Clark County, WA: a private living space connected to your home, with its own kitchen, bath, and entry. Honest cost ranges and one accountable team.",
+      "Add an attached ADU or mother-in-law suite in Clark County, WA: a private space connected to your home, with its own kitchen, bath, and entry.",
     image: "https://handypioneers.com/images/blog/service-mother-in-law-suite.webp",
     imageAlt: "An attached mother-in-law suite addition with a private entrance",
     intro: [
@@ -851,7 +851,7 @@ export const SERVICES: ServiceDef[] = [
     h1: "Detached ADUs in Clark County, WA",
     seoTitle: "Detached ADU Builder in Vancouver WA | Backyard Cottage | Handy Pioneers",
     seoDesc:
-      "Build a detached ADU in Clark County, WA: a standalone backyard unit with its own foundation, kitchen, and bath. The most private, most rentable ADU. Honest cost ranges and one accountable team.",
+      "Build a detached ADU in Clark County, WA: a standalone backyard unit with its own foundation, kitchen, and bath. The most private, most rentable ADU.",
     image: "https://handypioneers.com/images/blog/service-detached-adu.webp",
     imageAlt: "A detached backyard ADU cottage on a Clark County property",
     intro: [
