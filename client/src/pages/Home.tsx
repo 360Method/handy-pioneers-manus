@@ -538,7 +538,7 @@ export default function Home() {
                   Pioneers is not a lender.
                 </p>
                 <ul className="space-y-2 mb-6">
-                  {HEARTH_BULLETS.slice(0, 5).map((b) => (
+                  {HEARTH_BULLETS.map((b) => (
                     <li key={b} className="flex items-start gap-2 text-sm md:text-base" style={{ color: "oklch(0.30 0.05 160)", fontFamily: "'Source Sans 3', sans-serif" }}>
                       <CheckCircle size={18} style={{ color: "oklch(0.55 0.13 160)" }} className="shrink-0 mt-0.5" />
                       {b}
