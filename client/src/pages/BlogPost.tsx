@@ -28,7 +28,7 @@ const LOGO_URL =
   "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
 
 // GMB profile link
-const GMB_URL = "https://share.google/OJgEhJ3AIQZ7AZP";
+const GMB_URL = "https://g.page/r/CR_IMjr1YvDeEBM/review";
 
 function ShareButtons({ title, url }: { title: string; url: string }) {
   const encoded = encodeURIComponent(url);

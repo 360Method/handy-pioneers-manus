@@ -205,7 +205,7 @@ const HOMEPAGE_JSONLD = [
     sameAs: [
       "https://www.facebook.com/handypioneers",
       "https://www.instagram.com/handypioneers",
-      "https://share.google/OJgEhJ3AIQZ7AZP",
+      "https://www.google.com/maps/place/?q=place_id:ChIJ9TQT34PSgk8RH8gyOvVi8N4",
       "https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951",
     ],
   },
