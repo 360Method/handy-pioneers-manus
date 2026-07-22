@@ -29,18 +29,19 @@
  *
  * HONESTY RULES (see CLAUDE.md + HP-DOC-033)
  *  - Always round UP. We never quote a homeowner low.
- *  - "Starting at" language only. Never state a payment as what someone WILL get.
- *  - Never advertise a rate below Hearth's disclosed floor, and never pair a
- *    floor rate with the maximum term. Our figure sits above the floor on
- *    purpose so a customer can only do better than we advertised.
- *  - Every surface printing a payment must also print
- *    HEARTH_PAYMENT_EXAMPLE_TEXT, which carries the down payment, the term, the
- *    APR labeled as APR, and the full APR/term ranges (Reg Z 12 CFR
- *    1026.24(d): a stated payment or "$0 down" is a triggering term and
- *    obligates those disclosures on the same screen).
- *  - The on-page Hearth calculator shows 60 months, so it will quote HIGHER than
- *    our 144-month figure. That is fine and intended: the customer discovers a
- *    shorter, cheaper option, not a worse one. Never the other way around.
+ *  - "Starting at" language only, never "your payment is". We publish Hearth's
+ *    floor, so most borrowers will be quoted more. The hedge is not optional.
+ *  - Never advertise a rate below Hearth's published floor.
+ *  - Every surface printing a payment must also render the matching disclosure
+ *    (paymentExampleText for a single figure, HEARTH_PAYMENT_BASIS_TEXT for a
+ *    group), carrying the down payment, the term, the APR labeled as APR, and
+ *    the full APR/term ranges. Reg Z 12 CFR 1026.24(d): a stated payment or
+ *    "$0 down" is a triggering term and obligates those on the same screen.
+ *    Because we advertise the floor, the disclosed range is what keeps the
+ *    claim honest. Removing it turns a legal ad into a deceptive one.
+ *  - The on-page Hearth calculator shows 60 months at 10.49%, so it will quote
+ *    HIGHER than our figure. Expected: the customer sees a shorter, cheaper
+ *    option next to a longer, lower-payment one.
  */
 
 /**
@@ -64,25 +65,28 @@ export interface HearthExample {
 }
 
 /**
- * The disclosed representative example.
+ * The disclosed representative example: Hearth's published best case for the
+ * Excellent tier, presented as a floor rather than as a promise.
  *
- * Term comes from Hearth's own rate card: Excellent (850-741) and Good (740-681)
- * both carry "2 - 12 years", so 144 months is a published term for the two tiers
- * that cover most of our customers.
+ * Both figures come from Hearth's own rate card (Informational Flyer 10-23):
+ * Excellent (850-741) is published at 7.99% to 19.07% APR over 2 to 12 years.
+ * We advertise the bottom of both, which is why every surface says "starting
+ * at" and why RANGE_TAIL discloses the full spread on the same screen. A real
+ * borrower with excellent credit can reach this rate; most will land higher.
  *
- * APR is deliberately NOT Hearth's advertised floor. Their card puts Excellent at
- * 7.99% to 19.07%, but that floor is from an October 2023 flyer and their own
- * "6.99%" payment example is footnoted to a 60-month loan, not a 144-month one.
- * Pairing a floor rate with a maximum term is the one combination a homeowner is
- * least likely to actually be offered. So we advertise at 10.49%, the rate our
- * own live widget returns for Excellent credit today. Our published payment
- * therefore sits ABOVE Hearth's disclosed floor: a customer can only do better
- * than what we advertised, never worse than the range we disclosed.
+ * KNOWN LIMITS OF THIS NUMBER, decided with eyes open (Marcin, 2026-07-22):
+ *  - The 7.99% floor is from an October 2023 card. Our live widget returns
+ *    10.49% for Excellent at 60 months today, so the floor may have moved.
+ *  - The card does not tie its lowest APR to its longest term, but lenders
+ *    normally price long terms higher, so 7.99% over 144 months is the most
+ *    optimistic pairing the card permits.
+ * Both are why the "starting at" framing and the disclosed range are load
+ * bearing here, not decoration. Do not drop them.
  *
- * Re-verify quarterly against the live widget.
+ * Re-verify quarterly, and confirm the current floor with the Hearth rep.
  */
 export const HEARTH_EXAMPLE: HearthExample = {
-  apr: 0.1049,
+  apr: 0.0799,
   termMonths: 144,
   principal: 12000,
   creditTier: "Excellent (741 to 850)",
@@ -132,7 +136,7 @@ function usd(n: number): string {
   return "$" + Math.round(n).toLocaleString("en-US");
 }
 
-/** "10.49%" from 0.1049. Trims a trailing ".00". */
+/** "7.99%" from 0.0799. Trims a trailing ".00". */
 export function formatApr(apr: number): string {
   const pct = (apr * 100).toFixed(2).replace(/\.00$/, "");
   return `${pct}%`;
