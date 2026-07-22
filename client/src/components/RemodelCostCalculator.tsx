@@ -25,6 +25,7 @@ import {
   type CostCategory,
 } from "@/lib/remodelCost";
 import { openInquiry } from "@/lib/inquiry";
+import HearthPaymentLine from "@/components/hearth/HearthPaymentLine";
 
 const GREEN = "oklch(0.22 0.07 160)";
 const GREEN_SOFT = "oklch(0.30 0.05 160)";
@@ -178,6 +179,17 @@ export default function RemodelCostCalculator({
             Final materials, any structural work, and site conditions are set on a walkthrough, so a
             detailed estimate can land higher.
           </p>
+
+          {/* The payment moves with the slider. Highest-intent surface on the site. */}
+          <div
+            className="mt-4 pt-4 text-left border-t"
+            style={{ borderColor: "oklch(0.85 0.03 160)" }}
+          >
+            <HearthPaymentLine
+              amount={band.low}
+              location={`calculator_${preset.key}`}
+            />
+          </div>
         </div>
 
         {/* Honest note + CTA */}

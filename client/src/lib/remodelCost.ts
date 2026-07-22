@@ -331,6 +331,17 @@ export function highLevelBand(preset: CostPreset): CostBand {
   return { low: floorClean(low), high: ceilClean(high) };
 }
 
+/**
+ * The amount a "from $X/mo" financing figure is quoted on: the low end of the
+ * published band, so the advertised payment is the lowest one this project can
+ * honestly carry. Deriving it from highLevelBand keeps the payment and the price
+ * on a card locked together with no second set of numbers to maintain.
+ * See lib/hearthPayments.ts for the payment math.
+ */
+export function financingAnchor(preset: CostPreset): number {
+  return highLevelBand(preset).low;
+}
+
 export function formatUSD(n: number): string {
   return "$" + Math.round(n).toLocaleString("en-US");
 }

@@ -14,7 +14,8 @@ import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
 import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
 import HearthCallout from "@/components/hearth/HearthCallout";
-import { getPreset, presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
+import HearthPaymentLine, { HearthPaymentExample } from "@/components/hearth/HearthPaymentLine";
+import { getPreset, presetsByCategory, highLevelBand, formatBand, financingAnchor } from "@/lib/remodelCost";
 import { localImage } from "@/lib/img";
 
 const ADU_HUB = "/services/accessory-dwelling-units";
@@ -160,6 +161,14 @@ export default function ServicePage() {
                           <>
                             <p className="text-sm font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{p.label}</p>
                             <p className="text-xl font-bold mt-0.5" style={{ color: "oklch(0.22 0.07 160)" }}>{formatBand(highLevelBand(p), true)}</p>
+                            <HearthPaymentLine
+                              amount={financingAnchor(p)}
+                              location={`service_band_${p.key}`}
+                              size="compact"
+                              showCta={false}
+                              showExample={false}
+                              className="mt-1.5"
+                            />
                             {p.serviceSlug && (
                               <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold" style={{ color: "oklch(0.45 0.12 160)" }}>
                                 Learn more <ArrowRight size={14} />
@@ -178,6 +187,8 @@ export default function ServicePage() {
                         );
                       })}
                     </div>
+                    {/* One Reg Z disclosure for every payment figure in the grid above. */}
+                    <HearthPaymentExample className="mb-6" />
                     <RemodelCostCalculator category={svc.costHub} />
                   </>
                 ) : (
@@ -187,6 +198,13 @@ export default function ServicePage() {
                       realistic number before anyone is standing in your home. Slide the size and finish
                       below to see roughly where your project lands.
                     </p>
+                    {costPreset && (
+                      <HearthPaymentLine
+                        amount={financingAnchor(costPreset)}
+                        location={`service_lead_${svc.slug}`}
+                        className="mb-5"
+                      />
+                    )}
                     <RemodelCostCalculator defaultPresetKey={svc.costKey} lockProject />
                   </>
                 )}

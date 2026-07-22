@@ -16,7 +16,10 @@ import { ArrowRight } from "lucide-react";
 import HearthCalculator from "@/components/hearth/HearthCalculator";
 import HearthCTA from "@/components/hearth/HearthCTA";
 import HearthDisclaimer from "@/components/hearth/HearthDisclaimer";
+import { HearthPaymentExample } from "@/components/hearth/HearthPaymentLine";
 import { HEARTH_ENABLED, HEARTH_BULLETS } from "@/lib/hearth";
+import { monthlyPaymentFrom } from "@/lib/hearthPayments";
+import { PRESETS, financingAnchor, formatUSD } from "@/lib/remodelCost";
 import {
   FUNDING_OPTIONS,
   OTHER_OPTIONS,
@@ -142,6 +145,41 @@ export default function Financing() {
                     </li>
                   ))}
                 </ul>
+
+                {/* What our published projects come to per month. Prices are the
+                    low end of the ranges on /remodel-cost, so nothing drifts. */}
+                <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: "oklch(0.97 0.015 160)", border: `1px solid ${BORDER}` }}>
+                  <p className="text-sm font-semibold mb-1" style={{ color: GREEN }}>
+                    What a project comes to per month
+                  </p>
+                  <p className="text-xs leading-relaxed mb-3" style={{ color: "oklch(0.50 0.02 80)" }}>
+                    Starting points for our published projects, with nothing out of pocket up front.
+                    Larger scopes and higher finishes go up from here.
+                  </p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-sm" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>
+                      <tbody>
+                        {PRESETS.map((p) => {
+                          const anchor = financingAnchor(p);
+                          const payment = monthlyPaymentFrom(anchor);
+                          if (payment === null) return null;
+                          return (
+                            <tr key={p.key} style={{ borderTop: `1px solid ${BORDER}` }}>
+                              <td className="py-2 pr-3" style={{ color: INK }}>{p.label}</td>
+                              <td className="py-2 pr-3 whitespace-nowrap text-right" style={{ color: "oklch(0.50 0.02 80)" }}>
+                                from {formatUSD(anchor)}
+                              </td>
+                              <td className="py-2 whitespace-nowrap text-right font-bold" style={{ color: GREEN }}>
+                                {formatUSD(payment)}/mo
+                              </td>
+                            </tr>
+                          );
+                        })}
+                      </tbody>
+                    </table>
+                  </div>
+                  <HearthPaymentExample className="mt-3" />
+                </div>
 
                 {/* Inline payment calculator */}
                 <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: "oklch(0.97 0.015 160)", border: `1px solid ${BORDER}` }}>

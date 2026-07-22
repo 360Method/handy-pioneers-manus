@@ -12,7 +12,8 @@ import SEO from "@/components/SEO";
 import RemodelCostCalculator from "@/components/RemodelCostCalculator";
 import HearthCallout from "@/components/hearth/HearthCallout";
 import { ArrowRight } from "lucide-react";
-import { presetsByCategory, highLevelBand, formatBand } from "@/lib/remodelCost";
+import HearthPaymentLine, { HearthPaymentExample } from "@/components/hearth/HearthPaymentLine";
+import { presetsByCategory, highLevelBand, formatBand, financingAnchor } from "@/lib/remodelCost";
 
 const REMODEL_PRESETS = presetsByCategory("remodel");
 
@@ -116,7 +117,15 @@ export default function RemodelCostPage() {
                     <p className="text-2xl font-bold mt-1" style={{ color: GREEN }}>
                       {formatBand(highLevelBand(p), true)}
                     </p>
-                    <p className="text-sm mt-1" style={{ color: "oklch(0.50 0.02 80)" }}>{p.scope}</p>
+                    <HearthPaymentLine
+                      amount={financingAnchor(p)}
+                      location={`remodel_cost_band_${p.key}`}
+                      size="compact"
+                      showCta={false}
+                      showExample={false}
+                      className="mt-2"
+                    />
+                    <p className="text-sm mt-2" style={{ color: "oklch(0.50 0.02 80)" }}>{p.scope}</p>
                     {p.serviceSlug && (
                       <span className="inline-flex items-center gap-1 mt-2 text-sm font-semibold" style={{ color: "oklch(0.45 0.12 160)" }}>
                         Learn more <ArrowRight size={14} />
@@ -135,6 +144,9 @@ export default function RemodelCostPage() {
                 );
               })}
             </div>
+
+            {/* One Reg Z disclosure for every payment figure in the grid above. */}
+            <HearthPaymentExample className="mt-4" />
 
             {/* Financing - right where the number lands */}
             <HearthCallout location="remodel_cost" className="mt-8" />

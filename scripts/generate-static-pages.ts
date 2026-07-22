@@ -45,6 +45,7 @@ import {
   getPreset,
   presetsByCategory,
   highLevelBand,
+  financingAnchor,
   formatBand,
   formatUSD,
   LEVEL_LABELS,
@@ -60,6 +61,10 @@ import {
   SOURCES,
 } from "../client/src/lib/financing";
 import { HEARTH_ENABLED, HEARTH_APPLY_URL, HEARTH_BULLETS, HEARTH_DISCLAIMER } from "../client/src/lib/hearth";
+import {
+  HEARTH_PAYMENT_EXAMPLE_TEXT,
+  monthlyPaymentFrom,
+} from "../client/src/lib/hearthPayments";
 import { MEMBERSHIP_FAQS } from "../client/src/lib/membershipFaq";
 
 const REMODEL_PRESETS = presetsByCategory("remodel");
@@ -262,6 +267,23 @@ function postJsonLd(post: BlogPost): object[] {
  * calculator that crawlers cannot run, so we emit the underlying retail rates as
  * plain text here for AI answer engines. All RETAIL, no cost/margin.
  */
+/**
+ * The "$0 down, from $X/mo" sentence for prerendered HTML. Crawlers and AI answer
+ * engines never run the React tree, so the payment claim and its Reg Z example
+ * have to be in the static markup or they do not exist to them.
+ * Returns "" when payments are off or the amount is outside what Hearth funds.
+ */
+function financingLineHtml(amount: number): string {
+  if (!HEARTH_ENABLED) return "";
+  const payment = monthlyPaymentFrom(amount);
+  if (payment === null) return "";
+  return (
+    `<p><strong>$0 down. From $${payment.toLocaleString("en-US")}/mo on approved credit.</strong> ` +
+    `<a href="${esc(HEARTH_APPLY_URL)}" rel="noopener" target="_blank">See your payment options</a>. ` +
+    `<small>${esc(HEARTH_PAYMENT_EXAMPLE_TEXT)}</small></p>`
+  );
+}
+
 function costReferenceHtml(preset: CostPreset): string {
   const perUnit = `per ${preset.unitSingular ?? "square foot"}`;
   const sizeNoun = preset.unitLabel ? `number of ${preset.unitLabel}` : "square footage";
@@ -273,6 +295,7 @@ function costReferenceHtml(preset: CostPreset): string {
   return (
     `<p>An average ${esc(preset.label.toLowerCase())} in Clark County runs roughly <strong>${esc(formatBand(band, true))}</strong>, depending on size and finish. ` +
     `A complete planning range with nothing hidden to add later. Final materials, any structural work, and site conditions are set on a walkthrough, so a detailed estimate can land higher. The real number comes from that walkthrough.</p>` +
+    financingLineHtml(financingAnchor(preset)) +
     `<ul>${rows}</ul>` +
     `<p>Estimate any size: total = the ${esc(perUnit)} rate above times the ${esc(sizeNoun)}, with a project minimum of $${preset.baseFeeLow.toLocaleString("en-US")} to $${preset.baseFeeHigh.toLocaleString("en-US")}. Try the <a href="${SITE}/remodel-cost">interactive estimator</a>.</p>`
   );
@@ -285,7 +308,9 @@ function serviceCostHtml(svc: ServiceDef): string {
         const label = p.serviceSlug
           ? `<a href="${SITE}/services/${p.serviceSlug}">${esc(p.label)}</a>`
           : `<strong>${esc(p.label)}</strong>`;
-        return `<li>${label}: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}</li>`;
+        const pay = monthlyPaymentFrom(financingAnchor(p));
+        const payTxt = pay === null ? "" : ` Financed from $${pay.toLocaleString("en-US")}/mo with $0 down on approved credit.`;
+        return `<li>${label}: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}${esc(payTxt)}</li>`;
       })
       .join("");
     const estimatorLink =
@@ -296,6 +321,7 @@ function serviceCostHtml(svc: ServiceDef): string {
       `<h2>What this typically costs</h2>` +
       `<p>We publish our pricing instead of hiding it. Honest, realistic ranges for an average-size project; premium finishes and larger spaces go higher.</p>` +
       `<ul>${cards}</ul>` +
+      (HEARTH_ENABLED ? `<p><small>${esc(HEARTH_PAYMENT_EXAMPLE_TEXT)}</small></p>` : "") +
       estimatorLink
     );
   }
@@ -1087,7 +1113,9 @@ ${REMODEL_PRESETS.map((p) => {
     const tiers = FINISH_LEVELS.map(
       (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per ${per}. ${p.rates[lv].desc}`
     ).join("\n");
-    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per ${per} by finish level:\n${tiers}`;
+    const pay = monthlyPaymentFrom(financingAnchor(p));
+    const payLine = pay === null ? "" : `\nFinancing: $0 down, from ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
+    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per ${per} by finish level:\n${tiers}${payLine}`;
   }).join("\n\n")}
 
 ## ADU cost ranges (retail, Clark County, WA)
@@ -1102,7 +1130,9 @@ ${presetsByCategory("adu").map((p) => {
     const tiers = FINISH_LEVELS.map(
       (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`
     ).join("\n");
-    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}`;
+    const pay = monthlyPaymentFrom(financingAnchor(p));
+    const payLine = pay === null ? "" : `\nFinancing: $0 down, from ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
+    return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}${payLine}`;
   }).join("\n\n")}
 
 ## Frequently asked questions
