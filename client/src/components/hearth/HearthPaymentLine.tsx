@@ -19,9 +19,10 @@ import HearthCTA from "@/components/hearth/HearthCTA";
 import HearthDisclaimer from "@/components/hearth/HearthDisclaimer";
 import { HEARTH_ENABLED } from "@/lib/hearth";
 import {
-  HEARTH_EXAMPLE,
-  HEARTH_PAYMENT_EXAMPLE_TEXT,
+  HEARTH_PAYMENTS_ENABLED,
+  HEARTH_PAYMENT_BASIS_TEXT,
   monthlyPaymentFrom,
+  paymentExampleText,
   paymentHeadline,
 } from "@/lib/hearthPayments";
 
@@ -34,16 +35,33 @@ const MUTED = "oklch(0.50 0.02 160)";
  * lines shares one disclosure (e.g. the band grid on /remodel-cost), so the term
  * and APR appear once per screen instead of once per card.
  */
-export function HearthPaymentExample({ className = "" }: { className?: string }) {
-  if (!HEARTH_ENABLED || monthlyPaymentFrom(HEARTH_EXAMPLE.principal) === null) {
-    return null;
-  }
+export function HearthPaymentExample({
+  amount,
+  className = "",
+}: {
+  /**
+   * The amount this disclosure belongs to. Pass it whenever ONE payment is being
+   * stated, so the example matches that figure. Omit only for a group of
+   * payments (a band grid, the finish-level table), where the shared basis line
+   * renders instead.
+   */
+  amount?: number;
+  className?: string;
+}) {
+  if (!HEARTH_ENABLED || !HEARTH_PAYMENTS_ENABLED) return null;
+
+  const text =
+    amount === undefined
+      ? HEARTH_PAYMENT_BASIS_TEXT
+      : paymentExampleText(amount);
+  if (!text) return null;
+
   return (
     <p
       className={`text-xs leading-relaxed ${className}`}
       style={{ color: MUTED, fontFamily: "'Source Sans 3', sans-serif" }}
     >
-      {HEARTH_PAYMENT_EXAMPLE_TEXT}
+      {text}
     </p>
   );
 }
@@ -92,7 +110,7 @@ export default function HearthPaymentLine({
       </p>
 
       {/* Reg Z: term + APR travel with the payment. Never hide or collapse this. */}
-      {showExample && <HearthPaymentExample className="mt-1" />}
+      {showExample && <HearthPaymentExample amount={amount} className="mt-1" />}
 
       {showCta && (
         <HearthCTA

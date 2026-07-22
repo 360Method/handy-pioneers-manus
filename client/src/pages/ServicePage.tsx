@@ -198,13 +198,9 @@ export default function ServicePage() {
                       realistic number before anyone is standing in your home. Slide the size and finish
                       below to see roughly where your project lands.
                     </p>
-                    {costPreset && (
-                      <HearthPaymentLine
-                        amount={financingAnchor(costPreset)}
-                        location={`service_lead_${svc.slug}`}
-                        className="mb-5"
-                      />
-                    )}
+                    {/* No payment line here on purpose. The calculator directly
+                        below carries one that tracks the slider, and a second
+                        fixed figure above it only contradicts the live one. */}
                     <RemodelCostCalculator defaultPresetKey={svc.costKey} lockProject />
                   </>
                 )}

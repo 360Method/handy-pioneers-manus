@@ -150,22 +150,44 @@ export function paymentHeadline(principal: number): string | null {
  * labeled as APR. Must render on the same screen as any payment figure, without
  * the reader having to scroll to find it.
  */
-export const HEARTH_PAYMENT_EXAMPLE_TEXT = (() => {
+/** The credit-range and approval tail both disclosure variants share. */
+const RANGE_TAIL =
+  `APRs range from ${formatApr(HEARTH_APR_RANGE.low)} to ` +
+  `${formatApr(HEARTH_APR_RANGE.high)} and terms from ` +
+  `${HEARTH_TERM_RANGE_YEARS.low} to ${HEARTH_TERM_RANGE_YEARS.high} years ` +
+  `depending on your credit. Subject to credit approval.`;
+
+/**
+ * The Reg Z line for ONE stated payment. Built from that payment's OWN amount,
+ * so the example always matches the figure directly above it. A fixed example
+ * (say, always $12,000) sitting under a $17,500 project reads as a mistake and
+ * undermines the number it is supposed to support.
+ *
+ * Carries the three things Reg Z 12 CFR 1026.24(d) requires once a payment or
+ * "$0 down" appears: the down payment, the terms of repayment, and the APR
+ * labeled as APR. Everything else is kept short on purpose.
+ */
+export function paymentExampleText(principal: number): string | null {
+  const payment = monthlyPaymentFrom(principal);
+  if (payment === null) return null;
   const ex = HEARTH_EXAMPLE;
-  const payment = Math.ceil(amortize(ex.principal, ex.apr, ex.termMonths));
   return (
-    `Payment example: ${usd(ex.principal)} financed with $0 down at ` +
-    `${formatApr(ex.apr)} APR over ${ex.termMonths} monthly payments is ` +
-    `${usd(payment)} per month. Hearth's lending partners offer APRs from ` +
-    `${formatApr(HEARTH_APR_RANGE.low)} to ${formatApr(HEARTH_APR_RANGE.high)} ` +
-    `and terms of ${HEARTH_TERM_RANGE_YEARS.low} to ` +
-    `${HEARTH_TERM_RANGE_YEARS.high} years to borrowers in the ` +
-    `${ex.creditTier} credit range; other credit ranges are offered higher ` +
-    `rates and shorter terms. Your actual rate, term, and payment depend on ` +
-    `your credit and your lender. Shorter terms are available and cost less in ` +
-    `total interest. Financing is subject to credit approval.`
+    `${usd(principal)} with $0 down at ${formatApr(ex.apr)} APR over ` +
+    `${ex.termMonths} monthly payments is ${usd(payment)}/mo. ${RANGE_TAIL}`
   );
-})();
+}
+
+/**
+ * The basis line for a GROUP of payments (a band grid, the finish-level table)
+ * where no single principal applies. States the terms every figure was computed
+ * on instead of picking one arbitrary example.
+ */
+export const HEARTH_PAYMENT_BASIS_TEXT =
+  `Payments shown assume $0 down at ${formatApr(HEARTH_EXAMPLE.apr)} APR over ` +
+  `${HEARTH_EXAMPLE.termMonths} monthly payments. ${RANGE_TAIL}`;
+
+/** @deprecated Use paymentExampleText(amount) or HEARTH_PAYMENT_BASIS_TEXT. */
+export const HEARTH_PAYMENT_EXAMPLE_TEXT = HEARTH_PAYMENT_BASIS_TEXT;
 
 /** Short version for tight spots like an SMS or a staff card. */
 export const HEARTH_PAYMENT_EXAMPLE_SHORT = `Example: ${usd(
