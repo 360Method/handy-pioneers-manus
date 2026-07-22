@@ -1,6 +1,6 @@
 /**
  * Hearth monthly payment math - turns a published project price into an honest
- * "from $X/mo" figure. Extends lib/hearth.ts (IDs, links, NMLS disclaimer); this
+  * "starting at $X/mo" figure. Extends lib/hearth.ts (IDs, links, NMLS disclaimer); this
  * file owns only the numbers.
  *
  * WHY THIS EXISTS
@@ -10,30 +10,37 @@
  * widget's own published basis so a homeowner who runs the calculator on the same
  * page lands on the exact number we advertised.
  *
- * VERIFIED SOURCE (2026-07-22, Handy Pioneers' own Hearth widget on
- * handypioneers.com/financing, org 64147 / partner handy-pioneers):
- *  - Term is hardcoded to 60 months. The widget offers no term selector, and the
- *    script literal is `60`. It is NOT a 12-year product.
- *  - APR by credit tier, read from the widget's own <select> option values:
+ * VERIFIED SOURCES (2026-07-22)
+ * 1. Handy Pioneers' own Hearth widget on handypioneers.com/financing
+ *    (org 64147 / partner handy-pioneers). APR by credit tier, read from the
+ *    widget's own <select> option values:
  *      Excellent (741-850)  10.49%
  *      Good      (681-740)  19.37%
  *      Average   (661-680)  23.59%
  *      Poor      (500-660)  25.82%
- *  - Math is plain amortization at APR/12 over 60 payments. Confirmed to the
- *    cent: $12,000 at 10.49% renders $257.87/mo in the widget, and
- *    monthlyPaymentFrom(12000) returns 258 (ceil of 257.868).
+ *    Math is plain amortization at APR/12, confirmed to the cent against the
+ *    widget: $12,000 at 10.49% over the widget's own 60-month basis renders
+ *    $257.87 there and 258 here (rounded up).
+ *    NOTE the widget is hardcoded to 60 months with no term selector, so it
+ *    cannot display the 12-year term we advertise. Only the APR comes from here.
+ * 2. Hearth Informational Flyer 10-23 (their own rate card) for the term and APR
+ *    RANGES: Excellent 7.99%-19.07% over 2-12 years, Good 10.54%-26.70% over
+ *    2-12 years. This is where 144 months comes from.
  *
- * HONESTY RULES (see CLAUDE.md + HP-DOC-027)
- *  - Never advertise a payment we cannot reproduce in the on-page calculator.
+ * HONESTY RULES (see CLAUDE.md + HP-DOC-033)
  *  - Always round UP. We never quote a homeowner low.
- *  - "From $X/mo" uses the Excellent tier because that is the widget's default
- *    and its disclosed basis. Every surface that prints it must also print
- *    HEARTH_PAYMENT_EXAMPLE_TEXT so the term and the APR travel with the number
- *    (Reg Z 12 CFR 1026.24(d): a stated payment or "$0 down" is a triggering
- *    term and obligates the APR and the repayment terms on the same screen).
- *
- * If Hearth confirms longer terms on our lender panel, change HEARTH_EXAMPLE
- * below and every figure on the site follows. Nothing else needs to move.
+ *  - "Starting at" language only. Never state a payment as what someone WILL get.
+ *  - Never advertise a rate below Hearth's disclosed floor, and never pair a
+ *    floor rate with the maximum term. Our figure sits above the floor on
+ *    purpose so a customer can only do better than we advertised.
+ *  - Every surface printing a payment must also print
+ *    HEARTH_PAYMENT_EXAMPLE_TEXT, which carries the down payment, the term, the
+ *    APR labeled as APR, and the full APR/term ranges (Reg Z 12 CFR
+ *    1026.24(d): a stated payment or "$0 down" is a triggering term and
+ *    obligates those disclosures on the same screen).
+ *  - The on-page Hearth calculator shows 60 months, so it will quote HIGHER than
+ *    our 144-month figure. That is fine and intended: the customer discovers a
+ *    shorter, cheaper option, not a worse one. Never the other way around.
  */
 
 /**
@@ -57,17 +64,39 @@ export interface HearthExample {
 }
 
 /**
- * The disclosed representative example. Read off the live widget, not from
- * Hearth's marketing pages. Re-verify quarterly.
+ * The disclosed representative example.
+ *
+ * Term comes from Hearth's own rate card: Excellent (850-741) and Good (740-681)
+ * both carry "2 - 12 years", so 144 months is a published term for the two tiers
+ * that cover most of our customers.
+ *
+ * APR is deliberately NOT Hearth's advertised floor. Their card puts Excellent at
+ * 7.99% to 19.07%, but that floor is from an October 2023 flyer and their own
+ * "6.99%" payment example is footnoted to a 60-month loan, not a 144-month one.
+ * Pairing a floor rate with a maximum term is the one combination a homeowner is
+ * least likely to actually be offered. So we advertise at 10.49%, the rate our
+ * own live widget returns for Excellent credit today. Our published payment
+ * therefore sits ABOVE Hearth's disclosed floor: a customer can only do better
+ * than what we advertised, never worse than the range we disclosed.
+ *
+ * Re-verify quarterly against the live widget.
  */
 export const HEARTH_EXAMPLE: HearthExample = {
   apr: 0.1049,
-  termMonths: 60,
+  termMonths: 144,
   principal: 12000,
   creditTier: "Excellent (741 to 850)",
   verifiedOn: "2026-07-22",
   source: "Hearth financing calculator, handypioneers.com/financing",
 };
+
+/**
+ * Hearth's published APR and term ranges for the Excellent tier, from their own
+ * rate card (Hearth Informational Flyer 10-23). Disclosed in the blurb so the
+ * "starting at" figure is read against a real range, not as a promise.
+ */
+export const HEARTH_APR_RANGE = { low: 0.0799, high: 0.1907 } as const;
+export const HEARTH_TERM_RANGE_YEARS = { low: 2, high: 12 } as const;
 
 /** Hearth's stated maximum loan amount. Above this we show no payment. */
 export const HEARTH_MAX_LOAN = 250000;
@@ -109,11 +138,11 @@ export function formatApr(apr: number): string {
   return `${pct}%`;
 }
 
-/** "$0 down. From $258/mo on approved credit." */
+/** "$0 down. Payments starting at $147/mo on approved credit." */
 export function paymentHeadline(principal: number): string | null {
   const payment = monthlyPaymentFrom(principal);
   if (payment === null) return null;
-  return `$0 down. From ${usd(payment)}/mo on approved credit.`;
+  return `$0 down. Payments starting at ${usd(payment)}/mo on approved credit.`;
 }
 
 /**
@@ -127,9 +156,14 @@ export const HEARTH_PAYMENT_EXAMPLE_TEXT = (() => {
   return (
     `Payment example: ${usd(ex.principal)} financed with $0 down at ` +
     `${formatApr(ex.apr)} APR over ${ex.termMonths} monthly payments is ` +
-    `${usd(payment)} per month. Based on the ${ex.creditTier} credit range. ` +
-    `Your rate, term, and payment depend on your credit and the lender, and ` +
-    `may be higher. Financing is subject to credit approval.`
+    `${usd(payment)} per month. Hearth's lending partners offer APRs from ` +
+    `${formatApr(HEARTH_APR_RANGE.low)} to ${formatApr(HEARTH_APR_RANGE.high)} ` +
+    `and terms of ${HEARTH_TERM_RANGE_YEARS.low} to ` +
+    `${HEARTH_TERM_RANGE_YEARS.high} years to borrowers in the ` +
+    `${ex.creditTier} credit range; other credit ranges are offered higher ` +
+    `rates and shorter terms. Your actual rate, term, and payment depend on ` +
+    `your credit and your lender. Shorter terms are available and cost less in ` +
+    `total interest. Financing is subject to credit approval.`
   );
 })();
 

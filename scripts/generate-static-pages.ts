@@ -46,6 +46,7 @@ import {
   presetsByCategory,
   highLevelBand,
   financingAnchor,
+  averageProjectCost,
   formatBand,
   formatUSD,
   LEVEL_LABELS,
@@ -62,6 +63,7 @@ import {
 } from "../client/src/lib/financing";
 import { HEARTH_ENABLED, HEARTH_APPLY_URL, HEARTH_BULLETS, HEARTH_DISCLAIMER } from "../client/src/lib/hearth";
 import {
+  HEARTH_MAX_LOAN,
   HEARTH_PAYMENT_EXAMPLE_TEXT,
   monthlyPaymentFrom,
 } from "../client/src/lib/hearthPayments";
@@ -273,14 +275,41 @@ function postJsonLd(post: BlogPost): object[] {
  * have to be in the static markup or they do not exist to them.
  * Returns "" when payments are off or the amount is outside what Hearth funds.
  */
-function financingLineHtml(amount: number): string {
+function financingLineHtml(amount: number, withExample = true): string {
   if (!HEARTH_ENABLED) return "";
   const payment = monthlyPaymentFrom(amount);
   if (payment === null) return "";
   return (
-    `<p><strong>$0 down. From $${payment.toLocaleString("en-US")}/mo on approved credit.</strong> ` +
+    `<p><strong>$0 down. Payments starting at $${payment.toLocaleString("en-US")}/mo on approved credit.</strong> ` +
     `<a href="${esc(HEARTH_APPLY_URL)}" rel="noopener" target="_blank">See your payment options</a>. ` +
-    `<small>${esc(HEARTH_PAYMENT_EXAMPLE_TEXT)}</small></p>`
+    (withExample ? `<small>${esc(HEARTH_PAYMENT_EXAMPLE_TEXT)}</small>` : "") +
+    `</p>`
+  );
+}
+
+/**
+ * Average project cost at each finish level with its monthly payment, as static
+ * markup. This is the table a homeowner (and an AI answer engine) most wants:
+ * what does Good vs Premium actually cost me per month. Rows above Hearth's cap
+ * say so rather than printing a broken figure.
+ */
+function tierPaymentTableHtml(preset: CostPreset): string {
+  if (!HEARTH_ENABLED) return "";
+  const rows = FINISH_LEVELS.map((lv) => {
+    const avg = averageProjectCost(preset, lv);
+    const pay = monthlyPaymentFrom(avg);
+    const tail =
+      pay === null
+        ? `, above Hearth's ${formatUSD(HEARTH_MAX_LOAN)} financing limit.`
+        : `, or ${formatUSD(pay)}/mo with $0 down on approved credit.`;
+    return `<li><strong>${esc(LEVEL_LABELS[lv])}</strong>: an average project runs about ${esc(formatUSD(avg))}${esc(tail)}</li>`;
+  }).join("");
+  const unit = preset.unitLabel ?? "square feet";
+  return (
+    `<h3>Average ${esc(preset.label.toLowerCase())} by finish level, per month</h3>` +
+    `<p>An average project at ${preset.avgSqft.toLocaleString("en-US")} ${esc(unit)}, spread over Hearth's longest term with nothing out of pocket up front.</p>` +
+    `<ul>${rows}</ul>` +
+    `<p><small>${esc(HEARTH_PAYMENT_EXAMPLE_TEXT)}</small></p>`
   );
 }
 
@@ -295,7 +324,9 @@ function costReferenceHtml(preset: CostPreset): string {
   return (
     `<p>An average ${esc(preset.label.toLowerCase())} in Clark County runs roughly <strong>${esc(formatBand(band, true))}</strong>, depending on size and finish. ` +
     `A complete planning range with nothing hidden to add later. Final materials, any structural work, and site conditions are set on a walkthrough, so a detailed estimate can land higher. The real number comes from that walkthrough.</p>` +
-    financingLineHtml(financingAnchor(preset)) +
+    // The tier table right below carries the Reg Z example for both.
+    financingLineHtml(financingAnchor(preset), false) +
+    tierPaymentTableHtml(preset) +
     `<ul>${rows}</ul>` +
     `<p>Estimate any size: total = the ${esc(perUnit)} rate above times the ${esc(sizeNoun)}, with a project minimum of $${preset.baseFeeLow.toLocaleString("en-US")} to $${preset.baseFeeHigh.toLocaleString("en-US")}. Try the <a href="${SITE}/remodel-cost">interactive estimator</a>.</p>`
   );
@@ -309,7 +340,7 @@ function serviceCostHtml(svc: ServiceDef): string {
           ? `<a href="${SITE}/services/${p.serviceSlug}">${esc(p.label)}</a>`
           : `<strong>${esc(p.label)}</strong>`;
         const pay = monthlyPaymentFrom(financingAnchor(p));
-        const payTxt = pay === null ? "" : ` Financed from $${pay.toLocaleString("en-US")}/mo with $0 down on approved credit.`;
+        const payTxt = pay === null ? "" : ` Financing starts at $${pay.toLocaleString("en-US")}/mo with $0 down on approved credit.`;
         return `<li>${label}: ${esc(formatBand(highLevelBand(p), true))} - ${esc(p.scope)}${esc(payTxt)}</li>`;
       })
       .join("");
@@ -1114,7 +1145,7 @@ ${REMODEL_PRESETS.map((p) => {
       (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per ${per}. ${p.rates[lv].desc}`
     ).join("\n");
     const pay = monthlyPaymentFrom(financingAnchor(p));
-    const payLine = pay === null ? "" : `\nFinancing: $0 down, from ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
+    const payLine = pay === null ? "" : `\nFinancing: $0 down, starting at ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
     return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per ${per} by finish level:\n${tiers}${payLine}`;
   }).join("\n\n")}
 
@@ -1131,7 +1162,7 @@ ${presetsByCategory("adu").map((p) => {
       (lv) => `- ${LEVEL_LABELS[lv]}: $${p.rates[lv].low}-$${p.rates[lv].high} per square foot. ${p.rates[lv].desc}`
     ).join("\n");
     const pay = monthlyPaymentFrom(financingAnchor(p));
-    const payLine = pay === null ? "" : `\nFinancing: $0 down, from ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
+    const payLine = pay === null ? "" : `\nFinancing: $0 down, starting at ${formatUSD(pay)} per month on approved credit. ${HEARTH_PAYMENT_EXAMPLE_TEXT}`;
     return `### ${p.label} - roughly ${formatBand(band, true)} for an average project\n${p.scope}\nProject minimum ${formatUSD(p.baseFeeLow)} to ${formatUSD(p.baseFeeHigh)}. Per square foot by finish level:\n${tiers}${payLine}`;
   }).join("\n\n")}
 

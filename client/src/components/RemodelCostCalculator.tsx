@@ -26,6 +26,7 @@ import {
 } from "@/lib/remodelCost";
 import { openInquiry } from "@/lib/inquiry";
 import HearthPaymentLine from "@/components/hearth/HearthPaymentLine";
+import HearthTierTable from "@/components/hearth/HearthTierTable";
 
 const GREEN = "oklch(0.22 0.07 160)";
 const GREEN_SOFT = "oklch(0.30 0.05 160)";
@@ -185,11 +186,22 @@ export default function RemodelCostCalculator({
             className="mt-4 pt-4 text-left border-t"
             style={{ borderColor: "oklch(0.85 0.03 160)" }}
           >
+            {/* The tier table directly below carries the Reg Z example for both,
+                so it renders once per screen instead of twice. */}
             <HearthPaymentLine
               amount={band.low}
               location={`calculator_${preset.key}`}
+              showExample={false}
             />
           </div>
+        </div>
+
+        {/* Average cost per finish level, as a monthly number. */}
+        <div
+          className="rounded-xl p-5"
+          style={{ backgroundColor: "oklch(0.97 0.015 160)", border: `1px solid ${BORDER}` }}
+        >
+          <HearthTierTable preset={preset} />
         </div>
 
         {/* Honest note + CTA */}

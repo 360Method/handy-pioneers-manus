@@ -342,6 +342,28 @@ export function financingAnchor(preset: CostPreset): number {
   return highLevelBand(preset).low;
 }
 
+/** Round an average to a clean figure so it never reads as a precise quote. */
+function roundAverage(n: number): number {
+  return n >= 20000 ? Math.round(n / 1000) * 1000 : Math.round(n / 500) * 500;
+}
+
+/**
+ * The average project cost at a given finish level: the midpoint of that level's
+ * band at the typical project size. Used for the "what an average project of this
+ * kind actually costs per month" table. Derived entirely from the published
+ * presets, so there is no second set of numbers to maintain.
+ */
+export function averageProjectCost(preset: CostPreset, level: FinishLevel): number {
+  const band = estimate(preset, preset.avgSqft, level);
+  return roundAverage((band.low + band.high) / 2);
+}
+
+/** The average across the whole published range, ignoring finish level. */
+export function averageProjectCostOverall(preset: CostPreset): number {
+  const band = highLevelBand(preset);
+  return roundAverage((band.low + band.high) / 2);
+}
+
 export function formatUSD(n: number): string {
   return "$" + Math.round(n).toLocaleString("en-US");
 }

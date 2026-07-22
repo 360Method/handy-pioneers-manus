@@ -1,5 +1,5 @@
 /**
- * The "$0 down. From $258/mo on approved credit." line that sits directly under a
+ * The "$0 down. Payments starting at $147/mo." line that sits directly under a
  * published price. This is the whole point of the Hearth partnership: a homeowner
  * reading "$12,000 to $35,000+" does the payment math in their head and gets it
  * wrong. We do it for them, honestly.
