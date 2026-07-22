@@ -127,7 +127,7 @@ export const HEARTH_PAYMENT_EXAMPLE_TEXT = (() => {
   return (
     `Payment example: ${usd(ex.principal)} financed with $0 down at ` +
     `${formatApr(ex.apr)} APR over ${ex.termMonths} monthly payments is ` +
-    `${usd(payment)} per month. Based on a ${ex.creditTier} credit range. ` +
+    `${usd(payment)} per month. Based on the ${ex.creditTier} credit range. ` +
     `Your rate, term, and payment depend on your credit and the lender, and ` +
     `may be higher. Financing is subject to credit approval.`
   );
