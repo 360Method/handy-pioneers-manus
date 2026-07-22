@@ -102,7 +102,13 @@ export const HEARTH_EXAMPLE: HearthExample = {
 export const HEARTH_APR_RANGE = { low: 0.0799, high: 0.1907 } as const;
 export const HEARTH_TERM_RANGE_YEARS = { low: 2, high: 12 } as const;
 
-/** Hearth's stated maximum loan amount. Above this we show no payment. */
+/**
+ * Hearth's funded range. Outside it we show no payment at all, because a figure
+ * on a loan they will not write is worse than no figure: the customer clicks
+ * through and gets declined at the door.
+ * Minimum confirmed by Marcin 2026-07-22; maximum from Hearth's rate card.
+ */
+export const HEARTH_MIN_LOAN = 1000;
 export const HEARTH_MAX_LOAN = 250000;
 
 /** Re-verify the example after this many days. */
@@ -122,13 +128,15 @@ function amortize(principal: number, apr: number, termMonths: number): number {
 /**
  * The advertised "from $X/mo" for a project amount, rounded UP to the next whole
  * dollar so the real payment is never higher than what we printed. Returns null
- * when payments are switched off or the amount is outside what Hearth funds, so
- * callers can fall back to the generic financing callout.
+ * when payments are switched off or the amount is outside Hearth's funded range
+ * ($1,000 to $250,000), so callers fall back to the generic financing callout.
+ * The low end matters in practice: the interior-repaint preset floors at $900 at
+ * its smallest size, which Hearth will not finance.
  */
 export function monthlyPaymentFrom(principal: number): number | null {
   if (!HEARTH_PAYMENTS_ENABLED) return null;
   if (!Number.isFinite(principal) || principal <= 0) return null;
-  if (principal > HEARTH_MAX_LOAN) return null;
+  if (principal < HEARTH_MIN_LOAN || principal > HEARTH_MAX_LOAN) return null;
   return Math.ceil(amortize(principal, HEARTH_EXAMPLE.apr, HEARTH_EXAMPLE.termMonths));
 }
 
