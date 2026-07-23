@@ -39,11 +39,36 @@ const ALLOWED_ORIGINS = new Set([
   "https://www-staging-production.up.railway.app",
 ]);
 
-// Dependency-free per-IP rate limiter for the unauthenticated write endpoints.
+/**
+ * Dependency-free per-IP rate limiter for the unauthenticated write endpoints.
+ *
+ * Keys on `req.ip`, which requires `app.set("trust proxy", 1)` below. Do NOT go
+ * back to reading the leftmost value of `x-forwarded-for`: that entry is
+ * supplied by the caller and only appended to by the proxy, so an attacker who
+ * randomises the header gets a fresh bucket on every request and walks straight
+ * through the limiter. With trust proxy set, Express walks the header from the
+ * right and hands back the real client address.
+ *
+ * Buckets are pruned as they are touched and swept periodically, so the map
+ * cannot grow without bound. A limiter that leaks memory would undo the point of
+ * the upload cap it sits next to.
+ */
 function makeRateLimiter(maxHits: number, windowMs: number) {
   const hits = new Map<string, number[]>();
+
+  // Periodic sweep for IPs that hit once and never came back.
+  const sweep = setInterval(() => {
+    const cutoff = Date.now() - windowMs;
+    hits.forEach((times: number[], key: string) => {
+      const live = times.filter((t: number) => t > cutoff);
+      if (live.length === 0) hits.delete(key);
+      else hits.set(key, live);
+    });
+  }, windowMs);
+  sweep.unref?.();
+
   return (req: Request, res: Response, next: () => void) => {
-    const ip = (req.headers["x-forwarded-for"]?.toString() ?? "").split(",")[0].trim() || req.ip || "unknown";
+    const ip = req.ip || "unknown";
     const now = Date.now();
     const recent = (hits.get(ip) ?? []).filter((t) => now - t < windowMs);
     recent.push(now);
@@ -135,6 +160,10 @@ async function startServer() {
 
   // ─── Baseline security headers (dependency-free; no CSP to avoid breaking the SPA) ──
   app.disable("x-powered-by");
+  // Railway terminates TLS and forwards one hop. Without this, req.ip is the
+  // proxy address and every caller shares a single rate-limit bucket; with it,
+  // Express resolves the real client address from x-forwarded-for correctly.
+  app.set("trust proxy", 1);
   app.use((_req, res, next) => {
     res.setHeader("X-Content-Type-Options", "nosniff");
     res.setHeader("X-Frame-Options", "SAMEORIGIN");
