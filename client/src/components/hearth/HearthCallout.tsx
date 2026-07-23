@@ -14,7 +14,7 @@ const GOLD = "oklch(0.65 0.14 65)";
 const POINTS = [
   "Monthly payment options up to $250,000",
   "No impact to your credit to check",
-  "0% APR options on approved credit",
+  "0% introductory APR offers on approved credit, terms vary by issuer",
   "Funding in as little as 1-3 days",
 ];
 

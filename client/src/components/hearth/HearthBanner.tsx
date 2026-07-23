@@ -32,7 +32,7 @@ export default function HearthBanner({
   const [w, h] = size.split("x").map(Number);
   const alt =
     kind === "zero"
-      ? "See if you qualify for 0% APR financing options with Hearth"
+      ? "See if you qualify for 0% introductory APR credit card offers with Hearth"
       : "See monthly payment options for your project with Hearth";
 
   return (

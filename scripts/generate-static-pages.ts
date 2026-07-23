@@ -423,6 +423,10 @@ function financingBodyHtml(): string {
       `<h2>See your monthly payment options in minutes</h2>`,
       `<p>Prefer to spread a project over affordable monthly payments? Through our lending partner, Hearth, you can see personalized options in minutes, with no impact to your credit score. <a href="${esc(HEARTH_APPLY_URL)}" rel="noopener" target="_blank">See your payment options</a>.</p>`,
       `<ul>${HEARTH_BULLETS.map((b) => `<li>${esc(b)}</li>`).join("")}</ul>`,
+      // The 0% bullet is an INTRODUCTORY credit-card rate, not a loan rate, so
+      // its terms travel with it here too (Reg Z 1026.16(d)). Crawlers and AI
+      // answer engines only ever see this static copy.
+      `<p>A note on the 0% offers: those are introductory rates on credit cards issued by our partner's banks, not on the loans above. The introductory period is set by the issuing bank, and once it ends their standard rate applies to whatever balance is left. Read the card's terms before you accept it. We are not the lender and we do not set those terms.</p>`,
       `<p><small>${esc(HEARTH_DISCLAIMER)}</small></p>`
     );
   }

@@ -6,10 +6,13 @@
  * placement that shows a payment or rate must render HEARTH_DISCLAIMER nearby.
  *
  * Honest-messaging rule (see CLAUDE.md + /financing guardrails):
- *  - Never advertise flat "0% financing" or "0% off." Some buyers qualify for
- *    0% intro-APR credit-card options; regular loans start higher. Lead with
- *    "monthly payment options" and "0% APR options available (on approved
- *    credit)."
+ *  - Never advertise flat "0% financing," "0% off," or a bare "0% APR." Hearth's
+ *    0% offers are INTRODUCTORY rates on third-party credit cards (typically up
+ *    to 21 months), after which the card's standard APR applies to any remaining
+ *    balance. Hearth cannot confirm whether a given issuer defers interest; they
+ *    point to the cardholder agreement. So any 0% mention must say
+ *    "introductory", say it ends, and say terms vary by issuing bank
+ *    (Reg Z 1026.16(d)). Lead with "monthly payment options" instead.
  *  - No cost / markup / margin math. This is convenience financing, not a price.
  *
  * The org id and partner slug are already exposed in the on-page Hearth widget,
@@ -36,7 +39,7 @@ export const HEARTH_WIDGET_SRC = "https://widget.gethearth.com/script.js";
 export const HEARTH_BULLETS: string[] = [
   "Loan amounts up to $250,000",
   "Affordable monthly payment options",
-  "0% APR options available on approved credit",
+  "0% introductory APR offers from partner credit cards, on approved credit",
   "See your options in minutes with no impact to your credit score",
   "Funding in as little as 1-3 days",
   "No prepayment penalties",

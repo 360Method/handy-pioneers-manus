@@ -146,6 +146,21 @@ export default function Financing() {
                   ))}
                 </ul>
 
+                {/* The 0% bullet above needs its terms nearby. Hearth's 0% offers
+                    are introductory rates on third-party credit cards, and Hearth
+                    cannot say whether a given issuer defers interest, so we say
+                    plainly that it ends and that the customer should read the
+                    issuer's terms (Reg Z 1026.16(d)). */}
+                <p className="text-sm leading-relaxed mb-6" style={{ color: "oklch(0.42 0.02 80)" }}>
+                  A note on the 0% offers: those are introductory rates on credit
+                  cards issued by our partner's banks, not on the loans above. The
+                  introductory period is set by the issuing bank, and once it ends
+                  their standard rate applies to whatever balance is left. Read the
+                  card's terms before you accept it so you know exactly what
+                  happens at the end of the intro period. We are not the lender and
+                  we do not set those terms.
+                </p>
+
                 {/* What our published projects come to per month. Prices are the
                     low end of the ranges on /remodel-cost, so nothing drifts. */}
                 <div className="rounded-xl p-4 mb-4" style={{ backgroundColor: "oklch(0.97 0.015 160)", border: `1px solid ${BORDER}` }}>
