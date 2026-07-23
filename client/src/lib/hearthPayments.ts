@@ -95,12 +95,21 @@ export const HEARTH_EXAMPLE: HearthExample = {
 };
 
 /**
- * Hearth's published APR and term ranges for the Excellent tier, from their own
- * rate card (Hearth Informational Flyer 10-23). Disclosed in the blurb so the
- * "starting at" figure is read against a real range, not as a promise.
+ * Hearth's published APR and term spans, ACROSS ALL CREDIT TIERS, from their own
+ * rate card (Hearth Informational Flyer 10-23):
+ *   Excellent 850-741  7.99% to 19.07%   2 to 12 years
+ *   Good      740-681  10.54% to 26.70%  2 to 12 years
+ *   Average   680-661  16.85% to 34.83%  1 to 7 years
+ *   Poor      660-550  20.50% to 36.99%  1 to 5 years
+ *
+ * These MUST span every tier, not just Excellent. We advertise the floor, so
+ * disclosing a 19.07% ceiling (Excellent's max) while an average-credit borrower
+ * can be quoted 34.83% understates the range in the deceptive direction, which
+ * is precisely what Reg Z and the FTC care about. A brief window where the
+ * disclosure read "7.99% to 19.07%" was a real defect; do not narrow these again.
  */
-export const HEARTH_APR_RANGE = { low: 0.0799, high: 0.1907 } as const;
-export const HEARTH_TERM_RANGE_YEARS = { low: 2, high: 12 } as const;
+export const HEARTH_APR_RANGE = { low: 0.0799, high: 0.3699 } as const;
+export const HEARTH_TERM_RANGE_YEARS = { low: 1, high: 12 } as const;
 
 /**
  * Hearth's funded range. Outside it we show no payment at all, because a figure
