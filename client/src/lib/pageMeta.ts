@@ -9,9 +9,16 @@
  * Keep titles/descriptions outcome-first: lead with what the homeowner
  * gets (protected equity, nothing slips, peace of mind), not the process.
  *
+ * Entity vs capture: the homepage describes the COMPANY and pulls its
+ * description from brand.ts. Task pages (/services, city pages) are CAPTURE
+ * surfaces and may lead with the search term someone actually typed, including
+ * "handyman". See brand.ts and HP-DOC-035 for where that line sits.
+ *
  * Checkout, confirmation, offer, and funnel-step routes are deliberately
  * absent - they are never prerendered and never indexed.
  */
+
+import { ENTITY_DESCRIPTION_SHORT } from "./brand";
 
 export interface PageMeta {
   path: string;
@@ -25,14 +32,14 @@ export const PAGE_META: PageMeta[] = [
     path: "/",
     title:
       "Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA",
-    description:
-      "Vancouver WA handyman done right: Handy Pioneers keeps Clark County homes maintained and ahead of problems with the 360° Method. Licensed, insured.",
+    // Entity surface: the description comes from brand.ts, never a search term.
+    description: ENTITY_DESCRIPTION_SHORT,
   },
   {
     path: "/about",
-    title: "About Handy Pioneers - Family-Owned Craftsmen in Vancouver, WA",
+    title: "About Handy Pioneers - Proactive Home Care in Vancouver, WA",
     description:
-      "Marcin Micek and the Handy Pioneers team: licensed, insured, and family-owned. Serving Vancouver WA, Camas, Washougal, Ridgefield, and Battle Ground.",
+      "Why Handy Pioneers works on a documented plan instead of one-off calls, and the standard Marcin Micek holds every project to. Licensed and insured.",
   },
   {
     path: "/services",

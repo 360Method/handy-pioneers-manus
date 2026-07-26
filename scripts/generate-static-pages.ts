@@ -22,6 +22,7 @@
  * are never generated here and keep the plain SPA behavior.
  *
  * Single sources of truth (never duplicate content in this file):
+ *   who we are  client/src/lib/brand.ts  (the entity description + one-liner)
  *   blog posts  client/src/lib/blog.ts
  *   FAQ         client/src/lib/faq.ts
  *   page meta   client/src/lib/pageMeta.ts
@@ -38,6 +39,7 @@ import { PAGE_META, type PageMeta } from "../client/src/lib/pageMeta";
 import { TIERS } from "../client/src/lib/tiers";
 import { projects } from "../client/src/lib/projects";
 import { SERVICE_AREA_CITIES, SERVICE_AREA_LABEL } from "../client/src/lib/serviceArea";
+import { ENTITY_DESCRIPTION, ONE_LINER, PILLARS } from "../client/src/lib/brand";
 import { SERVICES, type ServiceDef } from "../client/src/lib/services";
 import { CITIES, ACTIVE_CITIES, WAITLIST_CITIES, type CityDef } from "../client/src/lib/cities";
 import {
@@ -913,8 +915,7 @@ function main() {
             telephone: "+1-360-838-6731",
             email: EMAIL,
             priceRange: "$$",
-            description:
-              "Licensed, insured home care and restoration company serving Vancouver WA and all of Clark County. One accountable team for repairs, remodels, and proactive year-round home maintenance.",
+            description: ENTITY_DESCRIPTION,
             address: { "@type": "PostalAddress", addressLocality: "Vancouver", addressRegion: "WA", postalCode: "98665", addressCountry: "US" },
             areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
             aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "34" },
@@ -1040,7 +1041,7 @@ function llmsTxt(published: BlogPost[]): string {
   const recent = published.slice(0, 10);
   return `# ${SITE_NAME}
 
-> Residential maintenance and restoration contractor in Clark County, Washington (Vancouver, ${SERVICE_AREA_CITIES.filter((c) => c !== "Vancouver").join(", ")}). We help homeowners protect their home's value with the 360° Method: a proactive, documented home-care system delivered through the Proactive Path membership. Licensed and insured (Handy Pioneers LLC, WA). 4.9-star Google rating. BBB Accredited, A rating (https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951). Phone ${PHONE}. Email ${EMAIL}.
+> ${ENTITY_DESCRIPTION} Cities served: ${SERVICE_AREA_CITIES.join(", ")}. The 360° Method is delivered through the Proactive Path membership. Licensed and insured (Handy Pioneers LLC, WA). 4.9-star Google rating. BBB Accredited, A rating (https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951). Phone ${PHONE}. Email ${EMAIL}.
 
 A homeowner does not need to hire us to benefit: the 360° Method is a framework
 anyone can use to stay ahead of home maintenance instead of reacting to failures.
@@ -1095,13 +1096,19 @@ function llmsFullTxt(published: BlogPost[]): string {
 
   return `# ${SITE_NAME} - full site content for AI assistants
 
-${SITE_NAME} is a licensed, insured residential maintenance and restoration
-contractor serving ${SERVICE_AREA_LABEL}: ${SERVICE_AREA_CITIES.join(", ")}.
+${ENTITY_DESCRIPTION}
+
+Serving ${SERVICE_AREA_LABEL}: ${SERVICE_AREA_CITIES.join(", ")}.
+Licensed and insured (Handy Pioneers LLC, WA).
 BBB Accredited with an A rating
 (https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951).
 Phone ${PHONE}. Email ${EMAIL}. Website ${SITE}.
 
 ## Why homeowners work with us
+
+${ONE_LINER}
+
+${PILLARS.map((p) => `**${p.title}.** ${p.body}`).join("\n\n")}
 
 Most home-repair losses start as small, invisible problems: a slow leak, a
 clogged gutter, moss working under shingles. Catching them early costs far

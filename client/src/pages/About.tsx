@@ -77,7 +77,9 @@ export default function About() {
             className="mt-4 text-lg max-w-xl"
             style={{ color: "rgba(255,255,255,0.70)" }}
           >
-            Owner-founded. Crew-executed. Accountable at every level.
+            Handy Pioneers is a proactive home service and remodel company. We
+            work your home on a documented plan, not a series of one-off calls.
+            Owner-founded, crew-executed, accountable at every level.
           </p>
         </div>
       </section>
