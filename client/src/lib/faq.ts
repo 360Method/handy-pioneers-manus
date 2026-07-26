@@ -55,6 +55,10 @@ export const faqs: FAQCategory[] = [
     category: "Who Does the Work",
     items: [
       {
+        q: "Are you a handyman service?",
+        a: "Not in the way most people mean it. We handle the same repair list a handyman would, and we take small jobs seriously, but that is one piece of what we do rather than the whole business. Handy Pioneers is a proactive home service and remodel company: we run full kitchen, bathroom, and ADU projects, and we work homes on a documented plan through the 360° Method so the small problems get caught before they turn into the large ones. Work is priced by the project, never by the hour, so what you approve is what you pay. If you want one call handled, we will handle it well. If you want someone who knows your whole home and stays ahead of it, that is what we were built for.",
+      },
+      {
         q: "Who actually does the work on my home?",
         a: "The Handy Pioneers team. A vetted crew of skilled tradesmen handles carpentry, repair, painting, and renovation, and separately licensed specialists handle electrical, plumbing, and HVAC where Washington law requires it. Everyone is screened and coordinated through a single point of contact, so you'll always know in advance who is coming to your home, and the work is held to Handy Pioneers standards.",
       },

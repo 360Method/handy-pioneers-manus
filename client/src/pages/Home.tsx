@@ -26,6 +26,9 @@ import { HEARTH_ENABLED, HEARTH_BULLETS } from "@/lib/hearth";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { faqs } from "@/lib/faq";
+import { metaForPath } from "@/lib/pageMeta";
+
+const HOME_META = metaForPath("/")!;
 
 declare global {
   interface Window {
@@ -309,10 +312,12 @@ export default function Home() {
 
   return (
     <>
+      {/* Title and description come from PAGE_META["/"] so the runtime SEO tags
+          and the prerendered crawler HTML can never drift apart. */}
       <SEO
         path="/"
-        title="Handy Pioneers - Proactive Home Care, Maintenance & Restoration in Vancouver, WA"
-        description="Vancouver WA handyman done right: Handy Pioneers keeps Clark County homes maintained and ahead of problems with the 360° Method. Licensed, insured."
+        title={HOME_META.title}
+        description={HOME_META.description}
         jsonLd={HOMEPAGE_JSONLD}
       />
       <div style={{ backgroundColor: "oklch(0.98 0.012 80)" }}>
@@ -360,7 +365,7 @@ export default function Home() {
               {" "}and Keeps You Ahead of It.
             </h1>
             <p className="text-base md:text-lg leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.72)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "520px" }}>
-              Repairs, projects, and seasonal upkeep - off your plate, on the record. Every season. Every system. Every detail.
+              Repairs, remodels, and seasonal upkeep - off your plate, on the record. Every season. Every system. Every detail.
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
