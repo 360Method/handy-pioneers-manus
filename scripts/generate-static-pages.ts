@@ -176,19 +176,24 @@ const STATIC_STYLE = `<style>
 
 function tier1Page(shell: string, head: HeadData, bodyHtml: string): string {
   let out = stripBaselineHead(shell);
-  out = out.replace("</head>", `    ${headBlock(head)}\n    ${STATIC_STYLE}\n  </head>`);
+  // Replacement passed as a FUNCTION, not a string: in a string replacement JS
+  // treats $$ / $& / $` / $' as substitution patterns, so the JSON-LD
+  // priceRange "$$" was silently arriving in prod as "$". Same reason the body
+  // injection below uses a function: article HTML is full of dollar figures.
+  out = out.replace("</head>", () => `    ${headBlock(head)}\n    ${STATIC_STYLE}\n  </head>`);
   // Static content sits inside #root; React's render() replaces it with the
   // identical component tree once the bundle loads.
   out = out.replace(
     /<div id="root"><\/div>/,
-    `<div id="root"><div class="hp-static"><nav><a href="/">${SITE_NAME}</a> &middot; <a href="/blog">Blog</a> &middot; <a href="/faq">FAQ</a> &middot; <a href="/membership">Membership</a></nav>${bodyHtml}</div></div>`
+    () =>
+      `<div id="root"><div class="hp-static"><nav><a href="/">${SITE_NAME}</a> &middot; <a href="/blog">Blog</a> &middot; <a href="/faq">FAQ</a> &middot; <a href="/membership">Membership</a></nav>${bodyHtml}</div></div>`
   );
   return out;
 }
 
 function tier2Page(shell: string, head: HeadData): string {
   let out = stripBaselineHead(shell);
-  out = out.replace("</head>", `    ${headBlock(head)}\n  </head>`);
+  out = out.replace("</head>", () => `    ${headBlock(head)}\n  </head>`);
   return out;
 }
 
