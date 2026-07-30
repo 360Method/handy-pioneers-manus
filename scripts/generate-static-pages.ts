@@ -1060,7 +1060,8 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 - [How to pay for a project](${SITE}/financing): plain-English guide to home equity, HELOCs, home equity loans, and cash, and how to decide. Educational only; Handy Pioneers is not a lender or financial advisor.
 
 ## Services
-- [All services](${SITE}/services): remodeling, deck repair and rebuild, wood and dry rot repair, interior and exterior painting, flooring, gutter cleaning and repair, pressure and house washing, carpentry, doors and windows, fencing, and proactive whole-home maintenance.
+- [All services](${SITE}/services): home repair, remodeling, deck repair and rebuild, wood and dry rot repair, interior and exterior painting, flooring, gutter cleaning and repair, pressure and house washing, carpentry, doors and windows, fencing, and proactive whole-home maintenance.
+- [Home repair](${SITE}/services/home-repair): exterior and interior home repair across Vancouver WA and Clark County, taken as one running list rather than one call at a time: rot and wood damage, siding and trim, decks and railings, drywall, doors, flooring, gutters, and drainage. Written scope before work begins, priced by the project.
 - [Commercial & property manager services](${SITE}/services/commercial-handyman): work orders, tenant turnovers, and small-commercial repairs (storefronts, offices, rentals) across Clark County, with written scopes and photo close-out. Rental portfolios: multifamily membership at ${SITE}/multifamily.
 
 ## Answers

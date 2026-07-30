@@ -217,6 +217,61 @@ export const SERVICES: ServiceDef[] = [
     costKey: "bath",
   },
   {
+    slug: "home-repair",
+    name: "Home Repair",
+    serviceType: "Home Repair",
+    h1: "Home Repair in Vancouver, WA",
+    seoTitle: "Home Repair in Vancouver WA | Clark County Repairs | Handy Pioneers",
+    seoDesc:
+      "Home repair in Vancouver WA and all of Clark County: rot, siding, decks, doors, drywall, gutters, and the running list that never shrinks. One accountable team, written scope before work starts.",
+    image: "https://handypioneers.com/images/blog/5-home-repairs-clark-county-homeowners-keep-putting-off.webp",
+    imageAlt: "A Clark County home being repaired, with exterior trim and siding work underway",
+    intro: [
+      "Most home repair in Vancouver starts the same way: a running list. A door that sticks, trim going soft at the corner, a stain on the ceiling nobody has traced yet, a rail that moves when you lean on it. None of it is urgent enough to interrupt a week, so the list grows, and the items on it quietly get more expensive.",
+      "Handy Pioneers takes that whole list. One team, one point of contact, one written scope before anything starts, so you are not vetting a different company for every line. We repair what is actually wrong rather than covering the symptom, which in this climate usually means finding where water is getting in before we restore what it damaged.",
+      "The part most homeowners end up valuing more is what happens after. We keep the record of your home, so the next repair starts with context instead of a cold walkthrough. That is the 360° Method: assess every system, document its condition, and work a prioritized NOW / SOON / WAIT plan so the list stops growing faster than you can work it.",
+    ],
+    whatsIncluded: [
+      "Exterior repair: rot and wood damage, siding, trim, decks, railings, and fencing",
+      "Interior repair: drywall, doors, casing and baseboard, flooring transitions, and hardware that no longer sits right",
+      "Water intrusion traced to its source, then the damaged material restored to standard",
+      "Gutters, downspouts, and the drainage that keeps Pacific Northwest rain away from the foundation",
+      "The accumulated small list handled in one visit rather than spread across a season",
+      "A written scope and a price on paper before any work begins, priced by the project",
+    ],
+    signsYouNeedThis: [
+      "A list of small items that has not moved in months because no single one justifies a call",
+      "Soft or discolored wood at trim, thresholds, deck boards, or the base of posts",
+      "Doors and windows that stick, drag, or no longer latch the way they used to",
+      "Staining on a ceiling or wall, or a smell of damp that comes back every wet season",
+    ],
+    faq: [
+      {
+        q: "What does home repair in Vancouver WA typically cover?",
+        a: "For most Clark County homes it is exterior and interior repair on the structure and finishes: rot and wood damage, siding and trim, decks and railings, drywall, doors, flooring, gutters, and drainage. We take the whole running list in one engagement rather than one item at a time, and we put a written scope in front of you before work begins.",
+      },
+      {
+        q: "Do you handle small repairs, or only large projects?",
+        a: "Both. A short list of small items is one of the most common reasons homeowners call us, and handling them together in a single visit is far more efficient than scheduling each one separately. Larger structural repair and full remodels run through the same team.",
+      },
+      {
+        q: "How do you price home repair?",
+        a: "By the project, never by the hour. We walk the work, put a written scope and price on paper, and you decide with the full picture in front of you. You are not watching a clock or wondering what the number will be at the end.",
+      },
+      {
+        q: "Is there anything you do not repair?",
+        a: "We work on the house itself: structure, exterior, finishes, and fixtures. We do not service household appliances, and we do not take on licensed electrical or HVAC service work. If something falls outside what we do, we will tell you plainly on the walkthrough rather than take the job.",
+      },
+      {
+        q: "What areas do you serve for home repair?",
+        a: "All of Clark County, WA, including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, Salmon Creek, Felida, and La Center.",
+      },
+    ],
+    membershipTieIn:
+      "Home repair is where most of our members start. The Proactive Path keeps the list from rebuilding itself: the home is assessed on a schedule, small items are caught while they are still small, and you stop being the one who has to notice.",
+    relatedServiceSlugs: ["rot-repair", "deck-repair", "carpentry-trim", "property-maintenance"],
+  },
+  {
     slug: "deck-repair",
     name: "Deck Repair & Rebuild",
     serviceType: "Deck Repair and Rebuilding",
