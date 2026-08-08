@@ -341,14 +341,27 @@ export function valueStackFor(
   return { lines, total, laborBank: tier.laborBankDollars };
 }
 
-/** Member savings on one out-of-scope job, using the tier's discount brackets. */
+/**
+ * Member savings on one out-of-scope job, using the tier's discount brackets.
+ *
+ * The rate is FLAT within the band the job lands in: the whole job gets that
+ * band's rate. That is what the labels right above this promise, "Jobs over
+ * $20,000 — 11% member rate", and what the signed membership agreement says.
+ *
+ * This used to compute marginally, like tax brackets, which quietly returned
+ * less than the labels advertised: a fixed shortfall above $20k of $525 bronze,
+ * $775 silver, $850 gold. Fixed 2026-08-07 to match the contract, alongside
+ * `calcMemberDiscount` in the estimator's shared/threeSixtyTiers.ts. Keep the
+ * two in step; the estimator is the authority for what a member is actually
+ * billed.
+ */
 export function memberSavingsExample(tier: TierData, jobAmount: number): number {
+  if (jobAmount <= 0) return 0;
   const { underOneK, oneToFiveK, overFiveK } = tier.discountPct;
-  // Progressive bands: under $5k / $5k-$20k / over $20k.
-  const t1 = Math.min(jobAmount, 5000) * (underOneK / 100);
-  const t2 = Math.max(0, Math.min(jobAmount, 20000) - 5000) * (oneToFiveK / 100);
-  const t3 = Math.max(0, jobAmount - 20000) * (overFiveK / 100);
-  return Math.round(t1 + t2 + t3);
+  // Bands: up to $5k / $5k-$20k / over $20k. A job exactly on a ceiling stays
+  // in the lower band, matching the "Jobs up to $5,000" wording.
+  const pct = jobAmount <= 5000 ? underOneK : jobAmount <= 20000 ? oneToFiveK : overFiveK;
+  return Math.round(jobAmount * (pct / 100));
 }
 
 /**
