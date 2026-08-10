@@ -52,6 +52,87 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    "slug": "why-porch-posts-rot-at-the-bottom",
+    "title": "Why Porch Posts Rot at the Bottom, and the Detail That Stops It",
+    "excerpt": "A Camas front porch was rotting from the ground up. The cause was not the trim, it was the posts set straight into the concrete with nothing between them. Here is what that does, what the code actually says, and how the repair is done so it holds.",
+    "date": "August 10, 2026",
+    "isoDate": "2026-08-10",
+    "publishDate": "2026-08-10",
+    "author": "Marcin Micek | Handy Pioneers",
+    "category": "Decks & Exterior",
+    "audience": ["Homeowners"],
+    "tags": [
+      "why porch posts rot",
+      "porch post rot repair",
+      "rotted porch post base",
+      "standoff post base",
+      "rot repair Camas WA",
+      "rot repair Vancouver WA",
+      "porch column repair Clark County"
+    ],
+    "image": "https://handypioneers.com/images/blog/why-porch-posts-rot-at-the-bottom.webp",
+    "imageAlt": "Left: a rotted porch post set directly into a pocket in concrete. Right: the galvanized standoff post base that replaced it, raising the post off the slab",
+    "readTime": 6,
+    "seoTitle": "Why Porch Posts Rot at the Bottom (and How to Fix It) | Camas & Vancouver WA",
+    "seoDesc": "Porch posts rot at the base when they are set straight into concrete. What causes it, what the IRC says about raising columns off a slab, and how a lasting repair is done in Clark County, WA.",
+    "body": [
+      { "type": "p", "text": "We opened up a front porch in Camas this month and found the thing we find most often on porches in this county. The trim wrapped around the posts had gone soft at the bottom, and the homeowner reasonably assumed the trim was the problem. It was not. Every structural post was set straight down into a pocket in the concrete slab, wood touching masonry, with nothing in between. The trim was just the part you could see failing." },
+      { "type": "p", "text": "If your porch posts are dark, soft, or crumbling in the first few inches above the ground, this is almost certainly why. Here is what is happening, and what a repair has to include to actually be over." },
+      { "type": "h2", "text": "Why do porch posts rot at the bottom?" },
+      { "type": "p", "text": "Because the bottom of the post stays wet. Wood decay is caused by fungi, and fungi cannot get established in dry wood. They need sustained moisture. The Forest Products Laboratory puts the practical safety line around 20 percent moisture content, with serious decay taking hold once wood sits at or above its fiber saturation point, roughly 30 percent. A post set into concrete on a Pacific Northwest porch spends the wet season well past that line." },
+      { "type": "p", "text": "Three things happen at once at the base of a post set into a slab:" },
+      { "type": "ul", "items": [
+        "**Concrete holds water and gives it back.** Concrete is porous. It absorbs rain and ground moisture and wicks it sideways and upward into anything touching it. The post base is drinking through the slab long after the surface looks dry.",
+        "**The end grain is the thirstiest part of the post.** Cut end grain pulls moisture in far faster than the sides of a board do, and the bottom of the post is nothing but end grain sitting in the wettest spot on the porch.",
+        "**Debris packs the joint and holds it there.** Dirt, needles, bark, and cobwebs fill the gap around the post. That packed debris acts like a sponge that never fully dries, and it keeps the joint damp through months when the rest of the porch is fine."
+      ] },
+      { "type": "p", "text": "Put those together and the base of the post never gets a chance to dry out between rains. In a climate where the wet season runs for months at a stretch, that is not a slow problem. It is a countdown." },
+      { "type": "h2", "text": "Does building code allow a post to sit on concrete?" },
+      { "type": "p", "text": "Not as plain lumber, no. The International Residential Code section R317.1.4 requires wood columns to be naturally decay resistant or pressure treated. The exception is the detail that matters here: a column exposed to the weather is exempt from that requirement when it is supported by a concrete pier or a metal pedestal projecting at least 1 inch above the concrete floor, or 6 inches above exposed earth." },
+      { "type": "p", "text": "Read that the other way around and it tells you what the code is really after. Get the wood up off the concrete by an inch and let air move underneath it. That single inch is the whole strategy, and it is the thing that was missing on this porch." },
+      { "type": "h2", "text": "Can you just replace the rotted trim wrap?" },
+      { "type": "p", "text": "You can, and it will look finished for a season or two. But if the structural post underneath is still standing in the same wet pocket, you have paid to cover the problem rather than end it. New trim over a wet post is a bandage over a leak. The rot keeps moving up the post behind the paint, and the next time anyone looks, the repair is bigger than it would have been." },
+      { "type": "p", "text": "This is the part where a homeowner deserves a straight answer instead of the cheaper yes. Fixing the cause costs more on the day and less over the life of the porch." },
+      { "type": "h2", "text": "How the repair is actually done" },
+      { "type": "p", "text": "A lasting porch post repair works from the bottom up, in this order:" },
+      { "type": "ol", "items": [
+        "**Support the load and remove the failed post.** The porch roof is carried on temporary support while the rotted post and the pocket around it come out.",
+        "**Set a standoff base in new concrete.** A galvanized standoff post base bolted to a steel bearing plate goes into fresh concrete, holding the post roughly an inch clear of the slab. Air moves underneath, water drains away instead of pooling, and there is no longer a joint for debris to pack into.",
+        "**Set the post plumb and anchor it.** The base is adjustable, so the post is brought true and fastened rather than wedged.",
+        "**Flash above the post.** Metal flashing at the top sheds runoff outward and away from the connection, so water coming off the roof is never running down into the joint.",
+        "**Wrap the structural post in a moisture barrier.** Self-adhered flashing membrane goes around the post before any trim, so the wood behind the finish carpentry is protected whether or not the paint holds.",
+        "**Then, and only then, the finish work.** New column wraps, cap trim, base plinths, primer, and paint."
+      ] },
+      { "type": "p", "text": "Steps one through five are the repair. Step six is the part your neighbors see. Most of the money and all of the durability are in the part that disappears." },
+      { "type": "h2", "text": "How to tell whether your porch posts are going" },
+      { "type": "p", "text": "You do not need to open anything up to get a good read. Walk out and check for these:" },
+      { "type": "ul", "items": [
+        "Paint bubbling, peeling, or staining in the same band near the bottom of the post, year after year",
+        "Wood that gives when you press it with a thumbnail, or a screwdriver tip that sinks in with light pressure",
+        "A dark or green tide line in the first several inches above the concrete",
+        "Trim that has separated, cupped, or opened at the corners near the base",
+        "Debris packed tight into the seam where the post meets the slab, with no visible gap",
+        "Any post you can see sitting flush on concrete rather than raised on a metal base"
+      ] },
+      { "type": "p", "text": "That last one is the tell. If you can see the wood touching the concrete, the clock is already running, even if the post still looks sound." },
+      { "type": "h2", "text": "What it looked like in Camas" },
+      { "type": "p", "text": "On this porch, the posts came out, standoff bases went into new concrete, and flashing went in above. The structural posts were wrapped in membrane, then rebuilt with new column wraps, cap trim, and base plinths, and painted to match the house. The porch reads as a craftsman entry now instead of a repair, and the detail underneath will hold through the winters this house has left in it." },
+      { "type": "cta", "text": "See the full project, including the failed post base and the finished columns.", "ctaLabel": "View the Camas porch project", "ctaAction": "link", "ctaHref": "/project/porch-column-rot-repair-in-camas" },
+      { "type": "h2", "text": "Rot is a maintenance problem before it is a repair problem" },
+      { "type": "p", "text": "Every rot repair we do started as something small that nobody was watching. A post base packed with debris, a gutter running over, a caulk line that opened up. None of those are urgent on the day they happen, which is exactly why they get to become urgent later." },
+      { "type": "p", "text": "That is the thinking behind the 360 Method, and behind working with homeowners as a partner over years rather than as a contractor who shows up once the damage is done. We document the condition of the home's systems, put the findings in a prioritized order, and come back every season to work a standing list of Pacific Northwest tasks. Clearing the base of the porch posts and checking what the wet season did to them is on that list. Catching this porch three years earlier would have been a cleaning and a flashing detail rather than a rebuild." },
+      { "type": "blockquote", "text": "The cheapest version of this repair is the one you do before you need it." },
+      { "type": "p", "text": "If your porch posts are showing any of the signs above, have someone look at the base before the rain comes back. Whether that is us or not, make sure whoever looks tells you why the wood got wet, not just what it will cost to cover it." },
+      { "type": "cta", "text": "Want a straight read on your porch and the rest of the exterior?", "ctaLabel": "Book a walkthrough", "ctaAction": "booking" }
+    ],
+    "references": [
+      { "label": "ICC International Residential Code R317.1.4: Wood columns (via UpCodes)", "url": "https://up.codes/s/wood-columns" },
+      { "label": "USDA Forest Products Laboratory, Wood Handbook Ch. 14: Biodeterioration of Wood", "url": "https://www.fpl.fs.usda.gov/documnts/fplgtr/fplgtr190/chapter_14.pdf" },
+      { "label": "Simpson Strong-Tie: Standoff Post Bases", "url": "https://www.strongtie.com/standoffpostbases_castinplacepostbases/category" }
+    ]
+  },
+
+  {
     "slug": "kitchen-remodel-before-after-clark-county",
     "title": "Kitchen Remodel Before and After: What Flooring, Cabinets, Countertops, and Paint Change Together",
     "excerpt": "A real Clark County galley kitchen, before and after. We replaced the flooring, cabinets, countertops, and paint in one coordinated project. Here is what each upgrade did, why doing all four together beats piecemeal, and what a remodel like this runs in 2026.",

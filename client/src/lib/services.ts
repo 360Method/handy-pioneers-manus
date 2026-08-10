@@ -326,8 +326,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Dry Rot & Wood Rot Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Wood rot repair for Pacific Northwest homes: trim, siding, decks, door frames, and the framing behind them. We fix the cause, not the symptom.",
-    image: "https://handypioneers.com/images/blog/moss-mold-moisture-pnw-homeowners-guide-roof-siding.webp",
-    imageAlt: "Exterior wood trim on a home being repaired",
+    image: "https://handypioneers.com/images/porch-post-standoff-base-camas-2026-08.webp",
+    imageAlt: "A rotted porch post set directly into concrete, beside the galvanized standoff base that replaced it on a Camas, WA repair",
     intro: [
       "Wood rot is the defining maintenance problem of a wet climate. Decay fungi need sustained moisture to grow, and a Pacific Northwest winter supplies it for months at a stretch. Left alone, a soft spot in trim becomes a soft spot in the wall behind it.",
       "We repair rot at the source: find where the water is getting in, replace what has failed, and protect the new work so it does not come back next season.",
@@ -335,6 +335,8 @@ export const SERVICES: ServiceDef[] = [
     whatsIncluded: [
       "Tracing the moisture path so the cause is fixed, not just the surface",
       "Replacement of rotted trim, siding, fascia, sills, and framing",
+      "Porch and column repair, including post bases set wrong side of the concrete",
+      "Correcting the detail that caused it: standoff bases, flashing, and drainage",
       "Repair around windows, doors, and roof-to-wall connections",
       "Priming and sealing of new wood before the wet season returns",
     ],
@@ -342,6 +344,8 @@ export const SERVICES: ServiceDef[] = [
       "Soft, crumbling, or discolored wood at trim, sills, or siding",
       "Paint that bubbles or peels in the same spot every year",
       "A screwdriver that sinks into exterior wood with light pressure",
+      "Porch or deck posts sitting flush on concrete instead of raised on a metal base",
+      "A dark tide line in the first few inches above a porch slab",
       "Dark staining or a musty smell near a window or door frame",
     ],
     faq: [
@@ -352,6 +356,18 @@ export const SERVICES: ServiceDef[] = [
       {
         q: "Do you fix what caused the rot, or just the visible damage?",
         a: "Both. Replacing soft wood without fixing the water path just buys a year. We find where the moisture is getting in and correct that as part of the repair.",
+      },
+      {
+        q: "Why do porch posts rot at the bottom?",
+        a: "Almost always because the post is set directly into the concrete with nothing between them. Concrete is porous, so it absorbs water and wicks it into the wood it touches, and the cut end grain at the base of a post soaks it up fastest. Debris packs into the seam and holds the moisture there, so the base never dries out between rains. The fix is to get the post up off the slab.",
+      },
+      {
+        q: "What is a standoff post base, and does code require one?",
+        a: "A standoff post base is a galvanized bracket that anchors a post to concrete while holding it about an inch clear of the surface, so air can move underneath and water drains away. The IRC requires exterior wood columns to be naturally decay resistant or pressure treated, and exempts columns supported on a pier or metal pedestal that projects at least an inch above the concrete. That inch is the whole point, and it is what is missing on most porches we open up.",
+      },
+      {
+        q: "Can you just replace the rotted trim around my porch posts?",
+        a: "We can, but if the structural post underneath is still standing in a wet pocket, that is covering the problem rather than ending it. The rot keeps climbing behind the new paint. We would rather tell you that up front and fix the base while we are already there.",
       },
     ],
     membershipTieIn:
