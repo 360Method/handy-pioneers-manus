@@ -329,14 +329,18 @@ export default function BlogPost() {
         </div>
       </header>
 
-      {/* ── Hero Image ── */}
+      {/* ── Hero Image ──
+          600px matches ProjectDetail. Hero art is 16:9 or 3:2, which render
+          486px and 576px tall at the 864px container width, so 460 was
+          cropping both - harmless on generated art, but it beheaded the
+          before/after composites that carry a brand bar and corner labels. */}
       <div className="max-w-4xl mx-auto w-full px-4 pt-8">
-        <div className="overflow-hidden rounded-xl" style={{ maxHeight: "460px" }}>
+        <div className="overflow-hidden rounded-xl" style={{ maxHeight: "600px" }}>
           <img
             src={localImage(post.image)}
             alt={post.imageAlt}
             className="w-full object-cover"
-            style={{ maxHeight: "460px", objectPosition: "center" }}
+            style={{ maxHeight: "600px", objectPosition: "center" }}
           />
         </div>
       </div>

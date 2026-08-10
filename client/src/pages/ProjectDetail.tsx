@@ -126,14 +126,20 @@ export default function ProjectDetail() {
         </div>
       </header>
 
-      {/* ── Hero Image ── */}
+      {/* ── Hero Image ──
+          600px, not 480px: the container maxes out at max-w-4xl (896px) less
+          padding, so a 3:2 before/after composite renders 864x576. At 480 it
+          was center-cropped, which cut the brand bar off the top and sliced
+          the Before/After labels off the bottom - the two parts of the image
+          doing the selling. 600 fits a 3:2 image whole at every viewport;
+          anything taller still crops as before. */}
       <div className="max-w-4xl mx-auto px-4 pt-6">
-        <div className="overflow-hidden rounded-xl" style={{ maxHeight: "480px" }}>
+        <div className="overflow-hidden rounded-xl" style={{ maxHeight: "600px" }}>
           <img
             src={project.image}
             alt={project.title}
             className="w-full object-cover"
-            style={{ maxHeight: "480px", objectPosition: "center" }}
+            style={{ maxHeight: "600px", objectPosition: "center" }}
           />
         </div>
       </div>

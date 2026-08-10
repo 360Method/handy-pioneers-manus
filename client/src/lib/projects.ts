@@ -31,9 +31,9 @@ export const projects: Project[] = [
     description: "The trim wrapped around this Camas front porch had gone soft at the base, and the reason was underneath it. Each structural post had been set directly into a pocket in the concrete slab, with nothing separating wood from masonry. Concrete holds water and wicks it upward, debris packs into the gap, and the end grain of the post stays damp through a Pacific Northwest winter. That is a rot factory, and no amount of new trim would have stopped it. We corrected the detail first: a galvanized standoff post base bolted to a steel bearing plate, set in fresh concrete, holding the post up off the slab so air can move underneath and water can drain away. Then we flashed above the post so runoff sheds outward instead of running down into the joint. Only then did the new column wraps go on, over structural posts sealed with self-adhered flashing membrane, finished with cap trim, base plinths, and paint. The porch looks the way the house always deserved, and this time the detail underneath will hold.",
     image: "/images/porch-column-rot-repair-camas-2026-08.webp",
     extraImages: [
+      "/images/porch-post-before-after-camas-2026-08.webp",
       "/images/porch-post-standoff-base-camas-2026-08.webp",
       "/images/porch-columns-finished-camas-2026-08.webp",
-      "/images/porch-column-base-detail-camas-2026-08.webp",
     ],
     tags: ["porch post rot repair", "rot repair", "porch column wrap", "standoff post base", "exterior trim repair", "Camas WA", "Clark County"],
     location: "Camas, WA",

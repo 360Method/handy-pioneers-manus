@@ -326,8 +326,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Dry Rot & Wood Rot Repair in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Wood rot repair for Pacific Northwest homes: trim, siding, decks, door frames, and the framing behind them. We fix the cause, not the symptom.",
-    image: "https://handypioneers.com/images/porch-post-standoff-base-camas-2026-08.webp",
-    imageAlt: "A rotted porch post set directly into concrete, beside the galvanized standoff base that replaced it on a Camas, WA repair",
+    image: "https://handypioneers.com/images/porch-post-before-after-camas-16x9-2026-08.webp",
+    imageAlt: "Before and after of a Camas, WA porch post: dry rot marked at the split base, then the rebuilt and painted column plinth",
     intro: [
       "Wood rot is the defining maintenance problem of a wet climate. Decay fungi need sustained moisture to grow, and a Pacific Northwest winter supplies it for months at a stretch. Left alone, a soft spot in trim becomes a soft spot in the wall behind it.",
       "We repair rot at the source: find where the water is getting in, replace what has failed, and protect the new work so it does not come back next season.",
@@ -335,7 +335,7 @@ export const SERVICES: ServiceDef[] = [
     whatsIncluded: [
       "Tracing the moisture path so the cause is fixed, not just the surface",
       "Replacement of rotted trim, siding, fascia, sills, and framing",
-      "Porch and column repair, including post bases set wrong side of the concrete",
+      "Porch and column repair, including posts set straight into the concrete",
       "Correcting the detail that caused it: standoff bases, flashing, and drainage",
       "Repair around windows, doors, and roof-to-wall connections",
       "Priming and sealing of new wood before the wet season returns",
