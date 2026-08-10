@@ -1,9 +1,17 @@
 /**
+ * ⚠ NOT RENDERED ANYWHERE. Editing this file changes nothing on the site.
+ *
+ * The live photo wall is `Gallery.tsx`, mounted at #gallery on the home page.
+ * Add photos THERE. This component is not imported by any page and does not
+ * appear in the built bundle; it survives only as an alternate layout we may
+ * come back to. Its `photos` array is a stale copy of Gallery's, so treat it
+ * as a mockup, not a source of truth.
+ *
  * HeroGallery - Hero-style before/after photo wall
  * Design: Pacific Northwest Craftsman
  * Masonry-inspired grid layout with lightbox on click.
  *
- * TO ADD MORE PHOTOS: append a new object to the `photos` array below with:
+ * TO ADD MORE PHOTOS (in Gallery.tsx, not here): append an object with:
  *   id: next sequential number
  *   src: local path under /images/hero-gallery/<filename>.jpg
  *   caption: short description of the project (10-15 words)
