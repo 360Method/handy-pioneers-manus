@@ -55,7 +55,10 @@ jobs:
         continue-on-error: true
         run: |
           BASE="${{ github.event.inputs.base || 'https://handypioneers.com' }}"
-          node scripts/check-site-assets.mjs --base="$BASE" | tee report.txt
+          # 2>&1 matters: the checker prints its findings, and the fatal
+          # "could not read the sitemap" case, to stderr. Without this the
+          # alert issue arrives with an empty report block.
+          node scripts/check-site-assets.mjs --base="$BASE" 2>&1 | tee report.txt
           echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
 
       - name: Open or update the alert issue
