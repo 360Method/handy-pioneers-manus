@@ -1,0 +1,121 @@
+name: Site health (broken assets + dead pages)
+
+# Walks handypioneers.com and checks that every page loads and every image,
+# script, stylesheet, icon and social-card URL it references actually resolves.
+#
+# This exists because on 2026-08-26 a third-party CDN we did not control began
+# answering 403 to all 36 images the site loaded from it. The header logo was
+# blank on every page and the Open Graph card was broken, for an unknown number
+# of days, until a human happened to look at the site. Nothing was watching.
+#
+# The job is deliberately independent of any person and any AI assistant. It
+# runs on GitHub's schedule, it runs after every production deploy, and when it
+# fails it opens an issue, which GitHub emails to the repo owner. If the issue
+# is already open it gets a new comment instead of a duplicate.
+
+on:
+  schedule:
+    # Every four hours. Nightly was the ask; four-hourly means a break that
+    # lands at 9am is caught before lunch rather than at 2am the next day.
+    - cron: "0 */4 * * *"
+  push:
+    branches: [main] # verify production right after it redeploys
+  workflow_dispatch:
+    inputs:
+      base:
+        description: "Base URL to check"
+        required: false
+        default: "https://handypioneers.com"
+
+permissions:
+  contents: read
+  issues: write
+
+concurrency:
+  group: site-health
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Wait for the deploy to land
+        # Railway builds on push, so checking immediately would test the old
+        # bundle. Only relevant on the push trigger.
+        if: github.event_name == 'push'
+        run: sleep 180
+
+      - name: Check the live site
+        id: check
+        continue-on-error: true
+        run: |
+          BASE="${{ github.event.inputs.base || 'https://handypioneers.com' }}"
+          node scripts/check-site-assets.mjs --base="$BASE" | tee report.txt
+          echo "exit=${PIPESTATUS[0]}" >> "$GITHUB_OUTPUT"
+
+      - name: Open or update the alert issue
+        if: steps.check.outputs.exit != '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: "Site health: handypioneers.com has broken assets"
+        run: |
+          BODY_FILE=body.md
+          {
+            echo "The site health check failed at $(date -u '+%Y-%m-%d %H:%M UTC')."
+            echo
+            echo "Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            echo '```'
+            tail -c 60000 report.txt
+            echo '```'
+            echo
+            echo "Fixing it: every asset path the site uses belongs in"
+            echo "client/src/lib/assets.ts and must resolve on our own origin."
+            echo "See HP-SOP-216 in the OS repo for the full runbook."
+          } > "$BODY_FILE"
+
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --body-file "$BODY_FILE"
+            echo "Commented on existing issue #$EXISTING"
+          else
+            gh issue create --title "$TITLE" --body-file "$BODY_FILE" --label "site-health" \
+              || gh issue create --title "$TITLE" --body-file "$BODY_FILE"
+          fi
+
+      - name: Tell the portal, so it lands in the cockpit
+        # Optional. Add an INGEST_SECRET repo secret (the Railway portal service
+        # variable of the same name) and failures also queue a task for the
+        # portal agent instead of only emailing. Skipped silently without it.
+        if: steps.check.outputs.exit != '0' && env.INGEST_SECRET != ''
+        env:
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+        run: |
+          SUMMARY=$(tail -c 1500 report.txt | sed 's/"/\\"/g' | tr '\n' ' ')
+          curl -s -X POST https://os.marcinmicek.com/api/ingest \
+            -H "content-type: application/json" \
+            -H "x-ingest-secret: $INGEST_SECRET" \
+            -d "{\"kind\":\"task\",\"type\":\"do\",\"area\":\"Handy Pioneers\",\"body\":\"handypioneers.com site health check FAILED. Investigate and fix, then verify with: node scripts/check-site-assets.mjs. Report: $SUMMARY\"}" \
+            || echo "portal notify failed, the issue above is still the alert"
+
+      - name: Close the alert issue once the site is clean again
+        if: steps.check.outputs.exit == '0'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TITLE: "Site health: handypioneers.com has broken assets"
+        run: |
+          EXISTING=$(gh issue list --state open --search "$TITLE in:title" --json number --jq '.[0].number')
+          if [ -n "$EXISTING" ]; then
+            gh issue close "$EXISTING" --comment "Clean run at $(date -u '+%Y-%m-%d %H:%M UTC'). Every page and asset resolved."
+          fi
+
+      - name: Fail the run if the site is broken
+        if: steps.check.outputs.exit != '0'
+        run: |
+          echo "::error::handypioneers.com has broken assets. See the issue and the report above."
+          exit 1
