@@ -11,6 +11,7 @@ import { projects } from "@/lib/projects";
 import { Calendar, MapPin, Tag, ArrowLeft, Phone } from "lucide-react";
 import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
+import SafeImg from "@/components/SafeImg";
 
 export default function ProjectDetail() {
   const params = useParams<{ slug: string }>();
@@ -133,16 +134,18 @@ export default function ProjectDetail() {
           the Before/After labels off the bottom - the two parts of the image
           doing the selling. 600 fits a 3:2 image whole at every viewport;
           anything taller still crops as before. */}
-      <div className="max-w-4xl mx-auto px-4 pt-6">
-        <div className="overflow-hidden rounded-xl" style={{ maxHeight: "600px" }}>
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full object-cover"
-            style={{ maxHeight: "600px", objectPosition: "center" }}
-          />
+      {project.image && (
+        <div className="max-w-4xl mx-auto px-4 pt-6">
+          <div className="overflow-hidden rounded-xl" style={{ maxHeight: "600px" }}>
+            <SafeImg
+              src={project.image}
+              alt={project.title}
+              className="w-full object-cover"
+              style={{ maxHeight: "600px", objectPosition: "center" }}
+            />
+          </div>
         </div>
-      </div>
+      )}
 
       {/* ── Article Body ── */}
       <main className="max-w-4xl mx-auto px-4 py-10">

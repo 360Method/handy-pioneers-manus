@@ -127,8 +127,8 @@ export default function Method360Referral() {
           {/* ─── Referral Image ─── */}
           <div className="rounded-2xl overflow-hidden mb-10 relative" style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}>
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-referral-handshake-L4abEVnnoUQFbb9ozAJnnp.webp"
-              alt="A licensed home inspector and Handy Pioneers contractor shaking hands in front of a Pacific Northwest home"
+              src="/images/site/referral-banner.webp"
+              alt="A quiet street of Pacific Northwest homes on a damp morning"
               className="w-full object-cover"
               style={{ maxHeight: "340px", objectPosition: "center 25%" }}
             />

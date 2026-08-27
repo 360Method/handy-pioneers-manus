@@ -24,6 +24,8 @@ import SeasonalVisitsGrid from "@/components/membership/SeasonalVisitsGrid";
 import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTimeline";
 import SEO from "@/components/SEO";
 import { LANDLORD_SEASONS, TURNOVER_SCOPE, TURNOVER_FROM } from "@/lib/landlordContent";
+import Method360Mark from "@/components/Method360Mark";
+import { WORK_PHOTOS } from "@/lib/workPhotos";
 
 // 1-4 units price cleanly off the building base + per-unit fee. 5+ units need a
 // per-unit custom quote, so picking it switches the pricing block to a capture.
@@ -200,11 +202,7 @@ export default function Multifamily() {
             className="inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-medium mb-6"
             style={{ background: "oklch(100% 0 0 / 0.1)", color: "oklch(78% 0.13 78)" }}
           >
-            <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hp-360-logo_69b6cf24.png"
-              alt="360°"
-              className="w-5 h-5 object-contain"
-            />
+            <Method360Mark className="w-5 h-5 object-contain" />
             <span>The 360° Method - Delivered by Handy Pioneers</span>
           </div>
 
@@ -335,8 +333,8 @@ export default function Multifamily() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center lg:justify-start">
               <img
-                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/report-card-mockup-4AdTXSJrKZ4HDyTzWNLbPz.webp"
-                alt="360° Scan Report showing a building score with photo documentation"
+                src="/images/roadmap-sample/stewardship-cover.webp"
+                alt="A 360° Method Stewardship Roadmap, the written report an owner receives after a property scan"
                 className="rounded-2xl shadow-xl"
                 style={{ maxWidth: "320px", width: "100%" }}
               />
@@ -1011,14 +1009,7 @@ export default function Multifamily() {
             This is what your property looks like after a visit.
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/roof_moss_cleaning_8ec59cf6.jpg", caption: "Roof Moss Cleaning" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/gutter_cleaning_ea6257be.jpg", caption: "Gutter Cleaning" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/hose_bib_covering_cd7cd768.jpg", caption: "Hose Bib Winterization" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/exterior_light_fixture_replacement_ebcaac9c.jpg", caption: "Exterior Light Fixture Replacement" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/rotted_stair_repair_7a04b221.jpg", caption: "Rotted Stair Restoration" },
-              { src: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PdNJ394MjBP7Uu2hurkDFS/Before_Afters(10)_81ded948.png", caption: "Pressure Washing - Driveway" },
-            ].map((photo, i) => (
+            {WORK_PHOTOS.map((photo, i) => (
               <div key={i} className="rounded-lg overflow-hidden shadow-sm">
                 <img
                   src={photo.src}

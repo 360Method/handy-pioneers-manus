@@ -11,6 +11,7 @@ import { getPublishedPosts } from "@/lib/blog";
 import { projects } from "@/lib/projects";
 import { localImage } from "@/lib/img";
 import { Clock, Tag, ArrowRight, BookOpen, MapPin, ExternalLink } from "lucide-react";
+import SafeImg from "@/components/SafeImg";
 
 // Homepage shows only the newest few; the rest live on the /blog archive.
 const HOME_FEED_LIMIT = 3;
@@ -117,7 +118,7 @@ export default function BlogSection() {
                 >
                   {/* Image + kind badge */}
                   <div className="relative overflow-hidden" style={{ height: "200px" }}>
-                    <img
+                    <SafeImg
                       src={localImage(item.image)}
                       alt={item.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

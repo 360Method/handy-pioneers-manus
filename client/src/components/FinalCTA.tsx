@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { HEARTH_ENABLED } from "@/lib/hearth";
-const CTA_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-cta-bg-aoXSQumAFkkVoFJ3HQ2vPV.webp";
+const CTA_BG = "/images/site/cta-bg.webp";
 
 export default function FinalCTA() {
   return (

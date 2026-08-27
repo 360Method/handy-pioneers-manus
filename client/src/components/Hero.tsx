@@ -14,7 +14,7 @@ import SampleReportModal from "./SampleReportModal";
 import { openInquiry } from "@/lib/inquiry";
 
 const HERO_BG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
+  "/images/site/hero-bg.webp";
 
 export default function Hero() {
   const [, navigate] = useLocation();
@@ -94,7 +94,7 @@ export default function Hero() {
           {/* Marcin context */}
           <div className="flex items-center gap-3 mt-1 mb-2">
             <img
-              src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg"
+              src="/images/team/marcin-micek-avatar.jpg"
               alt="Marcin Micek - Owner"
               className="w-10 h-10 rounded-full object-cover object-top border-2 shrink-0"
               style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}

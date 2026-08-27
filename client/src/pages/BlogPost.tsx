@@ -25,7 +25,7 @@ import { openInquiry } from "@/lib/inquiry";
 import { localImage } from "@/lib/img";
 
 const LOGO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
+  "/brand/hp-logo.png";
 
 // GMB profile link
 const GMB_URL = "https://g.page/r/CR_IMjr1YvDeEBM/review";

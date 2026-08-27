@@ -14,10 +14,10 @@ import { ArrowRight, CheckCircle, Clock, Star, Shield, Home } from "lucide-react
 import SEO from "@/components/SEO";
 
 const PDF_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-priority-roadmap-sample_945b4356.pdf";
+  "/sample/360-roadmap-sample.pdf";
 
 const HOME_SCORE_IMG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/home-score-timeline_8704d21b.png";
+  "/images/roadmap-sample/stewardship-score.webp";
 
 // Countdown: 15 minutes from page load
 function useCountdown(minutes: number) {
@@ -195,7 +195,7 @@ export default function Method360Offer() {
           </p>
           <img
             src={HOME_SCORE_IMG}
-            alt="Home Score improvement timeline: 62 to 91 over 18 months"
+            alt="Sample roadmap page: a Home Score of 63 out of 100 with work sorted into Now, Soon and Wait"
             className="w-full rounded-xl"
           />
           <p className="text-[#6A8A78] text-xs text-center mt-2">

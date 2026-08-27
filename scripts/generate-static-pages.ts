@@ -79,8 +79,10 @@ const SITE = "https://handypioneers.com";
 const SITE_NAME = "Handy Pioneers";
 const PHONE = "(360) 838-6731";
 const EMAIL = "help@handypioneers.com";
-const DEFAULT_OG_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_c4d500b1.jpg";
+// Keep in step with OG_IMAGE in client/src/lib/assets.ts. This script runs
+// outside Vite so it cannot import from @/lib; the string is duplicated on
+// purpose and both copies are checked by scripts/check-site-assets.mjs.
+const DEFAULT_OG_IMAGE = `${SITE}/brand/og-image.jpg`;
 
 const DIST_PUBLIC = resolve(ROOT, "dist/public");
 const SHELL_PATH = resolve(DIST_PUBLIC, "index.html");

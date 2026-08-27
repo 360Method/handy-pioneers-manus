@@ -15,6 +15,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import TopBar from "@/components/TopBar";
 import SEO from "@/components/SEO";
+import SafeImg from "@/components/SafeImg";
 
 type FeedKind = "project" | "article";
 
@@ -145,7 +146,7 @@ export default function BlogIndex() {
                 >
                   {/* Card image + kind badge */}
                   <div className="relative overflow-hidden" style={{ height: "200px" }}>
-                    <img
+                    <SafeImg
                       src={localImage(item.image)}
                       alt={item.imageAlt}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

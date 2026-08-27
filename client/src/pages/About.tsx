@@ -11,7 +11,7 @@ import SEO from "@/components/SEO";
 import { openInquiry } from "@/lib/inquiry";
 
 const MARCIN_PHOTO =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
+  "/images/team/marcin-micek.jpg";
 
 const credentials = [
   { icon: Shield, label: "WA License HANDYP*761NH", detail: "Licensed Contractor - Washington State" },

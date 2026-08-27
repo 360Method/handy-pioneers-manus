@@ -4,7 +4,8 @@ import { useLocation } from "wouter";
 import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
+import { LOGO } from "@/lib/assets";
+const LOGO_URL = LOGO;
 const NAVBAR_HEIGHT = 72; // px - matches scroll-padding-top in index.css
 
 const navLinks = [
