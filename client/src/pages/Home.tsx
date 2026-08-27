@@ -586,7 +586,7 @@ export default function Home() {
             {/* Photo column - shown second on mobile */}
             <div className="flex flex-col gap-6 order-last md:order-first">
               <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
-                <img src={MARCIN_PHOTO} alt="Marcin Micek - Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
+                <img src={MARCIN_PHOTO} alt="Marcin Micek, owner of Handy Pioneers, at the workbench" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
               </div>
               {/* License badge */}
               <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>

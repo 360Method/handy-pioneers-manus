@@ -82,7 +82,7 @@ export default function About() {
               >
                 <img
                   src="/images/team/marcin-micek.jpg"
-                  alt="Marcin Micek, founder of Handy Pioneers"
+                  alt="Marcin Micek, founder of Handy Pioneers, in the shop"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
