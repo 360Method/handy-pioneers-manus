@@ -81,8 +81,8 @@ export default function About() {
                 style={{ aspectRatio: "4/5" }}
               >
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-owner_0d194701.jpg"
-                  alt="Marcin Micek, founder of Handy Pioneers, in his workshop"
+                  src="/images/team/marcin-micek.jpg"
+                  alt="Marcin Micek, founder of Handy Pioneers"
                   className="w-full h-full object-cover object-top"
                 />
               </div>
@@ -93,7 +93,7 @@ export default function About() {
                 style={{ backgroundColor: "oklch(0.32 0.07 160)", maxWidth: "200px" }}
               >
                 <img
-                  src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg"
+                  src="/brand/hp-logo-light.png"
                   alt="Handy Pioneers LLC"
                   className="w-24 h-auto object-contain mb-2"
                   style={{ opacity: 0.95 }}

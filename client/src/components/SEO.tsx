@@ -15,7 +15,7 @@
 const SITE_URL = "https://handypioneers.com";
 const SITE_NAME = "Handy Pioneers";
 const DEFAULT_OG_IMAGE =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_c4d500b1.jpg";
+  "https://handypioneers.com/brand/og-image.jpg";
 
 export interface SEOProps {
   path: string;
@@ -46,6 +46,14 @@ export default function SEO({
   jsonLd,
 }: SEOProps) {
   const canonical = normaliseCanonical(path);
+  // og:image must be absolute for scrapers, and must never be blank. Callers
+  // pass relative paths (a project photo) or nothing at all (a case study still
+  // waiting on its photo); both resolve to something a crawler can fetch.
+  const ogImage = !image
+    ? DEFAULT_OG_IMAGE
+    : image.startsWith("http")
+      ? image
+      : `${SITE_URL}${image.startsWith("/") ? "" : "/"}${image}`;
   const jsonLdBlocks = jsonLd
     ? Array.isArray(jsonLd)
       ? jsonLd
@@ -68,7 +76,7 @@ export default function SEO({
       <meta property="og:url" content={canonical} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={ogImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       {publishedTime ? (
@@ -79,7 +87,7 @@ export default function SEO({
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={ogImage} />
 
       {jsonLdBlocks.map((block, i) => (
         <script

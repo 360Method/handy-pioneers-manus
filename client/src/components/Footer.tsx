@@ -5,7 +5,8 @@ import { ACTIVE_CITIES } from "@/lib/cities";
 import HearthBanner from "@/components/hearth/HearthBanner";
 import { HEARTH_ENABLED } from "@/lib/hearth";
 
-const LOGO_URL = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
+import { LOGO_LIGHT } from "@/lib/assets";
+const LOGO_URL = LOGO_LIGHT;
 
 export default function Footer() {
   return (

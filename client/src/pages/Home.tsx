@@ -37,13 +37,14 @@ declare global {
 }
 
 // ── Constants ────────────────────────────────────────────────────────────────
-const HERO_BG = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
-const MARCIN_PHOTO = "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/marcin-working_961d0334.jpg";
+const HERO_BG = "/images/site/hero-bg.webp";
+const MARCIN_PHOTO = "/images/team/marcin-micek.jpg";
+const MARCIN_AVATAR = "/images/team/marcin-micek-avatar.jpg";
 
 const PHASE_IMAGES = {
-  aware: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-v3-c8jcSYFvmau28ZwUpGD4Vh.webp",
-  act: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v4-jwU4XG6UPccwgZoBTpgciD.webp",
-  advance: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
+  aware: "/images/site/method-aware.webp",
+  act: "/images/site/method-act.webp",
+  advance: "/images/site/method-advance.webp",
 };
 
 // ── Data ─────────────────────────────────────────────────────────────────────
@@ -160,8 +161,8 @@ const HOMEPAGE_JSONLD = [
     url: "https://handypioneers.com/",
     telephone: "+1-360-838-6731",
     email: "help@handypioneers.com",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/og-image_c4d500b1.jpg",
-    logo: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg",
+    image: "https://handypioneers.com/brand/og-image.jpg",
+    logo: "https://handypioneers.com/brand/hp-logo.png",
     priceRange: "$$",
     description:
       "Licensed, insured home care and restoration company serving Vancouver WA and the rest of Clark County. One accountable team for repairs, remodels, and proactive year-round maintenance, led by owner Marcin Micek.",
@@ -369,10 +370,10 @@ export default function Home() {
             </p>           {/* Marcin context */}
             <div className="flex items-center gap-3 mt-1 mb-2">
               <img
-                src={MARCIN_PHOTO}
+                src={MARCIN_AVATAR}
                 alt="Marcin Micek - Owner"
                 className="w-10 h-10 rounded-full object-cover border-2 shrink-0"
-                style={{ borderColor: "oklch(0.65 0.14 65)", objectPosition: "center 15%" }}
+                style={{ borderColor: "oklch(0.65 0.14 65)" }}
               />
               <p className="text-xs text-left" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif", maxWidth: "400px" }}>
                 <span style={{ color: "rgba(255,255,255,0.85)", fontWeight: 600 }}>Same protocol. Every visit.</span> WA Lic. HANDYP*761NH · $1M insured · Vetted tradesmen on every project · Clark County, WA.

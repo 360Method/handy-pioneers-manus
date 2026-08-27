@@ -13,7 +13,7 @@ import SEO from "@/components/SEO";
 import CalendlyEmbed from "@/components/CalendlyEmbed";
 
 const LOGO_URL =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-full-logo_4f724ec4.jpg";
+  "/brand/hp-logo.png";
 
 export default function ThankYou() {
   const path =

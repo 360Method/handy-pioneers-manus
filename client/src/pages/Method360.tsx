@@ -14,7 +14,7 @@ import SampleReportModal from "@/components/SampleReportModal";
 import SEO from "@/components/SEO";
 
 const HERO_BG =
-  "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/hp-hero-bg-R4GcYQJHeouBp86VQhqvCa.webp";
+  "/images/site/hero-bg.webp";
 
 const phases = [
   {
@@ -26,7 +26,7 @@ const phases = [
     description:
       "You cannot protect what you don't fully understand. Phase 1 establishes the complete picture of your home's current condition - a documented baseline that becomes your property's permanent health record. Every system, every surface, every vulnerability: assessed, recorded, and tracked.",
     color: "oklch(0.65 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-aware-v3-c8jcSYFvmau28ZwUpGD4Vh.webp",
+    image: "/images/site/method-aware.webp",
     imageAlt: "Handy Pioneers technician conducting a thorough home assessment with flashlight and clipboard",
     bullets: ["Full home condition baseline", "Documented health record", "Every system assessed & tracked"],
   },
@@ -39,7 +39,7 @@ const phases = [
     description:
       "Phase 2 runs on two parallel tracks. The first: your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. The second - and what makes this a proactive program, not a one-time fix - is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter, we return to your home and work through a standing list of Pacific Northwest-specific tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects.",
     color: "oklch(0.50 0.14 65)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-act-v4-jwU4XG6UPccwgZoBTpgciD.webp",
+    image: "/images/site/method-act.webp",
     imageAlt: "Skilled craftsman executing precision carpentry and repair work inside a Pacific Northwest home",
     bullets: ["NOW / SOON / WAIT priority roadmap", "Four seasonal visits per year", "Pre-defined PNW seasonal task list", "Trade coordination included"],
   },
@@ -52,7 +52,7 @@ const phases = [
     description:
       "Phase 3 is where proactive maintenance becomes strategic investment. With your home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position your property to appreciate - whether your horizon is five years or twenty-five.",
     color: "oklch(0.32 0.07 160)",
-    image: "https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/method-advance-phase-BSxsz5RJSYWJEcHyZ44Bva.webp",
+    image: "/images/site/method-advance.webp",
     imageAlt: "Beautifully maintained Pacific Northwest craftsman home at golden hour with new deck and landscaping",
     bullets: ["Long-term value preservation", "Strategic upgrade roadmap", "Property appreciation plan"],
   },
@@ -385,8 +385,8 @@ export default function Method360() {
       <section className="py-0 overflow-hidden" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
         <div className="relative">
           <img
-            src="https://d2xsxph8kpxj0f.cloudfront.net/310519663386531688/PMFhFJDf55eBmmtmS9ai7o/360-before-after-home-3RbSRiUr6wXkF6L9EM95NW.webp"
-            alt="Pacific Northwest home before and after the 360° Method - neglected exterior transformed into a pristine, well-maintained property"
+            src="/images/site/method-transformation.webp"
+            alt="A Pacific Northwest craftsman home kept in good repair under low grey cloud"
             className="w-full object-cover"
             style={{ maxHeight: "520px", objectPosition: "center" }}
           />
