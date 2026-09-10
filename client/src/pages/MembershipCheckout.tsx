@@ -715,6 +715,11 @@ export default function MembershipCheckout() {
                 <p className="text-xs" style={{ color: M }}>
                   Billed {cadenceLabel.toLowerCase()} · Recurring subscription · Cancel anytime
                 </p>
+                {/* Tax is inside the price, so this is the whole charge. Saying
+                    it here is the difference between a total and a surprise. */}
+                <p className="text-xs" style={{ color: M }}>
+                  Sales tax included. This is the full amount charged.
+                </p>
               </div>
             </div>
           </div>
