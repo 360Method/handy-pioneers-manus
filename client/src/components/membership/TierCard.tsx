@@ -77,6 +77,12 @@ export default function TierCard({ tier, cadence, band = DEFAULT_BAND, landlordU
           billed ${price}/{cadence === "quarterly" ? "qtr" : "yr"}
         </div>
       )}
+      {/* The plan price includes sales tax; nothing is added at checkout. The
+          agreement and the invoice both say so, and a published price that
+          stays quiet about it is the one place a member could be surprised. */}
+      <div className="text-xs mb-1" style={{ color: "oklch(50% 0.02 60)" }}>
+        Sales tax included
+      </div>
       {savings > 0 && (
         <div
           className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded mb-3"
