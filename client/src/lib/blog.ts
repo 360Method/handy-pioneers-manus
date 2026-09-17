@@ -52,6 +52,67 @@ export function getPublishedPosts(): BlogPost[] {
 export const blogPosts: BlogPost[] = [
 
   {
+    slug: "home-maintenance-plan-vancouver-wa",
+    title: "Home Maintenance Plan in Vancouver, WA: What Should Be Included?",
+    excerpt: "A useful home maintenance plan is not a reminder list. In Vancouver and Clark County, it should cover water, rot, drainage, moss, paint, decks, gutters, small repairs, and a written priority roadmap.",
+    date: "September 17, 2026",
+    isoDate: "2026-09-17",
+    publishDate: "2026-09-17",
+    author: "Marcin Micek | Handy Pioneers",
+    category: "Seasonal Home Care",
+    audience: ["Homeowners", "Property Managers"],
+    tags: [
+      "home maintenance plan Vancouver WA",
+      "home maintenance Clark County",
+      "proactive home maintenance",
+      "seasonal home maintenance",
+      "home repair Vancouver WA",
+      "property maintenance Vancouver WA"
+    ],
+    image: "https://handypioneers.com/images/blog/3-things-vancouver-homeowners-forget-to-check-every-spring.webp",
+    imageAlt: "A Vancouver WA home maintenance checklist on a porch with tools nearby",
+    readTime: 6,
+    seoTitle: "Home Maintenance Plan in Vancouver WA: What Should Be Included? | Handy Pioneers",
+    seoDesc: "What a home maintenance plan should include in Vancouver and Clark County: seasonal checks, gutters, moss, rot, decks, paint, small repairs, and a written priority roadmap.",
+    body: [
+      { type: "p", text: "A home maintenance plan in Vancouver, WA should include two things: a documented baseline of the home's current condition and a seasonal schedule that keeps water, rot, moss, gutters, decks, paint, and small repairs from drifting into expensive problems. A reminder list is helpful. A real plan tells you what matters first, what can wait, who owns the work, and when the house will be checked again." },
+      { type: "h2", text: "Start with a baseline, not a task list" },
+      { type: "p", text: "Most maintenance advice starts with chores: clean gutters, change filters, test smoke alarms. Those matter, but they do not tell you whether your home is actually healthy. The first step is a baseline walkthrough: roof edges, gutters, siding, trim, windows, doors, decks, crawl space clues, drainage, interior water stains, bath fans, caulk lines, railings, and every small item that is quietly getting worse." },
+      { type: "p", text: "That baseline becomes the home record. Without it, every visit starts over. With it, every season adds information." },
+      { type: "h2", text: "A good plan separates NOW, SOON, and WAIT" },
+      { type: "p", text: "Homeowners get overwhelmed because every issue feels equal once it is written down. It is not. Soft fascia behind a gutter matters more than a scuffed baseboard. A loose railing matters more than a sticking closet door. A proper plan sorts the list into NOW, SOON, and WAIT so the budget protects the house in the right order." },
+      { type: "ul", items: [
+        "NOW: safety issues, active water paths, soft wood, failed drainage, and anything likely to spread through the wet season",
+        "SOON: worn surfaces, aging caulk, early deck or fence movement, paint failure, and repairs that are cheaper before winter",
+        "WAIT: cosmetic improvements, nice-to-have upgrades, and work that should follow a more urgent repair"
+      ] },
+      { type: "h2", text: "What Clark County homes need seasonally" },
+      { type: "p", text: "Our climate drives the plan. Vancouver homes do not fail because homeowners forgot a generic checklist. They fail because water sits on wood for months, needles clog gutters after the fall cleanup, moss holds moisture against roofs and siding, and small exterior openings stay wet long enough for rot to start." },
+      { type: "p", text: "A useful seasonal plan should cover gutters and downspouts, roof and siding moss, deck boards and railings, porch posts, exterior caulk and paint, window and door trim, crawl space moisture clues, drainage near the foundation, weatherstripping, bath and kitchen ventilation, and the small fix-it list inside the house." },
+      { type: "h2", text: "What should happen four times a year?" },
+      { type: "p", text: "Four visits a year is the right rhythm for a maintained home here because each season has different risks. Spring is for finding what winter exposed. Summer is for repair and paint windows. Fall is for water control before the long wet stretch. Winter is for checking the things that only reveal themselves under real rain." },
+      { type: "p", text: "The exact task list changes by property, but the principle does not: inspect, document, fix the small things, and update the priority roadmap." },
+      { type: "h2", text: "The plan should include small repairs" },
+      { type: "p", text: "Small repairs are where maintenance plans usually fail. The door starts sticking, the gate sags, the railing moves a little, the caulk line darkens, the downspout loosens, and everyone agrees to handle it later. Later is how a house develops a permanent fix-it list." },
+      { type: "p", text: "A real maintenance plan bundles those items into the visits that are already happening. That is the difference between a checklist and a managed home." },
+      { type: "h2", text: "What a written maintenance plan should give you" },
+      { type: "ul", items: [
+        "A baseline condition record with photos and notes",
+        "A NOW / SOON / WAIT priority roadmap",
+        "A seasonal visit schedule",
+        "A standing list of Pacific Northwest maintenance tasks",
+        "A record of completed repairs and open items",
+        "One accountable point of contact for the whole home"
+      ] },
+      { type: "h2", text: "When a homeowner should not DIY the plan" },
+      { type: "p", text: "If you enjoy tracking the house, have the time, and are comfortable on ladders and around wet exterior details, you can run a plan yourself. If the house is large, older, wooded, rented, used as a second home, or already carrying deferred maintenance, the cost of missing one water path usually outweighs the cost of having someone manage it." },
+      { type: "p", text: "That is why Handy Pioneers built the 360 Method and the Proactive Path membership. We assess the whole home, build the roadmap, return seasonally, handle the small repairs, and keep the record moving forward." },
+      { type: "cta", text: "Want a maintenance plan built around your actual home instead of a generic checklist?", ctaLabel: "See Proactive Path Membership", ctaAction: "link", ctaHref: "/membership" },
+      { type: "cta", text: "Need repairs handled before you start a maintenance plan?", ctaLabel: "See Home Repair", ctaAction: "link", ctaHref: "/services/home-repair" },
+    ],
+  },
+
+  {
     "slug": "why-porch-posts-rot-at-the-bottom",
     "title": "Why Porch Posts Rot at the Bottom, and the Detail That Stops It",
     "excerpt": "A Camas front porch was rotting from the ground up. The cause was not the trim, it was the posts set straight into the concrete with nothing between them. Here is what that does, what the code actually says, and how the repair is done so it holds.",
