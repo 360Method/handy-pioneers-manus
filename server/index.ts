@@ -238,6 +238,18 @@ async function startServer() {
   app.get("/360-method/walkthrough", (_req, res) => {
     res.redirect(301, "/membership");
   });
+  app.get("/customer-reviews", (_req, res) => {
+    res.redirect(301, "/reviews");
+  });
+  app.get("/customer-reviews/", (_req, res) => {
+    res.redirect(301, "/reviews");
+  });
+  app.get("/gallery", (_req, res) => {
+    res.redirect(301, "/#gallery");
+  });
+  app.get("/gallery/", (_req, res) => {
+    res.redirect(301, "/#gallery");
+  });
 
   // ─── Legacy OLD-SITE URL redirects ────────────────────────────────────────
   // Google's index still holds URLs from the pre-2026 site structure. Without

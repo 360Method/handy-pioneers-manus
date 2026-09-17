@@ -27,6 +27,7 @@ import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { faqs } from "@/lib/faq";
 import { metaForPath } from "@/lib/pageMeta";
+import { ENTITY_DESCRIPTION } from "@/lib/brand";
 
 const HOME_META = metaForPath("/")!;
 
@@ -154,6 +155,18 @@ const phases = [
 const HOMEPAGE_JSONLD = [
   {
     "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Handy Pioneers",
+    url: "https://handypioneers.com",
+    inLanguage: "en-US",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://handypioneers.com/blog?search={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://handypioneers.com/#business",
     name: "Handy Pioneers",
@@ -164,8 +177,7 @@ const HOMEPAGE_JSONLD = [
     image: "https://handypioneers.com/brand/og-image.jpg",
     logo: "https://handypioneers.com/brand/hp-logo.png",
     priceRange: "$$",
-    description:
-      "Licensed, insured home care and restoration company serving Vancouver WA and the rest of Clark County. One accountable team for repairs, remodels, and proactive year-round maintenance, led by owner Marcin Micek.",
+    description: ENTITY_DESCRIPTION,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Vancouver",
