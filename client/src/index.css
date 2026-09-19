@@ -186,6 +186,13 @@
   .hcp-button:active {
     transform: translateY(0) !important;
   }
+  /* Header size: the full-size button is 281px wide and pushes the nav row
+     past the container, which makes the whole page wider than the screen. */
+  .hcp-button--nav {
+    font-size: 0.875rem !important;
+    padding: 0.625rem 1.25rem !important;
+    white-space: nowrap !important;
+  }
 
   /* Scroll reveal animation — observer added in App.tsx */
   .reveal {
