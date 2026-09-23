@@ -119,6 +119,31 @@ export const faqs: FAQCategory[] = [
     ],
   },
   {
+    category: "Interior Carpentry",
+    items: [
+      {
+        q: "Who installs wainscoting, trim, and built-ins in Vancouver, WA?",
+        a: "Handy Pioneers does finish carpentry across Vancouver and Clark County: baseboard, casing, and crown, wainscoting and board and batten, built-in shelving and window seats, and cabinet installation. Every project starts with a walkthrough and a written scope. See handypioneers.com/services/carpentry-trim for the full list.",
+      },
+      {
+        q: "Can you install cabinets my interior designer ordered?",
+        a: "Yes. We install cabinets that you or your designer supply, whether stock, semi-custom, or custom. We check the delivery against the plan, set everything level into the framing, scribe fillers and panels to the walls, and finish with crown and hardware. We do not manufacture cabinets; we build site-made built-ins like bookcases and window seats.",
+      },
+      {
+        q: "Do you work with interior designers?",
+        a: "Yes, often. Send the designer's drawings and selections. We walk the space, flag anything the walls or floors will not allow, and build to the plan. The designer owns the look; we are responsible for how it is built.",
+      },
+      {
+        q: "Is winter a good time for interior carpentry in the Pacific Northwest?",
+        a: "Yes. Trim, wainscoting, built-ins, and cabinet installation happen indoors, so the rain does not delay them, which makes October through March a practical time to book. We let wood materials acclimate to your home before installing, because heated winter air is drier and wood moves as it adjusts.",
+      },
+      {
+        q: "Do I need a permit to add trim, wainscoting, or built-ins?",
+        a: "Finish work like trim, paneling, shelving, and cabinets generally does not need a building permit on its own. Moving walls, plumbing, or electrical is different and can require one. We tell you what applies to your project before work starts.",
+      },
+    ],
+  },
+  {
     category: "Common Home Problems (Pacific Northwest)",
     items: [
       {

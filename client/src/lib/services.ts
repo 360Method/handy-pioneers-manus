@@ -111,7 +111,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "interior-painting"],
+    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "built-ins", "interior-painting"],
     costHub: "remodel",
   },
   {
@@ -162,7 +162,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a kitchen remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["bathroom-remodel", "remodeling", "flooring", "carpentry-trim"],
+    relatedServiceSlugs: ["bathroom-remodel", "cabinet-installation", "remodeling", "carpentry-trim"],
     costKey: "kitchen",
   },
   {
@@ -561,39 +561,227 @@ export const SERVICES: ServiceDef[] = [
   },
   {
     slug: "carpentry-trim",
-    name: "Carpentry & Trim",
+    name: "Finish Carpentry & Trim",
     serviceType: "Finish Carpentry and Trim",
-    h1: "Carpentry & Trim Work in Clark County, WA",
+    h1: "Finish Carpentry & Trim in Vancouver, WA & Clark County",
     seoTitle: "Finish Carpentry & Trim in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Finish carpentry and trim for Clark County, WA: doors, baseboards, crown, built-ins, and the detail work that reads as quality. Serving Vancouver WA.",
+      "Finish carpentry for Clark County, WA homes: trim, crown, wainscoting, built-ins, and cabinet installation. We work alongside your interior designer.",
     image: "https://handypioneers.com/images/blog/service-carpentry-trim.webp",
-    imageAlt: "Finished interior trim and millwork",
+    imageAlt: "Painted interior trim, crown molding, and a built-in bookcase in a finished living room",
     intro: [
-      "Trim and finish carpentry is where a home either reads as well-built or not. The joints, the reveals, the way a casing meets a baseboard, those details are what the eye picks up even when no one can name why.",
-      "We handle finish carpentry and trim with the patience that work deserves, from a single repair to a whole home.",
+      "Trim and finish carpentry is where a home either reads as well built or not. The joints, the reveals, the way a casing meets a baseboard: those are the details the eye picks up even when no one can say why a room feels finished.",
+      "Handy Pioneers handles interior finish carpentry across Vancouver and Clark County: baseboard, casing, and crown, wainscoting and wall paneling, built-in shelving and window seats, and installing the cabinets you or your designer have chosen. One point of contact, a written scope before we start, and the patience this kind of work needs.",
+      "Many of our carpentry clients already have an interior designer. That is a good start, not a complication. We take the designer's drawings and selections, confirm what the walls and floors will actually allow, and build it to the plan. And because this is indoor work, fall and winter are a strong time to get it done while the rain keeps everyone inside.",
     ],
     whatsIncluded: [
-      "Baseboards, casing, crown, and door trim",
-      "Interior and exterior door hanging and adjustment",
-      "Built-ins, shelving, and custom details",
-      "Repair and replacement of damaged trim and millwork",
+      "Baseboard, door and window casing, and crown molding, new or matched to what you have",
+      "Wainscoting, board and batten, shiplap, and picture-frame wall molding",
+      "Built-in shelving, bookcases, window seats, mudroom benches, and media walls",
+      "Installation of cabinets supplied by you or your designer, including scribing, crown, and hardware",
+      "Interior door hanging, adjustment, and replacement",
+      "Repair and replacement of damaged trim and millwork, matched to the existing profile",
+      "Caulk, fill, and paint-ready prep so the finish coat looks right the first time",
     ],
     signsYouNeedThis: [
       "Gaps, cracks, or separated joints in existing trim",
-      "Doors that stick, rub, or no longer latch cleanly",
-      "Dated or damaged baseboards and casing",
-      "A space that would benefit from built-in storage",
+      "Builder-grade baseboard and casing that make the rest of the home look unfinished",
+      "Plain walls in a dining room, entry, or stairway that need character",
+      "Not enough storage, and a wall or alcove that could hold a built-in",
+      "Your designer has a plan and you need a carpenter to build it",
     ],
     faq: [
       {
-        q: "Do you handle small trim repairs as well as full jobs?",
-        a: "Yes. Whether it is one damaged casing or trim throughout a remodel, the same standard applies to the joints and the finish.",
+        q: "Do you work with my interior designer?",
+        a: "Yes, and we like it. Send us the designer's drawings, elevations, and selections. We walk the space, flag anything the walls or floors will not allow before it becomes a problem, and build to the plan. Your designer stays in charge of the look; we are responsible for how it is built.",
+      },
+      {
+        q: "Is fall or winter a good time for interior carpentry?",
+        a: "Yes. Interior trim, built-ins, and cabinet work are not held up by rain, so the wet season is a practical time to schedule them. We let wood materials acclimate to your home before we install them, which matters more when the heat is on and indoor air is drier.",
+      },
+      {
+        q: "Do you build cabinets?",
+        a: "We install cabinets that you or your designer supply, and we build site-made built-ins like shelving, bookcases, window seats, and benches. We do not manufacture cabinet boxes in a shop. If you need cabinets, we are glad to install the line your designer specifies.",
+      },
+      {
+        q: "Can you match the trim I already have?",
+        a: "Usually, yes. Many common profiles are still stocked. For older or unusual profiles, we match as closely as the available stock allows and tell you up front where a match will not be exact, so there are no surprises on install day.",
+      },
+      {
+        q: "Do you handle small trim repairs as well as whole-home trim?",
+        a: "Yes. Whether it is one damaged casing or new trim throughout the house, the same standard applies to the joints and the finish.",
+      },
+      {
+        q: "Do you paint the trim you install?",
+        a: "We can. We leave every joint filled, caulked, and sanded so it is ready for paint, and we can finish it ourselves or hand it off paint-ready to your painter.",
+      },
+      {
+        q: "What areas do you serve for carpentry work?",
+        a: "All of Clark County, WA, including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center.",
       },
     ],
     membershipTieIn:
-      "Small carpentry fixes are easy to fold into an ongoing Proactive Path relationship before they become eyesores.",
-    relatedServiceSlugs: ["remodeling", "doors-windows", "interior-painting"],
+      "Proactive Path members fold small carpentry fixes into their seasonal visits, so a loose casing or a sticking door gets handled before it becomes an eyesore.",
+    relatedServiceSlugs: ["built-ins", "wainscoting", "cabinet-installation", "interior-painting"],
+  },
+  {
+    slug: "built-ins",
+    name: "Built-In Shelving & Built-Ins",
+    serviceType: "Built-In Shelving and Cabinetry",
+    h1: "Built-In Shelving & Built-Ins in Vancouver, WA & Clark County",
+    seoTitle: "Built-In Shelving & Bookcases in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Custom built-in shelving, bookcases, window seats, mudroom benches, and media walls for Clark County, WA homes. Built on site to fit your walls.",
+    image: "https://handypioneers.com/images/blog/service-built-ins.webp",
+    imageAlt: "A painted built-in bookcase with open shelves and lower cabinet doors beside a window seat",
+    intro: [
+      "A good built-in looks like it came with the house. It fits the wall exactly, lines up with the trim around it, and holds what you put on it for decades without the shelves bowing. A bad one looks like furniture pushed against a wall.",
+      "We build built-ins on site, in your home, so they fit the room you actually have: walls that are not quite plumb, floors that are not quite level, and a window casing that sits a half inch off from the drawing. Bookcases flanking a fireplace, a window seat with storage underneath, a mudroom bench with hooks and cubbies, a media wall, or simple floating shelves done right.",
+      "If you are working with an interior designer, we build to their elevations. If you are not, we sketch it with you, confirm the dimensions on site, and put a written scope in front of you before we cut anything.",
+    ],
+    whatsIncluded: [
+      "Bookcases and shelving built into alcoves, beside fireplaces, or around windows",
+      "Window seats with lift-top or drawer storage",
+      "Mudroom benches, lockers, hooks, and cubbies",
+      "Media walls and entertainment built-ins with cable management planned in",
+      "Shelf spans and materials chosen so shelves do not sag under books",
+      "Scribed to your walls and trimmed to match the room, ready for paint or stain",
+    ],
+    signsYouNeedThis: [
+      "An empty alcove or the wall beside a fireplace that could be storage",
+      "A drop zone by the door that is a pile of shoes and bags",
+      "Freestanding bookcases that wobble or never quite fit the space",
+      "A bay or bump-out window that begs for a seat",
+      "Your designer has drawn a built-in and you need someone to build it",
+    ],
+    faq: [
+      {
+        q: "Are your built-ins made on site or in a shop?",
+        a: "On site. We build and fit them in your home so they conform to your actual walls, floors, and trim. That is what makes a built-in look original to the house instead of added later.",
+      },
+      {
+        q: "How do you keep long shelves from sagging?",
+        a: "Shelf sag comes down to the span, the material, and the load. We size the span and thickness for what the shelf will hold, add a face frame or a hidden support where a long shelf needs it, and avoid the thin, wide shelves that bow under a row of books.",
+      },
+      {
+        q: "Can you build to my interior designer's drawings?",
+        a: "Yes. We review the elevations and selections, confirm the dimensions on site, flag anything the room will not allow, and build to the plan.",
+      },
+      {
+        q: "Paint-grade or stain-grade?",
+        a: "Both are possible. Painted built-ins are the most common and let us use stable materials that stay flat. Stain-grade uses real hardwood throughout and takes more material and more careful work. We walk you through the tradeoff during the consultation.",
+      },
+      {
+        q: "What does a built-in cost?",
+        a: "It depends on the size, the materials, doors and drawers versus open shelves, and the finish. Rather than guess at a number sight unseen, we measure the space and give you a written scope and price so you can decide with the full picture.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get their built-ins checked on seasonal visits: doors adjusted, hardware tightened, and touch-ups noted before wear shows.",
+    relatedServiceSlugs: ["carpentry-trim", "wainscoting", "cabinet-installation", "interior-painting"],
+  },
+  {
+    slug: "wainscoting",
+    name: "Wainscoting & Wall Paneling",
+    serviceType: "Wainscoting and Wall Paneling Installation",
+    h1: "Wainscoting & Wall Paneling in Vancouver, WA & Clark County",
+    seoTitle: "Wainscoting Installation in Clark County WA | Handy Pioneers",
+    seoDesc:
+      "Wainscoting, board and batten, shiplap, and picture-frame molding installed in Clark County, WA homes. Laid out to the room and finished paint-ready.",
+    image: "https://handypioneers.com/images/blog/service-wainscoting.webp",
+    imageAlt: "A dining room with painted panel wainscoting below tall windows looking out on evergreens",
+    intro: [
+      "Wainscoting changes a room more than almost any other single project. A plain dining room, entry, or stairway picks up depth and a sense of craftsmanship, and the lower wall gets a surface that stands up to chairs, bags, and kids far better than bare drywall.",
+      "The difference between wainscoting that looks right and wainscoting that looks off is layout. Panels have to be spaced so they land evenly between corners, windows, and outlets, and the top rail has to hold a consistent height up a stair. We lay the whole room out before the first piece goes on the wall.",
+      "We install every common style: traditional raised or flat panel, board and batten, shiplap, beadboard, and picture-frame molding. If your designer has chosen a style, we build to it. If not, we help you pick one that suits the age and character of the house.",
+    ],
+    whatsIncluded: [
+      "Raised-panel and flat-panel (recessed) wainscoting",
+      "Board and batten, shiplap, and beadboard",
+      "Picture-frame and box molding on walls and stairways",
+      "Chair rail, cap rail, and base details that tie into existing trim",
+      "Room-by-room layout so panels space evenly around doors, windows, and outlets",
+      "Outlet box extensions and paint-ready prep: filled, caulked, and sanded",
+    ],
+    signsYouNeedThis: [
+      "A dining room, entry, or hallway that feels plain or unfinished",
+      "Scuffed and dinged lower walls in high-traffic spaces",
+      "A stairway wall that could use a finished, tailored look",
+      "An older home whose original paneling was removed and you want the character back",
+    ],
+    faq: [
+      {
+        q: "What is the difference between wainscoting, board and batten, and shiplap?",
+        a: "Wainscoting is any paneling on the lower part of a wall, traditionally raised or recessed panels under a chair rail. Board and batten uses flat panels with vertical strips over the seams for a simple, clean grid. Shiplap is horizontal boards with a small gap between them. They suit different homes, and we help you choose.",
+      },
+      {
+        q: "How high should wainscoting be?",
+        a: "There is no single right height. It depends on the ceiling height, the windows, and the style. Many homes put it around a third of the wall height, and taller treatments work well in rooms with high ceilings. We mock up the height on your wall so you can see it before we build.",
+      },
+      {
+        q: "Can wainscoting go in a bathroom?",
+        a: "Yes, with the right materials. In bathrooms and mudrooms we use moisture-resistant materials and seal every edge so the paneling holds up to humidity.",
+      },
+      {
+        q: "Will you move my outlets and switches?",
+        a: "We extend outlet and switch boxes so the covers sit flush with the new paneling. If a box needs to physically move, that is electrical work and we coordinate it with a licensed electrician.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get caulk lines and paneling joints checked on seasonal visits, so small gaps are closed before they show.",
+    relatedServiceSlugs: ["carpentry-trim", "built-ins", "interior-painting"],
+  },
+  {
+    slug: "cabinet-installation",
+    name: "Cabinet Installation",
+    serviceType: "Cabinet Installation",
+    h1: "Cabinet Installation in Vancouver, WA & Clark County",
+    seoTitle: "Cabinet Installation in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Kitchen, bath, and built-in cabinet installation for Clark County, WA. We install the cabinets you or your designer choose: level, scribed, and trimmed out.",
+    image: "https://handypioneers.com/images/blog/service-cabinet-installation.webp",
+    imageAlt: "Newly installed painted shaker kitchen cabinets with crown molding, ready for countertops",
+    intro: [
+      "Cabinets are only as good as their installation. The most expensive cabinet line in the showroom will look second-rate if the doors do not line up, the crown does not meet the ceiling evenly, or the filler strips are sloppy. Most kitchens have a floor that is not level and walls that are not straight, and the installer's job is to make that invisible.",
+      "Handy Pioneers installs the cabinets you or your interior designer have chosen, whether that is a stock line from a home center, semi-custom from a showroom, or a custom order. We check the delivery against the plan, set a level line, fasten into the framing, scribe fillers and end panels to the walls, and finish with crown, light rail, toe kick, and hardware.",
+      "To be clear about what we do: we install, we do not manufacture cabinets. That keeps the choice of cabinet line with you and your designer, and keeps our focus on making it fit.",
+    ],
+    whatsIncluded: [
+      "Kitchen, bathroom vanity, laundry, and pantry cabinet installation",
+      "Delivery check against the plan before install, so missing or damaged boxes are caught early",
+      "Level and plumb setup, secured into the wall framing",
+      "Scribed fillers, end panels, and toe kicks",
+      "Crown molding, light rail, and decorative trim on cabinets",
+      "Door and drawer alignment and hardware installation",
+      "Cabinets ready for countertop template",
+    ],
+    signsYouNeedThis: [
+      "Your designer has ordered cabinets and you need an installer",
+      "You bought cabinets and want them installed right, not just screwed to the wall",
+      "Existing cabinet doors that are crooked, sagging, or rubbing",
+      "A laundry room, pantry, or garage that needs cabinet storage added",
+    ],
+    faq: [
+      {
+        q: "Can you install cabinets my designer ordered?",
+        a: "Yes. That is most of our cabinet work. Send us the layout and the order, and we will review it before delivery so questions get answered before install day.",
+      },
+      {
+        q: "Do you sell or build cabinets?",
+        a: "No. We install cabinets you or your designer supply. For site-built storage like bookcases, window seats, and benches, see our built-ins service.",
+      },
+      {
+        q: "Do you install countertops too?",
+        a: "We coordinate the countertop template and install as part of a kitchen project so the sequence stays on track. Stone counters are templated and installed by the fabricator after the cabinets are set.",
+      },
+      {
+        q: "Do cabinet installs need a permit?",
+        a: "Replacing cabinets on their own usually does not. If the project moves plumbing, electrical, or walls, those parts may need permits, and we tell you what applies before work starts.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get cabinet doors and drawers adjusted on seasonal visits, and under-sink areas checked for leaks before they damage the boxes.",
+    relatedServiceSlugs: ["carpentry-trim", "kitchen-remodel", "built-ins", "bathroom-remodel"],
   },
   {
     slug: "doors-windows",
