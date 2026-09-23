@@ -51,7 +51,7 @@ export const CITIES: CityDef[] = [
       "Vancouver spans a wide range of homes, from the older cedar-sided houses near the downtown and Uptown core to the newer builds out in Fisher's Landing and Felida. The older stock tends to need rot and siding attention; the newer homes are usually about staying ahead of decks, paint, and drainage before our wet season finds the weak point.",
       "Whatever corner of Vancouver you're in, the constant is the rain. We help homeowners across the city keep water where it belongs, with repairs, restoration, and proactive care built for this climate.",
     ],
-    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "property-maintenance", "commercial-handyman"],
+    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "property-maintenance", "commercial-handyman"],
     seoTitle: "Home Repair & Maintenance in Vancouver, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Vancouver, WA: rot repair, deck restoration, painting, gutters, and proactive home care from Felida to Fisher's Landing.",
@@ -70,8 +70,9 @@ export const CITIES: CityDef[] = [
     intro: [
       "Camas is a tale of two housing stocks: the established homes around downtown and Lacamas Lake, and the larger newer builds up on Prune Hill and Grass Valley. The hillside homes catch wind-driven rain off the Gorge, which finds decks, window flashing, and exterior trim first.",
       "We help Camas homeowners protect homes that are often a significant investment, with careful remodeling, deck and rot work, and proactive maintenance that keeps the wet season from doing quiet damage.",
+      "Inside, Camas homes are where we do some of our best finish carpentry: trim and crown upgrades, wainscoting, built-in shelving, and cabinet installation, often alongside the homeowner's interior designer. It is indoor work, so fall and winter are a good time to book it.",
     ],
-    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
+    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
     seoTitle: "Home Repair & Remodeling in Camas, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Camas, WA: remodeling, deck and rot repair, painting, and proactive care for Prune Hill, Grass Valley, and downtown homes.",
@@ -90,8 +91,9 @@ export const CITIES: CityDef[] = [
     intro: [
       "Sitting right at the mouth of the Columbia River Gorge, Washougal gets more of the wind-driven rain than almost anywhere else in the county. That weather is hard on exterior wood, decks, and anything the flashing doesn't fully protect.",
       "We help Washougal homeowners stay ahead of that exposure with deck restoration, rot repair, exterior painting in the right window, and seasonal care that accounts for the Gorge winds.",
+      "When the rain settles in, the work moves inside. Fall and winter are when Washougal homeowners book finish carpentry: new trim and crown, wainscoting, built-in shelving, and installing the cabinets their designer has chosen.",
     ],
-    servicesOffered: ["deck-repair", "rot-repair", "exterior-painting", "gutter-services", "doors-windows", "property-maintenance"],
+    servicesOffered: ["deck-repair", "rot-repair", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "exterior-painting", "gutter-services", "doors-windows", "property-maintenance"],
     seoTitle: "Deck, Rot & Home Repair in Washougal, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Washougal, WA, where Gorge winds drive rain into exterior wood. Deck restoration, rot repair, and painting near the river.",
@@ -111,7 +113,7 @@ export const CITIES: CityDef[] = [
       "Ridgefield is one of the fastest-growing parts of the county, with a lot of newer construction near the wildlife refuge and wetlands. Newer homes are less about rot and more about staying ahead of the things that fail early when nobody is watching: decks, paint, drainage, and the seals around doors and windows.",
       "We help Ridgefield homeowners protect newer homes before small issues become expensive, with proactive maintenance, deck and paint care, and the occasional repair done right.",
     ],
-    servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel"],
+    servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "cabinet-installation"],
     seoTitle: "Home Maintenance & Repair in Ridgefield, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Ridgefield, WA: proactive maintenance, deck and paint care, gutters, and repairs that keep newer homes near the refuge sound.",
@@ -131,7 +133,7 @@ export const CITIES: CityDef[] = [
       "Battle Ground mixes established neighborhoods with newer development and a fair number of homes on larger lots. The wetter, tree-heavy setting means gutters, moss, and drainage do a lot of the quiet damage here if they're left alone through the winter.",
       "We help Battle Ground homeowners keep ahead of that, clearing and repairing gutters, treating moss, handling rot and deck work, and maintaining homes on a schedule instead of in emergencies.",
     ],
-    servicesOffered: ["gutter-services", "pressure-washing", "rot-repair", "deck-repair", "property-maintenance", "fencing"],
+    servicesOffered: ["gutter-services", "pressure-washing", "rot-repair", "deck-repair", "carpentry-trim", "built-ins", "property-maintenance", "fencing"],
     seoTitle: "Gutter, Rot & Home Repair in Battle Ground, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Battle Ground, WA: gutter cleaning, moss and pressure washing, and rot and deck work for a wet, tree-heavy setting.",

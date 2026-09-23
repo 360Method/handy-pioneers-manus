@@ -107,7 +107,7 @@ const services = [
   { icon: Shield, label: "Exterior Repairs & Siding", href: "/services/rot-repair" },
   { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/accessory-dwelling-units" },
   { icon: TreePine, label: "Pressure Washing & Moss Removal", href: "/services/pressure-washing" },
-  { icon: Hammer, label: "Carpentry & Custom Millwork", href: "/services/carpentry-trim" },
+  { icon: Hammer, label: "Finish Carpentry & Built-Ins", href: "/services/carpentry-trim" },
   { icon: Paintbrush, label: "Drywall & Texture", href: "/services" },
   { icon: Shield, label: "Gutter Cleaning & Repair", href: "/services/gutter-services" },
   { icon: Clock, label: "Proactive Maintenance Programs", href: "/services/property-maintenance" },
