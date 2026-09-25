@@ -18,7 +18,6 @@ interface Photo {
 }
 
 const photos: Photo[] = [
-  { id: 28, src: "/images/lvp-bedroom-before-after-2026-09.webp", caption: "Luxury vinyl plank flooring in a rental bedroom, ready for the next tenant", tag: "Before & After" },
   { id: 25, src: "/images/porch-post-before-after-camas-2026-08.webp", caption: "Porch post rot repair in Camas - a rotted base rebuilt and raised on a standoff base", tag: "Before & After" },
   { id: 26, src: "/images/porch-column-rot-repair-camas-2026-08.webp", caption: "Porch column rot repair in Camas - structural posts flashed, then new wraps and paint", tag: "Before & After" },
   { id: 27, src: "/images/porch-post-standoff-base-camas-2026-08.webp", caption: "Why porch posts rot - set straight into concrete, versus raised clear on a standoff base", tag: "Before & After" },
@@ -40,6 +39,7 @@ const photos: Photo[] = [
   { id: 15, src: "/images/hero-gallery/jPOgJPckBdaPcCPr.jpg", caption: "Room transformation with new flooring, light-colored paint, and window blinds", tag: "Before & After" },
   { id: 16, src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg", caption: "Attached ADU: a dated yellow bonus room turned into a unit with a full kitchen and laundry", tag: "Before & After" },
   { id: 18, src: "/images/hero-gallery/ryLhHcoLDKcrOody.jpg", caption: "Living room transformation with hardwood flooring, recessed lighting, and updated fireplace", tag: "Remodel" },
+  { id: 28, src: "/images/lvp-bedroom-before-after-2026-09.webp", caption: "Luxury vinyl plank flooring in a rental bedroom, ready for the next tenant", tag: "Before & After" },
   { id: 19, src: "/images/hero-gallery/xwDBZkjnyzCPfPzP.jpg", caption: "Bathroom transformation with new tiles, vanity, and modern fixtures", tag: "Before & After" },
   { id: 20, src: "/images/hero-gallery/NnOoZJHBczCXjeKB.jpg", caption: "Basement room transformation with new flooring, recessed lighting, and fresh paint", tag: "Before & After" },
   { id: 21, src: "/images/hero-gallery/pJHcMDChEQIqznEz.jpg", caption: "Clean and organized kitchen with white cabinets and stainless steel appliances", tag: "Remodel" },
