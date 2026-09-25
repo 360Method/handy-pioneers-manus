@@ -17,6 +17,7 @@ import HearthCallout from "@/components/hearth/HearthCallout";
 import HearthPaymentLine, { HearthPaymentExample } from "@/components/hearth/HearthPaymentLine";
 import { getPreset, presetsByCategory, highLevelBand, formatBand, financingAnchor } from "@/lib/remodelCost";
 import { localImage } from "@/lib/img";
+import PhotoLightbox, { type LightboxPhoto } from "@/components/PhotoLightbox";
 
 const ADU_HUB = "/services/accessory-dwelling-units";
 import NotFound from "./NotFound";
@@ -94,8 +95,17 @@ function Accordion({ q, a }: { q: string; a: string }) {
 export default function ServicePage() {
   const params = useParams<{ slug: string }>();
   const svc = getService(params.slug);
+  const [photoIndex, setPhotoIndex] = useState<number | null>(null);
   if (!svc) return <NotFound />;
   const costPreset = svc.costKey ? getPreset(svc.costKey) : undefined;
+  // Pages with a real-photo grid get a lightbox: the hero first, then the grid.
+  const hasGrid = !!svc.moreImages?.length;
+  const lightboxPhotos: LightboxPhoto[] = hasGrid
+    ? [
+        { src: localImage(svc.image) ?? svc.image, alt: svc.imageAlt, caption: svc.imageAlt },
+        ...svc.moreImages!.map((m) => ({ src: m.src, alt: m.alt, caption: m.caption })),
+      ]
+    : [];
 
   return (
     <>
@@ -131,12 +141,17 @@ export default function ServicePage() {
         {svc.image && (
           <div className="container max-w-3xl mx-auto px-6 -mt-10 md:-mt-12 relative z-10">
             <img
+              onClick={hasGrid ? () => setPhotoIndex(0) : undefined}
+              role={hasGrid ? "button" : undefined}
+              tabIndex={hasGrid ? 0 : undefined}
+              onKeyDown={hasGrid ? (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setPhotoIndex(0); } } : undefined}
+              aria-label={hasGrid ? `Open photo: ${svc.imageAlt}` : undefined}
               src={localImage(svc.image)}
               alt={svc.imageAlt}
               width={svc.imageSize?.width ?? 1600}
               height={svc.imageSize?.height ?? 900}
               loading="eager"
-              className="w-full rounded-2xl shadow-xl"
+              className={`w-full rounded-2xl shadow-xl${hasGrid ? " cursor-zoom-in" : ""}`}
               style={{
                 aspectRatio: svc.imageSize ? `${svc.imageSize.width} / ${svc.imageSize.height}` : "16 / 9",
                 objectFit: "cover",
@@ -249,17 +264,24 @@ export default function ServicePage() {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{svc.moreImagesTitle ?? `More of our ${svc.name.toLowerCase()} work`}</h2>
                 <div className="grid sm:grid-cols-2 gap-5">
-                  {svc.moreImages.map((img) => (
+                  {svc.moreImages.map((img, i) => (
                     <figure key={img.src}>
-                      <img
-                        src={img.src}
-                        alt={img.alt}
-                        width={img.width}
-                        height={img.height}
-                        loading="lazy"
-                        className="w-full rounded-xl shadow-md"
-                        style={{ border: "1px solid oklch(0.88 0.015 80)" }}
-                      />
+                      <button
+                        type="button"
+                        onClick={() => setPhotoIndex(i + 1)}
+                        className="block w-full cursor-zoom-in"
+                        aria-label={`Open photo: ${img.caption}`}
+                      >
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          width={img.width}
+                          height={img.height}
+                          loading="lazy"
+                          className="w-full rounded-xl shadow-md transition-transform hover:scale-[1.01]"
+                          style={{ border: "1px solid oklch(0.88 0.015 80)" }}
+                        />
+                      </button>
                       <figcaption className="text-sm mt-2" style={{ color: "oklch(0.40 0.03 80)" }}>{img.caption}</figcaption>
                     </figure>
                   ))}
@@ -370,6 +392,7 @@ export default function ServicePage() {
         <FinalCTA />
         <Footer />
       </div>
+      <PhotoLightbox photos={lightboxPhotos} index={photoIndex} onChange={setPhotoIndex} />
     </>
   );
 }
