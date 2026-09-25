@@ -124,7 +124,7 @@ const photos: Photo[] = [
   {
     id: 16,
     src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg",
-    caption: "Complete room transformation - empty yellow space to modern kitchen and laundry area",
+    caption: "Attached ADU: a dated yellow bonus room turned into a unit with a full kitchen and laundry",
     tag: "Before & After",
   },
   {
