@@ -247,7 +247,7 @@ export default function ServicePage() {
             {/* More of our work */}
             {svc.moreImages && svc.moreImages.length > 0 && (
               <div className="mb-12">
-                <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>More of our {svc.name.toLowerCase()} work</h2>
+                <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{svc.moreImagesTitle ?? `More of our ${svc.name.toLowerCase()} work`}</h2>
                 <div className="grid sm:grid-cols-2 gap-5">
                   {svc.moreImages.map((img) => (
                     <figure key={img.src}>
