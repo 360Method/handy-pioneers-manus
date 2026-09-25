@@ -27,6 +27,8 @@ export interface ServiceDef {
   imageAlt: string;
   /** Hero image pixel size when it is not the standard 1600x900 (16:9), e.g. a stacked before/after. */
   imageSize?: { width: number; height: number };
+  /** More real job photos, shown in a small grid after "What's included". Paths are site-relative. */
+  moreImages?: { src: string; alt: string; caption: string; width: number; height: number }[];
   intro: string[];
   whatsIncluded: string[];
   signsYouNeedThis: string[];
@@ -739,8 +741,25 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Flooring installation and replacement for Clark County, WA: hard surface, tile, and more, installed level and built to last. Serving Vancouver WA.",
-    image: "https://handypioneers.com/images/blog/service-flooring.webp",
-    imageAlt: "Newly installed hard-surface flooring across an open living room in a Clark County home",
+    image: "https://handypioneers.com/images/hero-gallery/ryLhHcoLDKcrOody.jpg",
+    imageSize: { width: 1440, height: 1440 },
+    imageAlt: "Before and after of a living room: worn carpet (top) replaced with wood-look plank flooring, with recessed lighting and an updated fireplace (bottom)",
+    moreImages: [
+      {
+        src: "/images/hero-gallery/VzlGuBOWFXHnpjig.jpg",
+        alt: "Before and after of a living room and kitchen opening: old carpet and dark trim replaced with wood-look plank flooring, white trim, and fresh paint",
+        caption: "Living room and entry, carpet out and plank flooring in, with new trim and paint",
+        width: 1440,
+        height: 1440,
+      },
+      {
+        src: "/images/lvp-bedroom-before-after-2026-09.webp",
+        alt: "Before and after of a rental bedroom: worn patterned vinyl replaced with gray luxury vinyl plank flooring",
+        caption: "A rental bedroom refloored with luxury vinyl plank, ready for the next tenant",
+        width: 1536,
+        height: 1024,
+      },
+    ],
     intro: [
       "Flooring is the surface you live on every day, and a poor install shows itself fast: gaps, squeaks, lippage, and edges that lift. The substrate prep matters as much as the material.",
       "We install and replace flooring with the prep and care that make it sit flat, transition cleanly, and last.",
