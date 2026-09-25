@@ -240,6 +240,38 @@ export default function ServicePage() {
               ))}
             </ul>
 
+            {/* How the process works */}
+            {svc.process && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold mb-3" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>How the process works</h2>
+                <p className="text-base mb-6" style={{ color: "oklch(0.34 0.02 80)" }}>{svc.process.intro}</p>
+                <ol className="space-y-4">
+                  {svc.process.steps.map((step, i) => (
+                    <li key={step.title} className="rounded-2xl border p-5 sm:p-6" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                      <div className="flex items-start gap-4">
+                        <span className="shrink-0 flex items-center justify-center w-9 h-9 rounded-full text-sm font-bold" style={{ backgroundColor: "oklch(0.22 0.07 160)", color: "oklch(0.98 0.01 80)" }}>{i + 1}</span>
+                        <div className="min-w-0">
+                          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1 mb-2">
+                            <h3 className="text-lg font-bold" style={{ color: "oklch(0.22 0.07 160)" }}>{step.title}</h3>
+                            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "oklch(0.55 0.12 65)" }}>{step.timeframe}</span>
+                          </div>
+                          <p className="text-base" style={{ color: "oklch(0.34 0.02 80)" }}>{step.detail}</p>
+                          {step.youDecide && (
+                            <p className="text-sm mt-3" style={{ color: "oklch(0.40 0.03 80)" }}>
+                              <span className="font-semibold" style={{ color: "oklch(0.32 0.07 160)" }}>Your part: </span>{step.youDecide}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+                {svc.process.note && (
+                  <p className="text-sm mt-5" style={{ color: "oklch(0.40 0.03 80)" }}>{svc.process.note}</p>
+                )}
+              </div>
+            )}
+
             {/* Signs you need this */}
             <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>Signs it's time</h2>
             <ul className="space-y-3 mb-12">
@@ -264,10 +296,10 @@ export default function ServicePage() {
               <div className="rounded-2xl p-7 mb-12" style={{ backgroundColor: "oklch(0.96 0.012 80)", border: "1px solid oklch(0.88 0.015 80)" }}>
                 <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>Rules &amp; resources</h2>
                 <p className="text-base mb-4" style={{ color: "oklch(0.34 0.02 80)" }}>
-                  We build to code and to the rules where you live, and we want you informed. ADU
-                  regulations are set by the state, the county, and your city, and they keep changing.
-                  These are the official sources. The first step on any ADU is confirming exactly what
-                  applies to your address, which we handle before any design or permit work.
+                  We build to code and to the rules where you live, and we want you informed. Building
+                  rules are set by the state, the county, and your city, and they keep changing. These
+                  are the official sources. The first step on any project like this is confirming exactly
+                  what applies to your address, which we handle before any design or permit work.
                 </p>
                 <ul className="space-y-2">
                   {svc.resources.map((r) => (

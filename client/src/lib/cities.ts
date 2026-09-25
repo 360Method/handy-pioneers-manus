@@ -51,7 +51,7 @@ export const CITIES: CityDef[] = [
       "Vancouver spans a wide range of homes, from the older cedar-sided houses near the downtown and Uptown core to the newer builds out in Fisher's Landing and Felida. The older stock tends to need rot and siding attention; the newer homes are usually about staying ahead of decks, paint, and drainage before our wet season finds the weak point.",
       "Whatever corner of Vancouver you're in, the constant is the rain. We help homeowners across the city keep water where it belongs, with repairs, restoration, and proactive care built for this climate.",
     ],
-    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "property-maintenance", "commercial-handyman"],
+    servicesOffered: ["rot-repair", "gutter-services", "deck-repair", "exterior-painting", "remodeling", "kitchen-remodel", "bathroom-remodel", "home-additions", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "property-maintenance", "commercial-handyman"],
     seoTitle: "Home Repair & Maintenance in Vancouver, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Vancouver, WA: rot repair, deck restoration, painting, gutters, and proactive home care from Felida to Fisher's Landing.",
@@ -72,7 +72,7 @@ export const CITIES: CityDef[] = [
       "We help Camas homeowners protect homes that are often a significant investment, with careful remodeling, deck and rot work, and proactive maintenance that keeps the wet season from doing quiet damage.",
       "Inside, Camas homes are where we do some of our best finish carpentry: trim and crown upgrades, wainscoting, built-in shelving, and cabinet installation, often alongside the homeowner's interior designer. It is indoor work, so fall and winter are a good time to book it.",
     ],
-    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
+    servicesOffered: ["remodeling", "kitchen-remodel", "bathroom-remodel", "home-additions", "carpentry-trim", "built-ins", "wainscoting", "cabinet-installation", "deck-repair", "rot-repair", "exterior-painting", "property-maintenance"],
     seoTitle: "Home Repair & Remodeling in Camas, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Camas, WA: remodeling, deck and rot repair, painting, and proactive care for Prune Hill, Grass Valley, and downtown homes.",
@@ -113,7 +113,7 @@ export const CITIES: CityDef[] = [
       "Ridgefield is one of the fastest-growing parts of the county, with a lot of newer construction near the wildlife refuge and wetlands. Newer homes are less about rot and more about staying ahead of the things that fail early when nobody is watching: decks, paint, drainage, and the seals around doors and windows.",
       "We help Ridgefield homeowners protect newer homes before small issues become expensive, with proactive maintenance, deck and paint care, and the occasional repair done right.",
     ],
-    servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel", "carpentry-trim", "built-ins", "cabinet-installation"],
+    servicesOffered: ["property-maintenance", "deck-repair", "exterior-painting", "gutter-services", "remodeling", "kitchen-remodel", "bathroom-remodel", "home-additions", "carpentry-trim", "built-ins", "cabinet-installation"],
     seoTitle: "Home Maintenance & Repair in Ridgefield, WA | Handy Pioneers",
     seoDesc:
       "Handy Pioneers serves Ridgefield, WA: proactive maintenance, deck and paint care, gutters, and repairs that keep newer homes near the refuge sound.",
