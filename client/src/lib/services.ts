@@ -29,6 +29,8 @@ export interface ServiceDef {
   imageSize?: { width: number; height: number };
   /** More real job photos, shown in a small grid after "What's included". Paths are site-relative. */
   moreImages?: { src: string; alt: string; caption: string; width: number; height: number }[];
+  /** Heading for the moreImages grid when "More of our <name> work" would read wrong. */
+  moreImagesTitle?: string;
   intro: string[];
   whatsIncluded: string[];
   signsYouNeedThis: string[];
@@ -1272,6 +1274,30 @@ export const SERVICES: ServiceDef[] = [
       "Build an ADU in Clark County, WA: garage and basement conversions, attached suites, and detached units. Washington now allows up to two ADUs per lot.",
     image: "https://handypioneers.com/images/blog/service-adu.webp",
     imageAlt: "A detached accessory dwelling unit in the backyard of a Clark County home",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/garage-adu-exterior.webp",
+        alt: "Before and after: a two-car garage door replaced with siding, two windows, and an entry door as part of a garage-to-ADU conversion",
+        caption: "Garage to attached ADU, outside: the garage door came out and the opening was framed in with siding, two windows, and an entry door",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/attached-adu-interior.webp",
+        alt: "Before and after: a dated yellow bonus room turned into an ADU with a full kitchen and stacked laundry",
+        caption: "Garage to attached ADU, inside: a dated room turned into a unit with a full kitchen, stacked laundry, and new flooring",
+        width: 900,
+        height: 864,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "An accessory dwelling unit is a second, smaller home on your property: a converted garage or basement, a suite attached to the house, or a standalone unit in the backyard. Homeowners build them for aging parents, adult kids, a private home office, or rental income, and Washington just made them far easier to add.",
       "Under state law (HB 1337), most Clark County lots that allow a single-family home can now have up to two ADUs, with no requirement that you live on the property, and cities cannot cap an ADU below 1,000 square feet. That turns an ADU from a special-case project into one of the strongest moves a homeowner can make on their property's value and income.",
@@ -1330,6 +1356,37 @@ export const SERVICES: ServiceDef[] = [
     image: "https://handypioneers.com/images/garage-conversion-adu-exterior.webp",
     imageSize: { width: 1440, height: 1440 },
     imageAlt: "Before and after of a garage we converted into an attached ADU: the two-car garage door (top) replaced with siding, two windows, and an entry door (bottom)",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/attached-adu-interior.webp",
+        alt: "Before and after: a dated yellow bonus room turned into an ADU with a full kitchen and stacked laundry",
+        caption: "Garage to attached ADU, inside: a dated room turned into a unit with a full kitchen, stacked laundry, and new flooring",
+        width: 900,
+        height: 864,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-cooking-wall.webp",
+        alt: "Before and after: a bare lower-level wall turned into a cooking wall with a refrigerator, sink, butcher block counter, and open shelving",
+        caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall with fridge, sink, counter, and open shelving",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-storage-room.webp",
+        alt: "Before and after: a paneled lower-level storage room turned into a kitchenette with white cabinets and new flooring",
+        caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets, a sink, and new flooring",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "Converting a garage or basement is usually the most affordable way to add an ADU, because the walls, roof, and foundation are already there. You are paying to finish and outfit the space, not to build a structure from the ground up.",
       "The before and after below is a two-car garage we converted into an attached ADU. The garage door came out, and the opening was framed in with new siding, two windows, and an entry door, so from the street it reads as part of the house. Inside, it became a real living unit with a full kitchen and stacked laundry; you can see the interior on our attached ADU page.",
@@ -1377,6 +1434,37 @@ export const SERVICES: ServiceDef[] = [
     image: "https://handypioneers.com/images/attached-adu-before-after-stacked.webp",
     imageSize: { width: 1440, height: 1383 },
     imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room (top) turned into a unit with a full kitchen and stacked laundry (bottom)",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/garage-adu-exterior.webp",
+        alt: "Before and after: a two-car garage door replaced with siding, two windows, and an entry door as part of a garage-to-ADU conversion",
+        caption: "Garage to attached ADU, outside: the garage door came out and the opening was framed in with siding, two windows, and an entry door",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-cooking-wall.webp",
+        alt: "Before and after: a bare lower-level wall turned into a cooking wall with a refrigerator, sink, butcher block counter, and open shelving",
+        caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall with fridge, sink, counter, and open shelving",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-storage-room.webp",
+        alt: "Before and after: a paneled lower-level storage room turned into a kitchenette with white cabinets and new flooring",
+        caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets, a sink, and new flooring",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
       "The before and after below is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout. From the street, the same unit used to be the home's two-car garage; the exterior before and after is on our garage conversion page.",
