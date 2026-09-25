@@ -1358,7 +1358,7 @@ export const SERVICES: ServiceDef[] = [
     imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room (top) turned into a unit with a full kitchen and stacked laundry (bottom)",
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
-      "The photo above is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout.",
+      "The before and after below is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout.",
       "It is the middle path between converting existing space and building a detached unit. You get more square footage than a conversion and more independence than a spare bedroom, tied into the home's structure and systems.",
       "Because it adds real, livable square footage, an attached suite is also a strong move on your home's value and flexibility. We scope it to fit how your family actually lives now and how the space can serve you later, whether that is aging parents today and rental or resale value down the road.",
     ],
