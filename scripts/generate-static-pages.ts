@@ -521,6 +521,22 @@ function financingJsonLd(): object[] {
 
 // ─── service pages ────────────────────────────────────────────────────────────
 
+function serviceProcessHtml(svc: ServiceDef): string {
+  if (!svc.process) return "";
+  const steps = svc.process.steps
+    .map(
+      (s) =>
+        `<li><h3>${esc(s.title)} (${esc(s.timeframe)})</h3><p>${esc(s.detail)}</p>` +
+        (s.youDecide ? `<p><strong>Your part:</strong> ${esc(s.youDecide)}</p>` : "") +
+        `</li>`
+    )
+    .join("");
+  return (
+    `<h2>How the process works</h2><p>${esc(svc.process.intro)}</p><ol>${steps}</ol>` +
+    (svc.process.note ? `<p>${esc(svc.process.note)}</p>` : "")
+  );
+}
+
 function serviceBodyHtml(svc: ServiceDef): string {
   const parts = [
     `<article>`,
@@ -530,6 +546,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
     serviceCostHtml(svc),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    serviceProcessHtml(svc),
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,
     ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
@@ -538,7 +555,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
   if (svc.resources?.length) {
     parts.push(
       `<h2>Rules &amp; resources</h2>`,
-      `<p>We build to code and to the rules where you live. ADU regulations are set by the state, the county, and your city, and they keep changing. These are the official sources; the first step on any ADU is confirming exactly what applies to your address, which we handle.</p>`,
+      `<p>We build to code and to the rules where you live. Building rules are set by the state, the county, and your city, and they keep changing. These are the official sources; the first step on any project like this is confirming exactly what applies to your address, which we handle.</p>`,
       `<ul>` +
         svc.resources.map((r) => `<li><a href="${esc(r.url)}" rel="noopener">${esc(r.label)}</a></li>`).join("") +
         `</ul>`

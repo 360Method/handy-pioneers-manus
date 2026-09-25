@@ -43,6 +43,27 @@ export interface ServiceDef {
   costHub?: "remodel" | "adu";
   /** Official rules/permitting links shown in a "Rules & resources" section. */
   resources?: { label: string; url: string }[];
+  /**
+   * Optional "How the process works" section: the phases a project moves
+   * through, in order, with a planning timeframe and what the homeowner decides
+   * or provides in each. Used on big-ticket pages (ADUs, additions, remodels)
+   * so clients know what to expect before the first meeting.
+   */
+  process?: {
+    intro: string;
+    steps: ProcessStep[];
+    /** Honest note on what moves the timeline, shown under the steps. */
+    note?: string;
+  };
+}
+
+export interface ProcessStep {
+  title: string;
+  /** Planning range, e.g. "2 to 4 weeks". Never a promise; the written schedule sets dates. */
+  timeframe: string;
+  detail: string;
+  /** What the homeowner decides or provides in this phase. */
+  youDecide?: string;
 }
 
 /**
@@ -61,6 +82,263 @@ export const ADU_RESOURCES: { label: string; url: string }[] = [
   { label: "City of Ridgefield", url: "https://www.ridgefieldwa.us/" },
   { label: "City of Battle Ground", url: "https://www.cityofbg.org/" },
 ];
+
+/**
+ * Official process sources shared by the ADU and addition pages. All URLs
+ * verified live 2026-09-24.
+ */
+export const BUILD_PROCESS_RESOURCES: { label: string; url: string }[] = [
+  { label: "City of Vancouver: Residential Building Permits (the 5-step permit process)", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/" },
+  { label: "Clark County: Accessory Dwelling Unit (urban) rules and permit steps", url: "https://clark.wa.gov/community-development/accessory-dwelling-unit-urban" },
+  { label: "Clark County: Typical New Home and Remodel Inspections", url: "https://clark.wa.gov/community-development/typical-new-home-and-remodel-inspections" },
+  { label: "Washington State: Permit review time limits (RCW 36.70B.080)", url: "https://app.leg.wa.gov/rcw/default.aspx?cite=36.70b.080" },
+];
+
+const ADU_TIMELINE_NOTE =
+  "Timeframes are planning ranges, not promises. What moves them most: how quickly design decisions get made, whether the permit application is complete the first time (Washington law gives cities and counties 65 days to decide a complete application that needs no public notice), utility and site conditions, and material lead times. Your written schedule sets the real dates.";
+
+/** ADU overview page: the full path from idea to move-in. */
+export const ADU_PROCESS: ServiceDef["process"] = {
+  intro:
+    "Every ADU, whether a conversion, an attached suite, or a detached cottage, moves through the same six phases. Knowing them up front is how you avoid the two most common ADU problems: designing something your lot does not allow, and starting construction before the budget and the permit are both settled.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We walk the property and check what your specific lot allows: zoning, size limits, setbacks and separation from other buildings, and where water, sewer, and power can come from. In Vancouver the city asks for a Request for Utility Services before a permit application, so utility questions get answered here, not halfway through design. You leave with the ADU type that fits, a planning budget, and the open questions.",
+      youDecide: "Your goal (family, rental, office), the type you want to pursue, and a working budget.",
+    },
+    {
+      title: "Design and drawings",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "The layout becomes a permit-ready plan set: site plan, floor plans, foundation and framing plans, elevations, and the energy code forms Washington requires. Engineering is added where the structure calls for it. This is where the big material choices get made, because they are drawn into the plans.",
+      youDecide: "Layout, window and door placement, exterior materials, heating type, and the finish level that sets your budget.",
+    },
+    {
+      title: "Permit application and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "We submit the plan set to the City of Vancouver or Clark County (or your city) and answer reviewer comments. Vancouver's process runs application, prescreen, technical plan review, approval with final fees, and permit issuance. A complete, well-drawn application is the single biggest thing that keeps this phase short.",
+      youDecide: "Sign the application and approve any changes a reviewer asks for.",
+    },
+    {
+      title: "Fixed scope and contract",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "With approved plans in hand, the price is built from the actual drawings, not a guess. You get a written scope, a payment schedule tied to construction milestones, and a start date. Materials with long lead times, like windows and cabinets, get ordered now.",
+      youDecide: "Final selections and signing the contract.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "2 to 8 months, by type",
+      detail:
+        "The build runs in the order the inspectors check it: foundation, framing, rough plumbing, mechanical, and electrical, insulation, drywall, then finishes. Each inspection has to pass before the next stage is covered up. A conversion is the shortest build because the shell exists; a detached unit is the longest because it starts from bare ground.",
+      youDecide: "Walkthroughs at key milestones and any change you want to make, in writing, before it is built.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "Final inspection closes the permit, and in unincorporated Clark County a Certificate of Occupancy comes before anyone moves in. You get a walkthrough of the finished unit, the documents and warranties, and a record of what was built and where, which matters for rental, insurance, and resale.",
+      youDecide: "Your final walkthrough punch list.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Garage and basement conversions. */
+export const ADU_CONVERSION_PROCESS: ServiceDef["process"] = {
+  intro:
+    "A conversion is the fastest ADU path because the walls, roof, and foundation already exist. The work is making an unheated space into a legal home, and that is where the code details decide the project.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We check the space against what a living unit needs. In Vancouver, converted living space needs a finished ceiling of at least 6 feet 8 inches and legal egress windows, and each unit needs its own lockable door. We also look at the slab, moisture, and how plumbing will reach the new bathroom and kitchen, since that often sets the budget.",
+      youDecide: "Whether the garage or basement is worth converting versus another ADU type.",
+    },
+    {
+      title: "Design and drawings",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "The plan set shows the new layout, egress, insulation, and heating. A garage becoming heated space must be brought fully up to the Washington State Energy Code, so walls, ceiling, and often the floor get insulated to current standards, and the garage door opening is usually framed in as a wall with windows.",
+      youDecide: "Layout, kitchen size, finish level, and how the old garage door opening becomes a wall.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "We submit to your city or the county and answer comments. If the unit shares utilities with the main house, Vancouver requires separate shutoffs for each unit and independent temperature control, and a water meter worksheet comes with the permit.",
+      youDecide: "Approve any reviewer-driven changes.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "2 to 4 months",
+      detail:
+        "Framing and egress openings, rough plumbing and electrical, insulation, drywall, then the kitchen, bath, flooring, and trim. Inspections sign off each stage before it is closed in.",
+      youDecide: "Milestone walkthroughs and final selections on time so the schedule holds.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of the work for rental and resale.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Attached ADUs and mother-in-law suites. */
+export const ADU_ATTACHED_PROCESS: ServiceDef["process"] = {
+  intro:
+    "An attached suite is part addition, part ADU. It ties into the house's roof, walls, and systems, so the plan has to protect both homes: the new suite and the one you are living in during the build.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We confirm where the suite can go on your lot, how its roofline meets the house, and how it gets its own entrance. We also plan the separation between the two homes. In Vancouver, an attached ADU needs 1-hour fire-rated construction and a sound rating (STC/IIC 45) between the units, and each unit needs its own lockable door.",
+      youDecide: "Where the suite goes, how it connects to the house, and your budget.",
+    },
+    {
+      title: "Design and drawings",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "The plan set covers the foundation, framing, roof tie-in, fire and sound separation, and energy code forms. This is where exterior materials get chosen to match the house, so the addition does not look added.",
+      youDecide: "Layout, kitchen or kitchenette, bathroom, and exterior finishes that match the home.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail: "We submit to your city or the county, answer reviewer comments, and pay final fees at approval. The permit is issued before any work starts.",
+      youDecide: "Approve any changes a reviewer asks for.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "4 to 6 months",
+      detail:
+        "Foundation, framing, and the roof tie-in come first so the house is weather-tight again as fast as possible. Then rough plumbing, mechanical, and electrical, insulation, drywall, and finishes, with an inspection at each stage.",
+      youDecide: "Plan for noise and access on the side of the house being built on; we stage the work to keep the rest of the home usable.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of the build.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Detached ADUs: the full ground-up sequence. */
+export const ADU_DETACHED_PROCESS: ServiceDef["process"] = {
+  intro:
+    "A detached ADU is a complete small house, so it follows the same sequence as any new home, only smaller. Here is every phase in order, with the inspection points that set the pace of the build.",
+  steps: [
+    {
+      title: "Walkthrough and site feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We check where the unit can sit: setbacks, size limits (Vancouver and unincorporated Clark County both cap most ADUs at 1,000 square feet), and separation from the house. In Vancouver a detached ADU must be at least 10 feet from other structures, or add sprinklers or fire-rated construction. We also map the utility runs, because trenching water, sewer, and power across a yard is a real part of the cost.",
+      youDecide: "Unit size, where it goes in the yard, and your budget.",
+    },
+    {
+      title: "Design and drawings",
+      timeframe: "6 to 10 weeks",
+      detail:
+        "A full plan set: site plan, foundation, framing, roof, elevations, and the Washington energy code forms, plus engineering where needed. New construction has to earn energy credits under the state energy code, which shapes insulation, windows, and heating choices.",
+      youDecide: "Floor plan, exterior look, window package, heating type, and finish level.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "We submit to the city or county and answer reviewer comments. Impact fees for ADUs are reduced by state law: no more than half of what a new house would pay. Vancouver charges 50 percent, and unincorporated Clark County waives 75 percent of its transportation, school, and park impact fees. If the unit needs its own water and sewer connection, connection charges apply.",
+      youDecide: "Approve reviewer changes and the final fee total.",
+    },
+    {
+      title: "Site work and foundation",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "Erosion control, excavation, utility trenching, footings, and foundation. Inspectors check setbacks and footing steel before concrete, and footing drains before backfill.",
+    },
+    {
+      title: "Framing, roof, and dry-in",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "Floor, walls, and roof framing, sheathing, windows, and roofing until the unit is weather-tight. In our wet climate, getting to dry-in fast protects everything that follows.",
+    },
+    {
+      title: "Rough-ins, insulation, and drywall",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "Rough plumbing, mechanical, and electrical, each inspected before the walls close. Then insulation (inspected), drywall, and the drywall nailing inspection.",
+    },
+    {
+      title: "Finishes and exterior",
+      timeframe: "4 to 8 weeks",
+      detail: "Cabinets, counters, flooring, tile, trim, paint, fixtures, siding and trim outside, and final grading.",
+      youDecide: "Final finish selections on time; late changes are the most common cause of delay.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "Final inspection closes the permit; in unincorporated Clark County a Certificate of Occupancy comes before anyone lives there. You get the documents, warranties, and a record of the build.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Home additions. */
+export const ADDITION_PROCESS: ServiceDef["process"] = {
+  intro:
+    "An addition is new construction attached to a house you are living in. The process protects both: the new space gets built right, and your home is opened to the weather for as short a time as possible.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We start with the need, not the footprint. Sometimes a remodel of the space you have solves it for less. When an addition is the answer, we check setbacks and zoning for your lot, how the new roof meets the old one, and what the existing foundation and framing will support.",
+      youDecide: "What the new space has to do, and a working budget.",
+    },
+    {
+      title: "Design and drawings",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "The plan set includes a site plan, foundation and framing plans, wall sections, elevations, lateral (wind and earthquake) bracing or engineering, and energy code forms. Additions over 150 square feet have to earn energy credits under the Washington State Energy Code, which shapes insulation, windows, and heating.",
+      youDecide: "Layout, windows, how the exterior matches the house, and finish level.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "In Vancouver an addition needs a residential building permit with a stormwater form, energy code compliance, and the full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit, which bundles the plumbing, mechanical, and connection permits.",
+      youDecide: "Approve any reviewer-driven changes.",
+    },
+    {
+      title: "Fixed scope and contract",
+      timeframe: "1 to 2 weeks",
+      detail: "Pricing built from approved drawings, a written scope, a milestone payment schedule, and a start date. Long-lead materials get ordered.",
+      youDecide: "Final selections and signing.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "3 to 6 months",
+      detail:
+        "Foundation, framing, roof tie-in, and dry-in first, so the opening into your home is closed quickly. Then rough plumbing, mechanical, and electrical, insulation, drywall, and finishes, with an inspection at each stage. We break through into the existing house as late as practical to keep dust and weather out.",
+      youDecide: "Plan for noise and access near the work area.",
+    },
+    {
+      title: "Final inspection and handoff",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of what was built.",
+    },
+  ],
+  note:
+    "Timeframes are planning ranges, not promises. Design decisions, a complete permit application, weather during the dry-in, and material lead times move them most. Your written schedule sets the real dates.",
+};
 
 export const SERVICES: ServiceDef[] = [
   {
@@ -111,7 +389,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "built-ins", "interior-painting"],
+    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "home-additions", "flooring", "carpentry-trim", "built-ins"],
     costHub: "remodel",
   },
   {
@@ -1013,7 +1291,8 @@ export const SERVICES: ServiceDef[] = [
       "Once your ADU is built, the Proactive Path keeps it and the main home maintained and documented on a schedule, so a rental-ready unit stays rental-ready.",
     relatedServiceSlugs: ["adu-garage-conversion", "mother-in-law-suite", "detached-adu", "remodeling"],
     costHub: "adu",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_PROCESS,
   },
   {
     slug: "adu-garage-conversion",
@@ -1057,7 +1336,8 @@ export const SERVICES: ServiceDef[] = [
       "After the conversion, the Proactive Path keeps the new unit and the main home maintained on a schedule, so it holds its value and stays rentable.",
     relatedServiceSlugs: ["accessory-dwelling-units", "mother-in-law-suite", "detached-adu"],
     costKey: "adu-garage-conversion",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_CONVERSION_PROCESS,
   },
   {
     slug: "mother-in-law-suite",
@@ -1099,9 +1379,10 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Once the suite is built, the Proactive Path keeps it and the main home maintained and documented on a schedule.",
-    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu"],
+    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu", "home-additions"],
     costKey: "adu-attached",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_ATTACHED_PROCESS,
   },
   {
     slug: "detached-adu",
@@ -1145,7 +1426,71 @@ export const SERVICES: ServiceDef[] = [
       "A detached unit you rent for years is an asset. The Proactive Path keeps it and the main home maintained and documented so it stays one.",
     relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "mother-in-law-suite"],
     costKey: "adu-detached",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_DETACHED_PROCESS,
+  },
+  {
+    slug: "home-additions",
+    name: "Home Additions",
+    serviceType: "Home Addition Construction",
+    h1: "Home Additions in Vancouver, WA & Clark County",
+    seoTitle: "Home Additions in Vancouver WA & Clark County | Handy Pioneers",
+    seoDesc:
+      "Home additions in Clark County, WA: extra bedrooms, primary suites, bigger kitchens. See every step, from feasibility and permits to the final inspection.",
+    image: "https://handypioneers.com/images/blog/service-home-additions.webp",
+    imageAlt: "A new home addition framed and tied into the roofline of an existing Pacific Northwest house",
+    intro: [
+      "An addition is the answer when your home needs more space than any rearranging can create: another bedroom, a primary suite, a larger kitchen footprint, or a main-floor room for a parent who can no longer do stairs. It is also the most involved project you can do to a house you are still living in.",
+      "Handy Pioneers runs additions as one accountable engagement, from the first feasibility check to the final inspection. Below is exactly how that works, phase by phase, so you know what happens when, what you decide, and roughly how long each part takes before we ever start.",
+      "We start with the need, not the footprint. Sometimes a remodel of the space you already have solves the problem for less money and less disruption, and when it does, we will tell you. When more square footage is truly the answer, we plan it so the addition looks like it was always part of the house.",
+    ],
+    whatsIncluded: [
+      "A feasibility check for your lot: setbacks, zoning, and what the existing structure will support",
+      "Design and a permit-ready plan set, with engineering where the structure calls for it",
+      "Permitting through the City of Vancouver, Clark County, or your city",
+      "Foundation, framing, roof tie-in, and an exterior matched to the house",
+      "Plumbing, mechanical, electrical, insulation, and finishes through final inspection",
+      "One point of contact and a written schedule from start to finish",
+    ],
+    signsYouNeedThis: [
+      "You need another bedroom or bathroom, and no room can be converted",
+      "A kitchen that is too small in footprint, not just in layout",
+      "A parent moving in who needs a main-floor bedroom and bath",
+      "You love your location and would rather add on than move",
+    ],
+    faq: [
+      {
+        q: "How long does a home addition take?",
+        a: "Plan on roughly 6 to 12 months from the first walkthrough to move-in for a typical addition: a few weeks of feasibility, 1 to 2 months of design, 1 to 3 months of permit review, and 3 to 6 months of construction. Your written schedule sets the real dates once the plans are approved.",
+      },
+      {
+        q: "Do I need a permit for an addition?",
+        a: "Yes. Any addition needs a residential building permit. In Vancouver that includes a stormwater form, energy code compliance, and a full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit. We prepare and submit the application.",
+      },
+      {
+        q: "Can we live in the house during an addition?",
+        a: "Usually, yes. We build the new foundation, framing, and roof first and open into the existing house as late as practical, so dust, noise, and weather exposure stay limited to one area for as short a time as possible.",
+      },
+      {
+        q: "Should I build an addition or an ADU?",
+        a: "An addition makes the main house bigger. An ADU is a separate living unit with its own kitchen, bath, and entrance, which can house family or earn rent. If independence or income matters, look at an attached ADU. We help you compare both on the walkthrough.",
+      },
+      {
+        q: "What drives the cost of an addition?",
+        a: "Size, foundation type, how the new roof meets the old one, whether plumbing moves, and finish level. Because an addition includes foundation, roof, and exterior work, it costs more per square foot than remodeling space you already have. We price it from approved drawings so the number is real.",
+      },
+    ],
+    membershipTieIn:
+      "After an addition, the Proactive Path keeps the new space and the rest of the home maintained and documented, so the roof tie-in and new exterior stay tight through every wet season.",
+    relatedServiceSlugs: ["remodeling", "mother-in-law-suite", "accessory-dwelling-units", "kitchen-remodel"],
+    resources: [
+      { label: "City of Vancouver: Residential Addition Checklist", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/residential-addition-checklist/" },
+      { label: "Clark County: Residential Permits (ADS permits for additions)", url: "https://clark.wa.gov/community-development/residential-permits" },
+      { label: "City of Vancouver: Residential Building Permits (the 5-step permit process)", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/" },
+      { label: "Clark County: Typical New Home and Remodel Inspections", url: "https://clark.wa.gov/community-development/typical-new-home-and-remodel-inspections" },
+      { label: "Washington State: Permit review time limits (RCW 36.70B.080)", url: "https://app.leg.wa.gov/rcw/default.aspx?cite=36.70b.080" },
+    ],
+    process: ADDITION_PROCESS,
   },
 ];
 
