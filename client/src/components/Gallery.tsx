@@ -37,7 +37,7 @@ const photos: Photo[] = [
   { id: 13, src: "/images/hero-gallery/SJzOyycrDNaWEYHN.jpg", caption: "Exterior home remodel with new siding, windows, and updated landscaping", tag: "Remodel" },
   { id: 14, src: "/images/hero-gallery/qMQRAbINWFvrUPEB.jpg", caption: "Bathroom remodel featuring new flooring, trim, and toilet replacement", tag: "Remodel" },
   { id: 15, src: "/images/hero-gallery/jPOgJPckBdaPcCPr.jpg", caption: "Room transformation with new flooring, light-colored paint, and window blinds", tag: "Before & After" },
-  { id: 16, src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg", caption: "Complete room transformation - empty yellow space to modern kitchen and laundry area", tag: "Before & After" },
+  { id: 16, src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg", caption: "Attached ADU: a dated yellow bonus room turned into a unit with a full kitchen and laundry", tag: "Before & After" },
   { id: 18, src: "/images/hero-gallery/ryLhHcoLDKcrOody.jpg", caption: "Living room transformation with hardwood flooring, recessed lighting, and updated fireplace", tag: "Remodel" },
   { id: 19, src: "/images/hero-gallery/xwDBZkjnyzCPfPzP.jpg", caption: "Bathroom transformation with new tiles, vanity, and modern fixtures", tag: "Before & After" },
   { id: 20, src: "/images/hero-gallery/NnOoZJHBczCXjeKB.jpg", caption: "Basement room transformation with new flooring, recessed lighting, and fresh paint", tag: "Before & After" },

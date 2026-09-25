@@ -110,17 +110,17 @@ export const ADU_PROCESS: ServiceDef["process"] = {
       youDecide: "Your goal (family, rental, office), the type you want to pursue, and a working budget.",
     },
     {
-      title: "Design and drawings",
-      timeframe: "4 to 8 weeks",
+      title: "Plans and engineering (by your designer)",
+      timeframe: "4 to 10 weeks",
       detail:
-        "The layout becomes a permit-ready plan set: site plan, floor plans, foundation and framing plans, elevations, and the energy code forms Washington requires. Engineering is added where the structure calls for it. This is where the big material choices get made, because they are drawn into the plans.",
-      youDecide: "Layout, window and door placement, exterior materials, heating type, and the finish level that sets your budget.",
+        "Permit-ready plans are drawn by an architect or residential designer, with structural engineering where the project needs it. We do not draw plans or do engineering in-house, and we recommend having them done first, so construction is priced from real drawings instead of a guess. The plan set typically includes a site plan, floor plans, foundation and framing plans, elevations, and the energy code forms Washington requires. Bring us in while the design develops and we will review it for buildability and cost, which is where the big material choices get made.",
+      youDecide: "Hire the designer and engineer, then make the layout, window, exterior, heating, and finish choices that go into the plans.",
     },
     {
       title: "Permit application and plan review",
       timeframe: "1 to 3 months",
       detail:
-        "We submit the plan set to the City of Vancouver or Clark County (or your city) and answer reviewer comments. Vancouver's process runs application, prescreen, technical plan review, approval with final fees, and permit issuance. A complete, well-drawn application is the single biggest thing that keeps this phase short.",
+        "The plan set is submitted to the City of Vancouver or Clark County (or your city), and reviewer comments get answered by whoever drew the plans. Vancouver's process runs application, prescreen, technical plan review, approval with final fees, and permit issuance. A complete, well-drawn application is the single biggest thing that keeps this phase short.",
       youDecide: "Sign the application and approve any changes a reviewer asks for.",
     },
     {
@@ -161,17 +161,17 @@ export const ADU_CONVERSION_PROCESS: ServiceDef["process"] = {
       youDecide: "Whether the garage or basement is worth converting versus another ADU type.",
     },
     {
-      title: "Design and drawings",
+      title: "Plans (by your designer)",
       timeframe: "3 to 6 weeks",
       detail:
-        "The plan set shows the new layout, egress, insulation, and heating. A garage becoming heated space must be brought fully up to the Washington State Energy Code, so walls, ceiling, and often the floor get insulated to current standards, and the garage door opening is usually framed in as a wall with windows.",
-      youDecide: "Layout, kitchen size, finish level, and how the old garage door opening becomes a wall.",
+        "A designer draws the permit plans, with engineering if walls or openings change structurally. We do not draw plans in-house, and we recommend having them done before construction pricing. The plans show the new layout, egress, insulation, and heating. A garage becoming heated space must be brought fully up to the Washington State Energy Code, so walls, ceiling, and often the floor get insulated to current standards, and the garage door opening is usually framed in as a wall with windows.",
+      youDecide: "Hire the designer, then choose the layout, kitchen size, finish level, and how the old garage door opening becomes a wall.",
     },
     {
       title: "Permit and plan review",
       timeframe: "1 to 3 months",
       detail:
-        "We submit to your city or the county and answer comments. If the unit shares utilities with the main house, Vancouver requires separate shutoffs for each unit and independent temperature control, and a water meter worksheet comes with the permit.",
+        "The plans go to your city or the county for review. If the unit shares utilities with the main house, Vancouver requires separate shutoffs for each unit and independent temperature control, and a water meter worksheet comes with the permit.",
       youDecide: "Approve any reviewer-driven changes.",
     },
     {
@@ -203,16 +203,16 @@ export const ADU_ATTACHED_PROCESS: ServiceDef["process"] = {
       youDecide: "Where the suite goes, how it connects to the house, and your budget.",
     },
     {
-      title: "Design and drawings",
+      title: "Plans and engineering (by your designer)",
       timeframe: "4 to 8 weeks",
       detail:
-        "The plan set covers the foundation, framing, roof tie-in, fire and sound separation, and energy code forms. This is where exterior materials get chosen to match the house, so the addition does not look added.",
-      youDecide: "Layout, kitchen or kitchenette, bathroom, and exterior finishes that match the home.",
+        "An architect or residential designer draws the plan set, with structural engineering for the foundation and roof tie-in. We do not draw plans or do engineering in-house, and we recommend having them done first so construction is priced from real drawings. The plans cover the foundation, framing, roof tie-in, fire and sound separation, and energy code forms, and this is where exterior materials get chosen to match the house.",
+      youDecide: "Hire the designer and engineer, then choose the layout, kitchen or kitchenette, bathroom, and exterior finishes.",
     },
     {
       title: "Permit and plan review",
       timeframe: "1 to 3 months",
-      detail: "We submit to your city or the county, answer reviewer comments, and pay final fees at approval. The permit is issued before any work starts.",
+      detail: "The plans go to your city or the county for review, reviewer comments get answered, and final fees are paid at approval. The permit is issued before any work starts.",
       youDecide: "Approve any changes a reviewer asks for.",
     },
     {
@@ -244,17 +244,17 @@ export const ADU_DETACHED_PROCESS: ServiceDef["process"] = {
       youDecide: "Unit size, where it goes in the yard, and your budget.",
     },
     {
-      title: "Design and drawings",
+      title: "Plans and engineering (by your designer)",
       timeframe: "6 to 10 weeks",
       detail:
-        "A full plan set: site plan, foundation, framing, roof, elevations, and the Washington energy code forms, plus engineering where needed. New construction has to earn energy credits under the state energy code, which shapes insulation, windows, and heating choices.",
-      youDecide: "Floor plan, exterior look, window package, heating type, and finish level.",
+        "An architect or residential designer draws the full plan set (site plan, foundation, framing, roof, elevations, and the Washington energy code forms) with structural engineering where needed. We do not draw plans or do engineering in-house, and we recommend having them done first so the build is priced from real drawings. New construction has to earn energy credits under the state energy code, which shapes insulation, windows, and heating choices.",
+      youDecide: "Hire the designer and engineer, then choose the floor plan, exterior look, window package, heating type, and finish level.",
     },
     {
       title: "Permit and plan review",
       timeframe: "1 to 3 months",
       detail:
-        "We submit to the city or county and answer reviewer comments. Impact fees for ADUs are reduced by state law: no more than half of what a new house would pay. Vancouver charges 50 percent, and unincorporated Clark County waives 75 percent of its transportation, school, and park impact fees. If the unit needs its own water and sewer connection, connection charges apply.",
+        "The plans go to the city or county for review and reviewer comments get answered. Impact fees for ADUs are reduced by state law: no more than half of what a new house would pay. Vancouver charges 50 percent, and unincorporated Clark County waives 75 percent of its transportation, school, and park impact fees. If the unit needs its own water and sewer connection, connection charges apply.",
       youDecide: "Approve reviewer changes and the final fee total.",
     },
     {
@@ -304,11 +304,11 @@ export const ADDITION_PROCESS: ServiceDef["process"] = {
       youDecide: "What the new space has to do, and a working budget.",
     },
     {
-      title: "Design and drawings",
+      title: "Plans and engineering (by your designer)",
       timeframe: "4 to 8 weeks",
       detail:
-        "The plan set includes a site plan, foundation and framing plans, wall sections, elevations, lateral (wind and earthquake) bracing or engineering, and energy code forms. Additions over 150 square feet have to earn energy credits under the Washington State Energy Code, which shapes insulation, windows, and heating.",
-      youDecide: "Layout, windows, how the exterior matches the house, and finish level.",
+        "An architect or residential designer draws the permit plans, with structural engineering for the foundation and roof tie-in. We do not draw plans or do engineering in-house, and we recommend having them done first so construction is priced from real drawings. The plan set includes a site plan, foundation and framing plans, wall sections, elevations, lateral (wind and earthquake) bracing or engineering, and energy code forms. Additions over 150 square feet have to earn energy credits under the Washington State Energy Code, which shapes insulation, windows, and heating.",
+      youDecide: "Hire the designer and engineer, then choose the layout, windows, how the exterior matches the house, and finish level.",
     },
     {
       title: "Permit and plan review",
@@ -1254,12 +1254,12 @@ export const SERVICES: ServiceDef[] = [
     intro: [
       "An accessory dwelling unit is a second, smaller home on your property: a converted garage or basement, a suite attached to the house, or a standalone unit in the backyard. Homeowners build them for aging parents, adult kids, a private home office, or rental income, and Washington just made them far easier to add.",
       "Under state law (HB 1337), most Clark County lots that allow a single-family home can now have up to two ADUs, with no requirement that you live on the property, and cities cannot cap an ADU below 1,000 square feet. That turns an ADU from a special-case project into one of the strongest moves a homeowner can make on their property's value and income.",
-      "We handle the whole thing as one accountable engagement: feasibility and zoning, design, permitting, and the build. And we think past the project. In the 360 Method an ADU is an Upgrade that should pay you back, so we help you weigh which type actually fits your lot, your budget, and the return you are after, then keep the home looked after once it is built.",
+      "We guide the whole path and build it as one accountable engagement: a feasibility check before you spend money on plans, a buildability and cost review of the drawings, and the construction itself. We do not draw plans or do structural engineering in-house; we recommend having those done first by an architect or residential designer and an engineer, so the build is priced from real drawings. And we think past the project. In the 360 Method an ADU is an Upgrade that should pay you back, so we help you weigh which type actually fits your lot, your budget, and the return you are after, then keep the home looked after once it is built.",
     ],
     whatsIncluded: [
       "A feasibility and zoning check for your specific lot and goals",
-      "Design and layout matched to your budget, your lot, and how the unit will be used",
-      "Permitting handled through Clark County or the City of Vancouver",
+      "A buildability and cost review of the plans your designer draws, before you commit",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "The full build: foundation or conversion, framing, kitchen, bath, and utilities",
       "One point of contact from the first walkthrough to the final inspection",
     ],
@@ -1277,6 +1277,10 @@ export const SERVICES: ServiceDef[] = [
       {
         q: "Do I have to live on the property to have an ADU?",
         a: "Not under the current Washington law. Owner-occupancy is no longer required for the main home or the ADU, which is what makes ADUs work as rental income, not just family housing.",
+      },
+      {
+        q: "Do you draw the plans or do the engineering?",
+        a: "No. We do not draw plans or do structural engineering in-house. We recommend having plans drawn by an architect or residential designer, with engineering where the project needs it, before construction pricing. Start with a feasibility walkthrough so you hire a designer knowing what your lot allows, and we will review the drawings for buildability and cost as they come together.",
       },
       {
         q: "Which type of ADU should I build?",
@@ -1314,7 +1318,7 @@ export const SERVICES: ServiceDef[] = [
       "Framing, insulation, and the systems an existing shell is missing",
       "A full kitchen and bathroom, heating, and electrical brought to code",
       "Egress, windows, and light to meet living-space requirements",
-      "Permitting and one accountable team through final inspection",
+      "One accountable team from permit issuance through final inspection",
     ],
     signsYouNeedThis: [
       "A garage or basement that stores clutter more than it earns its space",
@@ -1347,18 +1351,19 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Mother-in-Law Suite & Attached ADU in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Add an attached ADU or mother-in-law suite in Clark County, WA: a private space connected to your home, with its own kitchen, bath, and entry.",
-    image: "https://handypioneers.com/images/blog/service-mother-in-law-suite.webp",
-    imageAlt: "An attached mother-in-law suite addition with a private entrance",
+    image: "https://handypioneers.com/images/attached-adu-before-after.webp",
+    imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room turned into a unit with a full kitchen and stacked laundry",
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
+      "The photo above is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout.",
       "It is the middle path between converting existing space and building a detached unit. You get more square footage than a conversion and more independence than a spare bedroom, tied into the home's structure and systems.",
       "Because it adds real, livable square footage, an attached suite is also a strong move on your home's value and flexibility. We scope it to fit how your family actually lives now and how the space can serve you later, whether that is aging parents today and rental or resale value down the road.",
     ],
     whatsIncluded: [
-      "Design that ties the suite into your home's structure, roofline, and systems",
+      "Construction that ties the suite into your home's structure, roofline, and systems, built from your designer's plans",
       "A private entrance, plus a kitchen or kitchenette and a full bathroom",
       "Heating, electrical, and insulation built for year-round comfort",
-      "Permitting through Clark County or the City of Vancouver",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "One accountable team from design through final inspection",
     ],
     signsYouNeedThis: [
@@ -1396,14 +1401,14 @@ export const SERVICES: ServiceDef[] = [
     imageAlt: "A detached backyard ADU cottage on a Clark County property",
     intro: [
       "A detached ADU is a standalone home on your lot, built from the ground up with its own foundation, walls, roof, kitchen, bath, and utilities. It is the most private and the most rentable type of ADU, and the one that adds the most independent value to a property.",
-      "It is also a real construction project, and we treat it like one. We design and build the unit as one accountable engagement: site work and foundation, framing and roof, full mechanical, kitchen and bath, and the exterior that ties it to your home and neighborhood. You have a single point of contact from feasibility to final inspection.",
+      "It is also a real construction project, and we treat it like one. We build the unit from your approved plans as one accountable engagement: site work and foundation, framing and roof, full mechanical, kitchen and bath, and the exterior that ties it to your home and neighborhood. You have a single point of contact from feasibility to final inspection.",
       "Of the ADU options this is the biggest investment, so the return matters most. We help you size and spec it to the income or use you are after, then keep it maintained once it is built, because a detached unit you can rent for years is an asset, not just a project.",
     ],
     whatsIncluded: [
       "Feasibility, site planning, and zoning for a standalone unit on your lot",
       "Foundation, framing, roofing, and a weather-tight exterior built for the PNW",
       "A full kitchen and bathroom, heating, electrical, and independent utilities",
-      "Permitting through Clark County or the City of Vancouver",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "One accountable team managing the whole ground-up build",
     ],
     signsYouNeedThis: [
@@ -1446,8 +1451,8 @@ export const SERVICES: ServiceDef[] = [
     ],
     whatsIncluded: [
       "A feasibility check for your lot: setbacks, zoning, and what the existing structure will support",
-      "Design and a permit-ready plan set, with engineering where the structure calls for it",
-      "Permitting through the City of Vancouver, Clark County, or your city",
+      "Construction from your designer's permit-ready plans, reviewed with you for buildability and cost",
+      "Construction under a permit from the City of Vancouver, Clark County, or your city",
       "Foundation, framing, roof tie-in, and an exterior matched to the house",
       "Plumbing, mechanical, electrical, insulation, and finishes through final inspection",
       "One point of contact and a written schedule from start to finish",
@@ -1465,7 +1470,11 @@ export const SERVICES: ServiceDef[] = [
       },
       {
         q: "Do I need a permit for an addition?",
-        a: "Yes. Any addition needs a residential building permit. In Vancouver that includes a stormwater form, energy code compliance, and a full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit. We prepare and submit the application.",
+        a: "Yes. Any addition needs a residential building permit. In Vancouver that includes a stormwater form, energy code compliance, and a full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit. The plan set comes from your designer; construction starts once the permit is issued.",
+      },
+      {
+        q: "Do you draw the plans or do the engineering?",
+        a: "No. We do not draw plans or do structural engineering in-house. We recommend having plans drawn by an architect or residential designer, with engineering where the project needs it, before construction pricing. Start with a feasibility walkthrough so you hire a designer knowing what your lot allows, and we will review the drawings for buildability and cost as they come together.",
       },
       {
         q: "Can we live in the house during an addition?",
