@@ -25,6 +25,8 @@ export interface ServiceDef {
   seoDesc: string;
   image: string;
   imageAlt: string;
+  /** Hero image pixel size when it is not the standard 1600x900 (16:9), e.g. a stacked before/after. */
+  imageSize?: { width: number; height: number };
   intro: string[];
   whatsIncluded: string[];
   signsYouNeedThis: string[];
@@ -1351,8 +1353,9 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Mother-in-Law Suite & Attached ADU in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Add an attached ADU or mother-in-law suite in Clark County, WA: a private space connected to your home, with its own kitchen, bath, and entry.",
-    image: "https://handypioneers.com/images/attached-adu-before-after.webp",
-    imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room turned into a unit with a full kitchen and stacked laundry",
+    image: "https://handypioneers.com/images/attached-adu-before-after-stacked.webp",
+    imageSize: { width: 1440, height: 1383 },
+    imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room (top) turned into a unit with a full kitchen and stacked laundry (bottom)",
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
       "The photo above is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout.",

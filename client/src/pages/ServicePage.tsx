@@ -133,11 +133,15 @@ export default function ServicePage() {
             <img
               src={localImage(svc.image)}
               alt={svc.imageAlt}
-              width={1600}
-              height={900}
+              width={svc.imageSize?.width ?? 1600}
+              height={svc.imageSize?.height ?? 900}
               loading="eager"
               className="w-full rounded-2xl shadow-xl"
-              style={{ aspectRatio: "16 / 9", objectFit: "cover", border: "1px solid oklch(0.88 0.015 80)" }}
+              style={{
+                aspectRatio: svc.imageSize ? `${svc.imageSize.width} / ${svc.imageSize.height}` : "16 / 9",
+                objectFit: "cover",
+                border: "1px solid oklch(0.88 0.015 80)",
+              }}
             />
           </div>
         )}
