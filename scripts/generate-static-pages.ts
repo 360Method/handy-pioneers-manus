@@ -521,6 +521,16 @@ function financingJsonLd(): object[] {
 
 // ─── service pages ────────────────────────────────────────────────────────────
 
+function serviceProjectPhotosHtml(svc: ServiceDef): string {
+  if (!svc.projectPhotos?.length) return "";
+  return (
+    `<h2>Recent work</h2><p>Real before and after photos from our own projects.</p>` +
+    svc.projectPhotos
+      .map((p) => `<figure><img src="${esc(p.src)}" alt="${esc(p.alt)}" width="900" height="900" loading="lazy" /><figcaption>${esc(p.caption)}</figcaption></figure>`)
+      .join("")
+  );
+}
+
 function serviceProcessHtml(svc: ServiceDef): string {
   if (!svc.process) return "";
   const steps = svc.process.steps
@@ -546,6 +556,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
     serviceCostHtml(svc),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    serviceProjectPhotosHtml(svc),
     serviceProcessHtml(svc),
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,

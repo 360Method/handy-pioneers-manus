@@ -244,6 +244,22 @@ export default function ServicePage() {
               ))}
             </ul>
 
+            {/* Recent work: real project photos */}
+            {svc.projectPhotos && svc.projectPhotos.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold mb-2" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>Recent work</h2>
+                <p className="text-base mb-6" style={{ color: "oklch(0.34 0.02 80)" }}>Real before and after photos from our own projects.</p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                  {svc.projectPhotos.map((p) => (
+                    <figure key={p.src} className="rounded-2xl border overflow-hidden" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}>
+                      <img src={localImage(p.src)} alt={p.alt} width={900} height={900} loading="lazy" className="w-full h-auto block" />
+                      <figcaption className="px-4 py-3 text-sm" style={{ color: "oklch(0.34 0.02 80)" }}>{p.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* How the process works */}
             {svc.process && (
               <div className="mb-12">

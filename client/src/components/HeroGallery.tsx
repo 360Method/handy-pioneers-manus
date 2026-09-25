@@ -34,7 +34,7 @@ const photos: Photo[] = [
   {
     id: 1,
     src: "/images/hero-gallery/wjLagUVyHJnefJeB.jpg",
-    caption: "Basement transformation - unfinished space to modern kitchen and living area",
+    caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchen and living area",
     tag: "Remodel",
   },
   {
@@ -88,13 +88,13 @@ const photos: Photo[] = [
   {
     id: 10,
     src: "/images/hero-gallery/RUDYmgCyMipRnwka.jpg",
-    caption: "Kitchen remodel - bare wall transformed into a functional modern cooking space",
+    caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall",
     tag: "Remodel",
   },
   {
     id: 11,
     src: "/images/hero-gallery/ifxXRKwuQfvSbApZ.jpg",
-    caption: "Room remodel - transformed into a modern kitchenette with white cabinets and new flooring",
+    caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets and new flooring",
     tag: "Before & After",
   },
   {

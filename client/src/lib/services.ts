@@ -51,6 +51,8 @@ export interface ServiceDef {
    * or provides in each. Used on big-ticket pages (ADUs, additions, remodels)
    * so clients know what to expect before the first meeting.
    */
+  /** Real project photos for a "Recent work" grid (our jobs only). */
+  projectPhotos?: ProjectPhoto[];
   process?: {
     intro: string;
     steps: ProcessStep[];
@@ -58,6 +60,42 @@ export interface ServiceDef {
     note?: string;
   };
 }
+
+/** A real project photo shown in the "Recent work" grid. Real HP jobs only, never AI images. */
+export interface ProjectPhoto {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+const PROJECT_IMG = (name: string) => `https://handypioneers.com/images/projects/${name}.webp`;
+
+/** Real before/after photos from our own lower-level and ADU work. */
+export const PHOTO_GARAGE_ADU_EXTERIOR: ProjectPhoto = {
+  src: PROJECT_IMG("garage-adu-exterior"),
+  alt: "Before and after: a two-car garage door replaced with siding, two windows, and an entry door as part of a garage-to-ADU conversion",
+  caption: "Garage to attached ADU, outside: the garage door came out and the opening was framed in with siding, two windows, and an entry door.",
+};
+export const PHOTO_GARAGE_ADU_INTERIOR: ProjectPhoto = {
+  src: PROJECT_IMG("attached-adu-interior"),
+  alt: "Before and after: a dated yellow bonus room turned into an ADU with a full kitchen and stacked laundry",
+  caption: "Garage to attached ADU, inside: a dated room turned into a unit with a full kitchen, stacked laundry, and new flooring.",
+};
+export const PHOTO_KITCHENETTE_BASEMENT: ProjectPhoto = {
+  src: PROJECT_IMG("lower-level-kitchenette-basement"),
+  alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+  caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash.",
+};
+export const PHOTO_KITCHENETTE_COOKING_WALL: ProjectPhoto = {
+  src: PROJECT_IMG("lower-level-kitchenette-cooking-wall"),
+  alt: "Before and after: a bare lower-level wall turned into a cooking wall with a refrigerator, sink, butcher block counter, and open shelving",
+  caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall with fridge, sink, counter, and open shelving.",
+};
+export const PHOTO_KITCHENETTE_STORAGE_ROOM: ProjectPhoto = {
+  src: PROJECT_IMG("lower-level-kitchenette-storage-room"),
+  alt: "Before and after: a paneled lower-level storage room turned into a kitchenette with white cabinets and new flooring",
+  caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets, a sink, and new flooring.",
+};
 
 export interface ProcessStep {
   title: string;
@@ -1298,6 +1336,7 @@ export const SERVICES: ServiceDef[] = [
     relatedServiceSlugs: ["adu-garage-conversion", "mother-in-law-suite", "detached-adu", "remodeling"],
     costHub: "adu",
     resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    projectPhotos: [PHOTO_GARAGE_ADU_EXTERIOR, PHOTO_GARAGE_ADU_INTERIOR, PHOTO_KITCHENETTE_BASEMENT],
     process: ADU_PROCESS,
   },
   {
@@ -1345,6 +1384,7 @@ export const SERVICES: ServiceDef[] = [
     relatedServiceSlugs: ["accessory-dwelling-units", "mother-in-law-suite", "detached-adu"],
     costKey: "adu-garage-conversion",
     resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    projectPhotos: [PHOTO_GARAGE_ADU_INTERIOR, PHOTO_KITCHENETTE_BASEMENT, PHOTO_KITCHENETTE_COOKING_WALL, PHOTO_KITCHENETTE_STORAGE_ROOM],
     process: ADU_CONVERSION_PROCESS,
   },
   {
@@ -1392,6 +1432,7 @@ export const SERVICES: ServiceDef[] = [
     relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu", "home-additions"],
     costKey: "adu-attached",
     resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    projectPhotos: [PHOTO_GARAGE_ADU_EXTERIOR, PHOTO_KITCHENETTE_BASEMENT, PHOTO_KITCHENETTE_COOKING_WALL, PHOTO_KITCHENETTE_STORAGE_ROOM],
     process: ADU_ATTACHED_PROCESS,
   },
   {
