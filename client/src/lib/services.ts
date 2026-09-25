@@ -1308,10 +1308,12 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Garage Conversion ADU in Vancouver WA | Basement Apartment | Handy Pioneers",
     seoDesc:
       "Convert a garage or basement into a permitted ADU in Clark County, WA, the most affordable way to add a unit since the shell already exists.",
-    image: "https://handypioneers.com/images/blog/service-adu-garage-conversion.webp",
-    imageAlt: "A garage converted into a bright, finished accessory dwelling unit",
+    image: "https://handypioneers.com/images/garage-conversion-adu-exterior.webp",
+    imageSize: { width: 1440, height: 1440 },
+    imageAlt: "Before and after of a garage we converted into an attached ADU: the two-car garage door (top) replaced with siding, two windows, and an entry door (bottom)",
     intro: [
       "Converting a garage or basement is usually the most affordable way to add an ADU, because the walls, roof, and foundation are already there. You are paying to finish and outfit the space, not to build a structure from the ground up.",
+      "The before and after below is a two-car garage we converted into an attached ADU. The garage door came out, and the opening was framed in with new siding, two windows, and an entry door, so from the street it reads as part of the house. Inside, it became a real living unit with a full kitchen and stacked laundry; you can see the interior on our attached ADU page.",
       "We turn that existing shell into a real, permitted home: framing and insulation, a full kitchen and bath, heating and electrical, egress and light, and finishes you would actually want to live in. The result is a unit that works for family or rents on its own.",
       "It is also one of the highest-return upgrades on a property, which is exactly how we think about it. An ADU should pay you back, so we help you scope it to hit the return you are after, not just to fill the space.",
     ],
@@ -1358,7 +1360,7 @@ export const SERVICES: ServiceDef[] = [
     imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room (top) turned into a unit with a full kitchen and stacked laundry (bottom)",
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
-      "The before and after below is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout.",
+      "The before and after below is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout. From the street, the same unit used to be the home's two-car garage; the exterior before and after is on our garage conversion page.",
       "It is the middle path between converting existing space and building a detached unit. You get more square footage than a conversion and more independence than a spare bedroom, tied into the home's structure and systems.",
       "Because it adds real, livable square footage, an attached suite is also a strong move on your home's value and flexibility. We scope it to fit how your family actually lives now and how the space can serve you later, whether that is aging parents today and rental or resale value down the road.",
     ],
