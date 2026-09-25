@@ -105,9 +105,9 @@ const photos: Photo[] = [
   },
   {
     id: 13,
-    src: "/images/hero-gallery/SJzOyycrDNaWEYHN.jpg",
-    caption: "Exterior home remodel with new siding, windows, and updated landscaping",
-    tag: "Remodel",
+    src: "/images/garage-conversion-adu-exterior.jpg",
+    caption: "Garage converted to an attached ADU: the garage door replaced with new siding, two windows, and an entry door",
+    tag: "Before & After",
   },
   {
     id: 14,

@@ -34,7 +34,7 @@ const photos: Photo[] = [
   { id: 10, src: "/images/hero-gallery/RUDYmgCyMipRnwka.jpg", caption: "Kitchen remodel - bare wall transformed into a functional modern cooking space", tag: "Remodel" },
   { id: 11, src: "/images/hero-gallery/ifxXRKwuQfvSbApZ.jpg", caption: "Room remodel - transformed into a modern kitchenette with white cabinets and new flooring", tag: "Before & After" },
   { id: 12, src: "/images/hero-gallery/nRlKKIJALACEEquv.jpg", caption: "Kitchen remodel with dark countertops, updated cabinets, and modern fixtures", tag: "Remodel" },
-  { id: 13, src: "/images/hero-gallery/SJzOyycrDNaWEYHN.jpg", caption: "Exterior home remodel with new siding, windows, and updated landscaping", tag: "Remodel" },
+  { id: 13, src: "/images/garage-conversion-adu-exterior.jpg", caption: "Garage converted to an attached ADU: the garage door replaced with new siding, two windows, and an entry door", tag: "Before & After" },
   { id: 14, src: "/images/hero-gallery/qMQRAbINWFvrUPEB.jpg", caption: "Bathroom remodel featuring new flooring, trim, and toilet replacement", tag: "Remodel" },
   { id: 15, src: "/images/hero-gallery/jPOgJPckBdaPcCPr.jpg", caption: "Room transformation with new flooring, light-colored paint, and window blinds", tag: "Before & After" },
   { id: 16, src: "/images/hero-gallery/AwSmGNttlDLyBDuO.jpg", caption: "Attached ADU: a dated yellow bonus room turned into a unit with a full kitchen and laundry", tag: "Before & After" },
