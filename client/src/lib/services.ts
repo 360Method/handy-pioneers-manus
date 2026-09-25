@@ -739,8 +739,8 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Flooring installation and replacement for Clark County, WA: hard surface, tile, and more, installed level and built to last. Serving Vancouver WA.",
-    image: "https://handypioneers.com/images/blog/service-flooring.webp",
-    imageAlt: "Newly installed hard-surface flooring across an open living room in a Clark County home",
+    image: "https://handypioneers.com/images/lvp-bedroom-before-after-16x9-2026-09.webp",
+    imageAlt: "Before and after of a rental bedroom we refloored: worn patterned vinyl replaced with gray luxury vinyl plank",
     intro: [
       "Flooring is the surface you live on every day, and a poor install shows itself fast: gaps, squeaks, lippage, and edges that lift. The substrate prep matters as much as the material.",
       "We install and replace flooring with the prep and care that make it sit flat, transition cleanly, and last.",

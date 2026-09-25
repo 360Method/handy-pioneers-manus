@@ -531,6 +531,20 @@ export default function Multifamily() {
             queue so the unit doesn't sit empty.
           </p>
 
+          <figure className="max-w-3xl mx-auto mb-10">
+            <img
+              src="/images/lvp-bedroom-before-after-2026-09.webp"
+              alt="Before and after of a rental bedroom: worn patterned vinyl replaced with gray luxury vinyl plank flooring"
+              width={1536}
+              height={1024}
+              loading="lazy"
+              className="w-full rounded-2xl shadow-xl"
+            />
+            <figcaption className="text-center text-xs mt-3" style={{ color: "oklch(50% 0.02 60)" }}>
+              A rental bedroom we refloored with luxury vinyl plank, ready to re-list.
+            </figcaption>
+          </figure>
+
           {/* Standardized scope */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
             {TURNOVER_SCOPE.map((phase, i) => (

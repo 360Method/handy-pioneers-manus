@@ -18,6 +18,7 @@ interface Photo {
 }
 
 const photos: Photo[] = [
+  { id: 28, src: "/images/lvp-bedroom-before-after-2026-09.webp", caption: "Luxury vinyl plank flooring in a rental bedroom, ready for the next tenant", tag: "Before & After" },
   { id: 25, src: "/images/porch-post-before-after-camas-2026-08.webp", caption: "Porch post rot repair in Camas - a rotted base rebuilt and raised on a standoff base", tag: "Before & After" },
   { id: 26, src: "/images/porch-column-rot-repair-camas-2026-08.webp", caption: "Porch column rot repair in Camas - structural posts flashed, then new wraps and paint", tag: "Before & After" },
   { id: 27, src: "/images/porch-post-standoff-base-camas-2026-08.webp", caption: "Why porch posts rot - set straight into concrete, versus raised clear on a standoff base", tag: "Before & After" },
