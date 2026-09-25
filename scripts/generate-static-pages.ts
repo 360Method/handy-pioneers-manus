@@ -546,6 +546,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
     serviceCostHtml(svc),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    ...(svc.moreImages ?? []).map((m) => `<figure><img src="${esc(SITE + m.src)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}" /><figcaption>${esc(m.caption)}</figcaption></figure>`),
     serviceProcessHtml(svc),
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,

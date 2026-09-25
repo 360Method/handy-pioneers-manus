@@ -244,6 +244,29 @@ export default function ServicePage() {
               ))}
             </ul>
 
+            {/* More of our work */}
+            {svc.moreImages && svc.moreImages.length > 0 && (
+              <div className="mb-12">
+                <h2 className="text-2xl font-bold mb-6" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>More of our {svc.name.toLowerCase()} work</h2>
+                <div className="grid sm:grid-cols-2 gap-5">
+                  {svc.moreImages.map((img) => (
+                    <figure key={img.src}>
+                      <img
+                        src={img.src}
+                        alt={img.alt}
+                        width={img.width}
+                        height={img.height}
+                        loading="lazy"
+                        className="w-full rounded-xl shadow-md"
+                        style={{ border: "1px solid oklch(0.88 0.015 80)" }}
+                      />
+                      <figcaption className="text-sm mt-2" style={{ color: "oklch(0.40 0.03 80)" }}>{img.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* How the process works */}
             {svc.process && (
               <div className="mb-12">
