@@ -175,6 +175,12 @@ async function getBundleAssets() {
     const src = await r.text();
     // Absolute URLs on any host, plus root-relative paths on ours.
     for (const m of src.matchAll(new RegExp(`https?://[A-Za-z0-9._~:/?#@!$&'*+,;=%-]+\\.(?:${EXT})\\b`, "gi"))) {
+      // A PDF on someone else's host is a citation link in a blog post (USDA
+      // Forest Products Lab papers, install guides), not something the page
+      // loads. When that server has a bad night it is not our breakage, and it
+      // was failing this job several times a day in October 2026. Off-site
+      // images still count: that is exactly the 2026-08-26 outage.
+      if (/\.pdf$/i.test(m[0]) && !m[0].startsWith(BASE)) continue;
       found.set(m[0], "bundle");
     }
     for (const m of src.matchAll(new RegExp(`["'\`](/[A-Za-z0-9._~/-]+\\.(?:${EXT}))["'\`]`, "gi"))) {
@@ -190,20 +196,39 @@ async function getBundleAssets() {
 
 const assetCache = new Map();
 
+async function checkOnce(url) {
+  try {
+    // HEAD first. A fair number of hosts do not implement it, or answer 403
+    // to it specifically, so fall back to GET before calling it broken.
+    let res = await fetchWithTimeout(url, { method: "HEAD", redirect: "follow" });
+    if ([403, 405, 501].includes(res.status)) {
+      res = await fetchWithTimeout(url, { method: "GET", redirect: "follow" });
+    }
+    return { ok: res.ok, status: res.status, type: res.headers.get("content-type") || "" };
+  } catch (e) {
+    return { ok: false, status: 0, type: "", error: e.name === "AbortError" ? "timeout" : e.message };
+  }
+}
+
+/**
+ * A dropped connection, a timeout, a 429 or a 5xx is often one bad second, not
+ * a broken site: our own images answered "fetch failed" on one run and 200 on
+ * the next. Retry those with a short backoff so the alert means "it is down",
+ * not "the runner's network blinked". A 404 or 403 is a real answer and is
+ * never retried.
+ */
+const RETRIES = Number(arg("retries", "2"));
+const transient = (r) => r.status === 0 || r.status === 429 || r.status >= 500;
+
 function checkAsset(url) {
   if (assetCache.has(url)) return assetCache.get(url);
   const p = (async () => {
-    try {
-      // HEAD first. A fair number of hosts do not implement it, or answer 403
-      // to it specifically, so fall back to GET before calling it broken.
-      let res = await fetchWithTimeout(url, { method: "HEAD", redirect: "follow" });
-      if ([403, 405, 501].includes(res.status)) {
-        res = await fetchWithTimeout(url, { method: "GET", redirect: "follow" });
-      }
-      return { ok: res.ok, status: res.status, type: res.headers.get("content-type") || "" };
-    } catch (e) {
-      return { ok: false, status: 0, type: "", error: e.name === "AbortError" ? "timeout" : e.message };
+    let r = await checkOnce(url);
+    for (let i = 0; i < RETRIES && !r.ok && transient(r); i++) {
+      await new Promise((ok) => setTimeout(ok, 2000 * (i + 1)));
+      r = await checkOnce(url);
     }
+    return r;
   })();
   assetCache.set(url, p);
   return p;
