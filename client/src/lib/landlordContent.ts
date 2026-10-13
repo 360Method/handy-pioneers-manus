@@ -24,40 +24,26 @@ export const LANDLORD_SEASONS: SeasonData[] = [
     timing: "March-April",
     categories: [
       {
-        title: "Roof & moss care (walkable roofs)",
-        tasks: [
-          "Soft-brush and treat moss on walkable, low-slope roof areas",
-          "Apply a zinc-based moss inhibitor before growth spreads",
-          "Clear needles and debris from valleys and around vents and skylights",
-          "Note worn shingles or flashing for a separate repair scope",
-        ],
-      },
-      {
         title: "Gutters & site drainage",
         tasks: [
-          "Clear gutters and flush downspouts we can reach from a ladder or walkable roof",
-          "Confirm water exits well away from the foundation; clear splash blocks",
-          "Clear accessible area, yard, and parking-lot drains",
-          "Re-seat loose gutter hangers and tighten fasteners",
+          "Clear gutters and flush downspouts we can reach from a ladder, or clear the tops of gutter covers",
+          "Confirm water exits well away from the building",
         ],
       },
       {
-        title: "Exterior envelope & common entries",
+        title: "Shared safety & systems",
         tasks: [
-          "Re-caulk gaps at windows, doors, and exterior penetrations",
-          "Touch up worn exterior paint or stain on small spots",
-          "Check shared entry doors, thresholds, and weatherstripping",
-          "Reseal siding penetrations and hose-bib trim",
+          "Test smoke and CO detectors in shared spaces and check fire extinguishers",
+          "Replace common-area and shared-system air filters",
         ],
       },
       {
-        title: "Common-area safety & lighting",
-        tasks: [
-          "Replace failed exterior, stairwell, and hallway bulbs; check photocells",
-          "Check handrails, stair treads, and shared walkways for trip hazards",
-          "Press-test exterior GFCI outlets",
-          "Test smoke and CO detectors in shared spaces and laundry rooms",
-        ],
+        title: "Plumbing leak check",
+        tasks: ["Check shared plumbing, the water heater area and accessible shutoffs for drips"],
+      },
+      {
+        title: "Where present",
+        tasks: ["Test the sump pump", "Start up irrigation and check the zones"],
       },
     ],
   },
@@ -67,39 +53,11 @@ export const LANDLORD_SEASONS: SeasonData[] = [
     timing: "June-July",
     categories: [
       {
-        title: "Dry-season exterior wash",
+        title: "Air & ventilation",
         tasks: [
-          "Soft-wash siding, shared walkways, and patios",
-          "Pressure-wash parking, driveway, and entry surfaces where suitable",
-          "Wash common-area windows and clear tracks and weep holes",
-          "Touch up exterior paint while conditions are dry",
-        ],
-      },
-      {
-        title: "Grounds & shared surfaces",
-        tasks: [
-          "Tighten fence, gate, and railing fasteners; note rot for a separate scope",
-          "Seal driveway and walkway cracks before fall",
-          "Trim back growth touching the building and clearing exits",
-          "Clear debris from shared exterior areas and dumpster enclosures",
-        ],
-      },
-      {
-        title: "Moisture & ventilation",
-        tasks: [
-          "Re-secure lifted crawlspace vapor barrier",
-          "Check the attic for blocked vents, staining, or daylight",
-          "Confirm shared laundry and dryer venting is clear and screened",
-          "Note standing water or pest signs for follow-up",
-        ],
-      },
-      {
-        title: "Mechanical & device check",
-        tasks: [
+          "Clean shared laundry and dryer vent runs and their outside hoods",
+          "Clean shared exhaust fans and confirm they pull air",
           "Replace common-area and shared-system air filters",
-          "Clear debris and growth around outdoor units",
-          "Test smoke and CO detectors in shared spaces",
-          "Clean shared range-hood and exhaust-fan grilles",
         ],
       },
     ],
@@ -110,39 +68,21 @@ export const LANDLORD_SEASONS: SeasonData[] = [
     timing: "September-October",
     categories: [
       {
-        title: "Rain-season roof & gutter prep",
+        title: "Rain-season gutter prep",
         tasks: [
-          "Clear gutters and downspouts before the wet season, from a ladder or walkable roof",
-          "High-flow test downspouts for underground clogs",
-          "Re-treat walkable roof areas with moss inhibitor",
-          "Confirm downspout extensions carry water well away from the building",
+          "Clear gutters and flush and high-flow test downspouts from a ladder, or clear the tops of gutter covers",
+          "Confirm downspout extensions and nearby drains are clear",
         ],
       },
       {
-        title: "Weatherization & sealing",
-        tasks: [
-          "Replace worn weatherstripping at common doors and windows",
-          "Install or replace door sweeps and thresholds at shared entries",
-          "Re-caulk exterior gaps before the first rains",
-          "Seal gaps at penetrations, vents, and trim",
-        ],
-      },
-      {
-        title: "Freeze protection for faucets & lines",
-        tasks: [
-          "Shut off and drain exterior and shared hose bibs",
-          "Install insulated faucet covers",
-          "Add foam insulation to exposed exterior or crawlspace pipe runs",
-          "Protect the shared water-heater and mechanical area from freeze",
-        ],
+        title: "Freeze protection",
+        tasks: ["Disconnect hoses and fit insulated covers on exterior and shared hose bibs"],
       },
       {
         title: "Heating-season readiness",
         tasks: [
-          "Replace common-area and shared-system filters for the heating season",
           "Test smoke and CO detectors and replace batteries in shared spaces",
-          "Clear vents and registers of dust and obstruction",
-          "Flag shared heating-system service where needed",
+          "Replace common-area and shared-system filters for the heating season",
         ],
       },
     ],
@@ -153,40 +93,23 @@ export const LANDLORD_SEASONS: SeasonData[] = [
     timing: "December-January",
     categories: [
       {
-        title: "Freeze & moisture protection",
+        title: "Water & plumbing",
         tasks: [
-          "Re-check and re-secure pipe insulation in the crawlspace and exterior walls",
-          "Confirm faucet covers and exterior shut-offs are holding",
-          "Clear reachable gutters of winter debris between storms",
-          "Note recurring crawlspace moisture for a drainage scope",
+          "Locate, tag and exercise the main water shutoff",
+          "Check the shared water heater: leaks, drain pan, relief line, venting and temperature",
         ],
       },
       {
-        title: "Drainage & sump (where present)",
-        tasks: [
-          "Test the sump pump and clear its intake screen",
-          "Confirm the sump discharge line is clear and directed away",
-          "Re-secure lifted crawlspace vapor barrier",
-          "Check perimeter and foundation drains for winter blockage",
-        ],
+        title: "Doors & drafts",
+        tasks: ["Check weatherstripping and door sweeps at shared entries; adjust or replace"],
       },
       {
-        title: "Common-area safety",
-        tasks: [
-          "Test smoke and CO detectors and replace batteries in shared spaces",
-          "Replace failed interior and exterior bulbs in stairwells and hallways",
-          "Press-test shared GFCI outlets and note any that fail to reset",
-          "Confirm stairwell and hallway lighting is fully working",
-        ],
+        title: "Shared safety",
+        tasks: ["Test shared GFCI outlets, inside and out"],
       },
       {
-        title: "Storm-season readiness",
-        tasks: [
-          "Clear and secure outdoor drains and catch basins",
-          "Treat shaded walkways and stairs for slick moss and algae",
-          "Check exterior and motion lighting and replace bulbs",
-          "Secure loose exterior items before wind storms",
-        ],
+        title: "Where present",
+        tasks: ["Check pipe insulation in the crawlspace and garage"],
       },
     ],
   },

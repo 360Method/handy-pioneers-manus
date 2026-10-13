@@ -24,40 +24,29 @@ const SEASONS: SeasonData[] = [
     timing: "March-April",
     categories: [
       {
-        title: "Roof & moss care (walkable roofs)",
-        tasks: [
-          "Soft-brush and treat moss on walkable, low-slope roof areas",
-          "Apply a zinc-based moss inhibitor before growth spreads",
-          "Clear needles and debris from valleys and around vents and skylights",
-          "Note worn shingles or flashing for a separate repair scope",
-        ],
-      },
-      {
         title: "Gutters & drainage",
         tasks: [
-          "Clear gutters and flush downspouts we can reach from a ladder or walkable roof (where gutters are present)",
-          "Confirm water exits well away from the foundation; clear splash blocks",
-          "Re-seat loose gutter hangers and tighten fasteners",
-          "Clear accessible perimeter and window-well drains",
+          "Clear gutters and flush downspouts we can reach from a ladder (where gutters are present), or clear the tops of gutter covers where you have them",
+          "Confirm water exits well away from the foundation",
         ],
       },
       {
-        title: "Exterior weatherproofing",
+        title: "Safety & systems",
         tasks: [
-          "Re-caulk gaps at windows, doors, and exterior penetrations",
-          "Touch up exterior paint or stain on small worn spots",
-          "Reseal siding penetrations and hose-bib trim",
-          "Replace cracked or missing exterior caulk beads",
+          "Test every smoke and CO detector and check the fire extinguisher",
+          "Replace the heating and cooling air filter; check the thermostat and condensate drain",
         ],
       },
       {
-        title: "Safety & systems upkeep",
+        title: "Plumbing leak check",
         tasks: [
-          "Test smoke and CO detectors and replace batteries",
-          "Replace the heating and cooling air filter (common sizes carried)",
-          "Lubricate garage-door rollers and hinges; test the auto-reverse",
-          "Clean the dryer-vent run and press-test GFCI outlets",
+          "Look under every sink and at each toilet supply line and shutoff",
+          "Check the water heater pan for drips",
         ],
+      },
+      {
+        title: "Where present",
+        tasks: ["Test the sump pump", "Start up irrigation and check the zones"],
       },
     ],
   },
@@ -67,40 +56,17 @@ const SEASONS: SeasonData[] = [
     timing: "June-July",
     categories: [
       {
-        title: "Dry-season exterior care",
+        title: "Air & ventilation",
         tasks: [
-          "Soft-wash siding, walkways, and patio",
-          "Pressure-wash the driveway where suitable",
-          "Wash exterior windows and clean tracks and weep holes",
-          "Touch up exterior paint while conditions are dry",
+          "Clean the dryer vent run and its outside hood",
+          "Clean bathroom exhaust fans and confirm they pull air",
+          "Degrease the range hood filter",
+          "Replace the air filter",
         ],
       },
       {
-        title: "Deck, fence & surfaces (where present)",
-        tasks: [
-          "Clean and reseal deck boards in the dry window (where a deck is present)",
-          "Stain or seal fence sections (where a fence is present)",
-          "Tighten deck and fence fasteners; note rot for a separate scope",
-          "Seal driveway and walkway cracks before fall",
-        ],
-      },
-      {
-        title: "Moisture & ventilation (where present)",
-        tasks: [
-          "Re-secure lifted crawlspace vapor barrier",
-          "Check the attic for blocked vents, staining, or daylight",
-          "Confirm crawlspace and soffit vents are clear and screened",
-          "Note standing water or pest signs for follow-up",
-        ],
-      },
-      {
-        title: "Air filters & safety devices",
-        tasks: [
-          "Replace the air filter and clear the visible condensate line",
-          "Clear debris and growth around the outdoor unit",
-          "Test smoke and CO detectors",
-          "Clean range-hood and bath-fan filters and grilles",
-        ],
+        title: "Wet areas",
+        tasks: ["Check tub and shower caulk and grout; reseal small failed sections"],
       },
     ],
   },
@@ -110,40 +76,26 @@ const SEASONS: SeasonData[] = [
     timing: "September-October",
     categories: [
       {
-        title: "Rain-season roof & gutter prep",
+        title: "Rain-season gutter prep",
         tasks: [
-          "Clear gutters and downspouts before the wet season, from a ladder or walkable roof (where present)",
-          "High-flow test downspouts for underground clogs",
-          "Re-treat walkable roof areas with moss inhibitor",
-          "Confirm downspout extensions carry water well away from the foundation",
+          "Clear gutters and flush and high-flow test downspouts, from a ladder (where present), or clear the tops of gutter covers where you have them",
+          "Confirm downspout extensions and nearby drains are clear",
         ],
       },
       {
-        title: "Weatherization & sealing",
-        tasks: [
-          "Replace worn weatherstripping at doors and windows",
-          "Install or replace door sweeps and thresholds",
-          "Re-caulk exterior gaps before the first rains",
-          "Seal gaps at penetrations, vents, and trim",
-        ],
-      },
-      {
-        title: "Freeze protection for faucets & lines",
-        tasks: [
-          "Shut off and drain exterior hose bibs (where present)",
-          "Install insulated faucet covers",
-          "Add foam insulation to exposed exterior or crawlspace pipe runs",
-          "Drain and store hoses; winterize irrigation lines (where present)",
-        ],
+        title: "Freeze protection",
+        tasks: ["Disconnect hoses and fit insulated faucet covers (where hose bibs are present)"],
       },
       {
         title: "Heating-season readiness",
         tasks: [
-          "Replace the air filter for the heating season",
           "Test smoke and CO detectors and replace batteries",
-          "Clear vents and registers of dust and obstruction",
-          "Check the fireplace and chimney surround and screen; flag service (where present)",
+          "Replace the air filter for the heating season",
         ],
+      },
+      {
+        title: "Where present",
+        tasks: ["Run the sump pump through a full cycle"],
       },
     ],
   },
@@ -153,40 +105,23 @@ const SEASONS: SeasonData[] = [
     timing: "December-January",
     categories: [
       {
-        title: "Freeze & moisture protection",
+        title: "Water & plumbing",
         tasks: [
-          "Re-check and re-secure pipe insulation in the crawlspace and exterior walls",
-          "Confirm faucet covers and exterior shut-offs are holding",
-          "Clear reachable gutters of winter debris between storms",
-          "Note recurring crawlspace moisture for a drainage scope",
+          "Locate, tag and exercise the main water shutoff",
+          "Check the water heater: leaks, drain pan, relief line, venting and temperature",
         ],
       },
       {
-        title: "Crawlspace & drainage (where present)",
-        tasks: [
-          "Test the sump pump and clear its intake screen (where present)",
-          "Confirm the sump discharge line is clear and directed away",
-          "Re-secure lifted crawlspace vapor barrier",
-          "Check perimeter and foundation drains for winter blockage",
-        ],
+        title: "Doors & drafts",
+        tasks: ["Check weatherstripping and door sweeps on every exterior door; adjust or replace"],
       },
       {
-        title: "Interior safety",
-        tasks: [
-          "Test smoke and CO detectors and replace batteries",
-          "Replace failed interior and exterior bulbs",
-          "Press-test GFCI outlets and note any that fail to reset",
-          "Clean bath and laundry exhaust-fan grilles and confirm they vent outside",
-        ],
+        title: "Safety & air",
+        tasks: ["Test every GFCI outlet, inside and out", "Replace the air filter"],
       },
       {
-        title: "Storm-season readiness",
-        tasks: [
-          "Clear and secure outdoor drains and catch basins",
-          "Reverse ceiling fans to push warm air down",
-          "Treat shaded walkways for slick moss and algae",
-          "Check exterior lighting and motion sensors and replace bulbs",
-        ],
+        title: "Where present",
+        tasks: ["Check pipe insulation in the crawlspace and garage"],
       },
     ],
   },
@@ -215,6 +150,12 @@ const HOMEOWNER_FOOTNOTES: ReactNode[] = [
     leaking roof, a broken fixture, or any heating, cooling, plumbing, or electrical system
     repair), that is separate work. We document it and give you a written scope to approve at your
     member rate, never absorbed into the visit.
+  </>,
+  <>
+    Some work varies too much from home to home to carry in a flat plan fee: window and track
+    cleaning, soft-washing siding and walkways, sealing a deck or fence, roof moss treatment, and
+    sealing driveway cracks. We spot it on your visits and quote it as its own job at your member
+    rate.
   </>,
   <>
     Essential includes Spring + Fall. Full Coverage and Maximum Protection include all four

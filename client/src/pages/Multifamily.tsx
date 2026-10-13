@@ -500,6 +500,12 @@ export default function Multifamily() {
             scope to approve at your member rate, never absorbed into the visit.
           </>,
           <>
+            Some work varies too much from building to building to carry in a flat plan fee:
+            window and track cleaning, soft-washing siding and walkways, sealing decks or fences,
+            roof moss treatment, and sealing driveway or parking cracks. We spot it on our visits
+            and quote it as its own job at your member rate.
+          </>,
+          <>
             Essential includes Spring + Fall building visits. Full Coverage and Maximum include all
             four seasons. Every tier includes the annual scan and one annual in-unit visit per unit.
           </>,
