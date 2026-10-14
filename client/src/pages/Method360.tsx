@@ -12,6 +12,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
 import PhotoLightbox from "@/components/PhotoLightbox";
+import ZoomableImage from "@/components/ZoomableImage";
+import { LIVING_ROOM_BEFORE_AFTER } from "@/lib/assets";
 import SEO from "@/components/SEO";
 
 const HERO_BG =
@@ -391,36 +393,32 @@ export default function Method360() {
         </div>
       </section>
 
-      {/* ─── Transformation Visual ─── */}
-      <section className="py-0 overflow-hidden" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
-        <div className="relative">
-          <img
-            src="/images/site/method-transformation.webp"
-            alt="A Pacific Northwest craftsman home kept in good repair under low grey cloud"
-            className="w-full object-cover"
-            style={{ maxHeight: "520px", objectPosition: "center" }}
+      {/* ─── Transformation Visual ───
+          A real job, not an illustration: the same living room before and
+          after (the photo in the homepage gallery). Square and already labelled,
+          so it is shown whole rather than cropped into a wide banner. */}
+      <section className="py-14" style={{ backgroundColor: "oklch(0.22 0.04 155)" }}>
+        <div className="container max-w-xl">
+          <ZoomableImage
+            src={LIVING_ROOM_BEFORE_AFTER}
+            alt="The same living room before and after: bare subfloor and dated walls, then hardwood flooring, recessed lighting and an updated fireplace"
+            caption="Living room transformation with hardwood flooring, recessed lighting, and updated fireplace"
+            className="w-full h-auto rounded-xl shadow-lg"
+            loading="lazy"
           />
-          <div
-            className="absolute inset-0 flex items-end"
-            style={{ background: "linear-gradient(to top, rgba(14,26,20,0.75) 0%, transparent 50%)" }}
-          >
-            <div className="container pb-10">
-              <div className="flex gap-8 justify-center">
-                <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>Before</div>
-                  <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Reactive. Deferred. Declining.</div>
-                </div>
-                <div className="w-px bg-white/30" />
-                <div className="text-center">
-                  <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>After the 360° Method</div>
-                  <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Proactive. Protected. Advancing.</div>
-                </div>
-              </div>
+          <div className="flex gap-6 sm:gap-8 justify-center mt-8">
+            <div className="text-center">
+              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>Before</div>
+              <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Reactive. Deferred. Declining.</div>
+            </div>
+            <div className="w-px bg-white/30" />
+            <div className="text-center">
+              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>After the 360° Method</div>
+              <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Proactive. Protected. Advancing.</div>
             </div>
           </div>
         </div>
       </section>
-
 
       {/* ─── Disclaimer ─── */}
       <section className="py-10" style={{ backgroundColor: "oklch(0.94 0.008 80)" }}>

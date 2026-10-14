@@ -51,6 +51,9 @@ export const CTA_BG = "/images/site/cta-bg.webp";
 export const METHOD_TRANSFORMATION = "/images/site/method-transformation.webp";
 export const REFERRAL_BANNER = "/images/site/referral-banner.webp";
 
+/** Real job: a living room before and after. Also in the homepage gallery. */
+export const LIVING_ROOM_BEFORE_AFTER = "/images/hero-gallery/ryLhHcoLDKcrOody.jpg";
+
 export const PHASE_IMAGES = {
   aware: "/images/site/method-aware.webp",
   act: "/images/site/method-act.webp",
