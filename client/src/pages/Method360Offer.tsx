@@ -12,6 +12,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ArrowRight, CheckCircle, Clock, Star, Shield, Home } from "lucide-react";
 import SEO from "@/components/SEO";
+import ZoomableImage from "@/components/ZoomableImage";
 
 const PDF_URL =
   "/sample/360-roadmap-sample.pdf";
@@ -193,7 +194,7 @@ export default function Method360Offer() {
           <p className="text-[#8BA898] text-xs uppercase tracking-widest text-center mb-3">
             What happens to your home's score over 18 months
           </p>
-          <img
+          <ZoomableImage
             src={HOME_SCORE_IMG}
             alt="Sample roadmap page: a Home Score of 63 out of 100 with work sorted into Now, Soon and Wait"
             className="w-full rounded-xl"
