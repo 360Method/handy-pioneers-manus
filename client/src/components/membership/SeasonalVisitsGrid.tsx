@@ -158,6 +158,12 @@ const HOMEOWNER_FOOTNOTES: ReactNode[] = [
     rate.
   </>,
   <>
+    Visits keep your home in shape once it is in shape. If gutters, a roof or a dryer vent has gone
+    more than a year without service, the first catch-up clean is quoted once at your member rate,
+    with the regular price beside it. After that it is covered on every visit. If you can show it
+    was serviced in the last year, it goes straight onto your seasonal schedule.
+  </>,
+  <>
     Essential includes Spring + Fall. Full Coverage and Maximum Protection include all four
     seasons.
   </>,

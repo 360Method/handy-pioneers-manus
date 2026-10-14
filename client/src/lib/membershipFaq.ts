@@ -26,6 +26,10 @@ export const MEMBERSHIP_FAQS: MembershipFaq[] = [
     a: "The baseline is a 2-3 hour documented whole-home assessment - roof, foundation, exterior envelope, interior systems, plumbing, electrical panels, HVAC, crawl space, and attic. You receive a written report with photos, a condition rating for each system, a prioritized findings list, and a written scope of work. This report is stored permanently in your member account and is shareable with your agent, lender, or insurer.",
   },
   {
+    q: "My gutters haven't been cleaned in years. Is that included?",
+    a: "Your seasonal visits keep the home in shape once it is in shape. If gutters, a roof or a dryer vent has gone more than a year without service, the first clean is a bigger job than upkeep, so we quote that catch-up clean once, with the regular price and your member price side by side. You approve it before we start. After that it is part of every visit at no extra charge. If you have a receipt or a dated photo showing it was serviced in the last year and it is in routine condition, there is no catch-up: it goes straight onto your seasonal schedule.",
+  },
+  {
     q: "Is there a contract or minimum commitment?",
     a: "No contract. Monthly and quarterly memberships cancel at the end of the current billing period. Annual memberships can be cancelled with a prorated refund for unused months, net of any labor bank credits already applied. We expect to earn your renewal - not enforce it.",
   },
