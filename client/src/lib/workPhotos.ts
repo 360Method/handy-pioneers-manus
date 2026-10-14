@@ -12,23 +12,26 @@
  * The six CDN photos it replaced were maintenance-visit shots: roof moss
  * cleaning, gutter cleaning, hose bib winterisation, exterior light fixture
  * replacement, rotted stair restoration, and a driveway pressure wash. Those
- * originals are gone. When those jobs come round again, shoot them, drop the
+ * originals are gone. Roof debris and gutter cleaning are back as of the fall
+ * 2026 seasonal visits. When the others come round again, shoot them, drop the
  * files in client/public/images/ with a dated filename, and add them here.
  */
 export type WorkPhoto = { src: string; caption: string };
 
 export const WORK_PHOTOS: WorkPhoto[] = [
+  // Fall 2026 seasonal visit on a 360 member's home. Same valley and the same
+  // gutter run on both sides, so "Before" and "After" are honest.
+  {
+    src: "/images/roof-debris-before-after-2026-10-16x9.webp",
+    caption: "Fall roof debris clearing on a 360 member's home, Clark County",
+  },
+  {
+    src: "/images/gutter-cleaning-before-after-2026-10-16x9.webp",
+    caption: "Fall gutter cleaning on a 360 member's home, Clark County",
+  },
   {
     src: "/images/porch-post-before-after-camas-16x9-2026-08.webp",
     caption: "Porch post rot repair, Camas",
-  },
-  {
-    src: "/images/porch-columns-finished-camas-2026-08.webp",
-    caption: "Porch columns rebuilt and painted, Camas",
-  },
-  {
-    src: "/images/porch-post-standoff-base-camas-16x9-2026-08.webp",
-    caption: "Standoff bases fitted to keep posts out of standing water, Camas",
   },
   {
     src: "/images/kitchen-remodel-before-after-2026-07.webp",
