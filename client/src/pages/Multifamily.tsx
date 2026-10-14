@@ -25,7 +25,8 @@ import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTi
 import SEO from "@/components/SEO";
 import { LANDLORD_SEASONS, TURNOVER_SCOPE, TURNOVER_FROM } from "@/lib/landlordContent";
 import Method360Mark from "@/components/Method360Mark";
-import { WORK_PHOTOS } from "@/lib/workPhotos";
+import WorkPhotoGrid from "@/components/WorkPhotoGrid";
+import ZoomableImage from "@/components/ZoomableImage";
 
 // 1-4 units price cleanly off the building base + per-unit fee. 5+ units need a
 // per-unit custom quote, so picking it switches the pricing block to a capture.
@@ -332,11 +333,12 @@ export default function Multifamily() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
+              <ZoomableImage
+                wrapperClassName="w-full max-w-[320px]"
                 src="/images/roadmap-sample/stewardship-cover.webp"
                 alt="A 360° Method Stewardship Roadmap, the written report an owner receives after a property scan"
                 className="rounded-2xl shadow-xl"
-                style={{ maxWidth: "320px", width: "100%" }}
+                style={{ width: "100%" }}
               />
             </div>
             <div>
@@ -545,7 +547,8 @@ export default function Multifamily() {
           </p>
 
           <figure className="max-w-3xl mx-auto mb-10">
-            <img
+            <ZoomableImage
+              caption="A rental bedroom we refloored with luxury vinyl plank, ready to re-list."
               src="/images/lvp-bedroom-before-after-2026-09.webp"
               alt="Before and after of a rental bedroom: worn patterned vinyl replaced with gray luxury vinyl plank flooring"
               width={1536}
@@ -1035,26 +1038,7 @@ export default function Multifamily() {
           >
             This is what your property looks like after a visit.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {WORK_PHOTOS.map((photo, i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-sm">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-52 object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3 py-2 bg-white">
-                  <p
-                    className="text-xs font-medium"
-                    style={{ color: "oklch(45% 0.02 60)" }}
-                  >
-                    {photo.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <WorkPhotoGrid />
         </div>
       </section>
 

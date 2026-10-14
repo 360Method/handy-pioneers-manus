@@ -6,7 +6,8 @@
  */
 
 import { useState } from "react";
-import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { ZoomIn } from "lucide-react";
+import PhotoLightbox from "@/components/PhotoLightbox";
 import { openInquiry } from "@/lib/inquiry";
 
 // ─── PHOTO GALLERY DATA ───────────────────────────────────────────────────────
@@ -55,11 +56,7 @@ export default function Gallery() {
 
   const filteredPhotos = activePhotoTag === "All" ? photos : photos.filter((p) => p.tag === activePhotoTag);
 
-  const openLightbox = (index: number) => { setLightboxIndex(index); document.body.style.overflow = "hidden"; };
-  const closeLightbox = () => { setLightboxIndex(null); document.body.style.overflow = ""; };
-  const prevPhoto = (e: React.MouseEvent) => { e.stopPropagation(); if (lightboxIndex === null) return; setLightboxIndex((lightboxIndex - 1 + filteredPhotos.length) % filteredPhotos.length); };
-  const nextPhoto = (e: React.MouseEvent) => { e.stopPropagation(); if (lightboxIndex === null) return; setLightboxIndex((lightboxIndex + 1) % filteredPhotos.length); };
-  const currentPhoto = lightboxIndex !== null ? filteredPhotos[lightboxIndex] : null;
+  const lightboxPhotos = filteredPhotos.map((p) => ({ src: p.src, alt: p.caption, caption: p.caption, tag: p.tag }));
 
   return (
     <section id="gallery" className="py-20" style={{ backgroundColor: "oklch(0.97 0.015 80)" }}>
@@ -103,7 +100,11 @@ export default function Gallery() {
             <div
               key={photo.id}
               className="relative overflow-hidden rounded-xl cursor-pointer group mb-3 break-inside-avoid"
-              onClick={() => openLightbox(index)}
+              onClick={() => setLightboxIndex(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); setLightboxIndex(index); } }}
+              aria-label={`Open photo: ${photo.caption}`}
             >
               <img
                 src={photo.src}
@@ -141,45 +142,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Photo Lightbox */}
-      {currentPhoto && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
-          style={{ backgroundColor: "oklch(0 0 0 / 0.92)" }}
-          onClick={closeLightbox}
-        >
-          <button onClick={closeLightbox} className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: "oklch(0.25 0.02 80)", color: "oklch(0.96 0.01 80)" }} aria-label="Close">
-            <X size={20} />
-          </button>
-          <button onClick={prevPhoto} className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: "oklch(0.25 0.02 80)", color: "oklch(0.96 0.01 80)" }} aria-label="Previous">
-            <ChevronLeft size={22} />
-          </button>
-          <button onClick={nextPhoto} className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: "oklch(0.25 0.02 80)", color: "oklch(0.96 0.01 80)" }} aria-label="Next">
-            <ChevronRight size={22} />
-          </button>
-          <div className="relative max-w-3xl w-full" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={currentPhoto.src}
-              alt={currentPhoto.caption}
-              className="w-full rounded-2xl object-contain"
-              style={{ maxHeight: "78vh" }}
-            />
-            <div className="mt-3 text-center">
-              {currentPhoto.tag && (
-                <span className="inline-block px-3 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider mr-2" style={{ backgroundColor: "oklch(0.65 0.14 65)", color: "oklch(1 0 0)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                  {currentPhoto.tag}
-                </span>
-              )}
-              <span className="text-sm" style={{ color: "oklch(0.80 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                {currentPhoto.caption}
-              </span>
-              <p className="text-xs mt-1" style={{ color: "oklch(0.55 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
-                {(lightboxIndex ?? 0) + 1} / {filteredPhotos.length}
-              </p>
-            </div>
-          </div>
-        </div>
-      )}
+      <PhotoLightbox photos={lightboxPhotos} index={lightboxIndex} onChange={setLightboxIndex} />
     </section>
   );
 }
