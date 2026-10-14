@@ -96,7 +96,7 @@ export default function About() {
               >
                 <img
                   src={MARCIN_PHOTO}
-                  alt="Marcin Micek - Owner, Handy Pioneers"
+                  alt="Marcin Micek, owner of Handy Pioneers, at the workbench"
                   className="w-full object-cover object-top"
                   style={{ maxHeight: "520px" }}
                 />

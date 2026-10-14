@@ -26,7 +26,8 @@ import SEO from "@/components/SEO";
 // rendered as static HTML + FAQPage JSON-LD by the static-page generator).
 import { MEMBERSHIP_FAQS as FAQS } from "@/lib/membershipFaq";
 import Method360Mark from "@/components/Method360Mark";
-import { WORK_PHOTOS } from "@/lib/workPhotos";
+import WorkPhotoGrid from "@/components/WorkPhotoGrid";
+import ZoomableImage from "@/components/ZoomableImage";
 
 export default function Membership() {
   const [cadence, setCadence] = useState<BillingCadence>("monthly");
@@ -219,11 +220,12 @@ export default function Membership() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
+              <ZoomableImage
+                wrapperClassName="w-full max-w-[320px]"
                 src="/images/roadmap-sample/stewardship-cover.webp"
                 alt="A 360° Method Stewardship Roadmap, the written report a member receives after a home scan"
                 className="rounded-2xl shadow-xl"
-                style={{ maxWidth: "320px", width: "100%" }}
+                style={{ width: "100%" }}
               />
             </div>
             <div>
@@ -680,26 +682,7 @@ export default function Membership() {
           >
             This is what your home looks like after a visit.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {WORK_PHOTOS.map((photo, i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-sm">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-52 object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3 py-2 bg-white">
-                  <p
-                    className="text-xs font-medium"
-                    style={{ color: "oklch(45% 0.02 60)" }}
-                  >
-                    {photo.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <WorkPhotoGrid />
         </div>
       </section>
 

@@ -27,6 +27,7 @@ import { openInquiry } from "@/lib/inquiry";
 import { track } from "@/lib/analytics";
 import { faqs } from "@/lib/faq";
 import { metaForPath } from "@/lib/pageMeta";
+import { ENTITY_DESCRIPTION } from "@/lib/brand";
 
 const HOME_META = metaForPath("/")!;
 
@@ -106,7 +107,7 @@ const services = [
   { icon: Shield, label: "Exterior Repairs & Siding", href: "/services/rot-repair" },
   { icon: TrendingUp, label: "ADU & Garage Conversions", href: "/services/accessory-dwelling-units" },
   { icon: TreePine, label: "Pressure Washing & Moss Removal", href: "/services/pressure-washing" },
-  { icon: Hammer, label: "Carpentry & Custom Millwork", href: "/services/carpentry-trim" },
+  { icon: Hammer, label: "Finish Carpentry & Built-Ins", href: "/services/carpentry-trim" },
   { icon: Paintbrush, label: "Drywall & Texture", href: "/services" },
   { icon: Shield, label: "Gutter Cleaning & Repair", href: "/services/gutter-services" },
   { icon: Clock, label: "Proactive Maintenance Programs", href: "/services/property-maintenance" },
@@ -154,6 +155,18 @@ const phases = [
 const HOMEPAGE_JSONLD = [
   {
     "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Handy Pioneers",
+    url: "https://handypioneers.com",
+    inLanguage: "en-US",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://handypioneers.com/blog?search={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+  {
+    "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "@id": "https://handypioneers.com/#business",
     name: "Handy Pioneers",
@@ -164,8 +177,7 @@ const HOMEPAGE_JSONLD = [
     image: "https://handypioneers.com/brand/og-image.jpg",
     logo: "https://handypioneers.com/brand/hp-logo.png",
     priceRange: "$$",
-    description:
-      "Licensed, insured home care and restoration company serving Vancouver WA and the rest of Clark County. One accountable team for repairs, remodels, and proactive year-round maintenance, led by owner Marcin Micek.",
+    description: ENTITY_DESCRIPTION,
     address: {
       "@type": "PostalAddress",
       addressLocality: "Vancouver",
@@ -586,7 +598,7 @@ export default function Home() {
             {/* Photo column - shown second on mobile */}
             <div className="flex flex-col gap-6 order-last md:order-first">
               <div className="rounded-2xl overflow-hidden" style={{ boxShadow: "0 12px 40px rgba(0,0,0,0.12)" }}>
-                <img src={MARCIN_PHOTO} alt="Marcin Micek - Owner, Handy Pioneers" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
+                <img src={MARCIN_PHOTO} alt="Marcin Micek, owner of Handy Pioneers, at the workbench" className="w-full object-cover object-top" style={{ maxHeight: "520px" }} />
               </div>
               {/* License badge */}
               <div className="rounded-xl p-5 border flex items-start gap-4" style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)", boxShadow: "0 2px 12px rgba(0,0,0,0.05)" }}>

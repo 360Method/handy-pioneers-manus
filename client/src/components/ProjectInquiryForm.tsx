@@ -463,7 +463,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
         </div>
       </div>
 
-      {/* Photos & documents — the more we can see, the better we can prepare. */}
+      {/* Photos and documents. The more we can see, the better we can prepare. */}
       <div>
         <label className={labelClass}>
           Photos &amp; documents <span className="normal-case opacity-60">(optional, recommended)</span>
@@ -489,7 +489,7 @@ export default function ProjectInquiryForm({ source, variant = "hero", funnel = 
           Add photos or documents
         </button>
         <p className={`mt-1 text-xs ${isHero ? "text-white/40" : "text-gray-400"}`}>
-          Add as many as you like — photos of the area, inspection reports, quotes, or plans. The more we can see, the better we can prepare.
+          Add as many as you like: photos of the area, inspection reports, quotes, or plans. The more we can see, the better we can prepare.
         </p>
 
         {(attachments.length > 0 || uploadingCount > 0) && (

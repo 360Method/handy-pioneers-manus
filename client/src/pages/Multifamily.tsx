@@ -25,7 +25,8 @@ import ReactiveVsMemberTimeline from "@/components/membership/ReactiveVsMemberTi
 import SEO from "@/components/SEO";
 import { LANDLORD_SEASONS, TURNOVER_SCOPE, TURNOVER_FROM } from "@/lib/landlordContent";
 import Method360Mark from "@/components/Method360Mark";
-import { WORK_PHOTOS } from "@/lib/workPhotos";
+import WorkPhotoGrid from "@/components/WorkPhotoGrid";
+import ZoomableImage from "@/components/ZoomableImage";
 
 // 1-4 units price cleanly off the building base + per-unit fee. 5+ units need a
 // per-unit custom quote, so picking it switches the pricing block to a capture.
@@ -332,11 +333,12 @@ export default function Multifamily() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="flex justify-center lg:justify-start">
-              <img
+              <ZoomableImage
+                wrapperClassName="w-full max-w-[320px]"
                 src="/images/roadmap-sample/stewardship-cover.webp"
                 alt="A 360° Method Stewardship Roadmap, the written report an owner receives after a property scan"
                 className="rounded-2xl shadow-xl"
-                style={{ maxWidth: "320px", width: "100%" }}
+                style={{ width: "100%" }}
               />
             </div>
             <div>
@@ -500,6 +502,19 @@ export default function Multifamily() {
             scope to approve at your member rate, never absorbed into the visit.
           </>,
           <>
+            Some work varies too much from building to building to carry in a flat plan fee:
+            window and track cleaning, soft-washing siding and walkways, sealing decks or fences,
+            roof moss treatment, and sealing driveway or parking cracks. We spot it on our visits
+            and quote it as its own job at your member rate.
+          </>,
+          <>
+            Visits keep a building in shape once it is in shape. If gutters, a roof or dryer vents
+            have gone more than a year without service, the first catch-up clean is quoted once at
+            your member rate, with the regular price beside it. After that it is covered on every
+            visit. If you can show it was serviced in the last year, it goes straight onto the
+            seasonal schedule.
+          </>,
+          <>
             Essential includes Spring + Fall building visits. Full Coverage and Maximum include all
             four seasons. Every tier includes the annual scan and one annual in-unit visit per unit.
           </>,
@@ -530,6 +545,21 @@ export default function Multifamily() {
             per event at your member rate, with priority scheduling by tier. Members go ahead of the
             queue so the unit doesn't sit empty.
           </p>
+
+          <figure className="max-w-3xl mx-auto mb-10">
+            <ZoomableImage
+              caption="A rental bedroom we refloored with luxury vinyl plank, ready to re-list."
+              src="/images/lvp-bedroom-before-after-2026-09.webp"
+              alt="Before and after of a rental bedroom: worn patterned vinyl replaced with gray luxury vinyl plank flooring"
+              width={1536}
+              height={1024}
+              loading="lazy"
+              className="w-full rounded-2xl shadow-xl"
+            />
+            <figcaption className="text-center text-xs mt-3" style={{ color: "oklch(50% 0.02 60)" }}>
+              A rental bedroom we refloored with luxury vinyl plank, ready to re-list.
+            </figcaption>
+          </figure>
 
           {/* Standardized scope */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
@@ -1008,26 +1038,7 @@ export default function Multifamily() {
           >
             This is what your property looks like after a visit.
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {WORK_PHOTOS.map((photo, i) => (
-              <div key={i} className="rounded-lg overflow-hidden shadow-sm">
-                <img
-                  src={photo.src}
-                  alt={photo.caption}
-                  className="w-full h-52 object-cover"
-                  loading="lazy"
-                />
-                <div className="px-3 py-2 bg-white">
-                  <p
-                    className="text-xs font-medium"
-                    style={{ color: "oklch(45% 0.02 60)" }}
-                  >
-                    {photo.caption}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <WorkPhotoGrid />
         </div>
       </section>
 

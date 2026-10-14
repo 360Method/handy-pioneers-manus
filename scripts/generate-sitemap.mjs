@@ -51,7 +51,7 @@ function extractPublishedBlogSlugs(filePath) {
   // \r?\n keeps this working on Windows checkouts (CRLF) as well as CI (LF).
   const records = raw.split(/\r?\n\s*\{\r?\n/).slice(1);
   const today = new Date();
-  today.setHours(0, 0, 0, 0);
+  today.setHours(23, 59, 59, 999);
   const out = [];
   for (const block of records) {
     const slugMatch = block.match(/"?slug"?:\s*"([^"]+)"/);

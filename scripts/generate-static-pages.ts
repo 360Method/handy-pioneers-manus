@@ -137,6 +137,9 @@ function headBlock(h: HeadData): string {
     `<title>${esc(h.title)}</title>`,
     `<meta name="description" content="${esc(h.description)}" />`,
     `<link rel="canonical" href="${canonical}" />`,
+    `<link rel="alternate" type="text/plain" title="llms.txt" href="${SITE}/llms.txt" />`,
+    `<link rel="alternate" type="text/plain" title="llms-full.txt" href="${SITE}/llms-full.txt" />`,
+    `<link rel="alternate" type="application/rss+xml" title="Handy Pioneers RSS" href="${SITE}/feed.xml" />`,
     `<meta name="robots" content="index,follow" />`,
     `<meta property="og:site_name" content="${SITE_NAME}" />`,
     `<meta property="og:type" content="${h.ogType || "website"}" />`,
@@ -518,15 +521,34 @@ function financingJsonLd(): object[] {
 
 // ─── service pages ────────────────────────────────────────────────────────────
 
+function serviceProcessHtml(svc: ServiceDef): string {
+  if (!svc.process) return "";
+  const steps = svc.process.steps
+    .map(
+      (s) =>
+        `<li><h3>${esc(s.title)} (${esc(s.timeframe)})</h3><p>${esc(s.detail)}</p>` +
+        (s.youDecide ? `<p><strong>Your part:</strong> ${esc(s.youDecide)}</p>` : "") +
+        `</li>`
+    )
+    .join("");
+  return (
+    `<h2>How the process works</h2><p>${esc(svc.process.intro)}</p><ol>${steps}</ol>` +
+    (svc.process.note ? `<p>${esc(svc.process.note)}</p>` : "")
+  );
+}
+
 function serviceBodyHtml(svc: ServiceDef): string {
   const parts = [
     `<article>`,
     `<nav><a href="${SITE}/services">Services</a> &middot; Clark County, WA</nav>`,
     `<h1>${esc(svc.h1)}</h1>`,
-    svc.image ? `<img src="${esc(svc.image)}" alt="${esc(svc.imageAlt)}" width="1600" height="900" />` : "",
+    svc.image ? `<img src="${esc(svc.image)}" alt="${esc(svc.imageAlt)}" width="${svc.imageSize?.width ?? 1600}" height="${svc.imageSize?.height ?? 900}" />` : "",
     ...svc.intro.map((p) => `<p>${esc(p)}</p>`),
     serviceCostHtml(svc),
     `<h2>What's included</h2><ul>${svc.whatsIncluded.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
+    svc.moreImages?.length && svc.moreImagesTitle ? `<h2>${esc(svc.moreImagesTitle)}</h2>` : "",
+    ...(svc.moreImages ?? []).map((m) => `<figure><img src="${esc(SITE + m.src)}" alt="${esc(m.alt)}" width="${m.width}" height="${m.height}" /><figcaption>${esc(m.caption)}</figcaption></figure>`),
+    serviceProcessHtml(svc),
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,
     ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
@@ -535,7 +557,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
   if (svc.resources?.length) {
     parts.push(
       `<h2>Rules &amp; resources</h2>`,
-      `<p>We build to code and to the rules where you live. ADU regulations are set by the state, the county, and your city, and they keep changing. These are the official sources; the first step on any ADU is confirming exactly what applies to your address, which we handle.</p>`,
+      `<p>We build to code and to the rules where you live. Building rules are set by the state, the county, and your city, and they keep changing. These are the official sources; the first step on any project like this is confirming exactly what applies to your address, which we handle.</p>`,
       `<ul>` +
         svc.resources.map((r) => `<li><a href="${esc(r.url)}" rel="noopener">${esc(r.label)}</a></li>`).join("") +
         `</ul>`
@@ -907,23 +929,53 @@ function main() {
       tier1Page(shell, {
         ...meta,
         jsonLd: [
-          { "@context": "https://schema.org", "@type": "WebSite", name: SITE_NAME, url: SITE },
+          {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: SITE_NAME,
+            url: SITE,
+            inLanguage: "en-US",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: `${SITE}/blog?search={search_term_string}`,
+              "query-input": "required name=search_term_string",
+            },
+          },
           {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
             "@id": `${SITE}/#business`,
             name: SITE_NAME,
+            alternateName: "Handy Pioneers LLC",
             url: `${SITE}/`,
             telephone: "+1-360-838-6731",
             email: EMAIL,
+            image: DEFAULT_OG_IMAGE,
+            logo: `${SITE}/brand/hp-logo.png`,
             priceRange: "$$",
             description: ENTITY_DESCRIPTION,
             address: { "@type": "PostalAddress", addressLocality: "Vancouver", addressRegion: "WA", postalCode: "98665", addressCountry: "US" },
+            geo: { "@type": "GeoCoordinates", latitude: 45.6387, longitude: -122.6615 },
             areaServed: { "@type": "AdministrativeArea", name: SERVICE_AREA_LABEL },
+            openingHoursSpecification: [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "08:00",
+                closes: "18:00",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Saturday"],
+                opens: "09:00",
+                closes: "14:00",
+              },
+            ],
             aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "34" },
             sameAs: [
               "https://www.facebook.com/handypioneers",
               "https://www.instagram.com/handypioneers",
+              "https://www.google.com/maps/place/?q=place_id:ChIJ9TQT34PSgk8RH8gyOvVi8N4",
               "https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951",
             ],
           },

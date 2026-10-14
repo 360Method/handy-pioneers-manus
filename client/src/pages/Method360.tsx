@@ -11,6 +11,7 @@ import { ArrowRight, Eye, Zap, TrendingUp, DollarSign } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
+import PhotoLightbox from "@/components/PhotoLightbox";
 import SEO from "@/components/SEO";
 
 const HERO_BG =
@@ -91,6 +92,8 @@ const methodSteps = [
 export default function Method360() {
   const [, navigate] = useLocation();
   const [showReport, setShowReport] = useState(false);
+  const [phaseIndex, setPhaseIndex] = useState<number | null>(null);
+  const phasePhotos = phases.map((p) => ({ src: p.image, alt: p.imageAlt, caption: `${p.phase}: ${p.name}` }));
 
   useEffect(() => {
     document.title = "The 360° Method | Handy Pioneers";
@@ -229,17 +232,24 @@ export default function Method360() {
                 >
                   {/* Phase image */}
                   <div className="relative overflow-hidden" style={{ height: "220px" }}>
-                    <img
-                      src={p.image}
-                      alt={p.imageAlt}
-                      className="w-full h-full object-cover"
-                      style={{ transition: "transform 0.4s ease" }}
-                      onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
-                      onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
-                    />
+                    <button
+                      type="button"
+                      onClick={() => setPhaseIndex(phases.indexOf(p))}
+                      className="block w-full h-full cursor-zoom-in focus:outline-none focus-visible:ring-2 focus-visible:ring-inset"
+                      aria-label={`Open photo: ${p.imageAlt}`}
+                    >
+                      <img
+                        src={p.image}
+                        alt={p.imageAlt}
+                        className="w-full h-full object-cover"
+                        style={{ transition: "transform 0.4s ease" }}
+                        onMouseEnter={e => (e.currentTarget.style.transform = "scale(1.04)")}
+                        onMouseLeave={e => (e.currentTarget.style.transform = "scale(1)")}
+                      />
+                    </button>
                     {/* Phase badge overlay */}
                     <div
-                      className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full"
+                      className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 rounded-full pointer-events-none"
                       style={{ backgroundColor: p.color, backdropFilter: "blur(4px)" }}
                     >
                       <Icon size={14} color="white" />
@@ -530,6 +540,7 @@ export default function Method360() {
 
       <Footer />
       <SampleReportModal open={showReport} onClose={() => setShowReport(false)} />
+      <PhotoLightbox photos={phasePhotos} index={phaseIndex} onChange={setPhaseIndex} />
     </div>
     </>
   );

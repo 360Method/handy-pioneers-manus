@@ -65,6 +65,24 @@ export default function SEO({
       <title>{title}</title>
       <meta name="description" content={description} />
       <link rel="canonical" href={canonical} />
+      <link
+        rel="alternate"
+        type="text/plain"
+        title="llms.txt"
+        href={`${SITE_URL}/llms.txt`}
+      />
+      <link
+        rel="alternate"
+        type="text/plain"
+        title="llms-full.txt"
+        href={`${SITE_URL}/llms-full.txt`}
+      />
+      <link
+        rel="alternate"
+        type="application/rss+xml"
+        title="Handy Pioneers RSS"
+        href={`${SITE_URL}/feed.xml`}
+      />
       {noindex ? (
         <meta name="robots" content="noindex,nofollow" />
       ) : (

@@ -25,6 +25,12 @@ export interface ServiceDef {
   seoDesc: string;
   image: string;
   imageAlt: string;
+  /** Hero image pixel size when it is not the standard 1600x900 (16:9), e.g. a stacked before/after. */
+  imageSize?: { width: number; height: number };
+  /** More real job photos, shown in a small grid after "What's included". Paths are site-relative. */
+  moreImages?: { src: string; alt: string; caption: string; width: number; height: number }[];
+  /** Heading for the moreImages grid when "More of our <name> work" would read wrong. */
+  moreImagesTitle?: string;
   intro: string[];
   whatsIncluded: string[];
   signsYouNeedThis: string[];
@@ -43,6 +49,27 @@ export interface ServiceDef {
   costHub?: "remodel" | "adu";
   /** Official rules/permitting links shown in a "Rules & resources" section. */
   resources?: { label: string; url: string }[];
+  /**
+   * Optional "How the process works" section: the phases a project moves
+   * through, in order, with a planning timeframe and what the homeowner decides
+   * or provides in each. Used on big-ticket pages (ADUs, additions, remodels)
+   * so clients know what to expect before the first meeting.
+   */
+  process?: {
+    intro: string;
+    steps: ProcessStep[];
+    /** Honest note on what moves the timeline, shown under the steps. */
+    note?: string;
+  };
+}
+
+export interface ProcessStep {
+  title: string;
+  /** Planning range, e.g. "2 to 4 weeks". Never a promise; the written schedule sets dates. */
+  timeframe: string;
+  detail: string;
+  /** What the homeowner decides or provides in this phase. */
+  youDecide?: string;
 }
 
 /**
@@ -61,6 +88,263 @@ export const ADU_RESOURCES: { label: string; url: string }[] = [
   { label: "City of Ridgefield", url: "https://www.ridgefieldwa.us/" },
   { label: "City of Battle Ground", url: "https://www.cityofbg.org/" },
 ];
+
+/**
+ * Official process sources shared by the ADU and addition pages. All URLs
+ * verified live 2026-09-24.
+ */
+export const BUILD_PROCESS_RESOURCES: { label: string; url: string }[] = [
+  { label: "City of Vancouver: Residential Building Permits (the 5-step permit process)", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/" },
+  { label: "Clark County: Accessory Dwelling Unit (urban) rules and permit steps", url: "https://clark.wa.gov/community-development/accessory-dwelling-unit-urban" },
+  { label: "Clark County: Typical New Home and Remodel Inspections", url: "https://clark.wa.gov/community-development/typical-new-home-and-remodel-inspections" },
+  { label: "Washington State: Permit review time limits (RCW 36.70B.080)", url: "https://app.leg.wa.gov/rcw/default.aspx?cite=36.70b.080" },
+];
+
+const ADU_TIMELINE_NOTE =
+  "Timeframes are planning ranges, not promises. What moves them most: how quickly design decisions get made, whether the permit application is complete the first time (Washington law gives cities and counties 65 days to decide a complete application that needs no public notice), utility and site conditions, and material lead times. Your written schedule sets the real dates.";
+
+/** ADU overview page: the full path from idea to move-in. */
+export const ADU_PROCESS: ServiceDef["process"] = {
+  intro:
+    "Every ADU, whether a conversion, an attached suite, or a detached cottage, moves through the same six phases. Knowing them up front is how you avoid the two most common ADU problems: designing something your lot does not allow, and starting construction before the budget and the permit are both settled.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We walk the property and check what your specific lot allows: zoning, size limits, setbacks and separation from other buildings, and where water, sewer, and power can come from. In Vancouver the city asks for a Request for Utility Services before a permit application, so utility questions get answered here, not halfway through design. You leave with the ADU type that fits, a planning budget, and the open questions.",
+      youDecide: "Your goal (family, rental, office), the type you want to pursue, and a working budget.",
+    },
+    {
+      title: "Plans and engineering (by your designer)",
+      timeframe: "4 to 10 weeks",
+      detail:
+        "Permit-ready plans are drawn by an architect or residential designer, with structural engineering where the project needs it. We do not draw plans or do engineering in-house, and we recommend having them done first, so construction is priced from real drawings instead of a guess. The plan set typically includes a site plan, floor plans, foundation and framing plans, elevations, and the energy code forms Washington requires. Bring us in while the design develops and we will review it for buildability and cost, which is where the big material choices get made.",
+      youDecide: "Hire the designer and engineer, then make the layout, window, exterior, heating, and finish choices that go into the plans.",
+    },
+    {
+      title: "Permit application and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "The plan set is submitted to the City of Vancouver or Clark County (or your city), and reviewer comments get answered by whoever drew the plans. Vancouver's process runs application, prescreen, technical plan review, approval with final fees, and permit issuance. A complete, well-drawn application is the single biggest thing that keeps this phase short.",
+      youDecide: "Sign the application and approve any changes a reviewer asks for.",
+    },
+    {
+      title: "Fixed scope and contract",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "With approved plans in hand, the price is built from the actual drawings, not a guess. You get a written scope, a payment schedule tied to construction milestones, and a start date. Materials with long lead times, like windows and cabinets, get ordered now.",
+      youDecide: "Final selections and signing the contract.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "2 to 8 months, by type",
+      detail:
+        "The build runs in the order the inspectors check it: foundation, framing, rough plumbing, mechanical, and electrical, insulation, drywall, then finishes. Each inspection has to pass before the next stage is covered up. A conversion is the shortest build because the shell exists; a detached unit is the longest because it starts from bare ground.",
+      youDecide: "Walkthroughs at key milestones and any change you want to make, in writing, before it is built.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "Final inspection closes the permit, and in unincorporated Clark County a Certificate of Occupancy comes before anyone moves in. You get a walkthrough of the finished unit, the documents and warranties, and a record of what was built and where, which matters for rental, insurance, and resale.",
+      youDecide: "Your final walkthrough punch list.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Garage and basement conversions. */
+export const ADU_CONVERSION_PROCESS: ServiceDef["process"] = {
+  intro:
+    "A conversion is the fastest ADU path because the walls, roof, and foundation already exist. The work is making an unheated space into a legal home, and that is where the code details decide the project.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We check the space against what a living unit needs. In Vancouver, converted living space needs a finished ceiling of at least 6 feet 8 inches and legal egress windows, and each unit needs its own lockable door. We also look at the slab, moisture, and how plumbing will reach the new bathroom and kitchen, since that often sets the budget.",
+      youDecide: "Whether the garage or basement is worth converting versus another ADU type.",
+    },
+    {
+      title: "Plans (by your designer)",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "A designer draws the permit plans, with engineering if walls or openings change structurally. We do not draw plans in-house, and we recommend having them done before construction pricing. The plans show the new layout, egress, insulation, and heating. A garage becoming heated space must be brought fully up to the Washington State Energy Code, so walls, ceiling, and often the floor get insulated to current standards, and the garage door opening is usually framed in as a wall with windows.",
+      youDecide: "Hire the designer, then choose the layout, kitchen size, finish level, and how the old garage door opening becomes a wall.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "The plans go to your city or the county for review. If the unit shares utilities with the main house, Vancouver requires separate shutoffs for each unit and independent temperature control, and a water meter worksheet comes with the permit.",
+      youDecide: "Approve any reviewer-driven changes.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "2 to 4 months",
+      detail:
+        "Framing and egress openings, rough plumbing and electrical, insulation, drywall, then the kitchen, bath, flooring, and trim. Inspections sign off each stage before it is closed in.",
+      youDecide: "Milestone walkthroughs and final selections on time so the schedule holds.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of the work for rental and resale.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Attached ADUs and mother-in-law suites. */
+export const ADU_ATTACHED_PROCESS: ServiceDef["process"] = {
+  intro:
+    "An attached suite is part addition, part ADU. It ties into the house's roof, walls, and systems, so the plan has to protect both homes: the new suite and the one you are living in during the build.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We confirm where the suite can go on your lot, how its roofline meets the house, and how it gets its own entrance. We also plan the separation between the two homes. In Vancouver, an attached ADU needs 1-hour fire-rated construction and a sound rating (STC/IIC 45) between the units, and each unit needs its own lockable door.",
+      youDecide: "Where the suite goes, how it connects to the house, and your budget.",
+    },
+    {
+      title: "Plans and engineering (by your designer)",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "An architect or residential designer draws the plan set, with structural engineering for the foundation and roof tie-in. We do not draw plans or do engineering in-house, and we recommend having them done first so construction is priced from real drawings. The plans cover the foundation, framing, roof tie-in, fire and sound separation, and energy code forms, and this is where exterior materials get chosen to match the house.",
+      youDecide: "Hire the designer and engineer, then choose the layout, kitchen or kitchenette, bathroom, and exterior finishes.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail: "The plans go to your city or the county for review, reviewer comments get answered, and final fees are paid at approval. The permit is issued before any work starts.",
+      youDecide: "Approve any changes a reviewer asks for.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "4 to 6 months",
+      detail:
+        "Foundation, framing, and the roof tie-in come first so the house is weather-tight again as fast as possible. Then rough plumbing, mechanical, and electrical, insulation, drywall, and finishes, with an inspection at each stage.",
+      youDecide: "Plan for noise and access on the side of the house being built on; we stage the work to keep the rest of the home usable.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of the build.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Detached ADUs: the full ground-up sequence. */
+export const ADU_DETACHED_PROCESS: ServiceDef["process"] = {
+  intro:
+    "A detached ADU is a complete small house, so it follows the same sequence as any new home, only smaller. Here is every phase in order, with the inspection points that set the pace of the build.",
+  steps: [
+    {
+      title: "Walkthrough and site feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We check where the unit can sit: setbacks, size limits (Vancouver and unincorporated Clark County both cap most ADUs at 1,000 square feet), and separation from the house. In Vancouver a detached ADU must be at least 10 feet from other structures, or add sprinklers or fire-rated construction. We also map the utility runs, because trenching water, sewer, and power across a yard is a real part of the cost.",
+      youDecide: "Unit size, where it goes in the yard, and your budget.",
+    },
+    {
+      title: "Plans and engineering (by your designer)",
+      timeframe: "6 to 10 weeks",
+      detail:
+        "An architect or residential designer draws the full plan set (site plan, foundation, framing, roof, elevations, and the Washington energy code forms) with structural engineering where needed. We do not draw plans or do engineering in-house, and we recommend having them done first so the build is priced from real drawings. New construction has to earn energy credits under the state energy code, which shapes insulation, windows, and heating choices.",
+      youDecide: "Hire the designer and engineer, then choose the floor plan, exterior look, window package, heating type, and finish level.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "The plans go to the city or county for review and reviewer comments get answered. Impact fees for ADUs are reduced by state law: no more than half of what a new house would pay. Vancouver charges 50 percent, and unincorporated Clark County waives 75 percent of its transportation, school, and park impact fees. If the unit needs its own water and sewer connection, connection charges apply.",
+      youDecide: "Approve reviewer changes and the final fee total.",
+    },
+    {
+      title: "Site work and foundation",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "Erosion control, excavation, utility trenching, footings, and foundation. Inspectors check setbacks and footing steel before concrete, and footing drains before backfill.",
+    },
+    {
+      title: "Framing, roof, and dry-in",
+      timeframe: "3 to 6 weeks",
+      detail:
+        "Floor, walls, and roof framing, sheathing, windows, and roofing until the unit is weather-tight. In our wet climate, getting to dry-in fast protects everything that follows.",
+    },
+    {
+      title: "Rough-ins, insulation, and drywall",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "Rough plumbing, mechanical, and electrical, each inspected before the walls close. Then insulation (inspected), drywall, and the drywall nailing inspection.",
+    },
+    {
+      title: "Finishes and exterior",
+      timeframe: "4 to 8 weeks",
+      detail: "Cabinets, counters, flooring, tile, trim, paint, fixtures, siding and trim outside, and final grading.",
+      youDecide: "Final finish selections on time; late changes are the most common cause of delay.",
+    },
+    {
+      title: "Final inspection and move-in",
+      timeframe: "1 to 2 weeks",
+      detail:
+        "Final inspection closes the permit; in unincorporated Clark County a Certificate of Occupancy comes before anyone lives there. You get the documents, warranties, and a record of the build.",
+    },
+  ],
+  note: ADU_TIMELINE_NOTE,
+};
+
+/** Home additions. */
+export const ADDITION_PROCESS: ServiceDef["process"] = {
+  intro:
+    "An addition is new construction attached to a house you are living in. The process protects both: the new space gets built right, and your home is opened to the weather for as short a time as possible.",
+  steps: [
+    {
+      title: "Walkthrough and feasibility",
+      timeframe: "1 to 3 weeks",
+      detail:
+        "We start with the need, not the footprint. Sometimes a remodel of the space you have solves it for less. When an addition is the answer, we check setbacks and zoning for your lot, how the new roof meets the old one, and what the existing foundation and framing will support.",
+      youDecide: "What the new space has to do, and a working budget.",
+    },
+    {
+      title: "Plans and engineering (by your designer)",
+      timeframe: "4 to 8 weeks",
+      detail:
+        "An architect or residential designer draws the permit plans, with structural engineering for the foundation and roof tie-in. We do not draw plans or do engineering in-house, and we recommend having them done first so construction is priced from real drawings. The plan set includes a site plan, foundation and framing plans, wall sections, elevations, lateral (wind and earthquake) bracing or engineering, and energy code forms. Additions over 150 square feet have to earn energy credits under the Washington State Energy Code, which shapes insulation, windows, and heating.",
+      youDecide: "Hire the designer and engineer, then choose the layout, windows, how the exterior matches the house, and finish level.",
+    },
+    {
+      title: "Permit and plan review",
+      timeframe: "1 to 3 months",
+      detail:
+        "In Vancouver an addition needs a residential building permit with a stormwater form, energy code compliance, and the full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit, which bundles the plumbing, mechanical, and connection permits.",
+      youDecide: "Approve any reviewer-driven changes.",
+    },
+    {
+      title: "Fixed scope and contract",
+      timeframe: "1 to 2 weeks",
+      detail: "Pricing built from approved drawings, a written scope, a milestone payment schedule, and a start date. Long-lead materials get ordered.",
+      youDecide: "Final selections and signing.",
+    },
+    {
+      title: "Construction and inspections",
+      timeframe: "3 to 6 months",
+      detail:
+        "Foundation, framing, roof tie-in, and dry-in first, so the opening into your home is closed quickly. Then rough plumbing, mechanical, and electrical, insulation, drywall, and finishes, with an inspection at each stage. We break through into the existing house as late as practical to keep dust and weather out.",
+      youDecide: "Plan for noise and access near the work area.",
+    },
+    {
+      title: "Final inspection and handoff",
+      timeframe: "1 to 2 weeks",
+      detail: "Final inspection closes the permit. You get the documents, warranties, and a record of what was built.",
+    },
+  ],
+  note:
+    "Timeframes are planning ranges, not promises. Design decisions, a complete permit application, weather during the dry-in, and material lead times move them most. Your written schedule sets the real dates.",
+};
 
 export const SERVICES: ServiceDef[] = [
   {
@@ -111,7 +395,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "flooring", "carpentry-trim", "interior-painting"],
+    relatedServiceSlugs: ["kitchen-remodel", "bathroom-remodel", "home-additions", "flooring", "carpentry-trim", "built-ins"],
     costHub: "remodel",
   },
   {
@@ -162,7 +446,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "After a kitchen remodel, the Proactive Path membership keeps the new work documented and maintained so it holds its value.",
-    relatedServiceSlugs: ["bathroom-remodel", "remodeling", "flooring", "carpentry-trim"],
+    relatedServiceSlugs: ["bathroom-remodel", "cabinet-installation", "remodeling", "carpentry-trim"],
     costKey: "kitchen",
   },
   {
@@ -459,8 +743,25 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Flooring Installation in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Flooring installation and replacement for Clark County, WA: hard surface, tile, and more, installed level and built to last. Serving Vancouver WA.",
-    image: "https://handypioneers.com/images/blog/service-flooring.webp",
-    imageAlt: "Newly installed hard-surface flooring across an open living room in a Clark County home",
+    image: "https://handypioneers.com/images/hero-gallery/ryLhHcoLDKcrOody.jpg",
+    imageSize: { width: 1440, height: 1440 },
+    imageAlt: "Before and after of a living room: worn carpet (top) replaced with wood-look plank flooring, with recessed lighting and an updated fireplace (bottom)",
+    moreImages: [
+      {
+        src: "/images/hero-gallery/VzlGuBOWFXHnpjig.jpg",
+        alt: "Before and after of a living room and kitchen opening: old carpet and dark trim replaced with wood-look plank flooring, white trim, and fresh paint",
+        caption: "Living room and entry, carpet out and plank flooring in, with new trim and paint",
+        width: 1440,
+        height: 1440,
+      },
+      {
+        src: "/images/lvp-bedroom-before-after-2026-09.webp",
+        alt: "Before and after of a rental bedroom: worn patterned vinyl replaced with gray luxury vinyl plank flooring",
+        caption: "A rental bedroom refloored with luxury vinyl plank, ready for the next tenant",
+        width: 1536,
+        height: 1024,
+      },
+    ],
     intro: [
       "Flooring is the surface you live on every day, and a poor install shows itself fast: gaps, squeaks, lippage, and edges that lift. The substrate prep matters as much as the material.",
       "We install and replace flooring with the prep and care that make it sit flat, transition cleanly, and last.",
@@ -561,39 +862,227 @@ export const SERVICES: ServiceDef[] = [
   },
   {
     slug: "carpentry-trim",
-    name: "Carpentry & Trim",
+    name: "Finish Carpentry & Trim",
     serviceType: "Finish Carpentry and Trim",
-    h1: "Carpentry & Trim Work in Clark County, WA",
+    h1: "Finish Carpentry & Trim in Vancouver, WA & Clark County",
     seoTitle: "Finish Carpentry & Trim in Vancouver WA | Handy Pioneers",
     seoDesc:
-      "Finish carpentry and trim for Clark County, WA: doors, baseboards, crown, built-ins, and the detail work that reads as quality. Serving Vancouver WA.",
+      "Finish carpentry for Clark County, WA homes: trim, crown, wainscoting, built-ins, and cabinet installation. We work alongside your interior designer.",
     image: "https://handypioneers.com/images/blog/service-carpentry-trim.webp",
-    imageAlt: "Finished interior trim and millwork",
+    imageAlt: "Painted interior trim, crown molding, and a built-in bookcase in a finished living room",
     intro: [
-      "Trim and finish carpentry is where a home either reads as well-built or not. The joints, the reveals, the way a casing meets a baseboard, those details are what the eye picks up even when no one can name why.",
-      "We handle finish carpentry and trim with the patience that work deserves, from a single repair to a whole home.",
+      "Trim and finish carpentry is where a home either reads as well built or not. The joints, the reveals, the way a casing meets a baseboard: those are the details the eye picks up even when no one can say why a room feels finished.",
+      "Handy Pioneers handles interior finish carpentry across Vancouver and Clark County: baseboard, casing, and crown, wainscoting and wall paneling, built-in shelving and window seats, and installing the cabinets you or your designer have chosen. One point of contact, a written scope before we start, and the patience this kind of work needs.",
+      "Many of our carpentry clients already have an interior designer. That is a good start, not a complication. We take the designer's drawings and selections, confirm what the walls and floors will actually allow, and build it to the plan. And because this is indoor work, fall and winter are a strong time to get it done while the rain keeps everyone inside.",
     ],
     whatsIncluded: [
-      "Baseboards, casing, crown, and door trim",
-      "Interior and exterior door hanging and adjustment",
-      "Built-ins, shelving, and custom details",
-      "Repair and replacement of damaged trim and millwork",
+      "Baseboard, door and window casing, and crown molding, new or matched to what you have",
+      "Wainscoting, board and batten, shiplap, and picture-frame wall molding",
+      "Built-in shelving, bookcases, window seats, mudroom benches, and media walls",
+      "Installation of cabinets supplied by you or your designer, including scribing, crown, and hardware",
+      "Interior door hanging, adjustment, and replacement",
+      "Repair and replacement of damaged trim and millwork, matched to the existing profile",
+      "Caulk, fill, and paint-ready prep so the finish coat looks right the first time",
     ],
     signsYouNeedThis: [
       "Gaps, cracks, or separated joints in existing trim",
-      "Doors that stick, rub, or no longer latch cleanly",
-      "Dated or damaged baseboards and casing",
-      "A space that would benefit from built-in storage",
+      "Builder-grade baseboard and casing that make the rest of the home look unfinished",
+      "Plain walls in a dining room, entry, or stairway that need character",
+      "Not enough storage, and a wall or alcove that could hold a built-in",
+      "Your designer has a plan and you need a carpenter to build it",
     ],
     faq: [
       {
-        q: "Do you handle small trim repairs as well as full jobs?",
-        a: "Yes. Whether it is one damaged casing or trim throughout a remodel, the same standard applies to the joints and the finish.",
+        q: "Do you work with my interior designer?",
+        a: "Yes, and we like it. Send us the designer's drawings, elevations, and selections. We walk the space, flag anything the walls or floors will not allow before it becomes a problem, and build to the plan. Your designer stays in charge of the look; we are responsible for how it is built.",
+      },
+      {
+        q: "Is fall or winter a good time for interior carpentry?",
+        a: "Yes. Interior trim, built-ins, and cabinet work are not held up by rain, so the wet season is a practical time to schedule them. We let wood materials acclimate to your home before we install them, which matters more when the heat is on and indoor air is drier.",
+      },
+      {
+        q: "Do you build cabinets?",
+        a: "We install cabinets that you or your designer supply, and we build site-made built-ins like shelving, bookcases, window seats, and benches. We do not manufacture cabinet boxes in a shop. If you need cabinets, we are glad to install the line your designer specifies.",
+      },
+      {
+        q: "Can you match the trim I already have?",
+        a: "Usually, yes. Many common profiles are still stocked. For older or unusual profiles, we match as closely as the available stock allows and tell you up front where a match will not be exact, so there are no surprises on install day.",
+      },
+      {
+        q: "Do you handle small trim repairs as well as whole-home trim?",
+        a: "Yes. Whether it is one damaged casing or new trim throughout the house, the same standard applies to the joints and the finish.",
+      },
+      {
+        q: "Do you paint the trim you install?",
+        a: "We can. We leave every joint filled, caulked, and sanded so it is ready for paint, and we can finish it ourselves or hand it off paint-ready to your painter.",
+      },
+      {
+        q: "What areas do you serve for carpentry work?",
+        a: "All of Clark County, WA, including Vancouver, Camas, Washougal, Ridgefield, Battle Ground, and La Center.",
       },
     ],
     membershipTieIn:
-      "Small carpentry fixes are easy to fold into an ongoing Proactive Path relationship before they become eyesores.",
-    relatedServiceSlugs: ["remodeling", "doors-windows", "interior-painting"],
+      "Proactive Path members fold small carpentry fixes into their seasonal visits, so a loose casing or a sticking door gets handled before it becomes an eyesore.",
+    relatedServiceSlugs: ["built-ins", "wainscoting", "cabinet-installation", "interior-painting"],
+  },
+  {
+    slug: "built-ins",
+    name: "Built-In Shelving & Built-Ins",
+    serviceType: "Built-In Shelving and Cabinetry",
+    h1: "Built-In Shelving & Built-Ins in Vancouver, WA & Clark County",
+    seoTitle: "Built-In Shelving & Bookcases in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Custom built-in shelving, bookcases, window seats, mudroom benches, and media walls for Clark County, WA homes. Built on site to fit your walls.",
+    image: "https://handypioneers.com/images/blog/service-built-ins.webp",
+    imageAlt: "A painted built-in bookcase with open shelves and lower cabinet doors beside a window seat",
+    intro: [
+      "A good built-in looks like it came with the house. It fits the wall exactly, lines up with the trim around it, and holds what you put on it for decades without the shelves bowing. A bad one looks like furniture pushed against a wall.",
+      "We build built-ins on site, in your home, so they fit the room you actually have: walls that are not quite plumb, floors that are not quite level, and a window casing that sits a half inch off from the drawing. Bookcases flanking a fireplace, a window seat with storage underneath, a mudroom bench with hooks and cubbies, a media wall, or simple floating shelves done right.",
+      "If you are working with an interior designer, we build to their elevations. If you are not, we sketch it with you, confirm the dimensions on site, and put a written scope in front of you before we cut anything.",
+    ],
+    whatsIncluded: [
+      "Bookcases and shelving built into alcoves, beside fireplaces, or around windows",
+      "Window seats with lift-top or drawer storage",
+      "Mudroom benches, lockers, hooks, and cubbies",
+      "Media walls and entertainment built-ins with cable management planned in",
+      "Shelf spans and materials chosen so shelves do not sag under books",
+      "Scribed to your walls and trimmed to match the room, ready for paint or stain",
+    ],
+    signsYouNeedThis: [
+      "An empty alcove or the wall beside a fireplace that could be storage",
+      "A drop zone by the door that is a pile of shoes and bags",
+      "Freestanding bookcases that wobble or never quite fit the space",
+      "A bay or bump-out window that begs for a seat",
+      "Your designer has drawn a built-in and you need someone to build it",
+    ],
+    faq: [
+      {
+        q: "Are your built-ins made on site or in a shop?",
+        a: "On site. We build and fit them in your home so they conform to your actual walls, floors, and trim. That is what makes a built-in look original to the house instead of added later.",
+      },
+      {
+        q: "How do you keep long shelves from sagging?",
+        a: "Shelf sag comes down to the span, the material, and the load. We size the span and thickness for what the shelf will hold, add a face frame or a hidden support where a long shelf needs it, and avoid the thin, wide shelves that bow under a row of books.",
+      },
+      {
+        q: "Can you build to my interior designer's drawings?",
+        a: "Yes. We review the elevations and selections, confirm the dimensions on site, flag anything the room will not allow, and build to the plan.",
+      },
+      {
+        q: "Paint-grade or stain-grade?",
+        a: "Both are possible. Painted built-ins are the most common and let us use stable materials that stay flat. Stain-grade uses real hardwood throughout and takes more material and more careful work. We walk you through the tradeoff during the consultation.",
+      },
+      {
+        q: "What does a built-in cost?",
+        a: "It depends on the size, the materials, doors and drawers versus open shelves, and the finish. Rather than guess at a number sight unseen, we measure the space and give you a written scope and price so you can decide with the full picture.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get their built-ins checked on seasonal visits: doors adjusted, hardware tightened, and touch-ups noted before wear shows.",
+    relatedServiceSlugs: ["carpentry-trim", "wainscoting", "cabinet-installation", "interior-painting"],
+  },
+  {
+    slug: "wainscoting",
+    name: "Wainscoting & Wall Paneling",
+    serviceType: "Wainscoting and Wall Paneling Installation",
+    h1: "Wainscoting & Wall Paneling in Vancouver, WA & Clark County",
+    seoTitle: "Wainscoting Installation in Clark County WA | Handy Pioneers",
+    seoDesc:
+      "Wainscoting, board and batten, shiplap, and picture-frame molding installed in Clark County, WA homes. Laid out to the room and finished paint-ready.",
+    image: "https://handypioneers.com/images/blog/service-wainscoting.webp",
+    imageAlt: "A dining room with painted panel wainscoting below tall windows looking out on evergreens",
+    intro: [
+      "Wainscoting changes a room more than almost any other single project. A plain dining room, entry, or stairway picks up depth and a sense of craftsmanship, and the lower wall gets a surface that stands up to chairs, bags, and kids far better than bare drywall.",
+      "The difference between wainscoting that looks right and wainscoting that looks off is layout. Panels have to be spaced so they land evenly between corners, windows, and outlets, and the top rail has to hold a consistent height up a stair. We lay the whole room out before the first piece goes on the wall.",
+      "We install every common style: traditional raised or flat panel, board and batten, shiplap, beadboard, and picture-frame molding. If your designer has chosen a style, we build to it. If not, we help you pick one that suits the age and character of the house.",
+    ],
+    whatsIncluded: [
+      "Raised-panel and flat-panel (recessed) wainscoting",
+      "Board and batten, shiplap, and beadboard",
+      "Picture-frame and box molding on walls and stairways",
+      "Chair rail, cap rail, and base details that tie into existing trim",
+      "Room-by-room layout so panels space evenly around doors, windows, and outlets",
+      "Outlet box extensions and paint-ready prep: filled, caulked, and sanded",
+    ],
+    signsYouNeedThis: [
+      "A dining room, entry, or hallway that feels plain or unfinished",
+      "Scuffed and dinged lower walls in high-traffic spaces",
+      "A stairway wall that could use a finished, tailored look",
+      "An older home whose original paneling was removed and you want the character back",
+    ],
+    faq: [
+      {
+        q: "What is the difference between wainscoting, board and batten, and shiplap?",
+        a: "Wainscoting is any paneling on the lower part of a wall, traditionally raised or recessed panels under a chair rail. Board and batten uses flat panels with vertical strips over the seams for a simple, clean grid. Shiplap is horizontal boards with a small gap between them. They suit different homes, and we help you choose.",
+      },
+      {
+        q: "How high should wainscoting be?",
+        a: "There is no single right height. It depends on the ceiling height, the windows, and the style. Many homes put it around a third of the wall height, and taller treatments work well in rooms with high ceilings. We mock up the height on your wall so you can see it before we build.",
+      },
+      {
+        q: "Can wainscoting go in a bathroom?",
+        a: "Yes, with the right materials. In bathrooms and mudrooms we use moisture-resistant materials and seal every edge so the paneling holds up to humidity.",
+      },
+      {
+        q: "Will you move my outlets and switches?",
+        a: "We extend outlet and switch boxes so the covers sit flush with the new paneling. If a box needs to physically move, that is electrical work and we coordinate it with a licensed electrician.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get caulk lines and paneling joints checked on seasonal visits, so small gaps are closed before they show.",
+    relatedServiceSlugs: ["carpentry-trim", "built-ins", "interior-painting"],
+  },
+  {
+    slug: "cabinet-installation",
+    name: "Cabinet Installation",
+    serviceType: "Cabinet Installation",
+    h1: "Cabinet Installation in Vancouver, WA & Clark County",
+    seoTitle: "Cabinet Installation in Vancouver WA | Handy Pioneers",
+    seoDesc:
+      "Kitchen, bath, and built-in cabinet installation for Clark County, WA. We install the cabinets you or your designer choose: level, scribed, and trimmed out.",
+    image: "https://handypioneers.com/images/blog/service-cabinet-installation.webp",
+    imageAlt: "Newly installed painted shaker kitchen cabinets with crown molding, ready for countertops",
+    intro: [
+      "Cabinets are only as good as their installation. The most expensive cabinet line in the showroom will look second-rate if the doors do not line up, the crown does not meet the ceiling evenly, or the filler strips are sloppy. Most kitchens have a floor that is not level and walls that are not straight, and the installer's job is to make that invisible.",
+      "Handy Pioneers installs the cabinets you or your interior designer have chosen, whether that is a stock line from a home center, semi-custom from a showroom, or a custom order. We check the delivery against the plan, set a level line, fasten into the framing, scribe fillers and end panels to the walls, and finish with crown, light rail, toe kick, and hardware.",
+      "To be clear about what we do: we install, we do not manufacture cabinets. That keeps the choice of cabinet line with you and your designer, and keeps our focus on making it fit.",
+    ],
+    whatsIncluded: [
+      "Kitchen, bathroom vanity, laundry, and pantry cabinet installation",
+      "Delivery check against the plan before install, so missing or damaged boxes are caught early",
+      "Level and plumb setup, secured into the wall framing",
+      "Scribed fillers, end panels, and toe kicks",
+      "Crown molding, light rail, and decorative trim on cabinets",
+      "Door and drawer alignment and hardware installation",
+      "Cabinets ready for countertop template",
+    ],
+    signsYouNeedThis: [
+      "Your designer has ordered cabinets and you need an installer",
+      "You bought cabinets and want them installed right, not just screwed to the wall",
+      "Existing cabinet doors that are crooked, sagging, or rubbing",
+      "A laundry room, pantry, or garage that needs cabinet storage added",
+    ],
+    faq: [
+      {
+        q: "Can you install cabinets my designer ordered?",
+        a: "Yes. That is most of our cabinet work. Send us the layout and the order, and we will review it before delivery so questions get answered before install day.",
+      },
+      {
+        q: "Do you sell or build cabinets?",
+        a: "No. We install cabinets you or your designer supply. For site-built storage like bookcases, window seats, and benches, see our built-ins service.",
+      },
+      {
+        q: "Do you install countertops too?",
+        a: "We coordinate the countertop template and install as part of a kitchen project so the sequence stays on track. Stone counters are templated and installed by the fabricator after the cabinets are set.",
+      },
+      {
+        q: "Do cabinet installs need a permit?",
+        a: "Replacing cabinets on their own usually does not. If the project moves plumbing, electrical, or walls, those parts may need permits, and we tell you what applies before work starts.",
+      },
+    ],
+    membershipTieIn:
+      "Proactive Path members get cabinet doors and drawers adjusted on seasonal visits, and under-sink areas checked for leaks before they damage the boxes.",
+    relatedServiceSlugs: ["carpentry-trim", "kitchen-remodel", "built-ins", "bathroom-remodel"],
   },
   {
     slug: "doors-windows",
@@ -785,15 +1274,39 @@ export const SERVICES: ServiceDef[] = [
       "Build an ADU in Clark County, WA: garage and basement conversions, attached suites, and detached units. Washington now allows up to two ADUs per lot.",
     image: "https://handypioneers.com/images/blog/service-adu.webp",
     imageAlt: "A detached accessory dwelling unit in the backyard of a Clark County home",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/garage-adu-exterior.webp",
+        alt: "Before and after: a two-car garage door replaced with siding, two windows, and an entry door as part of a garage-to-ADU conversion",
+        caption: "Garage to attached ADU, outside: the garage door came out and the opening was framed in with siding, two windows, and an entry door",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/attached-adu-interior.webp",
+        alt: "Before and after: a dated yellow bonus room turned into an ADU with a full kitchen and stacked laundry",
+        caption: "Garage to attached ADU, inside: a dated room turned into a unit with a full kitchen, stacked laundry, and new flooring",
+        width: 900,
+        height: 864,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "An accessory dwelling unit is a second, smaller home on your property: a converted garage or basement, a suite attached to the house, or a standalone unit in the backyard. Homeowners build them for aging parents, adult kids, a private home office, or rental income, and Washington just made them far easier to add.",
       "Under state law (HB 1337), most Clark County lots that allow a single-family home can now have up to two ADUs, with no requirement that you live on the property, and cities cannot cap an ADU below 1,000 square feet. That turns an ADU from a special-case project into one of the strongest moves a homeowner can make on their property's value and income.",
-      "We handle the whole thing as one accountable engagement: feasibility and zoning, design, permitting, and the build. And we think past the project. In the 360 Method an ADU is an Upgrade that should pay you back, so we help you weigh which type actually fits your lot, your budget, and the return you are after, then keep the home looked after once it is built.",
+      "We guide the whole path and build it as one accountable engagement: a feasibility check before you spend money on plans, a buildability and cost review of the drawings, and the construction itself. We do not draw plans or do structural engineering in-house; we recommend having those done first by an architect or residential designer and an engineer, so the build is priced from real drawings. And we think past the project. In the 360 Method an ADU is an Upgrade that should pay you back, so we help you weigh which type actually fits your lot, your budget, and the return you are after, then keep the home looked after once it is built.",
     ],
     whatsIncluded: [
       "A feasibility and zoning check for your specific lot and goals",
-      "Design and layout matched to your budget, your lot, and how the unit will be used",
-      "Permitting handled through Clark County or the City of Vancouver",
+      "A buildability and cost review of the plans your designer draws, before you commit",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "The full build: foundation or conversion, framing, kitchen, bath, and utilities",
       "One point of contact from the first walkthrough to the final inspection",
     ],
@@ -813,6 +1326,10 @@ export const SERVICES: ServiceDef[] = [
         a: "Not under the current Washington law. Owner-occupancy is no longer required for the main home or the ADU, which is what makes ADUs work as rental income, not just family housing.",
       },
       {
+        q: "Do you draw the plans or do the engineering?",
+        a: "No. We do not draw plans or do structural engineering in-house. We recommend having plans drawn by an architect or residential designer, with engineering where the project needs it, before construction pricing. Start with a feasibility walkthrough so you hire a designer knowing what your lot allows, and we will review the drawings for buildability and cost as they come together.",
+      },
+      {
         q: "Which type of ADU should I build?",
         a: "It depends on your lot, budget, and goal. A garage or basement conversion is usually the most affordable because the shell already exists. An attached suite adds space to the house. A detached unit gives the most privacy and rental appeal but is a ground-up build. We help you compare all three on this page, then on a walkthrough.",
       },
@@ -825,7 +1342,8 @@ export const SERVICES: ServiceDef[] = [
       "Once your ADU is built, the Proactive Path keeps it and the main home maintained and documented on a schedule, so a rental-ready unit stays rental-ready.",
     relatedServiceSlugs: ["adu-garage-conversion", "mother-in-law-suite", "detached-adu", "remodeling"],
     costHub: "adu",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_PROCESS,
   },
   {
     slug: "adu-garage-conversion",
@@ -835,10 +1353,43 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Garage Conversion ADU in Vancouver WA | Basement Apartment | Handy Pioneers",
     seoDesc:
       "Convert a garage or basement into a permitted ADU in Clark County, WA, the most affordable way to add a unit since the shell already exists.",
-    image: "https://handypioneers.com/images/blog/service-adu-garage-conversion.webp",
-    imageAlt: "A garage converted into a bright, finished accessory dwelling unit",
+    image: "https://handypioneers.com/images/garage-conversion-adu-exterior.webp",
+    imageSize: { width: 1440, height: 1440 },
+    imageAlt: "Before and after of a garage we converted into an attached ADU: the two-car garage door (top) replaced with siding, two windows, and an entry door (bottom)",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/attached-adu-interior.webp",
+        alt: "Before and after: a dated yellow bonus room turned into an ADU with a full kitchen and stacked laundry",
+        caption: "Garage to attached ADU, inside: a dated room turned into a unit with a full kitchen, stacked laundry, and new flooring",
+        width: 900,
+        height: 864,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-cooking-wall.webp",
+        alt: "Before and after: a bare lower-level wall turned into a cooking wall with a refrigerator, sink, butcher block counter, and open shelving",
+        caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall with fridge, sink, counter, and open shelving",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-storage-room.webp",
+        alt: "Before and after: a paneled lower-level storage room turned into a kitchenette with white cabinets and new flooring",
+        caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets, a sink, and new flooring",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "Converting a garage or basement is usually the most affordable way to add an ADU, because the walls, roof, and foundation are already there. You are paying to finish and outfit the space, not to build a structure from the ground up.",
+      "The before and after below is a two-car garage we converted into an attached ADU. The garage door came out, and the opening was framed in with new siding, two windows, and an entry door, so from the street it reads as part of the house. Inside, it became a real living unit with a full kitchen and stacked laundry; you can see the interior on our attached ADU page.",
       "We turn that existing shell into a real, permitted home: framing and insulation, a full kitchen and bath, heating and electrical, egress and light, and finishes you would actually want to live in. The result is a unit that works for family or rents on its own.",
       "It is also one of the highest-return upgrades on a property, which is exactly how we think about it. An ADU should pay you back, so we help you scope it to hit the return you are after, not just to fill the space.",
     ],
@@ -847,7 +1398,7 @@ export const SERVICES: ServiceDef[] = [
       "Framing, insulation, and the systems an existing shell is missing",
       "A full kitchen and bathroom, heating, and electrical brought to code",
       "Egress, windows, and light to meet living-space requirements",
-      "Permitting and one accountable team through final inspection",
+      "One accountable team from permit issuance through final inspection",
     ],
     signsYouNeedThis: [
       "A garage or basement that stores clutter more than it earns its space",
@@ -869,7 +1420,8 @@ export const SERVICES: ServiceDef[] = [
       "After the conversion, the Proactive Path keeps the new unit and the main home maintained on a schedule, so it holds its value and stays rentable.",
     relatedServiceSlugs: ["accessory-dwelling-units", "mother-in-law-suite", "detached-adu"],
     costKey: "adu-garage-conversion",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_CONVERSION_PROCESS,
   },
   {
     slug: "mother-in-law-suite",
@@ -879,18 +1431,51 @@ export const SERVICES: ServiceDef[] = [
     seoTitle: "Mother-in-Law Suite & Attached ADU in Vancouver WA | Handy Pioneers",
     seoDesc:
       "Add an attached ADU or mother-in-law suite in Clark County, WA: a private space connected to your home, with its own kitchen, bath, and entry.",
-    image: "https://handypioneers.com/images/blog/service-mother-in-law-suite.webp",
-    imageAlt: "An attached mother-in-law suite addition with a private entrance",
+    image: "https://handypioneers.com/images/attached-adu-before-after-stacked.webp",
+    imageSize: { width: 1440, height: 1383 },
+    imageAlt: "Before and after of an attached ADU we built: a dated yellow bonus room (top) turned into a unit with a full kitchen and stacked laundry (bottom)",
+    moreImagesTitle: "Our ADU and lower-level kitchenette work",
+    moreImages: [
+      {
+        src: "/images/projects/garage-adu-exterior.webp",
+        alt: "Before and after: a two-car garage door replaced with siding, two windows, and an entry door as part of a garage-to-ADU conversion",
+        caption: "Garage to attached ADU, outside: the garage door came out and the opening was framed in with siding, two windows, and an entry door",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-basement.webp",
+        alt: "Before and after: an unfinished basement wall with exposed studs and wiring turned into a kitchenette with a tile backsplash",
+        caption: "Lower-level kitchenette: an unfinished basement wall turned into a kitchenette with sink, cooktop, and tile backsplash",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-cooking-wall.webp",
+        alt: "Before and after: a bare lower-level wall turned into a cooking wall with a refrigerator, sink, butcher block counter, and open shelving",
+        caption: "Lower-level kitchenette: a bare wall turned into a full cooking wall with fridge, sink, counter, and open shelving",
+        width: 900,
+        height: 900,
+      },
+      {
+        src: "/images/projects/lower-level-kitchenette-storage-room.webp",
+        alt: "Before and after: a paneled lower-level storage room turned into a kitchenette with white cabinets and new flooring",
+        caption: "Lower-level kitchenette: an old storage room turned into a kitchenette with white cabinets, a sink, and new flooring",
+        width: 900,
+        height: 900,
+      },
+    ],
     intro: [
       "An attached ADU, often called a mother-in-law suite, adds private living space to your home: typically an addition or a reworked wing with its own kitchen or kitchenette, a full bath, and a separate entrance. It keeps family close while giving everyone their own front door.",
+      "The before and after below is an attached ADU we built: a dated bonus room with a closet and a chimney turned into a real living unit, with a full kitchen, stacked laundry, and new flooring and lighting throughout. From the street, the same unit used to be the home's two-car garage; the exterior before and after is on our garage conversion page.",
       "It is the middle path between converting existing space and building a detached unit. You get more square footage than a conversion and more independence than a spare bedroom, tied into the home's structure and systems.",
       "Because it adds real, livable square footage, an attached suite is also a strong move on your home's value and flexibility. We scope it to fit how your family actually lives now and how the space can serve you later, whether that is aging parents today and rental or resale value down the road.",
     ],
     whatsIncluded: [
-      "Design that ties the suite into your home's structure, roofline, and systems",
+      "Construction that ties the suite into your home's structure, roofline, and systems, built from your designer's plans",
       "A private entrance, plus a kitchen or kitchenette and a full bathroom",
       "Heating, electrical, and insulation built for year-round comfort",
-      "Permitting through Clark County or the City of Vancouver",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "One accountable team from design through final inspection",
     ],
     signsYouNeedThis: [
@@ -911,9 +1496,10 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Once the suite is built, the Proactive Path keeps it and the main home maintained and documented on a schedule.",
-    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu"],
+    relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "detached-adu", "home-additions"],
     costKey: "adu-attached",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_ATTACHED_PROCESS,
   },
   {
     slug: "detached-adu",
@@ -927,14 +1513,14 @@ export const SERVICES: ServiceDef[] = [
     imageAlt: "A detached backyard ADU cottage on a Clark County property",
     intro: [
       "A detached ADU is a standalone home on your lot, built from the ground up with its own foundation, walls, roof, kitchen, bath, and utilities. It is the most private and the most rentable type of ADU, and the one that adds the most independent value to a property.",
-      "It is also a real construction project, and we treat it like one. We design and build the unit as one accountable engagement: site work and foundation, framing and roof, full mechanical, kitchen and bath, and the exterior that ties it to your home and neighborhood. You have a single point of contact from feasibility to final inspection.",
+      "It is also a real construction project, and we treat it like one. We build the unit from your approved plans as one accountable engagement: site work and foundation, framing and roof, full mechanical, kitchen and bath, and the exterior that ties it to your home and neighborhood. You have a single point of contact from feasibility to final inspection.",
       "Of the ADU options this is the biggest investment, so the return matters most. We help you size and spec it to the income or use you are after, then keep it maintained once it is built, because a detached unit you can rent for years is an asset, not just a project.",
     ],
     whatsIncluded: [
       "Feasibility, site planning, and zoning for a standalone unit on your lot",
       "Foundation, framing, roofing, and a weather-tight exterior built for the PNW",
       "A full kitchen and bathroom, heating, electrical, and independent utilities",
-      "Permitting through Clark County or the City of Vancouver",
+      "Construction under a permit from Clark County or the City of Vancouver, with every inspection passed",
       "One accountable team managing the whole ground-up build",
     ],
     signsYouNeedThis: [
@@ -957,7 +1543,75 @@ export const SERVICES: ServiceDef[] = [
       "A detached unit you rent for years is an asset. The Proactive Path keeps it and the main home maintained and documented so it stays one.",
     relatedServiceSlugs: ["accessory-dwelling-units", "adu-garage-conversion", "mother-in-law-suite"],
     costKey: "adu-detached",
-    resources: ADU_RESOURCES,
+    resources: [...ADU_RESOURCES, ...BUILD_PROCESS_RESOURCES],
+    process: ADU_DETACHED_PROCESS,
+  },
+  {
+    slug: "home-additions",
+    name: "Home Additions",
+    serviceType: "Home Addition Construction",
+    h1: "Home Additions in Vancouver, WA & Clark County",
+    seoTitle: "Home Additions in Vancouver WA & Clark County | Handy Pioneers",
+    seoDesc:
+      "Home additions in Clark County, WA: extra bedrooms, primary suites, bigger kitchens. See every step, from feasibility and permits to the final inspection.",
+    image: "https://handypioneers.com/images/blog/service-home-additions.webp",
+    imageAlt: "A new home addition framed and tied into the roofline of an existing Pacific Northwest house",
+    intro: [
+      "An addition is the answer when your home needs more space than any rearranging can create: another bedroom, a primary suite, a larger kitchen footprint, or a main-floor room for a parent who can no longer do stairs. It is also the most involved project you can do to a house you are still living in.",
+      "Handy Pioneers runs additions as one accountable engagement, from the first feasibility check to the final inspection. Below is exactly how that works, phase by phase, so you know what happens when, what you decide, and roughly how long each part takes before we ever start.",
+      "We start with the need, not the footprint. Sometimes a remodel of the space you already have solves the problem for less money and less disruption, and when it does, we will tell you. When more square footage is truly the answer, we plan it so the addition looks like it was always part of the house.",
+    ],
+    whatsIncluded: [
+      "A feasibility check for your lot: setbacks, zoning, and what the existing structure will support",
+      "Construction from your designer's permit-ready plans, reviewed with you for buildability and cost",
+      "Construction under a permit from the City of Vancouver, Clark County, or your city",
+      "Foundation, framing, roof tie-in, and an exterior matched to the house",
+      "Plumbing, mechanical, electrical, insulation, and finishes through final inspection",
+      "One point of contact and a written schedule from start to finish",
+    ],
+    signsYouNeedThis: [
+      "You need another bedroom or bathroom, and no room can be converted",
+      "A kitchen that is too small in footprint, not just in layout",
+      "A parent moving in who needs a main-floor bedroom and bath",
+      "You love your location and would rather add on than move",
+    ],
+    faq: [
+      {
+        q: "How long does a home addition take?",
+        a: "Plan on roughly 6 to 12 months from the first walkthrough to move-in for a typical addition: a few weeks of feasibility, 1 to 2 months of design, 1 to 3 months of permit review, and 3 to 6 months of construction. Your written schedule sets the real dates once the plans are approved.",
+      },
+      {
+        q: "Do I need a permit for an addition?",
+        a: "Yes. Any addition needs a residential building permit. In Vancouver that includes a stormwater form, energy code compliance, and a full plan set. In unincorporated Clark County, additions fall under the Additional Dwelling or Structure (ADS) permit. The plan set comes from your designer; construction starts once the permit is issued.",
+      },
+      {
+        q: "Do you draw the plans or do the engineering?",
+        a: "No. We do not draw plans or do structural engineering in-house. We recommend having plans drawn by an architect or residential designer, with engineering where the project needs it, before construction pricing. Start with a feasibility walkthrough so you hire a designer knowing what your lot allows, and we will review the drawings for buildability and cost as they come together.",
+      },
+      {
+        q: "Can we live in the house during an addition?",
+        a: "Usually, yes. We build the new foundation, framing, and roof first and open into the existing house as late as practical, so dust, noise, and weather exposure stay limited to one area for as short a time as possible.",
+      },
+      {
+        q: "Should I build an addition or an ADU?",
+        a: "An addition makes the main house bigger. An ADU is a separate living unit with its own kitchen, bath, and entrance, which can house family or earn rent. If independence or income matters, look at an attached ADU. We help you compare both on the walkthrough.",
+      },
+      {
+        q: "What drives the cost of an addition?",
+        a: "Size, foundation type, how the new roof meets the old one, whether plumbing moves, and finish level. Because an addition includes foundation, roof, and exterior work, it costs more per square foot than remodeling space you already have. We price it from approved drawings so the number is real.",
+      },
+    ],
+    membershipTieIn:
+      "After an addition, the Proactive Path keeps the new space and the rest of the home maintained and documented, so the roof tie-in and new exterior stay tight through every wet season.",
+    relatedServiceSlugs: ["remodeling", "mother-in-law-suite", "accessory-dwelling-units", "kitchen-remodel"],
+    resources: [
+      { label: "City of Vancouver: Residential Addition Checklist", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/residential-addition-checklist/" },
+      { label: "Clark County: Residential Permits (ADS permits for additions)", url: "https://clark.wa.gov/community-development/residential-permits" },
+      { label: "City of Vancouver: Residential Building Permits (the 5-step permit process)", url: "https://www.cityofvancouver.us/business/building-construction/residential-building-permits/" },
+      { label: "Clark County: Typical New Home and Remodel Inspections", url: "https://clark.wa.gov/community-development/typical-new-home-and-remodel-inspections" },
+      { label: "Washington State: Permit review time limits (RCW 36.70B.080)", url: "https://app.leg.wa.gov/rcw/default.aspx?cite=36.70b.080" },
+    ],
+    process: ADDITION_PROCESS,
   },
 ];
 
