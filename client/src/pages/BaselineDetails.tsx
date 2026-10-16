@@ -39,6 +39,17 @@ interface Stash {
   units?: number | null;
 }
 
+/**
+ * A request that started on /multifamily carries the building's unit count.
+ * Send it, and mark the property as an investment, so the CRM row (and the
+ * portal's membership funnel) knows this is a rental building, not a home.
+ * A homeowner request has no units and sends neither field.
+ */
+function landlordFields(stash: Stash): { units?: number; propertyKind?: "investment" } {
+  const units = stash.units != null && stash.units > 0 ? Math.round(stash.units) : null;
+  return units ? { units, propertyKind: "investment" } : {};
+}
+
 export default function BaselineDetails() {
   const [, navigate] = useLocation();
   const [stash, setStash] = useState<Stash>({});
@@ -114,6 +125,7 @@ export default function BaselineDetails() {
             yearBuilt: form.yearBuilt.trim(),
             notes: form.notes.trim(),
             funnel: "baseline_walkthrough",
+            ...landlordFields(stash),
             outOfArea: true,
           }),
         });
@@ -142,6 +154,7 @@ export default function BaselineDetails() {
           yearBuilt: form.yearBuilt.trim(),
           notes: form.notes.trim(),
           funnel: "baseline_walkthrough",
+          ...landlordFields(stash),
         }),
       });
       if (!res.ok) {
