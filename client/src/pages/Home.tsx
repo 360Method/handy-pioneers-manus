@@ -210,7 +210,7 @@ const HOMEPAGE_JSONLD = [
         "@type": "OpeningHoursSpecification",
         dayOfWeek: ["Saturday"],
         opens: "09:00",
-        closes: "14:00",
+        closes: "13:00",
       },
     ],
     aggregateRating: {
