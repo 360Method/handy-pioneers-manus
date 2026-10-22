@@ -38,6 +38,11 @@ import { faqs, FAQ_JSONLD } from "../client/src/lib/faq";
 import { PAGE_META, type PageMeta } from "../client/src/lib/pageMeta";
 import { TIERS } from "../client/src/lib/tiers";
 import { projects } from "../client/src/lib/projects";
+import { METHOD_CANON } from "../client/src/lib/methodCanon";
+
+function escapeHtml(v: string): string {
+  return v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
 import { SERVICE_AREA_CITIES, SERVICE_AREA_LABEL } from "../client/src/lib/serviceArea";
 import { ENTITY_DESCRIPTION, ONE_LINER, PILLARS } from "../client/src/lib/brand";
 import { SERVICES, type ServiceDef } from "../client/src/lib/services";
@@ -779,6 +784,15 @@ function method360BodyHtml(): string {
     `<p>Phase 2 runs on two parallel tracks. First, your assessment findings are organized into a NOW / SOON / WAIT roadmap and executed in priority order. Second, and what makes this a proactive program rather than a one-time fix, is a pre-defined seasonal visit schedule. Every spring, summer, fall, and winter we return and work through a standing list of Pacific Northwest tasks: moss treatment, gutter clearing, weatherstripping, pipe protection, and more. These visits happen regardless of what the assessment found. Your home is never left unattended between projects. Trade coordination is included.</p>`,
     `<h2>Phase 3 - Advance: build long-term value deliberately</h2>`,
     `<p>With the home's foundation secured, we identify targeted upgrades that preserve long-term value, improve livability, and position the property to appreciate, whether your horizon is five years or twenty-five. Strategic upgrade planning, Home Score tracking over time, a value-building project roadmap.</p>`,
+    `<h2>The nine steps</h2>`,
+    `<p>${escapeHtml(METHOD_CANON.subtitle)}</p>`,
+    ...METHOD_CANON.phases.flatMap((phase) => [
+      `<h3>${escapeHtml(phase.label)} (${escapeHtml(phase.subtitle)})</h3>`,
+      `<ol start="${phase.steps[0].number}">`,
+      ...phase.steps.map((s) => `<li><strong>${escapeHtml(s.name)}.</strong> ${escapeHtml(s.line)}</li>`),
+      `</ol>`,
+    ]),
+    `<p><em>${escapeHtml(METHOD_CANON.footnote)}</em></p>`,
     `<h2>Use it yourself, or have it delivered</h2>`,
     `<p>Any homeowner can run this framework: walk the home twice a year, write down what you see, sort findings into NOW / SOON / WAIT, and do the NOW items before the rainy season. Handy Pioneers delivers it done-for-you through the <a href="${SITE}/membership">Proactive Path membership</a>, with plans from $${TIERS[0].prices.monthly}/month. You can also <a href="${SITE}/roadmap-generator">turn an existing inspection report into a prioritized roadmap</a>.</p>`,
     `<p>Serving all of Clark County, WA. Call ${PHONE} or <a href="${SITE}/contact">schedule a consultation</a>.</p>`,
@@ -1174,15 +1188,14 @@ you having to become an expert or remember any of it.
 ## The 360° Method
 
 The 360° Method is a proactive home-care framework. It is not a licensed home
-inspection and is not a legal document. It works in three moves:
+inspection and is not a legal document. ${METHOD_CANON.subtitle} Three phases,
+nine steps:
 
-1. AWARE - assess and document the current condition of every major system
-   (roof, drainage, envelope, mechanical, interior) in a written baseline.
-2. ACT - work a prioritized NOW / SOON / WAIT roadmap, so money goes to what
-   protects the home most, first.
-3. ADVANCE - keep the record current with seasonal check-ins, so the home's
-   documented history grows. A maintained, documented home holds resale value
-   and avoids surprise failures.
+${METHOD_CANON.phases
+  .map((phase) => `${phase.label} (${phase.subtitle})\n${phase.steps.map((s) => `${s.number}. ${s.name}: ${s.line}`).join("\n")}`)
+  .join("\n\n")}
+
+${METHOD_CANON.footnote}
 
 Any homeowner can run this framework themselves: walk the home twice a year,
 write down what you see, sort findings into NOW / SOON / WAIT, and do the NOW

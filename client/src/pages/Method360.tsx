@@ -13,8 +13,10 @@ import Footer from "@/components/Footer";
 import SampleReportModal from "@/components/SampleReportModal";
 import PhotoLightbox from "@/components/PhotoLightbox";
 import ZoomableImage from "@/components/ZoomableImage";
-import { LIVING_ROOM_BEFORE_AFTER } from "@/lib/assets";
+import { LIVING_ROOM_BEFORE_AFTER, METHOD_ROADMAP_OG, METHOD_ROADMAP_PDF } from "@/lib/assets";
 import SEO from "@/components/SEO";
+import ThreeSixtyRoadmap from "@/components/method/ThreeSixtyRoadmap";
+import { METHOD_CANON } from "@/lib/methodCanon";
 
 const HERO_BG =
   "/images/site/hero-bg.webp";
@@ -61,36 +63,6 @@ const phases = [
   },
 ];
 
-const methodSteps = [
-  {
-    phase: "AWARE",
-    color: "oklch(0.65 0.14 65)",
-    steps: [
-      { n: 1, name: "Baseline", body: "We document every major system, from HVAC age to roof condition, and build your home's permanent health record." },
-      { n: 2, name: "Inspect", body: "Every season we walk the home and catch the small things - cracked caulk, lifted trim, early moisture - before they become emergencies." },
-      { n: 3, name: "Track", body: "Every visit, repair, and dollar is logged in one living record, so the history of your home is never lost and patterns are easy to see." },
-    ],
-  },
-  {
-    phase: "ACT",
-    color: "oklch(0.50 0.14 65)",
-    steps: [
-      { n: 4, name: "Prioritize", body: "Findings are sorted into NOW (safety), SOON (return on investment), and WAIT (comfort), so attention and budget go where they matter first." },
-      { n: 5, name: "Schedule", body: "Your home gets a real maintenance calendar - monthly, quarterly, seasonal, annual - so nothing falls through the cracks." },
-      { n: 6, name: "Execute", body: "We do the work, in priority order, coordinating the right trades so it's handled correctly the first time." },
-    ],
-  },
-  {
-    phase: "ADVANCE",
-    color: "oklch(0.32 0.07 160)",
-    steps: [
-      { n: 7, name: "Preserve", body: "Preservation routines extend the life of the systems that cost the most to replace, like water heaters and HVAC." },
-      { n: 8, name: "Upgrade", body: "Using a Good, Better, Best approach, every improvement is chosen to protect or grow your home's value." },
-      { n: 9, name: "Scale", body: "As your home stabilizes, we help you read its equity and value over time, so it works as the asset it is." },
-    ],
-  },
-];
-
 export default function Method360() {
   const [, navigate] = useLocation();
   const [showReport, setShowReport] = useState(false);
@@ -108,6 +80,7 @@ export default function Method360() {
         path="/360-method"
         title="The 360° Method - Proactive Home Care for Clark County Homes | Handy Pioneers"
         description="A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County."
+        image={METHOD_ROADMAP_OG}
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
@@ -320,10 +293,10 @@ export default function Method360() {
         </div>
       </section>
 
-      {/* ─── The Nine Steps ─── */}
+      {/* ─── The Nine Steps: the one roadmap visual, same component and data as the member portal ─── */}
       <section className="py-20" style={{ backgroundColor: "oklch(0.95 0.008 80)" }}>
         <div className="container">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <div className="section-divider mb-4 justify-center">
               <span className="section-divider-label">The Nine Steps</span>
             </div>
@@ -340,56 +313,17 @@ export default function Method360() {
               The full progression we run on every home we care for, from the first walkthrough to long-term value.
             </p>
           </div>
-
-          <div className="space-y-12">
-            {methodSteps.map((group) => (
-              <div key={group.phase}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span
-                    className="text-xs font-bold uppercase tracking-widest px-3 py-1.5 rounded-full text-white"
-                    style={{ backgroundColor: group.color, fontFamily: "'Source Sans 3', sans-serif" }}
-                  >
-                    {group.phase}
-                  </span>
-                  <div className="flex-1 h-px" style={{ backgroundColor: "oklch(0.88 0.015 80)" }} />
-                </div>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {group.steps.map((step) => (
-                    <div
-                      key={step.n}
-                      className="rounded-2xl p-6 border flex flex-col"
-                      style={{
-                        backgroundColor: "oklch(1 0 0)",
-                        borderColor: "oklch(0.88 0.015 80)",
-                        boxShadow: "0 4px 16px rgba(0,0,0,0.05)",
-                      }}
-                    >
-                      <div className="flex items-center gap-3 mb-3">
-                        <span
-                          className="flex items-center justify-center w-9 h-9 rounded-full text-sm font-bold text-white shrink-0"
-                          style={{ backgroundColor: group.color, fontFamily: "'Source Sans 3', sans-serif" }}
-                        >
-                          {step.n}
-                        </span>
-                        <h3
-                          className="text-xl font-bold"
-                          style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
-                        >
-                          {step.name}
-                        </h3>
-                      </div>
-                      <p
-                        className="text-sm leading-relaxed"
-                        style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}
-                      >
-                        {step.body}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+          <div
+            className="rounded-2xl p-4 sm:p-6 border"
+            style={{ backgroundColor: "oklch(0.98 0.005 80)", borderColor: "oklch(0.88 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
+          >
+            <ThreeSixtyRoadmap canon={METHOD_CANON} variant="full" footnote />
           </div>
+          <p className="mt-4 text-center text-sm" style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+            <a href={METHOD_ROADMAP_PDF} className="underline underline-offset-4" style={{ color: "oklch(0.32 0.07 160)" }}>
+              Download the roadmap as a one-page PDF
+            </a>
+          </p>
         </div>
       </section>
 

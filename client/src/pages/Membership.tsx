@@ -26,6 +26,8 @@ import SEO from "@/components/SEO";
 // rendered as static HTML + FAQPage JSON-LD by the static-page generator).
 import { MEMBERSHIP_FAQS as FAQS } from "@/lib/membershipFaq";
 import Method360Mark from "@/components/Method360Mark";
+import ThreeSixtyRoadmap from "@/components/method/ThreeSixtyRoadmap";
+import { METHOD_CANON } from "@/lib/methodCanon";
 import WorkPhotoGrid from "@/components/WorkPhotoGrid";
 import ZoomableImage from "@/components/ZoomableImage";
 
@@ -288,65 +290,23 @@ export default function Membership() {
       {/* ── STAT BUBBLES ── */}
       <StatBubbles />
 
-      {/* ── FRAMEWORK ── */}
+      {/* ── FRAMEWORK: the one roadmap visual, same component and data as the member portal ── */}
       <section className="py-16 px-4 section-green">
         <div className="max-w-4xl mx-auto text-center">
           <div className="hp-overline" style={{ color: "oklch(65% 0.15 72)" }}>
             The Framework
           </div>
-          <h2 className="font-display text-3xl sm:text-4xl font-black text-white mb-6">
-            AWARE → ACT → ADVANCE
+          <h2 className="font-display text-3xl sm:text-4xl font-black text-white mb-4">
+            AWARE, ACT, ADVANCE
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto mb-12 leading-relaxed"
+            className="text-lg max-w-2xl mx-auto mb-8 leading-relaxed"
             style={{ color: "oklch(100% 0 0 / 0.75)" }}
           >
-            Three phases. One continuous arc. You go from not knowing what you own, to having it
-            maintained by someone who does, to watching its condition - and its value - improve
-            over time. We are the guide. You are the one who arrives.
+            Three phases, nine steps. You go from not knowing what you own, to having it maintained by someone who does, to watching its condition, and its value, improve over time. Tap any step.
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
-            {[
-              {
-                phase: "AWARE",
-                icon: "🔍",
-                title: "You See Everything",
-                body: "Before the 360° Method, most homeowners are guessing. After your baseline walkthrough, you are not. Every system is rated, every risk is photographed, and your home has a score. You know exactly what you own.",
-              },
-              {
-                phase: "ACT",
-                icon: "🔧",
-                title: "We Handle It",
-                body: "Seasonal visits address the specific demands of the Pacific Northwest climate, each one a focused window matched to your home. Your technician shows up, does what your home needs, and documents it. You receive the report. Nothing falls through the cracks - because we are watching.",
-              },
-              {
-                phase: "ADVANCE",
-                icon: "📈",
-                title: "Your Home Improves",
-                body: "Visit by visit, your score climbs and your record grows. The home you have in five years - documented, maintained, with a verifiable condition history - is a fundamentally different asset than the one you have today.",
-              },
-            ].map((p) => (
-              <div
-                key={p.phase}
-                className="rounded-lg p-6"
-                style={{ background: "oklch(100% 0 0 / 0.08)" }}
-              >
-                <div className="text-3xl mb-3">{p.icon}</div>
-                <div
-                  className="text-xs font-bold uppercase tracking-widest mb-1"
-                  style={{ color: "oklch(65% 0.15 72)" }}
-                >
-                  {p.phase}
-                </div>
-                <div className="font-bold text-white text-lg mb-2">{p.title}</div>
-                <p
-                  className="text-sm leading-relaxed"
-                  style={{ color: "oklch(100% 0 0 / 0.7)" }}
-                >
-                  {p.body}
-                </p>
-              </div>
-            ))}
+          <div className="rounded-2xl p-3 sm:p-5 text-left" style={{ background: "oklch(97% 0.015 80)" }}>
+            <ThreeSixtyRoadmap canon={METHOD_CANON} variant="compact" footnote />
           </div>
         </div>
       </section>
