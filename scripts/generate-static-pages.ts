@@ -1052,6 +1052,9 @@ function main() {
       `360-method.html`,
       tier1Page(shell, {
         ...meta,
+        // The roadmap card, same as the SEO prop on Method360.tsx; the
+        // prerendered head is what link previews actually read.
+        image: `${SITE}/brand/360-method/360-roadmap-og.png`,
         jsonLd: [
           {
             "@context": "https://schema.org",
