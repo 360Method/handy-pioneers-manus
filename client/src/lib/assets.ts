@@ -54,6 +54,16 @@ export const REFERRAL_BANNER = "/images/site/referral-banner.webp";
 /** Real job: a living room before and after. Also in the homepage gallery. */
 export const LIVING_ROOM_BEFORE_AFTER = "/images/hero-gallery/ryLhHcoLDKcrOody.jpg";
 
+/**
+ * The 360 Method roadmap. Copied from HP-Estimator-app by
+ * scripts/sync-360-method.mjs together with the component that renders it
+ * (client/src/components/method/ThreeSixtyRoadmap.tsx) and the canon
+ * (client/src/lib/methodCanon.ts). Never edited here.
+ */
+export const METHOD_ROADMAP_PNG = "/brand/360-method/360-roadmap.png";
+export const METHOD_ROADMAP_OG = "/brand/360-method/360-roadmap-og.png";
+export const METHOD_ROADMAP_PDF = "/brand/360-method/360-roadmap-letter.pdf";
+
 export const PHASE_IMAGES = {
   aware: "/images/site/method-aware.webp",
   act: "/images/site/method-act.webp",

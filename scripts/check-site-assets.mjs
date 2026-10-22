@@ -27,6 +27,7 @@ const arg = (name, dflt) => {
 };
 
 const BASE = arg("base", "https://handypioneers.com").replace(/\/$/, "");
+const PRO_ORIGIN = arg("pro-origin", "https://pro.handypioneers.com").replace(/\/$/, "");
 const MAX_PAGES = Number(arg("max-pages", "0")) || Infinity;
 const AS_JSON = args.includes("--json");
 const CONCURRENCY = Number(arg("concurrency", "8"));
@@ -307,6 +308,24 @@ await pool(
   },
   4
 );
+
+// The 360 Method roadmap is defined in the pro app and copied here by
+// scripts/sync-360-method.mjs. If the two canons differ, the site is showing a
+// different method than the member portal; that is a failure, not a nuance.
+let canonDrift = null;
+try {
+  const { readFileSync } = await import("node:fs");
+  const local = JSON.parse(readFileSync(new URL("../client/public/brand/360-method/canon.json", import.meta.url), "utf8"));
+  const res = await fetchWithTimeout(`${PRO_ORIGIN}/brand/360-method/canon.json`, { headers: { "user-agent": UA } });
+  if (!res.ok) canonDrift = `pro origin answered ${res.status} for canon.json`;
+  else {
+    const remote = await res.json();
+    if (JSON.stringify(remote) !== JSON.stringify(local)) canonDrift = "site canon.json differs from the pro app; run scripts/sync-360-method.mjs and commit";
+  }
+} catch (e) {
+  canonDrift = `could not compare canon.json: ${e.message}`;
+}
+if (canonDrift) pageFailures.push({ page: `${PRO_ORIGIN}/brand/360-method/canon.json`, status: 0, error: canonDrift });
 
 const elapsed = ((Date.now() - started) / 1000).toFixed(1);
 
