@@ -29,16 +29,10 @@ const COMPONENT_DST = resolve(root, "client/src/components/method/ThreeSixtyRoad
 const CANON_TS_DST = resolve(root, "client/src/lib/methodCanon.ts");
 const ASSET_DIR_SRC = "client/public/brand/360-method";
 const ASSET_DIR_DST = resolve(root, "client/public/brand/360-method");
-const ASSETS = [
-  "canon.json",
-  "360-roadmap.png",
-  "360-roadmap-og.png",
-  "360-roadmap-letter.pdf",
-  ...["baseline", "inspect", "track", "prioritize", "schedule", "execute", "preserve", "upgrade", "scale"].map((k) => `steps/${k}.webp`),
-];
+const ASSETS = ["canon.json", "360-roadmap.png", "360-roadmap.jpg", "360-roadmap-og.png", "360-roadmap-letter.pdf"];
 
 mkdirSync(dirname(COMPONENT_DST), { recursive: true });
-mkdirSync(resolve(ASSET_DIR_DST, "steps"), { recursive: true });
+mkdirSync(ASSET_DIR_DST, { recursive: true });
 
 const BANNER = `/**
  * COPIED FROM HP-Estimator-app by scripts/sync-360-method.mjs. Do not edit
