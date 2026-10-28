@@ -27,7 +27,7 @@ const STATIC_ROUTES = [
   { path: "/financing", changefreq: "monthly", priority: "0.7" },
   { path: "/service-areas", changefreq: "monthly", priority: "0.7" },
   { path: "/roadmap-generator", changefreq: "monthly", priority: "0.8" },
-  { path: "/360-method", changefreq: "monthly", priority: "0.8" },
+  { path: "/360-method", changefreq: "monthly", priority: "0.9" },
   // /360-method/walkthrough 301s to /membership (consolidated funnel) - not listed.
   { path: "/360-method/referral", changefreq: "monthly", priority: "0.6" },
   { path: "/privacy-policy", changefreq: "yearly", priority: "0.3" },
@@ -122,6 +122,28 @@ for (const b of extractPublishedBlogSlugs(blogPath)) {
     changefreq: "monthly",
     priority: "0.7",
   });
+}
+
+// 360 Method step pages: published only, same date gate as the blog. The
+// record splitter needs each record to start on a line of its own ("  {").
+const methodStepsPath = resolve(ROOT, "client/src/lib/methodSteps.ts");
+{
+  const raw = readFileSync(methodStepsPath, "utf8");
+  const records = raw.split(/\r?\n\s*\{\r?\n/).slice(1);
+  const cutoff = new Date();
+  cutoff.setHours(23, 59, 59, 999);
+  for (const block of records) {
+    const keyMatch = block.match(/^\s*key:\s*"([a-z]+)"/m);
+    const pubMatch = block.match(/"?publishDate"?:\s*"(\d{4}-\d{2}-\d{2})"/);
+    if (!keyMatch || !pubMatch) continue;
+    if (new Date(pubMatch[1] + "T00:00:00Z") > cutoff) continue;
+    entries.push({
+      loc: `${SITE}/360-method/${keyMatch[1]}`,
+      lastmod: pubMatch[1] > today ? today : pubMatch[1],
+      changefreq: "monthly",
+      priority: "0.8",
+    });
+  }
 }
 
 for (const slug of extractSlugs(projectPath)) {

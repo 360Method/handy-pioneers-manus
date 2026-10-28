@@ -1,6 +1,7 @@
 name: Blog auto-publish (drip redeploy)
 
-# Posts in client/src/lib/blog.ts carry a future publishDate. The site shows
+# Posts in client/src/lib/blog.ts and step pages in client/src/lib/methodSteps.ts
+# carry a future publishDate. The site shows
 # each one to visitors automatically on its date (client-side filter), but the
 # crawler-facing prerendered HTML + sitemap only regenerate on a deploy. This
 # job runs every morning and, ONLY on days a post is actually due, pushes an

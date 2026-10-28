@@ -1,12 +1,14 @@
 /**
  * Method360.tsx - /360-method
- * Design: Dark forest green + warm gold. Premium, estate-level aesthetic.
- * Sections: Hero intro, 3-phase breakdown, 3-path entry system, disclaimer, CTA.
- * Vocabulary: asset, proactive, curated, assessment, roadmap. No "handyman", no "free".
+ * Design: Dark forest green + warm amber. Premium, estate-level aesthetic.
+ * Sections: Hero intro, 3-phase breakdown (anchors #aware #act #advance), the
+ * nine steps with links to each step page, disclaimer, CTA.
+ * Vocabulary: asset, proactive, curated, assessment, roadmap. Entity surface:
+ * the NEVER_SAY table in brand.ts applies and scripts/check-copy.mjs enforces it.
  */
 
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { ArrowRight, Eye, Zap, TrendingUp, DollarSign } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,6 +19,7 @@ import { LIVING_ROOM_BEFORE_AFTER, METHOD_ROADMAP_OG, METHOD_ROADMAP_PDF } from 
 import SEO from "@/components/SEO";
 import ThreeSixtyRoadmap from "@/components/method/ThreeSixtyRoadmap";
 import { METHOD_CANON } from "@/lib/methodCanon";
+import { getStepPage, getStepRecord, isStepPublished, comingLabel, methodStepsItemList, STEP_PATH } from "@/lib/methodSteps";
 
 const HERO_BG =
   "/images/site/hero-bg.webp";
@@ -24,6 +27,7 @@ const HERO_BG =
 const phases = [
   {
     number: "01",
+    anchor: "aware",
     phase: "PHASE 1",
     name: "AWARE",
     steps: "Baseline · Inspect · Track",
@@ -37,6 +41,7 @@ const phases = [
   },
   {
     number: "02",
+    anchor: "act",
     phase: "PHASE 2",
     name: "ACT",
     steps: "Prioritize · Schedule · Execute",
@@ -50,6 +55,7 @@ const phases = [
   },
   {
     number: "03",
+    anchor: "advance",
     phase: "PHASE 3",
     name: "ADVANCE",
     steps: "Preserve · Upgrade · Scale",
@@ -81,6 +87,15 @@ export default function Method360() {
         title="The 360° Method - Proactive Home Care for Clark County Homes | Handy Pioneers"
         description="A home where nothing slips. The 360° Method keeps Vancouver WA homes documented, maintained, and holding their value: a baseline record, a prioritized plan, and seasonal care that never misses. Serving all of Clark County."
         image={METHOD_ROADMAP_OG}
+        jsonLd={[
+          {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: "The 360° Method - Proactive Home Care for Clark County Homes",
+            url: "https://handypioneers.com/360-method",
+          },
+          methodStepsItemList(),
+        ]}
       />
       <div className="min-h-screen" style={{ backgroundColor: "oklch(0.98 0.005 80)" }}>
       <Navbar />
@@ -146,7 +161,7 @@ export default function Method360() {
                 className="text-sm font-semibold underline underline-offset-4 transition-opacity hover:opacity-70 bg-transparent border-0 cursor-pointer"
                 style={{ color: "rgba(255,255,255,0.85)", fontFamily: "'Source Sans 3', sans-serif" }}
               >
-                Read the methodology first ↓
+                Read the nine steps ↓
               </button>
             </div>
           </div>
@@ -198,8 +213,10 @@ export default function Method360() {
               return (
                 <div
                   key={p.number}
+                  id={p.anchor}
                   className="rounded-2xl overflow-hidden border flex flex-col"
                   style={{
+                    scrollMarginTop: "88px",
                     backgroundColor: "oklch(1 0 0)",
                     borderColor: "oklch(0.88 0.015 80)",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
@@ -317,7 +334,69 @@ export default function Method360() {
             className="rounded-2xl p-4 sm:p-6 border"
             style={{ backgroundColor: "oklch(0.98 0.005 80)", borderColor: "oklch(0.88 0.015 80)", fontFamily: "'Source Sans 3', sans-serif" }}
           >
-            <ThreeSixtyRoadmap canon={METHOD_CANON} variant="full" footnote />
+            <ThreeSixtyRoadmap
+              canon={METHOD_CANON}
+              variant="full"
+              footnote
+              onSelect={(k) => { if (getStepPage(k)) navigate(STEP_PATH(k)); }}
+            />
+          </div>
+
+          {/* Read each step: nine tiles, one per step page. Unpublished steps show
+              their month; the tiles turn into links on their publish date. */}
+          <div className="mt-10">
+            <h3
+              className="text-2xl font-bold text-center mb-6"
+              style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}
+            >
+              Read each step
+            </h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {METHOD_CANON.phases.flatMap((phase) =>
+                phase.steps.map((step) => {
+                  const rec = getStepRecord(step.key);
+                  const live = !!rec && isStepPublished(rec);
+                  const inner = (
+                    <>
+                      <div className="flex items-center gap-3 mb-2">
+                        <span
+                          className="w-8 h-8 rounded-full inline-flex items-center justify-center text-sm font-bold shrink-0"
+                          style={{ backgroundColor: phase.tone.wash, color: phase.tone.accent, border: `1px solid ${phase.tone.accent}` }}
+                        >
+                          {step.number}
+                        </span>
+                        <span className="text-xs font-bold uppercase tracking-widest" style={{ color: phase.tone.accent, fontFamily: "'Source Sans 3', sans-serif" }}>
+                          {phase.name}
+                        </span>
+                      </div>
+                      <p className="text-lg font-bold" style={{ fontFamily: "'Playfair Display', serif", color: "oklch(0.22 0.07 160)" }}>{step.name}</p>
+                      <p className="text-sm leading-relaxed mt-1" style={{ color: "oklch(0.42 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>{step.line}</p>
+                      <p className="text-xs font-semibold mt-3" style={{ color: live ? phase.tone.accent : "oklch(0.55 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                        {live ? "Read the step →" : rec ? comingLabel(rec) : ""}
+                      </p>
+                    </>
+                  );
+                  return live ? (
+                    <Link
+                      key={step.key}
+                      href={STEP_PATH(step.key)}
+                      className="block rounded-xl p-5 border transition-shadow hover:shadow-md"
+                      style={{ backgroundColor: "oklch(1 0 0)", borderColor: "oklch(0.88 0.015 80)" }}
+                    >
+                      {inner}
+                    </Link>
+                  ) : (
+                    <div
+                      key={step.key}
+                      className="rounded-xl p-5 border"
+                      style={{ backgroundColor: "oklch(0.98 0.005 80)", borderColor: "oklch(0.88 0.015 80)" }}
+                    >
+                      {inner}
+                    </div>
+                  );
+                })
+              )}
+            </div>
           </div>
           <p className="mt-4 text-center text-sm" style={{ color: "oklch(0.45 0.02 80)", fontFamily: "'Source Sans 3', sans-serif" }}>
             <a href={METHOD_ROADMAP_PDF} className="underline underline-offset-4" style={{ color: "oklch(0.32 0.07 160)" }}>

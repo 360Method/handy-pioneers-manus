@@ -36,6 +36,8 @@ export interface ServiceDef {
   signsYouNeedThis: string[];
   faq: ServiceFAQ[];
   membershipTieIn: string;
+  /** The 360 Method step this service most directly serves (a /360-method/<key> page). */
+  methodStepKey?: "baseline" | "inspect" | "track" | "prioritize" | "schedule" | "execute" | "preserve" | "upgrade" | "scale";
   relatedServiceSlugs: string[];
   /**
    * Optional pricing. costKey maps to a single preset in
@@ -822,6 +824,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Seasonal cleaning is part of the Proactive Path, so moss and grime never get the months they need to do damage.",
+    methodStepKey: "preserve",
     relatedServiceSlugs: ["deck-repair", "gutter-services", "exterior-painting"],
   },
   {
@@ -858,6 +861,7 @@ export const SERVICES: ServiceDef[] = [
     ],
     membershipTieIn:
       "Gutter clearing is a standing item on the Proactive Path seasonal visits, so they are never the reason water gets into the house.",
+    methodStepKey: "inspect",
     relatedServiceSlugs: ["rot-repair", "pressure-washing", "property-maintenance"],
   },
   {

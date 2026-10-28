@@ -15,7 +15,7 @@
  */
 
 import { useEffect, useState } from "react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import { Upload, ArrowRight, CheckCircle } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -144,6 +144,10 @@ export default function RoadmapGenerator() {
                 >
                   Every finding sorted into NOW, SOON, and WAIT, with investment
                   ranges, within 24 hours. This is what it looks like →
+                </p>
+                <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}>
+                  This is Step 4 of the 360° Method.{" "}
+                  <Link href="/360-method/prioritize" className="underline underline-offset-4 hover:opacity-80">Read how Prioritize works</Link>
                 </p>
 
                 {/* Dropzone - the page's primary action */}

@@ -226,11 +226,20 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <a
+                    href="/360-method"
+                    className="text-sm hover:opacity-80 transition-opacity"
+                    style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
+                  >
+                    The 360° Method, step by step
+                  </a>
+                </li>
+                <li>
+                  <a
                     href="/membership"
                     className="text-sm hover:opacity-80 transition-opacity"
                     style={{ color: "rgba(255,255,255,0.65)", fontFamily: "'Source Sans 3', sans-serif" }}
                   >
-                    Explore the 360° Method
+                    Proactive Path membership
                   </a>
                 </li>
                 <li>

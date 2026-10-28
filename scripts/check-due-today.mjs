@@ -2,7 +2,7 @@
 /**
  * check-due-today.mjs - used by .github/workflows/blog-autopublish.yml.
  *
- * Reads the publishDate of every blog post and reports whether ANY post goes
+ * Reads the publishDate of every blog post and 360 Method step page and reports whether ANY post goes
  * live "today" in America/Los_Angeles (the site's timezone). The workflow uses
  * this to redeploy only on days a post actually becomes due, so a drip-scheduled
  * post gets prerendered + added to the sitemap automatically (the SPA already
@@ -12,8 +12,12 @@
  */
 import { readFileSync, appendFileSync } from "node:fs";
 
-const blog = new URL("../client/src/lib/blog.ts", import.meta.url);
-const raw = readFileSync(blog, "utf8");
+const sources = [
+  new URL("../client/src/lib/blog.ts", import.meta.url),
+  // 360 Method step pages drip the same way (methodSteps.ts publishDate).
+  new URL("../client/src/lib/methodSteps.ts", import.meta.url),
+];
+const raw = sources.map((u) => readFileSync(u, "utf8")).join("\n");
 
 const dates = [...raw.matchAll(/"?publishDate"?:\s*"(\d{4}-\d{2}-\d{2})"/g)].map((m) => m[1]);
 

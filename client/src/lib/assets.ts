@@ -84,3 +84,54 @@ export const HOME_SCORE_IMG = "/images/roadmap-sample/stewardship-score.webp";
 
 /** The downloadable sample roadmap. */
 export const ROADMAP_SAMPLE_PDF = "/sample/360-roadmap-sample.pdf";
+
+// ── 360 Method step crops ────────────────────────────────────────────────────
+
+/**
+ * Crops of the roadmap artwork, one per step panel and one per phase band,
+ * generated in HP-Estimator-app (scripts/generate-method-crops.ts from
+ * crops.json) and copied here by scripts/sync-360-method.mjs. Never redrawn,
+ * never recoloured. The version suffix changes when the master changes, so
+ * the CDN never serves a stale crop under an old name.
+ */
+export type MethodStepKey =
+  | "baseline" | "inspect" | "track"
+  | "prioritize" | "schedule" | "execute"
+  | "preserve" | "upgrade" | "scale";
+export type MethodPhaseKey = "aware" | "act" | "advance";
+
+const CROPS = "/brand/360-method/crops";
+const STEP_FILE: Record<MethodStepKey, string> = {
+  baseline: "step-01-baseline",
+  inspect: "step-02-inspect",
+  track: "step-03-track",
+  prioritize: "step-04-prioritize",
+  schedule: "step-05-schedule",
+  execute: "step-06-execute",
+  preserve: "step-07-preserve",
+  upgrade: "step-08-upgrade",
+  scale: "step-09-scale",
+};
+const PHASE_FILE: Record<MethodPhaseKey, string> = {
+  aware: "phase-1-aware",
+  act: "phase-2-act",
+  advance: "phase-3-advance",
+};
+const CROP_VERSION = "v1";
+
+function pick<K extends string>(map: Record<K, string>, output: string, ext: string): Record<K, string> {
+  const out = {} as Record<K, string>;
+  for (const k of Object.keys(map) as K[]) out[k] = `${CROPS}/${map[k]}.${output}.${CROP_VERSION}.${ext}`;
+  return out;
+}
+
+/** The illustrated step panel, cut from the artwork (2x; WebP made by the sync from the PNG). */
+export const METHOD_STEP_PANEL = pick(STEP_FILE, "panel", "webp");
+/** 1200x630 share card per step. */
+export const METHOD_STEP_OG = pick(STEP_FILE, "og", "png");
+/** 1200x900 social image per step. */
+export const METHOD_STEP_SOCIAL = pick(STEP_FILE, "social-landscape", "jpg");
+/** The coloured phase band, cut from the artwork (the generator calls every cut a panel). */
+export const METHOD_PHASE_BAND = pick(PHASE_FILE, "panel", "webp");
+/** 1200x630 share card per phase. */
+export const METHOD_PHASE_OG = pick(PHASE_FILE, "og", "png");

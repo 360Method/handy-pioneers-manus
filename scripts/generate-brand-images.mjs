@@ -44,6 +44,27 @@ const IMAGES = [
     subject: "Wide establishing shot of a Pacific Northwest craftsman home in excellent repair, viewed across a damp lawn, moss-free roof, clean gutter line, low grey cloud above the treeline" },
   { slug: "referral-banner",
     subject: "A quiet residential street of Pacific Northwest homes on a damp morning, front walks and porches receding into soft mist, no cars" },
+  // 360 Method step pages: the "where you are now" side of each step, as an
+  // object scene. Never the artwork's illustration style, never a person,
+  // never captioned as a real job. Filenames carry -v1; bump on regeneration.
+  { slug: "method-step-baseline-v1",
+    subject: "An open spiral notebook and a flashlight on a utility room floor beside an older gas water heater with a faded data plate, a furnace in soft focus behind" },
+  { slug: "method-step-inspect-v1",
+    subject: "Close detail of a window sill on cedar siding where old caulk has cracked and pulled away, rain beading on the glass, autumn leaves in the gutter edge above" },
+  { slug: "method-step-track-v1",
+    subject: "A kitchen drawer pulled open and overflowing with faded paper receipts, appliance manuals and a tangle of warranty cards, afternoon light" },
+  { slug: "method-step-prioritize-v1",
+    subject: "A weathered deck board gone soft and dark at the edge beside the house wall, a fresh can of exterior paint sitting unopened on the good boards nearby" },
+  { slug: "method-step-schedule-v1",
+    subject: "A paper wall calendar in a mudroom with no notes on it, a clogged gutter visible through the window behind in grey Pacific Northwest rain" },
+  { slug: "method-step-execute-v1",
+    subject: "A half finished DIY repair on a bathroom sink trap, scattered tools and an open bucket on the floor, parts still in their packaging" },
+  { slug: "method-step-preserve-v1",
+    subject: "A tank water heater with a rusted drain valve and mineral crust at its base in a garage corner, a dry sediment stain on the concrete" },
+  { slug: "method-step-upgrade-v1",
+    subject: "A brand new high end kitchen faucet installed on a countertop beside a window whose wood frame shows peeling paint and water staining" },
+  { slug: "method-step-scale-v1",
+    subject: "A tidy Pacific Northwest home exterior at dusk with a folder of documents and a set of house keys resting on the porch rail in the foreground" },
 ];
 
 function loadKey() {

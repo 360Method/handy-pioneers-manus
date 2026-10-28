@@ -341,7 +341,7 @@ async function startServer() {
     /^\/privacy-policy$/,
     /^\/terms-and-conditions$/,
     /^\/guarantee$/,
-    /^\/360-method(\/(translation|walkthrough|referral|membership|offer))?$/,
+    /^\/360-method(\/(translation|walkthrough|referral|membership|offer|baseline|inspect|track|prioritize|schedule|execute|preserve|upgrade|scale))?$/,
     /^\/membership(\/(checkout|confirmation))?$/,
     /^\/multifamily(\/(quote|checkout))?$/,
     /^\/baseline\/(details|offer|confirmed)$/,
