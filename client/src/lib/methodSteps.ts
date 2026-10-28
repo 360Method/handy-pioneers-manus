@@ -66,7 +66,7 @@ export interface MethodStepPage {
 export const METHOD_STEP_PAGES: MethodStepPage[] = [
   {
     key: "baseline",
-    publishDate: "2026-11-02",
+    publishDate: "2026-10-28",
     seoTitle: "Step 1 Baseline: Document Every System in Your Home | The 360° Method",
     seoDesc: "How to build a home baseline: every major system written down once, with age, condition and photos, so repairs stop being surprises. Step 1 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Baseline: write your home down once, so it stops surprising you",
@@ -129,7 +129,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "inspect",
-    publishDate: "2026-11-02",
+    publishDate: "2026-10-28",
     seoTitle: "Step 2 Inspect: The Seasonal Home Walkthrough | The 360° Method",
     seoDesc: "A seasonal home walkthrough checklist for the Pacific Northwest: what to look at each season, so cracked caulk and loose trim get caught before the rain finds them. Step 2 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Inspect: walk the house every season, before the weather does",
@@ -192,7 +192,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "track",
-    publishDate: "2026-11-02",
+    publishDate: "2026-10-28",
     seoTitle: "Step 3 Track: Keep a Living Home Maintenance Log | The 360° Method",
     seoDesc: "How to keep a home maintenance log that shows where the money goes: every repair, every visit, every contractor, in one place. Step 3 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Track: one living record of every repair, visit and dollar",
@@ -253,7 +253,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "prioritize",
-    publishDate: "2027-01-04",
+    publishDate: "2026-10-28",
     seoTitle: "Step 4 Prioritize: NOW, SOON, WAIT for Home Repairs | The 360° Method",
     seoDesc: "How to prioritize home repairs with three tiers: NOW for safety and water, SOON for return on the money, WAIT for comfort and cosmetics. Step 4 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Prioritize: NOW, SOON, WAIT, so the money goes where it matters",
@@ -315,7 +315,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "schedule",
-    publishDate: "2027-01-18",
+    publishDate: "2026-10-28",
     seoTitle: "Step 5 Schedule: Build Your Home Maintenance Calendar | The 360° Method",
     seoDesc: "How to build a home maintenance calendar for the Pacific Northwest, with monthly, quarterly and annual tasks placed in the right season. Step 5 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Schedule: put every task on a real calendar, in the right season",
@@ -377,7 +377,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "execute",
-    publishDate: "2027-02-01",
+    publishDate: "2026-10-28",
     seoTitle: "Step 6 Execute: DIY or Hire, and Getting It Done | The 360° Method",
     seoDesc: "A plain DIY vs hire decision framework for home repairs: what to do yourself, what to hand off, and how to get the work done in priority order. Step 6 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Execute: decide DIY or hire, then do the work in order",
@@ -439,7 +439,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "preserve",
-    publishDate: "2027-02-22",
+    publishDate: "2026-10-28",
     seoTitle: "Step 7 Preserve: Make Major Systems Last Longer | The 360° Method",
     seoDesc: "Preservation routines that extend the life of a water heater, furnace, roof and siding, so replacement comes later and on your schedule. Step 7 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Preserve: routines that add years to the systems that cost the most",
@@ -499,7 +499,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "upgrade",
-    publishDate: "2027-03-08",
+    publishDate: "2026-10-28",
     seoTitle: "Step 8 Upgrade: Good, Better, Best Home Improvements | The 360° Method",
     seoDesc: "A Good, Better, Best framework for home improvements, so every dollar either prevents a failure or adds value. Step 8 of the 360° Method, from Handy Pioneers in Vancouver, WA.",
     h1: "Upgrade: Good, Better, Best, so every improvement dollar earns its place",
@@ -562,7 +562,7 @@ export const METHOD_STEP_PAGES: MethodStepPage[] = [
   },
   {
     key: "scale",
-    publishDate: "2027-03-22",
+    publishDate: "2026-10-28",
     seoTitle: "Step 9 Scale: Read Your Home's Equity Over Time | The 360° Method",
     seoDesc: "How to read your home as an asset: equity over time, the record of care behind it, and how to think about refinance, mortgage and investment decisions. Step 9 of the 360° Method, from Handy Pioneers in Vancouver, WA. Education, not financial advice.",
     h1: "Scale: read your home like the asset it is",
