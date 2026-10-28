@@ -1,0 +1,637 @@
+{
+  "version": 1,
+  "background": "#FAF6EF",
+  "dir": "/brand/360-method/cards",
+  "slots": [
+    {
+      "slot": "phase-1-aware",
+      "kind": "phase",
+      "phase": "aware",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "phase-1-aware.gap.landscape.v1.jpg",
+          "bytes": 63501,
+          "width": 1200,
+          "height": 900,
+          "sha256": "1044ea3d08d4a46fd1b5f27fe5ae47ca3f22b0a62fe6c448bef2305a53051dff",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "phase-1-aware.gap.square.v1.jpg",
+          "bytes": 58119,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "44b40dd35cddc38482ab7dc8a76ed5b641edfd2b567fa82fc30975a5b6df4c24",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "phase-1-aware.invite.landscape.v1.jpg",
+          "bytes": 97685,
+          "width": 1200,
+          "height": 900,
+          "sha256": "6995c64d9ae7cd3ed11c64aeb6d1599388479d44793b3aab73c420ca43a3aa1b",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "phase-1-aware.invite.square.v1.jpg",
+          "bytes": 87090,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "8f72b42de68e84c5fa9cc6fc2876fa4f9fa1c291871907c2d2b8422aef09917b",
+          "mainPx": 65,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-01-baseline",
+      "kind": "step",
+      "phase": "aware",
+      "step": 1,
+      "key": "baseline",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-01-baseline.gap.landscape.v1.jpg",
+          "bytes": 83577,
+          "width": 1200,
+          "height": 900,
+          "sha256": "fc6d0b654522659b0b2ed4be5a8aa30c8f125e97c27e2693e3018173a1cc1918",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-01-baseline.gap.square.v1.jpg",
+          "bytes": 75990,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "844bbca677ee588583207ea600fe4d3a5a9f51b9579d065b9e68749346eac914",
+          "mainPx": 66,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-01-baseline.invite.landscape.v1.jpg",
+          "bytes": 93977,
+          "width": 1200,
+          "height": 900,
+          "sha256": "6600b6b86fcdf46e9a553a6bca3830162927674d2d5ae59ca6a7679887612ce0",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-01-baseline.invite.square.v1.jpg",
+          "bytes": 84215,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "0bd412ace77b6337e15f619422e985e52cb15a54190026aa51c5505c7748d482",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-02-inspect",
+      "kind": "step",
+      "phase": "aware",
+      "step": 2,
+      "key": "inspect",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-02-inspect.gap.landscape.v1.jpg",
+          "bytes": 55125,
+          "width": 1200,
+          "height": 900,
+          "sha256": "3af50612b1af38c3cb80be0279f0eee17e00a55b38cb7aefc49073d104344d4d",
+          "mainPx": 63,
+          "lines": 1
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-02-inspect.gap.square.v1.jpg",
+          "bytes": 51775,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "e4c30bedb746abfcc65969c39b656087be6e335a7fc03055693788b0a7d1f347",
+          "mainPx": 57,
+          "lines": 1
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-02-inspect.invite.landscape.v1.jpg",
+          "bytes": 98586,
+          "width": 1200,
+          "height": 900,
+          "sha256": "19a724e7280b561db64283c894b0d2848635b66fcc93e76326c314e303f833cf",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-02-inspect.invite.square.v1.jpg",
+          "bytes": 88696,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "396da4418a8975791a7c32dded52c63e98c4c8d1fbfc142723bd9cc1f7424b21",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-03-track",
+      "kind": "step",
+      "phase": "aware",
+      "step": 3,
+      "key": "track",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-03-track.gap.landscape.v1.jpg",
+          "bytes": 68025,
+          "width": 1200,
+          "height": 900,
+          "sha256": "115a9a4c12722d0cb001a2685f0c1d290f7b48811a37065e7ecd80aa4f0d7025",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-03-track.gap.square.v1.jpg",
+          "bytes": 61499,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "b26c1da9b2f4a914d2fbf54efe51b1c40727d577cc900b290c8161b09a73d6ae",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-03-track.invite.landscape.v1.jpg",
+          "bytes": 71085,
+          "width": 1200,
+          "height": 900,
+          "sha256": "d7113e4cd85da04e159385ad2ee666cb70561811d8f586883be72590a5b22c05",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-03-track.invite.square.v1.jpg",
+          "bytes": 64438,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "ddba2cf768f3d39acf130b7ff3adaaee8eaa02c7de6bd3f187c092c3b6d67769",
+          "mainPx": 66,
+          "lines": 2
+        }
+      ]
+    },
+    {
+      "slot": "phase-2-act",
+      "kind": "phase",
+      "phase": "act",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "phase-2-act.gap.landscape.v1.jpg",
+          "bytes": 62157,
+          "width": 1200,
+          "height": 900,
+          "sha256": "76d75f0f35c58edaa7d50201c166b312461ebff2c4573d415927646f0134ca36",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "phase-2-act.gap.square.v1.jpg",
+          "bytes": 56125,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "154087a2c31f06215441d153bfad5d3a866241177c08ea88f2b5627869432121",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "phase-2-act.invite.landscape.v1.jpg",
+          "bytes": 87701,
+          "width": 1200,
+          "height": 900,
+          "sha256": "3d069f37fd63478f45fa092ff64ea78ee84d213dd390fe50de2827da04631939",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "phase-2-act.invite.square.v1.jpg",
+          "bytes": 78560,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "7fce8dbbc4456559946fbd5ae4ae72890bda5e0d5ab3b1a00bd76640a41c4876",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-04-prioritize",
+      "kind": "step",
+      "phase": "act",
+      "step": 4,
+      "key": "prioritize",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-04-prioritize.gap.landscape.v1.jpg",
+          "bytes": 62437,
+          "width": 1200,
+          "height": 900,
+          "sha256": "2c5ee8a87488fd278f7290150ebc5ecddf93e0347153068131bd15b31badd38e",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-04-prioritize.gap.square.v1.jpg",
+          "bytes": 57157,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "3b218c1c7245ee9526b5f2291a8b9b1b001f76060b9d9d4bf560f4c1fe74f046",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-04-prioritize.invite.landscape.v1.jpg",
+          "bytes": 93582,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f01694df610b6e34db81ff377be295d6d3c032b56a3299c1a77db86e29be06fd",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-04-prioritize.invite.square.v1.jpg",
+          "bytes": 84506,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "5e1ef0a024546b7b4a004387989930547855f160b5bb6bb5567aedbb48e14e58",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-05-schedule",
+      "kind": "step",
+      "phase": "act",
+      "step": 5,
+      "key": "schedule",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-05-schedule.gap.landscape.v1.jpg",
+          "bytes": 46704,
+          "width": 1200,
+          "height": 900,
+          "sha256": "0530f6953f8898beaeaabfbd18d59d7e35dc8db2310ae163564805570756debe",
+          "mainPx": 72,
+          "lines": 1
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-05-schedule.gap.square.v1.jpg",
+          "bytes": 42627,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "d028da1b82521e5bc93b8912895ab160975178959f3f2b9520aa0e9c12c03f74",
+          "mainPx": 66,
+          "lines": 1
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-05-schedule.invite.landscape.v1.jpg",
+          "bytes": 90187,
+          "width": 1200,
+          "height": 900,
+          "sha256": "7fcb4c3462fcb9eba50e1d97c7c3dafaa646fbfda9584ef9334dd35642f5e544",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-05-schedule.invite.square.v1.jpg",
+          "bytes": 81089,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "f13658911c845d1c332b3637ad6d8eee7344d53ea3478847bd15d3cd8ac48a45",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-06-execute",
+      "kind": "step",
+      "phase": "act",
+      "step": 6,
+      "key": "execute",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-06-execute.gap.landscape.v1.jpg",
+          "bytes": 66680,
+          "width": 1200,
+          "height": 900,
+          "sha256": "af00a17aaa58b054ed632c13d5f05344f5f087a17051052f55c39432d75238fd",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-06-execute.gap.square.v1.jpg",
+          "bytes": 60107,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "552cef4ecc3fc58d510268aa2b51b61de05d3b6f964f64252108d5390d98859b",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-06-execute.invite.landscape.v1.jpg",
+          "bytes": 92114,
+          "width": 1200,
+          "height": 900,
+          "sha256": "d3db87b2be5a8c6389b5be4bd316054831a1fc62e2bfab3c2a7259d77f1784d1",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-06-execute.invite.square.v1.jpg",
+          "bytes": 82421,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "0679486e72f49e5a8cc60f9938308451e614d316fc1cf0d41ebaa61bb653b05c",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "phase-3-advance",
+      "kind": "phase",
+      "phase": "advance",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "phase-3-advance.gap.landscape.v1.jpg",
+          "bytes": 48879,
+          "width": 1200,
+          "height": 900,
+          "sha256": "b298281f6fd2fc325a74f211379a6e3570156f3ff0c69dfa224af2a43708b70e",
+          "mainPx": 72,
+          "lines": 1
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "phase-3-advance.gap.square.v1.jpg",
+          "bytes": 44994,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "4baff2d8549c831cd0b4572fa3f986f8e73eeebf0be1705a8adc7c73407b2f81",
+          "mainPx": 66,
+          "lines": 1
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "phase-3-advance.invite.landscape.v1.jpg",
+          "bytes": 70990,
+          "width": 1200,
+          "height": 900,
+          "sha256": "d0a885a281a484138eb5e3745747e85ab9da30167fab683f6a5f8f2088b4ed79",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "phase-3-advance.invite.square.v1.jpg",
+          "bytes": 64344,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "5c6eabdef44b5a4db885c0032806ff18a1519bca29465cafe3716e83e761d79f",
+          "mainPx": 66,
+          "lines": 2
+        }
+      ]
+    },
+    {
+      "slot": "step-07-preserve",
+      "kind": "step",
+      "phase": "advance",
+      "step": 7,
+      "key": "preserve",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-07-preserve.gap.landscape.v1.jpg",
+          "bytes": 76642,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f83802152cd81ba051e12f34e23ba10c6bc0e1bc1daa13e16971147acc93eaf6",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-07-preserve.gap.square.v1.jpg",
+          "bytes": 69816,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "ba8f62ae548368da4ec220c6dbaf976691f38dfa0cf9104618e8fd6a6e38a902",
+          "mainPx": 66,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-07-preserve.invite.landscape.v1.jpg",
+          "bytes": 76583,
+          "width": 1200,
+          "height": 900,
+          "sha256": "81f6f9486ef8fafc13e2ac8c0ba22794a739d3f7a33c50c67b431bf053807f31",
+          "mainPx": 63,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-07-preserve.invite.square.v1.jpg",
+          "bytes": 70093,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "3b12bda8b4d4405404f50624c9cb0c7857d9cee60336fdee76b80b6aa9a49fd9",
+          "mainPx": 56,
+          "lines": 2
+        }
+      ]
+    },
+    {
+      "slot": "step-08-upgrade",
+      "kind": "step",
+      "phase": "advance",
+      "step": 8,
+      "key": "upgrade",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-08-upgrade.gap.landscape.v1.jpg",
+          "bytes": 71021,
+          "width": 1200,
+          "height": 900,
+          "sha256": "3f6e37c94d9158ac1ff76e8f43a3279fff283457fbc869d6fc0303b712b29c46",
+          "mainPx": 72,
+          "lines": 2
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-08-upgrade.gap.square.v1.jpg",
+          "bytes": 64706,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "8f68dc275613ec56897fb7839bf4230e792e4d652853058e8e7ddba565046823",
+          "mainPx": 66,
+          "lines": 2
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-08-upgrade.invite.landscape.v1.jpg",
+          "bytes": 90584,
+          "width": 1200,
+          "height": 900,
+          "sha256": "59ed58d2377c366004f29aa50ded70a858532a587693a400fd04ce6d1449c1f1",
+          "mainPx": 72,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-08-upgrade.invite.square.v1.jpg",
+          "bytes": 82045,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "f793c52c0f2a5643e444c70b87e841a8351e441189cb82bdd216a22c94fc3de9",
+          "mainPx": 66,
+          "lines": 3
+        }
+      ]
+    },
+    {
+      "slot": "step-09-scale",
+      "kind": "step",
+      "phase": "advance",
+      "step": 9,
+      "key": "scale",
+      "outputs": [
+        {
+          "angle": "gap",
+          "size": "landscape",
+          "file": "step-09-scale.gap.landscape.v1.jpg",
+          "bytes": 53768,
+          "width": 1200,
+          "height": 900,
+          "sha256": "2e34edae823c4dee407e2c06aacbe4aaf4d9a29cc3357c0d3e682e427ecd13cd",
+          "mainPx": 72,
+          "lines": 1
+        },
+        {
+          "angle": "gap",
+          "size": "square",
+          "file": "step-09-scale.gap.square.v1.jpg",
+          "bytes": 50495,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "9a2e8f34d56ecebb89408a16ea6140eabe89335bd1fd2765f6c10ef62e3994cc",
+          "mainPx": 66,
+          "lines": 1
+        },
+        {
+          "angle": "invite",
+          "size": "landscape",
+          "file": "step-09-scale.invite.landscape.v1.jpg",
+          "bytes": 101680,
+          "width": 1200,
+          "height": 900,
+          "sha256": "2990d21fa250188bb0ba8b321cb73ef7eed01d5f7ec159131030383026bf1acf",
+          "mainPx": 70,
+          "lines": 3
+        },
+        {
+          "angle": "invite",
+          "size": "square",
+          "file": "step-09-scale.invite.square.v1.jpg",
+          "bytes": 93298,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "a0984f1bf7c47c64af63c0efd28f8b98d0f1aba18ab24b9b52424dfe594cb07c",
+          "mainPx": 63,
+          "lines": 3
+        }
+      ]
+    }
+  ]
+}
