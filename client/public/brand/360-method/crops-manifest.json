@@ -9,6 +9,11 @@
       "slot": "phase-1-aware",
       "kind": "band",
       "phase": "aware",
+      "compose": [
+        "baseline",
+        "inspect",
+        "track"
+      ],
       "outputs": [
         {
           "role": "panel",
@@ -21,26 +26,26 @@
         {
           "role": "social-landscape",
           "file": "phase-1-aware.social-landscape.v1.jpg",
-          "bytes": 25494,
+          "bytes": 131757,
           "width": 1200,
           "height": 900,
-          "sha256": "46506d4efda2e40077fa46d4b016bcf9551d575c6fbb997b2936611383bb8cdc"
+          "sha256": "e6bf6242bfde8c2655cb57b334c2a0f77bcbf027a962fdf39a668cbd42a62ec3"
         },
         {
           "role": "social-square",
           "file": "phase-1-aware.social-square.v1.jpg",
-          "bytes": 22555,
+          "bytes": 157051,
           "width": 1080,
           "height": 1080,
-          "sha256": "9501ab86e63762093e974fe9a02fb3c3cf8fb90d46a2a2967f6a7d34157dfecc"
+          "sha256": "fc2591137d7afe5eaa337c94cd9d58fe7c412e93f60500b8a371bccd477de0ff"
         },
         {
           "role": "og",
           "file": "phase-1-aware.og.v1.png",
-          "bytes": 36447,
+          "bytes": 154790,
           "width": 1200,
           "height": 630,
-          "sha256": "aa8245f781c691cab9016ed5282dd36c973172a3755fedb8a209e6f8df77466d"
+          "sha256": "8aeb48a094021dd480a29c81d70dfdd9748d549504fb4087887ffc1e0968b527"
         }
       ]
     },
@@ -171,6 +176,11 @@
       "slot": "phase-2-act",
       "kind": "band",
       "phase": "act",
+      "compose": [
+        "prioritize",
+        "schedule",
+        "execute"
+      ],
       "outputs": [
         {
           "role": "panel",
@@ -183,26 +193,26 @@
         {
           "role": "social-landscape",
           "file": "phase-2-act.social-landscape.v1.jpg",
-          "bytes": 24364,
+          "bytes": 135563,
           "width": 1200,
           "height": 900,
-          "sha256": "2999c556ab1116abd73cc4b33bfb254c639e05dd7fa5e763d3697f0723147627"
+          "sha256": "06ec114d63c52a15a3792998e64d8b091e330c8804722789908feff10c6d0660"
         },
         {
           "role": "social-square",
           "file": "phase-2-act.social-square.v1.jpg",
-          "bytes": 21489,
+          "bytes": 160397,
           "width": 1080,
           "height": 1080,
-          "sha256": "2dbf85d6fd47c39756edddae560aa5f3ed840a54a70610a202ff75ba6b83f161"
+          "sha256": "1515263b2b40b5332eee96629988c92712acfb1613062d172e31d528f2510e95"
         },
         {
           "role": "og",
           "file": "phase-2-act.og.v1.png",
-          "bytes": 35346,
+          "bytes": 163979,
           "width": 1200,
           "height": 630,
-          "sha256": "2c3b1660e0084470b1baeba703462024009cae900277f183f295d7aa8609daaf"
+          "sha256": "3b13f434adc26abaa1a454c4675adaef8ffd44da8f32cc7b5a736871788c0f96"
         }
       ]
     },
@@ -333,6 +343,11 @@
       "slot": "phase-3-advance",
       "kind": "band",
       "phase": "advance",
+      "compose": [
+        "preserve",
+        "upgrade",
+        "scale"
+      ],
       "outputs": [
         {
           "role": "panel",
@@ -345,26 +360,26 @@
         {
           "role": "social-landscape",
           "file": "phase-3-advance.social-landscape.v1.jpg",
-          "bytes": 27340,
+          "bytes": 138550,
           "width": 1200,
           "height": 900,
-          "sha256": "187fa9fa6e5de044444339fdbf1c65752e3d527b525750b7c5f16275699c99b3"
+          "sha256": "e46172a11e51852a411c855cdbf34566127933da7604e0bab0a31226d3feb013"
         },
         {
           "role": "social-square",
           "file": "phase-3-advance.social-square.v1.jpg",
-          "bytes": 23813,
+          "bytes": 171365,
           "width": 1080,
           "height": 1080,
-          "sha256": "35fc2cf990c4f45fefaabf98066430079ad01966835f9e686cfa96129b6639ee"
+          "sha256": "63d971cadab2310afca668c33f2d268f9bb840e3789523e8bf9e53bc606e777e"
         },
         {
           "role": "og",
           "file": "phase-3-advance.og.v1.png",
-          "bytes": 39131,
+          "bytes": 163563,
           "width": 1200,
           "height": 630,
-          "sha256": "9911a4be8c989f18b79b56e777f897c81d6b60f09c3707fca175a2fddee7abf9"
+          "sha256": "03bf3f500946092208b2709481d6925fd7fde4cf240640887342190649a3a2e6"
         }
       ]
     },
