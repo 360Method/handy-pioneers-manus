@@ -1,0 +1,292 @@
+{
+  "version": 1,
+  "model": "gemini-2.5-flash-image",
+  "items": [
+    {
+      "slot": "phase-1-aware",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "phase-1-aware.gap.landscape.v1.jpg",
+      "landscapeBytes": 85057,
+      "square": "phase-1-aware.gap.square.v1.jpg",
+      "squareBytes": 95033,
+      "promptHash": "964e1a66a818",
+      "notes": []
+    },
+    {
+      "slot": "phase-1-aware",
+      "angle": "guide",
+      "attempts": 1,
+      "landscape": "phase-1-aware.guide.landscape.v1.jpg",
+      "landscapeBytes": 67433,
+      "square": "phase-1-aware.guide.square.v1.jpg",
+      "squareBytes": 78293,
+      "promptHash": "1554f1dd431c",
+      "notes": []
+    },
+    {
+      "slot": "step-01-baseline",
+      "angle": "gap",
+      "attempts": 2,
+      "landscape": "step-01-baseline.gap.landscape.v1.jpg",
+      "landscapeBytes": 51087,
+      "square": "step-01-baseline.gap.square.v1.jpg",
+      "squareBytes": 60417,
+      "promptHash": "9df347fe410b",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-01-baseline",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-01-baseline.guide.landscape.v1.jpg",
+      "landscapeBytes": 48791,
+      "square": "step-01-baseline.guide.square.v1.jpg",
+      "squareBytes": 55260,
+      "promptHash": "348466c14771",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-02-inspect",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "step-02-inspect.gap.landscape.v1.jpg",
+      "landscapeBytes": 44231,
+      "square": "step-02-inspect.gap.square.v1.jpg",
+      "squareBytes": 47796,
+      "promptHash": "b0518094ff9f",
+      "notes": []
+    },
+    {
+      "slot": "step-02-inspect",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-02-inspect.guide.landscape.v1.jpg",
+      "landscapeBytes": 59769,
+      "square": "step-02-inspect.guide.square.v1.jpg",
+      "squareBytes": 61694,
+      "promptHash": "d39f20b61043",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-03-track",
+      "angle": "gap",
+      "attempts": 2,
+      "landscape": "step-03-track.gap.landscape.v1.jpg",
+      "landscapeBytes": 135026,
+      "square": "step-03-track.gap.square.v1.jpg",
+      "squareBytes": 150115,
+      "promptHash": "ffa800f79bfb",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-03-track",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-03-track.guide.landscape.v1.jpg",
+      "landscapeBytes": 52569,
+      "square": "step-03-track.guide.square.v1.jpg",
+      "squareBytes": 60663,
+      "promptHash": "a830bddcf969",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "phase-2-act",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "phase-2-act.gap.landscape.v1.jpg",
+      "landscapeBytes": 41977,
+      "square": "phase-2-act.gap.square.v1.jpg",
+      "squareBytes": 48621,
+      "promptHash": "b6976718880f",
+      "notes": []
+    },
+    {
+      "slot": "phase-2-act",
+      "angle": "guide",
+      "attempts": 1,
+      "landscape": "phase-2-act.guide.landscape.v1.jpg",
+      "landscapeBytes": 52116,
+      "square": "phase-2-act.guide.square.v1.jpg",
+      "squareBytes": 61736,
+      "promptHash": "407ebd655feb",
+      "notes": []
+    },
+    {
+      "slot": "step-04-prioritize",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "step-04-prioritize.gap.landscape.v1.jpg",
+      "landscapeBytes": 38482,
+      "square": "step-04-prioritize.gap.square.v1.jpg",
+      "squareBytes": 41840,
+      "promptHash": "c52314def281",
+      "notes": []
+    },
+    {
+      "slot": "step-04-prioritize",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-04-prioritize.guide.landscape.v1.jpg",
+      "landscapeBytes": 26117,
+      "square": "step-04-prioritize.guide.square.v1.jpg",
+      "squareBytes": 31213,
+      "promptHash": "0dbdb2dce358",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-05-schedule",
+      "angle": "gap",
+      "attempts": 2,
+      "landscape": "step-05-schedule.gap.landscape.v1.jpg",
+      "landscapeBytes": 39894,
+      "square": "step-05-schedule.gap.square.v1.jpg",
+      "squareBytes": 49582,
+      "promptHash": "9aa192eb4960",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-05-schedule",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-05-schedule.guide.landscape.v1.jpg",
+      "landscapeBytes": 50572,
+      "square": "step-05-schedule.guide.square.v1.jpg",
+      "squareBytes": 48645,
+      "promptHash": "c302120cc3e9",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-06-execute",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "step-06-execute.gap.landscape.v1.jpg",
+      "landscapeBytes": 49984,
+      "square": "step-06-execute.gap.square.v1.jpg",
+      "squareBytes": 48343,
+      "promptHash": "e17606b49779",
+      "notes": []
+    },
+    {
+      "slot": "step-06-execute",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-06-execute.guide.landscape.v1.jpg",
+      "landscapeBytes": 49506,
+      "square": "step-06-execute.guide.square.v1.jpg",
+      "squareBytes": 53573,
+      "promptHash": "dce20d1caf70",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "phase-3-advance",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "phase-3-advance.gap.landscape.v1.jpg",
+      "landscapeBytes": 47184,
+      "square": "phase-3-advance.gap.square.v1.jpg",
+      "squareBytes": 53730,
+      "promptHash": "1ed3fec77439",
+      "notes": []
+    },
+    {
+      "slot": "phase-3-advance",
+      "angle": "guide",
+      "attempts": 1,
+      "landscape": "phase-3-advance.guide.landscape.v1.jpg",
+      "landscapeBytes": 58077,
+      "square": "phase-3-advance.guide.square.v1.jpg",
+      "squareBytes": 71246,
+      "promptHash": "6065c49e471c",
+      "notes": []
+    },
+    {
+      "slot": "step-07-preserve",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "step-07-preserve.gap.landscape.v1.jpg",
+      "landscapeBytes": 50183,
+      "square": "step-07-preserve.gap.square.v1.jpg",
+      "squareBytes": 52290,
+      "promptHash": "68d5289a7fcb",
+      "notes": []
+    },
+    {
+      "slot": "step-07-preserve",
+      "angle": "guide",
+      "attempts": 1,
+      "landscape": "step-07-preserve.guide.landscape.v1.jpg",
+      "landscapeBytes": 62247,
+      "square": "step-07-preserve.guide.square.v1.jpg",
+      "squareBytes": 65652,
+      "promptHash": "ae0bdf59ca12",
+      "notes": []
+    },
+    {
+      "slot": "step-08-upgrade",
+      "angle": "gap",
+      "attempts": 1,
+      "landscape": "step-08-upgrade.gap.landscape.v1.jpg",
+      "landscapeBytes": 72391,
+      "square": "step-08-upgrade.gap.square.v1.jpg",
+      "squareBytes": 87601,
+      "promptHash": "ffd836996806",
+      "notes": []
+    },
+    {
+      "slot": "step-08-upgrade",
+      "angle": "guide",
+      "attempts": 2,
+      "landscape": "step-08-upgrade.guide.landscape.v1.jpg",
+      "landscapeBytes": 45351,
+      "square": "step-08-upgrade.guide.square.v1.jpg",
+      "squareBytes": 47280,
+      "promptHash": "e32eaf14a913",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-09-scale",
+      "angle": "gap",
+      "attempts": 2,
+      "landscape": "step-09-scale.gap.landscape.v1.jpg",
+      "landscapeBytes": 69130,
+      "square": "step-09-scale.gap.square.v1.jpg",
+      "squareBytes": 80812,
+      "promptHash": "990f851242b2",
+      "notes": [
+        "regen 2: reference tone bar copied into scene, or reference text reproduced"
+      ]
+    },
+    {
+      "slot": "step-09-scale",
+      "angle": "guide",
+      "attempts": 1,
+      "landscape": "step-09-scale.guide.landscape.v1.jpg",
+      "landscapeBytes": 87603,
+      "square": "step-09-scale.guide.square.v1.jpg",
+      "squareBytes": 106189,
+      "promptHash": "5857276696b7",
+      "notes": []
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "style": "Flat vector illustration in the exact style of the reference image: soft pastel background, clean dark outlines, muted blues, greens and warm ambers, gentle shading, simple faceless figures where a person is needed. No readable text anywhere, no letters, no numbers, no words, no labels, no signs, no logos, no watermark. 4:3 composition with the subject centered and comfortable margin around it. Pacific Northwest residential feel.",
+  "negative": "Do not draw any text, letters, numbers, labels, captions, signs, speech bubbles or writing of any kind. No photorealism. No realistic faces.",
+  "slots": [
+    {
+      "slot": "phase-1-aware",
+      "reference": "phase-1-aware.panel.v3.png",
+      "gap": "A craftsman house at dusk in steady rain. Over the roof, the chimney, the side wall and the foundation float four soft question-mark shapes drawn as simple curls (not letters). Downspout overflowing. The homeowner is a small faceless figure in the doorway looking up, hands on hips.",
+      "guide": "The same craftsman house on a clear morning, seen in gentle cutaway so the water heater, furnace, electrical panel, roof and crawlspace are each marked with a small simple icon (a flame, a lightning bolt, a roof shape, a drop) connected by thin lines to a clipboard held by a faceless figure standing calmly in front. Fir trees behind."
+    },
+    {
+      "slot": "step-01-baseline",
+      "reference": "step-01-baseline.panel.v3.png",
+      "gap": "A thick, dusty three-ring binder half open on a garage shelf next to an old water heater with a faded, blank rectangular sticker. Cobweb in the corner, a single bare bulb, a cardboard box in front. Everything slightly grey and forgotten.",
+      "guide": "A cutaway craftsman house with each major system shown as a clean, simple icon pinned to its place: a flame at the furnace, a drop at the water heater, a lightning bolt at the panel, a roof shape over the roof, a window shape at the windows, a pipe at the plumbing. In front, a faceless figure holds a clipboard with a row of green check marks (no words). Bright, orderly, calm."
+    },
+    {
+      "slot": "step-02-inspect",
+      "reference": "step-02-inspect.panel.v3.png",
+      "gap": "Close view of a white window sill and trim with a long dark crack in the caulk line and a soft, slightly swollen corner where water has been getting in. Rain streaks on the glass. Nothing else in frame. Muted, overcast light.",
+      "guide": "A faceless figure in a blue shirt kneels at the outside of a craftsman house holding a small magnifying glass up to the window trim, with a short row of four small season icons floating above the roofline: a leaf, a snowflake, a raindrop, a sun. The house is tidy, the sky is clear, fir trees behind."
+    },
+    {
+      "slot": "step-03-track",
+      "reference": "step-03-track.panel.v3.png",
+      "gap": "An open kitchen drawer overflowing with crumpled receipts, folded paper manuals and a tangled measuring tape, with a few papers spilling onto the floor. No legible text on any paper, just soft grey lines. Warm kitchen light, slightly messy.",
+      "guide": "A neat bound logbook lying open on a wooden table beside a small house model, with simple rows of plain lines and a few check marks and small icons (a wrench, a drop, a coin) instead of words. A calendar page icon and a rising line chart icon float lightly above. Clean and ordered."
+    },
+    {
+      "slot": "phase-2-act",
+      "reference": "phase-2-act.panel.v3.png",
+      "gap": "A long curling paper list unspooling off a kitchen counter onto the floor, every line just a soft grey bar with no words. In the background a faceless figure sits at the table with their head in one hand. A dripping faucet beside them.",
+      "guide": "Three stacked horizontal bars in the roadmap's colors (blue, green, purple) floating over a tidy craftsman house, each bar carrying only a simple icon: a warning triangle, a wrench, a sofa. Below them a small calendar grid with a few green check marks and a faceless figure in work clothes walking toward the house with a toolbag. Clear sky."
+    },
+    {
+      "slot": "step-04-prioritize",
+      "reference": "step-04-prioritize.panel.v3.png",
+      "gap": "A freshly painted accent wall with a framed picture, and right beside it a wobbly stair handrail bracket pulling out of the drywall with two loose screws and a few crumbs of plaster on the floor. The contrast is the point: cosmetic finished, safety ignored.",
+      "guide": "Three wide rounded bars stacked vertically on a pale background, blue on top, green in the middle, purple at the bottom. Each bar is completely blank except for one simple icon on its right end: a warning triangle on the blue bar, a crossed wrench and screwdriver on the green bar, a sofa on the purple bar. Absolutely no words or letters on the bars. A faceless figure on the left places a small house-shaped token onto the blue bar. Faint fir trees behind.",
+      "guideReference": "step-02-inspect.panel.v3.png"
+    },
+    {
+      "slot": "step-05-schedule",
+      "reference": "step-05-schedule.panel.v3.png",
+      "gap": "A blank wall calendar with empty square cells hanging slightly crooked on a utility room wall, and below it a furnace with its filter half pulled from the slot, dark grey with dust, next to a clean white one still in its wrapper. No people. Dim, quiet light.",
+      "guide": "A large clean wall calendar grid hanging straight in a bright hallway. Its header is a plain solid green strip with nothing written on it. The cells hold only small colored icons (a leaf, a drop, a flame, a gutter shape, a snowflake) and green check marks; most cells are empty. No numbers, no letters, no words anywhere on the calendar. A faceless figure reaches up to tick one more cell.",
+      "guideReference": "step-02-inspect.panel.v3.png"
+    },
+    {
+      "slot": "step-06-execute",
+      "reference": "step-06-execute.panel.v3.png",
+      "gap": "A faceless homeowner standing in a hallway holding a phone, with three paper quotes fanned out on the side table, each just soft grey lines, and a small open toolbox at their feet with tools spilling out. A half-finished repair on the wall behind: a patch of bare drywall. Slightly anxious posture.",
+      "guide": "Split scene on one pale background: on the left a faceless homeowner confidently re-caulking a window with a small tube, on the right two faceless workers in blue shirts installing a new exterior door. A simple branching line above them with a small brain icon at the fork. Both sides finished neatly, green check marks above each."
+    },
+    {
+      "slot": "phase-3-advance",
+      "reference": "phase-3-advance.panel.v3.png",
+      "gap": "Two similar craftsman front doors side by side: the left one weathered, paint peeling, a cracked step and a clogged gutter above; the right one crisp and cared for with trimmed shrubs. A faceless figure stands between them looking at the weathered one. Overcast but soft.",
+      "guide": "A tidy craftsman house with a gentle upward-curving arrow rising behind it, a small hourglass icon, a kitchen cabinet icon and a coin icon arranged along the arrow. A faceless couple stands in front holding a small house key. Warm amber and green palette, fir trees, clear sky."
+    },
+    {
+      "slot": "step-07-preserve",
+      "reference": "step-07-preserve.panel.v3.png",
+      "gap": "A tank water heater in a garage with a bucket under its drain valve full of cloudy water and brown sediment at the bottom, a small puddle on the concrete, rust at the base of the tank. Dim, slightly neglected.",
+      "guide": "A faceless worker in a blue shirt kneeling beside a clean tank water heater, calmly draining it into a bucket of clear water, with an hourglass icon and a small upward arrow floating beside the tank, and a heat pump unit outside the open garage door with a clean filter beside it. Tidy, bright."
+    },
+    {
+      "slot": "step-08-upgrade",
+      "reference": "step-08-upgrade.panel.v3.png",
+      "gap": "A showroom-new kitchen island and pendant lights inside a house whose roof, seen through the window, is streaked with moss and has a sagging gutter. A faceless homeowner admires the island with their back to the window. The contrast is the point.",
+      "guide": "Three small kitchen vignettes in a row on a pale background, left to right getting a little finer: plain white cabinets, then better cabinets with a tiled backsplash, then the finest with a range hood and warm wood. Above each kitchen floats one small circle containing one, two, or three dots respectively, and nothing else; no words, no labels, no captions. A faceless figure points at the middle kitchen.",
+      "guideReference": "step-02-inspect.panel.v3.png"
+    },
+    {
+      "slot": "step-09-scale",
+      "reference": "step-09-scale.panel.v3.png",
+      "gap": "A small stack of unopened envelopes on a wooden kitchen table beside a blue coffee mug, a brass house key resting on top, a faceless figure walking past in the background without looking down. Flat shading with no blur anywhere, soft morning light, the whole scene drawn edge to edge.",
+      "guide": "A faceless figure in a sweater at a kitchen table studying a large tablet that shows only a simple rising line chart, a small house icon, a coin icon and a key icon, no text. Through the window a cared-for craftsman house and fir trees. A small green upward arrow floats near the chart. Calm and confident."
+    }
+  ]
+}
