@@ -39,6 +39,18 @@ import { PAGE_META, type PageMeta } from "../client/src/lib/pageMeta";
 import { TIERS } from "../client/src/lib/tiers";
 import { projects } from "../client/src/lib/projects";
 import { METHOD_CANON } from "../client/src/lib/methodCanon";
+import {
+  METHOD_STEP_PAGES,
+  getPublishedSteps,
+  isStepPublished,
+  stepView,
+  stepNeighbors,
+  comingLabel,
+  methodStepJsonLd,
+  methodStepsItemList,
+  STEP_PATH,
+  type MethodStepPage,
+} from "../client/src/lib/methodSteps";
 
 function escapeHtml(v: string): string {
   return v.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -428,6 +440,7 @@ function financingBodyHtml(): string {
   const parts = [
     `<article>`,
     `<h1>How to Pay for a Home Project: Equity, HELOCs, and Cash</h1>`,
+    `<p><a href="${SITE}/360-method/scale">360° Method, Step 9: Scale</a></p>`,
     `<p>Most larger home projects are funded, not paid for out of pocket all at once, the same way most cars are. The right way to pay depends on your situation, and you deserve to understand the options before anyone talks price. This is a plain guide to home equity, HELOCs, home equity loans, and paying cash. Handy Pioneers is a contractor, not a lender or a financial advisor, and nothing here is financial advice.</p>`,
   ];
   if (HEARTH_ENABLED) {
@@ -557,7 +570,7 @@ function serviceBodyHtml(svc: ServiceDef): string {
     `<h2>Signs it's time</h2><ul>${svc.signsYouNeedThis.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>`,
     `<h2>Common questions</h2>`,
     ...svc.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
-    `<p>${esc(svc.membershipTieIn)} <a href="${SITE}/membership">Explore the 360° Method membership</a>.</p>`,
+    `<p>${esc(svc.membershipTieIn)} <a href="${SITE}/membership">Explore the 360° Method membership</a>.${(() => { const rec = svc.methodStepKey ? METHOD_STEP_PAGES.find((p) => p.key === svc.methodStepKey) : undefined; if (!rec || !isStepPublished(rec)) return ""; const v = stepView(rec); return ` <a href="${SITE}${STEP_PATH(rec.key)}">Step ${v.step.number} of the method: ${esc(v.step.name)}</a>.`; })()}</p>`,
   ];
   if (svc.resources?.length) {
     parts.push(
@@ -789,7 +802,11 @@ function method360BodyHtml(): string {
     ...METHOD_CANON.phases.flatMap((phase) => [
       `<h3>${escapeHtml(phase.label)} (${escapeHtml(phase.subtitle)})</h3>`,
       `<ol start="${phase.steps[0].number}">`,
-      ...phase.steps.map((s) => `<li><strong>${escapeHtml(s.name)}.</strong> ${escapeHtml(s.line)}</li>`),
+      ...phase.steps.map((s) => {
+        const rec = METHOD_STEP_PAGES.find((p) => p.key === s.key);
+        const link = rec && isStepPublished(rec) ? ` <a href="${SITE}${STEP_PATH(s.key)}">Read Step ${s.number}: ${escapeHtml(s.name)}</a>.` : rec ? ` (${escapeHtml(comingLabel(rec))}.)` : "";
+        return `<li><strong>${escapeHtml(s.name)}.</strong> ${escapeHtml(s.line)}${link}</li>`;
+      }),
       `</ol>`,
     ]),
     `<p><em>${escapeHtml(METHOD_CANON.footnote)}</em></p>`,
@@ -798,6 +815,62 @@ function method360BodyHtml(): string {
     `<p>Serving all of Clark County, WA. Call ${PHONE} or <a href="${SITE}/contact">schedule a consultation</a>.</p>`,
     `</article>`,
   ].join("\n");
+}
+
+
+// ─── 360 Method step pages ──────────────────────────────────────────────────
+
+function methodStepBodyHtml(page: MethodStepPage): string {
+  const v = stepView(page);
+  const { prev, next } = stepNeighbors(page.key);
+  const nav = (n: { page: MethodStepPage; published: boolean } | null, label: string) => {
+    if (!n) return "";
+    const nv = stepView(n.page);
+    return n.published
+      ? `<p>${label}: <a href="${SITE}${STEP_PATH(n.page.key)}">Step ${nv.step.number}: ${esc(nv.step.name)}</a></p>`
+      : `<p>${label}: Step ${nv.step.number}: ${esc(nv.step.name)} (${esc(comingLabel(n.page))})</p>`;
+  };
+  const cta =
+    page.cta === "baseline"
+      ? `<p><a href="${SITE}/membership">Schedule your Baseline Walkthrough</a> or <a href="${SITE}/roadmap-generator">turn an inspection report into a roadmap</a>.</p>`
+      : page.cta === "roadmap"
+        ? `<p><a href="${SITE}/roadmap-generator">Get your 360 Roadmap</a> or <a href="${SITE}/contact">schedule a consultation</a>.</p>`
+        : `<p><a href="${SITE}/contact">Schedule a consultation</a> or <a href="${SITE}/membership">see the Proactive Path plans</a>.</p>`;
+  const parts = [
+    `<article>`,
+    `<nav><a href="${SITE}/360-method">The 360° Method</a> &middot; <a href="${SITE}/360-method#${v.phaseKey}">${esc(v.phase.label)}</a> &middot; Step ${v.step.number} of 9</nav>`,
+    `<h1>${esc(page.h1)}</h1>`,
+    `<p><em>${esc(v.step.line)}</em></p>`,
+    `<img src="${SITE}${v.panel}" alt="${esc(page.panelAlt)}" width="520" />`,
+    `<p>You are here: Step ${v.step.number}, ${esc(v.step.name)}, in ${esc(v.phase.label)} (${esc(v.phase.subtitle)}). <a href="${SITE}/360-method">See the whole roadmap</a>.</p>`,
+    `<h2>The gap</h2>`,
+    `<p>${esc(METHOD_CANON.subtitle)}</p>`,
+    `<h3>${esc(page.gap.nowTitle)}</h3><ul>${page.gap.now.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`,
+    `<h3>${esc(page.gap.couldTitle)}</h3><ul>${page.gap.could.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`,
+    `<h2>What ${esc(v.step.name)} means</h2>`,
+    ...page.whatItIs.map((p) => `<p>${esc(p)}</p>`),
+    `<h3>Do it yourself this season</h3><ol>${page.diySteps.map((t) => `<li>${esc(t)}</li>`).join("")}</ol>`,
+    `<h2>How Handy Pioneers delivers ${esc(v.step.name)}</h2>`,
+    `<p><strong>${esc(page.delivery.customerLabel)}.</strong> ${esc(page.delivery.cadence)}</p>`,
+    `<ul>${page.delivery.included.map((t) => `<li>${esc(t)}</li>`).join("")}</ul>`,
+    `<p>${esc(page.delivery.plans)}${page.delivery.yearTwoPlus ? " " + esc(page.delivery.yearTwoPlus) : ""} <a href="${SITE}/membership#pricing">Compare the plans</a>.</p>`,
+    `<h3>On your own, or with us</h3>`,
+    `<ul>${page.diyVsWithUs.map((r) => `<li><strong>${esc(r.row)}.</strong> On your own: ${esc(r.diy)} With Handy Pioneers: ${esc(r.withUs)}</li>`).join("")}</ul>`,
+    `<h2>Common questions</h2>`,
+    ...page.faq.map((f) => `<h3>${esc(f.q)}</h3><p>${esc(f.a)}</p>`),
+    `<h2>One step of nine</h2>`,
+    nav(prev, "Previous"),
+    nav(next, "Next"),
+    cta,
+  ];
+  if (page.key === "scale") parts.push(`<p><em>${esc(METHOD_CANON.footnote)}</em> <a href="${SITE}/financing">How homeowners commonly fund a project</a>.</p>`);
+  if (page.disclaimer === "inspection")
+    parts.push(`<p><small>The 360° Method baseline and seasonal walkthroughs are proactive maintenance assessments by a trained home maintenance technician. They are not a licensed real estate home inspection and do not replace one. For a purchase or sale, engage a licensed home inspector.</small></p>`);
+  if (page.disclaimer === "education")
+    parts.push(`<p><small>${esc(METHOD_CANON.footnote)} Handy Pioneers is a home service and remodel company, not a lender, broker or financial advisor. Talk to a qualified professional before making financial decisions about your home.</small></p>`);
+  parts.push(`<p><small>The 360° Method™ and Proactive Path™, including the three-phase structure and the nine-step framework, are the proprietary methodology of Handy Pioneers. Any homeowner is welcome to use the steps on their own home.</small></p>`);
+  parts.push(`</article>`);
+  return parts.join("\n");
 }
 
 // ─── main ───────────────────────────────────────────────────────────────────
@@ -1063,8 +1136,28 @@ function main() {
             description: meta.description,
             url: `${SITE}/360-method`,
           },
+          methodStepsItemList(),
         ],
       }, method360BodyHtml())
+    );
+    count++;
+  }
+
+  // Tier 1: 360 Method step pages (published only; methodSteps.ts gates by date)
+  for (const page of getPublishedSteps()) {
+    const v = stepView(page);
+    writeOut(
+      `360-method/${page.key}.html`,
+      tier1Page(shell, {
+        path: STEP_PATH(page.key),
+        title: page.seoTitle,
+        description: page.seoDesc,
+        ogType: "article",
+        image: `${SITE}${v.og}`,
+        publishedTime: page.publishDate,
+        author: "Marcin Micek",
+        jsonLd: methodStepJsonLd(page),
+      }, methodStepBodyHtml(page))
     );
     count++;
   }
@@ -1121,6 +1214,7 @@ anyone can use to stay ahead of home maintenance instead of reacting to failures
 - [What the 360° Method is](${SITE}/360-method): assess every major system, document it, and work a prioritized NOW / SOON / WAIT roadmap so small issues never become big losses.
 - [Baseline Walkthrough](${SITE}/membership): every membership begins with a 2-3 hour documented assessment; written report and roadmap within 48 hours.
 - [360° Roadmap Generator](${SITE}/roadmap-generator): turn an existing inspection report into a prioritized plan.
+${getPublishedSteps().map((p) => { const v = stepView(p); return `- [Step ${v.step.number}: ${v.step.name}](${SITE}${STEP_PATH(p.key)}): ${v.step.line}`; }).join("\n")}
 
 ## Membership (Proactive Path)
 - [Membership tiers](${SITE}/membership): ${TIERS.map((t) => `${t.name} (from $${t.prices.monthly}/mo)`).join(", ")}. Base prices apply to homes under 2,000 sq ft; larger homes are priced by size.
@@ -1195,7 +1289,7 @@ inspection and is not a legal document. ${METHOD_CANON.subtitle} Three phases,
 nine steps:
 
 ${METHOD_CANON.phases
-  .map((phase) => `${phase.label} (${phase.subtitle})\n${phase.steps.map((s) => `${s.number}. ${s.name}: ${s.line}`).join("\n")}`)
+  .map((phase) => `${phase.label} (${phase.subtitle})\n${phase.steps.map((s) => { const rec = METHOD_STEP_PAGES.find((p) => p.key === s.key); const url = rec && isStepPublished(rec) ? ` ${SITE}${STEP_PATH(s.key)}` : ""; return `${s.number}. ${s.name}: ${s.line}${url}`; }).join("\n")}`)
   .join("\n\n")}
 
 ${METHOD_CANON.footnote}

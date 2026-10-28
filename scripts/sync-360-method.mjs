@@ -30,6 +30,11 @@ const CANON_TS_DST = resolve(root, "client/src/lib/methodCanon.ts");
 const ASSET_DIR_SRC = "client/public/brand/360-method";
 const ASSET_DIR_DST = resolve(root, "client/public/brand/360-method");
 const ASSETS = ["canon.json", "360-roadmap.png", "360-roadmap.jpg", "360-roadmap-og.png", "360-roadmap-letter.pdf"];
+// Step and phase crops of the artwork (generate-method-crops.ts in the pro
+// app). crops-manifest.json lists every file, so the sync copies exactly what
+// the generator produced. Optional until the pro app ships them.
+const CROPS_MANIFEST = "crops-manifest.json";
+const CROPS_JSON = "crops.json";
 
 mkdirSync(dirname(COMPONENT_DST), { recursive: true });
 mkdirSync(ASSET_DIR_DST, { recursive: true });
@@ -70,6 +75,33 @@ const main = async () => {
   }
   for (const name of ASSETS) {
     writeIfChanged(resolve(ASSET_DIR_DST, name), await readSource(`${ASSET_DIR_SRC}/${name}`));
+  }
+  // Crops: read the manifest, copy each listed file under crops/.
+  let manifest = null;
+  try {
+    manifest = JSON.parse((await readSource(`${ASSET_DIR_SRC}/${CROPS_MANIFEST}`)).toString("utf8"));
+  } catch (e) {
+    console.log(`crops not synced (${e.message}); the pro app has not published ${CROPS_MANIFEST} yet`);
+  }
+  if (manifest) {
+    writeIfChanged(resolve(ASSET_DIR_DST, CROPS_JSON), await readSource(`${ASSET_DIR_SRC}/${CROPS_JSON}`));
+    mkdirSync(resolve(ASSET_DIR_DST, "crops"), { recursive: true });
+    // crops-manifest.json: { slots: [{ slot, outputs: [{ role, file, ... }] }] }
+    const files = (manifest.slots ?? []).flatMap((slot) => (slot.outputs ?? []).map((o) => o.file)).filter(Boolean);
+    for (const name of files) {
+      writeIfChanged(resolve(ASSET_DIR_DST, "crops", name), await readSource(`${ASSET_DIR_SRC}/crops/${name}`));
+    }
+    // Site-side derivative: a WebP of each panel PNG for the step-page hero
+    // (the 2x PNGs run about 1 MB each; the WebP is a fraction of that). Same
+    // pixels, same name with .webp, regenerated whenever the PNG changes.
+    const sharp = (await import("sharp")).default;
+    for (const name of files.filter((f) => /\.panel\.v\d+\.png$/.test(f))) {
+      const png = resolve(ASSET_DIR_DST, "crops", name);
+      const webp = png.replace(/\.png$/, ".webp");
+      const buf = await sharp(readFileSync(png)).webp({ quality: 84 }).toBuffer();
+      writeIfChanged(webp, buf);
+    }
+    writeIfChanged(resolve(ASSET_DIR_DST, CROPS_MANIFEST), Buffer.from(JSON.stringify(manifest, null, 2) + "\n", "utf8"));
   }
   // The canon as a TypeScript module, so pages and the prerender script import
   // it without a JSON-module flag. Same bytes as canon.json.

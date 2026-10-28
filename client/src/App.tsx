@@ -24,6 +24,7 @@ import Method360Walkthrough from "./pages/Method360Walkthrough";
 import Method360Referral from "./pages/Method360Referral";
 import Method360Membership from "./pages/Method360Membership";
 import Method360Offer from "./pages/Method360Offer";
+import Method360Step from "./pages/Method360Step";
 import Membership from "./pages/Membership";
 import Multifamily from "./pages/Multifamily";
 import MultifamilyQuote from "./pages/MultifamilyQuote";
@@ -68,6 +69,10 @@ function Router() {
       <Route path="/360-method/referral" component={Method360Referral} />
       <Route path="/360-method/membership" component={Method360Membership} />
       <Route path="/360-method/offer" component={Method360Offer} />
+      {/* The nine step pages (/360-method/baseline ... /scale). Kept AFTER the
+          funnel children above: wouter matches in order. The component renders
+          NotFound for unknown or not yet published slugs (methodSteps.ts). */}
+      <Route path="/360-method/:step" component={Method360Step} />
       {/* Canonical membership enrollment flow */}
       <Route path="/membership" component={Membership} />
       {/* Proactive Path for Landlords (multi-family / rental owners) */}

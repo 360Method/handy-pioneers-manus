@@ -89,7 +89,7 @@ export default function Financing() {
         <section className="py-16 md:py-20" style={{ backgroundColor: GREEN }}>
           <div className="container max-w-3xl mx-auto px-6">
             <p className="text-xs font-bold uppercase tracking-widest mb-3" style={{ color: GOLD }}>
-              360° Method · Step 9: Scale
+              <Link href="/360-method/scale" className="hover:opacity-80" style={{ color: GOLD }}>360° Method · Step 9: Scale</Link>
             </p>
             <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Smart ways to invest in your home

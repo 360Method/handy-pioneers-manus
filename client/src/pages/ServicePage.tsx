@@ -12,6 +12,7 @@ import SEO from "@/components/SEO";
 import { ChevronDown, ArrowRight, Check } from "lucide-react";
 import { openInquiry } from "@/lib/inquiry";
 import { getService, type ServiceDef } from "@/lib/services";
+import { getStepPage, stepView } from "@/lib/methodSteps";
 import RemodelCostCalculator, { CostBandLine } from "@/components/RemodelCostCalculator";
 import HearthCallout from "@/components/hearth/HearthCallout";
 import HearthPaymentLine, { HearthPaymentExample } from "@/components/hearth/HearthPaymentLine";
@@ -366,9 +367,16 @@ export default function ServicePage() {
             {/* Membership tie-in */}
             <div className="rounded-2xl p-7 mb-12" style={{ backgroundColor: "oklch(0.95 0.02 160)", border: "1px solid oklch(0.85 0.03 160)" }}>
               <p className="text-base" style={{ color: "oklch(0.30 0.05 160)" }}>{svc.membershipTieIn}</p>
-              <Link href="/membership" className="inline-flex items-center gap-1 mt-3 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
-                Explore the 360° Method membership <ArrowRight size={15} />
-              </Link>
+              <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3">
+                <Link href="/membership" className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                  Explore the 360° Method membership <ArrowRight size={15} />
+                </Link>
+                {svc.methodStepKey && getStepPage(svc.methodStepKey) && (
+                  <Link href={`/360-method/${svc.methodStepKey}`} className="inline-flex items-center gap-1 font-semibold text-sm hover:opacity-80" style={{ color: "oklch(0.45 0.12 160)" }}>
+                    Step {stepView(getStepPage(svc.methodStepKey)!).step.number} of the method: {stepView(getStepPage(svc.methodStepKey)!).step.name} <ArrowRight size={15} />
+                  </Link>
+                )}
+              </div>
             </div>
 
             {/* Related services */}

@@ -308,6 +308,9 @@ export default function Membership() {
           <div className="rounded-2xl p-3 sm:p-5 text-left" style={{ background: "oklch(97% 0.015 80)" }}>
             <ThreeSixtyRoadmap canon={METHOD_CANON} variant="compact" footnote />
           </div>
+          <p className="mt-5 text-sm" style={{ color: "oklch(100% 0 0 / 0.75)" }}>
+            <a href="/360-method" className="underline underline-offset-4 hover:opacity-80">Read what happens at each step</a>
+          </p>
         </div>
       </section>
 

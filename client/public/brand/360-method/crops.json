@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "source": "/brand/360-method/360-roadmap.png",
+  "sourceSize": { "w": 2000, "h": 1096 },
+  "sourceSha256": "c6a899852e8b87d658fc119c52d6691d9bff9593f24300d1a75679360c19fa3c",
+  "background": "#FAF6EF",
+  "barHeight": 24,
+  "tones": {
+    "aware": { "accent": "#033D26", "onAccent": "#FBF4EA", "wash": "#EEF3EE" },
+    "act": { "accent": "#C8922A", "onAccent": "#1A2E1A", "wash": "#FBF3E2" },
+    "advance": { "accent": "#6D543A", "onAccent": "#FBF4EA", "wash": "#F3EEE8" }
+  },
+  "crops": [
+    { "slot": "phase-1-aware", "kind": "band", "phase": "aware", "phaseNumber": 1, "compose": ["baseline", "inspect", "track"], "box": { "x": 94, "y": 133, "w": 1813, "h": 49 }, "pad": 24 },
+    { "slot": "step-01-baseline", "kind": "panel", "step": 1, "key": "baseline", "phase": "aware", "box": { "x": 93, "y": 183, "w": 596, "h": 272 }, "pad": 32 },
+    { "slot": "step-02-inspect", "kind": "panel", "step": 2, "key": "inspect", "phase": "aware", "box": { "x": 690, "y": 183, "w": 618, "h": 272 }, "pad": 32 },
+    { "slot": "step-03-track", "kind": "panel", "step": 3, "key": "track", "phase": "aware", "box": { "x": 1310, "y": 183, "w": 596, "h": 272 }, "pad": 32 },
+    { "slot": "phase-2-act", "kind": "band", "phase": "act", "phaseNumber": 2, "compose": ["prioritize", "schedule", "execute"], "box": { "x": 94, "y": 456, "w": 1813, "h": 49 }, "pad": 24 },
+    { "slot": "step-04-prioritize", "kind": "panel", "step": 4, "key": "prioritize", "phase": "act", "box": { "x": 93, "y": 507, "w": 596, "h": 274 }, "pad": 32 },
+    { "slot": "step-05-schedule", "kind": "panel", "step": 5, "key": "schedule", "phase": "act", "box": { "x": 690, "y": 507, "w": 618, "h": 274 }, "pad": 32 },
+    { "slot": "step-06-execute", "kind": "panel", "step": 6, "key": "execute", "phase": "act", "box": { "x": 1310, "y": 507, "w": 596, "h": 274 }, "pad": 32 },
+    { "slot": "phase-3-advance", "kind": "band", "phase": "advance", "phaseNumber": 3, "compose": ["preserve", "upgrade", "scale"], "box": { "x": 94, "y": 781, "w": 1813, "h": 50 }, "pad": 24 },
+    { "slot": "step-07-preserve", "kind": "panel", "step": 7, "key": "preserve", "phase": "advance", "box": { "x": 93, "y": 832, "w": 596, "h": 264 }, "pad": 32 },
+    { "slot": "step-08-upgrade", "kind": "panel", "step": 8, "key": "upgrade", "phase": "advance", "box": { "x": 690, "y": 832, "w": 618, "h": 264 }, "pad": 32 },
+    { "slot": "step-09-scale", "kind": "panel", "step": 9, "key": "scale", "phase": "advance", "box": { "x": 1310, "y": 832, "w": 596, "h": 264 }, "pad": 32 }
+  ]
+}

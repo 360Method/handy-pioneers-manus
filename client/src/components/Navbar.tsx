@@ -11,7 +11,7 @@ const NAVBAR_HEIGHT = 72; // px - matches scroll-padding-top in index.css
 const navLinks = [
   { label: "Home", section: "", route: null },
   { label: "Services", section: "services", route: null },
-  { label: "360° Method", section: "method", route: null },
+  { label: "360° Method", section: null, route: "/360-method" },
   { label: "Roadmap Generator", section: null, route: "/roadmap-generator" },
   { label: "Financing", section: null, route: "/financing" },
   { label: "Gallery", section: "gallery", route: null },
