@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "source": "/brand/360-method/360-roadmap.png",
-  "sourceSha256": "8d7b6017d09a760ad05d20eeaa384bfd0e5bf5ba97ba3d12817b70017abb03f6",
+  "sourceSha256": "96402c835578d56e4b4888cc4336fba7cbc8c1d1422eb2efceb08ac9edd7bc00",
   "background": "#FAF6EF",
   "dir": "/brand/360-method/crops",
   "slots": [
@@ -17,7 +17,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-1-aware.panel.v4.png",
+          "file": "phase-1-aware.panel.v5.png",
           "bytes": 487094,
           "width": 3674,
           "height": 170,
@@ -25,7 +25,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-1-aware.social-landscape.v4.jpg",
+          "file": "phase-1-aware.social-landscape.v5.jpg",
           "bytes": 149686,
           "width": 1200,
           "height": 900,
@@ -33,7 +33,7 @@
         },
         {
           "role": "social-square",
-          "file": "phase-1-aware.social-square.v4.jpg",
+          "file": "phase-1-aware.social-square.v5.jpg",
           "bytes": 163986,
           "width": 1080,
           "height": 1080,
@@ -41,7 +41,7 @@
         },
         {
           "role": "og",
-          "file": "phase-1-aware.og.v4.png",
+          "file": "phase-1-aware.og.v5.png",
           "bytes": 120788,
           "width": 1200,
           "height": 630,
@@ -58,7 +58,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-01-baseline.panel.v4.png",
+          "file": "step-01-baseline.panel.v5.png",
           "bytes": 948593,
           "width": 1256,
           "height": 632,
@@ -66,7 +66,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-01-baseline.social-landscape.v4.jpg",
+          "file": "step-01-baseline.social-landscape.v5.jpg",
           "bytes": 117048,
           "width": 1200,
           "height": 900,
@@ -74,7 +74,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-01-baseline.social-square.v4.jpg",
+          "file": "step-01-baseline.social-square.v5.jpg",
           "bytes": 108018,
           "width": 1080,
           "height": 1080,
@@ -82,7 +82,7 @@
         },
         {
           "role": "og",
-          "file": "step-01-baseline.og.v4.png",
+          "file": "step-01-baseline.og.v5.png",
           "bytes": 274953,
           "width": 1200,
           "height": 630,
@@ -99,7 +99,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-02-inspect.panel.v4.png",
+          "file": "step-02-inspect.panel.v5.png",
           "bytes": 933672,
           "width": 1300,
           "height": 632,
@@ -107,7 +107,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-02-inspect.social-landscape.v4.jpg",
+          "file": "step-02-inspect.social-landscape.v5.jpg",
           "bytes": 113916,
           "width": 1200,
           "height": 900,
@@ -115,7 +115,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-02-inspect.social-square.v4.jpg",
+          "file": "step-02-inspect.social-square.v5.jpg",
           "bytes": 98761,
           "width": 1080,
           "height": 1080,
@@ -123,7 +123,7 @@
         },
         {
           "role": "og",
-          "file": "step-02-inspect.og.v4.png",
+          "file": "step-02-inspect.og.v5.png",
           "bytes": 258560,
           "width": 1200,
           "height": 630,
@@ -140,7 +140,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-03-track.panel.v4.png",
+          "file": "step-03-track.panel.v5.png",
           "bytes": 680490,
           "width": 1256,
           "height": 632,
@@ -148,7 +148,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-03-track.social-landscape.v4.jpg",
+          "file": "step-03-track.social-landscape.v5.jpg",
           "bytes": 104123,
           "width": 1200,
           "height": 900,
@@ -156,7 +156,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-03-track.social-square.v4.jpg",
+          "file": "step-03-track.social-square.v5.jpg",
           "bytes": 96520,
           "width": 1080,
           "height": 1080,
@@ -164,7 +164,7 @@
         },
         {
           "role": "og",
-          "file": "step-03-track.og.v4.png",
+          "file": "step-03-track.og.v5.png",
           "bytes": 209166,
           "width": 1200,
           "height": 630,
@@ -184,7 +184,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-2-act.panel.v4.png",
+          "file": "phase-2-act.panel.v5.png",
           "bytes": 483086,
           "width": 3674,
           "height": 170,
@@ -192,7 +192,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-2-act.social-landscape.v4.jpg",
+          "file": "phase-2-act.social-landscape.v5.jpg",
           "bytes": 154618,
           "width": 1200,
           "height": 900,
@@ -200,7 +200,7 @@
         },
         {
           "role": "social-square",
-          "file": "phase-2-act.social-square.v4.jpg",
+          "file": "phase-2-act.social-square.v5.jpg",
           "bytes": 168568,
           "width": 1080,
           "height": 1080,
@@ -208,7 +208,7 @@
         },
         {
           "role": "og",
-          "file": "phase-2-act.og.v4.png",
+          "file": "phase-2-act.og.v5.png",
           "bytes": 124035,
           "width": 1200,
           "height": 630,
@@ -225,7 +225,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-04-prioritize.panel.v4.png",
+          "file": "step-04-prioritize.panel.v5.png",
           "bytes": 958927,
           "width": 1256,
           "height": 636,
@@ -233,7 +233,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-04-prioritize.social-landscape.v4.jpg",
+          "file": "step-04-prioritize.social-landscape.v5.jpg",
           "bytes": 114105,
           "width": 1200,
           "height": 900,
@@ -241,7 +241,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-04-prioritize.social-square.v4.jpg",
+          "file": "step-04-prioritize.social-square.v5.jpg",
           "bytes": 104866,
           "width": 1080,
           "height": 1080,
@@ -249,7 +249,7 @@
         },
         {
           "role": "og",
-          "file": "step-04-prioritize.og.v4.png",
+          "file": "step-04-prioritize.og.v5.png",
           "bytes": 289466,
           "width": 1200,
           "height": 630,
@@ -266,7 +266,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-05-schedule.panel.v4.png",
+          "file": "step-05-schedule.panel.v5.png",
           "bytes": 593991,
           "width": 1300,
           "height": 636,
@@ -274,7 +274,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-05-schedule.social-landscape.v4.jpg",
+          "file": "step-05-schedule.social-landscape.v5.jpg",
           "bytes": 108195,
           "width": 1200,
           "height": 900,
@@ -282,7 +282,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-05-schedule.social-square.v4.jpg",
+          "file": "step-05-schedule.social-square.v5.jpg",
           "bytes": 93223,
           "width": 1080,
           "height": 1080,
@@ -290,7 +290,7 @@
         },
         {
           "role": "og",
-          "file": "step-05-schedule.og.v4.png",
+          "file": "step-05-schedule.og.v5.png",
           "bytes": 180489,
           "width": 1200,
           "height": 630,
@@ -307,7 +307,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-06-execute.panel.v4.png",
+          "file": "step-06-execute.panel.v5.png",
           "bytes": 1125740,
           "width": 1256,
           "height": 636,
@@ -315,7 +315,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-06-execute.social-landscape.v4.jpg",
+          "file": "step-06-execute.social-landscape.v5.jpg",
           "bytes": 124480,
           "width": 1200,
           "height": 900,
@@ -323,7 +323,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-06-execute.social-square.v4.jpg",
+          "file": "step-06-execute.social-square.v5.jpg",
           "bytes": 113409,
           "width": 1080,
           "height": 1080,
@@ -331,7 +331,7 @@
         },
         {
           "role": "og",
-          "file": "step-06-execute.og.v4.png",
+          "file": "step-06-execute.og.v5.png",
           "bytes": 313692,
           "width": 1200,
           "height": 630,
@@ -351,7 +351,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-3-advance.panel.v4.png",
+          "file": "phase-3-advance.panel.v5.png",
           "bytes": 579333,
           "width": 3674,
           "height": 172,
@@ -359,7 +359,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-3-advance.social-landscape.v4.jpg",
+          "file": "phase-3-advance.social-landscape.v5.jpg",
           "bytes": 162292,
           "width": 1200,
           "height": 900,
@@ -367,7 +367,7 @@
         },
         {
           "role": "social-square",
-          "file": "phase-3-advance.social-square.v4.jpg",
+          "file": "phase-3-advance.social-square.v5.jpg",
           "bytes": 177182,
           "width": 1080,
           "height": 1080,
@@ -375,7 +375,7 @@
         },
         {
           "role": "og",
-          "file": "phase-3-advance.og.v4.png",
+          "file": "phase-3-advance.og.v5.png",
           "bytes": 136474,
           "width": 1200,
           "height": 630,
@@ -392,7 +392,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-07-preserve.panel.v4.png",
+          "file": "step-07-preserve.panel.v5.png",
           "bytes": 1007375,
           "width": 1256,
           "height": 616,
@@ -400,7 +400,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-07-preserve.social-landscape.v4.jpg",
+          "file": "step-07-preserve.social-landscape.v5.jpg",
           "bytes": 122295,
           "width": 1200,
           "height": 900,
@@ -408,7 +408,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-07-preserve.social-square.v4.jpg",
+          "file": "step-07-preserve.social-square.v5.jpg",
           "bytes": 106642,
           "width": 1080,
           "height": 1080,
@@ -416,7 +416,7 @@
         },
         {
           "role": "og",
-          "file": "step-07-preserve.og.v4.png",
+          "file": "step-07-preserve.og.v5.png",
           "bytes": 293569,
           "width": 1200,
           "height": 630,
@@ -433,7 +433,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-08-upgrade.panel.v4.png",
+          "file": "step-08-upgrade.panel.v5.png",
           "bytes": 1071647,
           "width": 1300,
           "height": 616,
@@ -441,7 +441,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-08-upgrade.social-landscape.v4.jpg",
+          "file": "step-08-upgrade.social-landscape.v5.jpg",
           "bytes": 119208,
           "width": 1200,
           "height": 900,
@@ -449,7 +449,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-08-upgrade.social-square.v4.jpg",
+          "file": "step-08-upgrade.social-square.v5.jpg",
           "bytes": 106248,
           "width": 1080,
           "height": 1080,
@@ -457,7 +457,7 @@
         },
         {
           "role": "og",
-          "file": "step-08-upgrade.og.v4.png",
+          "file": "step-08-upgrade.og.v5.png",
           "bytes": 297150,
           "width": 1200,
           "height": 630,
@@ -474,7 +474,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-09-scale.panel.v4.png",
+          "file": "step-09-scale.panel.v5.png",
           "bytes": 984373,
           "width": 1256,
           "height": 616,
@@ -482,7 +482,7 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-09-scale.social-landscape.v4.jpg",
+          "file": "step-09-scale.social-landscape.v5.jpg",
           "bytes": 116620,
           "width": 1200,
           "height": 900,
@@ -490,7 +490,7 @@
         },
         {
           "role": "social-square",
-          "file": "step-09-scale.social-square.v4.jpg",
+          "file": "step-09-scale.social-square.v5.jpg",
           "bytes": 107514,
           "width": 1080,
           "height": 1080,
@@ -498,7 +498,7 @@
         },
         {
           "role": "og",
-          "file": "step-09-scale.og.v4.png",
+          "file": "step-09-scale.og.v5.png",
           "bytes": 291177,
           "width": 1200,
           "height": 630,

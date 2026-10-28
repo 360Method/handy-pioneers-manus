@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "background": "#FAF6EF",
   "dir": "/brand/360-method/composed",
   "slots": [
@@ -11,25 +11,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "phase-1-aware.guide.landscape.v2.jpg",
-          "bytes": 158943,
+          "file": "phase-1-aware.guide.landscape.v3.jpg",
+          "bytes": 157736,
           "width": 1200,
           "height": 900,
-          "sha256": "177ece0e9a7747814db962b2ced9dad5994d318a8a401a8ac48af38c25cb27af"
+          "sha256": "fbc54cc610c89f19078b771dc147480a6a7b5a88ba011fb9d2e623c4fd26af94"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "phase-1-aware.guide.square.v2.jpg",
-          "bytes": 167939,
+          "file": "phase-1-aware.guide.square.v3.jpg",
+          "bytes": 167119,
           "width": 1080,
           "height": 1080,
-          "sha256": "8dd0a56edf6e0de4f6a0d79164aa9ae3bcc641bcc77e2910710bf405af9c0aef"
+          "sha256": "a67b06ef3505d34299527285ca19ecac938bf216dbd825fac4d33958995de720"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "phase-1-aware.gap.landscape.v2.jpg",
+          "file": "phase-1-aware.gap.landscape.v3.jpg",
           "bytes": 139495,
           "width": 1200,
           "height": 900,
@@ -38,7 +38,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "phase-1-aware.gap.square.v2.jpg",
+          "file": "phase-1-aware.gap.square.v3.jpg",
           "bytes": 115487,
           "width": 1080,
           "height": 1080,
@@ -47,7 +47,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "phase-1-aware.hero.landscape.v2.jpg",
+          "file": "phase-1-aware.hero.landscape.v3.jpg",
           "bytes": 94923,
           "width": 1200,
           "height": 900,
@@ -56,7 +56,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "phase-1-aware.hero.square.v2.jpg",
+          "file": "phase-1-aware.hero.square.v3.jpg",
           "bytes": 95679,
           "width": 1080,
           "height": 1080,
@@ -65,7 +65,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "phase-1-aware.hero.vertical.v2.jpg",
+          "file": "phase-1-aware.hero.vertical.v3.jpg",
           "bytes": 145483,
           "width": 1080,
           "height": 1920,
@@ -83,25 +83,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-01-baseline.guide.landscape.v2.jpg",
-          "bytes": 165708,
+          "file": "step-01-baseline.guide.landscape.v3.jpg",
+          "bytes": 164518,
           "width": 1200,
           "height": 900,
-          "sha256": "45e793a12583a0d04f2680098f545956bf42d0e41490d951f0d9dbbbbfccf25d"
+          "sha256": "32ace7eb28878454f7f17ec4ab7434090f6dd65f1d4ca84767cf779569319a62"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-01-baseline.guide.square.v2.jpg",
-          "bytes": 164917,
+          "file": "step-01-baseline.guide.square.v3.jpg",
+          "bytes": 164054,
           "width": 1080,
           "height": 1080,
-          "sha256": "418cb0b36d1e356904ce6aea1d7ad3779b09cf4318ed9a8987dbbf5b123a6113"
+          "sha256": "90aa51d46aea9232f2923a54946d17c1ef466ce990b1533cc4ab9bd2a9b1cccb"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-01-baseline.gap.landscape.v2.jpg",
+          "file": "step-01-baseline.gap.landscape.v3.jpg",
           "bytes": 102672,
           "width": 1200,
           "height": 900,
@@ -110,7 +110,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-01-baseline.gap.square.v2.jpg",
+          "file": "step-01-baseline.gap.square.v3.jpg",
           "bytes": 130559,
           "width": 1080,
           "height": 1080,
@@ -119,7 +119,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-01-baseline.hero.landscape.v2.jpg",
+          "file": "step-01-baseline.hero.landscape.v3.jpg",
           "bytes": 126226,
           "width": 1200,
           "height": 900,
@@ -128,7 +128,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-01-baseline.hero.square.v2.jpg",
+          "file": "step-01-baseline.hero.square.v3.jpg",
           "bytes": 111016,
           "width": 1080,
           "height": 1080,
@@ -137,7 +137,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-01-baseline.hero.vertical.v2.jpg",
+          "file": "step-01-baseline.hero.vertical.v3.jpg",
           "bytes": 126503,
           "width": 1080,
           "height": 1920,
@@ -155,25 +155,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-02-inspect.guide.landscape.v2.jpg",
-          "bytes": 163429,
+          "file": "step-02-inspect.guide.landscape.v3.jpg",
+          "bytes": 162215,
           "width": 1200,
           "height": 900,
-          "sha256": "18ab8172699a9a6e4af8cef8f99a922d13e79203aa76f276c66c08f276633a80"
+          "sha256": "973f0124cf4946151c25eb6d17ced428fcdb123f6f0153cdf93004a46b8c26ac"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-02-inspect.guide.square.v2.jpg",
-          "bytes": 164236,
+          "file": "step-02-inspect.guide.square.v3.jpg",
+          "bytes": 163352,
           "width": 1080,
           "height": 1080,
-          "sha256": "78cd5d887601a2b974a09d425a9f6d7481d2756b39eea1e42d57a23f7dd13e57"
+          "sha256": "cd1dc9a4d0feeb9742cd3e9692109a802fd42241057b82a6bdae59cd60c80528"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-02-inspect.gap.landscape.v2.jpg",
+          "file": "step-02-inspect.gap.landscape.v3.jpg",
           "bytes": 93418,
           "width": 1200,
           "height": 900,
@@ -182,7 +182,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-02-inspect.gap.square.v2.jpg",
+          "file": "step-02-inspect.gap.square.v3.jpg",
           "bytes": 116624,
           "width": 1080,
           "height": 1080,
@@ -191,7 +191,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-02-inspect.hero.landscape.v2.jpg",
+          "file": "step-02-inspect.hero.landscape.v3.jpg",
           "bytes": 120378,
           "width": 1200,
           "height": 900,
@@ -200,7 +200,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-02-inspect.hero.square.v2.jpg",
+          "file": "step-02-inspect.hero.square.v3.jpg",
           "bytes": 107886,
           "width": 1080,
           "height": 1080,
@@ -209,7 +209,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-02-inspect.hero.vertical.v2.jpg",
+          "file": "step-02-inspect.hero.vertical.v3.jpg",
           "bytes": 121848,
           "width": 1080,
           "height": 1920,
@@ -227,25 +227,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-03-track.guide.landscape.v2.jpg",
-          "bytes": 159615,
+          "file": "step-03-track.guide.landscape.v3.jpg",
+          "bytes": 158729,
           "width": 1200,
           "height": 900,
-          "sha256": "e6e6e5a06771462531f25e7bdb3f7e782a5e2b6aec433cf2670f1d1252338001"
+          "sha256": "bf7da93928f90b262812e23e030a6f02f38bea9a01a2ab298122afa9cbedc25d"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-03-track.guide.square.v2.jpg",
-          "bytes": 159716,
+          "file": "step-03-track.guide.square.v3.jpg",
+          "bytes": 158925,
           "width": 1080,
           "height": 1080,
-          "sha256": "db48b2a36652bb36b6d688e92007099ebda8ad6fd778304e7f96c76f03682386"
+          "sha256": "34c8853788f30b13ba1ccfad7182521b8b6fe83159011a4761059fddee32984a"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-03-track.gap.landscape.v2.jpg",
+          "file": "step-03-track.gap.landscape.v3.jpg",
           "bytes": 92236,
           "width": 1200,
           "height": 900,
@@ -254,7 +254,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-03-track.gap.square.v2.jpg",
+          "file": "step-03-track.gap.square.v3.jpg",
           "bytes": 113637,
           "width": 1080,
           "height": 1080,
@@ -263,7 +263,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-03-track.hero.landscape.v2.jpg",
+          "file": "step-03-track.hero.landscape.v3.jpg",
           "bytes": 112513,
           "width": 1200,
           "height": 900,
@@ -272,7 +272,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-03-track.hero.square.v2.jpg",
+          "file": "step-03-track.hero.square.v3.jpg",
           "bytes": 99446,
           "width": 1080,
           "height": 1080,
@@ -281,7 +281,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-03-track.hero.vertical.v2.jpg",
+          "file": "step-03-track.hero.vertical.v3.jpg",
           "bytes": 115475,
           "width": 1080,
           "height": 1920,
@@ -297,25 +297,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "phase-2-act.guide.landscape.v2.jpg",
-          "bytes": 163151,
+          "file": "phase-2-act.guide.landscape.v3.jpg",
+          "bytes": 162031,
           "width": 1200,
           "height": 900,
-          "sha256": "4374bf638c86890fb2d56cdc931bd877f0463e8e5a92172de06912fc0e233f3c"
+          "sha256": "6aba0409093aad273726a844780e8dec8a0d559b20128049ec2f89ee8ea500c3"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "phase-2-act.guide.square.v2.jpg",
-          "bytes": 170591,
+          "file": "phase-2-act.guide.square.v3.jpg",
+          "bytes": 169631,
           "width": 1080,
           "height": 1080,
-          "sha256": "4bba4cbfc08b4511e36948c9f0ad7557d8b92ff2480adcd86480d9325ef85a6b"
+          "sha256": "ea5d055b2d5fb40d08331ed6b42d007a6f8f61e692f939cc7aee76d11470c6eb"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "phase-2-act.gap.landscape.v2.jpg",
+          "file": "phase-2-act.gap.landscape.v3.jpg",
           "bytes": 154674,
           "width": 1200,
           "height": 900,
@@ -324,16 +324,16 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "phase-2-act.gap.square.v2.jpg",
-          "bytes": 126574,
+          "file": "phase-2-act.gap.square.v3.jpg",
+          "bytes": 126582,
           "width": 1080,
           "height": 1080,
-          "sha256": "719ce965127f54e14dd71ea8fbd88463788a72748754b3c41c568033ff4414a8"
+          "sha256": "706d7f90d0569915c0ecfda1206c03f4022644c38f57e48c00f6f86331f91fd8"
         },
         {
           "role": "hero",
           "size": "landscape",
-          "file": "phase-2-act.hero.landscape.v2.jpg",
+          "file": "phase-2-act.hero.landscape.v3.jpg",
           "bytes": 95633,
           "width": 1200,
           "height": 900,
@@ -342,7 +342,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "phase-2-act.hero.square.v2.jpg",
+          "file": "phase-2-act.hero.square.v3.jpg",
           "bytes": 97670,
           "width": 1080,
           "height": 1080,
@@ -351,7 +351,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "phase-2-act.hero.vertical.v2.jpg",
+          "file": "phase-2-act.hero.vertical.v3.jpg",
           "bytes": 149971,
           "width": 1080,
           "height": 1920,
@@ -369,25 +369,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-04-prioritize.guide.landscape.v2.jpg",
-          "bytes": 168814,
+          "file": "step-04-prioritize.guide.landscape.v3.jpg",
+          "bytes": 167622,
           "width": 1200,
           "height": 900,
-          "sha256": "2583234ee15724bf90b78b1e6b670b8194aea7632f31f35a0852a53ce7c8d48e"
+          "sha256": "7bd0510b14ea57dcbbb03110dcaabff70d6537178740a9c2ca6035e15a76c2f0"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-04-prioritize.guide.square.v2.jpg",
-          "bytes": 168986,
+          "file": "step-04-prioritize.guide.square.v3.jpg",
+          "bytes": 168106,
           "width": 1080,
           "height": 1080,
-          "sha256": "44ce9b9be3048f284a4d8564b3e48deb4c3f7879a1b4efee492535aa577be9a1"
+          "sha256": "2ee852528452a644cc63fa5eeea83d71622563444bc057ab50742966696ceb3c"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-04-prioritize.gap.landscape.v2.jpg",
+          "file": "step-04-prioritize.gap.landscape.v3.jpg",
           "bytes": 110716,
           "width": 1200,
           "height": 900,
@@ -396,7 +396,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-04-prioritize.gap.square.v2.jpg",
+          "file": "step-04-prioritize.gap.square.v3.jpg",
           "bytes": 125232,
           "width": 1080,
           "height": 1080,
@@ -405,7 +405,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-04-prioritize.hero.landscape.v2.jpg",
+          "file": "step-04-prioritize.hero.landscape.v3.jpg",
           "bytes": 121957,
           "width": 1200,
           "height": 900,
@@ -414,7 +414,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-04-prioritize.hero.square.v2.jpg",
+          "file": "step-04-prioritize.hero.square.v3.jpg",
           "bytes": 107658,
           "width": 1080,
           "height": 1080,
@@ -423,7 +423,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-04-prioritize.hero.vertical.v2.jpg",
+          "file": "step-04-prioritize.hero.vertical.v3.jpg",
           "bytes": 123693,
           "width": 1080,
           "height": 1920,
@@ -441,25 +441,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-05-schedule.guide.landscape.v2.jpg",
-          "bytes": 167856,
+          "file": "step-05-schedule.guide.landscape.v3.jpg",
+          "bytes": 166611,
           "width": 1200,
           "height": 900,
-          "sha256": "f9eeddfa891015606e599fd12dcc85cb27e7fb5319cd9bbd917a0182f509bc94"
+          "sha256": "be0c677e1b38bfea7487ac6465294a674132306fe4d0615c73f8e85260182583"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-05-schedule.guide.square.v2.jpg",
-          "bytes": 169079,
+          "file": "step-05-schedule.guide.square.v3.jpg",
+          "bytes": 168165,
           "width": 1080,
           "height": 1080,
-          "sha256": "2c7c61c1810c3d4755d0675c8b97ed55fb53599129e2d340b70ab6067e674257"
+          "sha256": "fb8d7ac30f5e8450bd7c55538f35bb68e9b49ff8f5bc23ebca80ef0ede70be23"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-05-schedule.gap.landscape.v2.jpg",
+          "file": "step-05-schedule.gap.landscape.v3.jpg",
           "bytes": 92274,
           "width": 1200,
           "height": 900,
@@ -468,7 +468,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-05-schedule.gap.square.v2.jpg",
+          "file": "step-05-schedule.gap.square.v3.jpg",
           "bytes": 109252,
           "width": 1080,
           "height": 1080,
@@ -477,7 +477,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-05-schedule.hero.landscape.v2.jpg",
+          "file": "step-05-schedule.hero.landscape.v3.jpg",
           "bytes": 116077,
           "width": 1200,
           "height": 900,
@@ -486,7 +486,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-05-schedule.hero.square.v2.jpg",
+          "file": "step-05-schedule.hero.square.v3.jpg",
           "bytes": 103755,
           "width": 1080,
           "height": 1080,
@@ -495,7 +495,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-05-schedule.hero.vertical.v2.jpg",
+          "file": "step-05-schedule.hero.vertical.v3.jpg",
           "bytes": 118496,
           "width": 1080,
           "height": 1920,
@@ -513,25 +513,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-06-execute.guide.landscape.v2.jpg",
-          "bytes": 172344,
+          "file": "step-06-execute.guide.landscape.v3.jpg",
+          "bytes": 171155,
           "width": 1200,
           "height": 900,
-          "sha256": "e68b6a76c5bb5fa55d874ebb53dee899c8549321e28ac6c9a33b4da6271b1e1d"
+          "sha256": "e43ca5a9e45834431c6448f1eee861ff5427ac0552d559dcdbff41b7c43d0e61"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-06-execute.guide.square.v2.jpg",
-          "bytes": 172175,
+          "file": "step-06-execute.guide.square.v3.jpg",
+          "bytes": 171374,
           "width": 1080,
           "height": 1080,
-          "sha256": "c7915997c54aba4f397b9b05e8ef0dfde7326cbaa1ac6c675bc3b14fd4911186"
+          "sha256": "6b4d771bc34cc6b2927c77f4574c759e130589f800222ff3571db07467f3d098"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-06-execute.gap.landscape.v2.jpg",
+          "file": "step-06-execute.gap.landscape.v3.jpg",
           "bytes": 111187,
           "width": 1200,
           "height": 900,
@@ -540,7 +540,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-06-execute.gap.square.v2.jpg",
+          "file": "step-06-execute.gap.square.v3.jpg",
           "bytes": 139446,
           "width": 1080,
           "height": 1080,
@@ -549,7 +549,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-06-execute.hero.landscape.v2.jpg",
+          "file": "step-06-execute.hero.landscape.v3.jpg",
           "bytes": 134321,
           "width": 1200,
           "height": 900,
@@ -558,7 +558,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-06-execute.hero.square.v2.jpg",
+          "file": "step-06-execute.hero.square.v3.jpg",
           "bytes": 117934,
           "width": 1080,
           "height": 1080,
@@ -567,7 +567,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-06-execute.hero.vertical.v2.jpg",
+          "file": "step-06-execute.hero.vertical.v3.jpg",
           "bytes": 133008,
           "width": 1080,
           "height": 1920,
@@ -583,25 +583,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "phase-3-advance.guide.landscape.v2.jpg",
-          "bytes": 170220,
+          "file": "phase-3-advance.guide.landscape.v3.jpg",
+          "bytes": 168947,
           "width": 1200,
           "height": 900,
-          "sha256": "41d7878de92ea03c8900a61a8cfd75b0fd5231796176828e1b7756acd2358c9b"
+          "sha256": "fed8872db33abd9d4333aba12cfa2694594e126ec08281ceec8befe57faab2f3"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "phase-3-advance.guide.square.v2.jpg",
-          "bytes": 177620,
+          "file": "phase-3-advance.guide.square.v3.jpg",
+          "bytes": 176744,
           "width": 1080,
           "height": 1080,
-          "sha256": "505cf5c3ab016f799580c6e63f6b1bba3dc2fe2627dd1bc1b0177efffb013c1f"
+          "sha256": "40578f6a793758a69ea6964a6909b9403866ec0ca897c9742ad0ec34c29299ab"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "phase-3-advance.gap.landscape.v2.jpg",
+          "file": "phase-3-advance.gap.landscape.v3.jpg",
           "bytes": 155157,
           "width": 1200,
           "height": 900,
@@ -610,7 +610,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "phase-3-advance.gap.square.v2.jpg",
+          "file": "phase-3-advance.gap.square.v3.jpg",
           "bytes": 132906,
           "width": 1080,
           "height": 1080,
@@ -619,7 +619,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "phase-3-advance.hero.landscape.v2.jpg",
+          "file": "phase-3-advance.hero.landscape.v3.jpg",
           "bytes": 104278,
           "width": 1200,
           "height": 900,
@@ -628,7 +628,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "phase-3-advance.hero.square.v2.jpg",
+          "file": "phase-3-advance.hero.square.v3.jpg",
           "bytes": 108931,
           "width": 1080,
           "height": 1080,
@@ -637,7 +637,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "phase-3-advance.hero.vertical.v2.jpg",
+          "file": "phase-3-advance.hero.vertical.v3.jpg",
           "bytes": 165082,
           "width": 1080,
           "height": 1920,
@@ -655,25 +655,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-07-preserve.guide.landscape.v2.jpg",
-          "bytes": 169030,
+          "file": "step-07-preserve.guide.landscape.v3.jpg",
+          "bytes": 167846,
           "width": 1200,
           "height": 900,
-          "sha256": "f306ed4ad93ae197597b1d476b5518dcce37e65da2a8a6b4e17458763825228b"
+          "sha256": "c64cda01044ddda5566561420ace5db22cb55f4b3c933ab7f0bacd11564f55c1"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-07-preserve.guide.square.v2.jpg",
-          "bytes": 167028,
+          "file": "step-07-preserve.guide.square.v3.jpg",
+          "bytes": 166119,
           "width": 1080,
           "height": 1080,
-          "sha256": "07a91b23af672ab96b622b872ce7dfbebf596e41e36f67fe4eb5a46d60849644"
+          "sha256": "c5ce08bd96db988fb3334b87f3848a88151cde3c04d8d6ab6c486e91c1112157"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-07-preserve.gap.landscape.v2.jpg",
+          "file": "step-07-preserve.gap.landscape.v3.jpg",
           "bytes": 104039,
           "width": 1200,
           "height": 900,
@@ -682,7 +682,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-07-preserve.gap.square.v2.jpg",
+          "file": "step-07-preserve.gap.square.v3.jpg",
           "bytes": 130165,
           "width": 1080,
           "height": 1080,
@@ -691,7 +691,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-07-preserve.hero.landscape.v2.jpg",
+          "file": "step-07-preserve.hero.landscape.v3.jpg",
           "bytes": 128838,
           "width": 1200,
           "height": 900,
@@ -700,7 +700,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-07-preserve.hero.square.v2.jpg",
+          "file": "step-07-preserve.hero.square.v3.jpg",
           "bytes": 114116,
           "width": 1080,
           "height": 1080,
@@ -709,7 +709,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-07-preserve.hero.vertical.v2.jpg",
+          "file": "step-07-preserve.hero.vertical.v3.jpg",
           "bytes": 131392,
           "width": 1080,
           "height": 1920,
@@ -727,25 +727,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-08-upgrade.guide.landscape.v2.jpg",
-          "bytes": 168589,
+          "file": "step-08-upgrade.guide.landscape.v3.jpg",
+          "bytes": 167373,
           "width": 1200,
           "height": 900,
-          "sha256": "59620c6f69a517d1febb7f1d3e778e4648b8af7b22e72a393791bf97f54c7a4a"
+          "sha256": "f5471a0bd486bba62f7061a40652bc27de879aaa913126d9bfb18b5d7bddfb05"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-08-upgrade.guide.square.v2.jpg",
-          "bytes": 166824,
+          "file": "step-08-upgrade.guide.square.v3.jpg",
+          "bytes": 165945,
           "width": 1080,
           "height": 1080,
-          "sha256": "d195c93ade51c55b8d79755353160b8943b20ce28bd5e1605e310e4fdf9c5135"
+          "sha256": "447cd68a60dcfe053444c746347d11af10084505e6bc65e8a1f75083da9268de"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-08-upgrade.gap.landscape.v2.jpg",
+          "file": "step-08-upgrade.gap.landscape.v3.jpg",
           "bytes": 103047,
           "width": 1200,
           "height": 900,
@@ -754,7 +754,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-08-upgrade.gap.square.v2.jpg",
+          "file": "step-08-upgrade.gap.square.v3.jpg",
           "bytes": 129478,
           "width": 1080,
           "height": 1080,
@@ -763,7 +763,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-08-upgrade.hero.landscape.v2.jpg",
+          "file": "step-08-upgrade.hero.landscape.v3.jpg",
           "bytes": 129300,
           "width": 1200,
           "height": 900,
@@ -772,7 +772,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-08-upgrade.hero.square.v2.jpg",
+          "file": "step-08-upgrade.hero.square.v3.jpg",
           "bytes": 119491,
           "width": 1080,
           "height": 1080,
@@ -781,7 +781,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-08-upgrade.hero.vertical.v2.jpg",
+          "file": "step-08-upgrade.hero.vertical.v3.jpg",
           "bytes": 132360,
           "width": 1080,
           "height": 1920,
@@ -799,25 +799,25 @@
         {
           "role": "guide",
           "size": "landscape",
-          "file": "step-09-scale.guide.landscape.v2.jpg",
-          "bytes": 169748,
+          "file": "step-09-scale.guide.landscape.v3.jpg",
+          "bytes": 168570,
           "width": 1200,
           "height": 900,
-          "sha256": "518ecf2a30a89a6adf9ae0e214ff3c7069ce03da19e17b0a9f799476a2ed0558"
+          "sha256": "fba6211764da6833570fa0aaea680bafaee9ee0df573b01877e0037088501e1b"
         },
         {
           "role": "guide",
           "size": "square",
-          "file": "step-09-scale.guide.square.v2.jpg",
-          "bytes": 168637,
+          "file": "step-09-scale.guide.square.v3.jpg",
+          "bytes": 167700,
           "width": 1080,
           "height": 1080,
-          "sha256": "87240a20f6171e1dffd32b6d0a61401be6bd896439159af265ab0d63a74d57b8"
+          "sha256": "9a350cecce89d4afe1f0ba1617b70fe74192fff9e1ec5cc020722de2e3017788"
         },
         {
           "role": "gap",
           "size": "landscape",
-          "file": "step-09-scale.gap.landscape.v2.jpg",
+          "file": "step-09-scale.gap.landscape.v3.jpg",
           "bytes": 115752,
           "width": 1200,
           "height": 900,
@@ -826,7 +826,7 @@
         {
           "role": "gap",
           "size": "square",
-          "file": "step-09-scale.gap.square.v2.jpg",
+          "file": "step-09-scale.gap.square.v3.jpg",
           "bytes": 139990,
           "width": 1080,
           "height": 1080,
@@ -835,7 +835,7 @@
         {
           "role": "hero",
           "size": "landscape",
-          "file": "step-09-scale.hero.landscape.v2.jpg",
+          "file": "step-09-scale.hero.landscape.v3.jpg",
           "bytes": 129853,
           "width": 1200,
           "height": 900,
@@ -844,7 +844,7 @@
         {
           "role": "hero",
           "size": "square",
-          "file": "step-09-scale.hero.square.v2.jpg",
+          "file": "step-09-scale.hero.square.v3.jpg",
           "bytes": 116361,
           "width": 1080,
           "height": 1080,
@@ -853,7 +853,7 @@
         {
           "role": "hero",
           "size": "vertical",
-          "file": "step-09-scale.hero.vertical.v2.jpg",
+          "file": "step-09-scale.hero.vertical.v3.jpg",
           "bytes": 131288,
           "width": 1080,
           "height": 1920,

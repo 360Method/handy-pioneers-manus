@@ -19,10 +19,10 @@ export default function ReactiveVsMemberTimeline() {
     <section className="py-16 px-4 section-green">
       <div className="max-w-5xl mx-auto">
         <div className="hp-overline" style={{ color: "oklch(65% 0.15 72)" }}>
-          Two Paths. Five Years.
+          One Gutter. Five Years.
         </div>
         <h2 className="font-display text-3xl sm:text-4xl font-black text-center text-white mb-10">
-          Where your home ends up depends on what you do today
+          What one clogged gutter does in five years
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -30,7 +30,7 @@ export default function ReactiveVsMemberTimeline() {
               className="text-sm font-bold uppercase tracking-wide mb-4"
               style={{ color: "oklch(70% 0.18 25)" }}
             >
-              Unmanaged Home
+              Nobody checking
             </div>
             <div className="space-y-3">
               {NEGLECT_TIMELINE.map((row, i) => (

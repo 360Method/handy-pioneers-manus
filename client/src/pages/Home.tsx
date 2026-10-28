@@ -92,7 +92,7 @@ const outcomes = [
   {
     icon: Zap,
     title: "Predictable, Prioritized Spending",
-    body: "The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what's coming, when it's coming, and what it will cost - before it becomes urgent.",
+    body: "The NOW / SOON / WAIT roadmap turns surprise repairs into a planned budget. You know what's coming, when it's coming, and what it will cost - before it becomes urgent.",
   },
 ];
 

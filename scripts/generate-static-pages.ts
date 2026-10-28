@@ -739,7 +739,7 @@ function homeBodyHtml(): string {
     `<li><strong>Protected and growing asset value.</strong> A structured maintenance system prevents the deferred-cost spiral. Homes managed proactively consistently outperform neglected properties at resale, and the emergency repair premium disappears.</li>`,
     `<li><strong>Zero contractor coordination burden.</strong> One call, one relationship. We handle the full scope, from assessment to execution to trade coordination. You do not manage vendors.</li>`,
     `<li><strong>A documented property record.</strong> Every assessment, every project, every system update, documented in your 360° Priority Roadmap. When it is time to sell, refinance, or pass the property on, you have the receipts.</li>`,
-    `<li><strong>Predictable, prioritized spending.</strong> The NOW / SOON / WAIT roadmap turns reactive spending into a planned budget. You know what is coming and when, before it becomes urgent.</li>`,
+    `<li><strong>Predictable, prioritized spending.</strong> The NOW / SOON / WAIT roadmap turns surprise repairs into a planned budget. You know what is coming and when, before it becomes urgent.</li>`,
     `</ul>`,
     `<h2>Services</h2>`,
     `<p>Kitchen and bathroom remodels, interior painting, deck repair and rebuild, plumbing and fixture upgrades, electrical and lighting, flooring, windows and doors, exterior repairs and siding, ADU and garage conversions, pressure washing and moss removal, carpentry and custom millwork, drywall, gutter cleaning and repair, and proactive maintenance programs. For property managers, landlords, and small commercial spaces: work orders, tenant turnovers, and storefront repairs (<a href="${SITE}/services/commercial-handyman">commercial services</a>). Full list: <a href="${SITE}/services">${SITE}/services</a>.</p>`,
@@ -771,7 +771,7 @@ function membershipBodyHtml(): string {
   return [
     `<article>`,
     `<h1>The 360° Method Membership: a Home Maintenance Plan for Clark County, WA</h1>`,
-    `<p>Most homes are maintained reactively. Yours doesn't have to be. Most homeowners have a financial advisor; almost none have someone actively managing the physical asset. The Proactive Path membership is a fully managed home care program: seasonal visits matched to your home, documented reports, and a named technician who knows your home. One number to call, and the to-do list stops being yours to carry.</p>`,
+    `<p>Most homes find out about a problem from a stain on the ceiling. Yours can hear about it on a fall visit. Most homeowners have a financial advisor; almost none have someone actively managing the physical asset. The Proactive Path membership is a fully managed home care program: seasonal visits matched to your home, documented reports, and a named technician who knows your home. One number to call, and the to-do list stops being yours to carry.</p>`,
     `<p>No contracts. Cancel anytime. Currently serving Vancouver, Camas, Washougal, Ridgefield, Battle Ground, La Center, and all of Clark County, Washington.</p>`,
     `<h2>How it starts</h2>`,
     `<p>Your membership begins with a 2-3 hour baseline walkthrough: a full documented assessment of every major system. We photograph every finding, rate every system, and give your home its first score. After each seasonal visit your score updates, and a timestamped report is stored permanently, a record that follows the asset for its entire life and supports resale, refinancing, and insurance.</p>`,
