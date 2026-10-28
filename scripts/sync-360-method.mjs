@@ -103,6 +103,24 @@ const main = async () => {
     }
     writeIfChanged(resolve(ASSET_DIR_DST, CROPS_MANIFEST), Buffer.from(JSON.stringify(manifest, null, 2) + "\n", "utf8"));
   }
+  // Composed cards: guide (you are here), gap (split) and hero (poster) built
+  // from the roadmap by generate-method-composed.ts in the pro app. Same manifest
+  // shape as the crops: { slots: [{ outputs: [{ file }] }] }.
+  let composedManifest = null;
+  try {
+    composedManifest = JSON.parse((await readSource(`${ASSET_DIR_SRC}/composed-manifest.json`)).toString("utf8"));
+  } catch (e) {
+    console.log(`composed cards not synced (${e.message}); the pro app has not published composed-manifest.json yet`);
+  }
+  if (composedManifest) {
+    writeIfChanged(resolve(ASSET_DIR_DST, "composed.json"), await readSource(`${ASSET_DIR_SRC}/composed.json`));
+    mkdirSync(resolve(ASSET_DIR_DST, "composed"), { recursive: true });
+    const composedFiles = (composedManifest.slots ?? []).flatMap((slot) => (slot.outputs ?? []).map((o) => o.file)).filter(Boolean);
+    for (const name of composedFiles) {
+      writeIfChanged(resolve(ASSET_DIR_DST, "composed", name), await readSource(`${ASSET_DIR_SRC}/composed/${name}`));
+    }
+    writeIfChanged(resolve(ASSET_DIR_DST, "composed-manifest.json"), Buffer.from(JSON.stringify(composedManifest, null, 2) + "\n", "utf8"));
+  }
   // The canon as a TypeScript module, so pages and the prerender script import
   // it without a JSON-module flag. Same bytes as canon.json.
   const canon = JSON.parse(readFileSync(resolve(ASSET_DIR_DST, "canon.json"), "utf8"));
