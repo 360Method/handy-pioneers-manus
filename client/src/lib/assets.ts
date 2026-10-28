@@ -117,7 +117,7 @@ const PHASE_FILE: Record<MethodPhaseKey, string> = {
   act: "phase-2-act",
   advance: "phase-3-advance",
 };
-const CROP_VERSION = "v2";
+const CROP_VERSION = "v4";
 
 function pick<K extends string>(map: Record<K, string>, output: string, ext: string): Record<K, string> {
   const out = {} as Record<K, string>;
