@@ -312,7 +312,7 @@ export const CITIES: CityDef[] = [
     neighborhoods: ["Bull Mountain", "Summerfield", "Metzger"],
     geo: { lat: 45.4312, lng: -122.7715 },
     intro: [
-      "Tigard and the Bull Mountain area blend newer hillside homes with established neighborhoods, all under the same wet-winter conditions that make proactive maintenance worth far more than reactive repair.",
+      "Tigard and the Bull Mountain area blend newer hillside homes with established neighborhoods, all under the same wet-winter conditions where a clogged gutter in October is rotted fascia by spring.",
       "We're expanding into the greater Portland metro and aren't yet serving Oregon. Join the waitlist to be first to know when the 360° Method reaches Tigard.",
     ],
     servicesOffered: [],

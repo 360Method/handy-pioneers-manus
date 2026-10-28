@@ -1,8 +1,8 @@
 {
-  "version": 4,
+  "version": 5,
   "source": "/brand/360-method/360-roadmap.png",
   "sourceSize": {"w":2000,"h":1096},
-  "sourceSha256": "8d7b6017d09a760ad05d20eeaa384bfd0e5bf5ba97ba3d12817b70017abb03f6",
+  "sourceSha256": "96402c835578d56e4b4888cc4336fba7cbc8c1d1422eb2efceb08ac9edd7bc00",
   "background": "#FAF6EF",
   "barHeight": 24,
   "tones": {

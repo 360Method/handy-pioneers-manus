@@ -210,8 +210,8 @@ export default function Multifamily() {
           </div>
 
           <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black leading-tight mb-6">
-            Most rentals are maintained reactively.<br />
-            <span style={{ color: "oklch(65% 0.15 72)" }}>Yours don't have to be.</span>
+            Most rentals find out about a problem from a tenant's call.<br />
+            <span style={{ color: "oklch(65% 0.15 72)" }}>Yours can hear about it on a fall visit.</span>
           </h1>
 
           <p

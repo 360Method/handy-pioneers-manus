@@ -419,17 +419,6 @@ export default function Method360() {
             className="w-full h-auto rounded-xl shadow-lg"
             loading="lazy"
           />
-          <div className="flex gap-6 sm:gap-8 justify-center mt-8">
-            <div className="text-center">
-              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.55)", fontFamily: "'Source Sans 3', sans-serif" }}>Before</div>
-              <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Reactive. Deferred. Declining.</div>
-            </div>
-            <div className="w-px bg-white/30" />
-            <div className="text-center">
-              <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "oklch(0.80 0.10 65)", fontFamily: "'Source Sans 3', sans-serif" }}>After the 360° Method</div>
-              <div className="text-sm font-semibold text-white" style={{ fontFamily: "'Source Sans 3', sans-serif" }}>Proactive. Protected. Advancing.</div>
-            </div>
-          </div>
         </div>
       </section>
 
