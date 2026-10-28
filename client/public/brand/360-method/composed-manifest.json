@@ -1,0 +1,865 @@
+{
+  "version": 1,
+  "background": "#FAF6EF",
+  "dir": "/brand/360-method/composed",
+  "slots": [
+    {
+      "slot": "phase-1-aware",
+      "kind": "phase",
+      "phase": "aware",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "phase-1-aware.guide.landscape.v1.jpg",
+          "bytes": 158943,
+          "width": 1200,
+          "height": 900,
+          "sha256": "177ece0e9a7747814db962b2ced9dad5994d318a8a401a8ac48af38c25cb27af"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "phase-1-aware.guide.square.v1.jpg",
+          "bytes": 167939,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "8dd0a56edf6e0de4f6a0d79164aa9ae3bcc641bcc77e2910710bf405af9c0aef"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "phase-1-aware.gap.landscape.v1.jpg",
+          "bytes": 136372,
+          "width": 1200,
+          "height": 900,
+          "sha256": "0e92e2582468f0f4618fb7972591afb8cdb4726a6112ab02f401150c3de4810e"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "phase-1-aware.gap.square.v1.jpg",
+          "bytes": 108339,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "3333ddc7e47ea5fc275cd93a6f04d5a2919507ffa14b6978f38200dbd4e240a0"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "phase-1-aware.hero.landscape.v1.jpg",
+          "bytes": 94923,
+          "width": 1200,
+          "height": 900,
+          "sha256": "982b573b8e904314b7d323d077b8e807a7b7d924d493ddbf7dc5b2f5ad19dd0d"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "phase-1-aware.hero.square.v1.jpg",
+          "bytes": 95679,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "c4da896cc3b2fbece5f8eaa29dc0fb461939b44260745a3514147053d8e32725"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "phase-1-aware.hero.vertical.v1.jpg",
+          "bytes": 145483,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "2d515c62745c6fd032d523df2cf2221201f06688648c0d580274a515591f0d09"
+        }
+      ]
+    },
+    {
+      "slot": "step-01-baseline",
+      "kind": "step",
+      "phase": "aware",
+      "step": 1,
+      "key": "baseline",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-01-baseline.guide.landscape.v1.jpg",
+          "bytes": 165708,
+          "width": 1200,
+          "height": 900,
+          "sha256": "45e793a12583a0d04f2680098f545956bf42d0e41490d951f0d9dbbbbfccf25d"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-01-baseline.guide.square.v1.jpg",
+          "bytes": 164917,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "418cb0b36d1e356904ce6aea1d7ad3779b09cf4318ed9a8987dbbf5b123a6113"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-01-baseline.gap.landscape.v1.jpg",
+          "bytes": 122360,
+          "width": 1200,
+          "height": 900,
+          "sha256": "0bf8ffb9f3477b8780cb16111751b14159cc8a2c8c61e255e2fcbcd8bacc8d15"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-01-baseline.gap.square.v1.jpg",
+          "bytes": 136457,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "8a74264ded6b56b6bc434abc72e472b013967ca814ce4d4e21652fd62f86d62f"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-01-baseline.hero.landscape.v1.jpg",
+          "bytes": 126226,
+          "width": 1200,
+          "height": 900,
+          "sha256": "bce26f16b71437268f932e2be69e5348845d0f31967826dc20fed946a63ae097"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-01-baseline.hero.square.v1.jpg",
+          "bytes": 111016,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "8238f9d2ae78f959eb09335a9ce9d1962215f915303333d34f7cf31f01ee480e"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-01-baseline.hero.vertical.v1.jpg",
+          "bytes": 126503,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "6effd0fc958350c6565462542b1545dafa3f315209095f51d47375fa8091fd4a"
+        }
+      ]
+    },
+    {
+      "slot": "step-02-inspect",
+      "kind": "step",
+      "phase": "aware",
+      "step": 2,
+      "key": "inspect",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-02-inspect.guide.landscape.v1.jpg",
+          "bytes": 163429,
+          "width": 1200,
+          "height": 900,
+          "sha256": "18ab8172699a9a6e4af8cef8f99a922d13e79203aa76f276c66c08f276633a80"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-02-inspect.guide.square.v1.jpg",
+          "bytes": 164236,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "78cd5d887601a2b974a09d425a9f6d7481d2756b39eea1e42d57a23f7dd13e57"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-02-inspect.gap.landscape.v1.jpg",
+          "bytes": 102169,
+          "width": 1200,
+          "height": 900,
+          "sha256": "bc100be43245a4610b7258ea1d3fda121358b3207d7a1832dceb0cf5d1dab837"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-02-inspect.gap.square.v1.jpg",
+          "bytes": 116145,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "db7c953e835c8d200a24f89ba7cf62e7d0dce0e8e70164cbce8152c466c90e0e"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-02-inspect.hero.landscape.v1.jpg",
+          "bytes": 120378,
+          "width": 1200,
+          "height": 900,
+          "sha256": "2746d47308415c2105e156a604137949c5c5f96b900d048dc316c9436337ebeb"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-02-inspect.hero.square.v1.jpg",
+          "bytes": 107886,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "2e049e1b067259b67ba62cbcc45e8e4c29dcc232025ff127c20b57abc0d3452f"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-02-inspect.hero.vertical.v1.jpg",
+          "bytes": 121848,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "b095db3db185140210ec4d09fae73dcc6d0f7f12216582bd80c23436834ff084"
+        }
+      ]
+    },
+    {
+      "slot": "step-03-track",
+      "kind": "step",
+      "phase": "aware",
+      "step": 3,
+      "key": "track",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-03-track.guide.landscape.v1.jpg",
+          "bytes": 159615,
+          "width": 1200,
+          "height": 900,
+          "sha256": "e6e6e5a06771462531f25e7bdb3f7e782a5e2b6aec433cf2670f1d1252338001"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-03-track.guide.square.v1.jpg",
+          "bytes": 159716,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "db48b2a36652bb36b6d688e92007099ebda8ad6fd778304e7f96c76f03682386"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-03-track.gap.landscape.v1.jpg",
+          "bytes": 99700,
+          "width": 1200,
+          "height": 900,
+          "sha256": "5cc0a3d483f1d486e04722757e28fb26f80cd666d9d8b5032e3597016cc417d8"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-03-track.gap.square.v1.jpg",
+          "bytes": 116180,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "6db62a3bee278a09cf14a1578959f897d23dc2225b52079bc4dd8b22aba65eb1"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-03-track.hero.landscape.v1.jpg",
+          "bytes": 112513,
+          "width": 1200,
+          "height": 900,
+          "sha256": "e15191fee11804c22cc7fecc6770b17d455c691afa7eaff806a104aab80965c3"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-03-track.hero.square.v1.jpg",
+          "bytes": 99446,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "7f0b48caff02f0900950078c1406627617c6c9542ce270be9345be85c18423bd"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-03-track.hero.vertical.v1.jpg",
+          "bytes": 115475,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "834b8f85f3b37c1d171ecc16aa6f0c37443fb017400413559001b99a9a80db92"
+        }
+      ]
+    },
+    {
+      "slot": "phase-2-act",
+      "kind": "phase",
+      "phase": "act",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "phase-2-act.guide.landscape.v1.jpg",
+          "bytes": 163151,
+          "width": 1200,
+          "height": 900,
+          "sha256": "4374bf638c86890fb2d56cdc931bd877f0463e8e5a92172de06912fc0e233f3c"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "phase-2-act.guide.square.v1.jpg",
+          "bytes": 170591,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "4bba4cbfc08b4511e36948c9f0ad7557d8b92ff2480adcd86480d9325ef85a6b"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "phase-2-act.gap.landscape.v1.jpg",
+          "bytes": 138668,
+          "width": 1200,
+          "height": 900,
+          "sha256": "18bcd320af52c75dd0a80bacd4a53c3a9373166c7a6da69e2403ebea18032446"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "phase-2-act.gap.square.v1.jpg",
+          "bytes": 115472,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "e70f92d46b449ca38682baa3dd7d59a6f4dbd0caba0ed2d8f7397616cf43a725"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "phase-2-act.hero.landscape.v1.jpg",
+          "bytes": 95633,
+          "width": 1200,
+          "height": 900,
+          "sha256": "db25b6f40590b0a9f06aca26abb65c545112e57d80dbf003a4721d9e2fe1a2cb"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "phase-2-act.hero.square.v1.jpg",
+          "bytes": 97670,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "2619447a835ff6c24f45bb3da293071c1dab5a62c4253145bf6cbcf0d0ea0cc1"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "phase-2-act.hero.vertical.v1.jpg",
+          "bytes": 149971,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "5b61dd2404cc907f4e20ceccf61a44567ede2946bc933defb6848d21f81ec2d5"
+        }
+      ]
+    },
+    {
+      "slot": "step-04-prioritize",
+      "kind": "step",
+      "phase": "act",
+      "step": 4,
+      "key": "prioritize",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-04-prioritize.guide.landscape.v1.jpg",
+          "bytes": 168814,
+          "width": 1200,
+          "height": 900,
+          "sha256": "2583234ee15724bf90b78b1e6b670b8194aea7632f31f35a0852a53ce7c8d48e"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-04-prioritize.guide.square.v1.jpg",
+          "bytes": 168986,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "44ce9b9be3048f284a4d8564b3e48deb4c3f7879a1b4efee492535aa577be9a1"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-04-prioritize.gap.landscape.v1.jpg",
+          "bytes": 106140,
+          "width": 1200,
+          "height": 900,
+          "sha256": "55053a42357db35329e7c80a4a726906d76b8a596eb7e6dec0a1039ed442ca8e"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-04-prioritize.gap.square.v1.jpg",
+          "bytes": 119360,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "c7ec31e06373d61fe8869a3056a0e876f872b33579bd4a41dd02a99347630199"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-04-prioritize.hero.landscape.v1.jpg",
+          "bytes": 121957,
+          "width": 1200,
+          "height": 900,
+          "sha256": "39804a6aecfa66f4bc4c050e3c3cdf04ee113cc789658447171a05ae4d547976"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-04-prioritize.hero.square.v1.jpg",
+          "bytes": 107658,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "69e200abffe07abbe3015459e02f47777f17405faf1c0fd1f08606cda4859f3b"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-04-prioritize.hero.vertical.v1.jpg",
+          "bytes": 123693,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "3e4a6898c0e39f9e045c3238eb1bc0a5861f5e3430c87980a773065179ea978c"
+        }
+      ]
+    },
+    {
+      "slot": "step-05-schedule",
+      "kind": "step",
+      "phase": "act",
+      "step": 5,
+      "key": "schedule",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-05-schedule.guide.landscape.v1.jpg",
+          "bytes": 167856,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f9eeddfa891015606e599fd12dcc85cb27e7fb5319cd9bbd917a0182f509bc94"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-05-schedule.guide.square.v1.jpg",
+          "bytes": 169079,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "2c7c61c1810c3d4755d0675c8b97ed55fb53599129e2d340b70ab6067e674257"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-05-schedule.gap.landscape.v1.jpg",
+          "bytes": 86489,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f41683521afbedc692a377445739c73655dec1b93b6b74305cec647132bcc5cc"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-05-schedule.gap.square.v1.jpg",
+          "bytes": 101920,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "c04369384160c9d03648bdbaadf5ccbc3e9a28723508771aa2b183229747bcb9"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-05-schedule.hero.landscape.v1.jpg",
+          "bytes": 116077,
+          "width": 1200,
+          "height": 900,
+          "sha256": "68a33f14a6f4737c1f770489fc42b7cc0d8d7c4014e5049c59e5edc93c91dfb7"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-05-schedule.hero.square.v1.jpg",
+          "bytes": 103755,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "c04bdd56b0d36f7675c5fc1fe68869cae4a3bc2a890eb97c017310929b3b63b5"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-05-schedule.hero.vertical.v1.jpg",
+          "bytes": 118496,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "13bfad63475238654499e0282f6154b58ae909621d91f781dc101047b51032f6"
+        }
+      ]
+    },
+    {
+      "slot": "step-06-execute",
+      "kind": "step",
+      "phase": "act",
+      "step": 6,
+      "key": "execute",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-06-execute.guide.landscape.v1.jpg",
+          "bytes": 172344,
+          "width": 1200,
+          "height": 900,
+          "sha256": "e68b6a76c5bb5fa55d874ebb53dee899c8549321e28ac6c9a33b4da6271b1e1d"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-06-execute.guide.square.v1.jpg",
+          "bytes": 172175,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "c7915997c54aba4f397b9b05e8ef0dfde7326cbaa1ac6c675bc3b14fd4911186"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-06-execute.gap.landscape.v1.jpg",
+          "bytes": 106964,
+          "width": 1200,
+          "height": 900,
+          "sha256": "1a8d9680c6b7681d05a71c74fec45d34222945a0994a168734db76af5d3bf0b2"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-06-execute.gap.square.v1.jpg",
+          "bytes": 132716,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "384c034ab76e8eb7e5a8087ae8b24fc3971df559a78b0406315a630a26fc6d53"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-06-execute.hero.landscape.v1.jpg",
+          "bytes": 134321,
+          "width": 1200,
+          "height": 900,
+          "sha256": "05334b97eebd597e10e940de9ef540386bff64b57a0b265c4b054de809d00a5b"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-06-execute.hero.square.v1.jpg",
+          "bytes": 117934,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "369128ed16be17d1e80b0c0a0a0b5bda92875b0c100693639db3b885359eee2f"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-06-execute.hero.vertical.v1.jpg",
+          "bytes": 133008,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "498c5bc67ebdad204451c29a3b9c80c370dc15e51443d0a6d48e20dfbe9bd15a"
+        }
+      ]
+    },
+    {
+      "slot": "phase-3-advance",
+      "kind": "phase",
+      "phase": "advance",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "phase-3-advance.guide.landscape.v1.jpg",
+          "bytes": 170220,
+          "width": 1200,
+          "height": 900,
+          "sha256": "41d7878de92ea03c8900a61a8cfd75b0fd5231796176828e1b7756acd2358c9b"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "phase-3-advance.guide.square.v1.jpg",
+          "bytes": 177620,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "505cf5c3ab016f799580c6e63f6b1bba3dc2fe2627dd1bc1b0177efffb013c1f"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "phase-3-advance.gap.landscape.v1.jpg",
+          "bytes": 139051,
+          "width": 1200,
+          "height": 900,
+          "sha256": "9e1c7abf314ee6ac3333898169685ff4138cb46aa411f5acc892ec37554b478d"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "phase-3-advance.gap.square.v1.jpg",
+          "bytes": 110691,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "e55386e0075353355d3f6eeefde8d101c610b8028e7450ea79dd9d764c103410"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "phase-3-advance.hero.landscape.v1.jpg",
+          "bytes": 104278,
+          "width": 1200,
+          "height": 900,
+          "sha256": "98360286928599d41e7ebd54529f735f74923d65dedefd3c49ab6a5ae59681a2"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "phase-3-advance.hero.square.v1.jpg",
+          "bytes": 108931,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "d6b9abe1186a574ba30d7f86ad212ac4a016ae1587ce9e6fd3d22e2a3c08ad61"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "phase-3-advance.hero.vertical.v1.jpg",
+          "bytes": 165082,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "fa78fc0cc239a1e61e77f7f2e677da960ac46a50f4210bbd530fbc84fce653e4"
+        }
+      ]
+    },
+    {
+      "slot": "step-07-preserve",
+      "kind": "step",
+      "phase": "advance",
+      "step": 7,
+      "key": "preserve",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-07-preserve.guide.landscape.v1.jpg",
+          "bytes": 169030,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f306ed4ad93ae197597b1d476b5518dcce37e65da2a8a6b4e17458763825228b"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-07-preserve.guide.square.v1.jpg",
+          "bytes": 167028,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "07a91b23af672ab96b622b872ce7dfbebf596e41e36f67fe4eb5a46d60849644"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-07-preserve.gap.landscape.v1.jpg",
+          "bytes": 112066,
+          "width": 1200,
+          "height": 900,
+          "sha256": "38e44b98a21913514c86d9805335db5d4910b31e7d2e113754f1c790b16af15a"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-07-preserve.gap.square.v1.jpg",
+          "bytes": 135904,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "106b4dc07c7c41f2d522903d090678f217aa31e564834f9bfe1fb96b9ab331bd"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-07-preserve.hero.landscape.v1.jpg",
+          "bytes": 128838,
+          "width": 1200,
+          "height": 900,
+          "sha256": "f481b9ed31dd0720e6557f9d3be35d500637a8b0cc8b66517519a34d50378b76"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-07-preserve.hero.square.v1.jpg",
+          "bytes": 114116,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "825469772f4b61aa25f1fa6a453aa06bad3d3ed252eb305e06a195751685d02d"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-07-preserve.hero.vertical.v1.jpg",
+          "bytes": 131392,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "6e1792fea81bae9497b553dfd0a2cb10feb3fdebd4e5010739f4319b8c96712d"
+        }
+      ]
+    },
+    {
+      "slot": "step-08-upgrade",
+      "kind": "step",
+      "phase": "advance",
+      "step": 8,
+      "key": "upgrade",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-08-upgrade.guide.landscape.v1.jpg",
+          "bytes": 168589,
+          "width": 1200,
+          "height": 900,
+          "sha256": "59620c6f69a517d1febb7f1d3e778e4648b8af7b22e72a393791bf97f54c7a4a"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-08-upgrade.guide.square.v1.jpg",
+          "bytes": 166824,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "d195c93ade51c55b8d79755353160b8943b20ce28bd5e1605e310e4fdf9c5135"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-08-upgrade.gap.landscape.v1.jpg",
+          "bytes": 111270,
+          "width": 1200,
+          "height": 900,
+          "sha256": "379281652ab3641fcf644a577c03bd03e5a469ac258343c13b669c294d7eecf7"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-08-upgrade.gap.square.v1.jpg",
+          "bytes": 133219,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "e2ab173b6750f546f5ec44b5f17697f750e1103991b2baf66737eb2b31506cf8"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-08-upgrade.hero.landscape.v1.jpg",
+          "bytes": 129300,
+          "width": 1200,
+          "height": 900,
+          "sha256": "c952900152d347e1cb0a9ae6d0eda2289e0c0ab557f8189b17f7259b137c5187"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-08-upgrade.hero.square.v1.jpg",
+          "bytes": 119491,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "ad667b9cd04f17e5493d035f035aaa10d00289516b2ea7f220a9070effb5764e"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-08-upgrade.hero.vertical.v1.jpg",
+          "bytes": 132360,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "c0c829b38417755498654ff750088abbfe372293293db401f3f10573184bf9b8"
+        }
+      ]
+    },
+    {
+      "slot": "step-09-scale",
+      "kind": "step",
+      "phase": "advance",
+      "step": 9,
+      "key": "scale",
+      "outputs": [
+        {
+          "role": "guide",
+          "size": "landscape",
+          "file": "step-09-scale.guide.landscape.v1.jpg",
+          "bytes": 169748,
+          "width": 1200,
+          "height": 900,
+          "sha256": "518ecf2a30a89a6adf9ae0e214ff3c7069ce03da19e17b0a9f799476a2ed0558"
+        },
+        {
+          "role": "guide",
+          "size": "square",
+          "file": "step-09-scale.guide.square.v1.jpg",
+          "bytes": 168637,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "87240a20f6171e1dffd32b6d0a61401be6bd896439159af265ab0d63a74d57b8"
+        },
+        {
+          "role": "gap",
+          "size": "landscape",
+          "file": "step-09-scale.gap.landscape.v1.jpg",
+          "bytes": 95942,
+          "width": 1200,
+          "height": 900,
+          "sha256": "8564e99fdda7c141da7b424fbf13353199ecb58ae3936c7943af830c75f468f9"
+        },
+        {
+          "role": "gap",
+          "size": "square",
+          "file": "step-09-scale.gap.square.v1.jpg",
+          "bytes": 118916,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "46ffcc0a7fe24850764f365c10498643342ea6bd5c7078bd87664cb484fea979"
+        },
+        {
+          "role": "hero",
+          "size": "landscape",
+          "file": "step-09-scale.hero.landscape.v1.jpg",
+          "bytes": 129853,
+          "width": 1200,
+          "height": 900,
+          "sha256": "c6aa5f8e6f5d4c122b4bd13514888685ccd106feac3b35668c8def71ab38b23f"
+        },
+        {
+          "role": "hero",
+          "size": "square",
+          "file": "step-09-scale.hero.square.v1.jpg",
+          "bytes": 116361,
+          "width": 1080,
+          "height": 1080,
+          "sha256": "0867f10ea30948e894df34835dd9b111985efd6e08d8fd8e4b8e298a93ef5384"
+        },
+        {
+          "role": "hero",
+          "size": "vertical",
+          "file": "step-09-scale.hero.vertical.v1.jpg",
+          "bytes": 131288,
+          "width": 1080,
+          "height": 1920,
+          "sha256": "65f9d5ea2fb02ed1bbb9eb5ad15017a9098fd57509713a91f26f41c99f6a36e7"
+        }
+      ]
+    }
+  ]
+}
