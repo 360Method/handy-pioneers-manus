@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "source": "/brand/360-method/360-roadmap.png",
   "sourceSha256": "c6a899852e8b87d658fc119c52d6691d9bff9593f24300d1a75679360c19fa3c",
   "background": "#FAF6EF",
@@ -17,7 +17,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-1-aware.panel.v1.png",
+          "file": "phase-1-aware.panel.v2.png",
           "bytes": 487094,
           "width": 3674,
           "height": 170,
@@ -25,27 +25,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-1-aware.social-landscape.v1.jpg",
-          "bytes": 131757,
+          "file": "phase-1-aware.social-landscape.v2.jpg",
+          "bytes": 153735,
           "width": 1200,
           "height": 900,
-          "sha256": "e6bf6242bfde8c2655cb57b334c2a0f77bcbf027a962fdf39a668cbd42a62ec3"
+          "sha256": "b517126244fa091de2da6ba8012b854faa05f1a5ce67627609f02e07bb00a4d1"
         },
         {
           "role": "social-square",
-          "file": "phase-1-aware.social-square.v1.jpg",
-          "bytes": 157051,
+          "file": "phase-1-aware.social-square.v2.jpg",
+          "bytes": 168215,
           "width": 1080,
           "height": 1080,
-          "sha256": "fc2591137d7afe5eaa337c94cd9d58fe7c412e93f60500b8a371bccd477de0ff"
+          "sha256": "33940567befa0a8d98ff38dd6c8378e40572c4c3b8381d40e042595eef3b0d5c"
         },
         {
           "role": "og",
-          "file": "phase-1-aware.og.v1.png",
-          "bytes": 154790,
+          "file": "phase-1-aware.og.v2.png",
+          "bytes": 126821,
           "width": 1200,
           "height": 630,
-          "sha256": "8aeb48a094021dd480a29c81d70dfdd9748d549504fb4087887ffc1e0968b527"
+          "sha256": "7cf091d7570e7eb1e1bbe9f6749987aa6f81af96e6dfa289f56a8d3bd8b7719a"
         }
       ]
     },
@@ -58,7 +58,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-01-baseline.panel.v1.png",
+          "file": "step-01-baseline.panel.v2.png",
           "bytes": 1139968,
           "width": 1256,
           "height": 632,
@@ -66,27 +66,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-01-baseline.social-landscape.v1.jpg",
-          "bytes": 102404,
+          "file": "step-01-baseline.social-landscape.v2.jpg",
+          "bytes": 116937,
           "width": 1200,
           "height": 900,
-          "sha256": "56dd6c04afecfcc66ede1ec8cb6fe4a4591ef8eede488e3c8d69fbc7ea942f1e"
+          "sha256": "7694b8801bb6286cb3400331c7f1df9f0d0b4a78d2572b0ccf0aead7c46d5854"
         },
         {
           "role": "social-square",
-          "file": "step-01-baseline.social-square.v1.jpg",
-          "bytes": 88755,
+          "file": "step-01-baseline.social-square.v2.jpg",
+          "bytes": 107872,
           "width": 1080,
           "height": 1080,
-          "sha256": "0bfab15299db830fe7fe84912679927d9d329f8567d6cf5deaeed4ef14491506"
+          "sha256": "5d771ff907d51a66c9df7ce6cf86d23cb4f9801200e0b78216c349111e41cab7"
         },
         {
           "role": "og",
-          "file": "step-01-baseline.og.v1.png",
-          "bytes": 333510,
+          "file": "step-01-baseline.og.v2.png",
+          "bytes": 276412,
           "width": 1200,
           "height": 630,
-          "sha256": "48bdf82c1b7cb0c877d14ca0c9717f8ff02958a155ca4015cfea5bf168c2eac8"
+          "sha256": "a1c33e0520285fe511cf5a462ecaa33a02782eb28d2491cb88d04c90542cad7d"
         }
       ]
     },
@@ -99,7 +99,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-02-inspect.panel.v1.png",
+          "file": "step-02-inspect.panel.v2.png",
           "bytes": 1242035,
           "width": 1300,
           "height": 632,
@@ -107,27 +107,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-02-inspect.social-landscape.v1.jpg",
-          "bytes": 104524,
+          "file": "step-02-inspect.social-landscape.v2.jpg",
+          "bytes": 121916,
           "width": 1200,
           "height": 900,
-          "sha256": "a01bc6ddfc08159eafe5dbc4956316f66d47037528d8951f3445aa697b6c30f4"
+          "sha256": "115464a96b30bc36fa882859715cb58ccc7256fb3ee3ba3c0fd6616ec738209d"
         },
         {
           "role": "social-square",
-          "file": "step-02-inspect.social-square.v1.jpg",
-          "bytes": 91632,
+          "file": "step-02-inspect.social-square.v2.jpg",
+          "bytes": 106023,
           "width": 1080,
           "height": 1080,
-          "sha256": "174b0bdf81398f196c897d1454dc8a9d961500a741059e5cfe613264bdd263a0"
+          "sha256": "6a8e00f484f6ba07bd13b88f0dfd57ef1b78d6eb3ed60172faab2b9ce194058e"
         },
         {
           "role": "og",
-          "file": "step-02-inspect.og.v1.png",
-          "bytes": 346728,
+          "file": "step-02-inspect.og.v2.png",
+          "bytes": 282311,
           "width": 1200,
           "height": 630,
-          "sha256": "40a97fda3edf0da027598111cb001419cfd9647a568ace10a315c24bf3302448"
+          "sha256": "dc1fa65b23a20f217daacd2f849dec8ea86e8e0cad5cfe377330b5efa2f27923"
         }
       ]
     },
@@ -140,7 +140,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-03-track.panel.v1.png",
+          "file": "step-03-track.panel.v2.png",
           "bytes": 1093922,
           "width": 1256,
           "height": 632,
@@ -148,27 +148,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-03-track.social-landscape.v1.jpg",
-          "bytes": 95481,
+          "file": "step-03-track.social-landscape.v2.jpg",
+          "bytes": 108402,
           "width": 1200,
           "height": 900,
-          "sha256": "726c730a2ac93eb96c01f0af18a432a6f4d5d61e7d9896c7d433412be14f2c66"
+          "sha256": "8c4b97b663b335f26f5d0b67ce680988118b51d404ff1eb23905c62e1c8690ed"
         },
         {
           "role": "social-square",
-          "file": "step-03-track.social-square.v1.jpg",
-          "bytes": 81899,
+          "file": "step-03-track.social-square.v2.jpg",
+          "bytes": 99170,
           "width": 1080,
           "height": 1080,
-          "sha256": "07a569a5fe334a5099fa64bdb26230e5a4054ce12215fd1d6da885c8c5221464"
+          "sha256": "a85939396457f5f0070a77fc03d584900b1f3216259355311e8ade641d94bcda"
         },
         {
           "role": "og",
-          "file": "step-03-track.og.v1.png",
-          "bytes": 328320,
+          "file": "step-03-track.og.v2.png",
+          "bytes": 275371,
           "width": 1200,
           "height": 630,
-          "sha256": "17ad3b5d30fbc291e1619b4ada1c9e02eb49bbc20612a9aa1c9f805463cf9016"
+          "sha256": "c8119f1219b711ce3d65bedd63b16c69faa5d28f22b9079a7a8d261ba7a3609a"
         }
       ]
     },
@@ -184,7 +184,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-2-act.panel.v1.png",
+          "file": "phase-2-act.panel.v2.png",
           "bytes": 483086,
           "width": 3674,
           "height": 170,
@@ -192,27 +192,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-2-act.social-landscape.v1.jpg",
-          "bytes": 135563,
+          "file": "phase-2-act.social-landscape.v2.jpg",
+          "bytes": 157534,
           "width": 1200,
           "height": 900,
-          "sha256": "06ec114d63c52a15a3792998e64d8b091e330c8804722789908feff10c6d0660"
+          "sha256": "63b5611e739bd41052f582279e67022ad0449415ab8119bbf1f0064092e9cc4a"
         },
         {
           "role": "social-square",
-          "file": "phase-2-act.social-square.v1.jpg",
-          "bytes": 160397,
+          "file": "phase-2-act.social-square.v2.jpg",
+          "bytes": 170669,
           "width": 1080,
           "height": 1080,
-          "sha256": "1515263b2b40b5332eee96629988c92712acfb1613062d172e31d528f2510e95"
+          "sha256": "ed761891f74a89196a778de29abf446fe5031f8ea85e512fb036fe62485b8174"
         },
         {
           "role": "og",
-          "file": "phase-2-act.og.v1.png",
-          "bytes": 163979,
+          "file": "phase-2-act.og.v2.png",
+          "bytes": 132835,
           "width": 1200,
           "height": 630,
-          "sha256": "3b13f434adc26abaa1a454c4675adaef8ffd44da8f32cc7b5a736871788c0f96"
+          "sha256": "9f1731cc69302f9d8c04230ce11d6ef2b1fc6c20b356b1a089556b041c09d00e"
         }
       ]
     },
@@ -225,7 +225,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-04-prioritize.panel.v1.png",
+          "file": "step-04-prioritize.panel.v2.png",
           "bytes": 1156916,
           "width": 1256,
           "height": 636,
@@ -233,27 +233,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-04-prioritize.social-landscape.v1.jpg",
-          "bytes": 99673,
+          "file": "step-04-prioritize.social-landscape.v2.jpg",
+          "bytes": 114186,
           "width": 1200,
           "height": 900,
-          "sha256": "f937ea5e1cdb9dbbd1dce764f686242f5dd9b4d25ec7a5838a5091c7b47a21bf"
+          "sha256": "e237b558b78ce604ff9f9e9fcc3966d81daa833a08ba07da7eca2e9eb37f9c52"
         },
         {
           "role": "social-square",
-          "file": "step-04-prioritize.social-square.v1.jpg",
-          "bytes": 87260,
+          "file": "step-04-prioritize.social-square.v2.jpg",
+          "bytes": 104974,
           "width": 1080,
           "height": 1080,
-          "sha256": "cd233313c6be42bf44b59a5c49b55d085897085ddd8f9c5768830058509578f3"
+          "sha256": "215147cf0afe96472bf831982db8e7e3a0260113bb384dfeb9e8b81e876b162b"
         },
         {
           "role": "og",
-          "file": "step-04-prioritize.og.v1.png",
-          "bytes": 352210,
+          "file": "step-04-prioritize.og.v2.png",
+          "bytes": 289478,
           "width": 1200,
           "height": 630,
-          "sha256": "b075a1092586d1d89a63419ded29eb6f0407d4802a90ec1053a472f17570a789"
+          "sha256": "b222c700a01351fb21b0d3b31f939a6e0297540da653a632a94f77a92f0714f0"
         }
       ]
     },
@@ -266,7 +266,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-05-schedule.panel.v1.png",
+          "file": "step-05-schedule.panel.v2.png",
           "bytes": 1213355,
           "width": 1300,
           "height": 636,
@@ -274,27 +274,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-05-schedule.social-landscape.v1.jpg",
-          "bytes": 100990,
+          "file": "step-05-schedule.social-landscape.v2.jpg",
+          "bytes": 116405,
           "width": 1200,
           "height": 900,
-          "sha256": "5842054ad258bf760ddd80c6f0aa34028e716760417a27c82d057ef55da4347a"
+          "sha256": "ba2080320f0e272448e67ba1a18de386acade0aa96abb60e92a38cd1e55a0274"
         },
         {
           "role": "social-square",
-          "file": "step-05-schedule.social-square.v1.jpg",
-          "bytes": 88123,
+          "file": "step-05-schedule.social-square.v2.jpg",
+          "bytes": 99689,
           "width": 1080,
           "height": 1080,
-          "sha256": "f3c182b30c43360c14b36c022accb4a84424be68a01ac237d0ebe56a00a73035"
+          "sha256": "771d6eea70280e2435151320f1b020c0ba74c36399765003048f748d234ffac2"
         },
         {
           "role": "og",
-          "file": "step-05-schedule.og.v1.png",
-          "bytes": 348061,
+          "file": "step-05-schedule.og.v2.png",
+          "bytes": 279915,
           "width": 1200,
           "height": 630,
-          "sha256": "f0c2f09b9e38f51d4a91f4bae1797ff965426a9eac52e9b2f84b571f72b33542"
+          "sha256": "aa6a7726a76520e24c1a2d0ecaee22e2b45a91ff0856ce8bb986cd4b57ab7b57"
         }
       ]
     },
@@ -307,7 +307,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-06-execute.panel.v1.png",
+          "file": "step-06-execute.panel.v2.png",
           "bytes": 1313075,
           "width": 1256,
           "height": 636,
@@ -315,27 +315,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-06-execute.social-landscape.v1.jpg",
-          "bytes": 113881,
+          "file": "step-06-execute.social-landscape.v2.jpg",
+          "bytes": 124461,
           "width": 1200,
           "height": 900,
-          "sha256": "fe926123bf1ffdd82786b9bc92f09f430d363d4b5af80b079a6d73c781520d2f"
+          "sha256": "abb7dfa391a17cb98f407a383222be665c60ede918932da035c2faf971aae631"
         },
         {
           "role": "social-square",
-          "file": "step-06-execute.social-square.v1.jpg",
-          "bytes": 98834,
+          "file": "step-06-execute.social-square.v2.jpg",
+          "bytes": 113424,
           "width": 1080,
           "height": 1080,
-          "sha256": "e6f673ce12560419657ff0f4c0b35565e87f26e606d05ecb459420c4c3d0a498"
+          "sha256": "77bb4b1723576ec1f5b990c7614c17933b6bb5ac0596ceae10664eae434b4864"
         },
         {
           "role": "og",
-          "file": "step-06-execute.og.v1.png",
-          "bytes": 371470,
+          "file": "step-06-execute.og.v2.png",
+          "bytes": 313757,
           "width": 1200,
           "height": 630,
-          "sha256": "b9171ca19c3cee6e12dd0e39e3330cd324534a8b658e507bca613090f2e60c12"
+          "sha256": "73fc66c1ab16d0da663ba3767003ca141cb305349b511ab564c8859e2e90b218"
         }
       ]
     },
@@ -351,7 +351,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "phase-3-advance.panel.v1.png",
+          "file": "phase-3-advance.panel.v2.png",
           "bytes": 579333,
           "width": 3674,
           "height": 172,
@@ -359,27 +359,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "phase-3-advance.social-landscape.v1.jpg",
-          "bytes": 138550,
+          "file": "phase-3-advance.social-landscape.v2.jpg",
+          "bytes": 162347,
           "width": 1200,
           "height": 900,
-          "sha256": "e46172a11e51852a411c855cdbf34566127933da7604e0bab0a31226d3feb013"
+          "sha256": "fe0ad129f82a1d9dd82c1a8a2ad9983da108ad8dfeb9ed930e19c35e955e16db"
         },
         {
           "role": "social-square",
-          "file": "phase-3-advance.social-square.v1.jpg",
-          "bytes": 171365,
+          "file": "phase-3-advance.social-square.v2.jpg",
+          "bytes": 177310,
           "width": 1080,
           "height": 1080,
-          "sha256": "63d971cadab2310afca668c33f2d268f9bb840e3789523e8bf9e53bc606e777e"
+          "sha256": "c91b44483fbe89990e81875e7c9afe8b42e222c1dabf1a77f245e415032e8d0e"
         },
         {
           "role": "og",
-          "file": "phase-3-advance.og.v1.png",
-          "bytes": 163563,
+          "file": "phase-3-advance.og.v2.png",
+          "bytes": 136522,
           "width": 1200,
           "height": 630,
-          "sha256": "03bf3f500946092208b2709481d6925fd7fde4cf240640887342190649a3a2e6"
+          "sha256": "fa0bdf9c39c976d062c7a8ff16319dcce60000140b66733c3e0e28daff80b040"
         }
       ]
     },
@@ -392,7 +392,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-07-preserve.panel.v1.png",
+          "file": "step-07-preserve.panel.v2.png",
           "bytes": 1211242,
           "width": 1256,
           "height": 616,
@@ -400,27 +400,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-07-preserve.social-landscape.v1.jpg",
-          "bytes": 107880,
+          "file": "step-07-preserve.social-landscape.v2.jpg",
+          "bytes": 122488,
           "width": 1200,
           "height": 900,
-          "sha256": "a09c4d7b34571f1bb7732e3c3e1e06515b8b2e1eb5d81aebf701e6f608ea1061"
+          "sha256": "f08ff7c08f64e0998536147ee0b1b8442243d81415eb43755e05fcee1b55124b"
         },
         {
           "role": "social-square",
-          "file": "step-07-preserve.social-square.v1.jpg",
-          "bytes": 93953,
+          "file": "step-07-preserve.social-square.v2.jpg",
+          "bytes": 106698,
           "width": 1080,
           "height": 1080,
-          "sha256": "4279f41d23fe27ce9962cf82f54fb2ca2f842b3f9b91c5998e59183296646e4f"
+          "sha256": "be4bc44b77e66eb330422e291bfc3dea1832a76a0981509b84c714eaf322673c"
         },
         {
           "role": "og",
-          "file": "step-07-preserve.og.v1.png",
-          "bytes": 351466,
+          "file": "step-07-preserve.og.v2.png",
+          "bytes": 293496,
           "width": 1200,
           "height": 630,
-          "sha256": "ccda5b2608d6607287bfe4f74dd045be542df011d7fe29535e6ed4798bd01f58"
+          "sha256": "1f7ad5d017d16342618f037946a8d47bc16feb70789e6f22195d6e4e04f7f345"
         }
       ]
     },
@@ -433,7 +433,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-08-upgrade.panel.v1.png",
+          "file": "step-08-upgrade.panel.v2.png",
           "bytes": 1279164,
           "width": 1300,
           "height": 616,
@@ -441,27 +441,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-08-upgrade.social-landscape.v1.jpg",
-          "bytes": 107262,
+          "file": "step-08-upgrade.social-landscape.v2.jpg",
+          "bytes": 119248,
           "width": 1200,
           "height": 900,
-          "sha256": "2d89a0bee6bbbd78c83fe536bea43e6da4c366d94fb7ecfcb6eb5e3d9f3ef9ca"
+          "sha256": "bdc4fcbfd370c1418dfd4d3f6fc7f84bfea286255d1c500a03a7e49122f5ab91"
         },
         {
           "role": "social-square",
-          "file": "step-08-upgrade.social-square.v1.jpg",
-          "bytes": 93296,
+          "file": "step-08-upgrade.social-square.v2.jpg",
+          "bytes": 106463,
           "width": 1080,
           "height": 1080,
-          "sha256": "524ba4899f5133d700355df0addde6386a5c797c786accf0d61871041b064389"
+          "sha256": "6e519c7aaea41702f9f1c7e969138fb9465cabc8c72c8f3eea59c78b74903472"
         },
         {
           "role": "og",
-          "file": "step-08-upgrade.og.v1.png",
-          "bytes": 359278,
+          "file": "step-08-upgrade.og.v2.png",
+          "bytes": 297244,
           "width": 1200,
           "height": 630,
-          "sha256": "ac462dea6e990e638f4f04bbfefc4ac82d1b44b3d35d838ecb7bc71020510dd3"
+          "sha256": "e526a6adcb469c53cfa07ace375e09fe6b5ed0f1e19027e8547e7a5c3547455f"
         }
       ]
     },
@@ -474,7 +474,7 @@
       "outputs": [
         {
           "role": "panel",
-          "file": "step-09-scale.panel.v1.png",
+          "file": "step-09-scale.panel.v2.png",
           "bytes": 1183085,
           "width": 1256,
           "height": 616,
@@ -482,27 +482,27 @@
         },
         {
           "role": "social-landscape",
-          "file": "step-09-scale.social-landscape.v1.jpg",
-          "bytes": 103857,
+          "file": "step-09-scale.social-landscape.v2.jpg",
+          "bytes": 116880,
           "width": 1200,
           "height": 900,
-          "sha256": "8eb5d6c43deda9116217324aad70f98a920ca54653aee2424753bdd2b9db5c19"
+          "sha256": "da35ee9aac38aaae33b83d853b4fe1714de98bd8b061c63618e77654fd41075f"
         },
         {
           "role": "social-square",
-          "file": "step-09-scale.social-square.v1.jpg",
-          "bytes": 90290,
+          "file": "step-09-scale.social-square.v2.jpg",
+          "bytes": 107742,
           "width": 1080,
           "height": 1080,
-          "sha256": "35c6e74844dd48d01f46e454643b0c48ebd145cc64ca160565a0475635712aa3"
+          "sha256": "7483631180ec04a8e3687b5f4377c75c6fd84a207111a1265226395ec5cc8323"
         },
         {
           "role": "og",
-          "file": "step-09-scale.og.v1.png",
-          "bytes": 348226,
+          "file": "step-09-scale.og.v2.png",
+          "bytes": 291176,
           "width": 1200,
           "height": 630,
-          "sha256": "56b68ad32358a58d5027d85b0919d042e6cfd3891ab3f64758c14dfef2c102ae"
+          "sha256": "8754df8eaf0c5a2774a4414321278493ddf26f36d72374db6401c6f4066ab2c5"
         }
       ]
     }
