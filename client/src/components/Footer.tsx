@@ -62,7 +62,7 @@ export default function Footer() {
             {/* Social */}
             <div className="flex gap-3 mt-5">
               <a
-                href="https://www.facebook.com/handypioneers"
+                href="https://www.facebook.com/profile.php?id=61563097783480"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full flex items-center justify-center hover:opacity-80 transition-opacity"

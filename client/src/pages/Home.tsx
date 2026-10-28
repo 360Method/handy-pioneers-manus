@@ -219,7 +219,7 @@ const HOMEPAGE_JSONLD = [
       reviewCount: "34",
     },
     sameAs: [
-      "https://www.facebook.com/handypioneers",
+      "https://www.facebook.com/profile.php?id=61563097783480",
       "https://www.instagram.com/handypioneers",
       "https://www.google.com/maps/place/?q=place_id:ChIJ9TQT34PSgk8RH8gyOvVi8N4",
       "https://www.bbb.org/us/wa/vancouver/profile/bathroom-remodel/handy-pioneers-1296-1000197951",
