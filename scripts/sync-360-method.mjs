@@ -103,23 +103,6 @@ const main = async () => {
     }
     writeIfChanged(resolve(ASSET_DIR_DST, CROPS_MANIFEST), Buffer.from(JSON.stringify(manifest, null, 2) + "\n", "utf8"));
   }
-  // Cards: typographic gap and invite cards (generate-method-cards.ts in the
-  // pro app). Same manifest shape as the crops: { slots: [{ outputs: [{ file }] }] }.
-  let cardsManifest = null;
-  try {
-    cardsManifest = JSON.parse((await readSource(`${ASSET_DIR_SRC}/cards-manifest.json`)).toString("utf8"));
-  } catch (e) {
-    console.log(`cards not synced (${e.message}); the pro app has not published cards-manifest.json yet`);
-  }
-  if (cardsManifest) {
-    writeIfChanged(resolve(ASSET_DIR_DST, "cards.json"), await readSource(`${ASSET_DIR_SRC}/cards.json`));
-    mkdirSync(resolve(ASSET_DIR_DST, "cards"), { recursive: true });
-    const cardFiles = (cardsManifest.slots ?? []).flatMap((slot) => (slot.outputs ?? []).map((o) => o.file)).filter(Boolean);
-    for (const name of cardFiles) {
-      writeIfChanged(resolve(ASSET_DIR_DST, "cards", name), await readSource(`${ASSET_DIR_SRC}/cards/${name}`));
-    }
-    writeIfChanged(resolve(ASSET_DIR_DST, "cards-manifest.json"), Buffer.from(JSON.stringify(cardsManifest, null, 2) + "\n", "utf8"));
-  }
   // The canon as a TypeScript module, so pages and the prerender script import
   // it without a JSON-module flag. Same bytes as canon.json.
   const canon = JSON.parse(readFileSync(resolve(ASSET_DIR_DST, "canon.json"), "utf8"));
